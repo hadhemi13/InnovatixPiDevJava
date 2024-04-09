@@ -52,19 +52,22 @@
                         </HBox>
                         <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
-                                <ImageView fx:id="usersIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="usersIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" translateX="-6.0">
 
                                     <HBox.margin>
-                                        <Insets right="23.0" />
+                                        <Insets right="10.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/user.png" />
+                                        <Image url="@../img/homme.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE">
+                                <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="8.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
                                 </Label>
                             </children>
                             <padding>
@@ -85,13 +88,13 @@
                                         <Image url="@../img/compte.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE">
+                                <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="18.0" />
                                     </font>
-                                    <padding>
-                                        <Insets bottom="-5.0" />
-                                    </padding>
+                           <padding>
+                              <Insets bottom="-5.0" />
+                           </padding>
                                 </Label>
                             </children>
                             <padding>
@@ -130,16 +133,16 @@
                         </HBox>
                         <HBox fx:id="stagesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
-                                <ImageView fx:id="stagesIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="stagesIcon" fitHeight="50.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
 
                                     <HBox.margin>
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/stage.png" />
+                                        <Image url="@../img/stage%20(1).png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE">
+                                <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
@@ -166,7 +169,33 @@
                                         <Image url="@../img/investissement.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="investissementsText" styleClass="text" text="Investissements" textFill="WHITE">
+                                <Label fx:id="investissementsText" styleClass="text" text="Projets" textFill="WHITE">
+                                    <font>
+                                        <Font name="Montserrat Regular" size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="-15.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets left="20.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="evenementsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                            <children>
+                                <ImageView fx:id="evenementsIcon" fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                    <image>
+                                        <Image url="@../img/un-evenement.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="evenementsText" styleClass="text" text="Evènements" textFill="WHITE" translateX="3.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
@@ -184,12 +213,12 @@
                         </HBox>
                         <HBox fx:id="recBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
-                                <ImageView fx:id="reclamationsIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="reclamationsIcon" fitHeight="40.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="-4.0">
                                     <HBox.margin>
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/reclamer.png" />
+                                        <Image url="@../img/point-dexclamation.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="reclamationText" styleClass="text" text="Réclamations" textFill="WHITE">
@@ -216,10 +245,10 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/un-journal.png" />
+                                        <Image url="@../img/journal.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="actualitesText" styleClass="text" text="Actualités" textFill="WHITE">
+                                <Label fx:id="actualitesText" styleClass="text" text="Actualités" textFill="WHITE" translateX="3.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="18.0" />
                                     </font>
@@ -240,16 +269,16 @@
 
                 <HBox fx:id="sideBarLogout" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links" translateY="180.0">
                     <children>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="42.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" translateY="10.0">
 
                             <HBox.margin>
-                                <Insets right="23.0" />
+                                <Insets right="15.0" />
                             </HBox.margin>
                             <image>
                                 <Image url="@../img/logout.png" />
                             </image>
                         </ImageView>
-                        <Label styleClass="text" text="Logout" textFill="WHITE">
+                        <Label styleClass="text" text="Se déconnecter" textFill="WHITE" translateX="3.0" translateY="10.0">
                             <font>
                                 <Font name="Montserrat Regular" size="14.0" />
                             </font>
@@ -278,7 +307,7 @@
                 </HBox>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
                     <image>
-                        <Image url="@../../java/images/bell.png" />
+                        <Image url="@../img/bell.png" />
                     </image>
                 </ImageView>
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
@@ -309,7 +338,7 @@
                 </Text>
                 <ImageView fitHeight="49.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../java/images/admin.png" />
+                        <Image url="@../img/admin.png" />
                     </image>
                     <HBox.margin>
                         <Insets right="10.0" />
