@@ -1,0 +1,27 @@
+.container-card {
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+.List_Compte {
+    -fx-fill: #32594a;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+.compteTableHead {
+    -fx-background-color: #defee6;
+    -fx-background-radius: 35px 35px 0 0;
+    -fx-padding: 0 15px;
+}
+.compteTableHeadTitle {
+    -fx-fill: #5ba890;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+.compte_listScrollPane {
+    -fx-background: rgba(251, 237, 237, 0.166);
+    -fx-background-color: transparent;
+}
+.compteTableBody {
+    -fx-padding: 15px 10px;
+}
