@@ -2,8 +2,12 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,14 +17,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1411.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreditController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="250.0" styleClass="dash__side-bar">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" onMouseClicked="#smallSide" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
+                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
                         <Image url="@../img/logo.png" />
                     </image>
@@ -143,9 +147,7 @@
                                     <HBox.margin>
                                         <Insets right="15.0" />
                                     </HBox.margin>
-                                    <image>
-                                        <Image url="@../img/stage%20(1).png" />
-                                    </image>
+
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
                                     <font>
@@ -351,10 +353,64 @@
                 </ImageView>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
+        <Pane fx:id="content_area" layoutX="232.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="1139.0" styleClass="dash__container-card">
             <children>
-                <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="28.0" />
+                <HBox alignment="CENTER_LEFT" layoutX="-27.0" layoutY="-21.0" prefWidth="49.0" />
                 <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
+            <Pane fx:id="content_area1" layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="501.0" style="-fx-background-color: #93C572;" styleClass="dash__container-card2">
+               <children>
+                  <Button fx:id="calcultauxbtn" layoutX="131.0" layoutY="174.0" mnemonicParsing="false" onAction="#calculertaux" prefHeight="35.0" prefWidth="180.0" styleClass="nav-links2" text="Calculer taux" />
+               </children></Pane>
+            <TextField fx:id="identifiantlabel" layoutX="619.0" layoutY="43.0" prefHeight="49.0" prefWidth="263.0" promptText="identifiant" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="montantlabel" layoutX="619.0" layoutY="112.0" prefHeight="49.0" prefWidth="263.0" promptText="MONTANT" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tauxlabel" layoutX="619.0" layoutY="177.0" prefHeight="49.0" prefWidth="263.0" promptText="TAUX" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font>
+            </TextField>
+            <DatePicker fx:id="datedebutlabel" layoutX="619.0" layoutY="258.0" prefHeight="49.0" prefWidth="263.0" promptText="DATE" />
+            <TextField fx:id="mensualitelabel" layoutX="619.0" layoutY="325.0" prefHeight="49.0" prefWidth="263.0" promptText="MENSUALITE" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="dureelabel" layoutX="619.0" layoutY="398.0" prefHeight="49.0" prefWidth="263.0" promptText="DUREE" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="fraisretardlabel" layoutX="619.0" layoutY="469.0" prefHeight="49.0" prefWidth="263.0" promptText="FRAISRETARD" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnsave" layoutX="682.0" layoutY="563.0" mnemonicParsing="false" onAction="#savecredit" prefHeight="35.0" prefWidth="138.0" text="SAVE" />
             </children>
         </Pane>
     </children>

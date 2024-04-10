@@ -1,6 +1,11 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -8,7 +13,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class SideNavBarController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SideNavBarController implements Initializable {
 
     @FXML
     private HBox InvestBtn;
@@ -99,12 +107,22 @@ public class SideNavBarController {
 
     @FXML
     private Label usersText;
+    @FXML
+    private ChoiceBox<String> choiceCredit;
+    private String [] choiceCredits={"ajouter credit ","modifier credit","afficher credit"};
+
+    public void initialize(URL url, ResourceBundle rb){
+      choiceCredit.getItems().addAll(choiceCredits);
+    }
+
+
 
     private boolean sideBarVisible = true;
     @FXML
     void smallSide(MouseEvent event) {
 
     }
+
 
 
 }

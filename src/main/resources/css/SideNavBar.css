@@ -82,6 +82,19 @@
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
 }
+.dash__container-card2 {
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px 0 0 30px; /* Top-left, Top-right, Bottom-right, Bottom-left */
+    -fx-border-radius: 30px 0 0 30px; /* Top-left, Top-right, Bottom-right, Bottom-left */
+}
+.textfieldcredit {
+    -fx-border-color: green;
+    -fx-border-width: 0 0 2 0; /* Set only the bottom border width */
+    -fx-border-style: solid;
+}
+
+
+
 
 .product-card {
     -fx-background-color: #fff;
@@ -1133,6 +1146,17 @@
     -fx-transition: all 2s ease;
     -fx-cursor: hand;
 }
+
+.nav-links2 {
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-transition: all 2s ease;
+    -fx-cursor: hand;
+}
+.nav-links2:hover {
+    -fx-background-color: rgba(255, 165, 0, 0.377); /* Orange color with 37.7% opacity */
+}
+
 
 .nav-links:hover {
     -fx-background-color: rgba(107, 175, 84, 0.377);
@@ -2195,3 +2219,20 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
+.choice-box > .open-button > .arrow{
+    -fx-opacity: 0;
+}
+
+.choice-box{
+    -fx-background-color: transparent;
+}
+.choice-box .menu-item {
+    -fx-background-color: green;
+    -fx-text-fill: orange; /* Set text color to orange */
+
+}
+.anchor-pane {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
