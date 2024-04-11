@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1002.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReclamationItemAdminController">
+    <children>
+        <ImageView fx:id="RecItemImg" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
+            <image>
+                <Image url="@../img/admin.png" />
+            </image>
+            <HBox.margin>
+                <Insets right="10.0" />
+            </HBox.margin>
+        </ImageView>
+        <Text fx:id="RecItemName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="hadhemi.mahmoud@esprit.tn" wrappingWidth="188.84808349609375">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="RecItemEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Objet" wrappingWidth="224.04806518554688">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="RecItemTel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Contenu" wrappingWidth="96.84814453125">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="RecItemRole" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Département" wrappingWidth="101.6480712890625">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Label fx:id="RecItemStateLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
+            <graphic>
+                <Text fx:id="RecItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Statut" textAlignment="CENTER" wrappingWidth="60.867431640625" />
+            </graphic>
+            <HBox.margin>
+                <Insets right="40.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="RecItemDateLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
+            <graphic>
+                <Text fx:id="RecItemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Date" textAlignment="CENTER" wrappingWidth="60.867431640625" />
+            </graphic>
+            <HBox.margin>
+                <Insets right="40.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="RecPieceJBtn" styleClass="userItem__btn">
+            <graphic>
+                <ImageView fx:id="RecPieceJBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-4.0">
+                    <image>
+                        <Image url="@../img/attach.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Label>
+        <Label fx:id="RecItemUpdateBtn" styleClass="userItem__btn">
+            <graphic>
+                <ImageView fx:id="RecItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/update-icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Label>
+        <Label fx:id="RecrItemStateBtn" styleClass="userItem__btn">
+            <graphic>
+                <ImageView fx:id="RecItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/delete.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <HBox.margin>
+                <Insets right="7.0" />
+            </HBox.margin>
+        </Label>
+
+
+    </children>
+</HBox>
