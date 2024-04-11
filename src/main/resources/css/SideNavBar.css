@@ -1156,6 +1156,15 @@
 .nav-links2:hover {
     -fx-background-color: rgba(255, 165, 0, 0.377); /* Orange color with 37.7% opacity */
 }
+.nav-buton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.nav-buton:hover {
+    -fx-text-fill: #000000; /* Change the color when hovering over the button */
+}
 
 
 .nav-links:hover {

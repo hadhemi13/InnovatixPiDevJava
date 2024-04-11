@@ -92,6 +92,8 @@ public class CreditController implements ICredit<Credit> {
     void smallSide(MouseEvent event) {
 
     }
+    @FXML
+    private Button calculfraisretardbtn;
 
     @Override
     public void savecredit(Credit credit) throws SQLException {
@@ -144,6 +146,15 @@ public class CreditController implements ICredit<Credit> {
        Double duree=Double.parseDouble(mensualitelabel.getText());
         var interestRate = (((mensualite * duree - montant) / montant) * 12) / duree;
         tauxlabel.setText(String.valueOf(interestRate));
+
+
+    }
+    @FXML
+    void calculfraisretard(ActionEvent event) {
+
+        Double montant=Double.parseDouble(montantlabel.getText());
+        var fraisretard= montant*0.01;
+        fraisretardlabel.setText(String.valueOf(fraisretard));
 
 
     }
