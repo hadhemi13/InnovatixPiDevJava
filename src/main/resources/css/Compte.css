@@ -37,3 +37,89 @@
     -fx-text-fill: #32594a;
     -fx-cursor: hand;
 }
+.AddBtn {
+    -fx-background-color: #43882b;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-transition: all 0.5s ease;
+    -fx-cursor: hand;
+}
+.cheque__add {
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+}
+.cheque__add-input-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.cheque__card-title {
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+.cin-input-label{
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.form_errors-cheque {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.form_errors-cheque-point {
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+}
+.NometPrenom-input-label{
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.Email-input-label{
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.date-input-label{
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+
+}
+.cheque__add-comboBox {
+    -fx-background-color: #defee633;
+    -fx-border-color: #defee6;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-pref-height: 40px;
+    -fx-text-fill: #32594a;
+    -fx-cursor: hand;
+}
+
+.cheque__add-img-container {
+    -fx-background-color: #defee633;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #defee6;
+    -fx-border-width: 1px;
+}
+.product__add-desc-img {
+    -fx-font-weight: 600;
+    -fx-font-size: 16px;
+}
+.cheque__add-img-btn{
+    -fx-background-color: #97d158;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+.cheque__add-textBtn{
+    -fx-font-weight: 800;
+    -fx-font-size: 16px;
+}
+
+.cheque__add-new-chequetBtn {
+    -fx-background-color: #32bb6f;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-cursor: hand;
+}
