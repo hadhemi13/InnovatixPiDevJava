@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         MyDatabase myDataBase = new MyDatabase();
+        System.out.println("hello");
         /* Test reclamation
         ServiceReclamation serviceReclamation = new ServiceReclamation();
 
