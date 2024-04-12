@@ -18,9 +18,8 @@ import utils.MyDatabase;
 
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.sql.Date;
+import java.util.*;
 
 public class RdvController implements IRDV <RDV> , Initializable {
 
@@ -154,7 +153,7 @@ public class RdvController implements IRDV <RDV> , Initializable {
     @FXML
     private Label usersText;
     Connection connection;
-    Integer [] numbers={1,2,5};
+    Integer[] numbers = {1, 2, 5};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -183,13 +182,10 @@ public class RdvController implements IRDV <RDV> , Initializable {
         }
     }
 
-
-
-
+    private Timer timer;
 
     @FXML
     public void saverdv(RDV rdv) throws SQLException {
-
 
 
     }
@@ -198,27 +194,58 @@ public class RdvController implements IRDV <RDV> , Initializable {
     void saverdv(ActionEvent event) throws SQLException {
         String insert = "insert into rdv (credit_id,idclient,heure,daterdv,methode,employename) values(?,?,?,?,?,?)";
         connection = MyDatabase.getInstance().getConnection();
-
-
+          Boolean result;
         try {
             st = connection.prepareStatement(insert);
 
 
-            st.setInt(1, Integer.parseInt(String.valueOf(idcreditchoise.getValue()))); // id_client
-            st.setInt(2, Integer.parseInt(idclientlabel.getText())); // id_client
-            String timeString = heurelabel.getText();
+            if (idclientlabel.getText().length() != 8) {
+                idclientlabel.setText("Erreur: idclient doit avoir une longueur de 8 caractères.");
 
-// Split the string into hours and minutes
+
+            }
+            if (employename.getText().isEmpty()) {
+                employename.setText("Erreur: employename ne peut pas être vide.");
+
+
+            }
+            if (methodelabel.getText().isEmpty()) {
+                methodelabel.setText("Erreur: methode ne peut pas être vide.");
+
+
+            }
+            String heureFormat = heurelabel.getText();
+            if (!heureFormat.matches("\\d{2}:\\d{2}")) {
+                // Si le format est incorrect, afficher un message d'erreur
+                heurelabel.setText("Erreur: heure doit être au format deuxnombre:deuxnombre");
+
+
+            }
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    heurelabel.setText("");
+                    employename.setText("");
+                    idclientlabel.setText("");
+                    methodelabel.setText("");
+                    timer.cancel();
+                }
+            }, 6000);
+
+
+
+            st.setInt(1, Integer.parseInt(String.valueOf(idcreditchoise.getValue()))); // id_credit
+            st.setInt(2, Integer.parseInt(idclientlabel.getText())); // id_client
+
+            String timeString = heurelabel.getText();
             String[] parts = timeString.split(":");
             int hours = Integer.parseInt(parts[0]);
             int minutes = Integer.parseInt(parts[1]);
-
-// Create a java.sql.Time object
             java.sql.Time time = new java.sql.Time(hours, minutes, 0);
 
             st.setTime(3, time);
             st.setDate(4, java.sql.Date.valueOf(datedebutlabel.getValue())); // datedebut
-
             st.setString(5, methodelabel.getText());
             st.setString(6, employename.getText());
             st.executeUpdate();
