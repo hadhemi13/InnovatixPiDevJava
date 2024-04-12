@@ -358,14 +358,6 @@
                 <HBox alignment="CENTER_LEFT" layoutX="-27.0" layoutY="-21.0" prefWidth="49.0" />
                 <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
             <Pane fx:id="content_area1" layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="501.0" style="-fx-background-color: #93C572;" styleClass="dash__container-card2" />
-            <TextField fx:id="creditidlabel" layoutX="619.0" layoutY="43.0" prefHeight="49.0" prefWidth="263.0" promptText="Credit_id" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Bauhaus 93" size="21.0" />
-               </font>
-            </TextField>
             <TextField fx:id="idclientlabel" layoutX="619.0" layoutY="112.0" prefHeight="49.0" prefWidth="263.0" promptText="IDCLIENT" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -402,6 +394,8 @@
             <Button fx:id="btnsave" layoutX="682.0" layoutY="563.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" text="SAVE" />
 
             <Button layoutX="725.0" layoutY="632.0" mnemonicParsing="false" text="Button" />
+            <ChoiceBox fx:id="idcreditchoise" layoutX="732.0" layoutY="84.0" prefWidth="150.0" />
+            <Label layoutX="619.0" layoutY="93.0" prefHeight="25.0" prefWidth="91.0" text="id credit" textFill="#cdcdcd" />
             </children>
         </Pane>
 

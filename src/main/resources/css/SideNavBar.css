@@ -2228,18 +2228,7 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
-.choice-box > .open-button > .arrow{
-    -fx-opacity: 0;
-}
 
-.choice-box{
-    -fx-background-color: transparent;
-}
-.choice-box .menu-item {
-    -fx-background-color: green;
-    -fx-text-fill: orange; /* Set text color to orange */
-
-}
 .anchor-pane {
     -fx-border-radius: 10;
     -fx-background-radius: 10;

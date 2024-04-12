@@ -1,7 +1,9 @@
 package controllers;
 import Entities.RDV;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -15,13 +17,12 @@ import services.IRDV;
 import utils.MyDatabase;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class RdvController implements IRDV <RDV> {
+public class RdvController implements IRDV <RDV> , Initializable {
 
     Connection con = null;
     PreparedStatement st = null;
@@ -133,7 +134,8 @@ public class RdvController implements IRDV <RDV> {
 
     @FXML
     private HBox sideBarLogout;
-
+    @FXML
+    private ChoiceBox<Integer> idcreditchoise;
     @FXML
     private HBox stagesBtn;
 
@@ -152,31 +154,43 @@ public class RdvController implements IRDV <RDV> {
     @FXML
     private Label usersText;
     Connection connection;
+    Integer [] numbers={1,2,5};
 
-
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         connection = MyDatabase.getInstance().getConnection();
 
+        Connection connection2 = MyDatabase.getInstance().getConnection();
+        String selectQuery = "SELECT id FROM credit";
 
+        List<Integer> idList = new ArrayList<>();
+
+        try (Statement statement = connection2.createStatement();
+             ResultSet resultSet = statement.executeQuery(selectQuery)) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                idList.add(id);
+            }
+            System.out.println("IDs from credit table: " + idList);
+
+            // Populate the ComboBox here
+            idcreditchoise.getItems().addAll(idList);
+
+        } catch (SQLException e) {
+            // Handle or log the exception as needed
+            e.printStackTrace();
+        }
     }
+
+
+
+
 
     @FXML
     public void saverdv(RDV rdv) throws SQLException {
 
-        String insert = "insert into rdc (credit_id,idclient,heure,daterdv,methode,employename) values(?,?,?,?,?,?)";
-        connection = MyDatabase.getInstance().getConnection();
 
-        st = connection.prepareStatement(insert);
-        st.setInt(1, Integer.parseInt(creditidlabel.getText())); // id_client
-        st.setInt(2, Integer.parseInt(idclientlabel.getText())); // id_client
-
-        String timeString = heurelabel.getText();
-
-        java.sql.Time time = java.sql.Time.valueOf(timeString);
-        st.setTime(3, time);
-        st.setString(4, methodelabel.getText());
-        st.setString(5, employename.getText());
-        st.executeUpdate();
 
     }
 
@@ -185,11 +199,12 @@ public class RdvController implements IRDV <RDV> {
         String insert = "insert into rdv (credit_id,idclient,heure,daterdv,methode,employename) values(?,?,?,?,?,?)";
         connection = MyDatabase.getInstance().getConnection();
 
+
         try {
             st = connection.prepareStatement(insert);
 
 
-            st.setInt(1, Integer.parseInt(creditidlabel.getText())); // id_client
+            st.setInt(1, Integer.parseInt(String.valueOf(idcreditchoise.getValue()))); // id_client
             st.setInt(2, Integer.parseInt(idclientlabel.getText())); // id_client
             String timeString = heurelabel.getText();
 
