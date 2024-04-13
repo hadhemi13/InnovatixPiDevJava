@@ -9,7 +9,7 @@
 
 <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1002.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReclamationItemAdminController">
     <children>
-        <ImageView fx:id="RecItemImg" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
+        <ImageView fx:id="RecItemImg" fitHeight="50.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
             <image>
                 <Image url="@../img/admin.png" />
             </image>
@@ -17,22 +17,22 @@
                 <Insets right="10.0" />
             </HBox.margin>
         </ImageView>
-        <Text fx:id="RecItemName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="hadhemi.mahmoud@esprit.tn" wrappingWidth="188.84808349609375">
+        <Text fx:id="RecItemMail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="hadhemi.mahmoud@esprit.tn" wrappingWidth="188.84808349609375">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="RecItemEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Objet" wrappingWidth="224.04806518554688">
+        <Text fx:id="RecItemObjet" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Objet" wrappingWidth="205.64804077148438">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="RecItemTel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Contenu" wrappingWidth="96.84814453125">
+        <Text fx:id="RecItemcontenu" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Contenu" wrappingWidth="96.84814453125">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="RecItemRole" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Département" wrappingWidth="101.6480712890625">
+        <Text fx:id="RecItemDepText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Département" wrappingWidth="101.6480712890625">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
@@ -53,24 +53,34 @@
                 <Insets right="40.0" />
             </HBox.margin>
         </Label>
+        <Label fx:id="RecItemPieceJLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
+            <graphic>
+                <Text fx:id="RecItemPieceJText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="piece" textAlignment="CENTER" wrappingWidth="60.867431640625" />
+            </graphic>
+            <HBox.margin>
+                <Insets right="40.0" />
+            </HBox.margin>
+        </Label>
         <Label fx:id="RecPieceJBtn" styleClass="userItem__btn">
             <graphic>
-                <ImageView fx:id="RecPieceJBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-4.0">
+                <ImageView fx:id="RecdetailBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
                     <image>
-                        <Image url="@../img/attach.png" />
+                        <Image url="@../img/search.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Label>
-        <Label fx:id="RecItemUpdateBtn" styleClass="userItem__btn">
+        <Label fx:id="RecItemUpdateBtn" styleClass="userItem__btn" />
+        <Label fx:id="ReplyBtn" styleClass="userItem__btn">
             <graphic>
-                <ImageView fx:id="RecItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="RecReplyBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                     <image>
-                        <Image url="@../img/update-icon.png" />
+                        <Image url="@../img/reply.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Label>
+
         <Label fx:id="RecrItemStateBtn" styleClass="userItem__btn">
             <graphic>
                 <ImageView fx:id="RecItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
