@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -139,7 +140,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/stage%20(1).png" />
+                                        <Image url="@../img/stage (1).png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -347,10 +348,9 @@
             </children>
         </HBox>
         <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
-            <children>
-                <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="28.0" />
-                <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
-            </children>
+         <children>
+            <ScrollPane prefHeight="622.0" prefWidth="1084.0" />
+         </children>
         </Pane>
     </children>
 </AnchorPane>
