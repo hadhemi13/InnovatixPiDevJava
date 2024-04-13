@@ -11,4 +11,10 @@ public class ModifierArticleController {
 
     public void close_addReviewsModel(MouseEvent mouseEvent) {
     }
+
+    public void ajouter_image(MouseEvent mouseEvent) {
+    }
+
+    public void ajouter_article(MouseEvent mouseEvent) {
+    }
 }
