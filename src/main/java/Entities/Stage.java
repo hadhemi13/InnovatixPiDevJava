@@ -17,12 +17,35 @@ public class Stage {
         this.sujet = sujet;
         this.date = date;
     }
-
-    public Stage(int id_user, String sujet, Date date) {
-        this.id_user = id_user;
+    public Stage( String sujet, int id, Date date) {
+        this.id = id;
+//        this.id_user = id_user;
         this.sujet = sujet;
         this.date = date;
     }
+    public Stage(int id, String sujet){
+        this.id = id;
+        this.sujet = sujet;
+
+    }
+
+    public Stage(int id, String sujet, Date date) {
+        this.id = id;
+        this.sujet = sujet;
+        this.date = date;
+    }
+    //    public Stage(int id_user, String sujet, Date date) {
+//        this.id_user = id_user;
+//        this.sujet = sujet;
+//        this.date = date;
+//    }
+
+    public Stage(String sujet, Date date) {
+        this.sujet = sujet;
+        this.date = date;
+    }
+
+
 
     public int getId() {
         return id;

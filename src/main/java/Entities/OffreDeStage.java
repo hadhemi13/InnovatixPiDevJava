@@ -2,48 +2,81 @@ package Entities;
 
 import java.sql.Array;
 import java.sql.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class OffreDeStage {
-    int id,postePropose;
-    int  user_id;
+
+    int id,user_id,postePropose;
     String title,domaine,typeOffre,experience,description,exigenceOffre,pfeBook;
     Date datePostu;
-    List niveau,language,motsCles;
+    Array niveau,language,motsCles;
 
-    public OffreDeStage() {}
+    public Array getNiveau() {
+        return niveau;
+    }
 
-    public OffreDeStage(int id, int postePropose, int user_id, String title, String domaine, String typeOffre, String experience, String description, String exigenceOffre, String pfeBook, Date datePostu, List niveau, List language, List motsCles) {
-        this.id = id;
-        this.postePropose = postePropose;
-        this.user_id = user_id;
-        this.title = title;
-        this.domaine = domaine;
-        this.typeOffre = typeOffre;
-        this.experience = experience;
-        this.description = description;
-        this.exigenceOffre = exigenceOffre;
-        this.pfeBook = pfeBook;
-        this.datePostu = datePostu;
+    public void setNiveau(Array niveau) {
         this.niveau = niveau;
+    }
+
+    public Array getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Array language) {
         this.language = language;
+    }
+
+    public Array getMotsCles() {
+        return motsCles;
+    }
+
+    public void setMotsCles(Array motsCles) {
         this.motsCles = motsCles;
     }
 
-    public OffreDeStage(int id, int postePropose, String title, String domaine, String typeOffre, String experience, String description, String exigenceOffre, Date datePostu, List niveau, List language, List motsCles) {
-        this.id = id;
+    public OffreDeStage() {
+    }
+    public OffreDeStage(String title,String domaine,String type_offre,int poste_propose,String experience,/*Array language*/String description,String exigence_offre) {
+        this.title = title;
+        this.domaine=domaine;
+        this.typeOffre = type_offre;
+        this.postePropose = poste_propose;
+        this.experience = experience;
+//    this.niveau=niveau;
+        // this.language=language;
+        this.description=description;
+        this.exigenceOffre=exigence_offre;
+    }
+
+    public OffreDeStage(int postePropose, String title, String domaine, String typeOffre, String experience, String description, String exigenceOffre,Date datePostu) {
         this.postePropose = postePropose;
         this.title = title;
         this.domaine = domaine;
         this.typeOffre = typeOffre;
         this.experience = experience;
+        this.datePostu  = datePostu;
+//        this.niveau = niveau;
+//        this.language = language;
         this.description = description;
         this.exigenceOffre = exigenceOffre;
+    }
+
+    public OffreDeStage(int id, int user_id, int postePropose, String title, String domaine, String typeOffre, String experience,  String description, String exigenceOffre,  String pfeBook, Date datePostu) {
+        this.id = id;
+        this.user_id = user_id;
+        this.postePropose = postePropose;
+        this.title = title;
+        this.domaine = domaine;
+        this.typeOffre = typeOffre;
+        this.experience = experience;
+//        this.niveau = niveau;
+//        this.language = language;
+        this.description = description;
+        this.exigenceOffre = exigenceOffre;
+//        this.motsCles = motsCles;
+        this.pfeBook = pfeBook;
         this.datePostu = datePostu;
-        this.niveau = niveau;
-        this.language = language;
-        this.motsCles = motsCles;
     }
 
     public int getId() {
@@ -54,20 +87,20 @@ public class OffreDeStage {
         this.id = id;
     }
 
-    public int getPostePropose() {
-        return postePropose;
-    }
-
-    public void setPostePropose(int postePropose) {
-        this.postePropose = postePropose;
-    }
-
     public int getUser_id() {
         return user_id;
     }
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
+    }
+
+    public int getPostePropose() {
+        return postePropose;
+    }
+
+    public void setPostePropose(int postePropose) {
+        this.postePropose = postePropose;
     }
 
     public String getTitle() {
@@ -102,6 +135,22 @@ public class OffreDeStage {
         this.experience = experience;
     }
 
+//    public String getNiveau() {
+//        return niveau;
+//    }
+//
+//    public void setNiveau(String niveau) {
+//        this.niveau = niveau;
+//    }
+//
+//    public String getLanguage() {
+//        return language;
+//    }
+//
+//    public void setLanguage(String language) {
+//        this.language = language;
+//    }
+
     public String getDescription() {
         return description;
     }
@@ -117,6 +166,14 @@ public class OffreDeStage {
     public void setExigenceOffre(String exigenceOffre) {
         this.exigenceOffre = exigenceOffre;
     }
+
+//    public String getMotsCles() {
+//        return motsCles;
+//    }
+//
+//    public void setMotsCles(String motsCles) {
+//        this.motsCles = motsCles;
+//    }
 
     public String getPfeBook() {
         return pfeBook;
@@ -134,50 +191,6 @@ public class OffreDeStage {
         this.datePostu = datePostu;
     }
 
-    public List getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(List niveau) {
-        this.niveau = niveau;
-    }
-
-    public List getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(List language) {
-        this.language = language;
-    }
-
-    public List getMotsCles() {
-        return motsCles;
-    }
-
-    public void setMotsCles(List motsCles) {
-        this.motsCles = motsCles;
-    }
-
-    @Override
-    public String toString() {
-        return "OffreDeStage{" +
-                "id=" + id +
-                ", postePropose=" + postePropose +
-                ", user_id=" + user_id +
-                ", title='" + title + '\'' +
-                ", domaine='" + domaine + '\'' +
-                ", typeOffre='" + typeOffre + '\'' +
-                ", experience='" + experience + '\'' +
-                ", description='" + description + '\'' +
-                ", exigenceOffre='" + exigenceOffre + '\'' +
-                ", pfeBook='" + pfeBook + '\'' +
-                ", datePostu=" + datePostu +
-                ", niveau=" + niveau +
-                ", language=" + language +
-                ", motsCles=" + motsCles +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -190,4 +203,5 @@ public class OffreDeStage {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

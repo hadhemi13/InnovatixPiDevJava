@@ -18,11 +18,65 @@ public class Contrat {
         this.datefin = datefin;
         this.dure = dure;
     }
+    public Contrat( Date date_Debut,int id, Date datefin, String dure) {
+        this.id = id;
+//        this.id_user = id_user;
+        this.date_Debut = date_Debut;
+        this.datefin = datefin;
+        this.dure = dure;
+    }
+
 
     public Contrat(int id_user, Date date_Debut, Date datefin, String dure) {
         this.id_user = id_user;
         this.date_Debut = date_Debut;
         this.datefin = datefin;
+        this.dure = dure;
+    }
+
+    public Contrat(Date date_Debut, Date datefin, String dure) {
+        this.date_Debut = date_Debut;
+        this.datefin = datefin;
+        this.dure = dure;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public Date getDate_Debut() {
+        return date_Debut;
+    }
+
+    public void setDate_Debut(Date date_Debut) {
+        this.date_Debut = date_Debut;
+    }
+
+    public Date getDatefin() {
+        return datefin;
+    }
+
+    public void setDatefin(Date datefin) {
+        this.datefin = datefin;
+    }
+
+    public String getDure() {
+        return dure;
+    }
+
+    public void setDure(String dure) {
         this.dure = dure;
     }
 

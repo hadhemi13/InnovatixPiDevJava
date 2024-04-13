@@ -1,12 +1,12 @@
 package Entities;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class DemandeStage {
     String nom,prenom,email,lettremotivation,cv,domaine,etat;
     int id,numeroTelephone,score,id_offre;
     Date date;
-    public DemandeStage(){}
 
     public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, String etat, int id, int numeroTelephone, int score, int id_offre, Date date) {
         this.nom = nom;
@@ -23,30 +23,59 @@ public class DemandeStage {
         this.date = date;
     }
 
-    public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, String etat, int numeroTelephone, Date date) {
+    public DemandeStage(int id, String nom, String prenom, String email, String lettremotivation, String cv, String domaine, int numeroTelephone, int score, Date date) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.lettremotivation = lettremotivation;
         this.cv = cv;
         this.domaine = domaine;
-        this.etat = etat;
+        //this.id = id;
         this.numeroTelephone = numeroTelephone;
         this.date = date;
     }
 
-    public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, String etat, int numeroTelephone, int score, int id_offre, Date date) {
+    public DemandeStage( int id,String nom, String prenom, String email, String lettremotivation, String cv, String domaine, int numeroTelephone,Date date) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.lettremotivation = lettremotivation;
         this.cv = cv;
         this.domaine = domaine;
-        this.etat = etat;
+        this.id = id;
         this.numeroTelephone = numeroTelephone;
-        this.score = score;
-        this.id_offre = id_offre;
         this.date = date;
+    }
+
+    public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, int numeroTelephone,Date date,int score) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.lettremotivation = lettremotivation;
+        this.cv = cv;
+        this.domaine = domaine;
+        this.numeroTelephone = numeroTelephone;
+        this.date = date;
+        this.score = score;
+    }
+
+    public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, int numeroTelephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.lettremotivation = lettremotivation;
+        this.cv = cv;
+        this.domaine = domaine;
+        this.numeroTelephone = numeroTelephone;
+    }
+
+    public int getId_offre() {
+        return id_offre;
+    }
+
+    public void setId_offre(int id_offre) {
+        this.id_offre = id_offre;
     }
 
     public String getNom() {
@@ -129,14 +158,6 @@ public class DemandeStage {
         this.score = score;
     }
 
-    public int getId_offre() {
-        return id_offre;
-    }
-
-    public void setId_offre(int id_offre) {
-        this.id_offre = id_offre;
-    }
-
     public Date getDate() {
         return date;
     }
@@ -144,4 +165,35 @@ public class DemandeStage {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DemandeStage that = (DemandeStage) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, prenom, email, lettremotivation, cv, domaine, etat, id, numeroTelephone, score, date);
+    }
+
+    @Override
+    public String toString() {
+        return "DemandeStage{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", lettremotivation='" + lettremotivation + '\'' +
+                ", cv='" + cv + '\'' +
+                ", domaine='" + domaine + '\'' +
+                ", etat='" + etat + '\'' +
+                ", id=" + id +
+                ", numeroTelephone=" + numeroTelephone +
+                ", score=" + score +
+                ", date=" + date +
+                '}';
+    }
+
 }
