@@ -82,6 +82,10 @@
     -fx-font-weight: 700;
 
 }
+.Num-input-label{
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
 .cheque__add-comboBox {
     -fx-background-color: #defee633;
     -fx-border-color: #defee6;
@@ -118,6 +122,12 @@
 }
 
 .cheque__add-new-chequetBtn {
+    -fx-background-color: #32bb6f;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-cursor: hand;
+}
+.Virement__add-new-VirementBtn{
     -fx-background-color: #32bb6f;
     -fx-background-radius: 100px;
     -fx-border-radius: 100px;

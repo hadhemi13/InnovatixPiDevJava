@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListeChequeClient">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListeVirementClient">
     <children>
         <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0" styleClass="product-card-scrollPane" stylesheets="@../../resources/css/Compte.css">
             <content>
@@ -25,40 +25,40 @@
         </ScrollPane>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Demande de Chéques Bancaires ">
-               <font>
-                  <Font name="Bell MT" size="22.0" />
-               </font></Text>
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Demande de Virement Bancaires ">
+                    <font>
+                        <Font name="Bell MT" size="22.0" />
+                    </font></Text>
 
                 <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :">
                     <HBox.margin>
                         <Insets left="50.0" right="2.0" />
                     </HBox.margin>
-               <font>
-                  <Font size="22.0" />
-               </font>
+                    <font>
+                        <Font size="22.0" />
+                    </font>
                 </Text>
                 <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" promptText="All" styleClass="Cheque__add-comboBox" stylesheets="@../../resources/css/Compte.css">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets top="4.0" />
-               </padding></ComboBox>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
-               <HBox.margin>
-                  <Insets left="200.0" />
-               </HBox.margin>
-               <children>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/add-list.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+                    <HBox.margin>
+                        <Insets left="50.0" />
+                    </HBox.margin>
+                    <padding>
+                        <Insets top="4.0" />
+                    </padding></ComboBox>
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
+                    <HBox.margin>
+                        <Insets left="200.0" />
+                    </HBox.margin>
+                    <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/add-list.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
             </children>
         </HBox>
-     
+
     </children>
 </Pane>
