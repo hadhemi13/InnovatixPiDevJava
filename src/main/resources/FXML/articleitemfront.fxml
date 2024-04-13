@@ -14,7 +14,7 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </VBox.margin>
             <children>
-                <ImageView fx:id="img" fitHeight="151.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="imgArtFront" fitHeight="151.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/eco-modified (3).png" />
                     </image>
@@ -23,7 +23,7 @@
         </HBox>
         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="80.0" prefWidth="264.0" styleClass="userProductCard-name" stylesheets="@../css/SideNavBar.css">
             <children>
-                <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" text="Cooler Bag Cooler bag cooler" textAlignment="CENTER" wrappingWidth="256.2749938964844" />
+                <Text fx:id="titreArtFront" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre de l'article" textAlignment="CENTER" wrappingWidth="256.2749938964844" />
             </children>
             <padding>
                 <Insets bottom="10.0" top="10.0" />
@@ -31,7 +31,7 @@
         </HBox>
         <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="264.0" styleClass="userProductCard-description">
             <children>
-                <Text fx:id="productDescription" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="Organic cotton bag Organic Textile" textAlignment="CENTER" wrappingWidth="245.12405395507812" />
+                <Text fx:id="contenuArtFront" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu de l'article ici" textAlignment="CENTER" wrappingWidth="245.12405395507812" />
             </children>
             <VBox.margin>
                 <Insets />
@@ -74,36 +74,17 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="27.0" prefWidth="264.0" styleClass="ratingProductCard">
             <children>
-                <Text fill="#26647a" strokeType="OUTSIDE" strokeWidth="0.0" text="(70 ratings)" />
+                <Text fill="#26647a" strokeType="OUTSIDE" strokeWidth="0.0" text="Date pub" />
             </children>
             <VBox.margin>
                 <Insets bottom="10.0" />
             </VBox.margin>
         </HBox>
-        <HBox fx:id="priceWithoutOffer" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="265.0">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="89.0" styleClass="userProductCard-price">
-                    <children>
-                        <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ " />
-                        <Text fx:id="productPrice" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text="299.9" />
-                        <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text=" / " />
-                        <Text fx:id="productPoints" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text="600" />
-                        <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text=" pts" />
-                    </children>
-                    <padding>
-                        <Insets left="5.0" />
-                    </padding>
-                </HBox>
-            </children>
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </HBox>
         <HBox alignment="TOP_CENTER" prefHeight="142.0" prefWidth="264.0">
             <children>
-                <HBox fx:id="AddToCart" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="140.0" styleClass="userProductCard-btn">
+                <HBox fx:id="voirPlusArtBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="140.0" styleClass="userProductCard-btn">
                     <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add To Cart" />
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Voir Plus" />
                     </children>
                 </HBox>
             </children>
@@ -114,27 +95,6 @@
                 <Insets top="2.0" />
             </padding>
         </HBox>
-        <HBox fx:id="offerCercle" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="78.0" prefWidth="264.0" translateX="121.0" translateY="-469.0">
-            <padding>
-                <Insets top="2.0" />
-            </padding>
-        </HBox>
-        <HBox fx:id="priceWithOffer" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="265.0" translateY="-161.0">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="89.0" styleClass="userProductCard-price">
-                    <children>
-                        <Text fill="#2ba160" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ " />
-                        <Text fx:id="priceAfter" fill="#2ba160" strokeType="OUTSIDE" strokeWidth="0.0" text="299.9" />
-                        <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text=" / " />
-                        <Text fx:id="productPoints1" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text="600" />
-                        <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" text=" pts" />
-                    </children>
-                    <padding>
-                        <Insets left="5.0" />
-                    </padding>
-                </HBox>
-            </children>
-        </HBox>
-        <HBox fx:id="open_productDetails" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="381.0" prefWidth="264.0" styleClass="openProductDetailsBtn" translateY="-550.0" />
+        <HBox fx:id="ArticleDetails" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="381.0" prefWidth="264.0" styleClass="openProductDetailsBtn" translateY="-550.0" />
     </children>
 </VBox>
