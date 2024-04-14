@@ -148,6 +148,9 @@
                                     <HBox.margin>
                                         <Insets right="15.0" />
                                     </HBox.margin>
+                           <image>
+                              <Image url="@../img/stage%20(1).png" />
+                           </image>
 
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -380,7 +383,7 @@
                   </Label>
                   <ButtonBar layoutX="499.0" layoutY="635.0" prefHeight="40.0" prefWidth="304.0" />
                   <Button layoutX="130.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#switchtoscenupdatecredit" styleClass="rounded-button" text="Update" />
-                  <Button layoutX="287.0" layoutY="60.0" mnemonicParsing="false" styleClass="rounded-button" text="DELETE" />
+                  <Button layoutX="287.0" layoutY="60.0" mnemonicParsing="false" onAction="#deletecredit" styleClass="rounded-button" text="DELETE" />
                   <RadioButton fx:id="accepted" layoutX="943.0" layoutY="170.0" mnemonicParsing="false" text="accepted" />
                   <RadioButton fx:id="refused" layoutX="943.0" layoutY="200.0" mnemonicParsing="false" text="refused" />
                </children>

@@ -411,7 +411,7 @@
                   <Font name="Bauhaus 93" size="21.0" />
                </font>
             </TextField>
-            <Button fx:id="btnsave" layoutX="682.0" layoutY="563.0" mnemonicParsing="false" onAction="#updatecredit" prefHeight="35.0" prefWidth="138.0" text="update" />
+            <Button fx:id="btnsave" layoutX="682.0" layoutY="563.0" mnemonicParsing="false" onAction="#updatecredit" onMouseClicked="#switchtoscenelistecredit" prefHeight="35.0" prefWidth="138.0" text="update" />
             </children>
         </Pane>
     </children>

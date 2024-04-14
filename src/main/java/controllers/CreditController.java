@@ -261,18 +261,6 @@ public class CreditController implements ICredit<Credit> , Initializable {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @FXML
     void calculfraisretard(ActionEvent event) {
 
@@ -296,8 +284,24 @@ public class CreditController implements ICredit<Credit> , Initializable {
     public Credit getData(javafx.scene.input.MouseEvent mouseEvent) {
         Credit credit=tablecredit.getSelectionModel().getSelectedItem();
         System.out.println(credit);
-
+        id=credit.getId();
         return credit;
+
+    }
+
+    @FXML
+    void deletecredit(ActionEvent event) {
+        String Delete="delete from credit where id = ?";
+
+        connection = MyDatabase.getInstance().getConnection();
+        try {
+            st=connection.prepareStatement(Delete);
+            st.setInt(1,id);
+            st.executeUpdate();
+            showcrdit();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
