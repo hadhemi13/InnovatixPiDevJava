@@ -39,19 +39,19 @@ public class Main {
 //        Stage yesser = new Stage(2, "hahaha", new Date(124, 01, 5));
 //        ServiceStage serviceStage = new ServiceStage();
         ServiceContrat serviceContrat = new ServiceContrat();
-        Contrat contrat = new Contrat(new Date(124,4,6),6,new Date(124,8,6),"5 mois et quelque");
+//        Contrat contrat = new Contrat(new Date(124,4,6),6,new Date(124,8,6),"5 mois et quelque");
 //        try {
 //            serviceContrat.supprimer(7);
 ////            System.out.println("Modifier");
 //        } catch (SQLException e) {
 //            throw new RuntimeException(e);
 //        }
-        try {
-            serviceContrat.afficher();
-        }catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-        }
+//        try {
+//            serviceContrat.afficher();
+//        }catch (SQLException e)
+//        {
+//            System.out.println(e.getMessage());
+//        }
 
     }
 
