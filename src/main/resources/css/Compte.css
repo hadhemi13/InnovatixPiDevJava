@@ -153,3 +153,16 @@
     -fx-background: rgba(251, 237, 237, 0.166);
     -fx-background-color: transparent;
 }
+.update_chequetBtn{
+    -fx-background-color: #32bb6f;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-cursor: hand;
+
+}
+.update__VirementBtn{
+    -fx-background-color: #32bb6f;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-cursor: hand;
+}
