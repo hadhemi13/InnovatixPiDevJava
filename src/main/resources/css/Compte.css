@@ -133,3 +133,23 @@
     -fx-border-radius: 100px;
     -fx-cursor: hand;
 }
+.LiteCheque__Title {
+    -fx-fill: black;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+
+}
+.DemandeCard__title {
+    -fx-fill: black;
+    -fx-font-size:25px;
+    -fx-font-weight: 600;
+
+}
+.DemandeTableHeadTitle {
+    -fx-fill: #000000 ;
+    -fx-font-size: 16px;
+}
+.cheque_listScrollPane {
+    -fx-background: rgba(251, 237, 237, 0.166);
+    -fx-background-color: transparent;
+}

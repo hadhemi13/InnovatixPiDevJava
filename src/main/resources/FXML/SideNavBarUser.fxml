@@ -12,11 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1411.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DemandeChequeListClient">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1411.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarUserController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="250.0" styleClass="dash__side-bar">
             <opaqueInsets>
@@ -36,7 +32,7 @@
                         <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0">
                             <children>
                                 <ImageView fx:id="dashboardIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                                <Label fx:id="dashboardText" text="Compte Bancaire " textFill="WHITE">
+                                <Label fx:id="dashboardText" text="Tableau de bord" textFill="WHITE">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
@@ -351,60 +347,7 @@
                 </ImageView>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="232.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="1139.0" styleClass="dash__container-card">
-            <children>
-                <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0" styleClass="product-card-scrollPane" stylesheets="@../../resources/css/Compte.css">
-                    <content>
-                        <GridPane fx:id="FundsListContainer">
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                        </GridPane>
-                    </content>
-                </ScrollPane>
-                <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Chéques Bancaires ">
-                            <font>
-                                <Font name="Bell MT" size="22.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets left="9.0" />
-                            </HBox.margin></Text>
-
-                        <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :">
-                            <HBox.margin>
-                                <Insets left="50.0" right="2.0" />
-                            </HBox.margin>
-                            <font>
-                                <Font size="22.0" />
-                            </font>
-                        </Text>
-                        <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" promptText="All" styleClass="Cheque__add-comboBox" stylesheets="@../../resources/css/Compte.css">
-                            <HBox.margin>
-                                <Insets left="50.0" />
-                            </HBox.margin>
-                            <padding>
-                                <Insets top="4.0" />
-                            </padding></ComboBox>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="100.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
-                            <HBox.margin>
-                                <Insets left="200.0" />
-                            </HBox.margin>
-                            <children>
-                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/add-list.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </HBox>
-                    </children>
-                </HBox>
-
-            </children>
-        </Pane>
-
+        <Pane fx:id="content_area" layoutX="232.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="1139.0" styleClass="dash__container-card" />
 
 
 
