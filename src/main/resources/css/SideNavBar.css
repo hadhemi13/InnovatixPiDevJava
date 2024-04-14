@@ -31,7 +31,7 @@
 }
 
 .text {
-    -fx-font-size: 16px;
+    -fx-font-size: 30px;
     -fx-font-weight: 800;
 }
 
@@ -94,12 +94,32 @@
 }
 
 
+#tablecredit {
+    -fx-background-color: lightgray; /* Couleur de fond du TableView */
+}
+
+#colid, #colidentifiant, #colmontant, #coltaux, #coldatedebut, #colmensualite, #colduree, #colfraisretard {
+    -fx-background-color: lightblue; /* Couleur de fond des colonnes */
+}
+.table-row-cell {
+    -fx-background-color: transparent;
+}
+.action-button {
+    -fx-background-color: orange; /* Change la couleur de fond en orange */
+    -fx-background-radius: 20; /* Arrondit les coins du bouton */
+}
 
 
 .product-card {
     -fx-background-color: #fff;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
+}
+.rounded-button {
+    -fx-background-color: orange; /* Button background color */
+    -fx-background-radius: 20; /* Radius for rounded corners */
+    -fx-border-radius: 20; /* Radius for rounded corners */
+    -fx-padding: 10 20; /* Padding for the button text */
 }
 
 .product-card-scrollPane {

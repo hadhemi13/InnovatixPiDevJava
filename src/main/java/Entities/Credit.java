@@ -63,7 +63,29 @@ public class Credit {
         this.duree = duree;
     }
 
-    public double getFraisRetard() {
+    public double getFraisretard() {
+        return fraisretard;
+    }
+
+    public void setFraisretard(double fraisretard) {
+        this.fraisretard = fraisretard;
+    }
+
+    @Override
+    public String toString() {
+        return "Credit{" +
+                "id=" + id +
+                ", id_client=" + id_client +
+                ", montant=" + montant +
+                ", taux=" + taux +
+                ", datedebut=" + datedebut +
+                ", mensualite=" + mensualite +
+                ", duree=" + duree +
+                ", fraisretard=" + fraisretard +
+                '}';
+    }
+
+    public Double getFraisRetard() {
         return fraisretard;
     }
 

@@ -1,21 +1,55 @@
 package controllers;
-
+import javafx.fxml.*;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import Entities.Credit;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import org.w3c.dom.events.MouseEvent;
 import services.ICredit;
 import utils.MyDatabase;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.w3c.dom.events.MouseEvent;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.ResourceBundle;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
-public class CreditController implements ICredit<Credit> {
+public class CreditController implements ICredit<Credit> , Initializable {
 
     Connection con=null;
     PreparedStatement st=null;
@@ -72,21 +106,44 @@ public class CreditController implements ICredit<Credit> {
 
     @FXML
     private TableColumn<Credit, Double>coltaux;
+    @FXML
+    private Label idlabel;
 
+    @FXML
+    private RadioButton refused;
+    @FXML
+    private RadioButton accepted;
+    @FXML
+    private VBox creditContainer;
+
+    @FXML
+    private Label fraisretardshow;
+    @FXML
+    private Label dateshow;
+
+    @FXML
+    private Label dureeshow;
+    @FXML
+    private Label identifiantshow;
     @FXML
     private TextField tauxlabel;
-
     @FXML
     private TableView<Credit> tablecredit;
+    @FXML
+    private Label mensualiteshow;
+    @FXML
+    private Label tauxshow;
+
+    @FXML
+    private Label montantshow;
+
+    @FXML
+    private Label idshow;
     int id=0;
     Connection connection;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        connection = MyDatabase.getInstance().getConnection();
 
 
-    }
 
     @FXML
     void smallSide(MouseEvent event) {
@@ -149,6 +206,73 @@ public class CreditController implements ICredit<Credit> {
 
 
     }
+    public ObservableList<Credit> getCredits(){
+        ObservableList<Credit> credits= FXCollections.observableArrayList();
+        String query="select id, id_client, montant, taux, datedebut, mensualite, duree, fraisretard from credit";
+        connection = MyDatabase.getInstance().getConnection();
+        try{
+            st=connection.prepareStatement(query);
+            rs=st.executeQuery();
+            while(rs.next()){
+                Credit st=new Credit();
+                st.setId(rs.getInt("id"));
+                st.setId_client(rs.getInt("id_client"));
+                st.setMontant(rs.getDouble("montant"));
+                st.setMensualite(rs.getDouble("mensualite"));
+                st.setDateDebut((rs.getDate("datedebut")));
+                st.setDuree(rs.getInt("duree"));
+                st.setTaux(rs.getDouble("taux"));
+                st.setFraisRetard((rs.getDouble("fraisretard")));
+                credits.add(st);
+            }
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return credits;
+    }
+    public void showcrdit(){
+        ObservableList<Credit> list= getCredits();
+        tablecredit.setItems(list);
+        colid.setCellValueFactory(new PropertyValueFactory<Credit,Integer>("id"));
+        colidentifiant.setCellValueFactory(new PropertyValueFactory<Credit,Integer>("id_client"));
+        colmontant.setCellValueFactory(new PropertyValueFactory<Credit,Double>("montant"));
+        coltaux.setCellValueFactory(new PropertyValueFactory<Credit,Double>("taux"));
+        coldatedebut.setCellValueFactory(cellData -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            Date date = cellData.getValue().getDateDebut();
+            if (date != null) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                property.setValue(dateFormat.format(date));
+            }
+            return property;
+        });        colmensualite.setCellValueFactory(new PropertyValueFactory<Credit,Double>("mensualite"));
+        colduree.setCellValueFactory(new PropertyValueFactory<Credit,Integer>("duree"));
+        colfraisretard.setCellValueFactory(new PropertyValueFactory<Credit, Double>("fraisretard"));
+
+    }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @FXML
     void calculfraisretard(ActionEvent event) {
 
@@ -158,6 +282,53 @@ public class CreditController implements ICredit<Credit> {
 
 
     }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (url != null && url.getPath().contains("listecredit.fxml")) {
+            connection = MyDatabase.getInstance().getConnection();
+            System.out.println("g");
+            showcrdit();
+        }
+    }
 
 
-}
+
+    public Credit getData(javafx.scene.input.MouseEvent mouseEvent) {
+        Credit credit=tablecredit.getSelectionModel().getSelectedItem();
+        System.out.println(credit);
+
+        return credit;
+
+    }
+
+
+    public void switchtoscenupdatecredit(javafx.scene.input.MouseEvent mouseEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/updatecredit.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Get the controller after loading the FXML file
+        updatecreditcontroller updateCreditController = loader.getController();
+
+        // Get the selected credit
+        Credit credit = getData(mouseEvent);
+
+        // Check if a credit is selected
+        if (credit != null) {
+            // Initialize the data in the updateCreditController
+            updateCreditController.initData(credit);
+
+            // Set the scene
+            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            // Handle the case where no credit is selected
+            System.out.println("No credit selected.");
+        }
+    }}
