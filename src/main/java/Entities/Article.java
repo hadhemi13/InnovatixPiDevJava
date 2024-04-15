@@ -35,6 +35,15 @@ public class Article {
         this.likes = likes;
         this.dislikes = dislikes;
     }
+
+    public Article(LocalDateTime date_pub_art, Integer duree_art, String categorie_art, String titre_art, String contenu_art) {
+        this.date_pub_art = date_pub_art;
+        this.duree_art = duree_art;
+        this.categorie_art = categorie_art;
+        this.titre_art = titre_art;
+        this.contenu_art = contenu_art;
+    }
+
     public Article(Integer id, String nom_aut_art, String adr_aut_art, LocalDateTime date_pub_art, Integer duree_art, String categorie_art, String titre_art, String contenu_art, String piecejointe_art, String image_art, int likes, int dislikes) {
         this.id = id;
         this.nom_aut_art = nom_aut_art;

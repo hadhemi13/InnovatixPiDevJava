@@ -58,7 +58,7 @@
                                 </padding>
                             </HBox>
                             <TextArea fx:id="ContenuArt" prefHeight="200.0" prefWidth="200.0" promptText="Contenu" styleClass="product__add-input-textArea" text="Entrez le contenu de l'article ici ...&#10;" />
-                            <HBox fx:id="descriptionInputErrorHbox" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                            <HBox fx:id="ContenuHboxErreur" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="ContenuArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
@@ -95,7 +95,7 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                            <TextField fx:id="titre_don" promptText="Title" styleClass="product__add-input" text="Tapez le titre ici ...">
+                            <TextField fx:id="titreInput" promptText="Title" styleClass="product__add-input" text="Tapez le titre ici ...">
                                 <VBox.margin>
                                     <Insets />
                                 </VBox.margin>
@@ -136,8 +136,8 @@
                                             <Insets bottom="10.0" />
                                         </padding>
                                     </HBox>
-                                    <ComboBox fx:id="addCategorie" prefHeight="40.0" prefWidth="299.0" styleClass="product__add-comboBox" />
-                                    <HBox fx:id="etatInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                    <ComboBox fx:id="categoriechoice" prefHeight="40.0" prefWidth="299.0" styleClass="product__add-comboBox" />
+                                    <HBox fx:id="categorieErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                             <Text fx:id="CatArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie obligatoire !">
@@ -216,16 +216,16 @@
                                                 </children>
                                             </HBox>
                                             <ImageView fx:id="pieceJArtInput" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" translateX="-60.0" />
-                                            <Text fx:id="addpieceJBtn" onMouseClicked="#ajouter_image" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="category__add-btn-icon" text="Ajouter une pièce jointe" translateX="-50.0" />
+                                            <Text fx:id="addpieceJBtn" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="category__add-btn-icon" text="Ajouter une pièce jointe" translateX="-50.0" />
                                         </children>
                                         <VBox.margin>
                                             <Insets />
                                         </VBox.margin>
                                     </HBox>
-                                    <HBox fx:id="objectifInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                    <HBox fx:id="pieceJInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                            <Text fx:id="objectifInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Pièce jointe obligatoire !">
+                                            <Text fx:id="piecejointeInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Pièce jointe obligatoire !">
                                                 <HBox.margin>
                                                     <Insets top="5.0" />
                                                 </HBox.margin>
@@ -307,7 +307,7 @@
                                     </VBox>
                                     <HBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" translateX="-200.0">
                                         <children>
-                                            <ImageView fx:id="imageInput" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                         </children>
                                     </HBox>
                                     <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="218.0" translateX="-200.0">
@@ -344,7 +344,7 @@
                                                     <Insets bottom="5.0" />
                                                 </VBox.margin>
                                             </Text>
-                                            <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#ajouter_image" prefHeight="48.0" prefWidth="200.0" styleClass="product__add-img-btn">
+                                            <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="48.0" prefWidth="200.0" styleClass="product__add-img-btn">
                                                 <children>
                                                     <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-3.0">
                                                         <image>
@@ -382,7 +382,7 @@
                       </HBox>
                     <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                         <children>
-                    <Button fx:id="addProductBtn" mnemonicParsing="false" onMouseClicked="#ajouter_article" prefHeight="48.0" prefWidth="110.0" styleClass="product__add-img-btn" text="Ajouter" textFill="#f4f2f2">
+                    <Button fx:id="addArticleBtn" mnemonicParsing="false" onMouseClicked="#ajouter_article" prefHeight="48.0" prefWidth="110.0" styleClass="product__add-img-btn" text="Ajouter" textFill="#f4f2f2">
                         <font>
                             <Font name="Montserrat Regular" size="16.0" />
                         </font>

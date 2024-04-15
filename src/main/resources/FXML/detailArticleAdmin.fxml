@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DetailArticleAdminController">
+<children>
+    <HBox fx:id="offreModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" styleClass="categoriesModel">
+        <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="619.0" style="-fx-background-color: #fff;" styleClass="categoriesModel-card">
+                <children>
+                    <HBox alignment="CENTER_LEFT" prefHeight="148.0" prefWidth="619.0">
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                        <padding>
+                            <Insets left="30.0" right="30.0" />
+                        </padding>
+                        <children>
+                            <ImageView fitHeight="187.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/eco-modified%20(3).png" />
+                                </image>
+                            </ImageView>
+                            <HBox alignment="TOP_RIGHT" prefHeight="110.0" prefWidth="426.0">
+                                <HBox.margin>
+                                    <Insets top="20.0" />
+                                </HBox.margin>
+                                <children>
+                                    <Text fill="#32594a" onMouseClicked="#close_offerModel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="closeOffreModelBtn" text="close" />
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                    <Line endX="391.0" layoutX="31.0" layoutY="493.0" startX="-16.0" stroke="#defee6" strokeWidth="2.0" translateY="-180.0" />
+                    <VBox fx:id="reductionForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0">
+                        <padding>
+                            <Insets left="20.0" right="16.0" />
+                        </padding>
+                        <children>
+                            <HBox prefHeight="6.0" prefWidth="538.0">
+                                <children>
+                                    <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Titre">
+                                        <HBox.margin>
+                                            <Insets right="2.0" />
+                                        </HBox.margin>
+                                    </Text>
+                                </children>
+                                <padding>
+                                    <Insets bottom="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox fx:id="reductionInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                <children>
+                                    <Text fx:id="reductionInputError" fill="#151414" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie">
+                                        <HBox.margin>
+                                            <Insets top="5.0" />
+                                        </HBox.margin>
+                                    </Text>
+                                </children>
+                            </HBox>
+                        </children>
+                    </VBox>
+                    <HBox alignment="TOP_RIGHT" layoutX="243.0" layoutY="314.0" prefHeight="100.0" prefWidth="180.0">
+                        <children>
+                            <Text fx:id="addNewCouponBtn" fill="#32bb6f" onMouseClicked="#addNewCoupon" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="addCouponBtn" text="Télecharger la pièce jointe" />
+                        </children>
+                        <padding>
+                            <Insets top="15.0" />
+                        </padding>
+                    </HBox>
+                    <HBox fx:id="submitOfferBtn" alignment="CENTER" layoutX="178.0" layoutY="452.0" onMouseClicked="#submit_offer" prefHeight="41.0" prefWidth="126.0" styleClass="submitOfferBtn" translateY="-38.0">
+                        <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="submitOfferBtnText" text="Liste des articles" />
+                        </children>
+                    </HBox>
+                    <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0" onMouseClicked="#back_toReduction" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="closeOffreModelBtn" text="Voir pièce jointe" translateX="5.0" translateY="-4.0" />
+                  <HBox layoutX="23.0" layoutY="214.0" prefHeight="100.0" prefWidth="556.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu de l'article">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                </children>
+            </Pane>
+        </children>
+    </HBox>
+</children>
+</Pane>

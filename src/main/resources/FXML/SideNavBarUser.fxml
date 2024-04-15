@@ -139,7 +139,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/stage (1).png" />
+                                        <Image url="@../img/stage.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">

@@ -15,30 +15,49 @@ public class ServiceArticle  implements IServiceArticle<Article> {
         connection = MyDatabase.getInstance().getConnection();
     }
 
-    @Override
-    public void ajouter(Article article) throws SQLException {
-        String req = "INSERT INTO article (nom_aut_art, adr_aut_art, date_pub_art, duree_art, categorie_art, titre_art, contenu_art, piecejointe_art, image_art,likes ,dislikes) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?)";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
-            preparedStatement.setString(1, article.getNom_aut_art());
-            preparedStatement.setString(2, article.getAdr_aut_art());
-            preparedStatement.setObject(3, article.getDate_pub_art());
-            preparedStatement.setInt(4, article.getDuree_art());
-            preparedStatement.setString(5, article.getCategorie_art());
-            preparedStatement.setString(6, article.getTitre_art());
-            preparedStatement.setString(7, article.getContenu_art());
-            preparedStatement.setString(8, article.getPiecejointe_art());
-            preparedStatement.setString(9, article.getImage_art());
-            preparedStatement.setInt(10, article.getLikes());
-            preparedStatement.setInt(11, article.getDislikes());
+//    @Override
+//    public void ajouter(Article article) throws SQLException {
+//        String req = "INSERT INTO article (nom_aut_art, adr_aut_art, date_pub_art, duree_art, categorie_art, titre_art, contenu_art, piecejointe_art, image_art,likes ,dislikes) " +
+//                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?)";
+//        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+//            preparedStatement.setString(1, article.getNom_aut_art());
+//            preparedStatement.setString(2, article.getAdr_aut_art());
+//            preparedStatement.setObject(3, article.getDate_pub_art());
+//            preparedStatement.setInt(4, article.getDuree_art());
+//            preparedStatement.setString(5, article.getCategorie_art());
+//            preparedStatement.setString(6, article.getTitre_art());
+//            preparedStatement.setString(7, article.getContenu_art());
+//            preparedStatement.setString(8, article.getPiecejointe_art());
+//            preparedStatement.setString(9, article.getImage_art());
+//            preparedStatement.setInt(10, article.getLikes());
+//            preparedStatement.setInt(11, article.getDislikes());
+//
+//
+//            preparedStatement.executeUpdate();
+//            System.out.println("Article ajouté");
+//        } catch (SQLException e) {
+//            System.out.println("Erreur lors de l'ajout de l'article : " + e.getMessage());
+//        }
+//    }
+@Override
+public void ajouter(Article article) throws SQLException {
+    String req = "INSERT INTO article ( date_pub_art, duree_art, categorie_art, titre_art, contenu_art) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?)";
+    try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+
+        preparedStatement.setObject(3, article.getDate_pub_art());
+        preparedStatement.setInt(4, article.getDuree_art());
+        preparedStatement.setString(5, article.getCategorie_art());
+        preparedStatement.setString(6, article.getTitre_art());
+        preparedStatement.setString(7, article.getContenu_art());
 
 
-            preparedStatement.executeUpdate();
-            System.out.println("Article ajouté");
-        } catch (SQLException e) {
-            System.out.println("Erreur lors de l'ajout de l'article : " + e.getMessage());
-        }
+        preparedStatement.executeUpdate();
+        System.out.println("Article ajouté");
+    } catch (SQLException e) {
+        System.out.println("Erreur lors de l'ajout de l'article : " + e.getMessage());
     }
+}
 
     @Override
     public void supprimer(Article article) throws SQLException {
