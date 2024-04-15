@@ -1,6 +1,7 @@
 package controllers.demandeStage;
 
 import Entities.DemandeStage;
+//import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,22 +14,28 @@ import java.util.List;
 public class AfficheDemandeController {
 
     @FXML
-    private ListView<String> listView;
+    private ListView<String> listViewNom;
     @FXML
     private Button refresh;
+    @FXML
+    private ListView<String> listViewPrenom;
     private ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
+
 
     @FXML
     void refreshList(ActionEvent event) {
         try {
             List<DemandeStage> demandeStages = serviceDemandeStage.afficher();
-            listView.getItems().clear();
+            listViewNom.getItems().clear();
             for (DemandeStage i : demandeStages){
-                StringBuilder sb = new StringBuilder();
-                sb.append("Nom : ").append(i.getNom()).append("\n");
-                sb.append("Prenom : ").append(i.getPrenom()).append("\n");
+                StringBuilder nom = new StringBuilder();
+                StringBuilder prenom = new StringBuilder();
 
-                listView.getItems().add(sb.toString());
+                nom.append("Nom : ").append(i.getNom()).append("\n");
+                prenom.append("Prenom : ").append(i.getPrenom()).append("\n");
+
+                listViewNom.getItems().add(nom.toString());
+                listViewPrenom.getItems().add(prenom.toString());
             }
         }catch (SQLException e){
             e.printStackTrace();

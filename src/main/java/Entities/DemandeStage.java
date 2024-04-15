@@ -8,6 +8,20 @@ public class DemandeStage {
     int id,numeroTelephone,score,id_offre;
     Date date;
 
+    public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, String etat, int numeroTelephone, int score, int id_offre, Date date) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.lettremotivation = lettremotivation;
+        this.cv = cv;
+        this.domaine = domaine;
+        this.etat = etat;
+        this.numeroTelephone = numeroTelephone;
+        this.score = score;
+        this.id_offre = id_offre;
+        this.date = date;
+    }
+
     public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine, String etat, int id, int numeroTelephone, int score, int id_offre, Date date) {
         this.nom = nom;
         this.prenom = prenom;

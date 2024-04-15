@@ -3,28 +3,29 @@ package controllers.demandeStage;
 import Entities.DemandeStage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.web.WebView;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import services.ServiceDemandeStage;
 import utils.MyDatabase;
+import javafx.fxml.Initializable;
 
-import java.nio.file.Path;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.UUID;
-//import javafx.scene.web.WebView;
 
-public class DemandeStageController {
-//    @FXML
-//    private WebView CvDemInput;
-
+public class EditOffreController {
     @FXML
     private TextField LettreDemInput;
 
@@ -50,6 +51,13 @@ public class DemandeStageController {
 
     @FXML
     private Button ajouterDemande;
+
+//    @Override
+//    public void initialize(URL url, ResourceBundle rb) {
+//        NomDemInput.setText("yesser");
+//        PrenomDemInput.setText("khaloui");
+//        EmailDemInput.setText("khaluiyesser@gmail.com");
+//    }
 
     @FXML
     void Upload(ActionEvent event) throws IOException {
@@ -79,11 +87,10 @@ public class DemandeStageController {
 
         }
     }
-
     @FXML
     void ajouterDemande(ActionEvent event) {
-        if (event.getSource() == ajouterDemande){
-            if (NomDemInput.getText().isEmpty()){
+        if (event.getSource() == ajouterDemande) {
+            if (NomDemInput.getText().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Information manquante");
                 alert.setHeaderText(null);
@@ -98,10 +105,10 @@ public class DemandeStageController {
                 String etat = "encours";
                 String domaine = "Informatique";
                 String cv = fileName;
-                Date date = new Date(128,04,06);
+                Date date = new Date(128, 04, 06);
                 MyDatabase db = MyDatabase.getInstance();
 
-                DemandeStage  stage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,new Date(124,04,06));
+                DemandeStage stage = new DemandeStage(nom, prenom, email, lettre, cv, domaine, Integer.parseInt(num), etat, new Date(124, 04, 06));
                 ServiceDemandeStage demandeStage = new ServiceDemandeStage();
                 try {
                     demandeStage.ajouter(stage);
@@ -120,44 +127,10 @@ public class DemandeStageController {
                 }
             }
 
+        }
 
-
-//            if (NomDemInput.getText().isEmpty()){
-//                Alert alert = new Alert(Alert.AlertType.WARNING);
-//                alert.setTitle("Information manquante");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Vous devez remplir tous les détails concernant votre activité.");
-//                Optional<ButtonType> option = alert.showAndWait();
-//            }
-//        }else {
-//            MyDatabase db = MyDatabase.getInstance();
-//
-//            DemandeStage  stage = new DemandeStage("yesser","khaloui","khaluiyesser@gmail.com","hahahaha","yesser.com","Informatique",25114365,"encours",new Date(124,04,06));
-//            ServiceDemandeStage demandeStage = new ServiceDemandeStage();
-//            try {
-//                demandeStage.ajouter(stage);
-//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                alert.setTitle("Ajouté avec succès");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Votre activité a été ajoutée avec succès.");
-//                Optional<ButtonType> option = alert.showAndWait();
-//            } catch (SQLException e) {
-//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                alert.setTitle("Ajouté avec succès");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Votre Stage a été ajoutée avec succès.");
-//                Optional<ButtonType> option = alert.showAndWait();
-//
-//            }
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//            alert.setTitle("Ajouté avec succès");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Votre activité a été ajoutée avec succès.");
-//            Optional<ButtonType> option = alert.showAndWait();
 
     }
-}
-
     private void AjoutDem(){
         String nom = NomDemInput.getText();
         String prenom = PrenomDemInput.getText();
@@ -178,5 +151,4 @@ public class DemandeStageController {
             throw new RuntimeException(e);
         }
     }
-
 }

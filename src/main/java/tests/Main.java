@@ -7,12 +7,10 @@ import services.*;
 import utils.MyDatabase;
 
 
-import java.sql.Date;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.sql.*;
 import java.util.List;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
 //
@@ -22,13 +20,26 @@ public class Main {
 ////            System.out.println(i);
 ////        }
 ////        System.out.println(yesser);*
-       ServiceDemandeStage demandeStage = new ServiceDemandeStage();
-       DemandeStage  stage = new DemandeStage("yesser","khaloui","khaluiyesser@gmail.com","hahahaha","yesser.com","Informatique",25114365,"encours",new Date(124,04,06));
+
+        ServiceDemandeStage demandeStage = new ServiceDemandeStage();
+//        AnalyseurCv analyseurCv = new AnalyseurCv();
+//        int score = analyseurCv.analyseCV();
+        DemandeStage stage = new DemandeStage("yesser", "khaloui", "khaluiyesser@gmail.com", "hahahaha", "Resume-65e5ed6c6fc54.pdf", "Informatique", 25114365, "encours", new Date(124, 04, 06));
         try {
-            demandeStage.ajouter(stage);
+            demandeStage.ajouterParOffre(stage,2);
+            System.out.println("ajoutééééé");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("sql");
+        } catch (IOException e) {
+            System.out.println("io");
+        } catch (InterruptedException e) {
+            System.out.println("python");
         }
+//        try {
+//            demandeStage.ajouter(stage);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
         //        try {
 //            demandeStage.afficher();
 //        } catch (SQLException e) {
@@ -61,7 +72,9 @@ public class Main {
 
     }
 
+    }
 
-}
+
+
 
 

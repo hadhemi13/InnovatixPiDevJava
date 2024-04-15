@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.demandeStage.EditOffreController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label layoutX="249.0" layoutY="169.0" text="Nom" />
+        <Label layoutX="242.0" layoutY="213.0" text="Prénom" />
+        <Label layoutX="249.0" layoutY="251.0" text="Email" />
+        <Label layoutX="205.0" layoutY="274.0" text="Numéro de téléphone" />
+        <Label layoutX="239.0" layoutY="306.0" text="Domaine" />
+        <Label layoutX="249.0" layoutY="331.0" text="Cv" />
+        <Label layoutX="202.0" layoutY="367.0" text="Lettre de motivation" />
+        <TextField fx:id="NomDemInput" layoutX="550.0" layoutY="165.0" promptText="saisir votre nom" />
+        <TextField fx:id="PrenomDemInput" layoutX="534.0" layoutY="239.0" promptText="saisir votre prénom" />
+        <TextField fx:id="EmailDemInput" layoutX="544.0" layoutY="279.0" promptText="saisir votre email" />
+        <TextField fx:id="NumeroDemInput" layoutX="550.0" layoutY="319.0" promptText="saisir votre numero" />
+        <TextField fx:id="LettreDemInput" layoutX="550.0" layoutY="363.0" promptText="saisir votre lettre de motivation" />
+        <Button fx:id="upload" layoutX="534.0" layoutY="431.0" mnemonicParsing="false" onAction="#Upload" text="Button" />
+        <Button fx:id="ajouterDemande" layoutX="776.0" layoutY="431.0" mnemonicParsing="false" onAction="#ajouterDemande" text="Ajouter" />
+        <TextField fx:id="cv" layoutX="204.0" layoutY="431.0" promptText="CV" />
+    </children>
+
+</AnchorPane>
