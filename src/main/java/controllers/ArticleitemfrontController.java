@@ -14,6 +14,9 @@ public class ArticleitemfrontController {
     private Text contenuArtFront;
 
     @FXML
+    private Text datepubArt;
+
+    @FXML
     private ImageView imgArtFront;
 
     @FXML

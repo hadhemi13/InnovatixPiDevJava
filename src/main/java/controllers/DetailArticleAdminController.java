@@ -1,45 +1,61 @@
 package controllers;
 
-import javafx.scene.input.KeyEvent;
+import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class DetailArticleAdminController {
-    public void reductionTypedInput(KeyEvent keyEvent) {
+
+    @FXML
+    private HBox backBtn;
+
+    @FXML
+    private Text categArt;
+
+    @FXML
+    private Text contArt;
+
+    @FXML
+    private Pane content_area;
+
+    @FXML
+    private ImageView imgArt;
+
+    @FXML
+    private HBox offreModel;
+
+    @FXML
+    private Text ouvPieceBtn;
+
+    @FXML
+    private VBox reductionForm;
+
+    @FXML
+    private HBox reductionInputErrorHbox;
+
+    @FXML
+    private Text telePieceBtn;
+
+    @FXML
+    private Text titreArt;
+
+    @FXML
+    void addNewCoupon(MouseEvent event) {
+
     }
 
-    public void searchProduct(KeyEvent keyEvent) {
+    @FXML
+    void back_toReduction(MouseEvent event) {
+
     }
 
-    public void close_offerModel(MouseEvent mouseEvent) {
+    @FXML
+    void submit_offer(MouseEvent event) {
+
     }
 
-    public void sort__ByStock(MouseEvent mouseEvent) {
-    }
-
-    public void open_addProduct(MouseEvent mouseEvent) {
-    }
-
-    public void open_CategoriesModel(MouseEvent mouseEvent) {
-    }
-
-    public void close_CategoriesModel(MouseEvent mouseEvent) {
-    }
-
-    public void submit_coupon(MouseEvent mouseEvent) {
-    }
-
-    public void addNewCoupon(MouseEvent mouseEvent) {
-    }
-
-    public void excelBtn(MouseEvent mouseEvent) {
-    }
-
-    public void close_QrCodeModel(MouseEvent mouseEvent) {
-    }
-
-    public void submit_offer(MouseEvent mouseEvent) {
-    }
-
-    public void back_toReduction(MouseEvent mouseEvent) {
-    }
 }

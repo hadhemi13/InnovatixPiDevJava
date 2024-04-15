@@ -41,7 +41,7 @@
                 </HBox>
                 <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="239.0" styleClass="onlyOfferItemsBtn" translateX="220.0">
                     <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Ajouter un article" />
+                        <Text fx:id="AjouterArtBtn" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Ajouter un article" />
                     </children>
                 </HBox>
             </children>
@@ -64,7 +64,7 @@
                             </VBox.margin>
                         </ComboBox>
                         <Line endX="100.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" translateY="40.0" />
-                        <Text fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Consulter la liste des commentaires" textAlignment="CENTER" translateY="50.0" wrappingWidth="203.8984375">
+                        <Text fx:id="VoirComment" fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Consulter la liste des commentaires" textAlignment="CENTER" translateY="50.0" wrappingWidth="203.8984375">
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>

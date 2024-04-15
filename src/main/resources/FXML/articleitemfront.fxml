@@ -74,7 +74,7 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="27.0" prefWidth="264.0" styleClass="ratingProductCard">
             <children>
-                <Text fill="#26647a" strokeType="OUTSIDE" strokeWidth="0.0" text="Date pub" />
+                <Text fx:id="datepubArt" fill="#26647a" strokeType="OUTSIDE" strokeWidth="0.0" text="Date pub" />
             </children>
             <VBox.margin>
                 <Insets bottom="10.0" />

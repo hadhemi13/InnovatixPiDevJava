@@ -146,7 +146,7 @@
                                     <Insets right="15.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/stage (1).png" />
+                                    <Image url="@../img/stage.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -450,7 +450,7 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                            <TextField fx:id="titre_don" promptText="Title" styleClass="product__add-input" text="Tapez le titre ici ...">
+                            <TextField fx:id="titreArt" promptText="Title" styleClass="product__add-input" text="Tapez le titre ici ...">
                                 <VBox.margin>
                                     <Insets />
                                 </VBox.margin>

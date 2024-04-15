@@ -5,12 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -56,7 +51,7 @@ public class AjouterArticle implements Initializable {
     private DatePicker datePubArt;
 
     @FXML
-    private Spinner<?> dureeArt;
+    private Spinner<Integer> dureeArt;
 
     @FXML
     private Text dureeArtInputError;
@@ -78,7 +73,8 @@ public class AjouterArticle implements Initializable {
 
     @FXML
     private HBox dureeInputErrorHbox;
-
+    @FXML
+    private ImageView imageInput;
     @FXML
     private TextField titreInput;
 
@@ -89,12 +85,21 @@ public class AjouterArticle implements Initializable {
     private HBox titreInputErrorHbox;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ContenuHboxErreur.setVisible(false);
-        categorieErrorHbox.setVisible(false);
-        imageInputErrorHbox.setVisible(false);
-        pieceJInputErrorHbox.setVisible(false);
-        dureeInputErrorHbox.setVisible(false);
-        titreInputErrorHbox.setVisible(false);
+        SpinnerValueFactory<Integer> valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1); // Valeur initiale, valeur maximale, valeur minimale
+        dureeArt.setValueFactory(valueFactory);
+
+        // Autoriser la saisie directe des valeurs dans le Spinner
+        dureeArt.setEditable(true);
+
+        // Limiter la saisie à des nombres entiers
+        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
+            if (c.getControlNewText().matches("\\d*")) {
+                return c;
+            } else {
+                return null;
+            }
+        }));
         ObservableList<String> categories = FXCollections.observableArrayList(
                 "Développement durable",
                 "Finance",
@@ -108,6 +113,8 @@ public class AjouterArticle implements Initializable {
 
     @FXML
     void ajouter_article(MouseEvent event) throws SQLException {
+        String nom = "hadhemi";
+        String adresse ="mahmoud";
         ServiceArticle sa = new ServiceArticle();
         if (ContenuArt.getText().isEmpty()) {
 
@@ -127,9 +134,10 @@ public class AjouterArticle implements Initializable {
         LocalDate selectedDate = datePubArt.getValue();
         LocalTime currentTime = LocalTime.now();
         LocalDateTime dateTime = LocalDateTime.of(selectedDate, currentTime);
-
+        String image = "admin";
+        String pieceJArt= "admin";
         String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
-        Article article = new Article(dateTime,(Integer) dureeArt.getValue(),selectedCategory,titreInput.getText(),ContenuArt.getText());
+        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt.getValue(),selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,image);
         sa.ajouter(article);
 
 
