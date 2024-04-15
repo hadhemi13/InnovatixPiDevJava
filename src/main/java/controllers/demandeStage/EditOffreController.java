@@ -25,7 +25,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class EditOffreController {
+public class EditOffreController implements Initializable {
     @FXML
     private TextField LettreDemInput;
 
@@ -57,8 +57,12 @@ public class EditOffreController {
 //        NomDemInput.setText("yesser");
 //        PrenomDemInput.setText("khaloui");
 //        EmailDemInput.setText("khaluiyesser@gmail.com");
-//    }
+        //    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        NomDemInput.setText("yesser");
+    }
     @FXML
     void Upload(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
@@ -151,4 +155,6 @@ public class EditOffreController {
             throw new RuntimeException(e);
         }
     }
+
+
 }
