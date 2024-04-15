@@ -70,6 +70,18 @@ public class DemandeStage {
         this.numeroTelephone = numeroTelephone;
     }
 
+    public DemandeStage(String nom, String prenom, String email, String lettremotivation, String cv, String domaine,int numeroTelephone, String etat,  Date date) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.lettremotivation = lettremotivation;
+        this.cv = cv;
+        this.domaine = domaine;
+        this.etat = etat;
+        this.numeroTelephone = numeroTelephone;
+        this.date = date;
+    }
+
     public int getId_offre() {
         return id_offre;
     }

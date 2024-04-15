@@ -22,8 +22,14 @@ public class Main {
 ////            System.out.println(i);
 ////        }
 ////        System.out.println(yesser);*
-//        ServiceDemandeStage demandeStage = new ServiceDemandeStage();
-//        try {
+       ServiceDemandeStage demandeStage = new ServiceDemandeStage();
+       DemandeStage  stage = new DemandeStage("yesser","khaloui","khaluiyesser@gmail.com","hahahaha","yesser.com","Informatique",25114365,"encours",new Date(124,04,06));
+        try {
+            demandeStage.ajouter(stage);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        //        try {
 //            demandeStage.afficher();
 //        } catch (SQLException e) {
 //            System.out.println(e.getMessage());

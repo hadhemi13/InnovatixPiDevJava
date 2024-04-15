@@ -19,7 +19,7 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
 
         String req = "insert into demandestage " +
                 "(nom,prenom,email,numeroTelephone,lettremotivation,cv,domaine,etat,date)" +
-                "values(?,?,?,?,?,?,?,?)";
+                "values(?,?,?,?,?,?,?,?,?)";
         // LocalDateTime dateTime = LocalDateTime.now();
 
 // Définir la date dans l'objet demandeStage
