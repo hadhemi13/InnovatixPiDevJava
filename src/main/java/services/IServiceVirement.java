@@ -1,6 +1,6 @@
 package services;
 
-import entities.Virement;
+import Entities.Virement;
 
 import java.sql.SQLException;
 import java.util.List;

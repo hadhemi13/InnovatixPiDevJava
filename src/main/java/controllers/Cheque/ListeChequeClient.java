@@ -1,4 +1,5 @@
-package controllers;
+package controllers.Cheque;
 
 public class ListeChequeClient {
+
 }

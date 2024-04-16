@@ -1,29 +1,18 @@
-package controllers;
+package controllers.Virement;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
-public class ModifierCheque {
+public class AjouterVirementCard {
 
     @FXML
     private TextField Cin;
-
-    @FXML
-    private TextField Email;
-
-    @FXML
-    private Text EmailInputError;
-
-    @FXML
-    private HBox EmailInputErrorHbox;
 
     @FXML
     private TextField NometPrenom;
@@ -35,10 +24,28 @@ public class ModifierCheque {
     private HBox NometPrenomInputErrorHbox;
 
     @FXML
+    private TextField Num;
+
+    @FXML
+    private Text NumInputError;
+
+    @FXML
+    private HBox NumInputErrorHbox;
+
+    @FXML
     private TextField RIB;
 
     @FXML
-    private ComboBox<?> beneficiaire;
+    private Button add_new_VirementtBtn;
+
+    @FXML
+    private TextField benef;
+
+    @FXML
+    private Text benefInputError;
+
+    @FXML
+    private HBox benefInputErrorHbox;
 
     @FXML
     private Text beneficiaireInputError;
@@ -54,9 +61,6 @@ public class ModifierCheque {
 
     @FXML
     private HBox cinInputErrorHbox;
-
-    @FXML
-    private DatePicker date;
 
     @FXML
     private ImageView imageInput;
@@ -77,30 +81,27 @@ public class ModifierCheque {
     private HBox montantInputErrorHbox;
 
     @FXML
-    private TextField tel;
+    private TextField transferez;
 
     @FXML
-    private Text telInputError;
+    private Text transferezInputError;
 
     @FXML
-    private HBox telInputErrorHbox;
+    private HBox transferezInputErrorHbox;
 
     @FXML
-    private Button update_chequetBtn;
+    private ComboBox<?> type;
 
     @FXML
-    void ajouter_image(MouseEvent event) {
+    void ajouterVirement(MouseEvent event) {
 
     }
 
     @FXML
-    void updateCheque(MouseEvent event) {
+    void ajouter_imageV(MouseEvent event) {
 
     }
 
-    @FXML
-    void updatecheque(ActionEvent event) {
-
+    public void UpdateVirement(MouseEvent mouseEvent) {
     }
-
 }

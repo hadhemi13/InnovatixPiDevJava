@@ -1,7 +1,7 @@
 package services;
 
 import utils.MyDatabase;
-import entities.Compte;
+import Entities.Compte;
 import utils.MyDatabase;
 
 

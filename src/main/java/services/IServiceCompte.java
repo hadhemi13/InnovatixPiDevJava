@@ -1,6 +1,6 @@
 package services;
 
-import entities.Compte;
+import Entities.Compte;
 
 import java.sql.SQLException;
 import java.util.List;

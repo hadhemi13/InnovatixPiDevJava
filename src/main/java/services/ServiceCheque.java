@@ -1,7 +1,7 @@
 package services;
 
 import utils.MyDatabase;
-import entities.Cheque;
+import Entities.Cheque;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,6 +37,29 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             ps.setString(13, cheque.getDocument_id());
             ps.setString(14, cheque.getSigner_id());
             ps.setString(15, cheque.getpdf_sans_signature());
+
+            ps.executeUpdate();
+            System.out.println("Chèque ajouté avec succès !");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+    }
+    public void ajouterS(Cheque cheque) throws SQLException {
+        String req = "INSERT INTO cheque "
+                + "(beneficiaire, montant, telephone, email, cin, nom_prenom, date, decision, photo_cin) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setString(1, cheque.getBeneficiaire());
+            ps.setDouble(2, cheque.getMontant());
+            ps.setInt(3, cheque.getTelephone());
+            ps.setString(4, cheque.getEmail());
+            ps.setInt(5, cheque.getCin());
+            ps.setString(6, cheque.getNom_prenom());
+            ps.setDate(7, cheque.getDate());
+            ps.setString(8, cheque.getDecision());
+            ps.setInt(9, cheque.getCin());
 
             ps.executeUpdate();
             System.out.println("Chèque ajouté avec succès !");

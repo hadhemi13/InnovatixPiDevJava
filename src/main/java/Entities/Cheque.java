@@ -1,6 +1,7 @@
-package entities;
+package Entities;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Cheque {
     private int id ;
@@ -37,6 +38,18 @@ public class Cheque {
         this.document_id= document_id;
         this.signer_id = signer_id;
         this.pdf_sans_signature = pdf_sans_signature;
+    }
+
+    public Cheque(String beneficiaire, double montant, int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision) {
+        this.beneficiaire = beneficiaire;
+        this.montant = montant;
+        this.telephone = telephone;
+        this.email = email;
+        this.cin = cin;
+        this.nom_prenom = nom_prenom;
+        this.date = date;
+        this.photo_cin = photo_cin;
+        this.decision = decision;
     }
 
     public int getId() {
@@ -111,7 +124,7 @@ public class Cheque {
         this.nom_prenom = nom_prenom;
     }
 
-    public Date getDate() {
+    public java.sql.Date getDate() {
         return date;
     }
 

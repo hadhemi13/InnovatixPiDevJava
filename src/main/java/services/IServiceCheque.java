@@ -1,6 +1,6 @@
 package services;
 
-import entities.Cheque;
+import Entities.Cheque;
 
 import java.sql.SQLException;
 import java.util.List;

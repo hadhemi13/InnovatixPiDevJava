@@ -1,6 +1,9 @@
-package controllers;
+package controllers.Cheque;
 
+import Entities.Cheque;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -10,7 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
-public class AjouterChequeCard {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ModifierCheque implements Initializable {
 
     @FXML
     private TextField Cin;
@@ -35,9 +41,6 @@ public class AjouterChequeCard {
 
     @FXML
     private TextField RIB;
-
-    @FXML
-    private Button add_new_chequetBtn;
 
     @FXML
     private ComboBox<?> beneficiaire;
@@ -88,13 +91,27 @@ public class AjouterChequeCard {
     private HBox telInputErrorHbox;
 
     @FXML
-    void ajouterCheque(MouseEvent event) {
+    private Button update_chequetBtn;
+    private void initData(Cheque cheque){
 
     }
-
     @FXML
     void ajouter_image(MouseEvent event) {
 
     }
 
+    @FXML
+    void updateCheque(MouseEvent event) {
+
+    }
+
+    @FXML
+    void updatecheque(ActionEvent event) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
