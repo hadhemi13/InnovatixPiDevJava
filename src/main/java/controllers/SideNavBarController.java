@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -131,13 +132,28 @@ public class SideNavBarController implements Initializable {
 
     @FXML
     void switchtosceneajoutercredit(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajoutercredit.fxml"));
-        Parent root = loader.load();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        // Load the ajoutercredit.fxml scene
+        FXMLLoader creditLoader = new FXMLLoader(getClass().getResource("/FXML/ajoutercredit.fxml"));
+        Parent creditRoot = creditLoader.load();
+
+        // Create a new stage for the ajoutercredit.fxml scene
+        Stage creditStage = new Stage();
+        Scene creditScene = new Scene(creditRoot);
+        creditStage.setScene(creditScene);
+        creditStage.show();
+
+        // Load the sidenavbar.fxml scene
+        FXMLLoader sidebarLoader = new FXMLLoader(getClass().getResource("/FXML/sidenavbar.fxml"));
+        Parent sidebarRoot = sidebarLoader.load();
+
+        // Get the stage of the parent scene
+        Stage parentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        // Set the sidenavbar.fxml scene as the main scene
+        Scene sidebarScene = new Scene(sidebarRoot);
+        parentStage.setScene(sidebarScene);
     }
+
 
     private Stage stage;
     private Scene scene;

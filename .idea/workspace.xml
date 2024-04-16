@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="corriger rdv">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="ajouter credit v2">
+      <change afterPath="$PROJECT_DIR$/.idea/ahmedjava.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajoutercredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajoutercredit.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +49,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Ahmed",
     "last_opened_file_path": "C:/Users/21650/Desktop/projet java/ahmedjava",
@@ -83,7 +87,7 @@
       <workItem from="1713206533826" duration="1021000" />
       <workItem from="1713216510518" duration="1702000" />
       <workItem from="1713255516271" duration="156000" />
-      <workItem from="1713257759040" duration="69000" />
+      <workItem from="1713257759040" duration="1745000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -117,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713255619470</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajouter credit v2">
+      <option name="closed" value="true" />
+      <created>1713258079871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713258079871</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +140,7 @@
     <MESSAGE value="correction sdk" />
     <MESSAGE value="kk" />
     <MESSAGE value="corriger rdv" />
-    <option name="LAST_COMMIT_MESSAGE" value="corriger rdv" />
+    <MESSAGE value="ajouter credit v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajouter credit v2" />
   </component>
 </project>
