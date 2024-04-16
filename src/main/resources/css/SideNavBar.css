@@ -98,19 +98,23 @@
     -fx-border-color: #fff;
 }
 
-.scroll-bar:vertical .track {
-    -fx-background-color: #defee6;
-    -fx-border-color: #fff;
-    -fx-background-radius: 30px;
-    -fx-pref-width: 24px;
-}
+/*.scroll-bar:vertical .track {*/
+/*    -fx-background-color: #defee6;*/
+/*    -fx-border-color: #fff;*/
+/*    -fx-background-radius: 30px;*/
+/*    -fx-pref-width: 24px;*/
+/*}*/
 
-.scroll-bar:vertical .thumb {
-    -fx-background-color: #43882b;
-    -fx-background-radius: 30px;
-    -fx-pref-width: 24px;
-}
-
+/*.scroll-bar:vertical .thumb {*/
+/*    -fx-background-color: #43882b;*/
+/*    -fx-background-radius: 30px;*/
+/*    -fx-pref-width: 24px;*/
+/*}*/
+/*.scroll-bar:horizontal .thumb {*/
+/*    -fx-background-color: #43882b;*/
+/*    -fx-background-radius: 30px;*/
+/*    -fx-pref-width: 24px;*/
+/*}*/
 .scroll-bar:vertical *.increment-button,
 .scroll-bar:vertical *.decrement-button {
     -fx-background-color: #fff;
