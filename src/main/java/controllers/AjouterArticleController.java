@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
-public class AjouterArticle implements Initializable {
+public class AjouterArticleController implements Initializable {
     @FXML
     private Text CatArtInputError;
 

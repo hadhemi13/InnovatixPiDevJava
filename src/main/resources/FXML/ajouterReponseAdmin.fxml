@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterReponseAdminController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterReponseAdminController">
 <children>
     <HBox prefHeight="53.0" prefWidth="570.0">
         <children>
@@ -64,7 +64,7 @@
                     <Insets bottom="10.0" />
                 </padding>
             </HBox>
-            <TextArea fx:id="contenu" prefHeight="105.0" prefWidth="598.0" promptText="Tappez le contenu de la réponse ici ..." styleClass="product__add-input-textArea" translateY="20.0" />
+            <TextArea fx:id="contenuInput" prefHeight="105.0" prefWidth="598.0" promptText="Tappez le contenu de la réponse ici ..." styleClass="product__add-input-textArea" translateY="20.0" />
             <HBox fx:id="contenuInputErrorBox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                 <children>
                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="5.0" wrappingWidth="23.18400001525879" />
@@ -122,6 +122,16 @@
             </HBox>
         </children>
     </VBox>
+      <HBox fx:id="pieceInputErrorBox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+         <children>
+            <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="5.0" wrappingWidth="23.18400001525879" />
+            <Text fx:id="pieceInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="La pièce jointe est obligatoire !" translateY="20.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
 
     <Line endX="498.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" translateY="50.0">
         <VBox.margin>
@@ -133,7 +143,7 @@
             <Insets />
         </VBox.margin>
         <children>
-            <Button fx:id="reponseBtn" mnemonicParsing="false" onMouseClicked="#addHistory" styleClass="product__add-new-productBtn" text="Ajouter" textFill="WHITE" translateY="60.0">
+            <Button fx:id="reponseBtn" mnemonicParsing="false" onMouseClicked="#addReponse" styleClass="product__add-new-productBtn" text="Ajouter" textFill="WHITE" translateY="60.0">
                 <font>
                     <Font name="Montserrat Regular" size="16.0" />
                 </font>

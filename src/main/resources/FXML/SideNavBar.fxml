@@ -21,7 +21,7 @@
             <children>
                 <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
-                        <Image url="@../imagesAct/logo.png" />
+                        <Image url="@../img/logo.png" />
                     </image>
                     <VBox.margin>
                         <Insets />
@@ -58,16 +58,16 @@
                                         <Insets right="10.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/homme.png" />
+                                        <Image url="@../img/homme.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="3.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
                                 </Label>
                             </children>
                             <padding>
@@ -85,16 +85,16 @@
                                         <Insets right="4.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/compte.png" />
+                                        <Image url="@../img/compte.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="18.0" />
                                     </font>
-                           <padding>
-                              <Insets bottom="-5.0" />
-                           </padding>
+                                    <padding>
+                                        <Insets bottom="-5.0" />
+                                    </padding>
                                 </Label>
                             </children>
                             <padding>
@@ -112,7 +112,7 @@
                                         <Insets right="10.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/credit.png" />
+                                        <Image url="@../img/credit.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="creditsText" styleClass="text" text="Crédits" textFill="WHITE" translateY="3.0">
@@ -139,7 +139,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/stage.png" />
+                                        <Image url="@../img/stage.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -166,7 +166,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/project.png" />
+                                        <Image url="@../img/project.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="investissementsText" styleClass="text" text="Projets" textFill="WHITE">
@@ -192,7 +192,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/event.png" />
+                                        <Image url="@../img/event.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="evenementsText" styleClass="text" text="Evènements" textFill="WHITE" translateX="3.0">
@@ -218,7 +218,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/help.png" />
+                                        <Image url="@../img/help.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="reclamationText" styleClass="text" text="Réclamations" textFill="WHITE">
@@ -237,7 +237,7 @@
                                 <Insets left="20.0" />
                             </padding>
                         </HBox>
-                        <HBox fx:id="actualitesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="actualitesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openArticleList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="actualitesIcon" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
 
@@ -245,7 +245,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../imagesAct/news.png" />
+                                        <Image url="@../img/news.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="actualitesText" styleClass="text" text="Actualités" textFill="WHITE" translateX="3.0">
@@ -277,7 +277,7 @@
                 </Text>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
                     <image>
-                        <Image url="@../imagesAct/bell.png" />
+                        <Image url="@../img/bell.png" />
                     </image>
                 </ImageView>
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
@@ -300,7 +300,7 @@
                 </HBox>
                 <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../imagesAct/admin.png" />
+                        <Image url="@../img/admin.png" />
                     </image>
                     <HBox.margin>
                         <Insets right="10.0" />
@@ -318,13 +318,13 @@
                     <HBox.margin>
                         <Insets right="16.0" />
                     </HBox.margin>
-               <children>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagesAct/logout.png" />
-                     </image>
-                  </ImageView>
-               </children>
+                    <children>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/logout.png" />
+                            </image>
+                        </ImageView>
+                    </children>
                 </HBox>
             </children>
         </HBox>

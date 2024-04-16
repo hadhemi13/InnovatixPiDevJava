@@ -14,9 +14,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="userProductsContainer" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListArticleAdminController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="userProductsContainer" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListArticleAdminController">
     <children>
-        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1225.0">
+        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1084.0">
             <children>
                 <Text fx:id="artReturnFrontBtn" fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text=" Articles| " />
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Liste des articles" />
@@ -39,9 +39,9 @@
                         </ImageView>
                     </children>
                 </HBox>
-                <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="239.0" styleClass="onlyOfferItemsBtn" translateX="220.0">
+                <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#navigateToArticleAdd" prefHeight="40.0" prefWidth="239.0" styleClass="onlyOfferItemsBtn" translateX="220.0">
                     <children>
-                        <Text fx:id="AjouterArtBtn" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Ajouter un article" />
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Ajouter un article" />
                     </children>
                 </HBox>
             </children>
@@ -51,14 +51,14 @@
         </HBox>
         <VBox layoutY="77.0" prefHeight="533.0" prefWidth="232.0" stylesheets="@../css/SideNavBar.css" translateX="5.0" translateY="5.0">
             <children>
-                <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="249.0" prefWidth="217.0" styleClass="productList_BoxContainer" translateY="100.0">
+                <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="249.0" prefWidth="217.0" styleClass="productList_BoxContainer" translateX="-7.0" translateY="100.0">
                     <children>
                         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="207.0" styleClass="searchText" stylesheets="@../css/SideNavBar.css">
                             <children>
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" translateX="57.0" translateY="20.0" />
                             </children>
                         </HBox>
-                        <ComboBox fx:id="categoryInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="197.0" promptText="Categories" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateY="30.0">
+                        <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="197.0" promptText="Categories" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateY="30.0">
                             <VBox.margin>
                                 <Insets bottom="15.0" />
                             </VBox.margin>
@@ -82,18 +82,9 @@
                 <Insets left="15.0" top="20.0" />
             </padding>
         </VBox>
-        <ScrollPane layoutX="256.0" layoutY="87.0" prefHeight="524.0" prefWidth="969.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
+        <ScrollPane fx:id="listArtScroll" layoutX="267.0" layoutY="77.0" prefHeight="524.0" prefWidth="800.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
             <content>
-                <GridPane fx:id="productsListContainer">
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                </GridPane>
-            </content>
-        </ScrollPane>
-        <ScrollPane fx:id="listArtScroll" layoutX="266.0" layoutY="97.0" prefHeight="524.0" prefWidth="969.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
-            <content>
-                <GridPane fx:id="productsListContainer1">
+                <GridPane fx:id="ArtListContainer" prefHeight="522.0" prefWidth="800.0">
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>

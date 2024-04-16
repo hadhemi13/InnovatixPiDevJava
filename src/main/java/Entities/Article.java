@@ -192,4 +192,5 @@ public class Article {
                 ", image_art='" + image_art + '\'' +
                 '}';
     }
+
 }

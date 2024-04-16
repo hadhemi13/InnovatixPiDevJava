@@ -105,7 +105,7 @@
                             </Label>
                         </children>
                     </HBox>
-                    <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="306.0">
+                    <HBox fx:id="action" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="306.0">
                         <children>
                             <HBox fx:id="offerProduit" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" visible="false">
                                 <children>

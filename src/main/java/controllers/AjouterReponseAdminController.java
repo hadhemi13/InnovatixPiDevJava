@@ -1,5 +1,7 @@
 package controllers;
 
+import Entities.Reclamation;
+import Entities.Reponse;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,8 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import services.ServiceReponse;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class AjouterReponseAdminController implements Initializable {
@@ -18,7 +23,7 @@ public class AjouterReponseAdminController implements Initializable {
     private Text addpieceJBtn;
 
     @FXML
-    private TextArea contenu;
+    private TextArea contenuInput;
 
     @FXML
     private Text contenuInputError;
@@ -30,20 +35,49 @@ public class AjouterReponseAdminController implements Initializable {
     private ImageView imageInput;
 
     @FXML
-    private Button reponseBtn;
+    private Text pieceInputError;
 
     @FXML
-    void addHistory(MouseEvent event) {
+    private HBox pieceInputErrorBox;
+
+    @FXML
+    private Button reponseBtn;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        contenuInputErrorBox.setVisible(false);
+        pieceInputErrorBox.setVisible(false);
+
 
     }
-
     @FXML
     void ajouter_image(MouseEvent event) {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    @FXML
+    void addReponse(MouseEvent event) {
+        ServiceReponse sr = new ServiceReponse();
+        if (contenuInput.getText().isEmpty()) {
+            contenuInputErrorBox.setVisible(true);
+            return;
+        }
+        if (addpieceJBtn.getText().isEmpty()) {
+            pieceInputErrorBox.setVisible(true);
+            return;
+        }
+        LocalDateTime dateTime = LocalDateTime.now();
+        String adresse = "mahmoud";
+        String pieceJointe = "admin";
+        Reponse reponse = new Reponse(2,adresse,dateTime,contenuInput.getText(),pieceJointe);
+        try {
+            sr.ajouter(reponse);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
+
+
+
 }
