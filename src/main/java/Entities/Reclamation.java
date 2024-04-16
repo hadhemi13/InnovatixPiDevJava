@@ -41,6 +41,9 @@ public class Reclamation {
         this.date_rec = date_rec;
     }
 
+    public Reclamation(String text, String text1, String adresse, String nom, String selectedDepartment, String pieceJointe, String statut, LocalDateTime dateTime, String image) {
+    }
+
     public Integer getId() {
         return id;
     }

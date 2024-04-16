@@ -16,7 +16,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterReclamationController">
 <children>
-    <HBox prefHeight="53.0" prefWidth="570.0">
+    <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="570.0">
         <children>
             <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Envoyer une réclamation">
                 <font>
@@ -32,7 +32,7 @@
         <content>
             <VBox prefHeight="652.0" prefWidth="669.0">
                 <children>
-                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="688.0">
+                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="670.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
@@ -55,8 +55,8 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                        <TextField />
-                            <HBox fx:id="ContenuHboxErreur" prefHeight="42.0" prefWidth="656.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                        <TextField fx:id="objetRec" prefHeight="26.0" prefWidth="557.0" />
+                            <HBox fx:id="ObjetHboxErreur" prefHeight="73.0" prefWidth="638.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="ContenuArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Objet obligatoire !">
@@ -71,7 +71,7 @@
                             <Insets />
                         </VBox.margin>
                     </VBox>
-                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="187.0" prefWidth="609.0">
+                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="129.0" prefWidth="670.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
@@ -93,8 +93,8 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                        <TextArea prefHeight="74.0" prefWidth="600.0" />
-                            <HBox fx:id="titreInputErrorHbox" prefHeight="56.0" prefWidth="656.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                        <TextArea fx:id="contenuRec" prefHeight="64.0" prefWidth="562.0" />
+                            <HBox fx:id="contenuInputErrorHbox" prefHeight="58.0" prefWidth="638.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="titreInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
@@ -130,11 +130,11 @@
                                             <Insets bottom="10.0" />
                                         </padding>
                                     </HBox>
-                                    <ComboBox fx:id="categoriechoice" prefHeight="40.0" prefWidth="299.0" styleClass="product__add-comboBox" />
-                                    <HBox fx:id="categorieErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                    <ComboBox fx:id="departementRec" prefHeight="40.0" prefWidth="299.0" styleClass="product__add-comboBox" />
+                                    <HBox fx:id="depRecErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                            <Text fx:id="CatArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Département obligatoire !">
+                                            <Text fx:id="depInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Département obligatoire !">
                                                 <HBox.margin>
                                                     <Insets top="5.0" />
                                                 </HBox.margin>
@@ -210,7 +210,7 @@
                     </HBox>
                     <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0" translateY="45.0">
                         <children>
-                            <Button fx:id="addArticleBtn" mnemonicParsing="false" onMouseClicked="#ajouter_reclamation" prefHeight="48.0" prefWidth="110.0" styleClass="product__add-img-btn" text="Ajouter" textFill="#f4f2f2">
+                            <Button fx:id="addRecBtn" mnemonicParsing="false" onMouseClicked="#ajouter_reclamation" prefHeight="48.0" prefWidth="110.0" styleClass="product__add-img-btn" text="Ajouter" textFill="#f4f2f2">
                                 <font>
                                     <Font name="Montserrat Regular" size="16.0" />
                                 </font>

@@ -175,7 +175,7 @@
                 </HBox>
             </children>
         </StackPane>
-        <HBox maxWidth="1.7976931348623157E308" styleClass="top-border" stylesheets="@../css/styles.css">
+        <HBox maxWidth="1.7976931348623157E308" prefHeight="36.0" prefWidth="566.0" styleClass="top-border" stylesheets="@../css/styles.css">
             <children>
                 <HBox fx:id="likeContainer" alignment="CENTER" onMousePressed="#onLikeContainerPressed" onMouseReleased="#onLikeContainerMouseReleased" spacing="10.0" HBox.hgrow="ALWAYS">
                     <children>

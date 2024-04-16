@@ -34,7 +34,7 @@
                                         <children>
                                             <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="544.0">
                                                 <children>
-                                                    <Text fx:id="title" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__Name" text="Recycle Bag" />
+                                                    <Text fx:id="titreArt" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__Name" text="Titre" />
                                                 </children>
                                             </HBox>
                                             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -58,7 +58,7 @@
                                     </HBox>
                                     <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="32.0" prefWidth="630.0">
                                         <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="Category: " />
+                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="Catégorie :" wrappingWidth="91.1343994140625" />
                                             <Text fx:id="category" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categGet" text="Categ1" />
                                         </children>
                                     </HBox>
@@ -95,7 +95,7 @@
                                                 </HBox.margin>
                                             </Text>
                                             <Text fx:id="total_verif_reviews" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="20" translateY="2.0" />
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text=" verified reviews)" translateY="2.0" />
+                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="votes)" translateY="2.0" />
                                         </children>
                                     </HBox>
                                     <Line endX="510.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
@@ -103,39 +103,11 @@
                                             <Insets bottom="10.0" top="3.0" />
                                         </VBox.margin>
                                     </Line>
-                                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0" prefWidth="622.0" styleClass="productDetails__price">
-                                        <VBox.margin>
-                                            <Insets top="5.0" />
-                                        </VBox.margin>
-                                        <children>
-                                            <HBox prefHeight="100.0" prefWidth="305.0">
-                                                <children>
-                                                    <Text fx:id="priceAfter" strokeType="OUTSIDE" strokeWidth="0.0" text="199" />
-                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TND">
-                                                        <HBox.margin>
-                                                            <Insets left="3.0" />
-                                                        </HBox.margin>
-                                                    </Text>
-                                                </children>
-                                            </HBox>
-                                            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="305.0">
-                                                <children>
-                                                    <Text fx:id="points" strokeType="OUTSIDE" strokeWidth="0.0" text="300" />
-                                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="pts">
-                                                        <HBox.margin>
-                                                            <Insets left="3.0" />
-                                                        </HBox.margin>
-                                                    </Text>
-                                                </children>
-                                            </HBox>
-                                        </children>
-                                    </HBox>
                                     <HBox fx:id="offreRow" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="622.0">
                                         <children>
                                             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="79.0">
                                                 <children>
-                                                    <Text fx:id="priceBefore" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceBefore" text="260" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="TND">
+                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="Date de publication :    ">
                                                         <HBox.margin>
                                                             <Insets left="3.0" />
                                                         </HBox.margin>
@@ -144,13 +116,7 @@
                                             </HBox>
                                             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="50.0" styleClass="productDetails__OFFRE">
                                                 <children>
-                                                    <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="-" />
-                                                    <Text fx:id="offre" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="50" />
-                                                    <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="\%">
-                                                        <HBox.margin>
-                                                            <Insets left="3.0" />
-                                                        </HBox.margin>
-                                                    </Text>
+                                                    <Text fx:id="offre" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="13/03/2024" textAlignment="CENTER" wrappingWidth="106.32421875" />
                                                 </children>
                                             </HBox>
                                         </children>
@@ -163,26 +129,18 @@
                                             <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" text="Description: " />
                                         </children>
                                     </HBox>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="615.0">
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="615.0">
                                         <children>
-                                            <Text fx:id="description" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descText" text="Cool enviorement friendly bag Cool enviorement friendly bag Cool enviorement friendly bag Cool enviorement friendly bag Cool enviorement friendly bag " wrappingWidth="601.699951171875" />
+                                            <Text fx:id="description" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descText" text="Contenu de l'article" wrappingWidth="601.699951171875" />
                                         </children>
                                     </HBox>
                                     <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="630.0">
                                         <children>
-                                            <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" text="In stock " />
+                                            <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" text="Voir la piece jointe" />
                                         </children>
                                         <VBox.margin>
                                             <Insets bottom="10.0" top="10.0" />
                                         </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="46.0" prefWidth="622.0" styleClass="productDetails__addToCartBtn">
-                                        <VBox.margin>
-                                            <Insets />
-                                        </VBox.margin>
-                                        <children>
-                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__addToCartBtnText" text="Add To Cart" />
-                                        </children>
                                     </HBox>
                                 </children>
                                 <HBox.margin>
@@ -405,15 +363,7 @@
                                                     <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text=")" />
                                                 </children>
                                             </HBox>
-                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="308.0">
-                                                <children>
-                                                    <HBox fx:id="addNewReviewBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" styleClass="addReview__btn">
-                                                        <children>
-                                                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="addReview__btnText" text="Add Your Review" />
-                                                        </children>
-                                                    </HBox>
-                                                </children>
-                                            </HBox>
+                                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="308.0" />
                                         </children>
                                     </HBox>
                                     <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="740.0" styleClass="product-card-scrollPane">

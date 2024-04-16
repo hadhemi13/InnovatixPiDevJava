@@ -4,6 +4,7 @@ import Entities.Reclamation;
 import utils.MyDatabase;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +14,39 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
     public ServiceReclamation(){
         connection= MyDatabase.getInstance().getConnection();
     }
-    @Override
+//    @Override
+//    public void ajouter(Reclamation reclamation) throws SQLException {
+//        String req = "INSERT INTO reclamation (objet_rec, contenu_rec, adr_rec, nom_aut_rec, dep_rec, statut_rec, piece_jrec, date_rec) " +
+//                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+//
+//
+//        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+//            preparedStatement.setString(1, reclamation.getObjet_rec());
+//            preparedStatement.setString(2, reclamation.getContenu_rec());
+//            preparedStatement.setString(3, reclamation.getAdr_rec());
+//            preparedStatement.setString(4, reclamation.getNom_aut_rec());
+//            preparedStatement.setString(5, reclamation.getDep_rec());
+//            preparedStatement.setString(6, reclamation.getStatut_rec());
+//            preparedStatement.setString(7, reclamation.getPiece_jrec());
+//            preparedStatement.setTimestamp(8, Timestamp.valueOf(reclamation.getDate_rec()));
+//
+//
+//            preparedStatement.executeUpdate();
+//            System.out.println("Réclamation ajoutée");
+//        } catch (SQLException e) {
+//            System.out.println("Erreur lors de l'ajout de la réclamation : " + e.getMessage());
+//        }
+//    }
+
+
+
+
+        @Override
     public void ajouter(Reclamation reclamation) throws SQLException {
+
         String req = "INSERT INTO reclamation (objet_rec, contenu_rec, adr_rec, nom_aut_rec, dep_rec, statut_rec, piece_jrec, date_rec) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
+    LocalDateTime currentDate = LocalDateTime.now();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
             preparedStatement.setString(1, reclamation.getObjet_rec());
@@ -27,7 +56,7 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
             preparedStatement.setString(5, reclamation.getDep_rec());
             preparedStatement.setString(6, reclamation.getStatut_rec());
             preparedStatement.setString(7, reclamation.getPiece_jrec());
-            preparedStatement.setTimestamp(8, Timestamp.valueOf(reclamation.getDate_rec()));
+                    preparedStatement.setTimestamp(8, Timestamp.valueOf(currentDate));
 
 
             preparedStatement.executeUpdate();
@@ -36,6 +65,12 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
             System.out.println("Erreur lors de l'ajout de la réclamation : " + e.getMessage());
         }
     }
+
+
+
+
+
+
 
     @Override
     public void supprimer(Reclamation reclamation) throws SQLException {

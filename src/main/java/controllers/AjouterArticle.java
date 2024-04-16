@@ -85,6 +85,12 @@ public class AjouterArticle implements Initializable {
     private HBox titreInputErrorHbox;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageInputErrorHbox.setVisible(false);
+        categorieErrorHbox.setVisible(false);
+        ContenuHboxErreur.setVisible(false);
+        pieceJInputErrorHbox.setVisible(false);
+        titreInputErrorHbox.setVisible(false);
+        dureeInputErrorHbox.setVisible(false);
         SpinnerValueFactory<Integer> valueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1); // Valeur initiale, valeur maximale, valeur minimale
         dureeArt.setValueFactory(valueFactory);
@@ -119,17 +125,21 @@ public class AjouterArticle implements Initializable {
         if (ContenuArt.getText().isEmpty()) {
 
             ContenuHboxErreur.setVisible(true);
+            return;
         }
         if (categoriechoice.getSelectionModel().isEmpty()) {
             categorieErrorHbox.setVisible(true);
+            return;
         }
 
         if (dureeArt.getValue() == null) {
             dureeInputErrorHbox.setVisible(true);
+            return;
         }
 
         if (titreInput.getText().isEmpty()) {
             titreInputErrorHbox.setVisible(true);
+            return;
         }
         LocalDate selectedDate = datePubArt.getValue();
         LocalTime currentTime = LocalTime.now();

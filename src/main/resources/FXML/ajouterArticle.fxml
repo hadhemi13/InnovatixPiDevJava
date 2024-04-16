@@ -258,7 +258,7 @@
                                         </padding>
                                     </HBox>
                               <Spinner fx:id="dureeArt" />
-                                    <HBox fx:id="pointsInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                    <HBox fx:id="dureeInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                             <Text fx:id="dureeArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Durée obligatoire !">
