@@ -79,7 +79,6 @@ public class DemandeStageController {
 
         }
     }
-
     @FXML
     void ajouterDemande(ActionEvent event) {
         if (event.getSource() == ajouterDemande){
@@ -119,42 +118,6 @@ public class DemandeStageController {
 
                 }
             }
-
-
-
-//            if (NomDemInput.getText().isEmpty()){
-//                Alert alert = new Alert(Alert.AlertType.WARNING);
-//                alert.setTitle("Information manquante");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Vous devez remplir tous les détails concernant votre activité.");
-//                Optional<ButtonType> option = alert.showAndWait();
-//            }
-//        }else {
-//            MyDatabase db = MyDatabase.getInstance();
-//
-//            DemandeStage  stage = new DemandeStage("yesser","khaloui","khaluiyesser@gmail.com","hahahaha","yesser.com","Informatique",25114365,"encours",new Date(124,04,06));
-//            ServiceDemandeStage demandeStage = new ServiceDemandeStage();
-//            try {
-//                demandeStage.ajouter(stage);
-//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                alert.setTitle("Ajouté avec succès");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Votre activité a été ajoutée avec succès.");
-//                Optional<ButtonType> option = alert.showAndWait();
-//            } catch (SQLException e) {
-//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                alert.setTitle("Ajouté avec succès");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Votre Stage a été ajoutée avec succès.");
-//                Optional<ButtonType> option = alert.showAndWait();
-//
-//            }
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//            alert.setTitle("Ajouté avec succès");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Votre activité a été ajoutée avec succès.");
-//            Optional<ButtonType> option = alert.showAndWait();
-
     }
 }
 

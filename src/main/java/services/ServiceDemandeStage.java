@@ -179,9 +179,7 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()){
-                list.add(new DemandeStage(rs.getInt("id"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getString("lettremotivation"),rs.getString("cv"),rs.getString("domaine"),rs.getInt("numerotelephone"),rs.getInt("score"), rs.getDate("date")));
-                //LocalDateTime dt = list.getDate("date").toLocalDate;
-                //System.out.println(list);
+                list.add(new DemandeStage(rs.getInt("id"),rs.getInt("offre_stage_id"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getInt("numerotelephone"),rs.getString("lettremotivation"),rs.getString("cv"),rs.getString("domaine"),rs.getString("etat"),rs.getDate("date"),rs.getInt("score")));
             }
         }catch (SQLException e){
             System.err.println(e.getMessage());
@@ -195,7 +193,7 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
                     ", email='" + i.getEmail() + '\'' +
                     ", cv='" + i.getCv() + '\'' +
                     ", domaine='" + i.getDomaine() + '\'' +
-                    ", date='" + i.getDate() + '\'' +
+                    ", date='" + i.getScore() + '\'' +
                     '}');
         }
         return list;

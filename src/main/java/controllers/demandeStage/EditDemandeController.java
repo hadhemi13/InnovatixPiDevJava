@@ -25,7 +25,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class EditOffreController implements Initializable {
+public class EditDemandeController implements Initializable {
     @FXML
     private TextField LettreDemInput;
 
@@ -62,6 +62,13 @@ public class EditOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         NomDemInput.setText("yesser");
+    }
+    public void initData(DemandeStage demande) {
+        // Initialiser les champs de l'interface utilisateur avec les données de la demande
+        // Par exemple :
+        NomDemInput.setText(demande.getNom());
+        PrenomDemInput.setText(demande.getPrenom());
+        // Autres initialisations...
     }
     @FXML
     void Upload(ActionEvent event) throws IOException {
