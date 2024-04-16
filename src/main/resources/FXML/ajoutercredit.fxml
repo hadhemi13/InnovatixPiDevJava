@@ -357,7 +357,7 @@
             <children>
                 <HBox alignment="CENTER_LEFT" layoutX="-27.0" layoutY="-21.0" prefWidth="49.0" />
                 <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
-            <Pane fx:id="content_area1" layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="501.0" style="-fx-background-color: #93C572;" styleClass="dash__container-card2">
+            <Pane fx:id="content_area1" layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="574.0" style="-fx-background-color: white;" styleClass="dash__container-card2">
                <children>
                   <Button fx:id="calcultauxbtn" layoutX="131.0" layoutY="174.0" mnemonicParsing="false" onAction="#calculertaux" prefHeight="35.0" prefWidth="180.0" styleClass="nav-links2" text="Calculer taux" />
                   <Button fx:id="calculfraisretardbtn" layoutX="131.0" layoutY="231.0" mnemonicParsing="false" onAction="#calculfraisretard" prefHeight="35.0" prefWidth="180.0" styleClass="nav-links2" text="calculer frais retard" />
