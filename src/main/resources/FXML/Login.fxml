@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" styleClass="signUp__container" stylesheets="@../../resources/css/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
     <left>
         <AnchorPane fx:id="left" prefHeight="700.0" prefWidth="652.0" styleClass="left" stylesheets="@../../resources/css/login.css" BorderPane.alignment="CENTER">
          <children>
@@ -52,10 +52,18 @@
                         </Label>
                         <HBox alignment="TOP_RIGHT" prefHeight="73.0" prefWidth="418.0">
                            <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#ToSignUp" prefHeight="41.0" prefWidth="90.0" style="-fx-background-radius: 50; -fx-background-color: #008000;" styleClass="SignUp__btnLogin" stylesheets="@../css/SideNavBar.css" text="Sign UP">
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 50; -fx-background-color: #008000;" text="Sign UP">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 50; -fx-background-color: #008000;" text="Sign IN">
+                                 <font>
+                                    <Font name="System Bold Italic" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="7.0" />
+                                 </HBox.margin>
                               </Button>
                            </children>
                            <HBox.margin>
@@ -67,7 +75,7 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="662.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="TOP_CENTER" prefHeight="603.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets left="15.0" />
                      </padding>
@@ -75,7 +83,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E_Flex_Bank" wrappingWidth="243.70472645759583">
                            <font>
-                              <Font name="Franklin Gothic Medium" size="36.0" />
+                              <Font name="Impact" size="36.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="100.0" />
@@ -88,19 +96,19 @@
          </children></AnchorPane>
     </left>
    <center>
-      <VBox prefHeight="1366.0" prefWidth="750.0" stylesheets="@../css/login.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="700.0" prefWidth="418.0" stylesheets="@../css/login.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="760.0" prefWidth="709.0" rotate="180.0" style="-fx-background-color: WHITE;" styleClass="vbox_background_right" stylesheets="@../css/login.css">
+            <VBox alignment="CENTER" prefHeight="702.0" prefWidth="443.0" rotate="180.0" styleClass="vbox_background_right" stylesheets="@../css/login.css">
                <children>
-                  <Hyperlink onAction="#toForgotPassword" prefHeight="24.0" prefWidth="285.0" rotate="178.6" text="Fogot password" />
-                  <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#logIn" prefHeight="38.0" prefWidth="306.0" rotate="179.3" style="-fx-background-radius: 50; -fx-background-color: #008000;" styleClass="SignUp__btn" stylesheets="@../css/SideNavBar.css" text="Se connecter ">
+                  <Hyperlink prefHeight="24.0" prefWidth="285.0" rotate="178.6" text="Fogot password" />
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="306.0" rotate="179.3" style="-fx-background-radius: 50; -fx-background-color: #008000;" text="Se connecter ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
                   <HBox alignment="CENTER" prefHeight="85.0" prefWidth="442.0">
                      <children>
-                        <PasswordField fx:id="passField" prefHeight="63.0" prefWidth="312.0" promptText="Password" rotate="179.4" style="-fx-background-radius: 50;">
+                        <PasswordField prefHeight="63.0" prefWidth="312.0" promptText="Password" rotate="179.4" style="-fx-background-radius: 50;">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -112,7 +120,7 @@
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <TextField fx:id="emailField" prefHeight="66.0" prefWidth="318.0" promptText="Email" rotate="-179.5" style="-fx-background-radius: 50;">
+                        <TextField prefHeight="66.0" prefWidth="318.0" promptText="Email" rotate="-179.5" style="-fx-background-radius: 50;">
                            <font>
                               <Font size="18.0" />
                            </font>

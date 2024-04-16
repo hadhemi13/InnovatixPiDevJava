@@ -5,29 +5,21 @@ import services.*;
 import utils.MyDatabase;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-import java.io.IOException;
-import java.sql.*;
-
 public class Main {
     public static void main(String[] args){
 
         MyDatabase myDataBase = new MyDatabase();
         ServiceUser serviceUser = new ServiceUser();
-        List yesser = new ArrayList<>();
-        yesser.add("ROLE_ADMIN");
        // User user= new User( 1,"John Doe","exemple@example.com","12345678","ROLE_USER","motdepasse","Développeur","ABC123","chemin/vers/photo.jpg","123 rue exemple","12/6/2000",0,0,"rh",1000);
-//User maryem = new User(4,"maryem","maryemmhamdi@gmail.com","hello","sbs","hshsh","hhshs");
-//User maryemHobYesser = new User("maryemHobYesser","jdsjs","hshsh","yesser@gmail.com","hshshs","hdhdh","hshs","bssb","shshs","hshs",0,1,"gsgs",253);
-   // try {
-           // serviceUser.ajouter();
-            System.out.println("edit");
-       // } catch (SQLException e) {
-          //  System.out.println(e.getMessage());
+        User maryemHobYesser = new User("hahaha","maryemHobYesser","haha","","hjjhjsjs","hqh","hshs","hshgsh","hdhs","hhdh",0,1,"hshsh",33);
+        try {
+            serviceUser.ajouter(maryemHobYesser);
+            System.out.println("ajouté");
+        } catch (SQLException e) {
+            System.out.println("non");
         }
 
 
@@ -152,10 +144,16 @@ public class Main {
             Article articleModif = serviceArticle.getArticleById(1);
             articleModif.setTitreArt("Nouveau titre");
             serviceArticle.modifier(articleModif);
-    public static void main(String[] args) throws SQLException, IOException, InterruptedException {
-    }
 
-}
+              // Test de suppression d'un article
+            Article articleSupp = serviceArticle.getArticleById(1);
+            serviceArticle.supprimer(articleSupp);
+
+            // Test d'affichage des articles
+            List<Article> articles = serviceArticle.afficher();
+            for (Article art : articles) {
+                System.out.println(art);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -200,7 +198,7 @@ public class Main {
             e.printStackTrace();
         }
     }*/
-        ServiceReponseCommentaire service = new ServiceReponseCommentaire();
+        //ServiceReponseCommentaire service = new ServiceReponseCommentaire();
 
 
         /*
@@ -240,6 +238,6 @@ public class Main {
             e.printStackTrace();
         }*/
     }
-
+}
 
 

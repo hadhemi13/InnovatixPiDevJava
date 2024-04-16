@@ -14,9 +14,5 @@ public interface Iservice <T> {
     public User getOneUser(String email) throws SQLException;
 
     public User getUserById(int id) throws SQLException;
-
-    void signUp(User user);
-
-    boolean isEmailUsed(String email);
 }
 
