@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="userPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UsersListController">
+    <children>
+        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="1033.0">
+            <children>
+                <Text fx:id="userListTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_list--title" text="Liste Des Utilisateurs ">
+                    <HBox.margin>
+                        <Insets right="550.0" />
+                    </HBox.margin></Text>
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Sort by:">
+                    <HBox.margin>
+                        <Insets right="25.0" />
+                    </HBox.margin>
+                </Text>
+                <ComboBox fx:id="roleInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="All" styleClass="product__add-comboBox" />
+            </children>
+        </HBox>
+        <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="14.0" layoutY="93.0" prefHeight="74.0" prefWidth="1023.0" styleClass="userTableHead" stylesheets="@../../resources/css/SideNavBar.css">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" wrappingWidth="287.7546730041504" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" wrappingWidth="230.15475845336914" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="TEL" wrappingWidth="100.55472183227539" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Role" wrappingWidth="106.15463638305664" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Etat du compte" wrappingWidth="138.15475845336914" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Photo " wrappingWidth="172.55461502075195" />
+            </children>
+        </HBox>
+        <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane">
+            <content>
+                <VBox fx:id="userListContainer" prefHeight="446.0" prefWidth="1005.0" spacing="13.0" styleClass="userTableBody" />
+            </content>
+        </ScrollPane>
+    </children>
+</Pane>

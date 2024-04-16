@@ -1,14 +1,32 @@
 package tests;
 
+import Entities.User;
 import services.*;
 import utils.MyDatabase;
+
+import java.sql.SQLException;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         MyDatabase myDataBase = new MyDatabase();
+        ServiceUser serviceUser = new ServiceUser();
+       // User user= new User( 1,"John Doe","exemple@example.com","12345678","ROLE_USER","motdepasse","Développeur","ABC123","chemin/vers/photo.jpg","123 rue exemple","12/6/2000",0,0,"rh",1000);
+        User maryemHobYesser = new User("hahaha","maryemHobYesser","haha","","hjjhjsjs","hqh","hshs","hshgsh","hdhs","hhdh",0,1,"hshsh",33);
+        try {
+            serviceUser.ajouter(maryemHobYesser);
+            System.out.println("ajouté");
+        } catch (SQLException e) {
+            System.out.println("non");
+        }
+
+
+        // Appel de la méthode ajouter pour ajouter l'utilisateur
+
+
+
         /* Test reclamation
         ServiceReclamation serviceReclamation = new ServiceReclamation();
 
@@ -51,7 +69,7 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
-        ServiceReponse serviceReponse = new ServiceReponse();
+       // ServiceReponse serviceReponse = new ServiceReponse();
 
           /*
             test reponse
@@ -114,7 +132,7 @@ public class Main {
             System.out.println("Erreur lors de l'affichage des réponses : " + ex.getMessage());
         }
         */
-        ServiceArticle serviceArticle = new ServiceArticle();
+        //ServiceArticle serviceArticle = new ServiceArticle();
 /*
         try {
 
@@ -180,7 +198,7 @@ public class Main {
             e.printStackTrace();
         }
     }*/
-        ServiceReponseCommentaire service = new ServiceReponseCommentaire();
+        //ServiceReponseCommentaire service = new ServiceReponseCommentaire();
 
 
         /*
