@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,9 +19,9 @@
                 <Insets />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0"  pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
+                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
-                        <Image url="@../img/logo.png" />
+                        <Image url="@../imagesAct/logo.png" />
                     </image>
                     <VBox.margin>
                         <Insets />
@@ -59,7 +58,7 @@
                                         <Insets right="10.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/homme.png" />
+                                        <Image url="@../imagesAct/homme.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="3.0">
@@ -86,7 +85,7 @@
                                         <Insets right="4.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/compte.png" />
+                                        <Image url="@../imagesAct/compte.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
@@ -113,7 +112,7 @@
                                         <Insets right="10.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/credit.png" />
+                                        <Image url="@../imagesAct/credit.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="creditsText" styleClass="text" text="Crédits" textFill="WHITE" translateY="3.0">
@@ -140,7 +139,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/stage.png" />
+                                        <Image url="@../imagesAct/stage.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -167,7 +166,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/project.png" />
+                                        <Image url="@../imagesAct/project.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="investissementsText" styleClass="text" text="Projets" textFill="WHITE">
@@ -193,7 +192,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/event.png" />
+                                        <Image url="@../imagesAct/event.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="evenementsText" styleClass="text" text="Evènements" textFill="WHITE" translateX="3.0">
@@ -219,7 +218,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/help.png" />
+                                        <Image url="@../imagesAct/help.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="reclamationText" styleClass="text" text="Réclamations" textFill="WHITE">
@@ -246,7 +245,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/news.png" />
+                                        <Image url="@../imagesAct/news.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="actualitesText" styleClass="text" text="Actualités" textFill="WHITE" translateX="3.0">
@@ -278,7 +277,7 @@
                 </Text>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
                     <image>
-                        <Image url="@../img/bell.png" />
+                        <Image url="@../imagesAct/bell.png" />
                     </image>
                 </ImageView>
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
@@ -301,7 +300,7 @@
                 </HBox>
                 <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/admin.png" />
+                        <Image url="@../imagesAct/admin.png" />
                     </image>
                     <HBox.margin>
                         <Insets right="10.0" />
@@ -322,17 +321,13 @@
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/logout.png" />
+                        <Image url="@../imagesAct/logout.png" />
                      </image>
                   </ImageView>
                </children>
                 </HBox>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
-         <children>
-            <ScrollPane prefHeight="622.0" prefWidth="1084.0" />
-         </children>
-        </Pane>
+        <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" />
     </children>
 </AnchorPane>

@@ -1111,7 +1111,7 @@
 }
 
 .bg {
-    -fx-background-image: url("../img/back1.jpg");
+    -fx-background-image: url("../imagesAct/back1.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }

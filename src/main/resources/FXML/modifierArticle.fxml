@@ -28,7 +28,7 @@
         <children>
             <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                 <image>
-                    <Image url="@../img/logo.png" />
+                    <Image url="@../imagesAct/logo.png" />
                 </image>
                 <VBox.margin>
                     <Insets />
@@ -65,7 +65,7 @@
                                     <Insets right="10.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/homme.png" />
+                                    <Image url="@../imagesAct/homme.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="8.0">
@@ -92,7 +92,7 @@
                                     <Insets right="4.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/compte.png" />
+                                    <Image url="@../imagesAct/compte.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
@@ -119,7 +119,7 @@
                                     <Insets right="10.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/credit.png" />
+                                    <Image url="@../imagesAct/credit.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="creditsText" styleClass="text" text="Crédits" textFill="WHITE" translateY="3.0">
@@ -146,7 +146,7 @@
                                     <Insets right="15.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/stage.png" />
+                                    <Image url="@../imagesAct/stage.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -173,7 +173,7 @@
                                     <Insets right="15.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/investissement.png" />
+                                    <Image url="@../imagesAct/investissement.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="investissementsText" styleClass="text" text="Projets" textFill="WHITE">
@@ -199,7 +199,7 @@
                                     <Insets right="15.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/un-evenement.png" />
+                                    <Image url="@../imagesAct/un-evenement.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="evenementsText" styleClass="text" text="Evènements" textFill="WHITE" translateX="3.0">
@@ -225,7 +225,7 @@
                                     <Insets right="15.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/point-dexclamation.png" />
+                                    <Image url="@../imagesAct/point-dexclamation.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="reclamationText" styleClass="text" text="Réclamations" textFill="WHITE">
@@ -252,7 +252,7 @@
                                     <Insets right="15.0" />
                                 </HBox.margin>
                                 <image>
-                                    <Image url="@../img/journal.png" />
+                                    <Image url="@../imagesAct/journal.png" />
                                 </image>
                             </ImageView>
                             <Label fx:id="actualitesText" styleClass="text" text="Actualités" textFill="WHITE" translateX="3.0">
@@ -282,7 +282,7 @@
                             <Insets right="15.0" />
                         </HBox.margin>
                         <image>
-                            <Image url="@../img/logout.png" />
+                            <Image url="@../imagesAct/logout.png" />
                         </image>
                     </ImageView>
                     <Label styleClass="text" text="Se déconnecter" textFill="WHITE" translateX="3.0" translateY="10.0">
@@ -314,7 +314,7 @@
             </HBox>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
                 <image>
-                    <Image url="@../img/bell.png" />
+                    <Image url="@../imagesAct/bell.png" />
                 </image>
             </ImageView>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
@@ -345,7 +345,7 @@
             </Text>
             <ImageView fitHeight="49.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../img/admin.png" />
+                    <Image url="@../imagesAct/admin.png" />
                 </image>
                 <HBox.margin>
                     <Insets right="10.0" />
@@ -360,7 +360,7 @@
     </Pane>
     <HBox fx:id="addReviewsModel" alignment="CENTER" layoutX="-256.0" layoutY="-81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1482.0" styleClass="categoriesModel" stylesheets="@../css/SideNavBar.css" translateX="140.0" translateY="-5.0">
     <children>
-    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="954.0" styleClass="productAddedToCart__card" stylesheets="@../css/SideNavBar.css" translateX="177.0" translateY="50.0">
+    <VBox fx:id="vboxmod" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="954.0" styleClass="productAddedToCart__card" stylesheets="@../css/SideNavBar.css" translateX="177.0" translateY="50.0">
     <children>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" prefWidth="600.0">
             <children>
@@ -373,7 +373,7 @@
                     <children>
                         <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/cross.png" />
+                                <Image url="@../imagesAct/cross.png" />
                             </image>
                         </ImageView>
                     </children>
@@ -565,7 +565,7 @@
                                                 <children>
                                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                         <image>
-                                                            <Image url="@../img/add-image.png" />
+                                                            <Image url="@../imagesAct/add-image.png" />
                                                         </image>
                                                     </ImageView>
                                                 </children>
@@ -655,7 +655,7 @@
                                         <children>
                                             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
-                                                    <Image url="@../img/cloud-computing.png" />
+                                                    <Image url="@../imagesAct/cloud-computing.png" />
                                                 </image>
                                             </ImageView>
                                         </children>
@@ -703,7 +703,7 @@
                                                 <children>
                                                     <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-3.0">
                                                         <image>
-                                                            <Image url="@../img/upload-big-arrow.png" />
+                                                            <Image url="@../imagesAct/upload-big-arrow.png" />
                                                         </image>
                                                     </ImageView>
                                                     <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-textBtn" text="Importer une image">

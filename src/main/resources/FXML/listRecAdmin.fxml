@@ -22,7 +22,7 @@
                     <children>
                         <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/category.png" />
+                                <Image url="@../imagesAct/category.png" />
                             </image>
                         </ImageView>
                     </children>

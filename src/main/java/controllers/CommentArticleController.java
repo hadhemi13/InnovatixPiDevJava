@@ -198,13 +198,13 @@ public class CommentArticleController implements Initializable {
         Post post = new Post();
         Account account = new Account();
         account.setName("Mahmoud Hamwi");
-        account.setProfileImg("/img/user.png");
+        account.setProfileImg("/imagesAct/user.png");
         account.setVerified(true);
         post.setAccount(account);
         post.setDate("Feb 18, 2021 at 12:00 PM");
         post.setAudience(PostAudience.PUBLIC);
         post.setCaption("Hello everybody.");
-        post.setImage("/img/img2.jpg");
+        post.setImage("/imagesAct/img2.jpg");
         post.setTotalReactions(10);
         post.setNbComments(2);
         post.setNbShares(3);

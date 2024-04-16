@@ -11,7 +11,7 @@
     <children>
         <ImageView fx:id="RecItemImg" fitHeight="50.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
             <image>
-                <Image url="@../img/admin.png" />
+                <Image url="@../imagesAct/admin.png" />
             </image>
             <HBox.margin>
                 <Insets right="10.0" />
@@ -65,7 +65,7 @@
             <graphic>
                 <ImageView fx:id="RecdetailBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
                     <image>
-                        <Image url="@../img/search.png" />
+                        <Image url="@../imagesAct/search.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -75,7 +75,7 @@
             <graphic>
                 <ImageView fx:id="RecReplyBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                     <image>
-                        <Image url="@../img/reply.png" />
+                        <Image url="@../imagesAct/reply.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -85,7 +85,7 @@
             <graphic>
                 <ImageView fx:id="RecItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/delete.png" />
+                        <Image url="@../imagesAct/delete.png" />
                     </image>
                 </ImageView>
             </graphic>

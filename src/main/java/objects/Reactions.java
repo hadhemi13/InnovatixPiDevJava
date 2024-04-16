@@ -4,14 +4,14 @@ package objects;
  * Created by Mahmoud Hamwi on 17-Feb-21.
  */
 public enum Reactions {
-    NON(0,"Like","#606266","/img/ic_like_outline.png"),
-    LIKE(1,"Like","#056BE1","/img/ic_like.png"),
-    LOVE(2,"Love","#E12C4A","/img/ic_love_.png"),
-    CARE(3,"Care","#EAA823","/img/ic_care.png"),
-    HAHA(4,"Haha","#EAA823","/img/ic_haha.png"),
-    WOW(5,"Wow","#EAA823","/img/ic_wow.png"),
-    SAD(6,"Sad","#EAA823","/img/ic_sad.png"),
-    ANGRY(7,"Angry","#DD6B0E","/img/ic_angry.png");
+    NON(0,"Like","#606266", "/imagesAct/ic_like_outline.png"),
+    LIKE(1,"Like","#056BE1", "/imagesAct/ic_like.png"),
+    LOVE(2,"Love","#E12C4A", "/imagesAct/ic_love_.png"),
+    CARE(3,"Care","#EAA823", "/imagesAct/ic_care.png"),
+    HAHA(4,"Haha","#EAA823", "/imagesAct/ic_haha.png"),
+    WOW(5,"Wow","#EAA823", "/imagesAct/ic_wow.png"),
+    SAD(6,"Sad","#EAA823", "/imagesAct/ic_sad.png"),
+    ANGRY(7,"Angry","#DD6B0E", "/imagesAct/ic_angry.png");
 
     private int id;
     private String name;

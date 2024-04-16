@@ -25,7 +25,7 @@
         </Label>
         <ImageView fx:id="imgPost" fitHeight="138.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/eco-modified (3).png" />
+            <Image url="@../imagesAct/eco-modified (3).png" />
          </image></ImageView>
       <HBox fx:id="articlehadhemi" prefHeight="219.0" prefWidth="586.0" stylesheets="@../css/SideNavBar.css">
          <children>
@@ -90,17 +90,17 @@
                                     <children>
                                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../img/ic_like.png" />
+                                                <Image url="@../imagesAct/ic_like.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../img/ic_love_.png" />
+                                                <Image url="@../imagesAct/ic_love_.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../img/ic_care.png" />
+                                                <Image url="@../imagesAct/ic_care.png" />
                                             </image>
                                         </ImageView>
                                     </children>
@@ -132,37 +132,37 @@
                     <children>
                         <ImageView fx:id="imgLike" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_like.png" />
+                                <Image url="@../imagesAct/ic_like.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="imgLove" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_love_.png" />
+                                <Image url="@../imagesAct/ic_love_.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="imgCare" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_care.png" />
+                                <Image url="@../imagesAct/ic_care.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="imgHaha" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_haha.png" />
+                                <Image url="@../imagesAct/ic_haha.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="imgWow" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_wow.png" />
+                                <Image url="@../imagesAct/ic_wow.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="imgSad" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_sad.png" />
+                                <Image url="@../imagesAct/ic_sad.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="imgAngry" fitHeight="50.0" fitWidth="50.0" onMousePressed="#onReactionImgPressed" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_angry.png" />
+                                <Image url="@../imagesAct/ic_angry.png" />
                             </image>
                         </ImageView>
                     </children>
@@ -181,7 +181,7 @@
                     <children>
                         <ImageView fx:id="imgReaction" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_like_outline.png" />
+                                <Image url="@../imagesAct/ic_like_outline.png" />
                             </image>
                         </ImageView>
                         <Label fx:id="reactionName" text="Réagir" textFill="#606266">
@@ -195,7 +195,7 @@
                     <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/ic_comment.png" />
+                                <Image url="@../imagesAct/ic_comment.png" />
                             </image>
                         </ImageView>
                         <Label text="Commenter" textFill="#606266">
@@ -213,40 +213,40 @@
                 <Insets bottom="10.0" top="10.0" />
             </padding>
         </HBox>
+      <HBox fx:id="commenterHbox" alignment="CENTER" prefHeight="79.0" prefWidth="567.0">
+         <children>
+            <HBox prefHeight="79.0" prefWidth="130.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="79.0" prefWidth="130.0">
+                     <children>
+                        <ImageView fitHeight="52.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagesAct/admin.png" />
+                           </image>
+                        </ImageView>
+                        <TextField prefHeight="0.0" prefWidth="68.0" promptText="Nom" translateY="4.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="327.0">
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="287.0" promptText="Vous pouvez commenter ici" translateX="15.0" />
+               </children>
+            </HBox>
+            <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagesAct/ic_share.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
       <VBox prefHeight="607.0" prefWidth="566.0">
          <children>
             <ScrollPane prefHeight="629.0" prefWidth="566.0">
                <content>
-                  <VBox prefHeight="610.0" prefWidth="567.0">
+                  <VBox prefHeight="541.0" prefWidth="567.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="567.0">
-                           <children>
-                              <HBox prefHeight="79.0" prefWidth="130.0">
-                                 <children>
-                                    <VBox alignment="CENTER" prefHeight="79.0" prefWidth="130.0">
-                                       <children>
-                                          <ImageView fitHeight="52.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/admin.png" />
-                                             </image>
-                                          </ImageView>
-                                          <TextField prefHeight="0.0" prefWidth="68.0" promptText="Nom" translateY="4.0" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="327.0">
-                                 <children>
-                                    <TextField prefHeight="26.0" prefWidth="287.0" promptText="Vous pouvez commenter ici" translateX="15.0" />
-                                 </children>
-                              </HBox>
-                              <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/ic_share.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" />
                      </children>
                   </VBox>

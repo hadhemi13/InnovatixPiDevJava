@@ -4,8 +4,8 @@ package objects;
  * Created by Mahmoud Hamwi on 17-Feb-21.
  */
 public enum PostAudience {
-    PUBLIC(0,"Public","/img/ic_public.png"),
-    FRIENDS(1,"Friends","/img/ic_friend.png");
+    PUBLIC(0,"Public", "/imagesAct/ic_public.png"),
+    FRIENDS(1,"Friends", "/imagesAct/ic_friend.png");
 
     private int id;
     private String name;

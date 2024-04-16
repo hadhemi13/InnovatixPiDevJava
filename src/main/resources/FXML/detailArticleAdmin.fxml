@@ -26,7 +26,7 @@
                         <children>
                             <ImageView fx:id="imgArt" fitHeight="129.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/eco-modified (3).png" />
+                                    <Image url="@../imagesAct/eco-modified (3).png" />
                                 </image>
                             </ImageView>
                         </children>

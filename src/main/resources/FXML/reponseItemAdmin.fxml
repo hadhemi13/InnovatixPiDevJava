@@ -44,7 +44,7 @@
                 <children>
                     <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../img/editCateg.png" />
+                            <Image url="@../imagesAct/editCateg.png" />
                         </image>
                     </ImageView>
                 </children>
@@ -53,7 +53,7 @@
                 <children>
                     <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../img/trashCateg.png" />
+                            <Image url="@../imagesAct/trashCateg.png" />
                         </image>
                     </ImageView>
                 </children>

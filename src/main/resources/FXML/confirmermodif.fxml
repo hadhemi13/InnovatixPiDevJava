@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.stage.Modality?>
+<?import javafx.stage.Stage?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+     fx:controller="controllers.ConfirmermodifController"
+      spacing="20"
+      padding="20">
+
+    <children>
+        <Label text="Êtes-vous sûr de vouloir supprimer cet élément ?"/>
+        <HBox spacing="10">
+            <Button text="Confirmer" onAction="#confirmAction"/>
+            <Button text="Annuler" onAction="#cancelAction"/>
+        </HBox>
+    </children>
+</VBox>

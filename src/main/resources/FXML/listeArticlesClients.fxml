@@ -22,7 +22,7 @@
             <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Tous" />
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="117.0">
                 <image>
-                    <Image url="@../img/magnifier.png" />
+                    <Image url="@../imagesAct/magnifier.png" />
                 </image>
             </ImageView>
             <TextField fx:id="ArticlesclientsfSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#searchProduct" prefWidth="265.0" styleClass="product__list-searchInput" translateX="87.0">
@@ -34,7 +34,7 @@
                 <children>
                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
                         <image>
-                            <Image url="@../img/searchByImage.png" />
+                            <Image url="@../imagesAct/searchByImage.png" />
                         </image>
                     </ImageView>
                 </children>
@@ -73,7 +73,7 @@
                         <children>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -81,7 +81,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -89,7 +89,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -97,7 +97,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -105,7 +105,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star-empty.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -124,7 +124,7 @@
                         <children>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -132,7 +132,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -140,7 +140,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -148,7 +148,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star-empty.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -156,54 +156,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
-                                </image>
-                                <HBox.margin>
-                                    <Insets right="5.0" />
-                                </HBox.margin>
-                            </ImageView>
-                        </children>
-                        <padding>
-                            <Insets bottom="5.0" right="10.0" top="5.0" />
-                        </padding>
-                    </HBox>
-                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" styleClass="reviewsFilterBtn">
-                        <children>
-                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../img/star.png" />
-                                </image>
-                                <HBox.margin>
-                                    <Insets right="5.0" />
-                                </HBox.margin>
-                            </ImageView>
-                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../img/star.png" />
-                                </image>
-                                <HBox.margin>
-                                    <Insets right="5.0" />
-                                </HBox.margin>
-                            </ImageView>
-                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../img/star-empty.png" />
-                                </image>
-                                <HBox.margin>
-                                    <Insets right="5.0" />
-                                </HBox.margin>
-                            </ImageView>
-                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../img/star-empty.png" />
-                                </image>
-                                <HBox.margin>
-                                    <Insets right="5.0" />
-                                </HBox.margin>
-                            </ImageView>
-                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star-empty.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -218,7 +171,7 @@
                         <children>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -226,7 +179,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -234,7 +187,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star-empty.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -242,7 +195,7 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star-empty.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
@@ -250,7 +203,54 @@
                             </ImageView>
                             <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
-                                    <Image url="@../img/star-empty.png" />
+                                    <Image url="@../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                        </children>
+                        <padding>
+                            <Insets bottom="5.0" right="10.0" top="5.0" />
+                        </padding>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" styleClass="reviewsFilterBtn">
+                        <children>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../imagesAct/star-empty.png" />
                                 </image>
                                 <HBox.margin>
                                     <Insets right="5.0" />
