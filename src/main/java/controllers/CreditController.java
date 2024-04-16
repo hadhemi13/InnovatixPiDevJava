@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import org.w3c.dom.events.MouseEvent;
 import services.ICredit;
 import utils.MyDatabase;
@@ -37,8 +38,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -100,6 +100,8 @@ public class CreditController implements ICredit<Credit> , Initializable {
 
     @FXML
     private TableColumn<Credit, Double> colmensualite;
+    @FXML
+    private Button btnswitchlist;
 
     @FXML
     private TableColumn<Credit, Double> colmontant;
@@ -257,7 +259,11 @@ public class CreditController implements ICredit<Credit> , Initializable {
 
 
 
+    @FXML
+    void closescene(MouseEvent event) {
+   
 
+    }
 
 
 
@@ -304,7 +310,10 @@ public class CreditController implements ICredit<Credit> , Initializable {
         }
 
     }
+    @FXML
+    void switchtoscenecredit(MouseEvent event) {
 
+    }
 
     public void switchtoscenupdatecredit(javafx.scene.input.MouseEvent mouseEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/updatecredit.fxml"));
@@ -335,4 +344,36 @@ public class CreditController implements ICredit<Credit> , Initializable {
             // Handle the case where no credit is selected
             System.out.println("No credit selected.");
         }
-    }}
+    }
+
+    public void closescene(javafx.scene.input.MouseEvent mouseEvent) {
+        // Récupérer la liste des fenêtres (stages) actives
+        List<Window> windows = Window.getWindows();
+
+        // Parcourir les fenêtres et fermer celles qui correspondent à ajoutercredit.fxml
+        for (Window window : windows) {
+            if (window instanceof Stage) {
+                Scene scene = ((Stage) window).getScene();
+                if (scene != null && scene.getRoot().getId().equals("/FXML/ajoutercredit.fxml")) {
+                    ((Stage) window).close();
+                    break; // Sortir de la boucle une fois que la scène est fermée
+                }
+            }
+        }
+    }
+
+    public void switchtoscenecredit(javafx.scene.input.MouseEvent mouseEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listecredit.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+}

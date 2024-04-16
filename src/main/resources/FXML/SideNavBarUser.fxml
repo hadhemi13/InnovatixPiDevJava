@@ -116,9 +116,7 @@
                                     <HBox.margin>
                                         <Insets right="10.0" />
                                     </HBox.margin>
-                                    <image>
-                                        <Image url="@../../../../../../Desktop/calendar.png" />
-                                    </image>
+
                                 </ImageView>
                                 <Label fx:id="creditsText" styleClass="text" text="RDV" textFill="WHITE" translateY="3.0">
                                     <font>

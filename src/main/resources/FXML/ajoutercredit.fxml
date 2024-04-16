@@ -53,23 +53,6 @@
                         <Button fx:id="calcultauxbtn" mnemonicParsing="false" onAction="#calculertaux" prefHeight="35.0" prefWidth="180.0" styleClass="nav-links2" text="Calculer taux" />
                      </children>
                         </HBox>
-                        <HBox fx:id="stagesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
-                            <children>
-                                <ImageView fx:id="stagesIcon" fitHeight="50.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-
-                                                      <HBox.margin>
-                                        <Insets right="15.0" />
-                                    </HBox.margin>
-
-                                                  </ImageView>
-                            </children>
-                            <padding>
-                                <Insets left="20.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </HBox>
 
                         <HBox fx:id="InvestBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <padding>
@@ -78,6 +61,9 @@
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
+                     <children>
+                        <Button fx:id="btnswitchlist" mnemonicParsing="false" onMouseClicked="#switchtoscenecredit" prefHeight="35.0" prefWidth="131.0" styleClass="nav-links2" text="liste credit" />
+                     </children>
                         </HBox>
                         <HBox fx:id="recBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <VBox.margin>
@@ -212,7 +198,7 @@
             <Button fx:id="btnsave" layoutX="211.0" layoutY="526.0" mnemonicParsing="false" onAction="#savecredit" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #BEF574;" styleClass="nav-links" text="SAVE" />
          </children>
       </Pane>
-            <ImageView fitHeight="42.0" fitWidth="28.0" layoutX="15.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="28.0" layoutX="15.0" layoutY="596.0" onMouseClicked="#closescene" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../img/logout.png" />
                 </image>

@@ -4,17 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="ajouter credit v2">
-      <change afterPath="$PROJECT_DIR$/.idea/ahmedjava.iml" afterDir="false" />
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="card ajout credit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CreditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajoutercredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajoutercredit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,7 +95,7 @@
       <workItem from="1713206533826" duration="1021000" />
       <workItem from="1713216510518" duration="1702000" />
       <workItem from="1713255516271" duration="156000" />
-      <workItem from="1713257759040" duration="1745000" />
+      <workItem from="1713257759040" duration="8125000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -129,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713258079871</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="card ajout credit">
+      <option name="closed" value="true" />
+      <created>1713259701976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713259701976</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +157,7 @@
     <MESSAGE value="kk" />
     <MESSAGE value="corriger rdv" />
     <MESSAGE value="ajouter credit v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajouter credit v2" />
+    <MESSAGE value="card ajout credit" />
+    <option name="LAST_COMMIT_MESSAGE" value="card ajout credit" />
   </component>
 </project>
