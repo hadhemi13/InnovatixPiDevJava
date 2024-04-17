@@ -17,6 +17,7 @@ public class ServiceUser  implements Iservice<User>{
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?,?,?,?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
           //  preparedStatement.setInt(1, user.getId());
+
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getName());
             preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", user.getRoles().toArray()));
