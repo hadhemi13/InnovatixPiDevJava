@@ -14,6 +14,7 @@ public class UsersListController {
     @FXML
     private VBox userListContainer;
 
+
     @FXML
     private Text userListTitle;
 
