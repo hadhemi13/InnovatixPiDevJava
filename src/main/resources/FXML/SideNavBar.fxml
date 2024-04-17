@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +20,7 @@
                 <Insets />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" onMouseClicked="#smallSide" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
+                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
                         <Image url="@../img/logo.png" />
                     </image>
@@ -50,7 +51,7 @@
                                 <String fx:value="activeLink" />
                             </styleClass>
                         </HBox>
-                        <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openLisUser" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="usersIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" translateX="-6.0">
 
@@ -61,13 +62,13 @@
                                         <Image url="@../img/homme.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="8.0">
+                                <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="3.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
                                 </Label>
                             </children>
                             <padding>
@@ -92,9 +93,9 @@
                                     <font>
                                         <Font name="Montserrat Regular" size="18.0" />
                                     </font>
-                           <padding>
-                              <Insets bottom="-5.0" />
-                           </padding>
+                                    <padding>
+                                        <Insets bottom="-5.0" />
+                                    </padding>
                                 </Label>
                             </children>
                             <padding>
@@ -139,7 +140,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/stage (1).png" />
+                                        <Image url="@../img/stage.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="stagesText" styleClass="text" text="Stages" textFill="WHITE" translateX="-3.0">
@@ -166,7 +167,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/investissement.png" />
+                                        <Image url="@../img/project.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="investissementsText" styleClass="text" text="Projets" textFill="WHITE">
@@ -192,7 +193,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/un-evenement.png" />
+                                        <Image url="@../img/event.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="evenementsText" styleClass="text" text="Evènements" textFill="WHITE" translateX="3.0">
@@ -218,7 +219,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/point-dexclamation.png" />
+                                        <Image url="@../img/help.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="reclamationText" styleClass="text" text="Réclamations" textFill="WHITE">
@@ -245,7 +246,7 @@
                                         <Insets right="15.0" />
                                     </HBox.margin>
                                     <image>
-                                        <Image url="@../img/journal.png" />
+                                        <Image url="@../img/news.png" />
                                     </image>
                                 </ImageView>
                                 <Label fx:id="actualitesText" styleClass="text" text="Actualités" textFill="WHITE" translateX="3.0">
@@ -266,45 +267,15 @@
                         </HBox>
                     </children>
                 </VBox>
-
-                <HBox fx:id="sideBarLogout" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links" translateY="180.0">
-                    <children>
-                        <ImageView fitHeight="42.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" translateY="10.0">
-
-                            <HBox.margin>
-                                <Insets right="15.0" />
-                            </HBox.margin>
-                            <image>
-                                <Image url="@../img/logout.png" />
-                            </image>
-                        </ImageView>
-                        <Label styleClass="text" text="Se déconnecter" textFill="WHITE" translateX="3.0" translateY="10.0">
-                            <font>
-                                <Font name="Montserrat Regular" size="14.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets left="23.0" />
-                    </padding>
-                </HBox>
             </children>
         </VBox>
-        <HBox alignment="CENTER_RIGHT" layoutX="250.0" prefHeight="78.0" prefWidth="1115.0">
+        <HBox alignment="CENTER_RIGHT" layoutX="260.0" prefHeight="78.0" prefWidth="1115.0">
             <children>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Tableau de bord" translateX="-660.0">
                     <font>
                         <Font name="Montserrat ExtraBold" size="18.0" />
                     </font>
                 </Text>
-                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
-                    <HBox.margin>
-                        <Insets right="16.0" />
-                    </HBox.margin>
-                </HBox>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
                     <image>
                         <Image url="@../img/bell.png" />
@@ -328,6 +299,14 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </HBox>
+                <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/admin.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                </ImageView>
                 <Text fx:id="navFullname" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Admin">
                     <font>
                         <Font name="Montserrat Bold" size="18.0" />
@@ -336,20 +315,23 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </Text>
-                <ImageView fitHeight="49.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/admin.png" />
-                    </image>
+                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
                     <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets right="16.0" />
                     </HBox.margin>
-                </ImageView>
+                    <children>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/logout.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
             </children>
         </HBox>
         <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
             <children>
-                <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="28.0" />
-                <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
+                <ScrollPane prefHeight="622.0" prefWidth="1084.0" />
             </children>
         </Pane>
     </children>
