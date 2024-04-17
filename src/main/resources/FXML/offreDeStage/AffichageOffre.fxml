@@ -1,16 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AffichOffreController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../css/ajout.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AffichOffreController">
    <children>
-      <Button fx:id="delete" layoutX="429.0" layoutY="105.0" mnemonicParsing="false" onAction="#deleteA" text="supprimer" />
-      <Button fx:id="modifier" layoutX="858.0" layoutY="80.0" mnemonicParsing="false" onAction="#EditA" text="Edit" />
-      <ListView fx:id="listViewNom" layoutX="167.0" layoutY="148.0" prefHeight="533.0" prefWidth="1076.0" />
-      <Button fx:id="refresh" layoutX="1255.0" layoutY="123.0" mnemonicParsing="false" onAction="#refreshListA" text="Refresh" />
+      <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
+         <children>
+            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Liste des Offres des Stages ">
+               <font>
+                  <Font name="Bell MT" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="9.0" />
+               </HBox.margin></Text>
+
+            <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :">
+               <HBox.margin>
+                  <Insets left="50.0" right="2.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" promptText="All" styleClass="Cheque__add-comboBox" stylesheets="@../../css/ajout.css">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets top="4.0" />
+               </padding></ComboBox>
+            <Button fx:id="ajoutOffre" mnemonicParsing="false" onMouseClicked="#AjouterOffre" prefHeight="42.0" prefWidth="162.0" styleClass="AddBtn" stylesheets="@../../css/ajout.css" text="Ajouter Offre">
+               <HBox.margin>
+                  <Insets left="150.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="VirementTableHead" stylesheets="@../../css/ajout.css">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Title" wrappingWidth="78.95468521118164">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Domaine" wrappingWidth="77.35475540161133">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type" wrappingWidth="42.95473098754883">
+               <HBox.margin>
+                  <Insets right="22.0" />
+               </HBox.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Poste" wrappingWidth="41.354644775390625">
+               <HBox.margin>
+                  <Insets left="7.0" right="22.0" />
+               </HBox.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Expérience " wrappingWidth="89.35477066040039" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Niveau">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Language" wrappingWidth="69.4496441334486">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Descriptions" wrappingWidth="81.35464859008789">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Exigence ">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Mot Clés">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="PFE">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane">
+         <content>
+            <VBox fx:id="userListContainer" prefHeight="446.0" prefWidth="1005.0" spacing="13.0" styleClass="userTableBody" />
+         </content>
+      </ScrollPane>
    </children>
-</AnchorPane>
+</Pane>

@@ -12,9 +12,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import services.ServiceOffreDeStage;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -28,7 +30,8 @@ public class AffichOffreController implements Initializable {
 
     @FXML
     private Button modifier;
-
+    @FXML
+    private Pane content_area;
     @FXML
     private Button refresh;
 
@@ -40,6 +43,20 @@ public class AffichOffreController implements Initializable {
     void deleteA(ActionEvent event) {
 
     }
+    @FXML
+    void AjouterOffre(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AjouterOffre.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjouterOffreController ajouterOffreController = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+
+
 
     @FXML
     void EditA(ActionEvent event) {
@@ -171,4 +188,21 @@ public class AffichOffreController implements Initializable {
 //        ref();
 
     }
-}
+
+    public void statusChange(ActionEvent event) {
+    }
+
+    public void AjouterOffre(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AjouterOffre.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjouterOffreController ajouterOffreController = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+    }
+

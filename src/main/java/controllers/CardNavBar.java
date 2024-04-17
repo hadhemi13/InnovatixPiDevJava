@@ -12,6 +12,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 import java.io.IOException;
 
@@ -22,6 +24,7 @@ public class CardNavBar {
 
     @FXML
     private Button ListeStage;
+
 
     @FXML
     private Pane content_area;
@@ -38,25 +41,6 @@ public class CardNavBar {
     @FXML
     private VBox reductionForm;
 
-    @FXML
-    void OpenListOffre(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AffichageOffre.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        AffichOffreController affichOffreController = loader.getController();
-
-        // Set the scene
-        Stage stage = (Stage) ListeOffres.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
     @FXML
     void OpenListeContrat(MouseEvent event) {
@@ -64,24 +48,43 @@ public class CardNavBar {
 
     }
 
-    @FXML
-    void OpenListeStage(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/AfficheDemandes.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+   // @FXML
+    //void OpenListeStage(MouseEvent event) {
+      //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/AfficheDemandes.fxml"));
+        //Parent root = null;
+        //try {
+          //  root = loader.load();
+        //} catch (IOException e) {
+         //   throw new RuntimeException(e);
+       // }
 
-        AfficheDemandeController afficheDemandeController = loader.getController();
+        //AfficheDemandeController afficheDemandeController = loader.getController();
 
         // Set the scene
-        Stage stage = (Stage) demandeS.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        //Stage stage = (Stage) demandeS.getScene().getWindow();
+        //Scene scene = new Scene(root);
+        //stage.setScene(scene);
+       // stage.show();
 
+    //}
+
+    @FXML
+    public void OpenListOffre(MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AffichageOffre.fxml"));
+        Parent affichageOffre = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AffichOffreController affichOffreController = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(affichageOffre);
     }
 
+    public void OpenListeStage(MouseEvent mouseEvent) {
+    }
+
+    public void OpenDemandeStage(MouseEvent mouseEvent) {
+    }
 }

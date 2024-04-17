@@ -157,3 +157,28 @@ ge-input-label {
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
 }
+.userTableHeadTitle {
+    -fx-fill: black;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+.DemandeCard__title {
+    -fx-fill: black;
+    -fx-font-size:25px;
+    -fx-font-weight: 600;
+
+}
+.user_listScrollPane {
+    -fx-background: rgba(251, 237, 237, 0.166);
+    -fx-background-color: transparent;
+}
+.userTableBody {
+    -fx-padding: 15px 10px;
+}
+.userTableBody {
+    -fx-padding: 15px 10px;
+}
+.user_listScrollPane {
+    -fx-background: rgba(251, 237, 237, 0.166);
+    -fx-background-color: transparent;
+}
