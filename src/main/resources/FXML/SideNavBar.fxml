@@ -20,7 +20,7 @@
                 <Insets />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0"  pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
+                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
                         <Image url="@../img/logo.png" />
                     </image>
@@ -89,7 +89,7 @@
                                         <Image url="@../img/compte.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
+                                <Label fx:id="comptesText" onMouseClicked="#OpenCard" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="18.0" />
                                     </font>
