@@ -1,46 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
     <left>
         <AnchorPane fx:id="left" prefHeight="700.0" prefWidth="652.0" styleClass="left" stylesheets="@../../resources/css/SideNavBar.css" BorderPane.alignment="CENTER" />
     </left>
-    <right>
-        <AnchorPane prefHeight="700.0" prefWidth="727.0" BorderPane.alignment="CENTER">
+   <top>
+        <AnchorPane prefHeight="700.0" prefWidth="727.0" stylesheets="@../css/SideNavBar.css" BorderPane.alignment="CENTER">
             <children>
-                <Text layoutX="284.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signUp__title" text="Sign Up" />
+                <Text layoutX="283.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signUp__title" text="Sign Up" />
                 <VBox layoutX="116.0" layoutY="160.0" prefHeight="380.0" prefWidth="482.0" styleClass="signUp__from__container" stylesheets="@../../resources/css/SideNavBar.css">
                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="SignUp__input__group">
+                        <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
                             <children>
-                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Fullname*" />
-                                <TextField fx:id="fullnameField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Fullname..." styleClass="SignUp__input" stylesheets="@../../resources/css/SideNavBar.css" />
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Email*" />
-                                <TextField fx:id="emailField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Email..." stylesheets="@../../resources/css/SideNavBar.css">
+                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Nom*" />
+                                <TextField fx:id="emailField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Nom..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                                     <styleClass>
                                         <String fx:value="SignUp__input" />
                                         <String fx:value="SignUp__input--email" />
@@ -48,25 +35,10 @@
                                 </TextField>
                             </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 10px;">
+                        <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
                             <children>
-                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Are you*" />
-                                <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15px;">
-                                    <children>
-                                        <RadioButton fx:id="role_indiv" mnemonicParsing="false" selected="true" text="Individual">
-                                            <toggleGroup>
-                                                <ToggleGroup fx:id="roles" />
-                                            </toggleGroup>
-                                        </RadioButton>
-                                        <RadioButton fx:id="role_assoc" mnemonicParsing="false" text="Association" toggleGroup="$roles" />
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Phone number*" />
-                                <TextField fx:id="phoneField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Phone..." stylesheets="@../../resources/css/SideNavBar.css">
+                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Email*" />
+                                <TextField fx:id="phoneField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Email..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                                     <styleClass>
                                         <String fx:value="SignUp__input" />
                                         <String fx:value="SignUp__input--tel" />
@@ -74,14 +46,25 @@
                                 </TextField>
                             </children>
                         </VBox>
+                  <VBox layoutX="10.0" layoutY="157.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Numero Telephone*" />
+                        <TextField fx:id="phoneField1" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Tel..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
+                           <styleClass>
+                              <String fx:value="SignUp__input" />
+                              <String fx:value="SignUp__input--tel" />
+                           </styleClass>
+                        </TextField>
+                     </children>
+                  </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 10px;">
                             <children>
                                 <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15px;">
                                     <children>
-                                        <VBox prefHeight="78.0" prefWidth="491.0">
+                                        <VBox prefHeight="78.0" prefWidth="491.0" stylesheets="@../css/SideNavBar.css">
                                             <children>
                                                 <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Password*" />
-                                                <PasswordField fx:id="passField" promptText="Password" stylesheets="@../../resources/css/SideNavBar.css">
+                                                <PasswordField fx:id="passField" promptText="Password" style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                                                     <styleClass>
                                                         <String fx:value="SignUp__input--pass" />
                                                         <String fx:value="SignUp__input" />
@@ -92,7 +75,7 @@
                                         <VBox prefHeight="78.0" prefWidth="491.0">
                                             <children>
                                                 <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Confirm password*" />
-                                                <PasswordField fx:id="repassField" promptText="Password" stylesheets="@../../resources/css/SideNavBar.css">
+                                                <PasswordField fx:id="repassField" promptText="Password" style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                                                     <styleClass>
                                                         <String fx:value="SignUp__input--pass" />
                                                         <String fx:value="SignUp__input" />
@@ -104,19 +87,25 @@
                                 </HBox>
                             </children>
                         </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
+                     <children>
+                        <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Photo*" />
+                        <ImageView fitHeight="76.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
                     </children>
                 </VBox>
-                <Button fx:id="signUpBTN" layoutX="309.0" layoutY="574.0" mnemonicParsing="false"  styleClass="SignUp__btn" stylesheets="@../../resources/css/SideNavBar.css" text="Sign Up" />
-                <HBox layoutX="251.0" layoutY="629.0" prefHeight="34.0" style="-fx-spacing: 5px;">
-                    <children>
-                        <Label prefHeight="34.0" styleClass="form__member" stylesheets="@../../resources/css/SideNavBar.css" text="You already have an account!">
-                            <HBox.margin>
-                                <Insets right="5.0" />
-                            </HBox.margin></Label>
-                        <Hyperlink fx:id="logInLink"  prefHeight="34.0" styleClass="form__member__link" stylesheets="@../../resources/css/SideNavBar.css" text="Log In!" />
-                    </children>
-                </HBox>
+                <Button fx:id="signUpBTN" layoutX="309.0" layoutY="574.0" mnemonicParsing="false" styleClass="SignUp__btn" stylesheets="@../../resources/css/SideNavBar.css" text="Sign Up" />
+                <HBox layoutX="251.0" layoutY="629.0" prefHeight="34.0" style="-fx-spacing: 5px;" stylesheets="@../css/SideNavBar.css" />
+            <VBox layoutX="683.0" layoutY="2.0" prefHeight="700.0" prefWidth="686.0" styleClass="vbox_background_center" stylesheets="@../css/login.css" />
+            <ImageView fitHeight="113.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image>
+            </ImageView>
+            <CheckBox layoutX="202.0" layoutY="633.0" mnemonicParsing="false" />
+                  <Label layoutX="235.0" layoutY="628.0" prefHeight="34.0" styleClass="form__member" stylesheets="@../../resources/css/SideNavBar.css" text="j'accepte tous les conditions ! " />
             </children>
         </AnchorPane>
-    </right>
+   </top>
 </BorderPane>
