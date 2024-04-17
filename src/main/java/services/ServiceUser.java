@@ -19,7 +19,7 @@ public class ServiceUser  implements Iservice<User>{
           //  preparedStatement.setInt(1, user.getId());
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getName());
-            preparedStatement.setString(3, user.getRoles());
+            preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", user.getRoles().toArray()));
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getCin());
             preparedStatement.setString(6, user.getDate_naissance());

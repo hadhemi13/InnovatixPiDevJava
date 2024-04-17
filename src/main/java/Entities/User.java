@@ -1,11 +1,14 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
     int id , salaire;
-    String name,password,tel,email,adresse,profession,roles,cin,photo, poste;
+    String name,password,tel,email,adresse,profession,cin,photo, poste;
+    String roles;
     String date_naissance;
     private int is_verified=0;
     private int is_blocked=0;
@@ -63,7 +66,8 @@ public class User {
         this.poste= poste;
         this.salaire= salaire;
     }
-    public User(String email,String name,String Role, String password, String tel, String adresse, String profession, String cin, String photo,String date_naissance , int is_blocked,int is_verified, String poste , int salaire){
+    public User(String name, String password, String tel, String email, String adresse, String profession, String roles, String cin, String photo,String date_naissance , int is_blocked,int is_verified, String poste , int salaire) {
+        this.id = id;
         this.name = name;
         this.password = password;
         this.tel = tel;
@@ -79,6 +83,8 @@ public class User {
         this.poste= poste;
         this.salaire= salaire;
     }
+
+
     //email, name,roles ,password,cin, date_naissance, adresse,profession ,photo,is_blocked,is_verified, poste, salaire, tel
 
     public User(String name, String password, String tel, String email, String adresse, String profession, String roles, String cin, String photo) {
