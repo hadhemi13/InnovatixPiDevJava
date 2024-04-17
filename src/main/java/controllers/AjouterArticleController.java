@@ -84,6 +84,7 @@ public class AjouterArticleController implements Initializable {
     @FXML
     private Text piecejointeInputError;
 
+
     @FXML
     private TextField titreInput;
 
@@ -94,8 +95,11 @@ public class AjouterArticleController implements Initializable {
     private HBox titreInputErrorHbox;
     @FXML
     private Pane content_area;
+    @FXML
+    private HBox DateHboxErreur;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        DateHboxErreur.setVisible(false);
         imageInputErrorHbox.setVisible(false);
         categorieErrorHbox.setVisible(false);
         ContenuHboxErreur.setVisible(false);
@@ -103,7 +107,7 @@ public class AjouterArticleController implements Initializable {
         titreInputErrorHbox.setVisible(false);
         dureeInputErrorHbox.setVisible(false);
         SpinnerValueFactory<Integer> valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1); // Valeur initiale, valeur maximale, valeur minimale
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
         dureeArt.setValueFactory(valueFactory);
 
         // Autoriser la saisie directe des valeurs dans le Spinner
@@ -133,23 +137,72 @@ public class AjouterArticleController implements Initializable {
         String nom = "hadhemi";
         String adresse ="mahmoud";
         ServiceArticle sa = new ServiceArticle();
+//        if (ContenuArt.getText().isEmpty()) {
+//
+//            ContenuHboxErreur.setVisible(true);
+//            return;
+//        }
+//        if (categoriechoice.getSelectionModel().isEmpty()) {
+//            categorieErrorHbox.setVisible(true);
+//            return;
+//        }
+//
+//        if (dureeArt.getValue() == null) {
+//            dureeInputErrorHbox.setVisible(true);
+//            return;
+//        }
+//
+//        if (titreInput.getText().isEmpty()) {
+//            titreInputErrorHbox.setVisible(true);
+//            return;
+//        }
+        boolean champsVides = false;
         if (ContenuArt.getText().isEmpty()) {
-
             ContenuHboxErreur.setVisible(true);
-            return;
+            champsVides = true;
+        } else {
+            ContenuHboxErreur.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
+
         if (categoriechoice.getSelectionModel().isEmpty()) {
             categorieErrorHbox.setVisible(true);
-            return;
+            champsVides = true;
+        } else {
+            categorieErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-
-        if (dureeArt.getValue() == null) {
+        if (imageInput.getImage() == null) {
+            imageInputErrorHbox.setVisible(true);
+            champsVides = true;
+        } else {
+            imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+        }
+        if (dureeArt.getValue() == 0) {
             dureeInputErrorHbox.setVisible(true);
-            return;
+            champsVides = true;
+        } else {
+            dureeInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-
+        if (titreInput.getText().isEmpty()) {
+            pieceJInputErrorHbox.setVisible(true);
+            champsVides = true;
+        } else {
+            pieceJInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+        }
         if (titreInput.getText().isEmpty()) {
             titreInputErrorHbox.setVisible(true);
+            champsVides = true;
+        } else {
+            titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+        }
+        if (datePubArt.getValue()==null) {
+            DateHboxErreur.setVisible(true);
+            champsVides = true;
+        } else {
+            DateHboxErreur.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+        }
+
+// Si au moins un champ est vide, afficher les messages d'erreur
+        if (champsVides) {
             return;
         }
         LocalDate selectedDate = datePubArt.getValue();
@@ -192,4 +245,10 @@ public class AjouterArticleController implements Initializable {
             imageInput.setImage(image);
         }
     }
-}
+
+    public void ajouterPiece(MouseEvent mouseEvent) {
+
+
+            }
+    }
+

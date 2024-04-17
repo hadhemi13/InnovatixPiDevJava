@@ -65,16 +65,16 @@
                                       </padding>
                                   </HBox>
                                   <TextArea fx:id="ContenuArt" prefHeight="200.0" prefWidth="200.0" promptText="Entrez le contenu ici" styleClass="product__add-input-textArea" />
-                                  <HBox fx:id="ContenuHboxErreur" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
-                                      <children>
-                                          <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                          <Text fx:id="ContenuArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
-                                              <HBox.margin>
-                                                  <Insets top="5.0" />
-                                              </HBox.margin>
-                                          </Text>
-                                      </children>
-                                  </HBox>
+                              <HBox fx:id="ContenuHboxErreur" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                 <children>
+                                    <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
+                                    <Text fx:id="ContenuArtInputError1" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                 </children>
+                              </HBox>
                               </children>
                               <VBox.margin>
                                   <Insets />
@@ -180,6 +180,16 @@
                                               </padding>
                                           </HBox>
                                           <DatePicker fx:id="datePubArt" />
+                                        <HBox fx:id="DateHboxErreur" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css" translateY="15.0">
+                                            <children>
+                                                <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
+                                                <Text fx:id="ContenuArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Date obligatoire !">
+                                                    <HBox.margin>
+                                                        <Insets top="5.0" />
+                                                    </HBox.margin>
+                                                </Text>
+                                            </children>
+                                        </HBox>
                                       </children>
                                       <padding>
                                           <Insets left="10.0" />
@@ -223,7 +233,7 @@
                                                       </children>
                                                   </HBox>
                                                   <ImageView fx:id="pieceJArtInput" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" translateX="-60.0" />
-                                                  <Text fx:id="addpieceJBtn" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="category__add-btn-icon" text="Ajouter une pièce jointe" translateX="-50.0" />
+                                                  <Text fx:id="addpieceJBtn" onMouseClicked="#ajouterPiece" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="category__add-btn-icon" text="Ajouter une pièce jointe" translateX="-50.0" />
                                               </children>
                                               <VBox.margin>
                                                   <Insets />
@@ -265,7 +275,7 @@
                                               </padding>
                                           </HBox>
                                     <Spinner fx:id="dureeArt" />
-                                          <HBox fx:id="dureeInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                          <HBox fx:id="dureeInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css" translateY="10.0">
                                               <children>
                                                   <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                                   <Text fx:id="dureeArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Durée obligatoire !">
@@ -358,7 +368,7 @@
                                                                   <Image url="@../imagesAct/upload-big-arrow.png" />
                                                               </image>
                                                           </ImageView>
-                                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-textBtn" text="Importer une image" onMouseClicked="#importerImage">
+                                                          <Text fill="WHITE" onMouseClicked="#importerImage" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-textBtn" text="Importer une image">
                                                               <font>
                                                                   <Font name="Montserrat Bold" size="16.0" />
                                                               </font>
