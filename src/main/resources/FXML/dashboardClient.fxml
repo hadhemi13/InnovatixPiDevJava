@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dashboardClient">
     <children>
-        <Pane fx:id="content_area" layoutX="115.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
+        <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
             <children>
                 <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="27.0" stylesheets="@../css/Compte.css">
                     <children>
@@ -34,8 +34,7 @@
                 </HBox>
                 <HBox layoutX="25.0" layoutY="94.0" prefHeight="136.0" prefWidth="713.0" spacing="60.0">
                     <children>
-                        <AnchorPane prefHeight="136.0" prefWidth="277.0" styleClass="balance__card" stylesheets="@../css/Compte.css
-">
+                        <AnchorPane prefHeight="136.0" prefWidth="277.0" styleClass="balance__card" stylesheets="@../css/Compte.css ">
                             <children>
                                 <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="balance__card__title" text="Votre Montant " />
                                 <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="14.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
@@ -50,8 +49,7 @@
                                 </VBox>
                             </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="169.0" prefWidth="288.0" stylesheets="@../css/Compte.css
-">
+                        <AnchorPane prefHeight="169.0" prefWidth="288.0" stylesheets="@../css/Compte.css ">
                             <children>
                                 <Text layoutX="13.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="balance__card__title" text="&quot;EFB facilite vos virements et chèques en offrant des solutions simples, rapides et sécurisées .&quot;" textAlignment="CENTER" wrappingWidth="270.3999267578125" />
                                 <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="102.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
@@ -67,19 +65,16 @@
                         </AnchorPane>
                     </children>
                 </HBox>
-                <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="25.0" layoutY="277.0" prefHeight="50.0" prefWidth="645.0" styleClass="userTableHead" stylesheets="@../css/Compte.css
-">
+                <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="25.0" layoutY="277.0" prefHeight="50.0" prefWidth="645.0" styleClass="userTableHead" stylesheets="@../css/Compte.css ">
                     <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16;" styleClass="userTableHeadTitle" text="Vos Informations" wrappingWidth="287.7546730041504" />
                     </children>
                 </HBox>
-                <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="327.0" prefHeight="232.0" prefWidth="645.0" styleClass="user_listScrollPane" stylesheets="@../css/Compte.css
-">
+                <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="327.0" prefHeight="232.0" prefWidth="645.0" styleClass="user_listScrollPane" stylesheets="@../css/Compte.css ">
                     <content>
                         <VBox fx:id="fundListContainer" prefHeight="370.0" prefWidth="640.0" spacing="13.0" styleClass="userTableBody">
                             <children>
-                                <HBox prefHeight="195.0" prefWidth="614.0" styleClass="fundItem" stylesheets="@../css/Compte.css
-">
+                                <HBox prefHeight="195.0" prefWidth="614.0" styleClass="fundItem" stylesheets="@../css/Compte.css ">
                                     <children>
                                         <ImageView fitHeight="164.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -126,8 +121,7 @@
                                                 </Line>
                                                 <HBox alignment="CENTER" prefHeight="35.0" prefWidth="347.0">
                                                     <children>
-                                                        <Button mnemonicParsing="false" style="-fx-font-size: 13px;" styleClass="fundItem__btn" stylesheets="@../css/Compte.css
-" text="plus d'info">
+                                                        <Button mnemonicParsing="false" style="-fx-font-size: 13px;" styleClass="fundItem__btn" stylesheets="@../css/Compte.css " text="plus d'info">
                                                             <HBox.margin>
                                                                 <Insets right="50.0" />
                                                             </HBox.margin></Button>
