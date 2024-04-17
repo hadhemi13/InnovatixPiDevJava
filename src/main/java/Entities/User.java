@@ -13,6 +13,18 @@ public class User {
     private int is_verified=0;
     private int is_blocked=0;
 
+    //update user set name=?,email=?,adresse=?,cin=?,date_naissance=?,profession=?  where id=?
+
+    public User(int id, String name, String email, String adresse, String profession, String cin, String date_naissance) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.adresse = adresse;
+        this.profession = profession;
+        this.cin = cin;
+        this.date_naissance = date_naissance;
+    }
+
     public int getSalaire() {
         return salaire;
     }
