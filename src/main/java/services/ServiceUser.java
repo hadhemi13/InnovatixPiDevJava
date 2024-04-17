@@ -12,15 +12,15 @@ public class ServiceUser  implements Iservice<User>{
     }
 
     @Override
-    public  void ajouter(User user) throws SQLException {
-        String req = "INSERT INTO user (email, name,roles ,password,cin, date_naissance, adresse,profession ,photo,is_blocked,is_verified, poste, salaire, tel) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?,?,?,?)";
+    public void ajouter(User user) throws SQLException {
+        String req = "INSERT INTO user (email, name, roles, password, cin, date_naissance, adresse, profession, photo, is_blocked, is_verified, poste, salaire, tel) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
-          //  preparedStatement.setInt(1, user.getId());
-
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getName());
-            preparedStatement.setArray(3, connection.createArrayOf("VARCHAR", user.getRoles().toArray()));
+            String[] rolesArray = user.getRoles().split(","); // Supposons que les rôles sont séparés par des virgules
+            Array rolesJdbcArray = connection.createArrayOf("VARCHAR", rolesArray);
+            preparedStatement.setArray(3, rolesJdbcArray); // Définir le tableau JDBC dans la colonne roles
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getCin());
             preparedStatement.setString(6, user.getDate_naissance());
@@ -33,12 +33,10 @@ public class ServiceUser  implements Iservice<User>{
             preparedStatement.setString(13, user.getPoste());
             preparedStatement.setString(14, user.getTel());
 
-
-
             preparedStatement.executeUpdate();
-            System.out.println("Utilisateur  ajouté");
+            System.out.println("Utilisateur ajouté");
         } catch (SQLException e) {
-            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+            System.out.println("Erreur lors de l'ajout de l'utilisateur : " + e);
         }
     }
 
@@ -52,10 +50,10 @@ public class ServiceUser  implements Iservice<User>{
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getAdresse());
-            preparedStatement.setString(3, user.getCin());
-            preparedStatement.setString(3, user.getProfession());
-            preparedStatement.setString(3, user.getDate_naissance());
-            preparedStatement.setInt(4, user.getId());
+            preparedStatement.setString(4, user.getCin());
+            preparedStatement.setString(5, user.getProfession());
+            preparedStatement.setString(6, user.getDate_naissance());
+            preparedStatement.setInt(7, user.getId());
             preparedStatement.executeUpdate();
             System.out.println("modifie");
         }
@@ -98,11 +96,15 @@ public class ServiceUser  implements Iservice<User>{
             user.setEmail(rs.getString("email"));
             user.setAdresse(rs.getString("adresse"));
             user.setProfession(rs.getString("profession"));
-            user.setRoles(rs.getString("role"));
+            user.setRoles(rs.getString("roles"));
             user.setPhoto(rs.getString("photo"));
 
 
             users.add(user);
+        }
+        for (User i : users ){
+
+            System.out.println(i.getRoles());
         }
 
 
