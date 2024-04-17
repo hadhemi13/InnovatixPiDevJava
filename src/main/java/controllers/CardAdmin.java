@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
@@ -95,4 +96,13 @@ public class CardAdmin {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void OpenListeCompteAd(MouseEvent mouseEvent) {
     }
+
+    public void OpenListeChequeAd(MouseEvent mouseEvent) {
+    }
+
+    public void OpenListeVirAd(MouseEvent mouseEvent) {
+    }
+}

@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+
 import java.io.IOException;
 
 public class SideNavBarController {
@@ -110,19 +111,22 @@ public class SideNavBarController {
     }
 
     @FXML
-    void OpenCard(MouseEvent event) {
+
+    public void OpenCard (javafx.scene.input.MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardAdmin.fxml"));
-            Pane listArticleAdminPane = loader.load();
+            Pane listCompteAdminPane = loader.load();
 
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(listArticleAdminPane);
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listCompteAdminPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    }
+}
+
+
 
 
