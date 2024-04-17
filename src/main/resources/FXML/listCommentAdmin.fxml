@@ -3,16 +3,23 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="commentPaneAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/style.scss" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListRepAdminController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/style.scss" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListCommentAdminController">
     <children>
-        <HBox alignment="CENTER_LEFT" layoutX="28.0" layoutY="18.0" prefHeight="74.0" prefWidth="1033.0">
+        <HBox alignment="CENTER" layoutX="28.0" layoutY="18.0" prefHeight="74.0" prefWidth="1007.0">
             <children>
-                <Text fx:id="commentListTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_list--title" text="Liste des commentaires" translateX="20.0">
+            <ImageView fitHeight="29.0" fitWidth="46.0" onMouseClicked="#returnBackListArt" pickOnBounds="true" preserveRatio="true" translateX="30.0">
+               <image>
+                  <Image url="@../imagesAct/back.png" />
+               </image>
+            </ImageView>
+                <Text fx:id="commentListTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_list--title" text="Liste des commentaires" translateX="300.0">
                     <HBox.margin>
                         <Insets right="550.0" />
                     </HBox.margin></Text>

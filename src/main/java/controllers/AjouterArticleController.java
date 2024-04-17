@@ -4,14 +4,18 @@ import Entities.Article;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import services.ServiceArticle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -57,6 +61,12 @@ public class AjouterArticleController implements Initializable {
     private Text dureeArtInputError;
 
     @FXML
+    private HBox dureeInputErrorHbox;
+
+    @FXML
+    private ImageView imageInput;
+
+    @FXML
     private Text imageInputError;
 
     @FXML
@@ -72,10 +82,6 @@ public class AjouterArticleController implements Initializable {
     private Text piecejointeInputError;
 
     @FXML
-    private HBox dureeInputErrorHbox;
-    @FXML
-    private ImageView imageInput;
-    @FXML
     private TextField titreInput;
 
     @FXML
@@ -83,6 +89,8 @@ public class AjouterArticleController implements Initializable {
 
     @FXML
     private HBox titreInputErrorHbox;
+    @FXML
+    private Pane content_area;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageInputErrorHbox.setVisible(false);
@@ -152,8 +160,20 @@ public class AjouterArticleController implements Initializable {
 
 
     }
+    @FXML
+    void returnbackarticle(MouseEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+            Pane listArticleAdminPane = loader.load();
 
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
 
 
 }

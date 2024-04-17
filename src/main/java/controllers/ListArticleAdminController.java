@@ -73,4 +73,20 @@ public class ListArticleAdminController {
         content_area.getChildren().add(addArticleParent);
     }
 
+    @FXML
+    void openListComment(MouseEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listCommentAdmin.fxml"));
+            Pane listComAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listComAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }
