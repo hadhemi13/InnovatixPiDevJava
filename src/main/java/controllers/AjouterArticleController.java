@@ -7,14 +7,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import services.ServiceArticle;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -152,7 +155,7 @@ public class AjouterArticleController implements Initializable {
         LocalDate selectedDate = datePubArt.getValue();
         LocalTime currentTime = LocalTime.now();
         LocalDateTime dateTime = LocalDateTime.of(selectedDate, currentTime);
-        String image = "admin";
+        String image = imageInput.getImage().getUrl();
         String pieceJArt= "admin";
         String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
         Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt.getValue(),selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,image);
@@ -176,4 +179,17 @@ public class AjouterArticleController implements Initializable {
     }
 
 
+    @FXML
+    private void importerImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        File selectedImageFile = fileChooser.showOpenDialog(choose_photoBtn.getScene().getWindow());
+        if (selectedImageFile != null) {
+            Image image = new Image(selectedImageFile.toURI().toString());
+            imageInput.setImage(image);
+        }
+    }
 }

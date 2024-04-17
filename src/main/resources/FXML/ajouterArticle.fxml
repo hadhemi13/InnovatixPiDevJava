@@ -358,7 +358,7 @@
                                                                   <Image url="@../imagesAct/upload-big-arrow.png" />
                                                               </image>
                                                           </ImageView>
-                                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-textBtn" text="Importer une image">
+                                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-textBtn" text="Importer une image" onMouseClicked="#importerImage">
                                                               <font>
                                                                   <Font name="Montserrat Bold" size="16.0" />
                                                               </font>
