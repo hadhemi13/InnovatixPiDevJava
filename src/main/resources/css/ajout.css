@@ -131,3 +131,29 @@ ge-input-label {
     -fx-border-radius: 100px;
     -fx-cursor: hand;
 }
+
+.compte__add__btn{
+    -fx-background-color: #97d158;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-cursor: hand;
+}
+.cheque__addBtn {
+    -fx-background-color: #97d158;
+    -fx-padding: 8px 18;
+    -fx-text-fill: #43882b;
+    -fx-font-weight: 700;
+    -fx-background-radius: 1000px;
+    -fx-border-radius: 1000px;
+    -fx-transition: all 2s ease;
+    -fx-cursor: hand;
+    -fx-font-size: 15px;
+}
+.categoriesModel {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+}
+.categoriesModel-card {
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
