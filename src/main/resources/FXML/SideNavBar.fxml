@@ -20,7 +20,7 @@
                 <Insets />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0"  pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
+                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
                         <Image url="@../img/logo.png" />
                     </image>

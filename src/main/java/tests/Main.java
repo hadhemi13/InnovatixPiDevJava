@@ -51,7 +51,7 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
-        ServiceReponse serviceReponse = new ServiceReponse();
+//        ServiceReponse serviceReponse = new ServiceReponse();
 
           /*
             test reponse
@@ -114,7 +114,7 @@ public class Main {
             System.out.println("Erreur lors de l'affichage des réponses : " + ex.getMessage());
         }
         */
-        ServiceArticle serviceArticle = new ServiceArticle();
+//        ServiceArticle serviceArticle = new ServiceArticle();
 /*
         try {
 
@@ -141,7 +141,7 @@ public class Main {
             e.printStackTrace();
         }
  */
-        ServiceCommentaireHadhemi serviceCommentaire = new ServiceCommentaireHadhemi();
+//        ServiceCommentaireHadhemi serviceCommentaire = new ServiceCommentaireHadhemi();
 
         /*
          // test d'ajout d'un commentaire
@@ -180,7 +180,6 @@ public class Main {
             e.printStackTrace();
         }
     }*/
-        ServiceReponseCommentaire service = new ServiceReponseCommentaire();
 
 
         /*
