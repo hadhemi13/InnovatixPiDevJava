@@ -52,7 +52,7 @@
                         <AnchorPane prefHeight="169.0" prefWidth="288.0" stylesheets="@../css/Compte.css ">
                             <children>
                                 <Text layoutX="13.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="balance__card__title" text="&quot;EFB facilite vos virements et chèques en offrant des solutions simples, rapides et sécurisées .&quot;" textAlignment="CENTER" wrappingWidth="270.3999267578125" />
-                                <ImageView fitHeight="71.0" fitWidth="71.0" layoutX="102.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="60.0" fitWidth="71.0" layoutX="106.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../img/carte-de-debit.png" />
                                     </image>
@@ -138,11 +138,11 @@
                         </VBox>
                     </content>
                 </ScrollPane>
-                <Button fx:id="ListeCheque" layoutX="757.0" layoutY="127.0" maxHeight="84.0" maxWidth="219.0" mnemonicParsing="false" onAction="#listCheque" prefHeight="84.0" prefWidth="219.0" styleClass="cheque__addBtn" text="Cheque " textFill="#f2eaea">
+                <Button fx:id="ListeCheque" layoutX="757.0" layoutY="127.0" maxHeight="84.0" maxWidth="219.0" mnemonicParsing="false" onMouseClicked="#listCheque" prefHeight="84.0" prefWidth="219.0" styleClass="cheque__addBtn" text="Cheque " textFill="#f2eaea">
                <font>
                   <Font size="61.0" />
                </font></Button>
-                <Button fx:id="ListeVirement" layoutX="757.0" layoutY="348.0" mnemonicParsing="false" onAction="#ListVirement" prefHeight="84.0" prefWidth="229.0" styleClass="cheque__addBtn" text="Virement" />
+                <Button fx:id="ListeVirement" layoutX="757.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#ListVirement" prefHeight="84.0" prefWidth="229.0" styleClass="cheque__addBtn" text="Virement" />
             </children>
         </Pane>
     </children>

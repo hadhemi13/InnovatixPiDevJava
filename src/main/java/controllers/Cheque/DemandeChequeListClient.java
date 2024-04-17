@@ -36,6 +36,7 @@ public class DemandeChequeListClient {
     @FXML
     private Label actualitesText;
 
+
     @FXML
     private HBox compteBtn;
 
@@ -138,12 +139,6 @@ public class DemandeChequeListClient {
 
     }
 
-    @FXML
-    void ajouterCheque (MouseEvent event) throws IOException {
-
-
-
-    }
 
     public void ajouterCheque(javafx.scene.input.MouseEvent mouseEvent) {
     }
@@ -176,22 +171,16 @@ public class DemandeChequeListClient {
 
     }
 
-    public void AjouterC(ActionEvent event) {
+    public void AjouterC(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCradCheque.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Parent addArticleParent = loader.load();
 
+        // Récupération du contrôleur de la vue d'ajout d'article
         AjouterChequeCard ajouterChequeCard = loader.getController();
 
-
-        // Set the scene
-        Stage stage = (Stage) chequebtn.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
-    }
+}

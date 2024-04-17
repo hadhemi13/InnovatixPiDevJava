@@ -1,5 +1,6 @@
 package controllers.Virement;
 
+import controllers.Cheque.AjouterChequeCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -131,28 +132,23 @@ public class DemandeVirementListClient {
     void statusChange(ActionEvent event) {
 
     }
-    @FXML
-    void ajouterV(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardVirement.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        AjouterVirementCard ajouterVirementCard = loader.getController();
-
-        // Set the scene
-        Stage stage = (Stage) VirBtn.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void AjouterVirement(MouseEvent mouseEvent) {
     }
 
 
-}
+    public void ajouterV(MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardVirement.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjouterVirementCard ajouterVirementCard = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+    }
+
 

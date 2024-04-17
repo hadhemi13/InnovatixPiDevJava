@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class dashboardClient {
@@ -37,46 +38,32 @@ public class dashboardClient {
     @FXML
     private HBox userTableHead;
 
-    @FXML
-    void ListVirement(ActionEvent event) {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeVirementListClient.fxml"));
-            Parent root = null;
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            DemandeVirementListClient demandeVirementListClient = loader.getController();
-
-            // Set the scene
-            Stage stage = (Stage) ListeVirement.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-
-
 
     @FXML
-    void listCheque(ActionEvent event) {
+    public void ListVirement(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeVirementListClient.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        DemandeVirementListClient demandeVirementListClient = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+    @FXML
+
+    public void listCheque(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Parent addArticleParent = loader.load();
 
+        // Récupération du contrôleur de la vue d'ajout d'article
         DemandeChequeListClient demandeChequeListClient = loader.getController();
 
-        // Set the scene
-        Stage stage = (Stage) ListeCheque.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
-
 }

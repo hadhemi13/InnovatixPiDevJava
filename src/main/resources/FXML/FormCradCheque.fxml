@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.AjouterChequeCard">
+<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="addProductCard" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.AjouterChequeCard">
     <children>
-        <HBox prefHeight="53.0" prefWidth="570.0">
+        <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
             <children>
                 <Text fill="#59b462" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__card-title" text="Demande de Chéque Bancaire ">
                     <font>
@@ -31,14 +31,14 @@
                 <Insets bottom="10.0" left="16.0" top="26.0" />
             </padding>
         </HBox>
-        <Line endX="488.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
+        <Line endX="488.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" translateX="250.0">
             <VBox.margin>
                 <Insets bottom="27.0" left="16.0" right="16.0" />
             </VBox.margin>
         </Line>
       <ScrollPane prefHeight="1600.0" prefWidth="630.0">
          <content>
-            <VBox prefHeight="1208.0" prefWidth="600.0">
+            <VBox prefHeight="1208.0" prefWidth="600.0" translateX="250.0">
                <children>
                     <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="72.0" prefWidth="630.0">
                         <padding>
