@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +20,7 @@
                 <Insets />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
+                <ImageView fx:id="logo" fitHeight="192.0" fitWidth="150.0"  pickOnBounds="true" preserveRatio="true" translateX="30.0" translateY="-15.0">
                     <image>
                         <Image url="@../img/logo.png" />
                     </image>
@@ -237,7 +238,7 @@
                                 <Insets left="20.0" />
                             </padding>
                         </HBox>
-                        <HBox fx:id="actualitesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openArticleList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="actualitesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="actualitesIcon" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
 
@@ -328,6 +329,10 @@
                 </HBox>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" />
+        <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
+            <children>
+                <ScrollPane prefHeight="622.0" prefWidth="1084.0" />
+            </children>
+        </Pane>
     </children>
 </AnchorPane>

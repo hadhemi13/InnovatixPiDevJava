@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="userProductsContainer" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListArticleAdminController">
+    <children>
+        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1084.0">
+            <children>
+                <Text fx:id="artReturnFrontBtn" fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text=" Articles| " />
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Liste des articles" />
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="117.0">
+                    <image>
+                        <Image url="@../imagesAct/magnifier.png" />
+                    </image>
+                </ImageView>
+                <TextField fx:id="ArticlesclientsfSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#searchProduct" prefWidth="265.0" styleClass="product__list-searchInput" translateX="87.0">
+                    <padding>
+                        <Insets left="37.0" right="40.0" />
+                    </padding>
+                </TextField>
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#SearchByImage" prefHeight="40.0" prefWidth="40.0" styleClass="searchByImage" stylesheets="@../css/SideNavBar.css" translateX="47.0">
+                    <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
+                            <image>
+                                <Image url="@../imagesAct/searchByImage.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#navigateToArticleAdd" prefHeight="40.0" prefWidth="239.0" styleClass="onlyOfferItemsBtn" translateX="220.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Ajouter un article" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets left="15.0" />
+            </padding>
+        </HBox>
+        <VBox layoutY="77.0" prefHeight="533.0" prefWidth="232.0" stylesheets="@../css/SideNavBar.css" translateX="5.0" translateY="5.0">
+            <children>
+                <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="249.0" prefWidth="217.0" styleClass="productList_BoxContainer" translateX="-7.0" translateY="100.0">
+                    <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="207.0" styleClass="searchText" stylesheets="@../css/SideNavBar.css">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" translateX="57.0" translateY="20.0" />
+                            </children>
+                        </HBox>
+                        <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="197.0" promptText="Categories" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateY="30.0">
+                            <VBox.margin>
+                                <Insets bottom="15.0" />
+                            </VBox.margin>
+                        </ComboBox>
+                        <Line endX="100.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" translateY="40.0" />
+                        <Text fx:id="VoirComment" fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Consulter la liste des commentaires" textAlignment="CENTER" translateY="50.0" wrappingWidth="203.8984375">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets left="10.0" top="10.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </VBox>
+            </children>
+            <padding>
+                <Insets left="15.0" top="20.0" />
+            </padding>
+        </VBox>
+        <ScrollPane fx:id="listArtScroll" layoutX="267.0" layoutY="77.0" prefHeight="524.0" prefWidth="800.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
+            <content>
+                <GridPane fx:id="ArtListContainer" prefHeight="522.0" prefWidth="800.0">
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </children>
+</Pane>

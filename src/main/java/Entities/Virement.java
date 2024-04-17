@@ -1,5 +1,7 @@
 package Entities;
 
+import javafx.scene.control.TextField;
+
 public class Virement {
     private int id;
     private int compte_id;
@@ -32,6 +34,22 @@ public class Virement {
         this.decision_v = decision_v;
         this.photo_cin_v = photo_cin_v;
         this.phone_number = phone_number;
+    }
+
+    public Virement(String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, int montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number) {
+        this.nomet_prenom = nomet_prenom;
+        this.type_virement = type_virement;
+        this.transferez_a = transferez_a;
+        this.num_beneficiare = num_beneficiare;
+        this.montant = montant;
+        this.cin = cin;
+        this.rib = rib;
+        this.decision_v = decision_v;
+        this.photo_cin_v = photo_cin_v;
+        this.phone_number = phone_number;
+    }
+
+    public Virement(String type, TextField montant, Integer aa, TextField transferez, Integer cin, String nom, String image, String decisionV) {
     }
 
     public int getId() {

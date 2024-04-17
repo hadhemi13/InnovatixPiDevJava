@@ -333,7 +333,7 @@
                                     <HBox fx:id="beneficiaireInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                            <Text fx:id="beneficiaireInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir un type !">
+                                            <Text fx:id="typeInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir un type !">
                                                 <HBox.margin>
                                                     <Insets top="5.0" />
                                                 </HBox.margin>

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.Compte;
 
 import java.net.URL;
 import javafx.fxml.Initializable;

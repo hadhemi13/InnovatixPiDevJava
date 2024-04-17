@@ -1,11 +1,15 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class SideNavBarUserController {
 
@@ -104,5 +108,6 @@ public class SideNavBarUserController {
 
     @FXML
     private Label usersText;
+
 
 }

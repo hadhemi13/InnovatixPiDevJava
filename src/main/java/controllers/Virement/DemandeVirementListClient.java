@@ -140,7 +140,6 @@ public class DemandeVirementListClient {
 
         AjouterVirementCard ajouterVirementCard = loader.getController();
 
-
         // Set the scene
         Stage stage = (Stage) btnvir.getScene().getWindow();
         Scene scene = new Scene(root);
@@ -150,5 +149,7 @@ public class DemandeVirementListClient {
 
     public void AjouterVirement(MouseEvent mouseEvent) {
     }
+
+
 }
 
