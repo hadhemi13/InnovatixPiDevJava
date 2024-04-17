@@ -5,6 +5,8 @@ import services.*;
 import utils.MyDatabase;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -13,13 +15,15 @@ public class Main {
 
         MyDatabase myDataBase = new MyDatabase();
         ServiceUser serviceUser = new ServiceUser();
+        List yesser = new ArrayList<>();
+        yesser.add("ROLE_ADMIN");
        // User user= new User( 1,"John Doe","exemple@example.com","12345678","ROLE_USER","motdepasse","Développeur","ABC123","chemin/vers/photo.jpg","123 rue exemple","12/6/2000",0,0,"rh",1000);
-        User maryemHobYesser = new User("hahaha","maryemHobYesser","haha","","hjjhjsjs","hqh","hshs","hshgsh","hdhs","hhdh",0,1,"hshsh",33);
+        User maryemHobYesser = new User("Styue","hello","ysggsh","hahhsbh","hshbshbsh","bshshbbhs","tyts","ata","hshs","hhs",0,1,"hsh",255);
         try {
             serviceUser.ajouter(maryemHobYesser);
             System.out.println("ajouté");
         } catch (SQLException e) {
-            System.out.println("non");
+            System.out.println(e.getMessage());
         }
 
 

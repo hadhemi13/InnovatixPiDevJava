@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashbordAdminController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="250.0" styleClass="dash__side-bar">
@@ -26,9 +27,9 @@
                         <Insets />
                     </VBox.margin></ImageView>
 
-                <VBox maxWidth="-Infinity" minHeight="-Infinity" prefHeight="349.0" prefWidth="250.0" translateY="1.0">
+                <VBox maxWidth="-Infinity" minHeight="-Infinity" prefHeight="349.0" prefWidth="250.0" stylesheets="@../css/SideNavBar.css" translateY="1.0">
                     <children>
-                        <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0">
+                        <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/SideNavBar.css">
                             <children>
                                 <ImageView fx:id="dashboardIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label fx:id="dashboardText" text="Tableau de bord" textFill="WHITE">
@@ -49,7 +50,7 @@
                                 <String fx:value="activeLink" />
                             </styleClass>
                         </HBox>
-                        <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openUsersList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links" stylesheets="@../css/SideNavBar.css">
                             <children>
                                 <ImageView fx:id="usersIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" translateX="-6.0">
 
@@ -60,7 +61,7 @@
                                         <Image url="@../img/homme.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="usersText" styleClass="text" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="8.0">
+                                <Label fx:id="usersText" styleClass="text" stylesheets="@../css/SideNavBar.css" text="Utilisateurs" textFill="WHITE" translateX="-4.0" translateY="8.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
