@@ -11,6 +11,14 @@ public class User {
     String roles;
     String date_naissance;
     private int is_verified=0;
+
+    public User(String name, String password, String tel, String email) {
+        this.name = name;
+        this.password = password;
+        this.tel = tel;
+        this.email = email;
+    }
+
     private int is_blocked=0;
 
     //update user set name=?,email=?,adresse=?,cin=?,date_naissance=?,profession=?  where id=?
@@ -24,6 +32,8 @@ public class User {
         this.cin = cin;
         this.date_naissance = date_naissance;
     }
+
+
 
     public int getSalaire() {
         return salaire;

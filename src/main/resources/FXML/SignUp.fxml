@@ -27,7 +27,7 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
                             <children>
                                 <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Nom*" />
-                                <TextField fx:id="emailField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Nom..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
+                                <TextField fx:id="fullnameField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Nom..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                                     <styleClass>
                                         <String fx:value="SignUp__input" />
                                         <String fx:value="SignUp__input--email" />
@@ -38,7 +38,7 @@
                         <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
                             <children>
                                 <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Email*" />
-                                <TextField fx:id="phoneField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Email..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
+                                <TextField fx:id="EmailField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Email..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                                     <styleClass>
                                         <String fx:value="SignUp__input" />
                                         <String fx:value="SignUp__input--tel" />
@@ -95,7 +95,7 @@
                   </VBox>
                     </children>
                 </VBox>
-                <Button fx:id="signUpBTN" layoutX="309.0" layoutY="574.0" mnemonicParsing="false" styleClass="SignUp__btn" stylesheets="@../../resources/css/SideNavBar.css" text="Sign Up" />
+                <Button fx:id="signUpBTN" layoutX="309.0" layoutY="574.0" mnemonicParsing="false" onAction="#signUp" styleClass="SignUp__btn" stylesheets="@../../resources/css/SideNavBar.css" text="Sign Up" />
                 <HBox layoutX="251.0" layoutY="629.0" prefHeight="34.0" style="-fx-spacing: 5px;" stylesheets="@../css/SideNavBar.css" />
             <VBox layoutX="683.0" layoutY="2.0" prefHeight="700.0" prefWidth="686.0" styleClass="vbox_background_center" stylesheets="@../css/login.css" />
             <ImageView fitHeight="113.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">

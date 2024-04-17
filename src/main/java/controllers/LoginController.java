@@ -1,39 +1,20 @@
 package controllers;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
-import javafx.fxml.Initializable;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.Node;
-import javafx.event.ActionEvent;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
-import Entities.User;
-import javafx.util.Duration;
-import services.Iservice;
-import services.ServiceUser;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
-import java.awt.*;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
 
 public class LoginController {
 
@@ -54,6 +35,35 @@ public class LoginController {
 
     @FXML
     private Button signUpLink;
+
+    public void ToSignUp(MouseEvent mouseEvent) {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SignUp.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Si nécessaire, récupérer le contrôleur associé à l'interface SignUp.fxml
+            // SignUpController signUpController = loader.getController();
+
+            // Set the scene
+            Stage stage = new Stage(); // Crée une nouvelle fenêtre pour l'interface d'inscription
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+
+    public void toForgotPassword(ActionEvent actionEvent)  throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/ForgotPassword.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+}
    /* void logIn(ActionEvent event) throws IOException {
 
         String email = emailField.getText();
@@ -124,4 +134,5 @@ public class LoginController {
             e.printStackTrace();
         }
     }*/
-}
+
+

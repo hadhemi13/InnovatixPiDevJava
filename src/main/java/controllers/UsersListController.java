@@ -23,4 +23,5 @@ public class UsersListController {
 
     @FXML
     private HBox userTableHead;
+
 }
