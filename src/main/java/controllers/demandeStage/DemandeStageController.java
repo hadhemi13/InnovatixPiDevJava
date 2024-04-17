@@ -41,7 +41,8 @@ public class DemandeStageController {
     private TextField NomDemInput;
     @FXML
     private Button upload;
-
+    @FXML
+    private DatePicker date;
     @FXML
     private TextField cv;
     private File selectedCvFile;
@@ -97,10 +98,13 @@ public class DemandeStageController {
                 String etat = "encours";
                 String domaine = "Informatique";
                 String cv = fileName;
-                Date date = new Date(128,04,06);
+                Date date1;
+                date1 =  java.sql.Date.valueOf(date.getValue());
+
+//                Date date = new Date(128,04,06);
                 MyDatabase db = MyDatabase.getInstance();
 
-                DemandeStage  stage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,new Date(124,04,06));
+                DemandeStage  stage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,date1);
                 ServiceDemandeStage demandeStage = new ServiceDemandeStage();
                 try {
                     demandeStage.ajouter(stage);

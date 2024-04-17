@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static java.time.zone.ZoneRulesProvider.refresh;
@@ -29,53 +30,29 @@ public class AfficheDemandeController implements Initializable {
     private Button refresh;
     @FXML
     private Button modifier;
+
+    @FXML
+    private Button delete;
     private ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
 
+    @FXML
+    void delete(ActionEvent event) throws SQLException {
+        DemandeStage demande = getSelectedDemande();
+        if (demande != null) {
+            serviceDemandeStage.supprimer(demande.getId());
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Information manquante");
+            alert.setHeaderText(null);
+            alert.setContentText("Vous devez sélectionner une demande.");
+            Optional<ButtonType> option = alert.showAndWait();
+        }
+
+    }
 
     @FXML
     void refreshList(ActionEvent event) {
         RefreshA();
-//        try {
-//            List<DemandeStage> demandeStages = serviceDemandeStage.afficher();
-//            listViewNom.getItems().clear();
-////            listViewNom.getItems().add("Nom    | ");
-//            StringBuilder Affichage = new StringBuilder();
-//            Affichage.append("Nom        ");
-//            Affichage.append("Prenom           ");
-//            Affichage.append("Email           ");
-//            Affichage.append("Numéro de téléphone           ");
-//            Affichage.append("CV           ");
-//            Affichage.append("Date           ");
-//            Affichage.append("Score           ");
-//
-//
-//            listViewNom.getItems().add(Affichage.toString());
-//            for (DemandeStage i : demandeStages){
-//                StringBuilder nom = new StringBuilder();
-////                StringBuilder prenom = new StringBuilder();
-//
-//                nom.append(i.getNom()).append("     ");
-//                nom.append(i.getPrenom()).append("     ");
-//                nom.append(i.getEmail()).append("     ");
-//                nom.append(i.getNumeroTelephone()).append("     ");
-//                nom.append(i.getCv()).append("     ");
-//                nom.append(i.getDate()).append("     ");
-//                if (i.getScore() == 0 )
-//                {
-//
-//                    nom.append("Demande spontannée");
-//                }
-//                else {
-//                    nom.append(i.getScore());
-//
-//                }
-//                listViewNom.getItems().add(nom.toString());
-////                listViewNom.getItems().add(prenom.toString());
-//            }
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
-
     }
     public void RefreshA(){
         try {

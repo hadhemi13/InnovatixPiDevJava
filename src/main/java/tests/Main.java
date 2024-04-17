@@ -2,6 +2,7 @@ package tests;
 
 import Entities.Contrat;
 import Entities.DemandeStage;
+import Entities.OffreDeStage;
 import Entities.Stage;
 import services.*;
 import utils.MyDatabase;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 //
 //        List<String> yesser = List.of("yesser");
 ////
@@ -72,6 +73,9 @@ public class Main {
 ////        }
 //        LocalDate dateActuelle = LocalDate.now();
 //        System.out.println(dateActuelle);
+        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+        List<OffreDeStage> demandeStages = serviceOffreDeStage.afficher();
+        System.out.println(demandeStages);
     }
 
 

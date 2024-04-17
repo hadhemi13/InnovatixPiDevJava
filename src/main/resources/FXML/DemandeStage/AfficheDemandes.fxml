@@ -6,10 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
 <AnchorPane prefHeight="750.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.AfficheDemandeController">
    <children>
       <Button fx:id="refresh" layoutX="1245.0" layoutY="113.0" mnemonicParsing="false" onAction="#refreshList" text="Refresh" />
       <ListView fx:id="listViewNom" layoutX="157.0" layoutY="138.0" prefHeight="533.0" prefWidth="1076.0" />
-      <Button fx:id="modifier" layoutX="848.0" layoutY="70.0" mnemonicParsing="false" onAction="#Edit" text="Button" />
+      <Button fx:id="modifier" layoutX="848.0" layoutY="70.0" mnemonicParsing="false" onAction="#Edit" text="Edit" />
+      <Button fx:id="delete" layoutX="419.0" layoutY="95.0" mnemonicParsing="false" onAction="#delete" text="supprimer" />
    </children>
 </AnchorPane>

@@ -92,19 +92,19 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
                 //LocalDateTime dt = list.getDate("date").toLocalDate;
                 //System.out.println(list);
             }
-            for (OffreDeStage i : list){
-                System.out.println("DemandeStage{" +
-                        ", id=" + i.getId() +
-                        "nom='" + i.getTitle() + '\'' +
-//                        ", prenom='" + i.getExigenceOffre() + '\'' +
-                        ", email='" + i.getExperience() + '\'' +
-                        ", cv='" + i.getDatePostu() + '\'' +
-                        '}');
-            }
+//            for (OffreDeStage i : list){
+//                System.out.println("DemandeStage{" +
+//                        ", id=" + i.getPostePropose() +
+//                        "nom='" + i.getTitle() + '\'' +
+////                        ", prenom='" + i.getExigenceOffre() + '\'' +
+//                        ", email='" + i.getExperience() + '\'' +
+//                        ", cv='" + i.getDatePostu() + '\'' +
+//                        '}');
+//            }
         }catch (SQLException e){
             System.err.println("e.getMessage()");
         }
-        return null;
+        return list;
     }
 
     @Override

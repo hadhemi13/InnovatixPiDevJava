@@ -113,3 +113,21 @@
 .comboBox:selected{
     -fx-border-width: 2px;
 }
+.stage-input-label{
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.stage__card-title {
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+ge-input-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.AddBtn {
+    -fx-background-color: #32bb6f;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-cursor: hand;
+}
