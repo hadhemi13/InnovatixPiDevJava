@@ -148,7 +148,35 @@ public class DemandeChequeListClient {
     public void ajouterCheque(javafx.scene.input.MouseEvent mouseEvent) {
     }
 
-    public void ajouterC(ActionEvent event) {
+    //public void ajouterC(ActionEvent event) {
+      //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCradCheque.fxml"));
+        //Parent root = null;
+        //try {
+          //  root = loader.load();
+        //} catch (IOException e) {
+          //  throw new RuntimeException(e);
+        //}
+
+        //AjouterChequeCard ajouterChequeCard = loader.getController();
+
+
+        // Set the scene
+       // Stage stage = (Stage) chequebtn.getScene().getWindow();
+        //Scene scene = new Scene(root);
+        //stage.setScene(scene);
+        //stage.show();
+    //}
+    @FXML
+    void supprimer(ActionEvent event) {
+
+    }
+
+    @FXML
+    void update(ActionEvent event) {
+
+    }
+
+    public void AjouterC(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCradCheque.fxml"));
         Parent root = null;
         try {
@@ -166,14 +194,4 @@ public class DemandeChequeListClient {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
-    void supprimer(ActionEvent event) {
-
     }
-
-    @FXML
-    void update(ActionEvent event) {
-
-    }
-
-}

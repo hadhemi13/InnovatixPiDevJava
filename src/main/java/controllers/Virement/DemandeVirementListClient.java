@@ -27,6 +27,9 @@ public class DemandeVirementListClient {
     private HBox InvestBtn;
 
     @FXML
+    private Button VirBtn;
+
+    @FXML
     private HBox actualitesBtn;
 
     @FXML
@@ -141,7 +144,7 @@ public class DemandeVirementListClient {
         AjouterVirementCard ajouterVirementCard = loader.getController();
 
         // Set the scene
-        Stage stage = (Stage) btnvir.getScene().getWindow();
+        Stage stage = (Stage) VirBtn.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

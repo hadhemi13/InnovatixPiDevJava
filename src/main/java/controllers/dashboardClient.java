@@ -51,7 +51,7 @@ public class dashboardClient {
             DemandeVirementListClient demandeVirementListClient = loader.getController();
 
             // Set the scene
-            Stage stage = (Stage) ListeCheque.getScene().getWindow();
+            Stage stage = (Stage) ListeVirement.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -72,7 +72,7 @@ public class dashboardClient {
         DemandeChequeListClient demandeChequeListClient = loader.getController();
 
         // Set the scene
-        Stage stage = (Stage) ListeVirement.getScene().getWindow();
+        Stage stage = (Stage) ListeCheque.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
