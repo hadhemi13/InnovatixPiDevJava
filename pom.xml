@@ -35,6 +35,12 @@
             <artifactId>fontawesomefx-fontawesome</artifactId>
             <version>4.7.0-9.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version> <!-- Assurez-vous de spécifier la dernière version disponible -->
+        </dependency>
+
 
     </dependencies>
 
