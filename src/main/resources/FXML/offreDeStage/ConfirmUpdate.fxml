@@ -17,7 +17,7 @@
     <children>
         <VBox prefHeight="622.0" prefWidth="1084.0">
             <children>
-                <HBox prefHeight="52.0" prefWidth="570.0" translateX="230.0">
+                <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
                     <children>
                         <Text fill="#59b462" strokeType="OUTSIDE" strokeWidth="0.0" text="Offre de Stage" textAlignment="CENTER">
                             <HBox.margin>
