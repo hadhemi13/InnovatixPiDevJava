@@ -10,7 +10,7 @@
 
 <Pane fx:id="userPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UsersListController">
     <children>
-        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="1033.0" stylesheets="@../css/SideNavBar.css">
+        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="1084.0" stylesheets="@../css/SideNavBar.css">
             <children>
                 <Text fx:id="userListTitle" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_list--title" text="Liste Des Utilisateurs ">
                     <HBox.margin>
@@ -31,7 +31,7 @@
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="TEL" wrappingWidth="100.55472183227539" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Role" wrappingWidth="106.15463638305664" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Etat du compte" wrappingWidth="138.15475845336914" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Photo " wrappingWidth="172.55461502075195" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Action" wrappingWidth="172.55461502075195" />
             </children>
         </HBox>
         <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane" stylesheets="@../css/SideNavBar.css">

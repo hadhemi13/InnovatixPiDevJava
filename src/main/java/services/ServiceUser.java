@@ -15,12 +15,15 @@ public class ServiceUser  implements Iservice<User>{
     public void ajouter(User user) throws SQLException {
         String req = "INSERT INTO user (email, name, roles, password, cin, date_naissance, adresse, profession, photo, is_blocked, is_verified, poste, salaire, tel) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String y = "yesser";
+        String a = "[\"" +y+"\"]";
+        System.out.println(a);
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getName());
             String[] rolesArray = user.getRoles().split(","); // Supposons que les rôles sont séparés par des virgules
-            Array rolesJdbcArray = connection.createArrayOf("VARCHAR", rolesArray);
-            preparedStatement.setArray(3, rolesJdbcArray); // Définir le tableau JDBC dans la colonne roles
+           // Array rolesJdbcArray = connection.createArrayOf("VARCHAR", rolesArray);
+            preparedStatement.setString(3, "[\"" +user.getRoles()+"\"]" ); // Définir le tableau JDBC dans la colonne roles
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getCin());
             preparedStatement.setString(6, user.getDate_naissance());
@@ -169,8 +172,93 @@ public class ServiceUser  implements Iservice<User>{
 
 
     }
+    public ArrayList<User> getAllUser() throws SQLException {
+        String req = "SELECT * FROM `user` WHERE roles = ? OR roles = ?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setString(1, "[\"ROLE_CLIENT\"]");
+        ps.setString(2, "[\"ROLE_ADMIN\"]");
 
+        ResultSet rs = ps.executeQuery();
+        ArrayList<User> userList = new ArrayList<>();
 
+        while (rs.next()) {
+            User user = new User();
 
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setPassword(rs.getString("password"));
+            user.setTel(rs.getString("tel"));
+            user.setCin(rs.getString("CIN"));
+            user.setEmail(rs.getString("email"));
+            user.setAdresse(rs.getString("adresse"));
+            user.setProfession(rs.getString("profession"));
+            user.setRoles(rs.getString("roles"));
+            user.setPhoto(rs.getString("photo"));
+
+            userList.add(user);
+        }
+        ps.close();
+        return userList;
     }
+    public ArrayList<User> getAllClient() throws SQLException {
+        String req = "SELECT * FROM `user` WHERE roles = ?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setString(1, "[\"ROLE_CLIENT\"]");
+
+        ResultSet rs = ps.executeQuery();
+        ArrayList<User> userList = new ArrayList<>();
+
+        while (rs.next()) {
+            User user = new User();
+
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setPassword(rs.getString("password"));
+            user.setTel(rs.getString("tel"));
+            user.setCin(rs.getString("CIN"));
+            user.setEmail(rs.getString("email"));
+            user.setAdresse(rs.getString("adresse"));
+            user.setProfession(rs.getString("profession"));
+            user.setRoles(rs.getString("roles"));
+            user.setPhoto(rs.getString("photo"));
+
+            userList.add(user);
+        }
+        ps.close();
+        return userList;
+    }
+
+    public ArrayList<User> getAllAdmin() throws SQLException {
+        String req = "SELECT * FROM `user` WHERE roles = ?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setString(1, "[\"ROLE_Admin\"]");
+
+        ResultSet rs = ps.executeQuery();
+        ArrayList<User> userList = new ArrayList<>();
+
+        while (rs.next()) {
+            User user = new User();
+
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setPassword(rs.getString("password"));
+            user.setTel(rs.getString("tel"));
+            user.setCin(rs.getString("CIN"));
+            user.setEmail(rs.getString("email"));
+            user.setAdresse(rs.getString("adresse"));
+            user.setProfession(rs.getString("profession"));
+            user.setRoles(rs.getString("roles"));
+            user.setPhoto(rs.getString("photo"));
+
+            userList.add(user);
+        }
+        ps.close();
+        return userList;
+    }
+
+
+
+
+
+}
 

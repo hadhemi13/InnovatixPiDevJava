@@ -63,6 +63,7 @@ public class LoginController {
         stage.setScene(scene);
         stage.show();
     }
+
 }
    /* void logIn(ActionEvent event) throws IOException {
 
