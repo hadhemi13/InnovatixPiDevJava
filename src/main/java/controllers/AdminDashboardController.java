@@ -380,7 +380,7 @@ public class AdminDashboardController implements Initializable {
       projetsText.getStyleClass().add("activeText");
 
       // Load the image
-      Image image = new Image("assets/img/project.png");
+      Image image = new Image("../assets/img/project.png");
       investissementsIcon.setImage(image);
 
       if (projetsBtn.getStyleClass().contains("activeLink")) {
