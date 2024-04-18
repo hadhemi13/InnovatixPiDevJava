@@ -54,6 +54,7 @@ public class AffichOffreController implements Initializable {
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
+
     }
 
 

@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 //import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import services.ServiceDemandeStage;
+import services.Upload;
 import utils.MyDatabase;
 
 import java.nio.file.Path;
@@ -60,23 +61,25 @@ public class DemandeStageController {
         selectedCvFile = fileChooser.showOpenDialog(upload.getScene().getWindow());
 
         if (selectedCvFile != null) {
-            // Charger le PDF dans la WebView
-//            String url = selectedCvFile.toURI().toString();
-//            cv.getEngine().load(url);
-            File cva = new File(selectedCvFile.toURI().toString());
-            cv.setText(String.valueOf(cva));
-            // Générer un nom de fichier unique pour le CV
-            String uniqueID = UUID.randomUUID().toString();
-            String extension = selectedCvFile.getName().substring(selectedCvFile.getName().lastIndexOf(".")); // L'extension est déjà spécifiée dans le filtre de l'FileChooser
-            fileName = uniqueID + extension;
-
-            // Copier le fichier PDF vers le répertoire de destination
-            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", fileName);
-            try {
-                Files.copy(selectedCvFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            Upload ServiceUpload = new Upload();
+           fileName =  ServiceUpload.Upload(selectedCvFile);
+//            // Charger le PDF dans la WebView
+////            String url = selectedCvFile.toURI().toString();
+////            cv.getEngine().load(url);
+//            File cva = new File(selectedCvFile.toURI().toString());
+//            cv.setText(String.valueOf(cva));
+//            // Générer un nom de fichier unique pour le CV
+//            String uniqueID = UUID.randomUUID().toString();
+//            String extension = selectedCvFile.getName().substring(selectedCvFile.getName().lastIndexOf(".")); // L'extension est déjà spécifiée dans le filtre de l'FileChooser
+//            fileName = uniqueID + extension;
+//
+//            // Copier le fichier PDF vers le répertoire de destination
+//            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", fileName);
+//            try {
+//                Files.copy(selectedCvFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
 
         }
     }

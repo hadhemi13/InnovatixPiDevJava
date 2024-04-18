@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class MainFX extends Application {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBar.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageItem.fxml"));
 
     @Override
     public void start(Stage primaryStage) throws Exception {
