@@ -30,6 +30,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.IOException;
@@ -265,6 +267,9 @@ public class AjouterVirementCard {
             );
 
             type.setItems(types);
+
+            type.setValue("Personne");
+
 
         }
 

@@ -249,16 +249,7 @@
                               <Insets right="99.0" />
                            </VBox.margin>
                             </HBox>
-                            <HBox fx:id="imageInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../../resources/css/Compte.css">
-                                <children>
-                                    <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                    <Text fx:id="imageInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir une image !">
-                                        <HBox.margin>
-                                            <Insets top="5.0" />
-                                        </HBox.margin>
-                                    </Text>
-                                </children>
-                            </HBox>
+                            <HBox fx:id="imageInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../../resources/css/Compte.css" />
                         </children>
                     </VBox>
             
