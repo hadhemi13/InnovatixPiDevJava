@@ -1,11 +1,16 @@
 package controllers.offreDeStage;
 
+import Entities.OffreDeStage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class OffreStageItem {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class OffreStageItem implements Initializable {
 
     @FXML
     private Text motsCles;
@@ -61,4 +66,23 @@ public class OffreStageItem {
 
     }
 
+    public void initData(OffreDeStage i) {
+        motsCles.setText(i.getMotsCles().toString());
+        titre.setText(i.getTitle());
+        domaine.setText(i.getDomaine());
+        description.setText(i.getDescription());
+        language.setText(i.getLanguage().toString());
+        type.setText(i.getTypeOffre());
+        experience.setText(i.getExperience());
+        niveau.setText(i.getNiveau().toString());
+        exigence.setText(i.getExigenceOffre());
+        poste.setText(String.valueOf(i.getPostePropose()));
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Ne rien faire dans l'initialisation par défaut
+
+
+    }
 }

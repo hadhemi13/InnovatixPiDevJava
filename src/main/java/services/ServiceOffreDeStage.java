@@ -16,6 +16,8 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
 
     @Override
     public void ajouter(OffreDeStage offreDeStage) throws SQLException {
+//        INSERT INTO `offre_stage` (`id`, `user_id`, `title`, `domaine`, `type_offre`, `poste_propose`, `experience`, `niveau`, `language`, `description`, `exigence_offre`, `date_postu`, `mots_cles`, `pfe_book`) VALUES (NULL, '3', 'nbnb', 'bb', 'vv', '3', NULL, NULL, '[\"shsh\"]', 'bvvb', 'b b', NULL, NULL, NULL);
+        String a = "[\"" +"shsh\"]"+"'";
 
         String req = "insert into offre_stage " +
                 "(title,domaine,type_offre,poste_propose,experience,description,exigence_offre)" +
@@ -39,6 +41,12 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
             System.err.println(e.getMessage());
         }
 
+    }
+
+    public static void main(String[] args) {
+        String y = "yesser";
+        String a = "[\"" +y+"\"]";
+        System.out.println(a);
     }
 
     @Override

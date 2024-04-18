@@ -1,7 +1,7 @@
 package controllers;
 
 import controllers.demandeStage.AfficheDemandeController;
-import controllers.offreDeStage.AffichOffreController;
+import controllers.offreDeStage.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -75,7 +75,7 @@ public class CardNavBar {
         Parent affichageOffre = loader.load();
 
         // Récupération du contrôleur de la vue d'ajout d'article
-        AffichOffreController affichOffreController = loader.getController();
+        controllers.offreDeStage.AfficheOffreController affichOffreController = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
