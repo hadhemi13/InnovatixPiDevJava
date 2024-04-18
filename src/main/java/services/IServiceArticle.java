@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IServiceArticle <T> {
-    void ajouter(T t) throws SQLException;
+    boolean ajouter(T t) throws SQLException;
     void supprimer(T t) throws SQLException;
     void modifier (T t) throws SQLException;
     public List<T> afficher() throws SQLException;

@@ -543,18 +543,11 @@
 }
 .userProductCard {
     -fx-border-color: #ccfccb;
-    -fx-border-width: 8px;
-    -fx-background-color: #fff;
-    -fx-background-radius: 50px;
-    -fx-border-radius: 50px;
-}
-
-.userProductCard-imgContainer {
-    -fx-border-color: #ccfccb;
     -fx-border-width: 1px;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
 }
+
 
 .userProductCard-name {
     -fx-font-size: 25px;
@@ -1119,6 +1112,14 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
+/*.userProductCard {*/
+/*    -fx-background-color: #ffffff; !* Couleur de fond *!*/
+/*    -fx-background-radius: 10px; !* Rayon de bordure *!*/
+/*    -fx-padding: 10px; !* Espacement intérieur *!*/
+/*}*/
+
+/*.userProductCard:hover {*/
+/*    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); !* Effet d'ombre portée au survol *!*/
 
 .dash__side-bar {
     -fx-padding: 16px 18px;

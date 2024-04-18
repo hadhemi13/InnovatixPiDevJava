@@ -1,199 +1,131 @@
 package controllers;
 
+import Entities.Article;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import services.ServiceArticle;
 
-public class ModifierArticleController {
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ResourceBundle;
 
-    @FXML
-    private Text CatArtInputError;
-
-    @FXML
-    private TextArea ContenuArt;
-
-    @FXML
-    private Text ContenuArtInputError;
-
-    @FXML
-    private HBox InvestBtn;
-
-    @FXML
-    private HBox actualitesBtn;
-
-    @FXML
-    private ImageView actualitesIcon;
-
-    @FXML
-    private Label actualitesText;
-
-    @FXML
-    private ComboBox<?> addCategorie;
-
-    @FXML
-    private Button addProductBtn;
-
-    @FXML
-    private HBox addReviewsModel;
-
-    @FXML
-    private Text addpieceJBtn;
-
-    @FXML
-    private HBox choose_photoBtn;
-
-    @FXML
-    private HBox compteBtn;
-
-    @FXML
-    private ImageView comptesIcon;
-
-    @FXML
-    private Label comptesText;
-
-    @FXML
-    private Pane content_area;
-
-    @FXML
-    private HBox creditsBtn;
-
-    @FXML
-    private ImageView creditsIcon;
-
-    @FXML
-    private Label creditsText;
-
-    @FXML
-    private HBox dashboardBtn;
-
-    @FXML
-    private ImageView dashboardIcon;
-
-    @FXML
-    private Label dashboardText;
-
-    @FXML
-    private DatePicker datePubArt;
-
-    @FXML
-    private HBox descriptionInputErrorHbox;
-
-    @FXML
-    private Spinner<?> dureeArt;
-
-    @FXML
-    private Text dureeArtInputError;
-
-    @FXML
-    private HBox etatInputErrorHbox;
-
-    @FXML
-    private HBox evenementsBtn;
-
-    @FXML
-    private ImageView evenementsIcon;
-
-    @FXML
-    private Label evenementsText;
-
-    @FXML
-    private ImageView imageInput;
-
-    @FXML
-    private Text imageInputError;
-
-    @FXML
-    private HBox imageInputErrorHbox;
-
-    @FXML
-    private ImageView investissementsIcon;
-
-    @FXML
-    private Label investissementsText;
-
-    @FXML
-    private ImageView logo;
-
-    @FXML
-    private HBox navBarLogout;
-
-    @FXML
-    private Text navFullname;
-
-    @FXML
-    private Text objectifInputError;
-
-    @FXML
-    private HBox objectifInputErrorHbox;
-
-    @FXML
-    private ImageView pieceJArtInput;
-
-    @FXML
-    private HBox pointsInputErrorHbox;
-
-    @FXML
-    private HBox recBtn;
-
-    @FXML
-    private Label reclamationText;
-
-    @FXML
-    private ImageView reclamationsIcon;
-
-    @FXML
-    private HBox sideBarLogout;
-
-    @FXML
-    private HBox stagesBtn;
-
-    @FXML
-    private ImageView stagesIcon;
-
-    @FXML
-    private Label stagesText;
+public class ModifierArticleController implements Initializable {
 
     @FXML
     private TextField titreArt;
 
     @FXML
-    private Text titreInputError;
+    private TextArea ContenuArt;
 
     @FXML
-    private HBox titreInputErrorHbox;
+    private DatePicker datePubArt;
 
     @FXML
-    private HBox usersBtn;
+    private ComboBox<String> addCategorie;
 
     @FXML
-    private ImageView usersIcon;
+    private Spinner<Integer> dureeArt;
 
     @FXML
-    private Label usersText;
+    private ImageView imageInput;
 
-    @FXML
-    void ajouter_article(MouseEvent event) {
+    private Article article;
 
+    private ServiceArticle serviceArticle;
+
+    private void initializeArticleFields() {
+        if (article != null) {
+            titreArt.setText(article.getTitre_art());
+            ContenuArt.setText(article.getContenu_art());
+            datePubArt.setValue(article.getDate_pub_art().toLocalDate());
+            addCategorie.setValue(article.getCategorie_art());
+            SpinnerValueFactory<Integer> valueFactory = dureeArt.getValueFactory();
+            if (valueFactory != null) {
+                valueFactory.setValue(article.getDuree_art());
+            }
+            Image image = new Image(article.getImage_art());
+            imageInput.setImage(image);
+        }
     }
 
     @FXML
-    void ajouter_image(MouseEvent event) {
-
+    void ajouter_image(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        File selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+        if (selectedImageFile != null) {
+            Image image = new Image(selectedImageFile.toURI().toString());
+            imageInput.setImage(image);
+        }
     }
+
 
     @FXML
-    void close_addReviewsModel(MouseEvent event) {
-
+    void returnbackarticle(MouseEvent event) {
+        Stage stage = (Stage) titreArt.getScene().getWindow();
+        stage.close();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Initialiser la liste des catégories
+        ObservableList<String> categories = FXCollections.observableArrayList(
+                "Développement durable",
+                "Finance",
+                "Banque",
+                "Crédits"
+        );
+        addCategorie.setItems(categories);
+
+        // Initialiser le Spinner de durée
+        SpinnerValueFactory<Integer> valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
+        dureeArt.setValueFactory(valueFactory);
+
+        // Autoriser la saisie directe des valeurs dans le Spinner
+        dureeArt.setEditable(true);
+
+        // Limiter la saisie à des nombres entiers
+        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
+            if (c.getControlNewText().matches("\\d*")) {
+                return c;
+            } else {
+                return null;
+            }
+        }));
+
+        // Initialiser les champs de l'article
+        initializeArticleFields();
+    }
+
+    public void ModifierArt(MouseEvent mouseEvent) throws SQLException {
+        ServiceArticle serviceArticle = new ServiceArticle() ;
+        if (article != null) {
+            article.setTitre_art(titreArt.getText());
+            article.setContenu_art(ContenuArt.getText());
+            article.setDate_pub_art(LocalDateTime.of(datePubArt.getValue(), LocalDate.now().atStartOfDay().toLocalTime()));
+            article.setCategorie_art(addCategorie.getValue());
+            article.setDuree_art(dureeArt.getValue());
+            article.setImage_art(imageInput.getImage().getUrl());
+            serviceArticle.modifier(article);
+        }
+    }
 }

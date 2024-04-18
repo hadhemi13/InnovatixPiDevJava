@@ -6,6 +6,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import services.ServiceArticle;
 
 import java.io.File;
@@ -97,6 +101,8 @@ public class AjouterArticleController implements Initializable {
     private Pane content_area;
     @FXML
     private HBox DateHboxErreur;
+    @FXML
+    private ScrollPane scrollPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DateHboxErreur.setVisible(false);
@@ -133,7 +139,7 @@ public class AjouterArticleController implements Initializable {
     }
 
     @FXML
-    void ajouter_article(MouseEvent event) throws SQLException {
+    void ajouter_article(MouseEvent event) throws SQLException, IOException {
         String nom = "hadhemi";
         String adresse ="mahmoud";
         ServiceArticle sa = new ServiceArticle();
@@ -213,7 +219,24 @@ public class AjouterArticleController implements Initializable {
         String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
         Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt.getValue(),selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,image);
         sa.ajouter(article);
+        if (sa.ajouter(article)) {
 
+
+            // Redirection vers la liste des articles
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
+//            Parent root = loader.load();
+//            ListArticleAdminController controller = loader.getController();
+//            controller.initData(); // Méthode pour rafraîchir la liste des articles si nécessaire
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.setScene(new Scene(root));
+//            stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
+            Pane listArtAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArtAdminPane);
+
+        }
 
     }
     @FXML

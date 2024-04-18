@@ -16,7 +16,7 @@ public class ServiceArticle  implements IServiceArticle<Article> {
     }
 
     @Override
-    public void ajouter(Article article) throws SQLException {
+    public boolean ajouter(Article article) throws SQLException {
         String req = "INSERT INTO article (nom_aut_art, adr_aut_art, date_pub_art, duree_art, categorie_art, titre_art, contenu_art, piecejointe_art, image_art,likes ,dislikes) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
@@ -35,9 +35,11 @@ public class ServiceArticle  implements IServiceArticle<Article> {
 
             preparedStatement.executeUpdate();
             System.out.println("Article ajouté");
+            return true ;
         } catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de l'article : " + e.getMessage());
         }
+        return false;
     }
 //@Override
 //public void ajouter(Article article) throws SQLException {

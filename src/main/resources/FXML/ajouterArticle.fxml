@@ -37,7 +37,7 @@
         </HBox>
       <VBox alignment="CENTER" prefHeight="548.0" prefWidth="1084.0" styleClass="dash__container-card">
          <children>
-            <ScrollPane prefHeight="511.0" prefWidth="1084.0">
+            <ScrollPane fx:id="scrollPane" prefHeight="511.0" prefWidth="1084.0">
                <content>
                   <VBox alignment="CENTER" prefHeight="982.0" prefWidth="554.0" translateX="250.0">
                      <children>

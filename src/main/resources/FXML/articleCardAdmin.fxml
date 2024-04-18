@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="280.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.articleCardAdminController">
+<VBox fx:id="backArt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="255.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.articleCardAdminController">
     <children>
-          <HBox fx:id="open_productDetails" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="425.0" prefWidth="264.0" styleClass="openProductDetailsBtn">
+          <HBox fx:id="open_productDetails" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="425.0" prefWidth="265.0" styleClass="openProductDetailsBtn">
          <children>
-            <VBox prefHeight="435.0" prefWidth="264.0">
+            <VBox alignment="TOP_CENTER" prefHeight="426.0" prefWidth="217.0" translateX="-15.0">
                <children>
-                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="192.0" styleClass="userProductCard-imgContainer">
+                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="222.0" styleClass="userProductCard-imgContainer">
                         <VBox.margin>
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                         <children>
-                            <ImageView fx:id="imgArtFront" fitHeight="151.0" fitWidth="244.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imgArtFront" fitHeight="151.0" fitWidth="207.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../imagesAct/eco-modified (3).png" />
                                 </image>
@@ -93,7 +93,7 @@
                                     </ImageView>
                                 </children>
                             </HBox>
-                            <HBox fx:id="editArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                            <HBox fx:id="editArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#modifierArt" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                                 <children>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                         <image>

@@ -1,5 +1,6 @@
 package controllers;
 
+import Entities.Article;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +17,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import services.ServiceArticle;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class ListArticleAdminController {
 
@@ -88,5 +93,49 @@ public class ListArticleAdminController {
 
     }
 
+    private final ServiceArticle serviceArticle = new ServiceArticle();
 
+    @FXML
+    public void initialize() {
+
+        try {
+            List<Article> articles = serviceArticle.afficher();
+            loadArticleCards(articles);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadArticleCards(List<Article> articles) {
+        int column = 0;
+        int row = 0;
+        int cardSpacing = 10;
+        int rowSpacing = 10;
+        int columnSpacing = 10;
+        for (Article article : articles) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/articleCardAdmin.fxml"));
+                VBox articleCard = fxmlLoader.load();
+
+                // Get the controller
+                articleCardAdminController articleCardController = fxmlLoader.getController();
+
+                // Set article data
+                articleCardController.initializeData(article);
+
+                // Add the article card to the grid pane
+                ArtListContainer.add(articleCard, column, row);
+
+                // Increment row and column
+                column++;
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Gérer l'exception appropriée ici, par exemple afficher un message d'erreur à l'utilisateur ou journaliser l'erreur
+            }
+        }
+    }
 }
