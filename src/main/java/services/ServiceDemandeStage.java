@@ -1,6 +1,7 @@
 package services;
 
 import Entities.DemandeStage;
+import Entities.OffreDeStage;
 import utils.MyDatabase;
 
 import java.io.IOException;
@@ -200,7 +201,7 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
     }
 
     @Override
-    public void afficheUne(int id) throws SQLException {
+    public OffreDeStage afficheUne(int id) throws SQLException {
         Connection connection = MyDatabase.getInstance().getConnection();
         String reqMot = "select mots_cles from offre_stage where id=?";
 
@@ -216,6 +217,7 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        return null;
     }
 
 

@@ -89,7 +89,8 @@ public class ServiceStage implements IService<Stage> {
     }
 
     @Override
-    public void afficheUne(int id) throws SQLException {
+    public OffreDeStage afficheUne(int id) throws SQLException {
 
+        return null;
     }
 }

@@ -68,22 +68,77 @@ public class OffreStageItem implements Initializable {
 
     }
 
-    public void initData(OffreDeStage i) {
-        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
-//        Rectangle clip = new Rectangle();
-//        clip.setArcWidth(100);
-//        clip.setArcHeight(100);
-        motsCles.setText(i.getMotsCles().toString());
-        titre.setText(i.getTitle());
-        domaine.setText(i.getDomaine());
-        description.setText(i.getDescription());
-        language.setText(i.getLanguage().toString());
-        type.setText(i.getTypeOffre());
-        experience.setText(i.getExperience());
-        niveau.setText(i.getNiveau().toString());
-        exigence.setText(i.getExigenceOffre());
-        poste.setText(String.valueOf(i.getPostePropose()));
-    }
+//    public void initData(OffreDeStage i) {
+//        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+//
+//        // Vérification de null pour les mots clés
+//        String motsClesText = i.getMotsCles() != null ? i.getMotsCles().toString() : "N/A";
+//        motsCles.setText(motsClesText);
+//
+//        titre.setText(i.getTitle());
+//        domaine.setText(i.getDomaine());
+//        description.setText(i.getDescription());
+//
+//        // Vérification de null pour le langage
+//        String langageText = i.getLanguage() != null ? i.getLanguage().toString() : "N/A";
+//        language.setText(langageText);
+//
+//        type.setText(i.getTypeOffre());
+//        experience.setText(i.getExperience());
+//
+//        // Vérification de null pour le niveau
+//        String niveauText = i.getNiveau() != null ? i.getNiveau().toString() : "N/A";
+//        niveau.setText(niveauText);
+//
+//        exigence.setText(i.getExigenceOffre());
+//        poste.setText(String.valueOf(i.getPostePropose()));
+//    }
+public void initData(OffreDeStage i) {
+    ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+
+    // Vérification de null pour les mots clés
+    String motsClesText = i.getMotsCles() != null ? i.getMotsCles().toString() : "N/A";
+    motsCles.setText(motsClesText);
+
+    // Limiter la longueur du titre à 30 caractères
+    String titreText = i.getTitle() != null && i.getTitle().length() > 30 ? i.getTitle().substring(0, 30) : i.getTitle();
+    titre.setText(titreText);
+
+    // Limiter la longueur du domaine à 30 caractères
+    String domaineText = i.getDomaine() != null && i.getDomaine().length() > 30 ? i.getDomaine().substring(0, 30) : i.getDomaine();
+    domaine.setText(domaineText);
+
+    // Limiter la longueur de la description à 30 caractères
+    String descriptionText = i.getDescription() != null && i.getDescription().length() > 30 ? i.getDescription().substring(0, 30) : i.getDescription();
+    description.setText(descriptionText);
+
+    // Vérification de null pour le langage
+    String langageText = i.getLanguage() != null ? i.getLanguage().toString() : "N/A";
+    language.setText(langageText);
+
+    // Limiter la longueur du type à 30 caractères
+    String typeText = i.getTypeOffre() != null && i.getTypeOffre().length() > 30 ? i.getTypeOffre().substring(0, 30) : i.getTypeOffre();
+    type.setText(typeText);
+
+    // Limiter la longueur de l'expérience à 30 caractères
+    String experienceText = i.getExperience() != null && i.getExperience().length() > 30 ? i.getExperience().substring(0, 30) : i.getExperience();
+    experience.setText(experienceText);
+
+    // Vérification de null pour le niveau
+    String niveauText = i.getNiveau() != null ? i.getNiveau().toString() : "N/A";
+    niveau.setText(niveauText);
+
+    // Limiter la longueur de l'exigence à 30 caractères
+    String exigenceText = i.getExigenceOffre() != null && i.getExigenceOffre().length() > 30 ? i.getExigenceOffre().substring(0, 30) : i.getExigenceOffre();
+    exigence.setText(exigenceText);
+
+    // Limiter la longueur du poste à 30 caractères
+    String posteText = String.valueOf(i.getPostePropose());
+// Limiter la longueur du poste à 30 caractères si la longueur est supérieure à 30
+    posteText = posteText.length() > 30 ? posteText.substring(0, 30) : posteText;
+    poste.setText(posteText);
+}
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

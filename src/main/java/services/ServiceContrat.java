@@ -1,7 +1,7 @@
 package services;
 
 import Entities.Contrat;
-import Entities.Stage;
+import Entities.OffreDeStage;
 import utils.MyDatabase;
 
 import java.sql.*;
@@ -92,7 +92,8 @@ public class ServiceContrat implements IService<Contrat>{
     }
 
     @Override
-    public void afficheUne(int id) throws SQLException {
+    public OffreDeStage afficheUne(int id) throws SQLException {
 
+        return null;
     }
 }

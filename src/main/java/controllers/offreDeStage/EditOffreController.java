@@ -14,7 +14,14 @@ import javafx.scene.control.TextField;
 
 public class EditOffreController implements Initializable {
 
+    private static String fxmlToLoad;
+    public static String getFxmlToLoad() {
+        return fxmlToLoad;
+    }
 
+    public static void setFxmlToLoad(String FxmlToLoad) {
+        EditOffreController.fxmlToLoad = FxmlToLoad;
+    }
     public void initData(OffreDeStage demande) {
         // Initialiser les champs de l'interface utilisateur avec les données de la demande
         // Par exemple :
@@ -22,6 +29,13 @@ public class EditOffreController implements Initializable {
 //        PrenomDemInput.setText(demande.getPrenom());
         // Autres initialisations...
 
+    }
+    public static void setProjectUpdateData(OffreDeStage project) {
+//        projectToUpdate = project;
+
+//        Image image = new Image(getClass().getResource("/assets/projectUploads/" + project.getImg()).toExternalForm());
+//        imageInput.setImage(image);
+//        imageName = project.getImg();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package services;
 
+import Entities.OffreDeStage;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -8,5 +10,5 @@ public interface IService <T>{
     void supprimer(int id) throws SQLException;
     void modifier (T t) throws SQLException;
     public List<T> afficher() throws SQLException;
-     void afficheUne(int id) throws SQLException;
+     OffreDeStage afficheUne(int id) throws SQLException;
 }
