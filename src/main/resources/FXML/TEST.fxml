@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1002.0" styleClass="userItem" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.TESTCONTROLLER">
+<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1002.0" styleClass="userItem" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TESTCONTROLLER">
     <children>
         <ImageView fx:id="userItemImg" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
             <image>
@@ -49,7 +49,7 @@
             <graphic>
                 <ImageView fx:id="userItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../img/unlock-icon.png" />
+                        <Image url="@../img/lock-icon.png" />
                     </image>
                 </ImageView>
             </graphic>
