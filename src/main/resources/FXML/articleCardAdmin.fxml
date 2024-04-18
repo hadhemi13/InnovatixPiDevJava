@@ -105,7 +105,7 @@
                                     <Insets left="6.0" />
                                 </HBox.margin>
                             </HBox>
-                            <HBox fx:id="deleteArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                            <HBox fx:id="deleteArtBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteArtBtn" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                                 <children>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
