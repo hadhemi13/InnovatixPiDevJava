@@ -228,7 +228,7 @@
                                         <children>
                                             <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#ajouter_imageV" prefHeight="48.0" prefWidth="200.0" stylesheets="@../css/Compte.css">
                                                 <children>
-                                          <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="218.0" styleClass="cheque__add-img-btn">
+                                          <Button fx:id="imp" mnemonicParsing="false" onAction="#ImporterImageV" prefHeight="48.0" prefWidth="218.0" styleClass="cheque__add-img-btn">
                                              <graphic>
                                                           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-textBtn" text="Importer ">
                                                               <font>
@@ -477,7 +477,7 @@
                     </HBox>
                     <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                         <children>
-                            <Button fx:id="add_new_VirementtBtn" mnemonicParsing="false" onMouseClicked="#ajouterVirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Confirmer" textFill="WHITE">
+                            <Button fx:id="ajouterVirement" mnemonicParsing="false" onAction="#ajouterVirement" onMouseClicked="#ajouterVirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Confirmer" textFill="WHITE">
                                 <font>
                                     <Font name="Montserrat Regular" size="16.0" />
                                 </font>

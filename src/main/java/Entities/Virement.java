@@ -10,7 +10,7 @@ public class Virement {
     private String type_virement;
     private String transferez_a ;
     private int num_beneficiare ;
-    private int montant ;
+    private String montant ;
     private int cin ;
     private int rib ;
     private String email;
@@ -19,7 +19,7 @@ public class Virement {
     private String phone_number ;
 
 
-    public Virement(int id, int compte_id, int user_id, String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, int montant, int cin, int rib, String email, String decision_v, String photo_cin_v, String phone_number) {
+    public Virement(int id, int compte_id, int user_id, String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String email, String decision_v, String photo_cin_v, String phone_number) {
         this.id = id;
         this.compte_id = compte_id;
         this.user_id = user_id;
@@ -36,7 +36,7 @@ public class Virement {
         this.phone_number = phone_number;
     }
 
-    public Virement(String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, int montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number) {
+    public Virement(String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number) {
         this.nomet_prenom = nomet_prenom;
         this.type_virement = type_virement;
         this.transferez_a = transferez_a;
@@ -48,9 +48,17 @@ public class Virement {
         this.photo_cin_v = photo_cin_v;
         this.phone_number = phone_number;
     }
-
-    public Virement(String type, TextField montant, Integer aa, TextField transferez, Integer cin, String nom, String image, String decisionV) {
-    }
+   // Virement virement = new Virement(montant,aa,transferez,Cin,Nom,image,decisionV);
+   public Virement(String type_virement, String montant, String phone_number,String transferez_a, int cin,  String nomet_prenom ,String photo_cin_v, String decision_v ){
+       this.nomet_prenom = nomet_prenom;
+       this.type_virement = type_virement;
+       this.transferez_a = transferez_a;
+       this.montant = montant;
+       this.cin = cin;
+       this.decision_v = decision_v;
+       this.photo_cin_v = photo_cin_v;
+       this.phone_number = phone_number;
+   }
 
     public int getId() {
         return id;
@@ -108,11 +116,11 @@ public class Virement {
         this.num_beneficiare = num_beneficiare;
     }
 
-    public int getMontant() {
+    public String getMontant() {
         return montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(String montant) {
         this.montant = montant;
     }
 

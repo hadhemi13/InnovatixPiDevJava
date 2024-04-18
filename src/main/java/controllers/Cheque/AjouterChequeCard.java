@@ -287,12 +287,9 @@ public class AjouterChequeCard implements Initializable {
         String decision = "Encours";
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
+
         Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, (java.sql.Date) sqlDate,imageName,decision);
 
-
-
-// Convertir le texte en un entier
-       // int telInteger = Integer.parseInt(telText);
 
         ServiceCheque serviceCheque = new ServiceCheque();
         serviceCheque.ajouterS(cheque);

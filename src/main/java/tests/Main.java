@@ -1,12 +1,17 @@
 package tests;
 
+import Entities.Cheque;
+import Entities.Virement;
 import services.*;
 import utils.MyDatabase;
+
+import java.sql.Date;
+import java.sql.SQLException;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         MyDatabase myDataBase = new MyDatabase();
         /* Test reclamation
@@ -219,6 +224,12 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
+
+        ServiceCheque serviceCheque = new ServiceCheque();
+        Cheque cheque = new Cheque("ss",233,2342266,"svgshg",123,"hshsh",new Date(122,01,06),"hshs","sggs");
+        serviceCheque.ajouterS(cheque);
+        ServiceVirement virement = new ServiceVirement();
+       // Virement virement1 = new Virement("sdd",)
     }
 }
 

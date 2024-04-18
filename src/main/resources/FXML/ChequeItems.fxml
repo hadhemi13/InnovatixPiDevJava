@@ -11,7 +11,7 @@
     <children>
         <Text fx:id="userItemName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-active" text="1234222231" wrappingWidth="100.84807586669922">
             <HBox.margin>
-                <Insets right="4.0" />
+                <Insets left="8.0" right="4.0" />
             </HBox.margin>
         </Text>
         <Text fx:id="userItemEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" wrappingWidth="87.24800109863281">
@@ -29,9 +29,9 @@
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="18/04/2024" wrappingWidth="89.10161972045898" />
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="138.74847412109375" />
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="80.54998779296875" />
+        <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" text="18/04/2024" wrappingWidth="89.10161972045898" />
+        <Text fx:id="personne" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="138.74847412109375" />
+        <Text fx:id="hhh" strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="80.54998779296875" />
         <Label fx:id="userItemStateLabel" alignment="CENTER" contentDisplay="RIGHT" prefHeight="27.0" prefWidth="169.0" styleClass="userItem__field-active" translateX="80.0">
             <graphic>
                 <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Encours" textAlignment="CENTER" wrappingWidth="60.867431640625" />
