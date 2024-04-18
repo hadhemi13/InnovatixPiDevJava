@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="800.0" styleClass="product-card" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.OneEvenementListCardController">
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="210.0" styleClass="product__list-imgContainer">
+         <children>
+            <ImageView fx:id="img" fitHeight="130.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="599.0" translateY="2.0">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="599.0">
+               <children>
+                  <Text fx:id="productName" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Nike Air Deldon &quot;Deldon Designs&quot;">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="19.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
+               <children>
+                  <Text fx:id="stockProduit" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="In Stock (" translateY="-5.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="6.0">
+                     <children>
+                        <Text fx:id="stockProduitValue" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="125" translateY="-5.0">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="0.0" translateY="-5.0">
+                     <children>
+                        <Text fx:id="stockProduit11" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text=")" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="priceAfterOfferHbox" prefHeight="39.0" prefWidth="185.0" translateX="285.0">
+                     <children>
+                        <Text fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
+                        <Text fx:id="priceBeforeOffer" fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" text=" 269.0">
+                           <HBox.margin>
+                              <Insets left="4.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="product-price-text" />
+                              <String fx:value="priceBeforeOffer" />
+                           </styleClass>
+                        </Text>
+                        <HBox prefHeight="39.0" prefWidth="72.0" translateX="20.0" translateY="-5.0">
+                           <children>
+                              <Text fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
+                              <Text fx:id="priceAfterOffer" fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0">
+                                 <HBox.margin>
+                                    <Insets left="4.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" translateX="185.0">
+                     <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
+                        <Text fx:id="priceProduit" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0">
+                           <HBox.margin>
+                              <Insets left="4.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
+               <children>
+                  <Label />
+                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="349.0">
+                     <children>
+                        <Label fx:id="categoryProduit" style="-fx-background-color: #defee6; -fx-font-size: 14px; -fx-font-weight: 800;" styleClass="product__card-categ" text="Shoes" textFill="#585856">
+                           <padding>
+                              <Insets bottom="7.5" left="20.0" right="20.0" top="7.5" />
+                           </padding>
+                           <font>
+                              <Font name="Montserrat Regular" size="33.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="206.0">
+                     <children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/img/view.png" />
+                                 </image>
+                              </ImageView>
+
+                           </children>
+                          <HBox.margin>
+                            <Insets left="6.0" />
+                          </HBox.margin>
+                        </HBox>
+                        <HBox fx:id="editEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/img/edit.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <HBox fx:id="deleteEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/img/trash.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="qrCodeProduit" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" translateX="-200.0">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/qr-code.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

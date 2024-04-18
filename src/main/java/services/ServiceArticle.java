@@ -3,7 +3,6 @@ package services;
 import Entities.Article;
 import utils.MyDatabase;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

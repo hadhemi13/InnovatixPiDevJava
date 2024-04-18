@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -12,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.AdminDashboardController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="250.0" styleClass="dash__side-bar">
             <opaqueInsets>
@@ -160,7 +159,7 @@
                             </VBox.margin>
                         </HBox>
 
-                        <HBox fx:id="InvestBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="projetsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_ProjectList"  prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="investissementsIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                                     <HBox.margin>
@@ -170,7 +169,7 @@
                                         <Image url="@../img/project.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="investissementsText" styleClass="text" text="Projets" textFill="WHITE">
+                                <Label fx:id="projetsText" styleClass="text" text="Projets" textFill="WHITE">
                                     <font>
                                         <Font name="Montserrat Regular" size="14.0" />
                                     </font>
@@ -186,7 +185,36 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="evenementsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+
+                        <HBox fx:id="commentaireBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_commentaireList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                            <children>
+                                <ImageView fx:id="commentaireIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/img/store.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets right="25.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label fx:id="commentaireText" styleClass="text" text="Commentaires" textFill="WHITE">
+                                    <font>
+                                        <Font name="Montserrat Regular" size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets left="20.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+
+
+                        <HBox fx:id="evenementsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_evenementsList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="evenementsIcon" fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
                                     <HBox.margin>
