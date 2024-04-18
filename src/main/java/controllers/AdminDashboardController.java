@@ -394,10 +394,7 @@ public class AdminDashboardController implements Initializable {
           projetsText.getStyleClass().remove("activeText");
  }
      }
-
-
   }
-
     @FXML
     private void open_fundrisingList(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("/gui/fundraisingInterfaces/FundrisingList.fxml"));

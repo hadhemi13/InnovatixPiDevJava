@@ -39,6 +39,16 @@ public class OneEvenementListCardController {
     @FXML
     private Text productName;
 
+
+    @FXML
+    private Text descfx;
+
+    @FXML
+    private Text pricefx;
+
+    @FXML
+    private Text lieufx;
+
     @FXML
     private Text stockProduit;
     @FXML
@@ -47,14 +57,7 @@ public class OneEvenementListCardController {
     @FXML
     private HBox offerEvenement;
 
-    @FXML
-    private Text priceAfterOffer;
 
-    @FXML
-    private HBox priceAfterOfferHbox;
-
-    @FXML
-    private Text priceBeforeOffer;
 
     @FXML
     private HBox priceHbox;
@@ -68,6 +71,10 @@ public class OneEvenementListCardController {
         img.setImage(image);
 
         productName.setText(evenement.getNom());
+        descfx.setText(evenement.getDescription());
+        lieufx.setText(evenement.getLieu());
+        pricefx.setText(String.valueOf(evenement.getPrix()));
+
 
         // deleteEvenement btn click
         deleteEvenement.setId(String.valueOf(evenement.getId()));

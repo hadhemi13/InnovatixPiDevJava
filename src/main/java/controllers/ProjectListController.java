@@ -62,6 +62,13 @@ public class ProjectListController implements Initializable {
     return updateProjectModelShow;
   }
 
+
+
+    @FXML
+    private void open_ProjectList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
+
+    }
   public static void setaddProjectModelShow(int addProjectModelShow) {
     ProjectListController.addProjectModelShow = addProjectModelShow;
   }

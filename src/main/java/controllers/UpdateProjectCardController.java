@@ -21,7 +21,6 @@ import services.ServiceProjet;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -42,8 +41,8 @@ public class UpdateProjectCardController implements Initializable {
     @FXML
     private TextField nomProjetInput;
 
-  @FXML
-  private ImageView imageInput;
+    @FXML
+    private ImageView imageInput;
     @FXML
     private TextField categorieInput;
 
@@ -148,7 +147,5 @@ public class UpdateProjectCardController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
-
 }

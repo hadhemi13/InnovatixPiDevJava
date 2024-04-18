@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.*?>
@@ -34,10 +33,10 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
                <children>
-                  <Text fx:id="stockProduit" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="In Stock (" translateY="-5.0" />
+                  <Text fx:id="descfx" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock"   translateY="-5.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="6.0">
                      <children>
-                        <Text fx:id="stockProduitValue" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="125" translateY="-5.0">
+                        <Text fx:id="stockProduitValue" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock"   translateY="-5.0">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
@@ -46,13 +45,13 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="0.0" translateY="-5.0">
                      <children>
-                        <Text fx:id="stockProduit11" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text=")" />
+                        <Text fx:id="test" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="" />
                      </children>
                   </HBox>
-                  <HBox fx:id="priceAfterOfferHbox" prefHeight="39.0" prefWidth="185.0" translateX="285.0">
+                  <HBox fx:id="test1" prefHeight="20.0" prefWidth="30.0" translateX="5.0">
                      <children>
                         <Text fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
-                        <Text fx:id="priceBeforeOffer" fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" text=" 269.0">
+                        <Text fx:id="" fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" text="300.0">
                            <HBox.margin>
                               <Insets left="4.0" />
                            </HBox.margin>
@@ -61,10 +60,10 @@
                               <String fx:value="priceBeforeOffer" />
                            </styleClass>
                         </Text>
-                        <HBox prefHeight="39.0" prefWidth="72.0" translateX="20.0" translateY="-5.0">
+                        <HBox prefHeight="5.0" prefWidth="15.0" translateX="20.0" translateY="-5.0">
                            <children>
-                              <Text fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
-                              <Text fx:id="priceAfterOffer" fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0">
+                              <Text fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text"  />
+                              <Text fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text">
                                  <HBox.margin>
                                     <Insets left="4.0" />
                                  </HBox.margin>
@@ -82,10 +81,10 @@
                         <Insets top="5.0" />
                      </padding>
                   </HBox>
-                  <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" translateX="185.0">
+                  <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" translateX="5.0">
                      <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
-                        <Text fx:id="priceProduit" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0">
+                        <Text fx:id="pricefx" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" >
                            <HBox.margin>
                               <Insets left="4.0" />
                            </HBox.margin>
@@ -102,14 +101,13 @@
                   <Label />
                   <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="349.0">
                      <children>
-                        <Label fx:id="categoryProduit" style="-fx-background-color: #defee6; -fx-font-size: 14px; -fx-font-weight: 800;" styleClass="product__card-categ" text="Shoes" textFill="#585856">
-                           <padding>
-                              <Insets bottom="7.5" left="20.0" right="20.0" top="7.5" />
-                           </padding>
-                           <font>
-                              <Font name="Montserrat Regular" size="33.0" />
-                           </font>
-                        </Label>
+                        <HBox fx:id="categoryProduit"  styleClass="product__card-categ" >
+                           <Text fx:id="lieufx" fill="#a61e1e" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title">
+                              <font>
+                                 <Font name="Montserrat ExtraBold" size="12.0" />
+                              </font>
+                           </Text>
+                        </HBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="206.0">

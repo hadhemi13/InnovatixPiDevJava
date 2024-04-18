@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="534.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="534.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../assets/style/aliStyle.css"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controllers.UpdateProjectCardController">
   <children>
     <VBox prefHeight="263.0" prefWidth="680.0">
@@ -56,7 +57,7 @@
                     <Insets bottom="5.0" />
                   </VBox.margin>
                 </Text>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-desc-img" text="Supported file types : jpg,">
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-desc-img" text="Types de fichiers pris en charge : jpg,">
                   <font>
                     <Font name="Montserrat Regular" size="16.0" />
                   </font>
