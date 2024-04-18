@@ -63,34 +63,25 @@ public class DemandeStageController {
         if (selectedCvFile != null) {
             Upload ServiceUpload = new Upload();
            fileName =  ServiceUpload.Upload(selectedCvFile);
-//            // Charger le PDF dans la WebView
-////            String url = selectedCvFile.toURI().toString();
-////            cv.getEngine().load(url);
-//            File cva = new File(selectedCvFile.toURI().toString());
-//            cv.setText(String.valueOf(cva));
-//            // Générer un nom de fichier unique pour le CV
-//            String uniqueID = UUID.randomUUID().toString();
-//            String extension = selectedCvFile.getName().substring(selectedCvFile.getName().lastIndexOf(".")); // L'extension est déjà spécifiée dans le filtre de l'FileChooser
-//            fileName = uniqueID + extension;
-//
-//            // Copier le fichier PDF vers le répertoire de destination
-//            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", fileName);
-//            try {
-//                Files.copy(selectedCvFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-
+           cv.setText(fileName);
         }
     }
     @FXML
     void ajouterDemande(ActionEvent event) {
         if (event.getSource() == ajouterDemande){
+
+            if (NomDemInput.getText().isEmpty() &&  LettreDemInput.getText().isEmpty() && EmailDemInput.getText().isEmpty() && PrenomDemInput.getText().isEmpty() && NumeroDemInput.getText().isEmpty() && cv.getText().isEmpty() ){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Information manquante");
+                alert.setHeaderText(null);
+                alert.setContentText("Toutes les champs sont vides.");
+                Optional<ButtonType> option = alert.showAndWait();
+            }
             if (NomDemInput.getText().isEmpty()){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Information manquante");
                 alert.setHeaderText(null);
-                alert.setContentText("Vous devez remplir tous les détails concernant votre activité.");
+                alert.setContentText("Le nom est vide.");
                 Optional<ButtonType> option = alert.showAndWait();
             } else {
                 String nom = NomDemInput.getText();
@@ -101,8 +92,7 @@ public class DemandeStageController {
                 String etat = "encours";
                 String domaine = "Informatique";
                 String cv = fileName;
-                Date date1;
-                date1 =  java.sql.Date.valueOf(date.getValue());
+                Date date1 = java.sql.Date.valueOf(date.getValue());
 
 //                Date date = new Date(128,04,06);
                 MyDatabase db = MyDatabase.getInstance();

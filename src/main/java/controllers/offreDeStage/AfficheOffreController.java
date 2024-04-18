@@ -215,8 +215,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -253,30 +255,48 @@ public class AfficheOffreController implements Initializable {
 
     }
 
-    @FXML
-    void AjouterOffre(ActionEvent event) {
+   
 
-    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
-        OffreDeStage offreDeStage;
-        try {
-            List<OffreDeStage> lisOffre = serviceOffreDeStage.afficher();
 
-            for (int i =0; i <lisOffre.size() ; i++){
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("FXML/offreDeStage/OffreStageItem.fxml"));
-                VBox offreItem = loader.load();
-                OffreStageItem offreStageItem = loader.getController();
-                offreStageItem.initData(lisOffre.get(i));
-                userListContainer.getChildren().add(offreItem);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
-}
+
+    public void AjouterOffre(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AjouterOffre.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjouterOffreController ajouterOffreController = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+    }
+
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+//        OffreDeStage offreDeStage;
+//        try {
+//            List<OffreDeStage> lisOffre = serviceOffreDeStage.afficher();
+//
+//            for (int i =0; i <lisOffre.size() ; i++){
+//                FXMLLoader loader = new FXMLLoader();
+//                loader.setLocation(getClass().getResource("FXML/offreDeStage/OffreStageItem.fxml"));
+//                VBox offreItem = loader.load();
+//                OffreStageItem offreStageItem = loader.getController();
+//                offreStageItem.initData(lisOffre.get(i));
+//                userListContainer.getChildren().add(offreItem);
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+

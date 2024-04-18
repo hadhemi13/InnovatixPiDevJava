@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../css/ajout.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AfficheOffreController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../css/ajout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AfficheOffreController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
          <children>
@@ -46,23 +51,23 @@
       </HBox>
       <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="VirementTableHead" stylesheets="@../../css/ajout.css">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Title" wrappingWidth="78.95468521118164">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Title" wrappingWidth="47.95468521118164">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin></Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Domaine" wrappingWidth="77.35475540161133">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Domaine" wrappingWidth="65.35475540161133">
                <HBox.margin>
                   <Insets />
                </HBox.margin></Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type" wrappingWidth="42.95473098754883">
                <HBox.margin>
-                  <Insets right="22.0" />
+                  <Insets right="10.0" />
                </HBox.margin></Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Poste" wrappingWidth="41.354644775390625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Poste" wrappingWidth="45.354644775390625">
                <HBox.margin>
-                  <Insets left="7.0" right="22.0" />
+                  <Insets right="10.0" />
                </HBox.margin></Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Expérience " wrappingWidth="89.35477066040039" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Expérience " wrappingWidth="79.35477066040039" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Niveau">
                <HBox.margin>
                   <Insets right="20.0" />
@@ -70,14 +75,14 @@
             </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Language" wrappingWidth="69.4496441334486">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="1.0" />
                </HBox.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Descriptions" wrappingWidth="81.35464859008789">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Descriptions" wrappingWidth="110.35464859008789">
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="2.0" />
                </HBox.margin></Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Exigence ">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Exigence " wrappingWidth="69.5986328125">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -92,7 +97,7 @@
                   <Insets left="30.0" />
                </HBox.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="PFE">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="PFE" wrappingWidth="29.66455078125">
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>

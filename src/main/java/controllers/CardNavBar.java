@@ -1,9 +1,11 @@
 package controllers;
 
 import controllers.demandeStage.AfficheDemandeController;
+import controllers.demandeStage.DemandeStageController;
 import controllers.offreDeStage.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -74,7 +76,6 @@ public class CardNavBar {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AffichageOffre.fxml"));
         Parent affichageOffre = loader.load();
 
-        // Récupération du contrôleur de la vue d'ajout d'article
         controllers.offreDeStage.AfficheOffreController affichOffreController = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
@@ -85,6 +86,24 @@ public class CardNavBar {
     public void OpenListeStage(MouseEvent mouseEvent) {
     }
 
-    public void OpenDemandeStage(MouseEvent mouseEvent) {
+
+    public void OpenDemandeStage(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/AfficheDemandes.fxml"));
+        Parent afficheDemande = loader.load();
+
+        // Utilisez le type générique Controller pour obtenir le contrôleur
+        Initializable controller = loader.getController();
+
+        // Vérifiez si le contrôleur est une instance de AfficheDemandeController
+        if (controller instanceof AfficheDemandeController) {
+            AfficheDemandeController afficheDemandeController = (AfficheDemandeController) controller;
+            // Utilisez votre contrôleur correctement ici
+        } else {
+            throw new ClassCastException("Le contrôleur n'est pas une instance de AfficheDemandeController");
+        }
+
+        content_area.getChildren().clear();
+        content_area.getChildren().add(afficheDemande);
     }
+
 }

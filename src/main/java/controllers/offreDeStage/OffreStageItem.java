@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import services.ServiceOffreDeStage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -67,6 +69,10 @@ public class OffreStageItem implements Initializable {
     }
 
     public void initData(OffreDeStage i) {
+        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+//        Rectangle clip = new Rectangle();
+//        clip.setArcWidth(100);
+//        clip.setArcHeight(100);
         motsCles.setText(i.getMotsCles().toString());
         titre.setText(i.getTitle());
         domaine.setText(i.getDomaine());

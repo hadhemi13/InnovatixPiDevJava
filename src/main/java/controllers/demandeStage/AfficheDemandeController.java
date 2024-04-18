@@ -32,6 +32,8 @@ public class AfficheDemandeController implements Initializable {
     private Button modifier;
 
     @FXML
+    private ListView<String> list;
+    @FXML
     private Button delete;
     private ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
 
@@ -57,7 +59,7 @@ public class AfficheDemandeController implements Initializable {
     public void RefreshA(){
         try {
             List<DemandeStage> demandeStages = serviceDemandeStage.afficher();
-            listViewNom.getItems().clear();
+            list.getItems().clear();
 //            listViewNom.getItems().add("Nom    | ");
             StringBuilder Affichage = new StringBuilder();
             Affichage.append("Nom        ");
@@ -69,7 +71,7 @@ public class AfficheDemandeController implements Initializable {
             Affichage.append("Score           ");
 
 
-            listViewNom.getItems().add(Affichage.toString());
+            list.getItems().add(Affichage.toString());
             for (DemandeStage i : demandeStages){
                 StringBuilder nom = new StringBuilder();
 //                StringBuilder prenom = new StringBuilder();
@@ -89,7 +91,7 @@ public class AfficheDemandeController implements Initializable {
                     nom.append(i.getScore());
 
                 }
-                listViewNom.getItems().add(nom.toString());
+                list.getItems().add(nom.toString());
 //                listViewNom.getItems().add(prenom.toString());
             }
         }catch (SQLException e){
@@ -99,10 +101,10 @@ public class AfficheDemandeController implements Initializable {
 
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        RefreshA();
-    }
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        RefreshA();
+//    }
 
     @FXML
     void Edit(ActionEvent event) throws SQLException {
@@ -145,5 +147,13 @@ public class AfficheDemandeController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void statusChange(ActionEvent actionEvent) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        RefreshA();
     }
 }
