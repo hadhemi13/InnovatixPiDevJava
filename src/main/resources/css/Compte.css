@@ -290,3 +290,28 @@
     -fx-border-radius: 20px;
     -fx-cursor: hand;
 }
+.userItem__field-active {
+    -fx-background-color: #03bf8a;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 1000px;
+}
+.userItem__name {
+    -fx-fill: #585856;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.userItem__field-active {
+    -fx-background-color: #b9bf03;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 1000px;
+}
+.userItem__field-text {
+    -fx-fill: #fff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+.userItem__btn {
+    -fx-padding: 10px;
+    -fx-background-radius: 1000px;
+    -fx-cursor: hand;
+}

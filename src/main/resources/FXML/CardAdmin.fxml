@@ -41,12 +41,12 @@
                                         <Insets top="20.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button fx:id="listCh" mnemonicParsing="false" onAction="#listCheque" onMouseClicked="#OpenListeChequeAd" prefHeight="37.0" prefWidth="420.0" styleClass="compte__add__btn" text="Les Demandes de Chéques Bancaires">
+                                <Button fx:id="listCh" mnemonicParsing="false" onMouseClicked="#OpenListeChequeAd" prefHeight="37.0" prefWidth="420.0" styleClass="compte__add__btn" text="Les Demandes de Chéques Bancaires">
                                     <VBox.margin>
                                         <Insets top="30.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button fx:id="listV" mnemonicParsing="false" onAction="#listVirement" onMouseClicked="#OpenListeVirAd" prefHeight="39.0" prefWidth="422.0" styleClass="compte__add__btn" text="Les Demandes de Virements Bancaires">
+                                <Button fx:id="listV" mnemonicParsing="false" onMouseClicked="#OpenListeVirAd" prefHeight="39.0" prefWidth="422.0" styleClass="compte__add__btn" text="Les Demandes de Virements Bancaires">
                                     <VBox.margin>
                                         <Insets top="30.0" />
                                     </VBox.margin>

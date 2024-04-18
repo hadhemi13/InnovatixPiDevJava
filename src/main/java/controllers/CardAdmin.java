@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import java.lang.ClassCastException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,68 +42,41 @@ public class CardAdmin {
     @FXML
     private VBox reductionForm;
 
-    public void ListCompte(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListCompteAdmin.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+    public void OpenListeCompteAd(MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListCompteAdmin.fxml.fxml"));
+        Parent addArticleParent = loader.load();
 
         ListeCompteAdmin listeCompteAdmin = loader.getController();
 
-        // Set the scene
-        Stage stage = (Stage) listC.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
 
-
-    public void listCheque(ActionEvent event) {
+    public void OpenListeChequeAd(MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListChequeAdmin.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Parent addArticleParent = loader.load();
 
+        // Récupération du contrôleur de la vue d'ajout d'article
         ListeChequeAdmin listeChequeAdmin = loader.getController();
 
-        // Set the scene
-        Stage stage = (Stage) listCh.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
 
-
-    public void listVirement(ActionEvent event) {
+    public void OpenListeVirAd(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListVirementAdmin.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Parent addArticleParent = loader.load();
 
+        // Récupération du contrôleur de la vue d'ajout d'article
         ListVirementAdmin listVirementAdmin = loader.getController();
 
-        // Set the scene
-        Stage stage = (Stage) listV.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OpenListeCompteAd(MouseEvent mouseEvent) {
-    }
-
-    public void OpenListeChequeAd(MouseEvent mouseEvent) {
-    }
-
-    public void OpenListeVirAd(MouseEvent mouseEvent) {
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
 }
+

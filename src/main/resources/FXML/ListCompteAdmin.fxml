@@ -348,7 +348,7 @@
             </ImageView>
          </children>
       </HBox>
-      <Pane layoutX="250.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="container-card" stylesheets="@../css/Compte.css">
+      <Pane fx:id="content_area" layoutX="250.0" layoutY="113.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="container-card" stylesheets="@../css/Compte.css">
          <children>
             <HBox layoutX="28.0" layoutY="18.0" prefHeight="74.0" prefWidth="1033.0">
                <children>

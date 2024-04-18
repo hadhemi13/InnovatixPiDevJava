@@ -64,19 +64,19 @@
                     <HBox.margin>
                         <Insets right="22.0" />
                     </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email " wrappingWidth="106.15463638305664">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email " wrappingWidth="81.35464859008789">
                     <HBox.margin>
                         <Insets left="30.0" right="22.0" />
                     </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date" wrappingWidth="138.15475845336914" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Bénéficiaire">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date" wrappingWidth="61.35470962524414" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Bénéficiaire" wrappingWidth="78.17297339439392">
                     <HBox.margin>
-                        <Insets right="20.0" />
+                        <Insets right="50.0" />
                     </HBox.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Téléphone">
                     <HBox.margin>
-                        <Insets left="50.0" />
+                        <Insets left="20.0" />
                     </HBox.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions " wrappingWidth="55.75461196899414">

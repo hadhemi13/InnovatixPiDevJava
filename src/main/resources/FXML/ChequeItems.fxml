@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="946.0" styleClass="userItem" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.ChequeItems">
+    <children>
+        <Text fx:id="userItemName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-active" text="1234222231" wrappingWidth="100.84807586669922">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="userItemEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" wrappingWidth="87.24800109863281">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="userItemTel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" wrappingWidth="104.84814453125">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="userItemRole" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma@gmail.com" wrappingWidth="151.24810028076172">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="18/04/2024" wrappingWidth="89.10161972045898" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="138.74847412109375" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="80.54998779296875" />
+        <Label fx:id="userItemStateLabel" alignment="CENTER" contentDisplay="RIGHT" prefHeight="27.0" prefWidth="169.0" styleClass="userItem__field-active" translateX="80.0">
+            <graphic>
+                <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Encours" textAlignment="CENTER" wrappingWidth="60.867431640625" />
+            </graphic>
+            <HBox.margin>
+                <Insets right="40.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="userItemStateBtn" styleClass="userItem__btn" translateX="80.0">
+            <graphic>
+                <ImageView fx:id="userItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/supprimer.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <HBox.margin>
+                <Insets right="7.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="userItemUpdateBtn" styleClass="userItem__btn">
+            <graphic>
+                <ImageView fx:id="userItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/update-icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <HBox.margin>
+                <Insets left="80.0" />
+            </HBox.margin>
+        </Label>
+    </children>
+</HBox>
