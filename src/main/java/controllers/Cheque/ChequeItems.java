@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import services.ServiceCheque;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -52,6 +53,8 @@ public class ChequeItems implements Initializable {
 
 
     public void initData(Cheque i) {
+        ServiceCheque serviceCheque= new ServiceCheque();
+
         userItemEmail.setText(i.getEmail().toString());
         userItemName.setText(i.getNom_prenom());
         userItemTel.setText(String.valueOf(i.getTelephone()));

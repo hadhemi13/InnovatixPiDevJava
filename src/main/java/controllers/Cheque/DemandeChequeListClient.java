@@ -28,7 +28,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DemandeChequeListClient {
+public class DemandeChequeListClient  implements  Initializable{
 
 
     @FXML
@@ -61,6 +61,11 @@ public class DemandeChequeListClient {
     }
 
     public void statusChange(ActionEvent event) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
     
