@@ -131,8 +131,7 @@ public class ProjectItemController {
         } catch (SQLException e) {
           e.printStackTrace();
         }
-//             supprimer le contenu de la liste et afficher la nouvelle liste(apres
-//             supprimer)
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
         try {
           Parent root = loader.load();

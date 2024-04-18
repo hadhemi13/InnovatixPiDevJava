@@ -62,6 +62,13 @@ public class ProjectListController implements Initializable {
     return updateProjectModelShow;
   }
 
+
+
+    @FXML
+    private void open_ProjectList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
+
+    }
   public static void setaddProjectModelShow(int addProjectModelShow) {
     ProjectListController.addProjectModelShow = addProjectModelShow;
   }
@@ -97,23 +104,6 @@ public class ProjectListController implements Initializable {
             } catch (SQLException e) {
               e.printStackTrace();
             }
-        }
-        try {
-            ArrayList<Project> projectList;
-                projectList = (ArrayList<Project>) projectService.getAllProject();
-            // ArrayList<Project> projectList = projectService.getAllProject();
-            for (int i = 0; i < projectList.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
-                HBox projectItem = fxmlLoader.load();
-                ProjectItemController projectItemController = fxmlLoader.getController();
-                projectItemController.setprojectData(projectList.get(i));
-                projectListContainer.getChildren().add(projectItem);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
       // System.out.println(projectEmailToUpdate);

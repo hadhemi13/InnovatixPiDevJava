@@ -21,7 +21,6 @@ import services.ServiceProjet;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -42,8 +41,8 @@ public class UpdateProjectCardController implements Initializable {
     @FXML
     private TextField nomProjetInput;
 
-  @FXML
-  private ImageView imageInput;
+    @FXML
+    private ImageView imageInput;
     @FXML
     private TextField categorieInput;
 
@@ -113,24 +112,27 @@ public class UpdateProjectCardController implements Initializable {
                 projectService.modifier(projectToUpdate);
                 ProjectListController.setupdateProjectModelShow(0);
                 ProjectListController.setupdateProjectModelShow(0);
-                if (FxmlToLoad.equals("ProjectDashboard.fxml")) {
-//                    Parent root = FXMLLoader.load(getClass().getResource("/gui/ProjectDashboard.fxml"));
-//                    MainPi.stage.getScene().setRoot(root);
-                } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(FxmlToLoad));
-                    Parent root = loader.load();
-                    Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-                    contentArea.getChildren().clear();
-                    contentArea.getChildren().add(root);
-                }
+
                 TrayNotificationAlert.notif("Mettre à jour le projet", "Projet mis à jour avec succès.",
                         NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            try {
+                Parent root = loader.load();
+                // Accéder à la pane content_area depuis le controller de
+                // OneProductListCard.fxml
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+
+                // Vider la pane et afficher le contenu de ProductsList.fxml
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
     }
     public void setProjectUpdateData(Project project) {
         projectToUpdate = project;
@@ -148,7 +150,5 @@ public class UpdateProjectCardController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
-
 }

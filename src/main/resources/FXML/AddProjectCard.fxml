@@ -11,7 +11,7 @@
   <children>
     <HBox prefHeight="53.0" prefWidth="570.0">
       <children>
-        <Text fx:id="productName" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Détails du projet">
+        <Text fx:id="Name" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Détails du projet">
           <font>
             <Font name="Montserrat ExtraBold" size="19.0" />
           </font>
