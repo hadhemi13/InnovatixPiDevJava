@@ -11,6 +11,7 @@ public class CommentaireHadhemi {
     private Integer article_id;
     private Integer user_id;
     private String image_u;
+    private Article article;
 
     public CommentaireHadhemi() {
     }
@@ -117,5 +118,14 @@ public class CommentaireHadhemi {
                 ", user_id=" + user_id +
                 ", image_u='" + image_u + '\'' +
                 '}';
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+
+    }
+
+    public Article getArticle() {
+        return this.article;
     }
 }

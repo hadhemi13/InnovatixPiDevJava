@@ -150,6 +150,26 @@ public class ServiceArticle  implements IServiceArticle<Article> {
 
         );
     }
+    public List<Article> getAllArticles() throws SQLException {
+        List<Article> articles = new ArrayList<>();
+        String query = "SELECT * FROM article"; // Assurez-vous que "article" est le nom de votre table d'articles dans la base de données
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Article article = new Article();
+                    article.setId(resultSet.getInt("id"));
+                    article.setTitre_art(resultSet.getString("titre_art"));
+                    article.setContenu_art(resultSet.getString("contenu_art"));
+                    article.setDate_pub_art(resultSet.getTimestamp("date_pub_art").toLocalDateTime());
+                    // Assurez-vous que la colonne "date_pub_art" dans votre table de base de données est de type TIMESTAMP
+                    // Convertissez-le en LocalDateTime en utilisant toLocalDateTime()
+                    // Ajoutez d'autres attributs d'article de la même manière si nécessaire
+                    articles.add(article);
+                }
+            }
+        }
+        return articles;
+    }
 
 }
 

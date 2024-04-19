@@ -23,20 +23,20 @@
                     <HBox.margin>
                         <Insets right="550.0" />
                     </HBox.margin></Text>
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :" translateX="-120.0">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>
                 </Text>
-                <ComboBox fx:id="triecommentInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" />
+                <ComboBox fx:id="triecommentInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-120.0" />
             </children>
         </HBox>
         <HBox fx:id="commentTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="userTableHead" stylesheets="@../css/style.scss">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Commentaire" textAlignment="CENTER" wrappingWidth="257.3547706604004" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de publication" textAlignment="CENTER" wrappingWidth="166.95473861694336" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom utilisateur" textAlignment="CENTER" wrappingWidth="146.95456314086914" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Titre article" textAlignment="CENTER" wrappingWidth="215.75468826293945" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Commentaire" textAlignment="CENTER" wrappingWidth="258.95480728149414" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de publication" textAlignment="CENTER" translateX="15.0" wrappingWidth="166.95473861694336" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom utilisateur" textAlignment="CENTER" translateX="30.0" wrappingWidth="146.95456314086914" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Titre article" textAlignment="CENTER" wrappingWidth="177.3547248840332" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de publication de l'article" textAlignment="CENTER" wrappingWidth="199.75461196899414" />
             </children>
         </HBox>

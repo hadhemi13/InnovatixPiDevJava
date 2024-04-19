@@ -138,4 +138,26 @@ public class ListArticleAdminController {
             }
         }
     }
+
+    public void loadArticles() throws IOException, SQLException {
+        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+
+        // Récupérez la liste des articles à partir du service ou du gestionnaire de données
+        List<Article> articles = serviceArticle.getAllArticles(); // Par exemple
+
+        // Ajoutez chaque article au GridPane
+        int row = 0;
+        for (Article article : articles) {
+            // Créez un contrôleur de carte d'article pour chaque article
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/articleCardAdmin.fxml"));
+            Parent articleCardParent = loader.load();
+
+            // Initialisez les données de l'article dans le contrôleur de carte d'article
+            articleCardAdminController articleCardController = loader.getController();
+            articleCardController.initializeData(article);
+
+            // Ajoutez la carte d'article au GridPane
+            ArtListContainer.addRow(row++, articleCardParent);
+        }
+    }
 }

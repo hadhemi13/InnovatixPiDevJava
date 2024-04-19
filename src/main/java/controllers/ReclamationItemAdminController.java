@@ -1,11 +1,25 @@
 package controllers;
 
+import Entities.Reclamation;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import services.ServiceReclamation;
 
-public class ReclamationItemAdminController {
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class ReclamationItemAdminController implements Initializable {
 
     @FXML
     private Label RecItemDateLabel;
@@ -61,4 +75,26 @@ public class ReclamationItemAdminController {
     @FXML
     private Label ReplyBtn;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    public void initData(Reclamation reclamation) {
+        Image image = new Image(getClass().getResource("/imagesAct/admin.png").toExternalForm());
+        RecItemImg.setImage(image);
+        Rectangle clip = new Rectangle(
+                RecItemImg.getFitWidth(), RecItemImg.getFitHeight());
+        clip.setArcWidth(100);
+        clip.setArcHeight(100);
+        RecItemImg.setClip(clip);
+        RecItemPieceJText.setText(reclamation.getPiece_jrec());
+        RecItemDateText.setText(String.valueOf(reclamation.getDate_rec()));
+        RecItemStateText.setText(reclamation.getStatut_rec());
+        RecItemDepText.setText(reclamation.getDep_rec());
+        RecItemObjet.setText(reclamation.getObjet_rec());
+        RecItemMail.setText(reclamation.getAdr_rec());
+
+    }
 }

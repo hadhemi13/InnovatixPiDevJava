@@ -1,5 +1,6 @@
 package services;
 
+import Entities.Article;
 import Entities.CommentaireHadhemi;
 import utils.MyDatabase;
 
@@ -63,20 +64,49 @@ public class ServiceCommentaireHadhemi  implements IServiceCommentaireHadhemi<Co
         }
     }
 
+//    @Override
+//    public List<CommentaireHadhemi> afficher() throws SQLException {
+//        List<CommentaireHadhemi> commentaires = new ArrayList<>();
+//        String req = "SELECT * FROM commentaire_hadhemi";
+//        try (Statement statement = connection.createStatement();
+//             ResultSet rs = statement.executeQuery(req)) {
+//            while (rs.next()) {
+//                CommentaireHadhemi commentaire = new CommentaireHadhemi();
+//                commentaire.setId(rs.getInt("id"));
+//                commentaire.setContenu(rs.getString("contenu"));
+//                commentaire.setDate_creation(rs.getObject("date_creation", LocalDateTime.class));
+//                commentaire.setNom_aut_com(rs.getString("nom_aut_com"));
+//                commentaire.setArticle_id(rs.getInt("article_id"));
+//                commentaire.setImage_u(rs.getString("image_u"));
+//                commentaires.add(commentaire);
+//            }
+//        }
+//        return commentaires;
+//    }
+
     @Override
     public List<CommentaireHadhemi> afficher() throws SQLException {
         List<CommentaireHadhemi> commentaires = new ArrayList<>();
-        String req = "SELECT * FROM commentaire_hadhemi";
+        String req = "SELECT c.*, a.* " +
+                "FROM commentaire_hadhemi c " +
+                "INNER JOIN article a ON c.article_id = a.id";
         try (Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(req)) {
             while (rs.next()) {
                 CommentaireHadhemi commentaire = new CommentaireHadhemi();
-                commentaire.setId(rs.getInt("id"));
-                commentaire.setContenu(rs.getString("contenu"));
-                commentaire.setDate_creation(rs.getObject("date_creation", LocalDateTime.class));
-                commentaire.setNom_aut_com(rs.getString("nom_aut_com"));
-                commentaire.setArticle_id(rs.getInt("article_id"));
-                commentaire.setImage_u(rs.getString("image_u"));
+                commentaire.setId(rs.getInt("c.id"));
+                commentaire.setContenu(rs.getString("c.contenu"));
+                commentaire.setDate_creation(rs.getObject("c.date_creation", LocalDateTime.class));
+                commentaire.setNom_aut_com(rs.getString("c.nom_aut_com"));
+                commentaire.setArticle_id(rs.getInt("c.article_id"));
+                commentaire.setImage_u(rs.getString("c.image_u"));
+                Article article = new Article();
+                LocalDateTime dateArticle = rs.getObject("a.date_pub_art", LocalDateTime.class);
+                article.setId(rs.getInt("a.id"));
+                article.setTitre_art(rs.getString("a.titre_art"));
+                article.setDate_pub_art(dateArticle);
+                commentaire.setArticle(article);
+
                 commentaires.add(commentaire);
             }
         }

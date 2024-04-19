@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -14,48 +13,23 @@
             <Insets right="4.0" />
         </HBox.margin>
     </Text>
-    <Text fx:id="datecom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="date commentaire" textAlignment="CENTER" wrappingWidth="166.95473861694336">
+    <Text fx:id="datecom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="date commentaire" textAlignment="CENTER" wrappingWidth="169.3547019958496">
         <HBox.margin>
             <Insets right="4.0" />
         </HBox.margin>
     </Text>
-      <Text fx:id="nomusercom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="nom" textAlignment="CENTER" wrappingWidth="146.95456314086914" />
-    <Text fx:id="titreartcom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Titre article" textAlignment="CENTER" wrappingWidth="215.75468826293945">
+      <Text fx:id="nomusercom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="nom" textAlignment="CENTER" wrappingWidth="130.1545753479004" />
+    <Text fx:id="titreartcom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Titre article" textAlignment="CENTER" wrappingWidth="177.3547248840332">
         <HBox.margin>
             <Insets right="4.0" />
         </HBox.margin>
     </Text>
-    <Label fx:id="RecItemStateLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
-        <HBox.margin>
-            <Insets right="40.0" />
-        </HBox.margin>
-    </Label>
-    <Label fx:id="RecItemDateLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
-        <graphic>
-            <Text fx:id="RecItemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Date" textAlignment="CENTER" wrappingWidth="199.75461196899414" />
-        </graphic>
-        <HBox.margin>
-            <Insets right="40.0" />
-        </HBox.margin>
-    </Label>
-    <Label fx:id="RecItemPieceJLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
-        <HBox.margin>
-            <Insets right="40.0" />
-        </HBox.margin>
-    </Label>
-      <HBox prefHeight="82.0" prefWidth="21.0" />
-    <Label fx:id="RecPieceJBtn" styleClass="userItem__btn" />
-    <Label fx:id="RecItemUpdateBtn" styleClass="userItem__btn" />
-    <Label fx:id="ReplyBtn" styleClass="userItem__btn" />
-      <HBox prefHeight="99.0" prefWidth="161.0">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="30.0">
-               <image>
-                  <Image url="@../imagesAct/trash-bin.gif" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
+      <Text fx:id="dateartitemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Date" textAlignment="CENTER" wrappingWidth="186.15474319458008" />
+      <ImageView fitHeight="35.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagesAct/trash-bin.gif" />
+         </image>
+      </ImageView>
 
 
 </children>

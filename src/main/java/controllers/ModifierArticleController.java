@@ -160,10 +160,12 @@ public class ModifierArticleController implements Initializable {
                 // Appeler la méthode de service pour effectuer la mise à jour de l'article dans la base de données
                 ServiceArticle serviceArticle = new ServiceArticle();
                 serviceArticle.modifier(article);
+//                ListArticleAdminController listArticleController = ListArticleAdminController.loadArticles();
 
-                // Fermer la fenêtre après la mise à jour
+                // Fermez la fenêtre de modification d'article
                 Stage stage = (Stage) titreArt.getScene().getWindow();
                 stage.close();
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

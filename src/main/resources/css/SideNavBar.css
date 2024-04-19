@@ -1112,6 +1112,12 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
+.userItem {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 25, 0, 2, 3);
+    -fx-background-radius: 1000px;
+    -fx-padding: 10px 18px;
+}
 /*.userProductCard {*/
 /*    -fx-background-color: #ffffff; !* Couleur de fond *!*/
 /*    -fx-background-radius: 10px; !* Rayon de bordure *!*/

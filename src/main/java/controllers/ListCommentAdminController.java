@@ -1,18 +1,29 @@
 package controllers;
 
+import Entities.CommentaireHadhemi;
+import Entities.Reclamation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import services.ServiceCommentaireHadhemi;
+import services.ServiceReclamation;
 
 import java.io.IOException;
+import java.net.URL;
 import java.security.cert.PolicyNode;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class ListCommentAdminController {
+public class ListCommentAdminController implements Initializable {
 
     @FXML
     private VBox commentListContainer;
@@ -43,6 +54,31 @@ public class ListCommentAdminController {
             e.printStackTrace();
         }
 
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ServiceCommentaireHadhemi sch = new ServiceCommentaireHadhemi() ;
+        List<CommentaireHadhemi> list = new ArrayList<>();
+        try {
+            list = sch.afficher();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        // userListContainer.getChildren().add();
+//           OffreStageItem offreStageItem = new OffreStageItem();
+//            userListContainer.getChildren().add(offreStageItem.initE());
+
+        for (CommentaireHadhemi commentaireHadhemi : list) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/commentaireItemAdmin.fxml"));
+                Parent offreItem = loader.load();
+                CommentaireItemAdminController ComItem = loader.getController();
+                ComItem.initData(commentaireHadhemi);
+                commentListContainer.getChildren().add(offreItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
