@@ -315,3 +315,25 @@
     -fx-background-radius: 1000px;
     -fx-cursor: hand;
 }
+.userItem__field {
+    -fx-fill: #585856;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+.userItem {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 25, 0, 2, 3);
+    -fx-background-radius: 1000px;
+    -fx-padding: 10px 18px;
+}
+.userItem__field-active {
+    -fx-background-color: #acbf03;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 1000px;
+}
+
+.userItem__field-unactive {
+    -fx-background-color: #ef2c53;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 1000px;
+}

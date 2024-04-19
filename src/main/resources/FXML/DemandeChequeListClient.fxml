@@ -55,33 +55,36 @@
         </HBox>
         <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="VirementTableHead" stylesheets="@../css/Compte.css">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="RIB " wrappingWidth="108.55469131469727">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="RIB " wrappingWidth="75.75470352172852">
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="CIN" wrappingWidth="83.75471878051758" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="CIN" wrappingWidth="81.35475552082062">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin></Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom et Prenom" wrappingWidth="100.55472183227539">
                     <HBox.margin>
                         <Insets right="22.0" />
                     </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email " wrappingWidth="81.35464859008789">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email " wrappingWidth="78.15463638305664">
                     <HBox.margin>
-                        <Insets left="30.0" right="22.0" />
+                        <Insets left="15.0" right="22.0" />
                     </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date" wrappingWidth="61.35470962524414" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Bénéficiaire" wrappingWidth="78.17297339439392">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date" wrappingWidth="64.55466079711914" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Bénéficiaire" wrappingWidth="74.17303442955017">
                     <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets />
                     </HBox.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Téléphone">
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions " wrappingWidth="55.75461196899414">
                     <HBox.margin>
-                        <Insets left="80.0" />
+                        <Insets left="30.0" />
                     </HBox.margin></Text>
             </children>
         </HBox>

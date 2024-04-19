@@ -14,33 +14,30 @@
                 <Insets left="8.0" right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="userItemEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" wrappingWidth="87.24800109863281">
+        <Text fx:id="userItemEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" wrappingWidth="58.447983264923096">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="userItemTel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" wrappingWidth="104.84814453125">
+        <Text fx:id="userItemTel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" wrappingWidth="95.2481689453125">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="userItemRole" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma@gmail.com" wrappingWidth="151.24810028076172">
+        <Text fx:id="userItemRole" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma@gmail.com" wrappingWidth="138.44811248779297">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
         <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" text="18/04/2024" wrappingWidth="89.10161972045898" />
-        <Text fx:id="personne" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="138.74847412109375" />
+        <Text fx:id="personne" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="86.74848175048828" />
         <Text fx:id="hhh" strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="80.54998779296875" />
-        <Label fx:id="userItemStateLabel" alignment="CENTER" contentDisplay="RIGHT" prefHeight="27.0" prefWidth="169.0" styleClass="userItem__field-active" translateX="80.0">
-            <graphic>
-                <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Encours" textAlignment="CENTER" wrappingWidth="60.867431640625" />
-            </graphic>
-            <HBox.margin>
-                <Insets right="40.0" />
-            </HBox.margin>
-        </Label>
-        <Label fx:id="userItemStateBtn" styleClass="userItem__btn" translateX="80.0">
+      <Label styleClass="userItem__field-active" stylesheets="@../css/Compte.css">
+         <graphic>
+            <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="En cours" />
+         </graphic>
+      </Label>
+        <Label fx:id="userItemStateBtn" onMouseClicked="#DeleteCheque" styleClass="userItem__btn" translateX="80.0">
             <graphic>
                 <ImageView fx:id="userItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -49,10 +46,10 @@
                 </ImageView>
             </graphic>
             <HBox.margin>
-                <Insets right="7.0" />
+                <Insets left="14.0" />
             </HBox.margin>
         </Label>
-        <Label fx:id="userItemUpdateBtn" styleClass="userItem__btn">
+        <Label fx:id="userItemUpdateBtn" onMouseClicked="#UpdateCheque" styleClass="userItem__btn">
             <graphic>
                 <ImageView fx:id="userItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -61,7 +58,7 @@
                 </ImageView>
             </graphic>
             <HBox.margin>
-                <Insets left="80.0" />
+                <Insets />
             </HBox.margin>
         </Label>
     </children>

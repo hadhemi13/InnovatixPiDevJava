@@ -72,25 +72,18 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
     @Override
     public void modifier(Cheque cheque ) throws SQLException {
         try {
-            String req = "UPDATE cheque SET compte_id=?, user_id=?, beneficiaire=?, montant=?, telephone=?, email=?, cin=?, nom_prenom=?, date=?, decision=?, photo_cin=?, signature_id=?,document_id=?, signer_id=?, pdf_sans_signature=? WHERE id=?";
+            String req = "UPDATE cheque SET  beneficiaire=?, montant=?, telephone=?, email=?, cin=?, nom_prenom=?, date=?, decision=?, photo_cin=? WHERE id=?";
             PreparedStatement ps = connection.prepareStatement(req);
-            ps.setInt(1, cheque.getCompte_id());
-            ps.setInt(2, cheque.getUser_id());
-            ps.setString(3, cheque.getBeneficiaire());
-            ps.setDouble(4, cheque.getMontant());
-            ps.setInt(5, cheque.getTelephone());
-            ps.setString(6, cheque.getEmail());
-            ps.setInt(7, cheque.getCin());
-            ps.setString(8, cheque.getNom_prenom());
-            ps.setObject(9, cheque.getDate());
-            ps.setString(10, cheque.getDecision());
-            ps.setString(11, cheque.getPhoto_cin());
-            ps.setString(12, cheque.getSignature_id());
-            ps.setString(13, cheque.getDocument_id());
-
-            ps.setString(14, cheque.getSigner_id());
-            ps.setString(15, cheque.getpdf_sans_signature());
-            ps.setInt(16, cheque.getId());
+            ps.setString(1, cheque.getBeneficiaire());
+            ps.setDouble(2, cheque.getMontant());
+            ps.setInt(3, cheque.getTelephone());
+            ps.setString(4, cheque.getEmail());
+            ps.setInt(5, cheque.getCin());
+            ps.setString(6, cheque.getNom_prenom());
+            ps.setObject(7, cheque.getDate());
+            ps.setString(8, cheque.getDecision());
+            ps.setString(9, cheque.getPhoto_cin());
+            ps.setInt(10, cheque.getId());
 
             ps.executeUpdate();
             System.out.println("Chèque avec ID " + cheque.getId() + " modifié !");
@@ -115,7 +108,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
     }
 
     @Override
-    public List<Cheque> afficher() throws SQLException {
+    public  List<Cheque> afficher() throws SQLException {
         List<Cheque> list = new ArrayList<>();
 
         try {

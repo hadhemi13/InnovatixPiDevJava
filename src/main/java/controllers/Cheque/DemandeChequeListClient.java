@@ -25,6 +25,7 @@ import services.ServiceCheque;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -62,12 +63,29 @@ public class DemandeChequeListClient  implements  Initializable{
 
     public void statusChange(ActionEvent event) {
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ServiceCheque serviceCheque = new ServiceCheque();
+        List<Cheque> list = new ArrayList<>();
+        try {
+            list = serviceCheque.afficher(); // Notez le changement ici
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
-    }
-}
+        for (Cheque cheque : list) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChequeItems.fxml"));
+                Parent offreItem = loader.load();
+                ChequeItems offreStageItem = loader.getController();
+                offreStageItem.initData(cheque);
+                userListContainer.getChildren().add(offreItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }}
+
     
 
     
