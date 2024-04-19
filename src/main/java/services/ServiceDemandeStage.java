@@ -23,9 +23,11 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
 
         // Récupérer le chemin complet du CV
         String pathT = path + demandeStage.getCv();
+        OffreDeStage  stage = new OffreDeStage();
+        stage = afficheUne(id);
 
         // Analyser le CV une seule fois pour obtenir le score
-        int score = analyseurCv.analyseCV(pathT, afficheOne(id));
+        int score = analyseurCv.analyseCV(pathT, stage.getMotsCles());
         DemandeStage demandeStageParOffre = new DemandeStage(demandeStage.getNom(),demandeStage.getPrenom(),demandeStage.getEmail(), demandeStage.getLettremotivation(), demandeStage.getCv(), demandeStage.getDomaine(),demandeStage.getEtat(), demandeStage.getNumeroTelephone(),id,score,demandeStage.getDate());
         String req = "INSERT INTO demandestage " +
                 "(nom, prenom, email, numeroTelephone, lettremotivation, cv, domaine, etat, date, id_offre, score)" +

@@ -3,13 +3,26 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.Array;
+import java.sql.SQLException;
 
 public class AnalyseurCv {
-    public int analyseCV(String cv, String[] motsCles) throws IOException, InterruptedException {
+    public int analyseCV(String cv, Array motsCles) throws IOException, InterruptedException, SQLException {
         String pythonScriptPath = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\API\\Analyseur.py";
 
+
+        Object[] motsClesObjects = (Object[]) motsCles.getArray();
+        String[] motsClesStrings = new String[motsClesObjects.length];
+        for (int i = 0; i < motsClesObjects.length; i++) {
+            motsClesStrings[i] = motsClesObjects[i].toString();
+        }
+        String motsClesString = String.join(",", motsClesStrings);
+
+
+
+
         // Construction de la commande pour exécuter le script Python avec les arguments CV et mots-clés
-        ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScriptPath, cv, String.join(",", motsCles));
+        ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScriptPath, cv, String.join(",", motsClesString));
         Process process = processBuilder.start();
 
         // Lecture de la sortie standard du processus

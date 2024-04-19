@@ -6,10 +6,29 @@ import java.util.Objects;
 
 public class OffreDeStage {
 
+    int userId;
     int id,user_id,postePropose;
     String title,domaine,typeOffre,experience,description,exigenceOffre,pfeBook;
     Date datePostu;
     Array niveau,language,motsCles;
+//,                                                            ,rs.ge,rs.getString("exigence_offre"),rs.getDate("date_postu"),rs.getArray("language"),rs.getString("pfe_book"),rs.getString("niveau"),rs.getString("exigence"));
+
+    public OffreDeStage (int id,int user_id,int postePropose,String title,String domaine,String typeOffre,String experience,String description,String exigenceOffre,Date datePostu,Array language,String pfeBook,String niveau,String exigenceOffreyy){
+        this.id = id;
+        this.user_id = user_id;
+        this.postePropose = postePropose;
+        this.title = title;
+        this.domaine = domaine;
+        this.typeOffre = typeOffre;
+        this.experience = experience;
+//        this.niveau = niveau;
+//        this.language = language;
+        this.description = description;
+        this.exigenceOffre = exigenceOffre;
+//        this.motsCles = motsCles;
+        this.pfeBook = pfeBook;
+        this.datePostu = datePostu;
+    }
 
     public Array getNiveau() {
         return niveau;
@@ -60,6 +79,21 @@ public class OffreDeStage {
 //        this.language = language;
         this.description = description;
         this.exigenceOffre = exigenceOffre;
+    }
+    public OffreDeStage(int id, int userId, int postePropose, String title, String domaine, String typeOffre, String experience, String description, String exigenceOffre, Date datePostu, Array language, String pfeBook, Array niveau) {
+        this.id = id;
+        this.userId = userId;
+        this.postePropose = postePropose;
+        this.title = title;
+        this.domaine = domaine;
+        this.typeOffre = typeOffre;
+        this.experience = experience;
+        this.description = description;
+        this.exigenceOffre = exigenceOffre;
+        this.datePostu = datePostu;
+        this.language = language;
+        this.pfeBook = pfeBook;
+        this.niveau = niveau;
     }
 
     public OffreDeStage(int id, int user_id, int postePropose, String title, String domaine, String typeOffre, String experience,  String description, String exigenceOffre,  String pfeBook, Date datePostu) {
@@ -204,4 +238,23 @@ public class OffreDeStage {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        return "OffreDeStage{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", postePropose=" + postePropose +
+                ", title='" + title + '\'' +
+                ", domaine='" + domaine + '\'' +
+                ", typeOffre='" + typeOffre + '\'' +
+                ", experience='" + experience + '\'' +
+                ", description='" + description + '\'' +
+                ", exigenceOffre='" + exigenceOffre + '\'' +
+                ", pfeBook='" + pfeBook + '\'' +
+                ", datePostu=" + datePostu +
+                ", niveau=" + niveau +
+                ", language=" + language +
+                ", motsCles=" + motsCles +
+                '}';
+    }
 }

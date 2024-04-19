@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException, InterruptedException {
 //
 //        List<String> yesser = List.of("yesser");
 ////
@@ -73,9 +73,22 @@ public class Main {
 ////        }
 //        LocalDate dateActuelle = LocalDate.now();
 //        System.out.println(dateActuelle);
+//        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+//        List<OffreDeStage> demandeStages = serviceOffreDeStage.afficher();
+//        System.out.println(demandeStages);
+        ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
+        AnalyseurCv analyseurCv = new AnalyseurCv();
+        //int score =  analyseurCv.analyseCV();
+        //OffreDeStage A = serviceOffreDeStage.afficheUne(1);
         ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
-        List<OffreDeStage> demandeStages = serviceOffreDeStage.afficher();
-        System.out.println(demandeStages);
+       // System.out.println( serviceOffreDeStage.afficherId());
+        List<OffreDeStage> list = serviceOffreDeStage.afficherId();
+
+        list.stream().forEach(System.out::println);
+       //ystem.out.println(A);
+      //  DemandeStage demandeStage = new DemandeStage("yesser","khaloui","khaluiyesser@gmail.com","je suis passionnée","C:/Users/Yesser/Desktop/Resume.pdf","Informatique","encours",25114365,analyseurCv.analyseCV("C:/Users/Yesser/Desktop/Resume.pdf",A.getMotsCles()),A.getId(),new Date(124,04,06));
+
+//        OffreDeStage A = serviceOffreDeStage.afficheUne(1);
     }
 
 

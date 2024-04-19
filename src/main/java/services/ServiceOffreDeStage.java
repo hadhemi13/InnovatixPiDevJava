@@ -16,7 +16,7 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
     @Override
     public void ajouter(OffreDeStage offreDeStage) throws SQLException {
 //        INSERT INTO `offre_stage` (`id`, `user_id`, `title`, `domaine`, `type_offre`, `poste_propose`, `experience`, `niveau`, `language`, `description`, `exigence_offre`, `date_postu`, `mots_cles`, `pfe_book`) VALUES (NULL, '3', 'nbnb', 'bb', 'vv', '3', NULL, NULL, '[\"shsh\"]', 'bvvb', 'b b', NULL, NULL, NULL);
-        String a = "[\"" +"shsh\"]"+"'";
+        // String a = "[\"" + offreDeStage.getExigenceOffre()+"\"]"+"'";
 
         String req = "insert into offre_stage " +
                 "(title,domaine,type_offre,poste_propose,experience,description,exigence_offre)" +
@@ -114,6 +114,35 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
         return list;
     }
 
+    public List<OffreDeStage> afficherId() throws SQLException {
+        List<OffreDeStage> list = new ArrayList<>();
+        try {
+            String req = "select * from offre_stage";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()){
+                list.add(new OffreDeStage(rs.getInt("id"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu")));
+                //LocalDateTime dt = list.getDate("date").toLocalDate;
+//                System.out.println(rs.getInt("id"));
+//                System.out.println(list);
+            }
+            for (OffreDeStage i : list) {
+                System.out.println("DemandeStage{" +
+                        ", id=" + i.getPostePropose());
+//                        "nom='" + i.getTitle() + '\'' +
+//                        ", prenom='" + i.getExigenceOffre() + '\'' +
+//                        ", email='" + i.getExperience() + '\'' +
+//                        ", cv='" + i.getDatePostu() + '\'' +
+//                        '}');
+            }
+
+        }catch (SQLException e){
+            System.err.println("e.getMessage()");
+        }
+        return list;
+    }
+
+
     @Override
     public OffreDeStage afficheUne(int id) throws SQLException {
         OffreDeStage stage = new OffreDeStage();
@@ -122,7 +151,9 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()){
-                stage  =  new OffreDeStage(rs.getInt("poste_propose"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu"));
+                stage  =  new OffreDeStage(rs.getInt("id"),rs.getInt("user_id"),rs.getInt("poste_propose"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu"),rs.getArray("language"),rs.getString("pfe_book"),rs.getArray("niveau"));
+                System.out.println(stage);
+
                 //LocalDateTime dt = list.getDate("date").toLocalDate;
                 //System.out.println(list);
             }

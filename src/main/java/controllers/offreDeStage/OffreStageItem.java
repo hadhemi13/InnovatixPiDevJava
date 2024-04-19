@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import services.ServiceOffreDeStage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class OffreStageItem implements Initializable {
@@ -93,8 +94,15 @@ public class OffreStageItem implements Initializable {
 //        exigence.setText(i.getExigenceOffre());
 //        poste.setText(String.valueOf(i.getPostePropose()));
 //    }
+    public void initE(){
+        titre.setText("Titre");
+        description.setText("Description");
+
+    }
 public void initData(OffreDeStage i) {
+
     ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
+
 
     // Vérification de null pour les mots clés
     String motsClesText = i.getMotsCles() != null ? i.getMotsCles().toString() : "N/A";

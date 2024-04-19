@@ -480,7 +480,6 @@ public class AfficheOffreController implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
             for (OffreDeStage offre : list) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageItem.fxml"));
