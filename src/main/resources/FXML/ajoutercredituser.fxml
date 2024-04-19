@@ -62,9 +62,6 @@
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
-                     <children>
-                        <Button fx:id="btnswitchlist" mnemonicParsing="false" onMouseClicked="#switchtoscenecredit" prefHeight="35.0" prefWidth="131.0" styleClass="nav-links2" text="liste credit" />
-                     </children>
                         </HBox>
                         <HBox fx:id="recBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <VBox.margin>
@@ -94,7 +91,7 @@
         </VBox>
         <HBox alignment="CENTER_RIGHT" layoutX="250.0" prefHeight="78.0" prefWidth="1115.0">
             <children>
-                <Text fill="#d3c2b6" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="ajouter rdv" translateX="-660.0" wrappingWidth="167.6298828125">
+                <Text fill="#d3c2b6" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="ajouter credit" translateX="-660.0" wrappingWidth="167.6298828125">
                     <font>
                         <Font name="Arial Rounded MT Bold" size="30.0" />
                     </font>
@@ -113,7 +110,7 @@
                     <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" />
 
-                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="20.0" styleClass="nav-notif-bg" translateX="-8.0" translateY="-14.0">
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="20.0" styleClass="nav-notif-bg" translateX="-8.0" translateY="-14.0">
                             <children>
                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3" translateY="-1.0">
                                     <font>
@@ -145,7 +142,7 @@
                 </ImageView>
             </children>
         </HBox>
-      <Pane fx:id="content_area1" layoutX="181.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="519.0" style="-fx-background-color: white;" styleClass="dash__container-card2">
+      <Pane fx:id="content_area1" layoutX="188.0" layoutY="64.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="519.0" style="-fx-background-color: white;" styleClass="dash__container-card2">
          <children>
             <TextField fx:id="identifiantlabel" layoutX="138.0" layoutY="33.0" prefHeight="49.0" prefWidth="263.0" promptText="identifiant" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
                <cursor>
@@ -172,7 +169,7 @@
                </font>
             </TextField>
             <DatePicker fx:id="datedebutlabel" layoutX="138.0" layoutY="242.0" prefHeight="49.0" prefWidth="263.0" promptText="DATE" />
-            <TextField fx:id="mensualitelabel" layoutX="128.0" layoutY="357.0" prefHeight="49.0" prefWidth="263.0" promptText="MENSUALITE" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+            <TextField fx:id="mensualitelabel" layoutX="138.0" layoutY="326.0" prefHeight="49.0" prefWidth="263.0" promptText="MENSUALITE" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -180,7 +177,7 @@
                   <Font name="Bauhaus 93" size="21.0" />
                </font>
             </TextField>
-            <TextField fx:id="dureelabel" layoutX="128.0" layoutY="419.0" prefHeight="49.0" prefWidth="263.0" promptText="DUREE" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+            <TextField fx:id="dureelabel" layoutX="138.0" layoutY="382.0" prefHeight="49.0" prefWidth="263.0" promptText="DUREE" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -188,7 +185,7 @@
                   <Font name="Bauhaus 93" size="21.0" />
                </font>
             </TextField>
-            <TextField fx:id="fraisretardlabel" layoutX="138.0" layoutY="476.0" prefHeight="49.0" prefWidth="263.0" promptText="FRAISRETARD" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+            <TextField fx:id="fraisretardlabel" layoutX="138.0" layoutY="453.0" prefHeight="49.0" prefWidth="263.0" promptText="FRAISRETARD" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -196,8 +193,8 @@
                   <Font name="Bauhaus 93" size="21.0" />
                </font>
             </TextField>
-            <Button fx:id="btnsave" layoutX="213.0" layoutY="533.0" mnemonicParsing="false" onAction="#savecredit" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #BEF574;" styleClass="nav-links" text="SAVE" />
-            <Label fx:id="dateeror" layoutX="138.0" layoutY="308.0" prefHeight="25.0" prefWidth="125.0" />
+            <Button fx:id="btnsave" layoutX="211.0" layoutY="526.0" mnemonicParsing="false" onAction="#savecredit" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #BEF574;" styleClass="nav-links" text="SAVE" />
+            <Label fx:id="dateerroruser" layoutX="138.0" layoutY="301.0" prefHeight="25.0" prefWidth="263.0" />
          </children>
       </Pane>
             <ImageView fitHeight="42.0" fitWidth="28.0" layoutX="15.0" layoutY="596.0" onMouseClicked="#closescene" pickOnBounds="true" preserveRatio="true">

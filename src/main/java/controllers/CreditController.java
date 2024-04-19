@@ -176,11 +176,58 @@ public class CreditController implements ICredit<Credit> , Initializable {
         }
 
     }
-
+    @FXML
+    private Label dateeror;
+    private Timer timer;
+    @FXML
+    private Label dateerroruser;
     public void savecredit(ActionEvent actionEvent) {
         String insert = "insert into credit (user_id, id_client, montant, taux, datedebut, mensualite, duree, fraisretard) values (?, ?, ?, ?, ?, ?, ?, ?)";
         connection = MyDatabase.getInstance().getConnection();
+
+
+        LocalDate aujourdhui = LocalDate.now(); // Obtient la date d'aujourd'hui
+
+
         try {
+            if (identifiantlabel.getText().length() != 8) {
+                identifiantlabel.setText("Erreur: idclient doit avoir une longueur de 8 caractères.");
+
+
+            }
+            if (montantlabel.getText().isEmpty()) {
+               montantlabel.setText("Erreur: employename ne peut pas être vide.");
+
+
+            }
+            if (mensualitelabel.getText().isEmpty()) {
+                mensualitelabel.setText("Erreur: methode ne peut pas être vide.");
+
+
+            }
+            if (dureelabel.getText().isEmpty()) {
+                dureelabel.setText("Erreur: methode ne peut pas être vide.");
+
+
+            }
+
+
+
+
+
+
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    identifiantlabel.setText("");
+                    montantlabel.setText("");
+                    mensualitelabel.setText("");
+                    dureelabel.setText("");
+
+                    timer.cancel();
+                }
+            }, 4000);
             st = connection.prepareStatement(insert);
             st.setInt(1, 1); // Static value for user_id
             st.setInt(2, Integer.parseInt(identifiantlabel.getText())); // id_client
@@ -315,7 +362,7 @@ public class CreditController implements ICredit<Credit> , Initializable {
 
     }
 
-    public void switchtoscenupdatecredit(javafx.scene.input.MouseEvent mouseEvent) {
+    public void switchtoscenupdatecredit(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/updatecredit.fxml"));
         Parent root = null;
         try {
@@ -335,16 +382,26 @@ public class CreditController implements ICredit<Credit> , Initializable {
             // Initialize the data in the updateCreditController
             updateCreditController.initData(credit);
 
-            // Set the scene
-            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            // Set the scene for the updatecredit.fxml
+            Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
+            // Load the sidenavbar.fxml scene
+            FXMLLoader sidebarLoader = new FXMLLoader(getClass().getResource("/FXML/listecredit.fxml"));
+            Parent sidebarRoot = sidebarLoader.load();
+
+            // Set the sidenavbar.fxml scene as the main scene
+            Stage parentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            Scene sidebarScene = new Scene(sidebarRoot);
+            parentStage.setScene(sidebarScene);
         } else {
             // Handle the case where no credit is selected
             System.out.println("No credit selected.");
         }
     }
+
 
     public void closescene(javafx.scene.input.MouseEvent mouseEvent) {
         // Récupérer la liste des fenêtres (stages) actives

@@ -8,6 +8,14 @@ public class RDV {
 
     private int credit_id ;
 
+    public int getIdclient() {
+        return idclient;
+    }
+
+    public void setIdclient(int idclient) {
+        this.idclient = idclient;
+    }
+
     private int idclient;
 
     private Time heure;
@@ -40,13 +48,7 @@ public class RDV {
         this.credit_id = credit_id;
     }
 
-    public int getIdclient() {
-        return idclient;
-    }
 
-    public void setIdclient(int idclient) {
-        this.idclient = idclient;
-    }
 
     public Time getHeure() {
         return heure;

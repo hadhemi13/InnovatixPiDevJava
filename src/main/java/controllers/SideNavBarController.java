@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.EventObject;
 import java.util.ResourceBundle;
 
 public class SideNavBarController implements Initializable {
@@ -119,7 +120,7 @@ public class SideNavBarController implements Initializable {
     private String [] choiceCredits={"ajouter credit ","modifier credit","afficher credit"};
 
     public void initialize(URL url, ResourceBundle rb){
-      choiceCredit.getItems().addAll(choiceCredits);
+
     }
 
 
@@ -159,4 +160,29 @@ public class SideNavBarController implements Initializable {
     private Scene scene;
     private Parent root;
 
-}
+    public void switchlisterdv(MouseEvent mouseEvent) throws IOException {
+        // Load the ajoutercredit.fxml scene
+        FXMLLoader creditLoader = new FXMLLoader(getClass().getResource("/FXML/listerdv.fxml"));
+        Parent creditRoot = creditLoader.load();
+
+        // Create a new stage for the ajoutercredit.fxml scene
+        Stage creditStage = new Stage();
+        Scene creditScene = new Scene(creditRoot);
+        creditStage.setScene(creditScene);
+        creditStage.show();
+
+        // Load the sidenavbar.fxml scene
+        FXMLLoader sidebarLoader = new FXMLLoader(getClass().getResource("/FXML/sidenavbar.fxml"));
+        Parent sidebarRoot = sidebarLoader.load();
+
+        // Get the stage of the parent scene
+        EventObject event;
+        Stage parentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+
+        // Set the sidenavbar.fxml scene as the main scene
+        Scene sidebarScene = new Scene(sidebarRoot);
+        parentStage.setScene(sidebarScene);
+
+
+    }}
+

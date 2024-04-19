@@ -11,6 +11,22 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
+#idcreditchoisei .button {
+    -fx-background-color: orange;
+    -fx-background-radius: 10px; /* Adjust the value to control the roundness */
+    -fx-border-radius: 10px; /* Adjust the value to control the roundness */
+    -fx-padding: 3px 6px; /* Adjust the padding as needed */
+    -fx-text-fill: white;
+}
+
+
+updateButton{
+"-fx-background-color: orange;" +     // Set background color to orange
+"-fx-text-fill: white;" +             // Set text color to white
+"-fx-background-radius: 20em;" +      // Set the background radius to make it round
+"-fx-min-width: 80px;" +              // Set the minimum width of the button
+"-fx-min-height: 80px;"               // Set the minimum height of the button
+}
 .logo {
     -fx-fit-height: 50px; /* Hauteur réduite */
     -fx-fit-width: 50px; /* Largeur réduite */

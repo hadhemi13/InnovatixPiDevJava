@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import org.w3c.dom.events.MouseEvent;
 import org.w3c.dom.ls.LSOutput;
 import utils.MyDatabase;
@@ -225,6 +226,11 @@ public class updatecreditcontroller {
     void switchtoscenelistecredit(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listecredit.fxml"));
         Parent root = loader.load();
+        for (Window window : Window.getWindows()) {
+            if (window instanceof Stage) {
+                ((Stage) window).close();
+            }
+        }
         stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
