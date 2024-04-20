@@ -4,11 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class SideNavBarUserController {
@@ -135,5 +135,38 @@ public class SideNavBarUserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void open_dashboard(MouseEvent mouseEvent) {
+    }
+
+    public void open_profile(MouseEvent mouseEvent) {
+    }
+
+    public void open_fundrisingList(MouseEvent mouseEvent) {
+    }
+
+    public void open_productsList(MouseEvent mouseEvent) {
+    }
+
+    public void open_favList(MouseEvent mouseEvent) {
+    }
+
+    public void open_collectList(MouseEvent mouseEvent) {
+    }
+
+    public void open_commandsList(MouseEvent mouseEvent) {
+    }
+
+    public void open_achatList(MouseEvent mouseEvent) {
+    }
+
+    public void open_actualite(MouseEvent mouseEvent) {
+    }
+
+    public void logout(MouseEvent mouseEvent) {
+    }
+
+    public void open_notifModel(MouseEvent mouseEvent) {
     }
 }

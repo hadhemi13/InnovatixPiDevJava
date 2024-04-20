@@ -7,8 +7,7 @@
 }
 
 .bg {
-    -fx-background-color: linear-gradient(to bottom, rgba(151, 209, 88, 0.99), #2f611f);
-    -fx-background-repeat: no-repeat;
+
     -fx-background-size: cover;
 }
 .logo {
@@ -111,7 +110,11 @@
     -fx-background-radius: 30px;
     -fx-pref-width: 24px;
 }
-
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #43882b;
+    -fx-background-radius: 30px;
+    -fx-pref-width: 24px;
+}
 .scroll-bar:vertical *.increment-button,
 .scroll-bar:vertical *.decrement-button {
     -fx-background-color: #fff;
@@ -1112,7 +1115,7 @@
 }
 
 .bg {
-    -fx-background-image: url("../img/back1.jpg");
+    -fx-background-color: linear-gradient(to bottom, rgba(151, 209, 88, 0.99), #2f611f);
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
@@ -1164,7 +1167,7 @@
 }
 
 .nav-notif-bg {
-    -fx-background-color: #97d158;
+    -fx-background-color: #43882b;
     -fx-background-radius: 50%;
     -fx-border-radius: 50%;
 }
