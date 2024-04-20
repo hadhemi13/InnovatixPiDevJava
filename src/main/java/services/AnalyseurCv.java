@@ -52,13 +52,13 @@ public class AnalyseurCv {
     }
 
     // Exemple d'utilisation
-//    public static void main(String[] args) throws IOException, InterruptedException {
-//        String cv = "C:/Users/Yesser/Desktop/Resume.pdf";
+    public static void main(String[] args) throws IOException, InterruptedException {
+        String cv = "C:/Users/Yesser/Desktop/Resume.pdf";
 //        String[] motsCles = {"java", "Kotlin", "mot3"};
 //
 //        int resultat = analyseCV(cv, motsCles);
-//        System.out.println("Résultat de l'analyse : " + resultat);
-//    }
+        System.out.println("Résultat de l'analyse : " );
+    }
 }
 
 
