@@ -228,6 +228,7 @@ public class Main {
         ServiceCheque serviceCheque = new ServiceCheque();
         Cheque cheque = new Cheque("ss",233,2342266,"svgshg",123,"hshsh",new Date(122,01,06),"hshs","sggs");
         serviceCheque.ajouterS(cheque);
+        serviceCheque.supprimer(31);
         ServiceVirement virement = new ServiceVirement();
        // Virement virement1 = new Virement("sdd",)
     }

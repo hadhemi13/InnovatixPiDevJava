@@ -89,17 +89,18 @@ public class ChequeItems implements Initializable {
             ModifierCheque modifierCheque = loader.getController();
             modifierCheque.initData(cheque); // Passer l'article sélectionné
             Stage stage = new Stage();
-            stage.setScene(new Scene(root)); // Cette ligne cause l'erreur***************************
+            stage.setScene(new Scene(root)); // Cette ligne cause l'erreur
             stage.show();
         });
     }
 
         // Ne rien faire dans l'initialisation par défaut
     public void initData(Cheque i) {
+        this.cheque=cheque;
         ServiceCheque serviceCheque = new ServiceCheque();
 
         userItemEmail.setText(String.valueOf(i.getCin()));
-        userItemName.setText(String.valueOf(i.getId()));
+        //userItemName.setText(String.valueOf(i.getI()));
         userItemTel.setText(i.getNom_prenom());
         userItemRole.setText(i.getEmail());
         userItemStateText.setText(i.getDecision());
@@ -111,12 +112,14 @@ public class ChequeItems implements Initializable {
 
     @FXML
     public void DeleteCheque(MouseEvent mouseEvent) {
+        this.cheque=cheque;
+        System.out.println(cheque);
         try {
             if (cheque != null) {
                 ServiceCheque sv = new ServiceCheque();
-                int chequeId = cheque.getId(); // Supposons que la méthode getId() renvoie l'ID du chèque
-                sv.supprimer(chequeId); // Appel de la méthode supprimer avec l'ID du chèque
-                Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow(); // Correction pour obtenir la fenêtre parente
+                //int chequeId = cheque.getId(); // Supposons que la méthode getId() renvoie l'ID du chèque
+                sv.supprimer(33); // Appel de la méthode supprimer avec l'ID du chèque
+                Stage stage = (Stage) userItemStateBtn.getScene().getWindow(); // Correction pour obtenir la fenêtre parente
                 stage.close();
             } else {
                 // Affichez un message d'erreur ou faites une action appropriée si cheque est null
@@ -128,8 +131,6 @@ public class ChequeItems implements Initializable {
             // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
         }
     }
-
-
 
     @FXML
     public void UpdateCheque(MouseEvent mouseEvent) throws IOException {

@@ -45,7 +45,7 @@ public class CardAdmin {
 
     public void OpenListeCompteAd(MouseEvent mouseEvent) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListCompteAdmin.fxml.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListCompteAdmin.fxml"));
         Parent addArticleParent = loader.load();
 
         ListeCompteAdmin listeCompteAdmin = loader.getController();

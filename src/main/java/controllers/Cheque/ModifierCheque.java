@@ -220,6 +220,32 @@ public class ModifierCheque implements Initializable {
         }
     }
 
+    public void UpdateCheque(MouseEvent mouseEvent) {
+        try {
+            if (cheque != null) {
+                cheque.setBeneficiaire(beneficiaire.getValue().toString());
+                cheque.setMontant(Double.parseDouble(montant.getText()));
+                cheque.setTelephone(Integer.parseInt(tel.getText()));
+                if (date.getValue() != null) {
+                    cheque.setDate(Date.valueOf(date.getValue()));
+                }
+                // Assurez-vous que l'image du chèque n'est pas vide
+                if (imageInput.getImage() != null) {
+                    cheque.setPhoto_cin(imageInput.getImage().getUrl());
+                }
+                // Appeler la méthode de service pour effectuer la mise à jour du chèque dans la base de données
+                ServiceCheque serviceCheque = new ServiceCheque();
+                serviceCheque.modifier(cheque);
+
+                // Fermer la fenêtre après la mise à jour
+                Stage stage = (Stage) update_chequetBtn.getScene().getWindow();
+                stage.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception appropriée ici
+        }
+    }
 }
 
 
