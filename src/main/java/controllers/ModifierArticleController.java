@@ -47,7 +47,7 @@ public class ModifierArticleController implements Initializable {
     private ImageView imageInput;
 
     private Article article;
-
+    private ListArticleAdminController listArticleController;
     private ServiceArticle serviceArticle;
 //
 //
@@ -160,8 +160,9 @@ public class ModifierArticleController implements Initializable {
                 // Appeler la méthode de service pour effectuer la mise à jour de l'article dans la base de données
                 ServiceArticle serviceArticle = new ServiceArticle();
                 serviceArticle.modifier(article);
-//                ListArticleAdminController listArticleController = ListArticleAdminController.loadArticles();
-
+                if (listArticleController != null) {
+                    listArticleController.refreshArticleList();
+                }
                 // Fermez la fenêtre de modification d'article
                 Stage stage = (Stage) titreArt.getScene().getWindow();
                 stage.close();
@@ -193,6 +194,36 @@ public class ModifierArticleController implements Initializable {
         stage.close();
     }
 
+    //@Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        // Initialiser la liste des catégories
+//        ObservableList<String> categories = FXCollections.observableArrayList(
+//                "Développement durable",
+//                "Finance",
+//                "Banque",
+//                "Crédits"
+//        );
+//        addCategorie.setItems(categories);
+//
+//        // Initialiser le Spinner de durée
+//        SpinnerValueFactory<Integer> valueFactory =
+//                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
+//        dureeArt.setValueFactory(valueFactory);
+//
+//        // Autoriser la saisie directe des valeurs dans le Spinner
+//        dureeArt.setEditable(true);
+//
+//        // Limiter la saisie à des nombres entiers
+//        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
+//            if (c.getControlNewText().matches("\\d*")) {
+//                return c;
+//            } else {
+//                return null;
+//            }
+//
+//        }));
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initialiser la liste des catégories
@@ -222,6 +253,12 @@ public class ModifierArticleController implements Initializable {
         }));
 
         // Initialiser les champs de l'article
+        initializeArticleFields();
+    }
+
+
+
+        // Initialiser les champs de l'article
        // initializeArticleFields();
     }
 //
@@ -238,4 +275,4 @@ public class ModifierArticleController implements Initializable {
 //        }
 //    }
 
-}
+

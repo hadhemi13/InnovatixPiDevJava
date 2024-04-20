@@ -4,6 +4,7 @@ import Entities.Article;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,10 +22,12 @@ import javafx.scene.layout.VBox;
 import services.ServiceArticle;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class ListArticleAdminController {
+public class ListArticleAdminController implements Initializable {
 
     @FXML
     private Text AjouterArtBtn;
@@ -159,5 +162,54 @@ public class ListArticleAdminController {
             // Ajoutez la carte d'article au GridPane
             ArtListContainer.addRow(row++, articleCardParent);
         }
+    }
+
+    public void refreshArticleList() {
+        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+
+        try {
+            List<Article> articles = serviceArticle.afficher();
+            loadArticles(articles);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception appropriée ici
+        }
+    }
+
+    private void loadArticles(List<Article> articles) {
+        int row = 0;
+        int column = 0;
+        int maxColumns = 3; // Nombre maximum de colonnes par ligne
+
+        for (Article article : articles) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/articleCardAdmin.fxml"));
+                Parent articleCardParent = loader.load();
+
+                // Set article data in the controller
+                articleCardAdminController articleCardController = loader.getController();
+                articleCardController.initializeData(article);
+
+                // Add the article card to the grid pane
+                ArtListContainer.add(articleCardParent, column, row);
+
+                // Increment column and row
+                column++;
+                if (column >= maxColumns) {
+                    column = 0;
+                    row++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Gérer l'exception appropriée ici
+            }
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        refreshArticleList();
+
     }
 }

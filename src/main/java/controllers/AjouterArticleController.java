@@ -141,27 +141,8 @@ public class AjouterArticleController implements Initializable {
     @FXML
     void ajouter_article(MouseEvent event) throws SQLException, IOException {
         String nom = "hadhemi";
-        String adresse ="mahmoud";
+        String adresse = "mahmoud";
         ServiceArticle sa = new ServiceArticle();
-//        if (ContenuArt.getText().isEmpty()) {
-//
-//            ContenuHboxErreur.setVisible(true);
-//            return;
-//        }
-//        if (categoriechoice.getSelectionModel().isEmpty()) {
-//            categorieErrorHbox.setVisible(true);
-//            return;
-//        }
-//
-//        if (dureeArt.getValue() == null) {
-//            dureeInputErrorHbox.setVisible(true);
-//            return;
-//        }
-//
-//        if (titreInput.getText().isEmpty()) {
-//            titreInputErrorHbox.setVisible(true);
-//            return;
-//        }
         boolean champsVides = false;
         if (ContenuArt.getText().isEmpty()) {
             ContenuHboxErreur.setVisible(true);
@@ -182,11 +163,12 @@ public class AjouterArticleController implements Initializable {
         } else {
             imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-        if (dureeArt.getValue() == 0) {
+        if (dureeArt.getValue() < 1) {
+            dureeInputErrorHbox.getChildren().setAll(new Text("La durée de l'article doit être d'au moins un jour."));
             dureeInputErrorHbox.setVisible(true);
-            champsVides = true;
+            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
         } else {
-            dureeInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+            dureeInputErrorHbox.setVisible(false); // Masquer le message d'erreur si la durée est valide
         }
         if (titreInput.getText().isEmpty()) {
             pieceJInputErrorHbox.setVisible(true);
@@ -194,20 +176,28 @@ public class AjouterArticleController implements Initializable {
         } else {
             pieceJInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-        if (titreInput.getText().isEmpty()) {
+        String titre = titreInput.getText();
+        if (!Character.isUpperCase(titre.charAt(0))) {
+            titreInputErrorHbox.getChildren().setAll(new Text("Le titre doit commencer par une majuscule."));
             titreInputErrorHbox.setVisible(true);
-            champsVides = true;
+            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
         } else {
             titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-        if (datePubArt.getValue()==null) {
+        if (datePubArt.getValue() == null) {
             DateHboxErreur.setVisible(true);
-            champsVides = true;
+            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
         } else {
-            DateHboxErreur.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+            if (datePubArt.getValue().isBefore(LocalDate.now())) {
+                DateHboxErreur.getChildren().setAll(new Text("Veuillez sélectionner une date de publication valide."));
+                DateHboxErreur.setVisible(true);
+                champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
+            } else {
+                DateHboxErreur.setVisible(false); // Masquer le message d'erreur si la date est valide
+            }
         }
 
-// Si au moins un champ est vide, afficher les messages d'erreur
+        // Si au moins un champ est vide, afficher les messages d'erreur
         if (champsVides) {
             return;
         }

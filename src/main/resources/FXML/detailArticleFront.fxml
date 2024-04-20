@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1250.0" prefWidth="1170.0" style="-fx-background-color: #fff;" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DetailArticleFrontController">
+<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #fff;" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DetailArticleFrontController">
     <children>
-      <ScrollPane prefHeight="1250.0" prefWidth="1170.0">
+      <ScrollPane prefHeight="752.0" prefWidth="885.0">
          <content>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
@@ -152,13 +152,13 @@
                             </VBox>
                         </children>
                     </HBox>
-                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="600.0" prefWidth="1112.0" styleClass="productDetails__Container">
+                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="356.0" prefWidth="1024.0" styleClass="productDetails__Container">
                         <children>
                             <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="354.0">
                                 <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="66.0" prefWidth="342.0">
                                         <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="VERIFIED REVIEWS (" />
+                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="Note(" />
                                             <Text fx:id="reviews_totalRev_title" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="110" translateY="1.0" />
                                             <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text=")" />
                                         </children>
@@ -221,135 +221,6 @@
                                             </HBox>
                                         </children>
                                     </VBox>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="270.0">
-                                        <VBox.margin>
-                                            <Insets left="30.0" right="30.0" top="10.0" />
-                                        </VBox.margin>
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="5" translateY="2.0" />
-                                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../imagesAct/star.png" />
-                                                </image>
-                                                <HBox.margin>
-                                                    <Insets left="25.0" />
-                                                </HBox.margin>
-                                            </ImageView>
-                                            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" translateY="1.0">
-                                                <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="(" />
-                                                    <Text fx:id="totalBy5" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="28" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text=")" />
-                                                </children>
-                                            </HBox>
-                                            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="114.0" styleClass="range-container" translateY="1.0" />
-                                            <HBox fx:id="rangeTotal5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="57.0" styleClass="range-value" translateX="-114.0" translateY="1.0" />
-                                        </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="295.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="4" translateY="2.0" />
-                                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../imagesAct/star.png" />
-                                                </image>
-                                                <HBox.margin>
-                                                    <Insets left="23.0" />
-                                                </HBox.margin>
-                                            </ImageView>
-                                            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" translateY="1.0">
-                                                <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="(" />
-                                                    <Text fx:id="totalBy4" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="54" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text=")" />
-                                                </children>
-                                            </HBox>
-                                            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="114.0" styleClass="range-container" translateY="1.0" />
-                                            <HBox fx:id="rangeTotal4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="68.4" styleClass="range-value" translateX="-114.0" translateY="1.0" />
-                                        </children>
-                                        <VBox.margin>
-                                            <Insets left="30.0" />
-                                        </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="298.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="3" translateY="2.0" />
-                                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../imagesAct/star.png" />
-                                                </image>
-                                                <HBox.margin>
-                                                    <Insets left="25.0" />
-                                                </HBox.margin>
-                                            </ImageView>
-                                            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" translateY="1.0">
-                                                <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="(" />
-                                                    <Text fx:id="totalBy3" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="11" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text=")" />
-                                                </children>
-                                            </HBox>
-                                            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="114.0" styleClass="range-container" translateY="1.0" />
-                                            <HBox fx:id="rangeTotal3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="22.8" styleClass="range-value" translateX="-114.0" translateY="1.0" />
-                                        </children>
-                                        <VBox.margin>
-                                            <Insets left="30.0" />
-                                        </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="309.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="2" translateY="2.0" />
-                                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../imagesAct/star.png" />
-                                                </image>
-                                                <HBox.margin>
-                                                    <Insets left="25.0" />
-                                                </HBox.margin>
-                                            </ImageView>
-                                            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" translateY="1.0">
-                                                <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="(" />
-                                                    <Text fx:id="totalBy2" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="2" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text=")" />
-                                                </children>
-                                            </HBox>
-                                            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="114.0" styleClass="range-container" translateY="1.0" />
-                                            <HBox fx:id="rangeTotal2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="11.4" styleClass="range-value" translateX="-114.0" translateY="1.0" />
-                                        </children>
-                                        <VBox.margin>
-                                            <Insets left="30.0" />
-                                        </VBox.margin>
-                                    </HBox>
-                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="308.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="1" translateY="2.0">
-                                                <HBox.margin>
-                                                    <Insets right="3.0" />
-                                                </HBox.margin>
-                                            </Text>
-                                            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="@../imagesAct/star.png" />
-                                                </image>
-                                                <HBox.margin>
-                                                    <Insets left="25.0" />
-                                                </HBox.margin>
-                                            </ImageView>
-                                            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" translateY="1.0">
-                                                <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="(" />
-                                                    <Text fx:id="totalBy1" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="1" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text=")" />
-                                                </children>
-                                            </HBox>
-                                            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="114.0" styleClass="range-container" translateY="1.0" />
-                                            <HBox fx:id="rangeTotal1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="11.4" styleClass="range-value" translateX="-114.0" translateY="1.0" />
-                                        </children>
-                                        <VBox.margin>
-                                            <Insets left="30.0" />
-                                        </VBox.margin>
-                                    </HBox>
                                 </children>
                             </VBox>
                             <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0">
@@ -358,7 +229,7 @@
                                         <children>
                                             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="627.0">
                                                 <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="COMMENTS (" />
+                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="Commentaires(" />
                                                     <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="14" />
                                                     <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text=")" />
                                                 </children>
