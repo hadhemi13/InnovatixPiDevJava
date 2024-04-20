@@ -215,15 +215,12 @@ public class AddProjectCardController implements Initializable {
       Image image = new Image(selectedImageFile.toURI().toString());
       imageInput.setImage(image);
 
-      // Générer un nom de fichier unique pour l'image
-      String uniqueID = UUID.randomUUID().toString();
-      String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
-      imageName = uniqueID + extension;
+
+      imageName = selectedImageFile.getName();
 
       Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
       Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
 
-      // pour le controle de saisie
       photoTest = 1;
       photoInputErrorHbox.setVisible(false);
 
