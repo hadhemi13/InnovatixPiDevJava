@@ -164,44 +164,64 @@ public class ListArticleAdminController implements Initializable {
         }
     }
 
-    public void refreshArticleList() {
-        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+    public void refreshArticleList() throws SQLException {
+//        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+//
+//        try {
+//            List<Article> articles = serviceArticle.afficher();
+//            loadArticles(articles);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            // Gérer l'exception appropriée ici
+//        }
+        // Nettoyer le contenu actuel
+        ArtListContainer.getChildren().clear();
 
-        try {
-            List<Article> articles = serviceArticle.afficher();
-            loadArticles(articles);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Gérer l'exception appropriée ici
-        }
+        // Charger à nouveau la liste des articles depuis la base de données
+        List<Article> articles = serviceArticle.afficher();
+
+        // Charger à nouveau les cartes d'articles dans le conteneur
+        loadArticleCards(articles);
+
     }
 
+
     private void loadArticles(List<Article> articles) {
+        // Nettoyer le conteneur actuel
+        ArtListContainer.getChildren().clear();
+
+        // Réinitialiser les valeurs de la ligne et de la colonne
         int row = 0;
         int column = 0;
         int maxColumns = 3; // Nombre maximum de colonnes par ligne
 
+        // Parcourir chaque article et charger sa carte dans le conteneur
         for (Article article : articles) {
             try {
+                // Charger la carte d'article à partir du fichier FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/articleCardAdmin.fxml"));
-                Parent articleCardParent = loader.load();
+                VBox articleCard = loader.load();
 
-                // Set article data in the controller
+                // Récupérer le contrôleur de la carte d'article
                 articleCardAdminController articleCardController = loader.getController();
+
+                // Initialiser les données de l'article dans la carte d'article
                 articleCardController.initializeData(article);
 
-                // Add the article card to the grid pane
-                ArtListContainer.add(articleCardParent, column, row);
+                // Ajouter la carte d'article au conteneur
+                ArtListContainer.add(articleCard, column, row);
 
-                // Increment column and row
+                // Incrémenter la colonne
                 column++;
+
+                // Vérifier si nous devons passer à la ligne suivante
                 if (column >= maxColumns) {
                     column = 0;
                     row++;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                // Gérer l'exception appropriée ici
+                // Gérer l'exception ici, si nécessaire
             }
         }
     }
@@ -209,7 +229,11 @@ public class ListArticleAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        refreshArticleList();
+        try {
+            refreshArticleList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

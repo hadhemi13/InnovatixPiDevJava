@@ -10,10 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -58,6 +55,8 @@ public class articleCardAdminController implements Initializable {
     @FXML
     private HBox viewdetailArt;
     private Article article;
+    private ListArticleAdminController listArticleController;
+
 //    public void initializeData(Article article) {
 //
 //
@@ -157,17 +156,20 @@ public void initializeData(Article article) {
     }
 @FXML
 void modifierArt(MouseEvent event) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+//    ListArticleAdminController listArticleController = this;
+ FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
     Parent editArticlePopupParent = loader.load();
 
     ModifierArticleController modifierArticleController = loader.getController();
     modifierArticleController.initData(article); // Passer l'article à modifier
+//    modifierArticleController.setListArticleController(this);
 
     Stage stage = new Stage();
     stage.initModality(Modality.WINDOW_MODAL);
     stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     stage.setScene(new Scene(editArticlePopupParent));
     stage.showAndWait();
+
 }
 //    @FXML
 //    void deleteArtBtn(MouseEvent event) {
