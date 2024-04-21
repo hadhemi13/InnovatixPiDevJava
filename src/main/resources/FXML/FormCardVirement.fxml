@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="addProductCard" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.AjouterVirementCard">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="addProductCard" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.AjouterVirementCard">
     <children>
         <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
             <children>
@@ -116,7 +116,7 @@
                                     <Insets right="180.0" />
                                 </VBox.margin>
                             </TextField>
-                            <HBox fx:id="cinInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                            <HBox fx:id="cinInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="cinInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie votre Cin  !">
@@ -128,16 +128,6 @@
                             </HBox>
                         </children>
                     </VBox>
-
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                            <HBox prefHeight="15.0" prefWidth="598.0">
-                                <padding>
-                                    <Insets bottom="10.0" />
-                                </padding>
-                            </HBox>
-                     </children>
-                  </VBox>
             
                     <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
                         <padding>
@@ -169,7 +159,7 @@
                                     <Insets right="180.0" />
                                 </VBox.margin>
                             </TextField>
-                            <HBox fx:id="NometPrenomInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                            <HBox fx:id="NometPrenomInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="NometPrenomInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir Votre Nom et Prénom">
@@ -249,7 +239,7 @@
                               <Insets right="99.0" />
                            </VBox.margin>
                             </HBox>
-                            <HBox fx:id="imageInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../../resources/css/Compte.css" />
+                            <HBox fx:id="imageInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/Compte.css" />
                         </children>
                     </VBox>
             
@@ -282,7 +272,7 @@
                                     <Insets right="180.0" />
                                 </VBox.margin>
                             </TextField>
-                            <HBox fx:id="NumInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                            <HBox fx:id="NumInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="NumInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie votre Numéro de télèphone !">
@@ -320,8 +310,8 @@
                                             <Insets bottom="10.0" />
                                         </padding>
                                     </HBox>
-                                    <ComboBox fx:id="type" prefHeight="40.0" prefWidth="299.0" styleClass="cheque__add-comboBox" />
-                                    <HBox fx:id="beneficiaireInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                                    <ComboBox fx:id="type" prefHeight="40.0" prefWidth="299.0" styleClass="VIR__add-comboBox" stylesheets="@../css/Compte.css" />
+                                    <HBox fx:id="beneficiaireInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                             <Text fx:id="typeInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir un type !">
@@ -367,7 +357,7 @@
                                     <Insets right="180.0" />
                                 </VBox.margin>
                             </TextField>
-                            <HBox fx:id="transferezInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                            <HBox fx:id="transferezInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="transferezInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie un Nom !">
@@ -406,7 +396,7 @@
                                     <Insets right="180.0" />
                                 </VBox.margin>
                             </TextField>
-                            <HBox fx:id="benefInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                            <HBox fx:id="benefInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="benefInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie un Numéro de Bénéficiaire !">
@@ -449,7 +439,7 @@
                                             <Insets />
                                         </VBox.margin>
                                     </TextField>
-                                    <HBox fx:id="montantInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                                    <HBox fx:id="montantInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../css/Compte.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                             <Text fx:id="montantInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Montant !">
@@ -468,7 +458,7 @@
                     </HBox>
                     <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                         <children>
-                            <Button fx:id="ajouterVirement" mnemonicParsing="false" onAction="#ajouterVirement" onMouseClicked="#ajouterVirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Confirmer" textFill="WHITE">
+                            <Button fx:id="ajouterVirement" mnemonicParsing="false" onMouseClicked="#ajouterVirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Confirmer" textFill="WHITE">
                                 <font>
                                     <Font name="Montserrat Regular" size="16.0" />
                                 </font>

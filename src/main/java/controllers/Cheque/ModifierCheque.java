@@ -198,14 +198,14 @@ public class ModifierCheque implements Initializable {
     public void edit(String text) {
         ServiceCheque serviceCheque= new ServiceCheque();
     }
-    public void initData(Cheque cheque) {
-        this.cheque = cheque;
+    public void initData( Cheque cheque) {
+
         initializeChequeFields();
     }
 
     private void initializeChequeFields() {
         if (cheque != null) {
-            Cin.setText(String.valueOf(cheque.getCin()));
+            this.Cin.setText(String.valueOf(cheque.getCin()));
             NometPrenom.setText(cheque.getNom_prenom());
             Email.setText(cheque.getEmail());
             date.setValue(cheque.getDate().toLocalDate());
@@ -247,7 +247,3 @@ public class ModifierCheque implements Initializable {
         }
     }
 }
-
-
-
-

@@ -7,231 +7,88 @@ import utils.MyDatabase;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) throws SQLException {
-
-        MyDatabase myDataBase = new MyDatabase();
-        /* Test reclamation
-        ServiceReclamation serviceReclamation = new ServiceReclamation();
-
-
-        //Ajout
-
-        Reclamation reclamation = new Reclamation();
-        reclamation.setObjet_rec("Objet de la réclamation");
-        reclamation.setContenu_rec("Contenu de la réclamation");
-        reclamation.setAdr_rec("Adresse de la réclamation");
-        reclamation.setNom_aut_rec("Nom de l'auteur de la réclamation");
-        reclamation.setDep_rec("Département concerné");
-        reclamation.setStatut_rec("Statut de la réclamation");
-        reclamation.setPiece_jrec("Chemin vers la pièce jointe");
-        reclamation.setDate_rec(LocalDateTime.now());
+    public static void main(String[] args) {
+        // Créer une instance de ServiceVirement
+        ServiceVirement serviceVirement = new ServiceVirement();
 
         try {
-            serviceReclamation.ajouter(reclamation);
-        } catch (SQLException e) {
-            System.out.println("Erreur lors de l'ajout de la réclamation : " + e.getMessage());
-        }
+            // Appeler la méthode afficher pour récupérer la liste des virements
+            List<Virement> virements = serviceVirement.afficher();
 
-        //Affichage
-
-        try {
-            List<Reclamation> reclamations = serviceReclamation.afficher();
-
-            for (Reclamation reclamation : reclamations) {
-                System.out.println(reclamation);
+            // Afficher les virements récupérés
+            for (Virement virement : virements) {
+                System.out.println(virement);
             }
         } catch (SQLException e) {
+            // Gérer les éventuelles exceptions
             e.printStackTrace();
         }
-        try {
-            Reclamation reclamationToDelete = new Reclamation();
-            reclamationToDelete.setId(17);
-
-            serviceReclamation.supprimer(reclamationToDelete);
-            System.out.println("Réclamation supprimée avec succès.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-        ServiceReponse serviceReponse = new ServiceReponse();
-
-          /*
-            test reponse
-            //Ajout
-        try {
-            Reponse reponse = new Reponse();
-            reponse.setReclamation_id(2);
-            reponse.setAdr_rep("Adresse de la réponse");
-            reponse.setDate_rep(LocalDateTime.now());
-            reponse.setContenu_rep("Contenu de la réponse");
-            reponse.setPiece_jrep("Chemin vers la pièce jointe de la réponse");
-
-            serviceReponse.ajouter(reponse);
-
-            System.out.println("Réponse ajoutée avec succès.");
-        } catch (SQLException e) {
-            System.out.println("Erreur lors de l'ajout de la réponse : " + e.getMessage());
-        }
-
-
-            //Modification
-        try {
-            Reponse reponse = serviceReponse.getReponseById(8);
-            reponse.setAdr_rep("Nouvelle adresse de la réponse");
-            reponse.setDate_rep(LocalDateTime.now());
-            reponse.setContenu_rep("Nouveau contenu de la réponse");
-            reponse.setPiece_jrep("Nouveau chemin vers la pièce jointe de la réponse");
-
-            serviceReponse.modifier(reponse);
-
-            System.out.println("Réponse modifiée avec succès.");
-        } catch (SQLException e) {
-            System.out.println("Erreur lors de la modification de la réponse : " + e.getMessage());
-        }
-        //Suppression
-        try {
-            Reponse reponseToDelete = new Reponse();
-            reponseToDelete.setId(8);
-
-            serviceReponse.supprimer(reponseToDelete);
-
-            System.out.println("Réponse supprimée avec succès.");
-        } catch (SQLException ex) {
-            System.out.println("Erreur lors de la suppression de la réponse : " + ex.getMessage());
-        }
-        //Affichage
-
-        try {
-            List<Reponse> reponses = serviceReponse.afficher();
-            for (Reponse reponse : reponses) {
-                System.out.println("Reponse ID: " + reponse.getId());
-                System.out.println("Reclamation ID: " + reponse.getReclamation_id());
-                System.out.println("Adresse rep: " + reponse.getAdr_rep());
-                System.out.println("Date rep: " + reponse.getDate_rep());
-                System.out.println("Contenu rep: " + reponse.getContenu_rep());
-                System.out.println("Piece jointe rep: " + reponse.getPiece_jrep());
-                System.out.println("---------------------------------------");
-            }
-        } catch (SQLException ex) {
-            System.out.println("Erreur lors de l'affichage des réponses : " + ex.getMessage());
-        }
-        */
-        ServiceArticle serviceArticle = new ServiceArticle();
-/*
-        try {
-
- // Test d'ajout d'un article
-            Article article = new Article("Nom_auteur", "Adresse_auteur", LocalDateTime.now(), 10, "Categorie", "Titre", "Contenu", "Piece_jointe", "Image");
-            serviceArticle.ajouter(article);
-
-            // Test de modification d'un article
-            Article articleModif = serviceArticle.getArticleById(1);
-            articleModif.setTitreArt("Nouveau titre");
-            serviceArticle.modifier(articleModif);
-
-              // Test de suppression d'un article
-            Article articleSupp = serviceArticle.getArticleById(1);
-            serviceArticle.supprimer(articleSupp);
-
-            // Test d'affichage des articles
-            List<Article> articles = serviceArticle.afficher();
-            for (Article art : articles) {
-                System.out.println(art);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
- */
-        ServiceCommentaireHadhemi serviceCommentaire = new ServiceCommentaireHadhemi();
-
-        /*
-         // test d'ajout d'un commentaire
-        try {
-                CommentaireHadhemi commentaire = new CommentaireHadhemi("Contenu commentaire", LocalDateTime.now(), "Auteur", 2, "Image");
-
-            serviceCommentaire.ajouter(commentaire);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        // Test de modification d'un commentaire
-        CommentaireHadhemi commentaire = new CommentaireHadhemi(6,"Contenu commentaire", LocalDateTime.now(), "Auteur", "Image");
-        commentaire.setContenu("Nouveau contenu commentaire");
-        try {
-            serviceCommentaire.modifier(commentaire);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Test d'affichage des commentaires
-        try {
-            List<CommentaireHadhemi> commentaires = serviceCommentaire.afficher();
-            for (CommentaireHadhemi c : commentaires) {
-                System.out.println(c);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Test de suppression d'un commentaire
-         CommentaireHadhemi commentaire = new CommentaireHadhemi(14,"Contenu ", LocalDateTime.now(), "Aut", 2, "Image");
-
-        try {
-            serviceCommentaire.supprimer(commentaire);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
-        ServiceReponseCommentaire service = new ServiceReponseCommentaire();
-
-
-        /*
-        // Test d'ajout
-        ReponseCommentaire reponseCommentaireAjout = new ReponseCommentaire("Contenu test", "Nom test", LocalDateTime.now(), 3);
-        try {
-            service.ajouter(reponseCommentaireAjout);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Test d'affichage
-        try {
-            List<ReponseCommentaire> reponsesCommentaire = service.afficher();
-            System.out.println("Liste des réponses aux commentaires : ");
-            for (ReponseCommentaire rc : reponsesCommentaire) {
-                System.out.println(rc);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Test de modification
-        try {
-            ReponseCommentaire reponseCommentaireModif = service.getReponseCommentaireById(1);
-            reponseCommentaireModif.setContenu_rep_com("Nouveau contenu");
-            service.modifier(reponseCommentaireModif);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        // Test de suppression
-        try {
-            ReponseCommentaire reponseCommentaireSupp = service.getReponseCommentaireById(1);
-            service.supprimer(reponseCommentaireSupp);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-        ServiceCheque serviceCheque = new ServiceCheque();
-        Cheque cheque = new Cheque("ss",233,2342266,"svgshg",123,"hshsh",new Date(122,01,06),"hshs","sggs");
-        serviceCheque.ajouterS(cheque);
-        serviceCheque.supprimer(31);
-        ServiceVirement virement = new ServiceVirement();
-       // Virement virement1 = new Virement("sdd",)
     }
 }
+//    public static void main(String[] args) {
+//        // Créer une instance de ServiceVirement
+//        ServiceVirement serviceVirement = new ServiceVirement();
+//
+//        try {
+//            // Appeler la méthode supprimer avec l'ID du virement à supprimer
+//            int idVirementASupprimer = 14; // Remplacez 1 par l'ID du virement que vous souhaitez supprimer
+//            serviceVirement.supprimer(idVirementASupprimer);
+//        } catch (SQLException e) {
+//            // Gérer les éventuelles exceptions
+//            e.printStackTrace();
+//        }
+//    }
+
+
+//    public static void main(String[] args) {
+//        // Créer une instance de ServiceVirement
+//        ServiceVirement serviceVirement = new ServiceVirement();
+//
+//        try {
+//            // Récupérer un virement existant à modifier (vous pouvez ajuster l'ID selon votre base de données)
+//            Virement virementAModifier = serviceVirement.afficher().get(0);
+//
+//            // Modifier les attributs du virement
+//            virementAModifier.setNomet_prenom("Shayma ouerhani");
+//            virementAModifier.setType_virement("Personne");
+//            virementAModifier.setTransferez_a("leila ajroudi");
+//            virementAModifier.setNum_beneficiare(123456);
+//            virementAModifier.setMontant("9000");
+//            virementAModifier.setCin(123331);
+//            virementAModifier.setRib(22333233);
+//            virementAModifier.setEmail("shayma@gmail.com");
+//            virementAModifier.setDecision_v("Encours");
+//            virementAModifier.setPhoto_cin_v("Nouvelle Photo");
+//            virementAModifier.setPhone_number("00000000");
+//
+//            // Appeler la méthode modifier de ServiceVirement
+//            serviceVirement.modifier(virementAModifier);
+//        } catch (SQLException e) {
+//            // Gérer les éventuelles exceptions
+//            e.printStackTrace();
+//        }
+//    }
+//}
+//    public static void main(String[] args) {
+//        // Créez un nouvel objet Virement avec les valeurs que vous souhaitez tester
+//        Virement virement = new Virement("Personne", "123331", "22333233", "shayma ouerhani", 123456, "shayma ouerhani", "photo_cin_v", "Encours");
+//
+//        // Créez une instance de votre service de virement
+//        ServiceVirement serviceVirement = new ServiceVirement();
+//
+//        try {
+//            // Appelez la méthode d'ajout appropriée dans votre service de virement
+//            serviceVirement.ajouterV(virement);
+//        } catch (SQLException e) {
+//            // Gérez toute exception SQL qui pourrait se produire lors de l'ajout
+//            e.printStackTrace();
+//        }
+//    }
+
 
 

@@ -37,6 +37,18 @@
     -fx-text-fill: #32594a;
     -fx-cursor: hand;
 }
+.VIR__add-comboBox {
+    -fx-background-color: #defee633;
+    -fx-border-color: #defee6;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-pref-height: 40px;
+    -fx-text-fill: #32594a;
+    -fx-cursor: hand;
+}
 .AddBtn {
     -fx-background-color: #43882b;
     -fx-background-radius: 15px;
@@ -335,10 +347,6 @@
 ************************************************
 
 
-.dash__side-bar {
-    -fx-padding: 16px 18px;
-    -fx-background-color: rgba(107, 175, 84, 0.1);
-}
 
 .text {
     -fx-font-size: 16px;
@@ -511,23 +519,6 @@
     -fx-border-color: #43882b;
 }
 
-.product__add-input-textArea {
-    -fx-background-color: #defee633;
-    /*-fx-border: 1px solid #defee6;*/
-    -fx-border-color: #defee6;
-    -fx-border-width: 1px;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
-    -fx-font-size: 14px;
-    -fx-font-weight: 700;
-    -fx-pref-height: 120px;
-    -fx-text-fill: #32594a;
-    -fx-font-weight: 600;
-    -fx-font-size: 14px;
-    /*-fx-prompt-text-fill: hsla(157, 28%, 27%, 0.671);*/
-    -fx-transition: border 0.5s;
-    -fx-caret-color: transparent; /* Masquer le caret */
-}
 
 .product__add-input-textArea:focused .content {
     -fx-border-color: #43882b;

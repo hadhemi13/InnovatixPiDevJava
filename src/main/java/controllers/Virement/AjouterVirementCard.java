@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SingleSelectionModel;
@@ -18,6 +19,8 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
 import services.ServiceVirement;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +36,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -53,7 +57,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class AjouterVirementCard {
+public class AjouterVirementCard implements Initializable {
 
     @FXML
     private TextField Cin;
@@ -63,19 +67,12 @@ public class AjouterVirementCard {
 
     @FXML
     private Text NometPrenomInputError;
-    @FXML
-    private HBox beneficiaireInputErrorHbox;
-    private File selectedImageFile;
 
     @FXML
     private HBox NometPrenomInputErrorHbox;
 
-
     @FXML
     private TextField Num;
-
-    @FXML
-    private Text typeInputError;
 
     @FXML
     private Text NumInputError;
@@ -87,7 +84,7 @@ public class AjouterVirementCard {
     private TextField RIB;
 
     @FXML
-    private Button add_new_VirementtBtn;
+    private Button ajouterVirement;
 
     @FXML
     private TextField benef;
@@ -98,6 +95,8 @@ public class AjouterVirementCard {
     @FXML
     private HBox benefInputErrorHbox;
 
+    @FXML
+    private HBox beneficiaireInputErrorHbox;
 
     @FXML
     private HBox choose_photoBtn;
@@ -112,10 +111,10 @@ public class AjouterVirementCard {
     private ImageView imageInput;
 
     @FXML
-    private Text imageInputError;
+    private HBox imageInputErrorHbox;
 
     @FXML
-    private HBox imageInputErrorHbox;
+    private Button imp;
 
     @FXML
     private TextField montant;
@@ -129,10 +128,6 @@ public class AjouterVirementCard {
     @FXML
     private TextField transferez;
 
-
-    @FXML
-    private HBox typeInputErrorHbox;
-
     @FXML
     private Text transferezInputError;
 
@@ -140,115 +135,209 @@ public class AjouterVirementCard {
     private HBox transferezInputErrorHbox;
 
     @FXML
-    private ComboBox<String> type;
-
-    private String imageName = null ;
-
-   // @FXML
-   // private Button add_new_VirementtBtn;
+    private ComboBox<String > type;
 
     @FXML
-    void ajouterVirement(ActionEvent event) throws SQLException {
+    private Text typeInputError;
+    private File selectedImageFile;
+    private String imageName = null ;
+
+
+
+    @FXML
+    public void ajouterVirement(MouseEvent mouseEvent)  throws SQLException {
+
         ServiceVirement sv = new ServiceVirement();
-
-        // cinInputErrorHbox.setVisible(false);
-        //NometPrenomInputErrorHbox.setVisible(false);
-        //typeInputErrorHbox.setVisible(false);
-        //beneficiaireInputErrorHbox.setVisible(false);
-        //NumInputErrorHbox.setVisible(false);
-        //montantInputErrorHbox.setVisible(false);
-        //transferezInputErrorHbox.setVisible(false);
-        //benefInputErrorHbox.setVisible(false);
-
-        // Vérifier si tous les champs sont remplis
-        boolean champsVides = false;
         if (Cin.getText().isEmpty()) {
             cinInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
+            if (NometPrenom.getText().isEmpty()) {
+                NometPrenomInputErrorHbox.setVisible(true);
+                if (Num.getText().isEmpty()) {
+                    NumInputErrorHbox.setVisible(true);
+                    if (type.getSelectionModel().isEmpty()) {
+                        beneficiaireInputErrorHbox .setVisible(true);
+                        if (transferez.getText().isEmpty()) {
+                            transferezInputErrorHbox.setVisible(true);
+                            if (benef.getText().isEmpty()) {
+                                benefInputErrorHbox.setVisible(true);
+                                if(montant.getText().isEmpty()){
+                                    montantInputErrorHbox.setVisible(true);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (Num.getText().isEmpty()) {
+                        NumInputErrorHbox.setVisible(true);
+                        if (type.getSelectionModel().isEmpty()) {
+                            beneficiaireInputErrorHbox.setVisible(true);
+                            if (transferez.getText().isEmpty()) {
+                                transferezInputErrorHbox.setVisible(true);
+                                if (benef.getText().isEmpty()) {
+                                    benefInputErrorHbox.setVisible(true);
+                                    if(montant.getText().isEmpty()){
+                                        montantInputErrorHbox.setVisible(true);
+                                    }
 
-            cinInputErrorHbox.setVisible(false);
-        }
-        if (NometPrenom.getText().isEmpty()) {
-            NometPrenomInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
+                                }
+                            }
+                        }
 
-            NometPrenomInputErrorHbox.setVisible(false);
-        }
-        if (type.getSelectionModel().isEmpty()) {
-            beneficiaireInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
+                    } else {
+                        if (type.getSelectionModel().isEmpty()) {
+                            beneficiaireInputErrorHbox.setVisible(true);
+                            if (transferez.getText().isEmpty()) {
+                                transferezInputErrorHbox.setVisible(true);
+                                if (benef.getText().isEmpty()) {
+                                    benefInputErrorHbox.setVisible(true);
+                                    if(montant.getText().isEmpty()) {
+                                        montantInputErrorHbox.setVisible(true);
+                                    }
+                                }
+                            } else {
+                                if (transferez.getText().isEmpty()) {
+                                    transferezInputErrorHbox.setVisible(true);
+                                    if (benef.getText().isEmpty()) {
+                                        benefInputErrorHbox.setVisible(true);
+                                    } else {
+                                        if (montant.getText().isEmpty()) {
+                                            montantInputErrorHbox.setVisible(true);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-            beneficiaireInputErrorHbox.setVisible(false);
-        }
-        if (Num.getText().isEmpty()) {
-            NumInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
+        }else {
+            if (!Cin.getText().isEmpty()) {
+                cinInputErrorHbox.setVisible(false);
+                if (!NometPrenom.getText().isEmpty()) {
+                    NometPrenomInputErrorHbox.setVisible(false);
+                    if (!Num.getText().isEmpty()) {
+                        NumInputErrorHbox.setVisible(false);
+                        if (!type.getSelectionModel().isEmpty()) {
+                            beneficiaireInputErrorHbox.setVisible(false);
+                            if (!transferez.getText().isEmpty()) {
+                                transferezInputErrorHbox.setVisible(false);
+                                if (!benef.getText().isEmpty()) {
+                                    benefInputErrorHbox.setVisible(false);
+                                    if(!montant.getText().isEmpty()){
+                                        montantInputErrorHbox.setVisible(false);
+                                    }
 
-            NumInputErrorHbox.setVisible(false);
-        }
-        if (montant.getText().isEmpty()) {
-            montantInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-            montantInputErrorHbox.setVisible(false);
-        }
-        if (transferez.getText().isEmpty()) {
-            transferezInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
 
-            transferezInputErrorHbox.setVisible(false);
-        }
-        if (benef.getText().isEmpty()) {
-            benefInputErrorHbox.setVisible(true);
-            champsVides = true;
-        } else {
 
-            benefInputErrorHbox.setVisible(false);
-        }
-
-        if (champsVides) {
-            return;
         }
         // Select for combo
         SingleSelectionModel<String> selectionModel = type.getSelectionModel();
 
-        String selectedtype = selectionModel.getSelectedItem();
+        String selectedType = selectionModel.getSelectedItem();
+        // Date Now
+        LocalDate selectedDate = LocalDate.now();
         // Create a new instance of cheque from View
-        String image = "admin";
+        String image="admin";
         Integer Rib = 345678644;
-        String telText = Num.getText();
-        //String aa = ;
-        String cin = Cin.getText();
-        Integer Cin = Integer.parseInt(cin);
-        String Nom = NometPrenom.getText();
-        String transferer = benef.getText();
-        String typee = "type.getValue()";
-        String montantb = montant.getText();
-        String email = transferez.getText();
-        String decisionV = "Encours";
-        // public Virement(String type_virement, int montant, String phone_number,String transferez_a, int cin,  String nomet_prenom ,String photo_cin_v, String decision_v ){
-        Virement virement = new Virement(typee, montantb, telText, transferer, Cin, Nom, image, decisionV);
-        // Virement virement = new Virement(typee,montant,aa,transferez,Cin,Nom,image,decisionV);
+        String type_virement=selectedType;
+        System.out.println(type_virement);
+        String transf= transferez.getText();
+        String montantv=montant.getText();
+        String nom_prenom=NometPrenom.getText();
+        int cin;
+        try {
+            cin = Integer.parseInt(Cin.getText());
+        } catch (NumberFormatException e) {
+            // Handle the case where Cin is not a valid integer
+            // You can show an error message or handle it as per your application logic
+            e.printStackTrace(); // Print the stack trace for debugging
+            return; // Exit the method if the Cin value is not valid
+        }
+        String phone_number = Num.getText();
+        String decision = "Encours";
+
+        // change the date to sqlDate
+        Date sqlDate = java.sql.Date.valueOf(selectedDate);
+
+        Virement virement1=new Virement(type_virement,montantv,phone_number,transf,cin,nom_prenom,image,decision);
 
 
-// Convertir le texte en un entier
-        // int telInteger = Integer.parseInt(telText);
+        ServiceVirement serviceVirement = new ServiceVirement();
+        serviceVirement.ajouterV(virement1);
 
-        ServiceVirement ServiceVirement = new ServiceVirement();
-        //ServiceVirement.ajouterV(virement);
-        ServiceVirement.ajouterV(new Virement(typee, montantb, telText, transferer, Cin, Nom, image, decisionV));
-        System.out.println(virement);
+    }
+//    @FXML
+//    void ajouterVirement(MouseEvent event) throws SQLException {
+//        // Vérification des champs obligatoires
+//        boolean isValid = true;
+//        if (NometPrenom.getText().isEmpty()) {
+//            NometPrenomInputError.setVisible(true);
+//            isValid = false;
+//        }
+//        if (type.getSelectionModel().isEmpty()) {
+//            typeInputError.setVisible(true);
+//            isValid = false;
+//        }
+//        if (transferez.getText().isEmpty()) {
+//            transferezInputError.setVisible(true);
+//            isValid = false;
+//        }
+//        if (benef.getText().isEmpty()) {
+//            benefInputError.setVisible(true);
+//            isValid = false;
+//        }
+//        if (montant.getText().isEmpty()) {
+//            montantInputError.setVisible(true);
+//            isValid = false;
+//        }
+//        if (Cin.getText().isEmpty()) {
+//            cinInputError.setVisible(true);
+//            isValid = false;
+//        }
+//
+//        if (Num.getText().isEmpty()) {
+//            NumInputError.setVisible(true);
+//            isValid = false;
+//        }
+//
+//        if (isValid) {
+//            // Création d'une instance de Virement à partir des champs de la vue
+//            String nometPrenom = NometPrenom.getText();
+//            String typeVirement = String.valueOf(type.getValue());
+//            String transferezA = transferez.getText();
+//            int numBeneficiaire = Integer.parseInt(Num.getText());
+//            String montantText = montant.getText();
+//            int cinNum = Integer.parseInt(Cin.getText());
+//            int ribNum = Integer.parseInt(RIB.getText());
+//            String emailText = benef.getText();
+//            String phoneNumber =Num.getText();
+//
+//            Virement virement = new Virement(nometPrenom, typeVirement, transferezA, numBeneficiaire, montantText,
+//                    cinNum, ribNum, emailText, phoneNumber);
+//
+//            // Appel du service pour ajouter le virement à la base de données
+//            ServiceVirement serviceVirement = new ServiceVirement();
+//            serviceVirement.ajouterV(virement);
+//
+//            // Réinitialisation des champs et des messages d'erreur
+//            resetFields();
+//        }
+//    }
 
+    private void resetFields() {
     }
 
 
-        public void initialize (URL url, ResourceBundle resourceBundle){
+    @Override
+    public void initialize (URL url, ResourceBundle resourceBundle){
             imageInputErrorHbox.setVisible(false);
             NumInputErrorHbox.setVisible(false);
             montantInputErrorHbox.setVisible(false);
@@ -259,28 +348,34 @@ public class AjouterVirementCard {
             benefInputErrorHbox.setVisible(false);
 
 
-            ObservableList<String> types = FXCollections.observableArrayList(
-                    "Personne",
-                    "VEcoresponsabilité",
-                    "hhhhhh",
-                    "rrrrrr"
-            );
-
+        ObservableList<String> types = FXCollections.observableArrayList(
+                "Personne",
+                "VEcoresponsabilité"
+        );
             type.setItems(types);
-
-            type.setValue("Personne");
 
 
         }
 
-        public void UpdateVirement (MouseEvent mouseEvent){
+//    private void hideErrorMessages() {
+//        NometPrenomInputError.setVisible(false);
+//        typeInputError.setVisible(false);
+//        NumInputError.setVisible(false);
+//        benefInputError.setVisible(false);
+//        montantInputError.setVisible(false);
+//        cinInputError.setVisible(false);
+//        transferezInputError.setVisible(false);
+//
+//    }
+
+    public void UpdateVirement (MouseEvent mouseEvent){
         }
 
         public void ImporterImageV (ActionEvent event){
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Choisir une image");
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-            selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+             selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
             if (selectedImageFile != null) {
                 Image image = new Image(selectedImageFile.toURI().toString());
                 imageInput.setImage(image);
