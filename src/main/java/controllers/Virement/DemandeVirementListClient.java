@@ -1,21 +1,34 @@
-package controllers;
+package controllers.Virement;
 
+import controllers.Cheque.AjouterChequeCard;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SideNavBarController {
+public class DemandeVirementListClient {
+
+    @FXML
+    private GridPane FundsListContainer;
 
     @FXML
     private HBox InvestBtn;
+
+    @FXML
+    private Button VirBtn;
 
     @FXML
     private HBox actualitesBtn;
@@ -25,9 +38,6 @@ public class SideNavBarController {
 
     @FXML
     private Label actualitesText;
-
-    @FXML
-    private HBox chartContainer;
 
     @FXML
     private HBox compteBtn;
@@ -58,6 +68,15 @@ public class SideNavBarController {
 
     @FXML
     private Label dashboardText;
+
+    @FXML
+    private HBox evenementsBtn;
+
+    @FXML
+    private ImageView evenementsIcon;
+
+    @FXML
+    private Label evenementsText;
 
     @FXML
     private ImageView investissementsIcon;
@@ -96,6 +115,9 @@ public class SideNavBarController {
     private Label stagesText;
 
     @FXML
+    private ComboBox<?> statusInput;
+
+    @FXML
     private HBox usersBtn;
 
     @FXML
@@ -103,30 +125,30 @@ public class SideNavBarController {
 
     @FXML
     private Label usersText;
-
-    private boolean sideBarVisible = true;
     @FXML
-    void smallSide(MouseEvent event) {
+    private Button btnvir;
+
+    @FXML
+    void statusChange(ActionEvent event) {
 
     }
 
-    @FXML
-
-    public void OpenCard (javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardAdmin.fxml"));
-            Pane listCompteAdminPane = loader.load();
-
-            // Remplacer le contenu de content_area par le contenu
-            content_area.getChildren().setAll(listCompteAdminPane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void AjouterVirement(MouseEvent mouseEvent) {
     }
 
-}
 
+    public void ajouterV(MouseEvent mouseEvent) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardVirement.fxml"));
+        Parent addArticleParent = loader.load();
 
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjouterVirementCard ajouterVirementCard = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+    }
 
 

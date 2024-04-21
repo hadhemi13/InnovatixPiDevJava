@@ -7,8 +7,20 @@ public class Credit {
     private int id_client;
     private double montant;
 
+
     public int getId() {
         return id;
+    }
+
+    public Credit(int id, int id_client, double montant, double taux, Date datedebut, double mensualite, int duree, double fraisretard) {
+        this.id = id;
+        this.id_client = id_client;
+        this.montant = montant;
+        this.taux = taux;
+        this.datedebut = datedebut;
+        this.mensualite = mensualite;
+        this.duree = duree;
+        this.fraisretard = fraisretard;
     }
 
     public void setId(int id) {

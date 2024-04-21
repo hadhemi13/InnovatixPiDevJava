@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="bg" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dashboardClient">
+    <children>
+        <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card">
+            <children>
+                <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="27.0" stylesheets="@../css/Compte.css">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="home__msg" text="Bienvenue">
+                            <HBox.margin>
+                                <Insets right="8.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="home__msg__text" text="Espace de Compte Bancaire">
+                            <HBox.margin>
+                                <Insets left="10.0" top="5.0" />
+                            </HBox.margin></Text>
+                    </children>
+                </HBox>
+                <HBox layoutX="25.0" layoutY="94.0" prefHeight="136.0" prefWidth="713.0" spacing="60.0">
+                    <children>
+                        <AnchorPane prefHeight="136.0" prefWidth="277.0" styleClass="balance__card" stylesheets="@../css/Compte.css ">
+                            <children>
+                                <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="balance__card__title" text="Votre Montant " />
+                                <ImageView fitHeight="71.0" fitWidth="84.0" layoutX="14.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/investissement.png" />
+                                    </image>
+                                </ImageView>
+                                <VBox alignment="CENTER_RIGHT" layoutX="74.0" layoutY="71.0" prefHeight="32.0" prefWidth="177.0">
+                                    <children>
+                                        <Text fx:id="userPointText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="balance__card__points" text="5000 TND" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="169.0" prefWidth="288.0" stylesheets="@../css/Compte.css ">
+                            <children>
+                                <Text layoutX="13.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="balance__card__title" text="&quot;EFB facilite vos virements et chèques en offrant des solutions simples, rapides et sécurisées .&quot;" textAlignment="CENTER" wrappingWidth="270.3999267578125" />
+                                <ImageView fitHeight="60.0" fitWidth="71.0" layoutX="106.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/carte-de-debit.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <styleClass>
+                                <String fx:value="balance__card--2" />
+                                <String fx:value="balance__card" />
+                            </styleClass>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="25.0" layoutY="277.0" prefHeight="50.0" prefWidth="645.0" styleClass="userTableHead" stylesheets="@../css/Compte.css ">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16;" styleClass="userTableHeadTitle" text="Vos Informations" wrappingWidth="287.7546730041504" />
+                    </children>
+                </HBox>
+                <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="327.0" prefHeight="232.0" prefWidth="645.0" styleClass="user_listScrollPane" stylesheets="@../css/Compte.css ">
+                    <content>
+                        <VBox fx:id="fundListContainer" prefHeight="370.0" prefWidth="640.0" spacing="13.0" styleClass="userTableBody">
+                            <children>
+                                <HBox prefHeight="195.0" prefWidth="614.0" styleClass="fundItem" stylesheets="@../css/Compte.css ">
+                                    <children>
+                                        <ImageView fitHeight="164.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../img/femme.png" />
+                                            </image>
+                                        </ImageView>
+                                        <VBox alignment="TOP_CENTER" prefHeight="174.0" prefWidth="431.0">
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__title" text="Shayma Ouerhani">
+                                                    <VBox.margin>
+                                                        <Insets bottom="12.0" />
+                                                    </VBox.margin>
+                                                </Text>
+                                                <HBox alignment="CENTER">
+                                                    <children>
+                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__tag" text="shayma@gmail.com" textAlignment="CENTER">
+                                                            <HBox.margin>
+                                                                <Insets />
+                                                            </HBox.margin>
+                                                        </Text>
+                                                        <Circle fill="#03bf8a" radius="4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                                                            <HBox.margin>
+                                                                <Insets left="20.0" right="20.0" />
+                                                            </HBox.margin>
+                                                        </Circle>
+                                                        <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../img/dateIcon.png" />
+                                                            </image>
+                                                            <HBox.margin>
+                                                                <Insets right="5.0" />
+                                                            </HBox.margin>
+                                                        </ImageView>
+                                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__tag" text="26/02/2000" textAlignment="CENTER" />
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Line endX="34.5999755859375" stroke="#defee6" strokeLineCap="ROUND" strokeWidth="4.5">
+                                                    <VBox.margin>
+                                                        <Insets bottom="20.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Line>
+                                                <HBox alignment="CENTER" prefHeight="35.0" prefWidth="347.0">
+                                                    <children>
+                                                        <Button mnemonicParsing="false" style="-fx-font-size: 13px;" styleClass="fundItem__btn" stylesheets="@../css/Compte.css " text="plus d'info">
+                                                            <HBox.margin>
+                                                                <Insets right="50.0" />
+                                                            </HBox.margin></Button>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets left="60.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+                <Button fx:id="ListeCheque" layoutX="757.0" layoutY="127.0" maxHeight="84.0" maxWidth="219.0" mnemonicParsing="false" onMouseClicked="#listCheque" prefHeight="84.0" prefWidth="219.0" styleClass="cheque__addBtn" text="Cheque " textFill="#f2eaea">
+               <font>
+                  <Font size="61.0" />
+               </font></Button>
+                <Button fx:id="ListeVirement" layoutX="757.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#ListVirement" prefHeight="84.0" prefWidth="229.0" styleClass="cheque__addBtn" text="Virement" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

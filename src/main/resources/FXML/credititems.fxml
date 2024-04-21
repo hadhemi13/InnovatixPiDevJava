@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="creditrow" alignment="CENTER_LEFT" onMouseClicked="#getdata" prefHeight="81.0" prefWidth="1188.0" styleClass="userItem" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.CreditItems">
+    <children>
+        <Text fx:id="userid" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-active" text="1234222231" wrappingWidth="43.84807586669922">
+            <HBox.margin>
+                <Insets left="8.0" right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="idclient" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" wrappingWidth="52.447983264923096">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="montant" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" wrappingWidth="129.2481689453125">
+            <HBox.margin>
+                <Insets right="4.0" />
+            </HBox.margin>
+        </Text>
+        <Text fx:id="mensualite" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="121.74848175048828" />
+        <Text fx:id="datedebut" strokeType="OUTSIDE" strokeWidth="0.0" text="18/04/2024" wrappingWidth="156.10161972045898" />
+        <Text fx:id="duree" strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="87.54998779296875" />
+      <Text fx:id="taux" layoutX="606.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="96.54998779296875" />
+      <Text fx:id="fraisretard" layoutX="687.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="28179876" wrappingWidth="102.54998779296875" />
+        <Label fx:id="userItemStateBtn" onMouseClicked="#DeleteCheque" styleClass="userItem__btn" translateX="80.0">
+            <graphic>
+                <ImageView fx:id="userItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/delete.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <HBox.margin>
+                <Insets left="14.0" />
+            </HBox.margin>
+        </Label>
+        <Label fx:id="userItemUpdateBtn" onMouseClicked="#UpdateCheque" styleClass="userItem__btn">
+            <graphic>
+                <ImageView fx:id="userItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/rename.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </Label>
+      <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="En cours" />
+    </children>
+</HBox>
