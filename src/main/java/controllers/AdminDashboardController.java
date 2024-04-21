@@ -59,6 +59,15 @@ public class AdminDashboardController implements Initializable {
     private ImageView dashboardIcon;
 
     @FXML
+    private HBox frontbtn;
+
+    @FXML
+    private Label frontt;
+
+    @FXML
+    private ImageView fronti;
+
+    @FXML
     private HBox usersBtn;
 
     @FXML
@@ -389,55 +398,6 @@ public class AdminDashboardController implements Initializable {
  }
      }
   }
-    @FXML
-    private void open_fundrisingList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/gui/fundraisingInterfaces/FundrisingList.fxml"));
-        content_area.getChildren().removeAll();
-        content_area.getChildren().setAll(fxml);
-
-        // set active class
-        if (!fundrisingBtn.getStyleClass().contains("activeLink")) {
-            fundrisingBtn.getStyleClass().add("activeLink");
-            fundrisingText.getStyleClass().add("activeText");
-
-            // Load the image
-            Image image = new Image("assets/img/heart-active.png");
-            fundrisingIcon.setImage(image);
-
-            if (dashboardBtn.getStyleClass().contains("activeLink")) {
-                dashboardBtn.getStyleClass().remove("activeLink");
-                dashboardText.getStyleClass().remove("activeText");
-
-                Image dashIcon = new Image("assets/img/menu.png");
-                dashboardIcon.setImage(dashIcon);
-            } else if (usersBtn.getStyleClass().contains("activeLink")) {
-                usersBtn.getStyleClass().remove("activeLink");
-                usersText.getStyleClass().remove("activeText");
-
-                Image usersImg = new Image("assets/img/user.png");
-                usersIcon.setImage(usersImg);
-            } else if (productsBtn.getStyleClass().contains("activeLink")) {
-                productsBtn.getStyleClass().remove("activeLink");
-                productsText.getStyleClass().remove("activeText");
-
-                Image productsImg = new Image("assets/img/store.png");
-                productsIcon.setImage(productsImg);
-            } else if (collectBtn.getStyleClass().contains("activeLink")) {
-                collectBtn.getStyleClass().remove("activeLink");
-                collectText.getStyleClass().remove("activeText");
-
-                Image collectImg = new Image("assets/img/recycle.png");
-                collectIcon.setImage(collectImg);
-            } else if (commandsBtn.getStyleClass().contains("activeLink")) {
-                commandsBtn.getStyleClass().remove("activeLink");
-                commandsText.getStyleClass().remove("activeText");
-
-                Image commandsImg = new Image("assets/img/shopping-cart.png");
-                commandsIcon.setImage(commandsImg);
-            }
-
-        }
-    }
 
     @FXML
     private void open_productsList(MouseEvent event) throws IOException {
@@ -594,41 +554,24 @@ public class AdminDashboardController implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/EvenementsListfront.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
-        if (!evenementsBtn.getStyleClass().contains("activeLink")) {
-            evenementsBtn.getStyleClass().add("activeLink");
-            evenementsText.getStyleClass().add("activeText");
+        if (!frontbtn.getStyleClass().contains("activeLink")) {
+            frontbtn.getStyleClass().add("activeLink");
+            frontt.getStyleClass().add("activeText");
             Image image = new Image("assets/img/store-active.png");
-            evenementsIcon.setImage(image);
+            fronti.setImage(image);
 
-            if (dashboardBtn.getStyleClass().contains("activeLink")) {
-                dashboardBtn.getStyleClass().remove("activeLink");
-                dashboardText.getStyleClass().remove("activeText");
+            if (frontbtn.getStyleClass().contains("activeLink")) {
+                frontbtn.getStyleClass().remove("activeLink");
+                frontt.getStyleClass().remove("activeText");
 
                 Image dashIcon = new Image("assets/img/menu.png");
-                dashboardIcon.setImage(dashIcon);
+                fronti.setImage(dashIcon);
             } else if (usersBtn.getStyleClass().contains("activeLink")) {
                 usersBtn.getStyleClass().remove("activeLink");
                 usersText.getStyleClass().remove("activeText");
 
                 Image usersImg = new Image("assets/img/user.png");
                 usersIcon.setImage(usersImg);
-            } else if (evenementsBtn.getStyleClass().contains("activeLink")) {
-                evenementsBtn.getStyleClass().remove("activeLink");
-                evenementsText.getStyleClass().remove("activeText");
-
-                Image fundrisingImg = new Image("assets/img/heart.png");
-                fundrisingIcon.setImage(fundrisingImg);
-            } else if (collectBtn.getStyleClass().contains("activeLink")) {
-                collectBtn.getStyleClass().remove("activeLink");
-                collectText.getStyleClass().remove("activeText");
-
-                Image collectImg = new Image("assets/img/recycle.png");
-                collectIcon.setImage(collectImg);
-            } else if (commandsBtn.getStyleClass().contains("activeLink")) {
-                commandsBtn.getStyleClass().remove("activeLink");
-                commandsText.getStyleClass().remove("activeText");
-                Image commandsImg = new Image("assets/img/shopping-cart.png");
-                commandsIcon.setImage(commandsImg);
             }
         }
     }
