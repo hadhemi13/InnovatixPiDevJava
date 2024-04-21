@@ -1190,7 +1190,9 @@
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
 }
-
+#scrollPane{
+    -fx-background-color: White;
+}
 .product-card-scrollPane {
     -fx-background: #fff;
     -fx-background-color: transparent;
@@ -1312,6 +1314,8 @@
     -fx-border-radius: 8px;
     -fx-font-size: 14px;
     -fx-font-weight: 700;
+    -fx-pref-weight: 400px;
+
     -fx-pref-height: 120px;
     -fx-text-fill: #32594a;
     -fx-font-weight: 600;

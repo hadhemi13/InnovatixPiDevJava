@@ -59,18 +59,6 @@ public class AjouterArticleController implements Initializable {
     private HBox choose_photoBtn;
 
     @FXML
-    private DatePicker datePubArt;
-
-    @FXML
-    private Spinner<Integer> dureeArt;
-
-    @FXML
-    private Text dureeArtInputError;
-
-    @FXML
-    private HBox dureeInputErrorHbox;
-
-    @FXML
     private ImageView imageInput;
 
     @FXML
@@ -99,34 +87,31 @@ public class AjouterArticleController implements Initializable {
     private HBox titreInputErrorHbox;
     @FXML
     private Pane content_area;
-    @FXML
-    private HBox DateHboxErreur;
+
     @FXML
     private ScrollPane scrollPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DateHboxErreur.setVisible(false);
         imageInputErrorHbox.setVisible(false);
         categorieErrorHbox.setVisible(false);
         ContenuHboxErreur.setVisible(false);
         pieceJInputErrorHbox.setVisible(false);
         titreInputErrorHbox.setVisible(false);
-        dureeInputErrorHbox.setVisible(false);
-        SpinnerValueFactory<Integer> valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
-        dureeArt.setValueFactory(valueFactory);
-
-        // Autoriser la saisie directe des valeurs dans le Spinner
-        dureeArt.setEditable(true);
-
-        // Limiter la saisie à des nombres entiers
-        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
-            if (c.getControlNewText().matches("\\d*")) {
-                return c;
-            } else {
-                return null;
-            }
-        }));
+//        SpinnerValueFactory<Integer> valueFactory =
+//                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
+//        dureeArt.setValueFactory(valueFactory);
+//
+//        // Autoriser la saisie directe des valeurs dans le Spinner
+//        dureeArt.setEditable(true);
+//
+//        // Limiter la saisie à des nombres entiers
+//        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
+//            if (c.getControlNewText().matches("\\d*")) {
+//                return c;
+//            } else {
+//                return null;
+//            }
+//        }));
         ObservableList<String> categories = FXCollections.observableArrayList(
                 "Développement durable",
                 "Finance",
@@ -163,13 +148,13 @@ public class AjouterArticleController implements Initializable {
         } else {
             imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-        if (dureeArt.getValue() < 1) {
-            dureeInputErrorHbox.getChildren().setAll(new Text("La durée de l'article doit être d'au moins un jour."));
-            dureeInputErrorHbox.setVisible(true);
-            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
-        } else {
-            dureeInputErrorHbox.setVisible(false); // Masquer le message d'erreur si la durée est valide
-        }
+//        if (dureeArt.getValue() < 1) {
+//            dureeInputErrorHbox.getChildren().setAll(new Text("La durée de l'article doit être d'au moins un jour."));
+//            dureeInputErrorHbox.setVisible(true);
+//            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
+//        } else {
+//            dureeInputErrorHbox.setVisible(false); // Masquer le message d'erreur si la durée est valide
+//        }
         if (titreInput.getText().isEmpty()) {
             pieceJInputErrorHbox.setVisible(true);
             champsVides = true;
@@ -184,30 +169,32 @@ public class AjouterArticleController implements Initializable {
         } else {
             titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-        if (datePubArt.getValue() == null) {
-            DateHboxErreur.setVisible(true);
-            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
-        } else {
-            if (datePubArt.getValue().isBefore(LocalDate.now())) {
-                DateHboxErreur.getChildren().setAll(new Text("Veuillez sélectionner une date de publication valide."));
-                DateHboxErreur.setVisible(true);
-                champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
-            } else {
-                DateHboxErreur.setVisible(false); // Masquer le message d'erreur si la date est valide
-            }
-        }
+//        if (datePubArt.getValue() == null) {
+//            DateHboxErreur.setVisible(true);
+//            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
+//        } else {
+//            if (datePubArt.getValue().isBefore(LocalDate.now())) {
+//                DateHboxErreur.getChildren().setAll(new Text("Veuillez sélectionner une date de publication valide."));
+//                DateHboxErreur.setVisible(true);
+//                champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
+//            } else {
+//                DateHboxErreur.setVisible(false); // Masquer le message d'erreur si la date est valide
+//            }
+//        }
 
         // Si au moins un champ est vide, afficher les messages d'erreur
         if (champsVides) {
             return;
         }
-        LocalDate selectedDate = datePubArt.getValue();
-        LocalTime currentTime = LocalTime.now();
-        LocalDateTime dateTime = LocalDateTime.of(selectedDate, currentTime);
+//        LocalDate selectedDate = datePubArt.getValue();
+//        LocalTime currentTime = LocalTime.now();
+//        LocalDateTime dateTime = LocalDateTime.of(selectedDate, currentTime);
+        LocalDateTime dateTime = LocalDateTime.now();
+        int dureeArt=4;
         String image = imageInput.getImage().getUrl();
         String pieceJArt= "admin";
         String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
-        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt.getValue(),selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,image);
+        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt,selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,image);
         sa.ajouter(article);
         if (sa.ajouter(article)) {
 

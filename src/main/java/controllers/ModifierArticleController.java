@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceArticle;
@@ -23,6 +24,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.security.cert.PolicyNode;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -50,11 +52,16 @@ public class ModifierArticleController implements Initializable {
     @FXML
     private ImageView imageInput;
 
+    @FXML
+    private VBox vboxmod;
+
     private Article article;
     private articleCardAdminController articleCardAdminController;
     private ListArticleAdminController listArticleController;
 
     private ServiceArticle serviceArticle;
+    @FXML
+    private Pane content_area;
     public void setListArticleController(ListArticleAdminController listArticleController) {
         this.listArticleController = listArticleController;
     }
@@ -172,8 +179,45 @@ public class ModifierArticleController implements Initializable {
                 // Appeler la méthode de service pour effectuer la mise à jour de l'article dans la base de données
                 ServiceArticle serviceArticle = new ServiceArticle();
                 serviceArticle.modifier(article);
+//
+////                    listArticleController.refreshArticleList();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
+//                Pane listArtAdminPane = loader.load();
+//
+//                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//
+//                vboxmod.getChildren().setAll(listArtAdminPane);
 
-                    listArticleController.refreshArticleList();
+
+//                // Charger le fichier FXML de ListArticleAdmin.fxml
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
+//                Pane listArtAdminPane = loader.load();
+//
+//                // Récupérer le contrôleur de ListArticleAdminController
+//                ListArticleAdminController listArticleController = loader.getController();
+//
+//                // Charger la liste des articles dans la Pane content_area de ListArticleAdmin.fxml
+//                listArticleController.loadArticles();
+//
+//                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//                content_area.getChildren().setAll(listArtAdminPane);
+//
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+//                try {
+//                    Parent root = loader.load();
+//                    // Accéder à la pane content_area depuis le controller de
+//                    // OneProductListCard.fxml
+//                    Pane content_area = (Pane) ((Node) mouseEvent.getSource()).getScene().lookup("#content_area");
+//
+//                    // Vider la pane et afficher le contenu de ProductsList.fxml
+//                    content_area.getChildren().clear();
+//                    content_area.getChildren().add(root);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+                if (listArticleController != null) {
+                    listArticleController.refreshArticleList(); // Appel de la méthode pour rafraîchir la liste des articles
+                }
 
                 // Fermez la fenêtre de modification d'article
                 Stage stage = (Stage) titreArt.getScene().getWindow();
@@ -270,8 +314,12 @@ public class ModifierArticleController implements Initializable {
     }
 
 
+    public void initListArticleController(ListArticleAdminController listArticleController) {
+        this.listArticleController = listArticleController;
+    }
 
-        // Initialiser les champs de l'article
+
+    // Initialiser les champs de l'article
        // initializeArticleFields();
     }
 //

@@ -98,16 +98,16 @@ public class ListArticleAdminController implements Initializable {
 
     private final ServiceArticle serviceArticle = new ServiceArticle();
 
-    @FXML
-    public void initialize() {
-
-        try {
-            List<Article> articles = serviceArticle.afficher();
-            loadArticleCards(articles);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    @FXML
+//    public void initialize() {
+//
+//        try {
+//            List<Article> articles = serviceArticle.afficher();
+//            loadArticleCards(articles);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void loadArticleCards(List<Article> articles) {
         int column = 0;
@@ -135,6 +135,14 @@ public class ListArticleAdminController implements Initializable {
                     column = 0;
                     row++;
                 }
+                // Espacement entre les cartes
+                double verticalGap = 12; // Environ 9 mm
+                double horizontalGap = 12; // Environ 9 mm
+                // Espacement entre le GridPane et les cartes
+                double margin = 10; // Environ 10 mm
+                // Définir l'espacement vertical et horizontal
+                ArtListContainer.setVgap(verticalGap);
+                ArtListContainer.setHgap(horizontalGap);
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer l'exception appropriée ici, par exemple afficher un message d'erreur à l'utilisateur ou journaliser l'erreur
@@ -161,6 +169,7 @@ public class ListArticleAdminController implements Initializable {
 
             // Ajoutez la carte d'article au GridPane
             ArtListContainer.addRow(row++, articleCardParent);
+
         }
     }
 
@@ -236,4 +245,5 @@ public class ListArticleAdminController implements Initializable {
         }
 
     }
+
 }

@@ -74,7 +74,8 @@ public class ReclamationItemAdminController implements Initializable {
 
     @FXML
     private Label ReplyBtn;
-
+    @FXML
+    private ImageView RecItemPieceJ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -89,7 +90,9 @@ public class ReclamationItemAdminController implements Initializable {
         clip.setArcWidth(100);
         clip.setArcHeight(100);
         RecItemImg.setClip(clip);
-        RecItemPieceJText.setText(reclamation.getPiece_jrec());
+//        RecItemPieceJ.setText(reclamation.getPiece_jrec());
+        Image imageJ = new Image(getClass().getResource("/imagesAct/attach.png").toExternalForm());
+        RecItemPieceJ.setImage(imageJ);
         RecItemDateText.setText(String.valueOf(reclamation.getDate_rec()));
         RecItemStateText.setText(reclamation.getStatut_rec());
         RecItemDepText.setText(reclamation.getDep_rec());

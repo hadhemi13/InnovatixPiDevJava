@@ -19,6 +19,7 @@ import services.ServiceArticle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.cert.PolicyNode;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -56,6 +57,10 @@ public class articleCardAdminController implements Initializable {
     private HBox viewdetailArt;
     private Article article;
     private ListArticleAdminController listArticleController;
+
+    public void setListArticleController(ListArticleAdminController listArticleController) {
+        this.listArticleController = listArticleController;
+    }
 
 //    public void initializeData(Article article) {
 //
@@ -156,21 +161,35 @@ public void initializeData(Article article) {
     }
 @FXML
 void modifierArt(MouseEvent event) throws IOException {
-//    ListArticleAdminController listArticleController = this;
- FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-    Parent editArticlePopupParent = loader.load();
+////    ListArticleAdminController listArticleController = this;
+// FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+//    Parent editArticlePopupParent = loader.load();
+//
+//    ModifierArticleController modifierArticleController = loader.getController();
+//    modifierArticleController.initData(article); // Passer l'article à modifier
+////    modifierArticleController.setListArticleController(this);
+//
+//    Stage stage = new Stage();
+//    stage.initModality(Modality.WINDOW_MODAL);
+//    stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+//    stage.setScene(new Scene(editArticlePopupParent));
+//    stage.showAndWait();
 
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+    Parent editArticlePopupParent = loader.load();
+    ModifierArticleController modifyArticleController = loader.getController();
     ModifierArticleController modifierArticleController = loader.getController();
     modifierArticleController.initData(article); // Passer l'article à modifier
-//    modifierArticleController.setListArticleController(this);
+//    modifyArticleController.initListArticleController(this); // Passer une référence au contrôleur ListArticleAdminController
 
     Stage stage = new Stage();
     stage.initModality(Modality.WINDOW_MODAL);
     stage.initOwner(((Node) event.getSource()).getScene().getWindow());
     stage.setScene(new Scene(editArticlePopupParent));
     stage.showAndWait();
-
 }
+
+
 //    @FXML
 //    void deleteArtBtn(MouseEvent event) {
 //

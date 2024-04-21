@@ -84,7 +84,7 @@
         </VBox>
         <ScrollPane fx:id="listArtScroll" layoutX="225.0" layoutY="84.0" prefHeight="524.0" prefWidth="854.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
             <content>
-                <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" prefHeight="527.0" prefWidth="800.0" style="-fx-background-color: ccfccb;">
+                <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" prefHeight="527.0" prefWidth="800.0">
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1000.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReclamationItemAdminController">
+<HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="400.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReclamationItemAdminController">
     <children>
         <ImageView fx:id="RecItemImg" fitHeight="50.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
             <image>
@@ -17,82 +16,48 @@
                 <Insets right="10.0" />
             </HBox.margin>
         </ImageView>
-        <Text fx:id="RecItemMail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="hadhemi.mahmoud@esprit.tn" wrappingWidth="164.04803466796875">
+        <Text fx:id="RecItemMail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="hadhemi.mahmoud@esprit.tn" wrappingWidth="143.248046875">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="RecItemObjet" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Objet" wrappingWidth="115.24795532226562">
+        <Text fx:id="RecItemObjet" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Objet" wrappingWidth="95.24795532226562">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="RecItemcontenu" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Contenu" wrappingWidth="109.64813232421875">
+        <Text fx:id="RecItemcontenu" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Contenu" wrappingWidth="119.24810791015625">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="RecItemDepText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Département" translateX="-15.0" wrappingWidth="80.048095703125">
+        <Text fx:id="RecItemDepText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Département" translateX="-15.0" wrappingWidth="75.248046875">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Label fx:id="RecItemStateLabel" alignment="CENTER" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="72.0" styleClass="userItem__field-active">
-            <graphic>
-                <Text fx:id="RecItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Statut" textAlignment="CENTER" wrappingWidth="48.06744384765625" />
-            </graphic>
-            <HBox.margin>
-                <Insets right="40.0" />
-            </HBox.margin>
-        </Label>
-        <Label fx:id="RecItemDateLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
-            <graphic>
-                <Text fx:id="RecItemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Date" textAlignment="CENTER" wrappingWidth="52.067386627197266" />
-            </graphic>
-            <HBox.margin>
-                <Insets right="40.0" />
-            </HBox.margin>
-        </Label>
-        <Label fx:id="RecItemPieceJLabel" alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
-            <graphic>
-                <Text fx:id="RecItemPieceJText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="piece" textAlignment="CENTER" wrappingWidth="53.66748046875" />
-            </graphic>
-            <HBox.margin>
-                <Insets right="40.0" />
-            </HBox.margin>
-        </Label>
-        <Label fx:id="RecPieceJBtn" styleClass="userItem__btn">
-            <graphic>
-                <ImageView fx:id="RecdetailBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
-                    <image>
-                        <Image url="@../imagesAct/search.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Label>
-        <Label fx:id="RecItemUpdateBtn" styleClass="userItem__btn" />
-        <Label fx:id="ReplyBtn" styleClass="userItem__btn">
-            <graphic>
-                <ImageView fx:id="RecReplyBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
-                    <image>
-                        <Image url="@../imagesAct/reply.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Label>
-
-        <Label fx:id="RecrItemStateBtn" styleClass="userItem__btn">
-            <graphic>
-                <ImageView fx:id="RecItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../imagesAct/delete.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-            <HBox.margin>
-                <Insets right="7.0" />
-            </HBox.margin>
-        </Label>
+          <Text fx:id="RecItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Statut" textAlignment="CENTER" wrappingWidth="109.66741943359375" />
+          <Text fx:id="RecItemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Date" textAlignment="CENTER" translateX="20.0" wrappingWidth="117.66735458374023" />
+      <ImageView fx:id="RecItemPieceJ" fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="80.0">
+         <image>
+            <Image url="@../imagesAct/attach.png" />
+         </image>
+      </ImageView>
+          <ImageView fx:id="RecdetailBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="160.0">
+              <image>
+                  <Image url="@../imagesAct/search.png" />
+              </image>
+          </ImageView>
+          <ImageView fx:id="RecReplyBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="160.0">
+              <image>
+                  <Image url="@../imagesAct/reply.png" />
+              </image>
+          </ImageView>
+          <ImageView fx:id="RecItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="160.0">
+              <image>
+                  <Image url="@../imagesAct/delete.png" />
+              </image>
+          </ImageView>
 
 
     </children>

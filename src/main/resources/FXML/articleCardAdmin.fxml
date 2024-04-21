@@ -13,7 +13,7 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="426.0" prefWidth="217.0" translateX="-15.0">
                <children>
-                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="222.0" styleClass="userProductCard-imgContainer">
+                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="222.0">
                         <VBox.margin>
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
