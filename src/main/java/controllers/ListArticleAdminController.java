@@ -111,10 +111,18 @@ public class ListArticleAdminController implements Initializable {
 
     private void loadArticleCards(List<Article> articles) {
         int column = 0;
-        int row = 0;
-        int cardSpacing = 10;
-        int rowSpacing = 10;
-        int columnSpacing = 10;
+        int row = 1;
+//        int cardSpacing = 10;
+//        int rowSpacing = 10;
+//        int columnSpacing = 10;
+        // Espacement entre les cartes
+        double verticalGap = 18; // Environ 9 mm
+        double horizontalGap = 70; // Environ 9 mm
+        // Espacement entre le GridPane et les cartes
+        double margin = 10; // Environ 10 mm
+        // Définir l'espacement vertical et horizontal
+        ArtListContainer.setVgap(verticalGap);
+        ArtListContainer.setHgap(horizontalGap);
         for (Article article : articles) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/articleCardAdmin.fxml"));
@@ -131,18 +139,11 @@ public class ListArticleAdminController implements Initializable {
 
                 // Increment row and column
                 column++;
-                if (column == 3) {
+                if (column >= 3) {
                     column = 0;
                     row++;
                 }
-                // Espacement entre les cartes
-                double verticalGap = 12; // Environ 9 mm
-                double horizontalGap = 12; // Environ 9 mm
-                // Espacement entre le GridPane et les cartes
-                double margin = 10; // Environ 10 mm
-                // Définir l'espacement vertical et horizontal
-                ArtListContainer.setVgap(verticalGap);
-                ArtListContainer.setHgap(horizontalGap);
+
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer l'exception appropriée ici, par exemple afficher un message d'erreur à l'utilisateur ou journaliser l'erreur
