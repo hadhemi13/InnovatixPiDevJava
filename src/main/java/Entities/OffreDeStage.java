@@ -6,11 +6,13 @@ import java.util.Objects;
 
 public class OffreDeStage {
 
+    int id;
     int userId;
-    int id,user_id,postePropose;
+   int user_id,postePropose;
     String title,domaine,typeOffre,experience,description,exigenceOffre,pfeBook;
     Date datePostu;
     Array niveau,language,motsCles;
+
 //,                                                            ,rs.ge,rs.getString("exigence_offre"),rs.getDate("date_postu"),rs.getArray("language"),rs.getString("pfe_book"),rs.getString("niveau"),rs.getString("exigence"));
 
     public OffreDeStage (int id,int user_id,int postePropose,String title,String domaine,String typeOffre,String experience,String description,String exigenceOffre,Date datePostu,Array language,String pfeBook,String niveau,String exigenceOffreyy){
@@ -232,6 +234,13 @@ public class OffreDeStage {
         OffreDeStage that = (OffreDeStage) o;
         return id == that.id;
     }
+//    public boolean equalss(int a){
+//        if (this == a) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        OffreDeStage that = (OffreDeStage) o;
+//        return id == that.id;
+//        return true;
+//    }
 
     @Override
     public int hashCode() {

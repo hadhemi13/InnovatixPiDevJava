@@ -401,7 +401,7 @@ public class AfficheOffreController implements Initializable {
     private Button ajoutOffre;
 
     @FXML
-    private Pane content_area;
+    public Pane content_area;
 
     @FXML
     private VBox userListContainer;
@@ -417,26 +417,6 @@ public class AfficheOffreController implements Initializable {
 
     }
 
-    public static int getupdateProjectModelShow() {
-        return updateProjectModelShow;
-    }
-
-    public static void setupdateProjectModelShow(int updateProjectModelShow) {
-        AfficheOffreController.updateProjectModelShow = updateProjectModelShow;
-    }
-
-    public static int getaddProjectModelShow() {
-        return updateProjectModelShow;
-    }
-
-    public static void setaddProjectModelShow(int addProjectModelShow) {
-        AfficheOffreController.addProjectModelShow = addProjectModelShow;
-    }
-
-
-    public static void setprojectEmailToUpdate(int projetIdToUpdate) {
-        AfficheOffreController.projetIdToUpdate = projetIdToUpdate;
-    }
 
 //    @Override
 //    public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -476,7 +456,11 @@ public class AfficheOffreController implements Initializable {
             ServiceOffreDeStage projectService = new ServiceOffreDeStage();
             List<OffreDeStage> list = new ArrayList<>();
             try {
-                list = projectService.afficher();
+                list = projectService.afficherId();
+                for (OffreDeStage i : list){
+//                    System.out.println(i.getId());
+                }
+//                System.out.println(list);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

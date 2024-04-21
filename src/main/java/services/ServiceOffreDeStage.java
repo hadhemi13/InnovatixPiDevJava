@@ -95,7 +95,7 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()){
-                list.add(new OffreDeStage(rs.getInt("poste_propose"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu")));
+                list.add(new OffreDeStage(rs.getInt("id"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu")));
                 //LocalDateTime dt = list.getDate("date").toLocalDate;
                 //System.out.println(list);
             }
@@ -126,15 +126,15 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
 //                System.out.println(rs.getInt("id"));
 //                System.out.println(list);
             }
-            for (OffreDeStage i : list) {
-                System.out.println("DemandeStage{" +
-                        ", id=" + i.getPostePropose());
-//                        "nom='" + i.getTitle() + '\'' +
-//                        ", prenom='" + i.getExigenceOffre() + '\'' +
-//                        ", email='" + i.getExperience() + '\'' +
-//                        ", cv='" + i.getDatePostu() + '\'' +
-//                        '}');
-            }
+//            for (OffreDeStage i : list) {
+//                System.out.println("DemandeStage{" +
+//                        ", id=" + i.getPostePropose());
+////                        "nom='" + i.getTitle() + '\'' +
+////                        ", prenom='" + i.getExigenceOffre() + '\'' +
+////                        ", email='" + i.getExperience() + '\'' +
+////                        ", cv='" + i.getDatePostu() + '\'' +
+////                        '}');
+//            }
 
         }catch (SQLException e){
             System.err.println("e.getMessage()");
@@ -145,30 +145,26 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
 
     @Override
     public OffreDeStage afficheUne(int id) throws SQLException {
-        OffreDeStage stage = new OffreDeStage();
+        OffreDeStage stage = null; // Initialiser à null
         try {
-            String req = "select * from offre_stage";
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(req);
-            while (rs.next()){
-                stage  =  new OffreDeStage(rs.getInt("id"),rs.getInt("user_id"),rs.getInt("poste_propose"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu"),rs.getArray("language"),rs.getString("pfe_book"),rs.getArray("niveau"));
-                System.out.println(stage);
-
-                //LocalDateTime dt = list.getDate("date").toLocalDate;
-                //System.out.println(list);
+            String req = "select * from offre_stage where id=?";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery(); // Utiliser executeQuery() pour une requête SELECT
+            while (rs.next()) {
+                // Créer une nouvelle instance d'OffreDeStage avec les données de la base de données
+                stage = new OffreDeStage(rs.getInt("id"), rs.getString("title"), rs.getString("domaine"),
+                        rs.getString("type_offre"), rs.getString("experience"), rs.getString("description"),
+                        rs.getString("exigence_offre"), rs.getDate("date_postu"));
+                System.out.println(stage.getPostePropose());
             }
-//            for (OffreDeStage i : list){
-//                System.out.println("DemandeStage{" +
-//                        ", id=" + i.getPostePropose() +
-//                        "nom='" + i.getTitle() + '\'' +
-////                        ", prenom='" + i.getExigenceOffre() + '\'' +
-//                        ", email='" + i.getExperience() + '\'' +
-//                        ", cv='" + i.getDatePostu() + '\'' +
-//                        '}');
-//            }
-        }catch (SQLException e){
-            System.err.println("e.getMessage()");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage()); // Afficher l'exception réelle
         }
-        return stage ;
+        return stage;
     }
+
+//    public static void main(String[] args) throws SQLException {
+
+//    }
 }

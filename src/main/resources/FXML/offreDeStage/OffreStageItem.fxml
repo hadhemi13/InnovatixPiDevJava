@@ -9,68 +9,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="164.0" prefWidth="1267.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageItem">
+<HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="1274.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageItem">
    <children>
-      <Text fx:id="titre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="139.84808349609375">
+      <Text fx:id="titre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="246.84808349609375">
          <HBox.margin>
             <Insets right="4.0" />
          </HBox.margin>
       </Text>
-      <Text fx:id="domaine" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="nabilmersni123@gmail.com" wrappingWidth="54.048065185546875">
+      <Text fx:id="type" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="41156289" wrappingWidth="93.84814453125">
          <HBox.margin>
             <Insets right="4.0" />
          </HBox.margin>
       </Text>
-      <Text fx:id="type" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="41156289" wrappingWidth="59.84814453125">
-         <HBox.margin>
-            <Insets right="4.0" />
-         </HBox.margin>
-      </Text>
-      <Text fx:id="poste" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="association" wrappingWidth="65.6480712890625">
-         <HBox.margin>
-            <Insets right="4.0" />
-         </HBox.margin>
-      </Text>
-      <Text fx:id="experience" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="87.84808349609375" />
-      <Text fx:id="niveau" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="84.84808349609375" />
-      <Text fx:id="language" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="113.84808349609375" />
-      <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="169.84808349609375" />
-      <Text fx:id="exigence" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="169.84808349609375" />
-      <Text fx:id="motsCles" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="169.84808349609375" />
-      <Button fx:id="ListeDesDemandes" mnemonicParsing="false" onAction="#ListeDesDemandes">
+      <Text fx:id="experience" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="63.84808349609375" />
+      <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="439.84808349609375" />
+      <Text fx:id="exigence" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="267.84808349609375" />
+      <Label fx:id="listeDesDemandes" styleClass="userItem__btn">
          <graphic>
-            <Label styleClass="userItem__btn">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/lock-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
+            <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/lock-icon.png" />
+               </image>
+            </ImageView>
          </graphic>
-      </Button>
-      <Button fx:id="OffreUpdate" mnemonicParsing="false" onAction="#OffreUpdate">
+         <HBox.margin>
+            <Insets right="20.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="UpdateOffre" styleClass="userItem__btn">
          <graphic>
-            <Label styleClass="userItem__btn">
-               <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Images/update-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
+            <ImageView fitHeight="22.0" fitWidth="26.0" onMouseClicked="#edit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/update-icon.png" />
+               </image>
+            </ImageView>
          </graphic>
-      </Button>
-      <Button fx:id="OffreDetails" mnemonicParsing="false" onAction="#OffreDetails">
+      </Label>
+      <Label fx:id="deleteOffre" onMouseClicked="#delete" styleClass="userItem__btn">
          <graphic>
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefWidth="88.8" styleClass="userItem__field-active">
-               <graphic>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Détails" textAlignment="CENTER" wrappingWidth="39.867431640625" />
-               </graphic>
-            </Label>
+            <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/update-icon.png" />
+               </image>
+            </ImageView>
          </graphic>
-      </Button>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </Label>
    </children>
 </HBox>
