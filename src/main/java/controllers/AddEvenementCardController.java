@@ -36,15 +36,9 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
-import java.util.UUID;
 
-/**
- * FXML Controller class
- *
- * @author ALI
- */
+
 public class AddEvenementCardController implements Initializable {
-
     @FXML
     public TextField fxNom;
     @FXML
@@ -136,63 +130,61 @@ public class AddEvenementCardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      IService serviceEvenement = new ServiceEvenement();
-      Evenement e = new Evenement();
-      nameInput.setText(e.getNom());
-      fxLieu.setText(e.getLieu());
-      descriptionInput.setText(e.getDescription());
-      prixInput.setText(String.valueOf(e.getPrix()));
-      LocalDateTime dateDebut = e.getDateDebut();
-      fxdateDebut.setValue(dateDebut != null ? dateDebut.toLocalDate() : null);
-      LocalDateTime dateFin = e.getDateFin();
-      fxdateFin.setValue(dateFin != null ? dateFin.toLocalDate() : null);
-      descriptionInput.setText(e.getDescription());
-      if (e.getImg() != null) {
-        Image image = new Image(getClass().getResource("/assets/ProductUploads/" + e.getImg()).toExternalForm());
-        imageInput.setImage(image);
-      } else {
-        Image image = new Image(getClass().getResource("/assets/ProductUploads/" + "pngwing1.com.png").toExternalForm());
-        imageInput.setImage(image);
-      }
-      imageName = e.getImg();
+        IService serviceEvenement = new ServiceEvenement();
+        Evenement e = new Evenement();
+        setEvenementFields(e);
+    }
+    private void setEvenementFields(Evenement e) {
+        nameInput.setText(e.getNom());
+        fxLieu.setText(e.getLieu());
+        descriptionInput.setText(e.getDescription());
+        prixInput.setText(String.valueOf(e.getPrix()));
+        LocalDateTime dateDebut = e.getDateDebut();
+        fxdateDebut.setValue(dateDebut != null ? dateDebut.toLocalDate() : null);
+        LocalDateTime dateFin = e.getDateFin();
+        fxdateFin.setValue(dateFin != null ? dateFin.toLocalDate() : null);
+        descriptionInput.setText(e.getDescription());
+        if (e.getImg() != null) {
+            Image image = new Image(getClass().getResource("/assets/ProductUploads/" + e.getImg()).toExternalForm());
+            imageInput.setImage(image);
+        } else {
+            Image image = new Image(getClass().getResource("/assets/ProductUploads/" + "pngwing1.com.png").toExternalForm());
+            imageInput.setImage(image);
+        }
+        imageName = e.getImg();
     }
 
+    private void showNotification(String title, String message, NotificationType type) {
+        TrayNotificationAlert.notif(title, message, type, AnimationType.POPUP, Duration.millis(2500));
+    }
 
-
-
+    private void switchToEvenementsList(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+        Parent root = loader.load();
+        Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(root);
+    }
     @FXML
     void addNewEvenement(MouseEvent event) throws SQLException {
+        Evenement evenement = new Evenement();
+        evenement.setNom(nameInput.getText());
+        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
+        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
+        evenement.setLieu(fxLieu.getText());
+        evenement.setDescription(descriptionInput.getText());
+        evenement.setPrix(Double.parseDouble(prixInput.getText()));
+        evenement.setImg(imageName);
 
-              Evenement evenement = new Evenement();
-              evenement.setNom(nameInput.getText());
-              evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
-              evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
-              evenement.setLieu(fxLieu.getText());
-              evenement.setDescription(descriptionInput.getText());
-              evenement.setPrix(Double.parseDouble(prixInput.getText()));
-              evenement.setImg(imageName);
-
-            IService evenementService = new ServiceEvenement();
-            try {
-              evenementService.ajouter(evenement);
-                TrayNotificationAlert.notif("Evenement", "Evenement added successfully.",
-                        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
-
-                Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneEvenementListCard.fxml
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
-                // Vider la pane et afficher le contenu de EvenementsList.fxml
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+        IService evenementService = new ServiceEvenement();
+        try {
+            evenementService.ajouter(evenement);
+            showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
+            switchToEvenementsList(event);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
   @FXML
   void ajouter_image(MouseEvent event) throws IOException {
@@ -204,47 +196,35 @@ public class AddEvenementCardController implements Initializable {
       Image image = new Image(selectedImageFile.toURI().toString());
       imageInput.setImage(image);
 
-      // Générer un nom de fichier unique pour l'image
-      String uniqueID = UUID.randomUUID().toString();
-      String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
-      imageName = uniqueID + extension;
+      imageName =  selectedImageFile.getName();
 
       Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
       Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
 
-      // pour le controle de saisie
       photoTest = 1;
       photoInputErrorHbox.setVisible(false);
 
     }
 
   }
-  @FXML
-  void updateEvenement(MouseEvent event) throws IOException, SQLException {
-    Evenement evenement = new Evenement();
-    evenement.setNom(nameInput.getText());
-    evenement.setLieu(fxLieu.getText());
-    evenement.setDescription(descriptionInput.getText());
-    evenement.setPrix(Double.parseDouble(prixInput.getText()));
-    evenement.setImg(imageName);
-    ServiceEvenement serviceEvenement = new ServiceEvenement();
+    @FXML
+    void updateEvenement(MouseEvent event) throws IOException, SQLException {
+        Evenement evenement = new Evenement();
+        evenement.setNom(nameInput.getText());
+        evenement.setLieu(fxLieu.getText());
+        evenement.setDescription(descriptionInput.getText());
+        evenement.setPrix(Double.parseDouble(prixInput.getText()));
+        evenement.setImg(imageName);
+        ServiceEvenement serviceEvenement = new ServiceEvenement();
 
-    try {
-      serviceEvenement.modifier(evenement);
-
-      TrayNotificationAlert.notif("Evenement", "Evenement updated successfully.",
-        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
-      Parent root = loader.load();
-      Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-      contentArea.getChildren().clear();
-      contentArea.getChildren().add(root);
-    } catch (DateTimeParseException e) {
-      e.printStackTrace();
-      TrayNotificationAlert.notif("Error", "Incorrect date format. Please enter dates in yyyy-MM-dd HH:mm:ss format.",
-        NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
+        try {
+            serviceEvenement.modifier(evenement);
+            showNotification("Evenement", "Evenement updated successfully.", NotificationType.SUCCESS);
+            switchToEvenementsList(event);
+        } catch (DateTimeParseException e) {
+            e.printStackTrace();
+            showNotification("Error", "Incorrect date format. Please enter dates in yyyy-MM-dd HH:mm:ss format.", NotificationType.ERROR);
+        }
     }
-  }
 
 }

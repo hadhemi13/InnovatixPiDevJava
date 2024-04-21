@@ -12,11 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * FXML Controller class
- *
- * @author ALI
- */
+
 public class AddProjectController implements Initializable {
 
     @FXML
