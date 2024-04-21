@@ -77,14 +77,17 @@ public class Main {
 //        List<OffreDeStage> demandeStages = serviceOffreDeStage.afficher();
 //        System.out.println(demandeStages);
         ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
-        AnalyseurCv analyseurCv = new AnalyseurCv();
+        DemandeStage stage = new DemandeStage("yesser", "khaloui", "khaluiyesser@gmail.com", "hahahaha", "56f16ce8-cb5c-49a1-9784-02b47a63d389.pdf", "Informatique", 25114365, "encours", new Date(124, 04, 06));
+
+//        AnalyseurCv analyseurCv = new AnalyseurCv();
+        serviceDemandeStage.ajouterParOffre(stage,2);
         //int score =  analyseurCv.analyseCV();
         //OffreDeStage A = serviceOffreDeStage.afficheUne(1);
         ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
        // System.out.println( serviceOffreDeStage.afficherId());
-        List<OffreDeStage> list = serviceOffreDeStage.afficherId();
+//        List<OffreDeStage> list = serviceOffreDeStage.afficherId();
 
-        list.stream().forEach(System.out::println);
+//        list.stream().forEach(System.out::println);
        //ystem.out.println(A);
       //  DemandeStage demandeStage = new DemandeStage("yesser","khaloui","khaluiyesser@gmail.com","je suis passionnée","C:/Users/Yesser/Desktop/Resume.pdf","Informatique","encours",25114365,analyseurCv.analyseCV("C:/Users/Yesser/Desktop/Resume.pdf",A.getMotsCles()),A.getId(),new Date(124,04,06));
 

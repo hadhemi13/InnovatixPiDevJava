@@ -20,30 +20,50 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
 //        Connection connection = MyDatabase.getInstance().getConnection();
         AnalyseurCv analyseurCv = new AnalyseurCv();
 
-
+        System.out.println("id = " + id);
         // Récupérer le chemin complet du CV
         String pathT = path + demandeStage.getCv();
         OffreDeStage  stage = new OffreDeStage();
         stage = afficheUne(id);
+        int K = id;
+        Symfony symfony = new Symfony();
+        int score = symfony.score(id,demandeStage.getCv());
+        System.out.println("score f service " + score);
+        DemandeStage demandeStag = new DemandeStage(K,demandeStage.getNom(), demandeStage.getPrenom(), demandeStage.getEmail(), demandeStage.getNumeroTelephone(), demandeStage.getLettremotivation(), demandeStage.getCv(), demandeStage.getDomaine(), demandeStage.getEtat(), demandeStage.getDate(), score);
+        DemandeStage demandeStageParOffre = new DemandeStage(K,demandeStage.getNom(),demandeStage.getPrenom(),demandeStage.getEmail(), demandeStage.getNumeroTelephone(),demandeStage.getLettremotivation(), demandeStage.getCv(), demandeStage.getDomaine(),demandeStage.getEtat(), demandeStage.getDate(),score);
 
-        // Analyser le CV une seule fois pour obtenir le score
-        int score = analyseurCv.analyseCV(pathT, stage.getMotsCles());
-        DemandeStage demandeStageParOffre = new DemandeStage(demandeStage.getNom(),demandeStage.getPrenom(),demandeStage.getEmail(), demandeStage.getLettremotivation(), demandeStage.getCv(), demandeStage.getDomaine(),demandeStage.getEtat(), demandeStage.getNumeroTelephone(),id,score,demandeStage.getDate());
+        System.out.println(
+                "DemandeStage{" +
+//                "id =" +id + '\''+
+                "nom='" + demandeStag.getNom() + '\'' +
+                ", prenom='" + demandeStag.getPrenom() + '\'' +
+                ", email='" + demandeStag.getEmail() + '\'' +
+                ", lettremotivation='" + demandeStag.getLettremotivation() + '\'' +
+                ", cv='" + demandeStag.getCv() + '\'' +
+                ", domaine='" + demandeStag.getDomaine() + '\'' +
+                ", etat='" + demandeStag.getEtat() + '\'' +
+                ", id_offre=" + demandeStag.getId_offre() +
+                ", numeroTelephone=" + demandeStag.getNumeroTelephone() +
+                ", score=" + demandeStag.getScore() +
+                ", date=" + demandeStag.getDate() +
+                '}'
+//                demandeStag
+                );
         String req = "INSERT INTO demandestage " +
-                "(nom, prenom, email, numeroTelephone, lettremotivation, cv, domaine, etat, date, id_offre, score)" +
+                "(offre_stage_id,nom, prenom, email, numeroTelephone, lettremotivation, cv, domaine, etat, date, score)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = connection.prepareStatement(req);
-            ps.setString(1, demandeStageParOffre.getNom());
-            ps.setString(2, demandeStageParOffre.getPrenom());
-            ps.setString(3, demandeStageParOffre.getEmail());
-            ps.setInt(4, demandeStageParOffre.getNumeroTelephone());
-            ps.setString(5, demandeStageParOffre.getLettremotivation());
-            ps.setString(6, demandeStageParOffre.getCv());
-            ps.setString(7, demandeStageParOffre.getDomaine());
-            ps.setString(8, demandeStageParOffre.getEtat());
-            ps.setDate(9, demandeStageParOffre.getDate());
-            ps.setInt(10, demandeStageParOffre.getId_offre());
+            ps.setInt(1, id);
+            ps.setString(2, demandeStageParOffre.getNom());
+            ps.setString(3, demandeStageParOffre.getPrenom());
+            ps.setString(4, demandeStageParOffre.getEmail());
+            ps.setInt(5, demandeStageParOffre.getNumeroTelephone());
+            ps.setString(6, demandeStageParOffre.getLettremotivation());
+            ps.setString(7, demandeStageParOffre.getCv());
+            ps.setString(8, demandeStageParOffre.getDomaine());
+            ps.setString(9, demandeStageParOffre.getEtat());
+            ps.setDate(10, demandeStageParOffre.getDate());
             ps.setInt(11, demandeStageParOffre.getScore()); // Utiliser le score préalablement obtenu
             ps.executeUpdate();
             System.out.println("Ajouté avec succès");

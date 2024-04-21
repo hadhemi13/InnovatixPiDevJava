@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class DemandeStage {
+
     String nom,prenom,email,lettremotivation,cv,domaine,etat;
     int id,numeroTelephone,score,id_offre;
     Date date;
@@ -17,8 +18,8 @@ public class DemandeStage {
             this.domaine = domaine;
             this.etat = etat;
             this.numeroTelephone = numeroTelephone;
-            this.score = score;
             this.id_offre = id_offre;
+            this.score = score;
             this.date = date;
 
         }
@@ -252,6 +253,7 @@ public class DemandeStage {
     @Override
     public String toString() {
         return "DemandeStage{" +
+                "id =" +id + '\''+
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
@@ -259,7 +261,7 @@ public class DemandeStage {
                 ", cv='" + cv + '\'' +
                 ", domaine='" + domaine + '\'' +
                 ", etat='" + etat + '\'' +
-                ", id=" + id +
+                ", id_offre=" + id_offre +
                 ", numeroTelephone=" + numeroTelephone +
                 ", score=" + score +
                 ", date=" + date +

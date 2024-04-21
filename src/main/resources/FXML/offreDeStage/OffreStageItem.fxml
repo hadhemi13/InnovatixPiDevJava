@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1002.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageItem">
+<HBox alignment="CENTER_LEFT" prefHeight="164.0" prefWidth="1267.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageItem">
    <children>
       <Text fx:id="titre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="139.84808349609375">
          <HBox.margin>
