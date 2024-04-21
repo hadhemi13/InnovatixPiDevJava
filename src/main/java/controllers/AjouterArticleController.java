@@ -148,13 +148,7 @@ public class AjouterArticleController implements Initializable {
         } else {
             imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-//        if (dureeArt.getValue() < 1) {
-//            dureeInputErrorHbox.getChildren().setAll(new Text("La durée de l'article doit être d'au moins un jour."));
-//            dureeInputErrorHbox.setVisible(true);
-//            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
-//        } else {
-//            dureeInputErrorHbox.setVisible(false); // Masquer le message d'erreur si la durée est valide
-//        }
+
         if (titreInput.getText().isEmpty()) {
             pieceJInputErrorHbox.setVisible(true);
             champsVides = true;

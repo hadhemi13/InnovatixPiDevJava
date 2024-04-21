@@ -12,8 +12,10 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceArticle;
@@ -41,20 +43,33 @@ public class ModifierArticleController implements Initializable {
     private TextArea ContenuArt;
 
     @FXML
-    private DatePicker datePubArt;
-
-    @FXML
     private ComboBox<String> addCategorie;
-
-    @FXML
-    private Spinner<Integer> dureeArt;
 
     @FXML
     private ImageView imageInput;
 
     @FXML
     private VBox vboxmod;
+    @FXML
+    private HBox PieceJInputErrorHbox;
 
+    @FXML
+    private HBox titreInputErrorHbox;
+    @FXML
+    private HBox categorieInputErrorHbox;
+
+    @FXML
+    private Text titreInputError;
+    @FXML
+    private ImageView pieceJArtInput;
+
+    @FXML
+    private HBox imageInputErrorHbox;
+
+    @FXML
+    private HBox ContenuInputErrorHbox;
+    @FXML
+    private Text imageInputError;
     private Article article;
     private articleCardAdminController articleCardAdminController;
     private ListArticleAdminController listArticleController;
@@ -149,12 +164,11 @@ public class ModifierArticleController implements Initializable {
         if (article != null) {
             titreArt.setText(article.getTitre_art());
             ContenuArt.setText(article.getContenu_art());
-            datePubArt.setValue(article.getDate_pub_art().toLocalDate());
             addCategorie.setValue(article.getCategorie_art());
-            SpinnerValueFactory<Integer> valueFactory = dureeArt.getValueFactory();
-            if (valueFactory != null) {
-                valueFactory.setValue(article.getDuree_art());
-            }
+//            SpinnerValueFactory<Integer> valueFactory = dureeArt.getValueFactory();
+//            if (valueFactory != null) {
+//                valueFactory.setValue(article.getDuree_art());
+//            }
             // Assurez-vous que l'image de l'article n'est pas vide
             if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
                 Image image = new Image(article.getImage_art());
@@ -166,12 +180,57 @@ public class ModifierArticleController implements Initializable {
     @FXML
     void ModifierArt(MouseEvent mouseEvent) {
         try {
+            boolean champsVides = false;
+
+            // Vérification des champs vides
+            if (ContenuArt.getText().isEmpty()) {
+                ContenuInputErrorHbox.setVisible(true);
+                champsVides = true;
+            } else {
+                ContenuInputErrorHbox.setVisible(false);
+            }
+
+            if (addCategorie.getSelectionModel().isEmpty()) {
+                categorieInputErrorHbox.setVisible(true);
+                champsVides = true;
+            } else {
+                categorieInputErrorHbox.setVisible(false);
+            }
+
+            if (imageInput.getImage() == null) {
+                imageInputErrorHbox.setVisible(true);
+                champsVides = true;
+            } else {
+                imageInputErrorHbox.setVisible(false);
+            }
+
+            if (titreArt.getText().isEmpty()) {
+                titreInputErrorHbox.setVisible(true);
+                champsVides = true;
+            } else {
+                titreInputErrorHbox.setVisible(false);
+            }
+
+            // Vérification du format du titre
+            String titre = titreArt.getText();
+            if (!Character.isUpperCase(titre.charAt(0))) {
+                titreInputErrorHbox.getChildren().setAll(new Text("Le titre doit commencer par une majuscule."));
+                titreInputErrorHbox.setVisible(true);
+                champsVides = true;
+            } else {
+                titreInputErrorHbox.setVisible(false);
+            }
+
+            // Si au moins un champ est vide, afficher les messages d'erreur
+            if (champsVides) {
+                return;
+            }
             if (article != null) {
                 article.setTitre_art(titreArt.getText());
                 article.setContenu_art(ContenuArt.getText());
-                article.setDate_pub_art(LocalDateTime.of(datePubArt.getValue(), LocalTime.MIDNIGHT));
+                article.setDate_pub_art(LocalDateTime.now());
                 article.setCategorie_art(addCategorie.getValue());
-                article.setDuree_art(dureeArt.getValue());
+                article.setDuree_art(2);
                 // Assurez-vous que l'image de l'article n'est pas vide
                 if (imageInput.getImage() != null) {
                     article.setImage_art(imageInput.getImage().getUrl());
@@ -283,6 +342,11 @@ public class ModifierArticleController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageInputErrorHbox.setVisible(false);
+        categorieInputErrorHbox.setVisible(false);
+        ContenuInputErrorHbox.setVisible(false);
+        PieceJInputErrorHbox.setVisible(false);
+        titreInputErrorHbox.setVisible(false);
         // Initialiser la liste des catégories
         ObservableList<String> categories = FXCollections.observableArrayList(
                 "Développement durable",
@@ -292,22 +356,22 @@ public class ModifierArticleController implements Initializable {
         );
         addCategorie.setItems(categories);
 
-        // Initialiser le Spinner de durée
-        SpinnerValueFactory<Integer> valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
-        dureeArt.setValueFactory(valueFactory);
-
-        // Autoriser la saisie directe des valeurs dans le Spinner
-        dureeArt.setEditable(true);
-
-        // Limiter la saisie à des nombres entiers
-        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
-            if (c.getControlNewText().matches("\\d*")) {
-                return c;
-            } else {
-                return null;
-            }
-        }));
+//        // Initialiser le Spinner de durée
+//        SpinnerValueFactory<Integer> valueFactory =
+//                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
+//        dureeArt.setValueFactory(valueFactory);
+//
+//        // Autoriser la saisie directe des valeurs dans le Spinner
+//        dureeArt.setEditable(true);
+//
+//        // Limiter la saisie à des nombres entiers
+//        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
+//            if (c.getControlNewText().matches("\\d*")) {
+//                return c;
+//            } else {
+//                return null;
+//            }
+//        }));
 
         // Initialiser les champs de l'article
         initializeArticleFields();

@@ -32,11 +32,11 @@
                 <Insets bottom="10.0" left="16.0" top="26.0" />
             </padding>
         </HBox>
-      <VBox alignment="CENTER" prefHeight="548.0" prefWidth="1084.0" style="-fx-background-color: White;">
+      <VBox alignment="CENTER" prefHeight="546.0" prefWidth="968.0" style="-fx-background-color: White;">
          <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="550.0" prefWidth="1084.0" style="-fx-background-color: White;" styleClass="containe" stylesheets="@../css/SideNavBar.css">
+            <ScrollPane fx:id="scrollPane" prefHeight="550.0" prefWidth="1084.0" style="-fx-background-color: White;">
                <content>
-                  <VBox id="scrollPane" alignment="CENTER" prefHeight="550.0" prefWidth="1084.0" style="-fx-background-color: white;">
+                  <VBox id="scrollPane" alignment="CENTER" prefHeight="898.0" prefWidth="1068.0" style="-fx-background-color: white;">
                      <children>
                           <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="183.0" prefWidth="943.0">
                               <padding>

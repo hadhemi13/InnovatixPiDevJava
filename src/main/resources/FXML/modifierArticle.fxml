@@ -3,9 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -45,9 +43,9 @@
             <Insets left="30.0" right="30.0" />
         </padding>
     </HBox>
-    <ScrollPane prefHeight="1040.0" prefWidth="630.0">
+    <ScrollPane prefHeight="1040.0" prefWidth="630.0" style="-fx-background-color: White;">
         <content>
-            <VBox prefHeight="1040.0" prefWidth="630.0">
+            <VBox prefHeight="1040.0" prefWidth="937.0" style="-fx-background-color: White;">
                 <children>
                     <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="183.0" prefWidth="570.0">
                         <padding>
@@ -72,7 +70,7 @@
                                 </padding>
                             </HBox>
                             <TextArea fx:id="ContenuArt" prefHeight="200.0" prefWidth="200.0" promptText="Contenu" styleClass="product__add-input-textArea" text="Entrez le contenu de l'article ici ...&#10;" />
-                            <HBox fx:id="descriptionInputErrorHbox" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                            <HBox fx:id="ContenuInputErrorHbox" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="ContenuArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
@@ -151,7 +149,7 @@
                                         </padding>
                                     </HBox>
                                     <ComboBox fx:id="addCategorie" prefHeight="40.0" prefWidth="299.0" styleClass="product__add-comboBox" />
-                                    <HBox fx:id="etatInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                    <HBox fx:id="categorieInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                             <Text fx:id="CatArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Catégorie obligatoire !">
@@ -165,31 +163,6 @@
                                 </children>
                                 <padding>
                                     <Insets right="10.0" />
-                                </padding>
-                            </VBox>
-                            <VBox prefHeight="131.0" prefWidth="299.0">
-                                <children>
-                                    <HBox prefHeight="6.0" prefWidth="538.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date de publication">
-                                                <HBox.margin>
-                                                    <Insets right="2.0" />
-                                                </HBox.margin>
-                                            </Text>
-                                            <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                                                <font>
-                                                    <Font name="Montserrat Regular" size="16.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                        <padding>
-                                            <Insets bottom="10.0" />
-                                        </padding>
-                                    </HBox>
-                                    <DatePicker fx:id="datePubArt" />
-                                </children>
-                                <padding>
-                                    <Insets left="10.0" />
                                 </padding>
                             </VBox>
                         </children>
@@ -236,7 +209,7 @@
                                             <Insets />
                                         </VBox.margin>
                                     </HBox>
-                                    <HBox fx:id="objectifInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                    <HBox fx:id="PieceJInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                         <children>
                                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                             <Text fx:id="objectifInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Pièce jointe obligatoire !">
@@ -250,39 +223,6 @@
                                 <padding>
                                     <Insets right="10.0" />
                                 </padding>
-                            </VBox>
-
-                            <VBox prefHeight="131.0" prefWidth="299.0">
-                                <children>
-                                    <HBox prefHeight="6.0" prefWidth="538.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Durée de la publication ">
-                                                <HBox.margin>
-                                                    <Insets right="2.0" />
-                                                </HBox.margin>
-                                            </Text>
-                                            <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                                                <font>
-                                                    <Font name="Montserrat Regular" size="16.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                        <padding>
-                                            <Insets bottom="10.0" />
-                                        </padding>
-                                    </HBox>
-                                    <Spinner fx:id="dureeArt" />
-                                    <HBox fx:id="pointsInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
-                                        <children>
-                                            <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                            <Text fx:id="dureeArtInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Durée obligatoire !">
-                                                <HBox.margin>
-                                                    <Insets top="5.0" />
-                                                </HBox.margin>
-                                            </Text>
-                                        </children>
-                                    </HBox>
-                                </children>
                             </VBox>
                         </children>
                     </HBox>
