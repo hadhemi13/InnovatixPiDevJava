@@ -60,16 +60,7 @@ public class FXML_CommentaireDetailController implements Initializable {
     fxDesc.setText(commentaire.getContenu());
     fxdate.setText(commentaire.getDate());
 
-    //    try {
-//      List<String> projectNames = new ServiceCommentaire().getAllProjectNames();
-//      fxProjectName.getItems().addAll(projectNames);
-//
-//
-//
-//    } catch (SQLException e) {
-//      e.printStackTrace();
-//      // Handle the exception as needed
-//    }
+
   }
 
 
@@ -85,9 +76,6 @@ public class FXML_CommentaireDetailController implements Initializable {
     }
   }
 
-//  public void setCallback(Consumer<Evenement> callback) {
-//    this.callback = callback;
-//  }
 
 //  @FXML
 //  private void onSaveButtonClick(ActionEvent event) throws SQLException {

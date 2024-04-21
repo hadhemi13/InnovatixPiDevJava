@@ -24,9 +24,7 @@ public class AddProjectController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 

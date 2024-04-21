@@ -185,6 +185,32 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
+                        <HBox fx:id="front" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_evenementsListfront"  prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                            <children>
+                                <ImageView fx:id="fronti" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+                                    <HBox.margin>
+                                        <Insets right="15.0" />
+                                    </HBox.margin>
+                                    <image>
+                                        <Image url="@../img/project.png" />
+                                    </image>
+                                </ImageView>
+                                <Label fx:id="frontt" styleClass="text" text="front" textFill="WHITE">
+                                    <font>
+                                        <Font name="Montserrat Regular" size="14.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets bottom="-15.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets left="20.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
 
                         <HBox fx:id="commentaireBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_commentaireList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>

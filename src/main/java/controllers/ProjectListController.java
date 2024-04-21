@@ -131,8 +131,7 @@ public class ProjectListController implements Initializable {
       try {
         ArrayList<Project> projectList;
         projectList = (ArrayList<Project>) projectService.getAllProject();
-        // ArrayList<Project> projectList = projectService.getAllProject();
-        for (int i = 0; i < projectList.size(); i++) {
+         for (int i = 0; i < projectList.size(); i++) {
           FXMLLoader fxmlLoader = new FXMLLoader();
           fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
           HBox projectItem = fxmlLoader.load();

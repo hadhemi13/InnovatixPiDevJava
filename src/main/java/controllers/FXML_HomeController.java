@@ -29,12 +29,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-
-/**
- * FXML Controller class
- *
- * @author zayne
- */
 public class FXML_HomeController implements Initializable {
 
   @FXML

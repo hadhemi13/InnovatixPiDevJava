@@ -133,12 +133,9 @@ public class AddEvenementCardController implements Initializable {
 
     private double score;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      // Instancier le service de produit
       IService serviceEvenement = new ServiceEvenement();
       Evenement e = new Evenement();
       nameInput.setText(e.getNom());
@@ -160,34 +157,8 @@ public class AddEvenementCardController implements Initializable {
       imageName = e.getImg();
     }
 
-        // Ajouter la liste des categories au combobox-----------------
-        // Instancier le service de categorie
 
-        // Récupérer tous les categories
 
-        // Afficher les categories dans la console (juste pour tester)
-        /*
-         * System.out.println("Liste des produits:");
-         * for (Categorie_produit categorie : categories) {
-         * System.out.println(categorie);
-         * }
-         */
-
-//        Map<String, Integer> valuesMap = new HashMap<>();
-//        for (Categorie_Collecte categorie : categories) {
-//            categoryInput.getItems().add(categorie.getNom_categorie());
-//            valuesMap.put(categorie.getNom_categorie(), categorie.getId());
-//        }
-//
-//        categoryInput.setOnAction(event -> {
-//            String selectedOption = categoryInput.getValue();
-//            int selectedValue = valuesMap.get(selectedOption);
-//            categId = selectedValue;
-//            categoryTest = 1;
-//            categoryInputErrorHbox.setVisible(false);
-//            // System.out.println("Selected option: " + selectedOption);
-//            // System.out.println("Selected value: " + selectedValue);
-//        });
 
     @FXML
     void addNewEvenement(MouseEvent event) throws SQLException {
@@ -245,11 +216,6 @@ public class AddEvenementCardController implements Initializable {
       photoTest = 1;
       photoInputErrorHbox.setVisible(false);
 
-
-
-
-
-
     }
 
   }
@@ -280,7 +246,5 @@ public class AddEvenementCardController implements Initializable {
         NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
     }
   }
-
-
 
 }

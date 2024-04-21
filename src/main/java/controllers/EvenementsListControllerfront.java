@@ -25,7 +25,13 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
-public class EvenementsListController implements Initializable {
+
+/**
+ * FXML Controller class
+ *
+ * @author ALI
+ */
+public class EvenementsListControllerfront implements Initializable {
 
     @FXML
     private GridPane evenementsListContainer;
@@ -100,7 +106,8 @@ public class EvenementsListController implements Initializable {
 
     private int categId = -1;
 
-    private int sortValue = -1;
+    private int sortValue = -1; // 1: sort by stock *** 0: filter by category *** 2: filter by category and sort
+                                // by stock
     private int submitOfferTest = 0;
     private int submitCouponTest = 0;
 
@@ -112,9 +119,32 @@ public class EvenementsListController implements Initializable {
     }
 
     public static void setCategoryModelShow(int categoryModelShow) {
-        EvenementsListController.categoryModelShow = categoryModelShow;
+        EvenementsListControllerfront.categoryModelShow = categoryModelShow;
     }
 
+//  @FXML
+//  void sort__ByStock(MouseEvent event) {
+//    Collecte.setSearchValue(null);
+//    if (!stockBtn.getStyleClass().contains("sort__stockBtn-active")) {
+//      stockBtn.getStyleClass().add("sort__stockBtn-active");
+//      // Button stock = (Button) content_area.lookup("#stockBtn");
+//      // stock.getStyleClass().add("sort__stockBtn-active");
+//      sortValue = 1;
+//    } else {
+//      stockBtn.getStyleClass().remove("sort__stockBtn-active");
+//      sortValue = -1;
+//    }
+//
+//    // Parent fxml = FXMLLoader.load(getClass().getResource("ProductsList.fxml"));
+//    GridPane evenementsListContainer = (GridPane) content_area.lookup("#evenementsListContainer");
+//    evenementsListContainer.getChildren().clear();
+//    try {
+//      this.setEvenementGridPaneList();
+//    } catch (SQLException e) {
+//      throw new RuntimeException(e);
+//    }
+//
+//  }
   @FXML
   void searchEvenement(KeyEvent event) throws IOException, SQLException {
     Evenement.setSearchValue(((TextField) event.getSource()).getText());
@@ -127,36 +157,119 @@ public class EvenementsListController implements Initializable {
       this.setEvenementGridPaneList();
 
   }
+
+  /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         qrCodeImgModel.setVisible(false);
         offreModel.setVisible(false);
         reductionInputErrorHbox.setVisible(false);
         couponForm.setVisible(false);
+        //submitCouponBtn.setVisible(false);
         couponInputErrorHbox.setVisible(false);
         backToReductionBtn.setVisible(false);
-        if (EvenementsListController.getCategoryModelShow() == 0) {
+
+        if (EvenementsListControllerfront.getCategoryModelShow() == 0) {
             categoriesModel.setVisible(false);
-        } else if (EvenementsListController.getCategoryModelShow() == 1) {
+        } else if (EvenementsListControllerfront.getCategoryModelShow() == 1) {
             categoriesModel.setVisible(true);
         }
 
-    try {
+        // Afficher les evenements dans la console (juste pour tester)
+        /*
+         * System.out.println("Liste des evenements:");
+         * for (Evenement evenement : evenements) {
+         * System.out.println(evenement);
+         * }
+         */
+
+        // set the Evenement list in the grid pane***************************************
+      try {
         this.setEvenementGridPaneList();
       } catch (SQLException e) {
         throw new RuntimeException(e);
       }
 
+      // categories list ---------------------------------------------------------
+        // Ajouter AddCategoryCard (forum) au debut de la liste
         FXMLLoader fxmlLoader1 = new FXMLLoader();
         fxmlLoader1.setLocation(getClass().getResource("/gui/evenementInterfaces/AddCategoryCard.fxml"));
+
+
+
+        // Instancier le service de categorie
+        // ICategorie_evenementService categoryService = new Categorie_evenementService();
+
+        // Récupérer toutes les categories
+        // List<Categorie_Collecte> categories = categoryService.getAllCategories();
+
         int CategColumn = 0;
         int CategRow = 2;
+//        try {
+//            for (int i = 0; i < categories.size(); i++) {
+//
+//                FXMLLoader fxmlLoader = new FXMLLoader();
+//                fxmlLoader.setLocation(getClass().getResource("/FXML.gui/evenementInterfaces/OneCategoriesListCard.fxml"));
+//                HBox oneCategoryCard = fxmlLoader.load();
+//                OneCategoriesListCardController categorieCardController = fxmlLoader.getController();
+//                categorieCardController.setCategoryData(categories.get(i));
+//
+//                if (CategColumn == 1) {
+//                    CategColumn = 0;
+//                    ++CategRow;
+//                }
+//                categoriesListContainer.add(oneCategoryCard, CategColumn++, CategRow);
+//                GridPane.setMargin(oneCategoryCard, new Insets(0, 10, 25, 10));
+//                oneCategoryCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
+//
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        // Ajouter la liste des categories au combobox-----------------
+
+//        Map<String, Integer> valuesMap = new HashMap<>();
+//        for (Categorie_Collecte categorie : categories) {
+//            categoryInput.getItems().add(categorie.getNom_categorie());
+//            valuesMap.put(categorie.getNom_categorie(), categorie.getId());
+//        }
+//
+//        categoryInput.setOnAction(event -> {
+//            String selectedOption = categoryInput.getValue();
+//            int selectedValue = valuesMap.get(selectedOption);
+//            categId = selectedValue;
+//            Collecte.setSearchValue(null);
+//            // System.out.println("Selected option: " + selectedOption);
+//            // System.out.println("Selected value: " + categId);
+//            GridPane evenementsListContainer = (GridPane) content_area.lookup("#evenementsListContainer");
+//            evenementsListContainer.getChildren().clear();
+//            this.setEvenementGridPaneList();
+//        });
+        // Coupon Set email comboBox
+//        ProjectService projectService = new ProjectService();
+//        List<Project> EmailList = new ArrayList<>();
+//        Project project = new Project();
+//        try {
+//            EmailList = projectService.afficher();
+//        } catch (SQLException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        for (int i = 0; i < EmailList.size(); i++) {
+//            couponCombobox.getItems().add(EmailList.get(i).getNomProjet());
+//        }
+
+        // filter by combobox values
         couponCombobox.setOnAction(event -> {
             selectedOption = couponCombobox.getValue();
             System.out.println("Selected option: " + selectedOption);
 
         });
     }
+
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
          Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
@@ -173,21 +286,23 @@ public class EvenementsListController implements Initializable {
     @FXML
     void close_CategoriesModel(MouseEvent event) {
         categoriesModel.setVisible(false);
-        EvenementsListController.setCategoryModelShow(0);
+        EvenementsListControllerfront.setCategoryModelShow(0);
     }
     private void setEvenementGridPaneList() throws SQLException {
-         IService evenementService = new ServiceEvenement();
+        // Instancier le service de evenement
+        IService evenementService = new ServiceEvenement();
 
       List<Evenement> evenements = evenementService.afficher();
 
 
         evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
 
+        // evenement list ------------------------------------------------
         int column = 0;
         int row = 1;
         try {
           for (Evenement evenement : evenements) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
             HBox oneEvenementCard = fxmlLoader.load();
             OneEvenementListCardController evenementCardController = fxmlLoader.getController();
             evenementCardController.setEvenementData(evenement);
@@ -197,6 +312,7 @@ public class EvenementsListController implements Initializable {
               ++row;
             }
             evenementsListContainer.add(oneEvenementCard, column++, row);
+            // GridPane.setMargin(oneEvenementCard, new Insets(10));
             GridPane.setMargin(oneEvenementCard, new Insets(0, 10, 25, 10));
             oneEvenementCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
           }
@@ -236,7 +352,7 @@ public class EvenementsListController implements Initializable {
         offreModel.setVisible(false);
     }
 
- @FXML
+    @FXML
     void reductionTypedInput(KeyEvent event) {
         String reductionText = reductionInput.getText();
         if (!reductionText.matches("-?\\d+(\\.\\d+)?")) {
@@ -272,8 +388,7 @@ public class EvenementsListController implements Initializable {
         addNewCouponBtn.setVisible(false);
         backToReductionBtn.setVisible(true);
     }
-
-    @FXML
+ @FXML
     void couponTypedInput(KeyEvent event) {
         String couponText = couponInput.getText();
         if (!couponText.matches("-?\\d+(\\.\\d+)?")) {

@@ -35,12 +35,6 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.UUID;
-
-/**
- * FXML Controller class
- *
- * @author ALI
- */
 public class AddProjectCardController implements Initializable {
 
     @FXML
@@ -214,52 +208,14 @@ public class AddProjectCardController implements Initializable {
     if (selectedImageFile != null) {
       Image image = new Image(selectedImageFile.toURI().toString());
       imageInput.setImage(image);
-
-
       imageName = selectedImageFile.getName();
-
       Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
       Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-
       photoTest = 1;
       photoInputErrorHbox.setVisible(false);
-
-
     }
 
   }
-//  @FXML
-//  void updateEvenement(Mous   eEvent event) throws IOException, SQLException {
-//    Evenement evenement = new Evenement();
-//    evenement.setNom(nameInput.getText());
-//    evenement.setLieu(fxLieu.getText());
-//    evenement.setDescription(descriptionInput.getText());
-//    evenement.setPrix(Double.parseDouble(prixInput.getText()));
-//    evenement.setImg(imageName);
-//    ServiceEvenement serviceEvenement = new ServiceEvenement();
-//
-//    try {
-//      evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
-//      evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
-//
-//      serviceEvenement.modifier(evenement);
-//
-//      TrayNotificationAlert.notif("Evenement", "Evenement updated successfully.",
-//        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-//
-//      FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML.gui/productInterfaces/EvenementsList.fxml"));
-//      Parent root = loader.load();
-//      Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-//      contentArea.getChildren().clear();
-//      contentArea.getChildren().add(root);
-//    } catch (DateTimeParseException e) {
-//      e.printStackTrace();
-//      TrayNotificationAlert.notif("Error", "Incorrect date format. Please enter dates in yyyy-MM-dd HH:mm:ss format.",
-//        NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
-//    }
-//  }
-
-
 
 }
 

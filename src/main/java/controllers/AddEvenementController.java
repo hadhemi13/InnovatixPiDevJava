@@ -11,12 +11,6 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-/**
- * FXML Controller class
- *
- * @author ALI
- */
 public class AddEvenementController implements Initializable {
 
     @FXML
@@ -24,9 +18,7 @@ public class AddEvenementController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 

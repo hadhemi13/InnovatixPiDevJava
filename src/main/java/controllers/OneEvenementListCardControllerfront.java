@@ -19,9 +19,7 @@ import utils.TrayNotificationAlert;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
-
-public class OneEvenementListCardController {
+public class OneEvenementListCardControllerfront {
 
     @FXML
     private ImageView img;

@@ -87,7 +87,6 @@ public class UpdateProjectCardController implements Initializable {
             Image image = new Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
 
-            // Générer un nom de fichier unique pour l'image
             String uniqueID = UUID.randomUUID().toString();
             String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
             imageName = uniqueID + extension;
@@ -119,12 +118,10 @@ public class UpdateProjectCardController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
             try {
                 Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneProductListCard.fxml
+
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Vider la pane et afficher le contenu de ProductsList.fxml
-                contentArea.getChildren().clear();
+                 contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
                 e.printStackTrace();

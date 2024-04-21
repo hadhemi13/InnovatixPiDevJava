@@ -87,37 +87,7 @@ public class ProjectItemController {
         ItemBudget.setText(String.valueOf(project.getBudgetProjet()));
         LocalDateTime dateCreation = project.getDateCreation();
         ItemDateCreation.setText(dateCreation != null ? dateCreation.toString() : "");
-//      if (project.getState()) {
-//
-//            if (!projectItemStateLabel.getStyleClass().contains("projectItem__field-active")) {
-//                projectItemStateLabel.getStyleClass().add("projectItem__field-active");
-//            }
-//
-//            if (projectItemStateLabel.getStyleClass().contains("projectItem__field-unactive")) {
-//                projectItemStateLabel.getStyleClass().remove("projectItem__field-unactive");
-//            }
-//
-//            projectItemStateText.setText("active");
-//
-//            Image stateBtnImg = new Image(
-//                    getClass().getResource("/assets/img/lock-icon.png").toExternalForm());
-//            projectItemStateBtnImg.setImage(stateBtnImg);
-//
-//        } else {
-//            if (!projectItemStateLabel.getStyleClass().contains("projectItem__field-unactive")) {
-//                projectItemStateLabel.getStyleClass().add("projectItem__field-unactive");
-//            }
-//
-//            if (projectItemStateLabel.getStyleClass().contains("projectItem__field-active")) {
-//                projectItemStateLabel.getStyleClass().remove("projectItem__field-active");
-//            }
-//            projectItemStateText.setText("unactive");
-//
-//            Image stateBtnImg = new Image(
-//                    getClass().getResource("/assets/img/unlock-icon.png").toExternalForm());
-//            projectItemStateBtnImg.setImage(stateBtnImg);
-//
-//        }
+
 
       // deleteProject btn click
       deleteProject.setId(String.valueOf(project.getId()));
@@ -135,18 +105,15 @@ public class ProjectItemController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
         try {
           Parent root = loader.load();
-          // Accéder à la pane content_area depuis le controller de
-          // OneProductListCard.fxml
+
           Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-          // Vider la pane et afficher le contenu de ProductsList.fxml
-          contentArea.getChildren().clear();
+           contentArea.getChildren().clear();
           contentArea.getChildren().add(root);
         } catch (IOException e) {
           e.printStackTrace();
         }
-        // end
-      });
+       });
        ItemUpdateBtn.setOnMouseClicked(event -> {
             System.out.println("project Name: " + project.getNomProjet());
 
