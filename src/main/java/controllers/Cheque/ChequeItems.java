@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -25,19 +27,27 @@ public class ChequeItems implements Initializable {
 
     @FXML
     private Text userItemEmail;
+
+    @FXML
+    private HBox userItemStateBtn;
+    @FXML
+    private GridPane gridPane;
+
+    private Cheque cheque;
     @FXML
     private VBox content_area;
 
     @FXML
     private Text userItemName;
     @FXML
-    private Label userItemUpdateBtn;
+    private HBox userItemUpdateBtn;
+
+    @FXML
+    private Text userItemStateText;
 
     @FXML
     private Text userItemRole;
 
-    @FXML
-    private Label userItemStateBtn;
 
     @FXML
     private ImageView userItemStateBtnImg;
@@ -45,8 +55,6 @@ public class ChequeItems implements Initializable {
     @FXML
     private Label userItemStateLabel;
 
-    @FXML
-    private Text userItemStateText;
 
     @FXML
     private Text userItemTel;
@@ -60,7 +68,6 @@ public class ChequeItems implements Initializable {
 
     @FXML
     private Text personne;
-    private Cheque cheque;
 
 
 //    public void initData(Cheque i) {
@@ -96,11 +103,11 @@ public class ChequeItems implements Initializable {
 
         // Ne rien faire dans l'initialisation par défaut
     public void initData(Cheque i) {
-        this.cheque=cheque;
+        this.cheque=i;
         ServiceCheque serviceCheque = new ServiceCheque();
 
         userItemEmail.setText(String.valueOf(i.getCin()));
-        //userItemName.setText(String.valueOf(i.getI()));
+        userItemName.setText(String.valueOf(i.getId()));
         userItemTel.setText(i.getNom_prenom());
         userItemRole.setText(i.getEmail());
         userItemStateText.setText(i.getDecision());
@@ -132,6 +139,22 @@ public class ChequeItems implements Initializable {
         }
     }
 
+
+//    @FXML
+//    public void UpdateCheque(MouseEvent mouseEvent) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ModifierCheque.fxml"));
+//        Parent editCheque = loader.load();
+//
+//        ModifierCheque modifierCheque = loader.getController();
+//        modifierCheque.initData(cheque);
+//
+  //      Stage stage = new Stage();
+    //    stage.initModality(Modality.WINDOW_MODAL);
+     //   stage.initOwner(((Node) mouseEvent.getSource()).getScene().getWindow());
+      //  stage.setScene(new Scene(editCheque));
+       // stage.showAndWait();
+    //}
+
     @FXML
     public void UpdateCheque(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ModifierCheque.fxml"));
@@ -146,21 +169,6 @@ public class ChequeItems implements Initializable {
         stage.setScene(new Scene(editCheque));
         stage.showAndWait();
     }
-
-//    public void UpdateCheque(MouseEvent mouseEvent) throws IOException {
-//        // Chargement de la vue FXML de la page d'ajout d'article
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ModifierCheque.fxml"));
-//        Parent addArticleParent = loader.load();
-//
-//        // Récupération du contrôleur de la vue d'ajout d'article
-//        ModifierCheque modifierCheque = loader.getController();
-//
-//        modifierCheque.edit(userItemUpdateBtn.getText());
-//        // Remplacer le contenu actuel par la vue d'ajout d'article
-//        content_area.getChildren().clear();
-//        content_area.getChildren().add(addArticleParent);
-//
-//    }
 
 
 }

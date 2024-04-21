@@ -124,7 +124,24 @@ public class SideNavBarUserController {
         //}
     //}
 
-    public void openDashboardClient(javafx.scene.input.MouseEvent mouseEvent) {
+//    public void openDashboardClient(javafx.scene.input.MouseEvent mouseEvent) {
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+//            Pane listArticleAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu
+//            content_area.getChildren().setAll(listArticleAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void open_dashboard(MouseEvent mouseEvent) {
+
+    }
+
+    public void open_profile(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
@@ -135,12 +152,6 @@ public class SideNavBarUserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void open_dashboard(MouseEvent mouseEvent) {
-    }
-
-    public void open_profile(MouseEvent mouseEvent) {
     }
 
     public void open_fundrisingList(MouseEvent mouseEvent) {
@@ -168,5 +179,11 @@ public class SideNavBarUserController {
     }
 
     public void open_notifModel(MouseEvent mouseEvent) {
+    }
+
+    public void open_Compte(MouseEvent mouseEvent) {
+    }
+
+    public void open_Credit(MouseEvent mouseEvent) {
     }
 }

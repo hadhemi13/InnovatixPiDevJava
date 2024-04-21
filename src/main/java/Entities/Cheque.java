@@ -52,6 +52,10 @@ public class Cheque {
         this.decision = decision;
     }
 
+    public Cheque() {
+
+    }
+
     public int getId() {
         return id;
     }

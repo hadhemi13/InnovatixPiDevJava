@@ -130,5 +130,60 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
         }
         return list;
     }
+
+    public Cheque getById(int id) throws SQLException {
+        Cheque cheque = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // Établir une connexion à la base de données
+            connection = MyDatabase.getInstance().getConnection();
+
+            // Préparer la requête SQL
+            String query = "SELECT * FROM votre_table_de_cheques WHERE id = ?";
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, id);
+
+            // Exécuter la requête
+            resultSet = statement.executeQuery();
+
+            // Parcourir les résultats
+            if (resultSet.next()) {
+                // Construire un objet Cheque à partir des données de la base de données
+                cheque = new Cheque(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("compte_id"),
+                        resultSet.getInt("user_id"),
+                        resultSet.getString("beneficiaire"),
+                        resultSet.getDouble("montant"),
+                        resultSet.getInt("telephone"),
+                        resultSet.getString("email"),
+                        resultSet.getInt("cin"),
+                        resultSet.getString("nom_prenom"),
+                        resultSet.getDate("date"),
+                        resultSet.getString("decision"),
+                        resultSet.getString("photo_cin"),
+                        resultSet.getString("signature_id"),
+                        resultSet.getString("document_id"),
+                        resultSet.getString("signer_id"),
+                        resultSet.getString("pdf_sans_signature")
+                );
+            }
+        } finally {
+            // Fermer les ressources
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+
+        return cheque;
+    }
 }
 
