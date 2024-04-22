@@ -5,11 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import services.ServiceReclamation;
 
 import java.io.IOException;
@@ -76,6 +80,8 @@ public class ReclamationItemAdminController implements Initializable {
     private Label ReplyBtn;
     @FXML
     private ImageView RecItemPieceJ;
+    @FXML
+    private Pane content_area;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -99,5 +105,18 @@ public class ReclamationItemAdminController implements Initializable {
         RecItemObjet.setText(reclamation.getObjet_rec());
         RecItemMail.setText(reclamation.getAdr_rec());
 
+    }
+    @FXML
+    void RecReplyBtn(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterReponseAdmin.fxml"));
+        try {
+            Parent addResponseParent = loader.load();
+            // Afficher le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
+            Stage stage = new Stage();
+            stage.setScene(new Scene(addResponseParent));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

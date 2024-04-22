@@ -34,9 +34,10 @@ public class CommentaireItemAdminController {
 
     public void initData(CommentaireHadhemi commentaireHadhemi) {
         titreartcom.setText(commentaireHadhemi.getArticle().getTitre_art());
-        dateartitemDateText.setText(commentaireHadhemi.getArticle().getDate_pub_art().toString());
+        dateartitemDateText.setText(String.valueOf(commentaireHadhemi.getArticle().getDate_pub_art()));
         nomusercom.setText(commentaireHadhemi.getNom_aut_com());
-        datecom.setText(commentaireHadhemi.getDate_creation().toString());
+        datecom.setText(String.valueOf(commentaireHadhemi.getDate_creation()));
         contComment.setText(commentaireHadhemi.getContenu());
+
     }
 }

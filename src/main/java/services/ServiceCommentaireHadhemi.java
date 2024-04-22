@@ -102,9 +102,10 @@ public class ServiceCommentaireHadhemi  implements IServiceCommentaireHadhemi<Co
                 commentaire.setImage_u(rs.getString("c.image_u"));
                 Article article = new Article();
                 LocalDateTime dateArticle = rs.getObject("a.date_pub_art", LocalDateTime.class);
+                article.setDate_pub_art(dateArticle);
+
                 article.setId(rs.getInt("a.id"));
                 article.setTitre_art(rs.getString("a.titre_art"));
-                article.setDate_pub_art(dateArticle);
                 commentaire.setArticle(article);
 
                 commentaires.add(commentaire);

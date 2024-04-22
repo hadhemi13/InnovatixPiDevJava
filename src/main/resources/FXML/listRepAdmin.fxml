@@ -23,12 +23,12 @@
                     <HBox.margin>
                         <Insets right="550.0" />
                     </HBox.margin></Text>
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :" translateX="-40.0">
                     <HBox.margin>
                         <Insets right="25.0" />
                     </HBox.margin>
                 </Text>
-                <ComboBox fx:id="trierepInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" />
+                <ComboBox fx:id="trierepInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-40.0" />
             </children>
         </HBox>
         <HBox fx:id="repTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="userTableHead" stylesheets="@../css/style.scss">
