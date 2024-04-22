@@ -34,14 +34,15 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+
 public class AdminDashboardController implements Initializable {
 
-  @FXML
-  private TextField textFieldProjet = new TextField();
-  @FXML
-  private TextField textField = new TextField();
-  @FXML
-  private TableView<Project> tableProjet = new TableView<>();
+    @FXML
+    private TextField textFieldProjet = new TextField();
+    @FXML
+    private TextField textField = new TextField();
+    @FXML
+    private TableView<Project> tableProjet = new TableView<>();
 
     @FXML
     private Circle circle;
@@ -88,24 +89,24 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private HBox productsBtn;
 
-  @FXML
-  private HBox projetsBtn;
-  @FXML
-  private HBox evenementsBtn;
+    @FXML
+    private HBox projetsBtn;
+    @FXML
+    private HBox evenementsBtn;
     @FXML
     private Label productsText;
 
-  @FXML
-  private Label projetsText;
-  @FXML
-  private Label evenementsText;
+    @FXML
+    private Label projetsText;
+    @FXML
+    private Label evenementsText;
     @FXML
     private ImageView productsIcon;
 
-  @FXML
-  private ImageView ProjetIcon;
-  @FXML
-  private ImageView evenementsIcon;
+    @FXML
+    private ImageView ProjetIcon;
+    @FXML
+    private ImageView evenementsIcon;
 
     @FXML
     private HBox collectBtn;
@@ -117,17 +118,16 @@ public class AdminDashboardController implements Initializable {
     private ImageView collectIcon;
 
 
+    @FXML
+    private HBox evenementBtn;
 
-  @FXML
-  private HBox evenementBtn;
+    @FXML
+    private Label evenementText;
 
-  @FXML
-  private Label evenementText;
-
-  @FXML
-  private ImageView evenementIcon;
-  @FXML
-  private ImageView investissementsIcon;
+    @FXML
+    private ImageView evenementIcon;
+    @FXML
+    private ImageView investissementsIcon;
 
     @FXML
     private HBox commandsBtn;
@@ -139,15 +139,14 @@ public class AdminDashboardController implements Initializable {
     private ImageView commandsIcon;
 
 
+    @FXML
+    private HBox commentaireBtn;
 
-  @FXML
-  private HBox commentaireBtn;
+    @FXML
+    private Label commentaireText;
 
-  @FXML
-  private Label commentaireText;
-
-  @FXML
-  private ImageView commentaireIcon;
+    @FXML
+    private ImageView commentaireIcon;
 
     @FXML
     private HBox sideBarLogout;
@@ -195,7 +194,7 @@ public class AdminDashboardController implements Initializable {
             e.printStackTrace();
         }
 
-      // create the axes
+        // create the axes
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
 
@@ -234,13 +233,13 @@ public class AdminDashboardController implements Initializable {
         // add the data to the pie chart
         pieChart.getData().addAll(data1, data2);
 
-       // chartContainer.getChildren().addAll(barChart, pieChart);
+        // chartContainer.getChildren().addAll(barChart, pieChart);
     }
 
     @FXML
     private void open_dashboard(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AdminDashboard.fxml"));
- //       ZeroWaste.stage.getScene().setRoot(root);
+        //       ZeroWaste.stage.getScene().setRoot(root);
     }
 
     @FXML
@@ -291,113 +290,113 @@ public class AdminDashboardController implements Initializable {
 
         }
     }
-  @FXML
-  private void addProjet() throws IOException {
-    Project projet = new Project(-1);
-    clickProjet(projet);
-  }
 
-  private void getProjet() throws SQLException {
-    final ObservableList<Project> projets = FXCollections.observableArrayList();
-    ServiceProjet serviceProjet = new ServiceProjet();
-    List<Project> mesProjet = serviceProjet.afficher();
-    projets.addAll(mesProjet);
-    tableProjet.setItems(projets);
+    @FXML
+    private void addProjet() throws IOException {
+        Project projet = new Project(-1);
+        clickProjet(projet);
+    }
 
-    textField.textProperty().addListener((observable, oldValue, newValue) -> {
-      List<Project> mesProjetCopy = mesProjet
-        .stream()
-        .filter(c ->
-          c.getNomProjet().contains(newValue) ||
-            c.getDescriptionProjet().contains(newValue) ||
-            c.getDateCreation().toString().contains(newValue) ||
-            c.getCategorie().contains(newValue) ||
-            String.valueOf(c.getBudgetProjet()).contains(newValue))
-        .collect(Collectors.toList());
-
-
-      tableProjet.getItems().clear();
-      projets.addAll(mesProjetCopy);
-      tableProjet.setItems(projets);
-    });
-    tableProjet.setRowFactory(tv -> {
-      TableRow<Project> row = new TableRow<>();
-      row.setOnMouseClicked(event -> {
-        if (event.getClickCount() == 2 && !row.isEmpty()) {
-          Project rowData = row.getItem();
-          try {
-            clickProjet(rowData);
-          } catch (IOException e) {
-            throw new RuntimeException(e);
-          }
-        }
-      });
-      return row;
-    });
-  }
-
-
-
-  private void clickProjet(Project selectedProjet) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetDetail.fxml"));
-    Parent root = fxmlLoader.load();
-    FXML_ProjetDetailController fxmlProjetDetailController = fxmlLoader.getController();
-    fxmlProjetDetailController.initData(selectedProjet);
-    fxmlProjetDetailController.setCallback(updatedData -> {
-      if (updatedData.getId() == -1) {
+    private void getProjet() throws SQLException {
+        final ObservableList<Project> projets = FXCollections.observableArrayList();
         ServiceProjet serviceProjet = new ServiceProjet();
-        try {
-          serviceProjet.ajouter(updatedData);
-          getProjet();
-          tableProjet.refresh();
-        } catch (SQLException e) {
-          e.printStackTrace();
+        List<Project> mesProjet = serviceProjet.afficher();
+        projets.addAll(mesProjet);
+        tableProjet.setItems(projets);
+
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            List<Project> mesProjetCopy = mesProjet
+                    .stream()
+                    .filter(c ->
+                            c.getNomProjet().contains(newValue) ||
+                                    c.getDescriptionProjet().contains(newValue) ||
+                                    c.getDateCreation().toString().contains(newValue) ||
+                                    c.getCategorie().contains(newValue) ||
+                                    String.valueOf(c.getBudgetProjet()).contains(newValue))
+                    .collect(Collectors.toList());
+
+
+            tableProjet.getItems().clear();
+            projets.addAll(mesProjetCopy);
+            tableProjet.setItems(projets);
+        });
+        tableProjet.setRowFactory(tv -> {
+            TableRow<Project> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    Project rowData = row.getItem();
+                    try {
+                        clickProjet(rowData);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+            return row;
+        });
+    }
+
+
+    private void clickProjet(Project selectedProjet) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProjetDetail.fxml"));
+        Parent root = fxmlLoader.load();
+        FXML_ProjetDetailController fxmlProjetDetailController = fxmlLoader.getController();
+        fxmlProjetDetailController.initData(selectedProjet);
+        fxmlProjetDetailController.setCallback(updatedData -> {
+            if (updatedData.getId() == -1) {
+                ServiceProjet serviceProjet = new ServiceProjet();
+                try {
+                    serviceProjet.ajouter(updatedData);
+                    getProjet();
+                    tableProjet.refresh();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+
+                tableProjet.getItems().set(tableProjet.getSelectionModel().getSelectedIndex(), updatedData);
+                ServiceProjet serviceProjet = new ServiceProjet();
+                try {
+                    serviceProjet.modifier(updatedData);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Stage newStage = new Stage();
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        Scene newScene = new Scene(root);
+        newStage.setScene(newScene);
+        newStage.showAndWait();
+    }
+
+    @FXML
+    private void open_ProjectList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
+
+        // set active class
+        if (!projetsBtn.getStyleClass().contains("activeLink")) {
+            projetsBtn.getStyleClass().add("activeLink");
+            projetsText.getStyleClass().add("activeText");
+
+            // Load the image
+            Image image = new Image("../assets/img/project.png");
+            investissementsIcon.setImage(image);
+
+            if (projetsBtn.getStyleClass().contains("activeLink")) {
+                projetsBtn.getStyleClass().remove("activeLink");
+                projetsText.getStyleClass().remove("activeText");
+
+                Image dashIcon = new Image("assets/img/project.png");
+                investissementsIcon.setImage(dashIcon);
+            } else if (projetsBtn.getStyleClass().contains("activeLink")) {
+                projetsBtn.getStyleClass().remove("activeLink");
+                projetsText.getStyleClass().remove("activeText");
+            }
         }
-      } else {
-
-        tableProjet.getItems().set(tableProjet.getSelectionModel().getSelectedIndex(), updatedData);
-        ServiceProjet serviceProjet = new ServiceProjet();
-        try {
-          serviceProjet.modifier(updatedData);
-        } catch (SQLException e) {
-          e.printStackTrace();
-        }
-      }
-    });
-    Stage newStage = new Stage();
-    newStage.initModality(Modality.APPLICATION_MODAL);
-    Scene newScene = new Scene(root);
-    newStage.setScene(newScene);
-    newStage.showAndWait();
-  }
-
-  @FXML
-  private void open_ProjectList(MouseEvent event) throws IOException {
-    Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
-    content_area.getChildren().removeAll();
-    content_area.getChildren().setAll(fxml);
-
-    // set active class
-    if (!projetsBtn.getStyleClass().contains("activeLink")) {
-      projetsBtn.getStyleClass().add("activeLink");
-      projetsText.getStyleClass().add("activeText");
-
-      // Load the image
-      Image image = new Image("../assets/img/project.png");
-      investissementsIcon.setImage(image);
-
-      if (projetsBtn.getStyleClass().contains("activeLink")) {
-          projetsBtn.getStyleClass().remove("activeLink");
-          projetsText.getStyleClass().remove("activeText");
-
-        Image dashIcon = new Image("assets/img/project.png");
-          investissementsIcon.setImage(dashIcon);
-      } else if (projetsBtn.getStyleClass().contains("activeLink")) {
-          projetsBtn.getStyleClass().remove("activeLink");
-          projetsText.getStyleClass().remove("activeText");
- }
-     }
-  }
+    }
 
     @FXML
     private void open_productsList(MouseEvent event) throws IOException {
@@ -450,55 +449,55 @@ public class AdminDashboardController implements Initializable {
     }
 
 
-  @FXML
-  private void open_commentaireList(MouseEvent event) throws IOException {
-    Parent fxml = FXMLLoader.load(getClass().getResource("/gui/commentaire.fxml"));
-    content_area.getChildren().removeAll();
-    content_area.getChildren().setAll(fxml);
+    @FXML
+    private void open_commentaireList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/commentaire.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
 
-    // set active class
-    if (!commentaireBtn.getStyleClass().contains("activeLink")) {
-      commentaireBtn.getStyleClass().add("activeLink");
-      commentaireText.getStyleClass().add("activeText");
+        // set active class
+        if (!commentaireBtn.getStyleClass().contains("activeLink")) {
+            commentaireBtn.getStyleClass().add("activeLink");
+            commentaireText.getStyleClass().add("activeText");
 
-      // Load the image
-      Image image = new Image("assets/img/store-active.png");
-      commentaireIcon.setImage(image);
+            // Load the image
+            Image image = new Image("assets/img/store-active.png");
+            commentaireIcon.setImage(image);
 
-      if (dashboardBtn.getStyleClass().contains("activeLink")) {
-        dashboardBtn.getStyleClass().remove("activeLink");
-        dashboardText.getStyleClass().remove("activeText");
+            if (dashboardBtn.getStyleClass().contains("activeLink")) {
+                dashboardBtn.getStyleClass().remove("activeLink");
+                dashboardText.getStyleClass().remove("activeText");
 
-        Image dashIcon = new Image("assets/img/menu.png");
-        dashboardIcon.setImage(dashIcon);
-      } else if (usersBtn.getStyleClass().contains("activeLink")) {
-        usersBtn.getStyleClass().remove("activeLink");
-        usersText.getStyleClass().remove("activeText");
+                Image dashIcon = new Image("assets/img/menu.png");
+                dashboardIcon.setImage(dashIcon);
+            } else if (usersBtn.getStyleClass().contains("activeLink")) {
+                usersBtn.getStyleClass().remove("activeLink");
+                usersText.getStyleClass().remove("activeText");
 
-        Image usersImg = new Image("assets/img/user.png");
-        usersIcon.setImage(usersImg);
-      } else if (fundrisingBtn.getStyleClass().contains("activeLink")) {
-        fundrisingBtn.getStyleClass().remove("activeLink");
-        fundrisingText.getStyleClass().remove("activeText");
+                Image usersImg = new Image("assets/img/user.png");
+                usersIcon.setImage(usersImg);
+            } else if (fundrisingBtn.getStyleClass().contains("activeLink")) {
+                fundrisingBtn.getStyleClass().remove("activeLink");
+                fundrisingText.getStyleClass().remove("activeText");
 
-        Image fundrisingImg = new Image("assets/img/heart.png");
-        fundrisingIcon.setImage(fundrisingImg);
-      } else if (collectBtn.getStyleClass().contains("activeLink")) {
-        collectBtn.getStyleClass().remove("activeLink");
-        collectText.getStyleClass().remove("activeText");
+                Image fundrisingImg = new Image("assets/img/heart.png");
+                fundrisingIcon.setImage(fundrisingImg);
+            } else if (collectBtn.getStyleClass().contains("activeLink")) {
+                collectBtn.getStyleClass().remove("activeLink");
+                collectText.getStyleClass().remove("activeText");
 
-        Image collectImg = new Image("assets/img/recycle.png");
-        collectIcon.setImage(collectImg);
-      } else if (commentaireBtn.getStyleClass().contains("activeLink")) {
-        commentaireBtn.getStyleClass().remove("activeLink");
-        commentaireText.getStyleClass().remove("activeText");
+                Image collectImg = new Image("assets/img/recycle.png");
+                collectIcon.setImage(collectImg);
+            } else if (commentaireBtn.getStyleClass().contains("activeLink")) {
+                commentaireBtn.getStyleClass().remove("activeLink");
+                commentaireText.getStyleClass().remove("activeText");
 
-        Image commandsImg = new Image("assets/img/shopping-cart.png");
-        commentaireIcon.setImage(commandsImg);
-      }
+                Image commandsImg = new Image("assets/img/shopping-cart.png");
+                commentaireIcon.setImage(commandsImg);
+            }
 
+        }
     }
-  }
 
     @FXML
     private void open_evenementsList(MouseEvent event) throws IOException {
@@ -549,6 +548,7 @@ public class AdminDashboardController implements Initializable {
 
         }
     }
+
     @FXML
     private void open_evenementsListfront(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/EvenementsListfront.fxml"));
@@ -575,6 +575,7 @@ public class AdminDashboardController implements Initializable {
             }
         }
     }
+
     @FXML
     void logout(MouseEvent event) throws IOException {
         UserSession.getInstance().cleanUserSession();

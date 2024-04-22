@@ -101,6 +101,7 @@ public class SideNavBarController {
     private Label usersText;
 
     private boolean sideBarVisible = true;
+
     @FXML
     void smallSide(MouseEvent event) {
 

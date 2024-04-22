@@ -21,6 +21,7 @@ import services.ServiceProjet;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -108,12 +109,12 @@ public class UpdateProjectCardController implements Initializable {
         projectToUpdate.setDateCreation(LocalDateTime.parse(dateCreationInput.getText()));
         projectToUpdate.setImg(imageName);
         try {
-                projectService.modifier(projectToUpdate);
-                ProjectListController.setupdateProjectModelShow(0);
-                ProjectListController.setupdateProjectModelShow(0);
+            projectService.modifier(projectToUpdate);
+            ProjectListController.setupdateProjectModelShow(0);
+            ProjectListController.setupdateProjectModelShow(0);
 
-                TrayNotificationAlert.notif("Mettre à jour le projet", "Projet mis à jour avec succès.",
-                        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+            TrayNotificationAlert.notif("Mettre à jour le projet", "Projet mis à jour avec succès.",
+                    NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
             try {
@@ -121,7 +122,7 @@ public class UpdateProjectCardController implements Initializable {
 
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                 contentArea.getChildren().clear();
+                contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -131,6 +132,7 @@ public class UpdateProjectCardController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void setProjectUpdateData(Project project) {
         projectToUpdate = project;
         nomProjetInput.setText(project.getNomProjet());
@@ -145,6 +147,7 @@ public class UpdateProjectCardController implements Initializable {
         imageInput.setImage(image);
         imageName = project.getImg();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }

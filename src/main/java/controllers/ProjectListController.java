@@ -26,11 +26,11 @@ public class ProjectListController implements Initializable {
     @FXML
     private VBox updateProjectModelContent;
 
-  @FXML
-  private HBox addProjectModel;
+    @FXML
+    private HBox addProjectModel;
 
-  @FXML
-  private VBox addProjectModelContent;
+    @FXML
+    private VBox addProjectModelContent;
 
     @FXML
     private VBox projectListContainer;
@@ -50,6 +50,7 @@ public class ProjectListController implements Initializable {
 
     @FXML
     private Pane content_area;
+
     public static int getupdateProjectModelShow() {
         return updateProjectModelShow;
     }
@@ -58,10 +59,9 @@ public class ProjectListController implements Initializable {
         ProjectListController.updateProjectModelShow = updateProjectModelShow;
     }
 
-  public static int getaddProjectModelShow() {
-    return updateProjectModelShow;
-  }
-
+    public static int getaddProjectModelShow() {
+        return updateProjectModelShow;
+    }
 
 
     @FXML
@@ -69,9 +69,10 @@ public class ProjectListController implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
 
     }
-  public static void setaddProjectModelShow(int addProjectModelShow) {
-    ProjectListController.addProjectModelShow = addProjectModelShow;
-  }
+
+    public static void setaddProjectModelShow(int addProjectModelShow) {
+        ProjectListController.addProjectModelShow = addProjectModelShow;
+    }
 
 
     public static void setprojectEmailToUpdate(int projetIdToUpdate) {
@@ -92,70 +93,71 @@ public class ProjectListController implements Initializable {
             fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
             VBox updateProjectform;
             try {
-              updateProjectform = fxmlLoader1.load();
-              UpdateProjectCardController updateUserCardController = fxmlLoader1.getController();
-              UpdateProjectCardController.setFxmlToLoad("ProjectsList.fxml");
-              project = projectService.getOneProject(projetIdToUpdate);
+                updateProjectform = fxmlLoader1.load();
+                UpdateProjectCardController updateUserCardController = fxmlLoader1.getController();
+                UpdateProjectCardController.setFxmlToLoad("ProjectsList.fxml");
+                project = projectService.getOneProject(projetIdToUpdate);
 
-              updateUserCardController.setProjectUpdateData(project);
-              updateProjectModelContent.getChildren().add(updateProjectform);
+                updateUserCardController.setProjectUpdateData(project);
+                updateProjectModelContent.getChildren().add(updateProjectform);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
-              e.printStackTrace();
+                e.printStackTrace();
             }
         }
 
-      // System.out.println(projectEmailToUpdate);
-      if (ProjectListController.getaddProjectModelShow() == 0) {
-        addProjectModel.setVisible(false);
-      } else if (ProjectListController.getaddProjectModelShow() == 1) {
-        addProjectModel.setVisible(true);
-        FXMLLoader fxmlLoader1 = new FXMLLoader();
-        fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
-        VBox updateProjectform;
-        try {
-          updateProjectform = fxmlLoader1.load();
-          UpdateProjectCardController addUserCardController = fxmlLoader1.getController();
-          UpdateProjectCardController.setFxmlToLoad("ProjectsList.fxml");
-          project = projectService.getOneProject(projetIdToUpdate);
+        // System.out.println(projectEmailToUpdate);
+        if (ProjectListController.getaddProjectModelShow() == 0) {
+            addProjectModel.setVisible(false);
+        } else if (ProjectListController.getaddProjectModelShow() == 1) {
+            addProjectModel.setVisible(true);
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
+            VBox updateProjectform;
+            try {
+                updateProjectform = fxmlLoader1.load();
+                UpdateProjectCardController addUserCardController = fxmlLoader1.getController();
+                UpdateProjectCardController.setFxmlToLoad("ProjectsList.fxml");
+                project = projectService.getOneProject(projetIdToUpdate);
 
-          addUserCardController.setProjectUpdateData(project);
-          addProjectModelContent.getChildren().add(updateProjectform);
-        } catch (IOException e) {
-          e.printStackTrace();
+                addUserCardController.setProjectUpdateData(project);
+                addProjectModelContent.getChildren().add(updateProjectform);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            ArrayList<Project> projectList;
+            projectList = (ArrayList<Project>) projectService.getAllProject();
+            for (int i = 0; i < projectList.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
+                HBox projectItem = fxmlLoader.load();
+                ProjectItemController projectItemController = fxmlLoader.getController();
+                projectItemController.setprojectData(projectList.get(i));
+                projectListContainer.getChildren().add(projectItem);
+            }
         } catch (SQLException e) {
-          e.printStackTrace();
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-      }
-      try {
-        ArrayList<Project> projectList;
-        projectList = (ArrayList<Project>) projectService.getAllProject();
-         for (int i = 0; i < projectList.size(); i++) {
-          FXMLLoader fxmlLoader = new FXMLLoader();
-          fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
-          HBox projectItem = fxmlLoader.load();
-          ProjectItemController projectItemController = fxmlLoader.getController();
-          projectItemController.setprojectData(projectList.get(i));
-          projectListContainer.getChildren().add(projectItem);
-        }
-      } catch (SQLException e) {
-        e.printStackTrace();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
     }
+
     @FXML
     void close_updateProjectModel(MouseEvent event) {
         updateProjectModel.setVisible(false);
         updateProjectModelShow = 0;
     }
 
-  @FXML
-  private void open_addProject(MouseEvent event) throws IOException {
-    Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddProject.fxml"));
-    content_area.getChildren().removeAll();
-    content_area.getChildren().setAll(fxml);
+    @FXML
+    private void open_addProject(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddProject.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
 
-  }
+    }
 }

@@ -31,8 +31,8 @@ public class ProjectItemController {
     private ImageView Itemimg;
 
 
-  @FXML
-  private HBox deleteProject;
+    @FXML
+    private HBox deleteProject;
     @FXML
     private Text Itemcategorie;
 
@@ -89,32 +89,32 @@ public class ProjectItemController {
         ItemDateCreation.setText(dateCreation != null ? dateCreation.toString() : "");
 
 
-      // deleteProject btn click
-      deleteProject.setId(String.valueOf(project.getId()));
+        // deleteProject btn click
+        deleteProject.setId(String.valueOf(project.getId()));
 
-      deleteProject.setOnMouseClicked(event -> {
-        System.out.println("ID du Evenement à supprimer : " + project.getId());
-        try {
-          projectService.supprimer(project.getId());
-          TrayNotificationAlert.notif("Project", "project deleted successfully.",
-            NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-        } catch (SQLException e) {
-          e.printStackTrace();
-        }
+        deleteProject.setOnMouseClicked(event -> {
+            System.out.println("ID du Evenement à supprimer : " + project.getId());
+            try {
+                projectService.supprimer(project.getId());
+                TrayNotificationAlert.notif("Project", "project deleted successfully.",
+                        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
-        try {
-          Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            try {
+                Parent root = loader.load();
 
-          Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-           contentArea.getChildren().clear();
-          contentArea.getChildren().add(root);
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-       });
-       ItemUpdateBtn.setOnMouseClicked(event -> {
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        ItemUpdateBtn.setOnMouseClicked(event -> {
             System.out.println("project Name: " + project.getNomProjet());
 
             ProjectListController.setupdateProjectModelShow(1);

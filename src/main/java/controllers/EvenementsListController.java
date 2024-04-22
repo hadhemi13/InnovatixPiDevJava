@@ -25,6 +25,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
 public class EvenementsListController implements Initializable {
 
     @FXML
@@ -36,8 +37,8 @@ public class EvenementsListController implements Initializable {
     @FXML
     private HBox categoriesModel;
 
-  @FXML
-  private TextField productSearchInput;
+    @FXML
+    private TextField productSearchInput;
     @FXML
     private GridPane categoriesListContainer;
 
@@ -115,18 +116,19 @@ public class EvenementsListController implements Initializable {
         EvenementsListController.categoryModelShow = categoryModelShow;
     }
 
-  @FXML
-  void searchEvenement(KeyEvent event) throws IOException, SQLException {
-    Evenement.setSearchValue(((TextField) event.getSource()).getText());
+    @FXML
+    void searchEvenement(KeyEvent event) throws IOException, SQLException {
+        Evenement.setSearchValue(((TextField) event.getSource()).getText());
 
-    categId = -1;
+        categId = -1;
 
-    GridPane evenementsListContainer = (GridPane) content_area.lookup("#evenementsListContainer");
-    evenementsListContainer.getChildren().clear();
+        GridPane evenementsListContainer = (GridPane) content_area.lookup("#evenementsListContainer");
+        evenementsListContainer.getChildren().clear();
 
-      this.setEvenementGridPaneList();
+        this.setEvenementGridPaneList();
 
-  }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         qrCodeImgModel.setVisible(false);
@@ -141,11 +143,11 @@ public class EvenementsListController implements Initializable {
             categoriesModel.setVisible(true);
         }
 
-    try {
-        this.setEvenementGridPaneList();
-      } catch (SQLException e) {
-        throw new RuntimeException(e);
-      }
+        try {
+            this.setEvenementGridPaneList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         FXMLLoader fxmlLoader1 = new FXMLLoader();
         fxmlLoader1.setLocation(getClass().getResource("/gui/evenementInterfaces/AddCategoryCard.fxml"));
@@ -157,9 +159,10 @@ public class EvenementsListController implements Initializable {
 
         });
     }
+
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
-         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -175,10 +178,11 @@ public class EvenementsListController implements Initializable {
         categoriesModel.setVisible(false);
         EvenementsListController.setCategoryModelShow(0);
     }
-    private void setEvenementGridPaneList() throws SQLException {
-         IService evenementService = new ServiceEvenement();
 
-      List<Evenement> evenements = evenementService.afficher();
+    private void setEvenementGridPaneList() throws SQLException {
+        IService evenementService = new ServiceEvenement();
+
+        List<Evenement> evenements = evenementService.afficher();
 
 
         evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
@@ -186,22 +190,22 @@ public class EvenementsListController implements Initializable {
         int column = 0;
         int row = 1;
         try {
-          for (Evenement evenement : evenements) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCard.fxml"));
-            HBox oneEvenementCard = fxmlLoader.load();
-            OneEvenementListCardController evenementCardController = fxmlLoader.getController();
-            evenementCardController.setEvenementData(evenement);
+            for (Evenement evenement : evenements) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCard.fxml"));
+                HBox oneEvenementCard = fxmlLoader.load();
+                OneEvenementListCardController evenementCardController = fxmlLoader.getController();
+                evenementCardController.setEvenementData(evenement);
 
-            if (column == 1) {
-              column = 0;
-              ++row;
+                if (column == 1) {
+                    column = 0;
+                    ++row;
+                }
+                evenementsListContainer.add(oneEvenementCard, column++, row);
+                GridPane.setMargin(oneEvenementCard, new Insets(0, 10, 25, 10));
+                oneEvenementCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
             }
-            evenementsListContainer.add(oneEvenementCard, column++, row);
-            GridPane.setMargin(oneEvenementCard, new Insets(0, 10, 25, 10));
-            oneEvenementCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
-          }
         } catch (IOException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -236,7 +240,7 @@ public class EvenementsListController implements Initializable {
         offreModel.setVisible(false);
     }
 
- @FXML
+    @FXML
     void reductionTypedInput(KeyEvent event) {
         String reductionText = reductionInput.getText();
         if (!reductionText.matches("-?\\d+(\\.\\d+)?")) {

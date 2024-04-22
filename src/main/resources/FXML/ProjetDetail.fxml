@@ -15,26 +15,26 @@
                 <Font name="System Bold" size="18.0"/>
             </font>
         </Text>
-      <Label layoutX="14.0" layoutY="76.0" text="Nom"/>
-      <Label layoutX="14.0" layoutY="107.0" text="Description"/>
-      <Label layoutX="14.0" layoutY="138.0" text="Date de création"/>
-      <Label layoutX="14.0" layoutY="169.0" text="Catégorie"/>
-      <Label layoutX="14.0" layoutY="210.0" text="Budget"/>
-      <Label layoutX="14.0" layoutY="241.0" text="Durée du projet"/>
-      <Label layoutX="14.0" layoutY="272.0" text="Statut du projet"/>
-      <Label layoutX="14.0" layoutY="303.0" text="Image"/>
+        <Label layoutX="14.0" layoutY="76.0" text="Nom"/>
+        <Label layoutX="14.0" layoutY="107.0" text="Description"/>
+        <Label layoutX="14.0" layoutY="138.0" text="Date de création"/>
+        <Label layoutX="14.0" layoutY="169.0" text="Catégorie"/>
+        <Label layoutX="14.0" layoutY="210.0" text="Budget"/>
+        <Label layoutX="14.0" layoutY="241.0" text="Durée du projet"/>
+        <Label layoutX="14.0" layoutY="272.0" text="Statut du projet"/>
+        <Label layoutX="14.0" layoutY="303.0" text="Image"/>
 
-      <TextField fx:id="fxNom" layoutX="140.0" layoutY="72.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxDesc" layoutX="140.0" layoutY="103.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxDateCreation" layoutX="140.0" layoutY="134.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxCategorie" layoutX="140.0" layoutY="165.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxBudget" layoutX="140.0" layoutY="196.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxDureeProjet" layoutX="140.0" layoutY="227.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxStatutProjet" layoutX="140.0" layoutY="258.0" prefHeight="25.0" prefWidth="200.0"/>
-      <TextField fx:id="fxImg" layoutX="140.0" layoutY="289.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxNom" layoutX="140.0" layoutY="72.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxDesc" layoutX="140.0" layoutY="103.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxDateCreation" layoutX="140.0" layoutY="134.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxCategorie" layoutX="140.0" layoutY="165.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxBudget" layoutX="140.0" layoutY="196.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxDureeProjet" layoutX="140.0" layoutY="227.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxStatutProjet" layoutX="140.0" layoutY="258.0" prefHeight="25.0" prefWidth="200.0"/>
+        <TextField fx:id="fxImg" layoutX="140.0" layoutY="289.0" prefHeight="25.0" prefWidth="200.0"/>
 
 
-      <Button fx:id="saveButton" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" text="Save"
-              onAction="#onSaveButtonClick"/>
+        <Button fx:id="saveButton" layoutX="14.0" layoutY="330.0" mnemonicParsing="false" text="Save"
+                onAction="#onSaveButtonClick"/>
     </children>
 </AnchorPane>

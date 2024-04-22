@@ -18,63 +18,64 @@ import java.util.function.Consumer;
 
 public class FXML_CommentaireDetailController implements Initializable {
 
-  private Consumer<Commentaire> callback;
+    private Consumer<Commentaire> callback;
 
-  @FXML
-  public TextField fxNom;
-  @FXML
-  private TextField fxDesc;
-  @FXML
-  private TextField fxdate;
-  @FXML
-  private TextField fxdateFin;
-  @FXML
-  private TextField fxLieu;
-  @FXML
-  private TextField fxOrganisateur;
-  @FXML
-  private TextField fxPrix;
-  @FXML
-  private TextField fxLikes;
-  @FXML
-  private TextField fxDislikes;
-  @FXML
-  private ComboBox<String> fxProjectName;
-  private Commentaire commentaire;
-  @FXML
-  private javafx.scene.control.Button saveButton;
+    @FXML
+    public TextField fxNom;
+    @FXML
+    private TextField fxDesc;
+    @FXML
+    private TextField fxdate;
+    @FXML
+    private TextField fxdateFin;
+    @FXML
+    private TextField fxLieu;
+    @FXML
+    private TextField fxOrganisateur;
+    @FXML
+    private TextField fxPrix;
+    @FXML
+    private TextField fxLikes;
+    @FXML
+    private TextField fxDislikes;
+    @FXML
+    private ComboBox<String> fxProjectName;
+    private Commentaire commentaire;
+    @FXML
+    private javafx.scene.control.Button saveButton;
 
-  private boolean saveClicked = false;
+    private boolean saveClicked = false;
 
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-  }
-  public boolean isSaveClicked() {
-    return saveClicked;
-  }
-
-  public void initData(Commentaire commentaire) {
-    this.commentaire = commentaire;
-    fxNom.setText(commentaire.getNomuser());
-    fxDesc.setText(commentaire.getContenu());
-    fxdate.setText(commentaire.getDate());
-
-
-  }
-
-
-  private int getProjectIdByName(String projectName) throws SQLException {
-    try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("SELECT id FROM project WHERE nomProjet = ?")) {
-      preparedStatement.setString(1, projectName);
-      ResultSet resultSet = preparedStatement.executeQuery();
-      if (resultSet.next()) {
-        return resultSet.getInt("id");
-      } else {
-        throw new SQLException("Project not found: " + projectName);
-      }
     }
-  }
+
+    public boolean isSaveClicked() {
+        return saveClicked;
+    }
+
+    public void initData(Commentaire commentaire) {
+        this.commentaire = commentaire;
+        fxNom.setText(commentaire.getNomuser());
+        fxDesc.setText(commentaire.getContenu());
+        fxdate.setText(commentaire.getDate());
+
+
+    }
+
+
+    private int getProjectIdByName(String projectName) throws SQLException {
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("SELECT id FROM project WHERE nomProjet = ?")) {
+            preparedStatement.setString(1, projectName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("id");
+            } else {
+                throw new SQLException("Project not found: " + projectName);
+            }
+        }
+    }
 
 
 //  @FXML
@@ -109,9 +110,9 @@ public class FXML_CommentaireDetailController implements Initializable {
 //    }
 //  }
 
-  @FXML
-  private void onCancel(ActionEvent event) {
-    ((Stage) fxNom.getScene().getWindow()).hide();
-  }
+    @FXML
+    private void onCancel(ActionEvent event) {
+        ((Stage) fxNom.getScene().getWindow()).hide();
+    }
 
 }

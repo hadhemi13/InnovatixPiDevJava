@@ -38,8 +38,8 @@ public class EvenementsListControllerfront implements Initializable {
     @FXML
     private HBox categoriesModel;
 
-  @FXML
-  private TextField productSearchInput;
+    @FXML
+    private TextField productSearchInput;
     @FXML
     private GridPane categoriesListContainer;
 
@@ -103,7 +103,7 @@ public class EvenementsListControllerfront implements Initializable {
     private int categId = -1;
 
     private int sortValue = -1; // 1: sort by stock *** 0: filter by category *** 2: filter by category and sort
-                                // by stock
+    // by stock
     private int submitOfferTest = 0;
     private int submitCouponTest = 0;
 
@@ -119,25 +119,26 @@ public class EvenementsListControllerfront implements Initializable {
     }
 
 
-  @FXML
-  void searchEvenement(KeyEvent event) throws IOException, SQLException {
-    Evenement.setSearchValue(((TextField) event.getSource()).getText());
+    @FXML
+    void searchEvenement(KeyEvent event) throws IOException, SQLException {
+        Evenement.setSearchValue(((TextField) event.getSource()).getText());
 
-    categId = -1;
+        categId = -1;
 
-    GridPane evenementsListContainerfront = (GridPane) content_area.lookup("#evenementsListContainerfront");
-    evenementsListContainerfront.getChildren().clear();
+        GridPane evenementsListContainerfront = (GridPane) content_area.lookup("#evenementsListContainerfront");
+        evenementsListContainerfront.getChildren().clear();
 
-      this.setEvenementGridPaneList();
+        this.setEvenementGridPaneList();
 
-  }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         qrCodeImgModel.setVisible(false);
         offreModel.setVisible(false);
         reductionInputErrorHbox.setVisible(false);
         couponForm.setVisible(false);
-         couponInputErrorHbox.setVisible(false);
+        couponInputErrorHbox.setVisible(false);
         backToReductionBtn.setVisible(false);
 
         if (EvenementsListControllerfront.getCategoryModelShow() == 0) {
@@ -147,17 +148,17 @@ public class EvenementsListControllerfront implements Initializable {
         }
 
         // set the Evenement list in the grid pane***************************************
-      try {
-        this.setEvenementGridPaneList();
-      } catch (SQLException e) {
-        throw new RuntimeException(e);
-      }
+        try {
+            this.setEvenementGridPaneList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
-         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -173,10 +174,11 @@ public class EvenementsListControllerfront implements Initializable {
         categoriesModel.setVisible(false);
         EvenementsListControllerfront.setCategoryModelShow(0);
     }
-    private void setEvenementGridPaneList() throws SQLException {
-         IService evenementService = new ServiceEvenement();
 
-      List<Evenement> evenements = evenementService.afficher();
+    private void setEvenementGridPaneList() throws SQLException {
+        IService evenementService = new ServiceEvenement();
+
+        List<Evenement> evenements = evenementService.afficher();
 
 
         evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
@@ -185,23 +187,23 @@ public class EvenementsListControllerfront implements Initializable {
         int column = 0;
         int row = 1;
         try {
-          for (Evenement evenement : evenements) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
-            HBox oneEvenementCard = fxmlLoader.load();
-            OneEvenementListCardControllerfront evenementCardController = fxmlLoader.getController();
-            evenementCardController.setEvenementData(evenement);
+            for (Evenement evenement : evenements) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
+                HBox oneEvenementCard = fxmlLoader.load();
+                OneEvenementListCardControllerfront evenementCardController = fxmlLoader.getController();
+                evenementCardController.setEvenementData(evenement);
 
-            if (column == 1) {
-              column = 0;
-              ++row;
+                if (column == 1) {
+                    column = 0;
+                    ++row;
+                }
+                evenementsListContainerfront.add(oneEvenementCard, column++, row);
+                // GridPane.setMargin(oneEvenementCard, new Insets(10));
+                GridPane.setMargin(oneEvenementCard, new Insets(0, 10, 25, 10));
+                oneEvenementCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
             }
-            evenementsListContainerfront.add(oneEvenementCard, column++, row);
-            // GridPane.setMargin(oneEvenementCard, new Insets(10));
-            GridPane.setMargin(oneEvenementCard, new Insets(0, 10, 25, 10));
-            oneEvenementCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
-          }
         } catch (IOException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
 
     }
@@ -272,7 +274,8 @@ public class EvenementsListControllerfront implements Initializable {
         addNewCouponBtn.setVisible(false);
         backToReductionBtn.setVisible(true);
     }
- @FXML
+
+    @FXML
     void couponTypedInput(KeyEvent event) {
         String couponText = couponInput.getText();
         if (!couponText.matches("-?\\d+(\\.\\d+)?")) {

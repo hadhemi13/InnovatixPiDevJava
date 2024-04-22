@@ -54,13 +54,12 @@ public class OneEvenementListCardController {
     private HBox offerEvenement;
 
 
-
     @FXML
     private HBox priceHbox;
 
     public void setEvenementData(Evenement evenement) {
         float prixApresOffre = 0;
-         IService EvenementService = new ServiceEvenement();
+        IService EvenementService = new ServiceEvenement();
 
         Image image = new Image(
                 getClass().getResource("/assets/ProductUploads/" + evenement.getImg()).toExternalForm());
@@ -104,13 +103,13 @@ public class OneEvenementListCardController {
         // END deleteEvenement btn click
 
         // editEvenement btn click
-       editEvenement.setId(String.valueOf(evenement.getId()));
+        editEvenement.setId(String.valueOf(evenement.getId()));
 
         editEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement à modifier : " + evenement.getId());
-          //  Collecte.setIdEvenement(evenement.getId());
+            //  Collecte.setIdEvenement(evenement.getId());
 
-        //    Collecte.actionTest = 1; // pour afficher le bouton update
+            //    Collecte.actionTest = 1; // pour afficher le bouton update
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AddEvenement.fxml"));
             try {
@@ -130,7 +129,7 @@ public class OneEvenementListCardController {
         // END editEvenement btn click
 
         // qrCodeEvenement btn click
-   //     editEvenement.setId(String.valueOf(evenement.getId()));
+        //     editEvenement.setId(String.valueOf(evenement.getId()));
 
 //        qrCodeEvenement.setOnMouseClicked(event -> {
 //            System.out.println("ID du Evenement à générer qr Code : " + evenement.getId());
@@ -165,7 +164,7 @@ public class OneEvenementListCardController {
         // END qrCodeEvenement btn click
 
         // offreEvenement btn click
-      //  offerEvenement.setId(String.valueOf(Evenement.getId()));
+        //  offerEvenement.setId(String.valueOf(Evenement.getId()));
 
 //        offerEvenement.setOnMouseClicked(event -> {
 //            System.out.println("ID du Evenement à créer une offre : " + Evenement.getId());

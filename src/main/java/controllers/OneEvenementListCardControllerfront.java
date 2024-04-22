@@ -2,12 +2,12 @@ package controllers;
 
 import Entities.Evenement;
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import services.IService;
 import services.ServiceEvenement;
+
 public class OneEvenementListCardControllerfront {
 
     @FXML
@@ -39,7 +39,6 @@ public class OneEvenementListCardControllerfront {
 
     @FXML
     private HBox offerEvenement;
-
 
 
     @FXML
