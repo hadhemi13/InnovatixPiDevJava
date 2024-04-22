@@ -40,7 +40,7 @@ public class Cheque {
         this.pdf_sans_signature = pdf_sans_signature;
     }
 
-    public Cheque(String beneficiaire, double montant, int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision) {
+    public Cheque(String beneficiaire, double montant,int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision,int compte_id,int user_id) {
         this.beneficiaire = beneficiaire;
         this.montant = montant;
         this.telephone = telephone;
@@ -50,6 +50,8 @@ public class Cheque {
         this.date = date;
         this.photo_cin = photo_cin;
         this.decision = decision;
+        this.compte_id = compte_id;
+        this.user_id = user_id;
     }
 
     public Cheque() {

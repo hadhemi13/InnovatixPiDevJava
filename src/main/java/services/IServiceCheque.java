@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IServiceCheque<T> {
-    void ajouter(Cheque cheque) throws SQLException;
+    boolean ajouter(Cheque cheque) throws SQLException;
 
     void modifier(Cheque cheque) throws SQLException;
 

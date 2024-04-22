@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -157,6 +158,9 @@ public class DemandeChequeListClient  implements  Initializable {
                 // Gérer l'exception ici, si nécessaire
             }
         }
+    }
+
+    public void SearchCheque(KeyEvent keyEvent) {
     }
 
 }

@@ -107,7 +107,7 @@ public class ChequeItems implements Initializable {
         ServiceCheque serviceCheque = new ServiceCheque();
 
         userItemEmail.setText(String.valueOf(i.getCin()));
-        userItemName.setText(String.valueOf(i.getId()));
+        userItemName.setText(String.valueOf(i.getCompte_id()));
         userItemTel.setText(i.getNom_prenom());
         userItemRole.setText(i.getEmail());
         userItemStateText.setText(i.getDecision());

@@ -4,42 +4,50 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.DemandeVirementListClient">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.DemandeVirementListClient">
     <children>
-        <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
+        <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="86.0" prefWidth="1205.0">
             <children>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Virement  Bancaires ">
                     <font>
                         <Font name="Bell MT" size="22.0" />
                     </font>
                     <HBox.margin>
-                        <Insets left="9.0" />
+                        <Insets left="30.0" />
                     </HBox.margin></Text>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+               <image>
+                  <Image url="@../img/magnifier.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="VirementSearch" onKeyTyped="#searchVirement" prefHeight="27.0" prefWidth="200.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </TextField>
 
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" wrappingWidth="113.8538818359375">
                     <HBox.margin>
-                        <Insets left="50.0" right="2.0" />
+                        <Insets left="50.0" right="10.0" />
                     </HBox.margin>
                     <font>
                         <Font size="22.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" promptText="All" styleClass="Cheque__add-comboBox" stylesheets="@../../resources/css/Compte.css">
+                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="146.0" onAction="#statusChange" prefHeight="40.0" prefWidth="146.0" promptText="Type" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
                     <HBox.margin>
-                        <Insets left="50.0" />
-                    </HBox.margin>
-                    <padding>
-                        <Insets top="4.0" />
-                    </padding></ComboBox>
-                <Button fx:id="VirBtn" mnemonicParsing="false" onMouseClicked="#ajouterV" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
+                        <Insets />
+                    </HBox.margin></ComboBox>
+                <Button fx:id="VirementBtn" mnemonicParsing="false" onMouseClicked="#AjouterV" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -48,54 +56,17 @@
                         </ImageView>
                     </graphic>
                     <HBox.margin>
-                        <Insets left="150.0" />
+                        <Insets left="80.0" />
                     </HBox.margin>
                 </Button>
             </children>
         </HBox>
-        <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="VirementTableHead" stylesheets="@../css/Compte.css">
-            <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="RIB " wrappingWidth="108.55469131469727">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="CIN" wrappingWidth="70.95473098754883">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom et Prenom" wrappingWidth="100.55472183227539">
-               <HBox.margin>
-                  <Insets right="22.0" />
-               </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Num télèphone " wrappingWidth="106.15463638305664">
-               <HBox.margin>
-                  <Insets right="22.0" />
-               </HBox.margin></Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type de Virement" wrappingWidth="138.15475845336914" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Transférez A ">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Num bénéficiaire">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Montant" wrappingWidth="56.82696533203125">
-               <HBox.margin>
-                  <Insets left="30.0" right="20.0" />
-               </HBox.margin>
-            </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions " wrappingWidth="55.75461196899414">
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin></Text>
-            </children>
-        </HBox>
-        <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane">
+        <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="42.0" prefWidth="1187.0" styleClass="VirementTableHead" stylesheets="@../css/Compte.css" />
+        <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="134.0" prefHeight="487.0" prefWidth="1187.0" styleClass="user_listScrollPane">
             <content>
-                <VBox fx:id="userListContainer" prefHeight="446.0" prefWidth="1028.0" spacing="13.0" styleClass="userTableBody" />
+                <GridPane fx:id="VirementList" prefHeight="475.0" prefWidth="1151.0" translateX="20.0">
+                    <!-- Le contenu sera chargé dans ce GridPane -->
+                </GridPane>
             </content>
         </ScrollPane>
     </children>

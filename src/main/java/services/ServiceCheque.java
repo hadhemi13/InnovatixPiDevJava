@@ -16,7 +16,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
     }
 
     @Override
-    public void ajouter(Cheque cheque) throws SQLException {
+    public boolean ajouter(Cheque cheque) throws SQLException {
         String req = "INSERT INTO cheque "
                 + "(compte_id, user_id, beneficiaire, montant, telephone, email, cin, nom_prenom, date, decision, photo_cin, signature_id, document_id ,signer_id, pdf_sans_signature) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -44,25 +44,34 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             System.err.println(e.getMessage());
         }
 
+        return false;
     }
     public void ajouterS(Cheque cheque) throws SQLException {
+     //   INSERT INTO `cheque` (`id`, `compte_id`, `user_id`, `beneficiaire`, `montant`, `telephone`, `email`, `cin`, `nom_prenom`, `date`, `decision`, `photo_cin`, `signature_id`, `document_id`, `signer_id`, `pdf_sans_signature`) VALUES (NULL, NULL, NULL, 'jbjqjs', '2222', '222222', 'Ddjdnjdn', '222222', 'djdjdd', '2024-04-23', 'dedeeed', 'eeee', NULL, NULL, NULL, NULL);
+        String reqe = "INSERT INTO `cheque`";
+
+
         String req = "INSERT INTO cheque "
-                + "(beneficiaire, montant, telephone, email, cin, nom_prenom, date, decision, photo_cin) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "(beneficiaire, montant, email, cin, nom_prenom, date, decision, photo_cin,compte_id,user_id,telephone) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(req);
             ps.setString(1, cheque.getBeneficiaire());
             ps.setDouble(2, cheque.getMontant());
-            ps.setInt(3, cheque.getTelephone());
-            ps.setString(4, cheque.getEmail());
-            ps.setInt(5, cheque.getCin());
-            ps.setString(6, cheque.getNom_prenom());
-            ps.setDate(7, cheque.getDate());
-            ps.setString(8, cheque.getDecision());
-            ps.setInt(9, cheque.getCin());
-
+           // ps.setInt(3, cheque.getTelephone());
+            ps.setString(3, cheque.getEmail());
+            ps.setInt(4, cheque.getCin());
+            ps.setString(5, cheque.getNom_prenom());
+            ps.setDate(6, cheque.getDate());
+            ps.setString(7, cheque.getDecision());
+            ps.setInt(8, cheque.getCin());
+            ps.setInt(9,cheque.getCompte_id());
+            ps.setInt(10,cheque.getUser_id());
+            ps.setInt(11,cheque.getTelephone());
             ps.executeUpdate();
             System.out.println("Chèque ajouté avec succès !");
+            System.out.println(cheque.getId());
+            System.out.println(cheque);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
@@ -141,7 +150,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             connection = MyDatabase.getInstance().getConnection();
 
             // Préparer la requête SQL
-            String query = "SELECT * FROM votre_table_de_cheques WHERE id = ?";
+            String query = "SELECT * FROM cheque WHERE id = ?";
             statement = connection.prepareStatement(query);
             statement.setInt(1, id);
 

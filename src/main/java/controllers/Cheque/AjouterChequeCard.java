@@ -5,13 +5,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
@@ -26,6 +29,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.cert.PolicyNode;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -57,6 +61,8 @@ public class AjouterChequeCard implements Initializable {
 
     @FXML
     private TextField NometPrenom;
+    @FXML
+    private Pane content_area;
 
     @FXML
     private Text NometPrenomInputError;
@@ -134,6 +140,8 @@ public class AjouterChequeCard implements Initializable {
 
     private File selectedImageFile;
     private String imageName = null ;
+
+
     @FXML
     void ImporterImg(ActionEvent event) {
        /* FileChooser fileChooser = new FileChooser();
@@ -187,7 +195,7 @@ public class AjouterChequeCard implements Initializable {
 
 
     @FXML
-    public void ajouterCheque(MouseEvent mouseEvent)  throws SQLException {
+    public void ajouterCheque(MouseEvent mouseEvent) throws SQLException, IOException {
 
         ServiceCheque sc = new ServiceCheque();
         if (Cin.getText().isEmpty()) {
@@ -288,11 +296,22 @@ public class AjouterChequeCard implements Initializable {
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
 
-        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, (java.sql.Date) sqlDate,imageName,decision);
+        Cheque cheque = new Cheque(beneficiairee,montantn,12,email,Cin,Nom, (java.sql.Date) sqlDate,imageName,decision,1,1);
 
 
         ServiceCheque serviceCheque = new ServiceCheque();
         serviceCheque.ajouterS(cheque);
+
+
+        if (sc.ajouter(cheque)) {
+            // Redirection vers la liste des demandes de chèques
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
+            Pane addArticleParent = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(addArticleParent);
+        }
+
 
     }
     @Override
@@ -308,8 +327,8 @@ public class AjouterChequeCard implements Initializable {
 
         ObservableList<String> beneficiaires = FXCollections.observableArrayList(
                 "Paiement",
-                     "PaiementEco",
-                     "Personne"
+                "PaiementEco",
+                "Personne"
         );
 
         beneficiaire.setItems(beneficiaires);
@@ -317,11 +336,7 @@ public class AjouterChequeCard implements Initializable {
 
     }
 
-
     public void ajouter_image(MouseEvent mouseEvent) {
-    }
-
-    public void UpdateCheque(MouseEvent mouseEvent) {
     }
 }
 

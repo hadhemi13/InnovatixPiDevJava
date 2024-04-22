@@ -12,24 +12,32 @@ import java.util.List;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
-        // Créer une instance de ServiceVirement
-        ServiceVirement serviceVirement = new ServiceVirement();
-
-        try {
-            // Appeler la méthode afficher pour récupérer la liste des virements
-            List<Virement> virements = serviceVirement.afficher();
-
-            // Afficher les virements récupérés
-            for (Virement virement : virements) {
-                System.out.println(virement);
-            }
-        } catch (SQLException e) {
-            // Gérer les éventuelles exceptions
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws SQLException {
+        Cheque cheque = new Cheque("hsh",22,12,"kahak",122121,"yshs",new Date(125,04,06),"dsshs","hsh",1,1);
+        System.out.println(cheque.getUser_id());
+        ServiceCheque serviceCheque = new ServiceCheque();
+       // serviceCheque.ajouterS(cheque);
+       Cheque a = serviceCheque.getById(2234606);
+        System.out.println("this : " + a);
     }
 }
+        // Créer une instance de ServiceVirement
+//        ServiceVirement serviceVirement = new ServiceVirement();
+//
+//        try {
+//            // Appeler la méthode afficher pour récupérer la liste des virements
+//            List<Virement> virements = serviceVirement.afficher();
+//
+//            // Afficher les virements récupérés
+//            for (Virement virement : virements) {
+//                System.out.println(virement);
+//            }
+//        } catch (SQLException e) {
+//            // Gérer les éventuelles exceptions
+//            e.printStackTrace();
+//        }
+//    }
+//}
 //    public static void main(String[] args) {
 //        // Créer une instance de ServiceVirement
 //        ServiceVirement serviceVirement = new ServiceVirement();
