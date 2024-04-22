@@ -34,6 +34,14 @@ public class Reponse {
         this.piece_jrep = piece_jrep;
     }
 
+    public Reponse(String adr_rep, LocalDateTime date_rep, String contenu_rep, String piece_jrep) {
+        this.adr_rep = adr_rep;
+        this.date_rep = date_rep;
+        this.contenu_rep = contenu_rep;
+        this.piece_jrep = piece_jrep;
+        this.reclamation = reclamation;
+    }
+
     public Integer getId() {
         return id;
     }

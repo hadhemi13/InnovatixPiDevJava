@@ -13,12 +13,12 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="426.0" prefWidth="378.0">
                <children>
-                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="222.0">
+                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="91.0" translateY="5.0">
                         <VBox.margin>
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
                         <children>
-                            <ImageView fx:id="imgArtFront" fitHeight="129.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="imgArtFront" fitHeight="150.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" translateY="5.0">
                                 <image>
                                     <Image url="@../imagesAct/eco-modified (3).png" />
                                 </image>

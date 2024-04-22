@@ -41,6 +41,8 @@ public class AjouterReponseAdminController implements Initializable {
 
     @FXML
     private Button reponseBtn;
+    private Reclamation reclamation;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         contenuInputErrorBox.setVisible(false);
@@ -68,7 +70,7 @@ public class AjouterReponseAdminController implements Initializable {
         LocalDateTime dateTime = LocalDateTime.now();
         String adresse = "mahmoud";
         String pieceJointe = "admin";
-        Reponse reponse = new Reponse(2,adresse,dateTime,contenuInput.getText(),pieceJointe);
+        Reponse reponse = new Reponse(reclamation.getId(),adresse,dateTime,contenuInput.getText(),pieceJointe);
         try {
             sr.ajouter(reponse);
         } catch (SQLException e) {
@@ -77,6 +79,9 @@ public class AjouterReponseAdminController implements Initializable {
 
     }
 
-
+    public void initDataRec(Reclamation reclamation) {
+        this.reclamation = reclamation;
+        // Autres initialisations si nécessaire
+    }
 
 }

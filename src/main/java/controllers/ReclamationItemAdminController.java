@@ -109,14 +109,31 @@ public class ReclamationItemAdminController implements Initializable {
     @FXML
     void RecReplyBtn(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterReponseAdmin.fxml"));
-        try {
-            Parent addResponseParent = loader.load();
-            // Afficher le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
-            Stage stage = new Stage();
-            stage.setScene(new Scene(addResponseParent));
-            stage.show();
+       try {
+//            Parent addResponseParent = loader.load();
+//            // Afficher le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(addResponseParent));
+//            stage.show();
+        Parent addResponseParent = loader.load();
+
+        // Obtenez le contrôleur de vue d'ajout de réponse
+        AjouterReponseAdminController controller = loader.getController();
+
+        // Passez l'objet Reclamation actuel au contrôleur de vue d'ajout de réponse
+        controller.initDataRec(reclamation);
+
+        // Affichez le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
+        Stage stage = new Stage();
+        stage.setScene(new Scene(addResponseParent));
+        stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private Reclamation reclamation;
+    public void initDataRec(Reclamation reclamation) {
+        this.reclamation = reclamation;
+        // Autres initialisations si nécessaire
     }
 }
