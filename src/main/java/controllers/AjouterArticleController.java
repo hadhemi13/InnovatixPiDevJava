@@ -150,10 +150,10 @@ public class AjouterArticleController implements Initializable {
         }
 
         if (titreInput.getText().isEmpty()) {
-            pieceJInputErrorHbox.setVisible(true);
+            titreInputErrorHbox.setVisible(true);
             champsVides = true;
         } else {
-            pieceJInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+            titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
         String titre = titreInput.getText();
         if (!Character.isUpperCase(titre.charAt(0))) {

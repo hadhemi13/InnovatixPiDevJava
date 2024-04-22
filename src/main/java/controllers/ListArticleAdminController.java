@@ -117,9 +117,9 @@ public class ListArticleAdminController implements Initializable {
 //        int columnSpacing = 10;
         // Espacement entre les cartes
         double verticalGap = 18; // Environ 9 mm
-        double horizontalGap = 70; // Environ 9 mm
+        double horizontalGap = 50; // Environ 9 mm
         // Espacement entre le GridPane et les cartes
-        double margin = 10; // Environ 10 mm
+        double margin = 5; // Environ 10 mm
         // Définir l'espacement vertical et horizontal
         ArtListContainer.setVgap(verticalGap);
         ArtListContainer.setHgap(horizontalGap);

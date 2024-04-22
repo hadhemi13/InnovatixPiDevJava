@@ -3,6 +3,7 @@ package Entities;
 import java.time.LocalDateTime;
 
 public class Reponse {
+
     private Integer id;
     private Integer reclamation_id;
     private Integer user_id;
@@ -10,6 +11,7 @@ public class Reponse {
     private LocalDateTime date_rep;
     private String contenu_rep;
     private String piece_jrep;
+    private Reclamation reclamation;
 
     public Reponse() {
     }
@@ -87,4 +89,13 @@ public class Reponse {
     public void setPiece_jrep(String piece_jrep) {
         this.piece_jrep = piece_jrep;
     }
+    public void setReclamation(Reclamation reclamation) {
+        this.reclamation = reclamation;
+
+    }
+
+    public Reclamation getReclamation() {
+        return this.reclamation;
+    }
+
 }

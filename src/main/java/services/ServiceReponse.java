@@ -1,9 +1,11 @@
 package services;
 
+import Entities.Reclamation;
 import Entities.Reponse;
 import utils.MyDatabase;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,10 +66,10 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
     }
 
     @Override
+//
     public List<Reponse> afficher() throws SQLException {
-
         List<Reponse> reponses = new ArrayList<>();
-        String req = "SELECT * FROM reponse";
+        String req = "SELECT r.*, re.* FROM reponse r JOIN reclamation re ON r.reclamation_id = re.id";
         try (Statement statement = connection.createStatement();
              ResultSet rs = statement.executeQuery(req)) {
             while (rs.next()) {
@@ -77,6 +79,17 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
                 reponse.setDate_rep(rs.getTimestamp("date_rep").toLocalDateTime());
                 reponse.setContenu_rep(rs.getString("contenu_rep"));
                 reponse.setPiece_jrep(rs.getString("piece_jrep"));
+                // Ajouter les données de la réclamation associée
+                Reclamation reclamation = new Reclamation();
+                reclamation.setId(rs.getInt("id"));
+                reponse.setDate_rep(rs.getTimestamp("date_rep").toLocalDateTime());
+                LocalDateTime dateRec= rs.getObject("re.date_rec", LocalDateTime.class);
+                reclamation.setDate_rec(dateRec);
+                reclamation.setAdr_rec(rs.getString("adr_rec"));
+
+
+                // Récupérer d'autres colonnes de la table reclamation si nécessaire
+                reponse.setReclamation(reclamation);
                 reponses.add(reponse);
             }
         }

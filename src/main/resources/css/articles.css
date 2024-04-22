@@ -31,15 +31,13 @@
     -fx-text-fill: white;
 }
 .buttonFront:hover{
-    -fx-effect: innershadow(gaussian, #000000, 10, 0.4, 0, 0);
-    -fx-effect: dropshadow(gaussian, #000000, 10, 0.4, 0, 0);
+
     -fx-background-color: transparent;
     -fx-background-radius: 20;
     -fx-text-fill: white;
 }
 .buttonFront:pressed{
-    -fx-effect: innershadow(gaussian, #000000, 10, 0.8, 0, 0);
-    -fx-effect: dropshadow(gaussian, #000000, 10, 0.8, 0, 0);
+
     -fx-background-color: transparent;
     -fx-background-radius: 20;
     -fx-text-fill: white;
@@ -56,8 +54,7 @@
     -fx-text-fill: white;
 }*/
 .buttonNext:pressed{
-    -fx-effect: innershadow(gaussian, #000000, 10, 0.2, 0, 0);
-    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 0, 0);
+
     -fx-background-color: transparent;
     -fx-background-radius: 20;
 
@@ -67,15 +64,13 @@
 
 }
 .star:hover{
-    -fx-effect: innershadow(gaussian, #000000, 10, 0.2, 0, 0);
-    -fx-effect: dropshadow(gaussian, #000000, 10, 0.2, 0, 0);
+
     -fx-background-color: transparent;
     -fx-background-radius: 20;
     -fx-text-fill: white;
 }
 .star:pressed{
-    -fx-effect: innershadow(gaussian, #000000, 10, 0.3, 0, 0);
-    -fx-effect: dropshadow(gaussian, #000000, 10, 0.3, 0, 0);
+
     -fx-background-color: transparent;
     -fx-background-radius: 20;
 
@@ -127,11 +122,10 @@
     -fx-pref-width: 0;
 }
 .table-view .column-header .label {
-    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.8), 5, 0.1, 0, 0);
+    /*-fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.8), 5, 0.1, 0, 0);*/
     -fx-font-size: 16px; /* sets the font size of the header labels */
     -fx-font-family:"Calibri";
-    -fx-text-fill: #000000; /* sets the text color of the header labels */
-    -fx-font-style: italic; /* sets the font weight of the header labels */
+
 }
 .table-view .scroll-bar:vertical {
     -fx-opacity: 0;
