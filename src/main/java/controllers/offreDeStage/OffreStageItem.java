@@ -6,11 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import services.ServiceOffreDeStage;
 
 import java.io.IOException;
@@ -105,11 +107,13 @@ public class OffreStageItem implements Initializable {
     }
     OffreDeStage stage;
 
+    int a ;
+
 public void initData(OffreDeStage i) {
 //    System.out.println(i.getPostePropose());
 //    System.out.println(i);
     System.out.println(i.getPostePropose());
-
+    a = i.getPostePropose();
 
 
     ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
@@ -156,11 +160,16 @@ public void initData(OffreDeStage i) {
             );
     UpdateOffre.setOnMouseClicked(mouseEvent -> {
         System.out.println("update mouse click" );
+        Stage primaryStage = new Stage();
         try {
 
             OffreDeStage offreDeStage = serviceOffreDeStage.afficheUne(Integer.parseInt(UpdateOffre.getId()));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/EditOffre.fxml")) ;
             Parent  parent = loader.load();
+            Scene scene = new Scene(parent);
+            primaryStage.setTitle("E-Flex Bank");
+            primaryStage.setScene(scene);
+            primaryStage.show();
             EditOffreController editOffreController = loader.getController();
             editOffreController.initData(Integer.parseInt(UpdateOffre.getId()));
             AfficheOffreController afficheOffreController = new AfficheOffreController();

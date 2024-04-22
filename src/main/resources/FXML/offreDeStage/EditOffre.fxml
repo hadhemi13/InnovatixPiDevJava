@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
@@ -13,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.EditOffreController">
+<AnchorPane prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.EditOffreController">
     <children>
         <VBox prefHeight="622.0" prefWidth="1084.0">
             <children>
@@ -45,7 +51,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="NomDemInput" promptText="saisir le title" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="titre" promptText="saisir le title" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
@@ -75,7 +81,7 @@
                                                 <Insets left="15.0" />
                                             </VBox.margin>
                                         </HBox>
-                                        <TextField fx:id="PrenomDemInput" promptText="saisir le domaine" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="domaine" promptText="saisir le domaine" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
@@ -102,7 +108,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="EmailDemInput" promptText="saisir le type " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="type" promptText="saisir le type " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
@@ -129,7 +135,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="NumeroDemInput" promptText="saisir le poste proposé " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="poste" promptText="saisir le poste proposé " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
@@ -156,7 +162,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField promptText="saisir l'expérience ">
+                                        <TextField fx:id="experience" promptText="saisir l'expérience ">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -180,16 +186,16 @@
                                         <Insets top="15.0" />
                                     </VBox.margin>
                                     <children>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
-                                            <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Niveau ">
-                                                    <HBox.margin>
-                                                        <Insets left="15.0" top="6.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                            </children>
-                                        </HBox>
-                                        <TextField fx:id="cv" promptText="saisir le niveau " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+<!--                                        <HBox prefHeight="100.0" prefWidth="200.0">-->
+<!--                                            <children>-->
+<!--                                                <Label fx:id="niveau" styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Niveau ">-->
+<!--                                                    <HBox.margin>-->
+<!--                                                        <Insets left="15.0" top="6.0" />-->
+<!--                                                    </HBox.margin>-->
+<!--                                                </Label>-->
+<!--                                            </children>-->
+<!--                                        </HBox>-->
+                                        <TextField fx:id="niveau" promptText="saisir le niveau " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
@@ -205,33 +211,6 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="70.0" prefWidth="701.0">
-                                    <children>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
-                                            <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Date Postulé ">
-                                                    <HBox.margin>
-                                                        <Insets left="15.0" top="15.0" />
-                                                    </HBox.margin>
-                                                </Label>
-                                            </children>
-                                        </HBox>
-                                        <DatePicker fx:id="date">
-                                            <VBox.margin>
-                                                <Insets left="15.0" top="15.0" />
-                                            </VBox.margin>
-                                        </DatePicker>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
-                                            <children>
-                                                <Text fill="#e42c2c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir la date ! ">
-                                                    <HBox.margin>
-                                                        <Insets left="15.0" top="15.0" />
-                                                    </HBox.margin>
-                                                </Text>
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </VBox>
                                 <VBox prefHeight="58.0" prefWidth="701.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -239,7 +218,7 @@
                                                 <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="la language " />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="LettreDemInput" promptText="saisir la language " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="language" promptText="saisir la language " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
                                             <VBox.margin>
                                                 <Insets right="20.0" top="15.0" />
                                             </VBox.margin>
@@ -269,7 +248,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField promptText="saisir la description ">
+                                        <TextField fx:id="description" promptText="saisir la description ">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -296,7 +275,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField promptText="saisir l'exigence des offres ">
+                                        <TextField fx:id="exigence" promptText="saisir l'exigence des offres ">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -323,7 +302,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField promptText="Saisir les Mots Clés ">
+                                        <TextField fx:id="motsCles" promptText="Saisir les Mots Clés ">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -350,7 +329,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField>
+                                        <TextField fx:id="pfeBook">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>

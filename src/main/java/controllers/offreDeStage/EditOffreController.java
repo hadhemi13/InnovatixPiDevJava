@@ -17,36 +17,56 @@ import services.ServiceOffreDeStage;
 
 public class EditOffreController implements Initializable {
     @FXML
-    private DatePicker date;
-
-    @FXML
-    private TextField LettreDemInput;
-
-    @FXML
-    private TextField EmailDemInput;
-
-    @FXML
-    private TextField cv;
-
-    @FXML
-    private Button updateOffre;
+    private TextField motsCles;
 
     @FXML
     private Button upload;
 
     @FXML
-    private TextField PrenomDemInput;
+    private TextField titre;
 
     @FXML
-    private TextField NumeroDemInput;
+    private TextField domaine;
 
     @FXML
-    private TextField NomDemInput;
+    private TextField description;
+
+    @FXML
+    private TextField language;
+
+    @FXML
+    private TextField type;
+
+    @FXML
+    private TextField experience;
+
+    @FXML
+    private TextField niveau;
+
+    @FXML
+    private TextField pfeBook;
+
+    @FXML
+    private Button updateOffre;
+
+    @FXML
+    private TextField exigence;
+
+    @FXML
+    private TextField poste;
     public void initData(int a) throws SQLException {
         ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
 //         List <OffreDeStage> stage = serviceOffreDeStage.afficherId();
         OffreDeStage stage = serviceOffreDeStage.afficheUne(a);
-         System.out.println(stage);
+//         System.out.println(stage);
+
+        description.setText(stage.getDescription());
+        titre.setText(stage.getTitle());
+        exigence.setText(stage.getExigenceOffre());
+        StringBuilder stringBuilder = new StringBuilder();
+//        forea (String i : stage.getLanguage())
+
+//        language.setText(stage.getLanguage().toString());
 //         NomDemInput.setText();
 
 
@@ -61,6 +81,7 @@ public class EditOffreController implements Initializable {
     }
 
     public void upload(ActionEvent actionEvent) {
+
     }
 
     public void updateOffre(ActionEvent actionEvent) {
