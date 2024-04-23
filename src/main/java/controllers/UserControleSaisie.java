@@ -81,5 +81,34 @@ public class UserControleSaisie {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
+    public static boolean forgetPasswordValidator(String email, User user) {
+        if (email.equals("")) {
+            showAlert("Forgot password", "Please fill out all required fields.");
+            return false;
+        }
+
+        Pattern emailPattern = Pattern.compile("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
+        if (!emailPattern.matcher(email).matches()) {
+            showAlert("sign Up", "The email " + email + " is not a valid email.");
+            return false;
+        }
+
+        if (user.getId() == -999) {
+            showAlert("Forgot password", "Email not associated with zeroWaste account");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Méthode pour afficher une boîte de dialogue d'alerte
+    private static void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }
 
