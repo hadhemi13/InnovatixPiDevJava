@@ -19,7 +19,7 @@ public class Main {
         yesser.add("ROLE_ADMIN");
        // User user= new User( 1,"John Doe","exemple@example.com","12345678","ROLE_USER","motdepasse","Développeur","ABC123","chemin/vers/photo.jpg","123 rue exemple","12/6/2000",0,0,"rh",1000);
 User maryem = new User(4,"maryem","maryemmhamdi@gmail.com","hello","sbs","hshsh","hhshs");
-User maryemHobYesser = new User("maryemHobYesser","jdsjs","hshsh","shshbs","hshshs","hdhdh","hshs","bssb","shshs","hshs",0,1,"gsgs",253);
+User maryemHobYesser = new User("maryemHobYesser","jdsjs","hshsh","yesser@gmail.com","hshshs","hdhdh","hshs","bssb","shshs","hshs",0,1,"gsgs",253);
     try {
             serviceUser.ajouter(maryemHobYesser);
             System.out.println("edit");

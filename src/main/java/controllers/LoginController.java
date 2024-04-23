@@ -1,4 +1,5 @@
 package controllers;
+import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -8,6 +9,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
+import java.util.EventObject;
+import java.util.ResourceBundle;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.event.ActionEvent;
+import org.mindrot.jbcrypt.BCrypt;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
+import javafx.event.ActionEvent;
+
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +27,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
+import services.ServiceUser;
+
+
 
 public class LoginController {
 
@@ -64,9 +80,7 @@ public class LoginController {
         stage.show();
     }
 
-}
-   /* void logIn(ActionEvent event) throws IOException {
-
+    public void logIn(ActionEvent actionEvent) {
         String email = emailField.getText();
         String password = passField.getText();
 
@@ -76,64 +90,55 @@ public class LoginController {
         try {
             user = userService.getOneUser(email);
             if (user.getId() == -999) {
-                TrayNotificationAlert.notif("Login", "Invalid credentials.",
-                        NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
+                AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
             } else {
-                // System.out.println(user);
                 if (BCrypt.checkpw(password, user.getPassword().replace("$2y$", "$2a$"))) {
-
-                    if (!user.getState()) {
-                        TrayNotificationAlert.notif("Login", "Your account is blocked.",
-                                NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
-                    } else if (user.getIsVerified()) {
-                        TrayNotificationAlert.notif("Login", "logged in successfully.",
-                                NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+                    if (user.getIs_blocked() == 1) {
+                        AlertUtil.showAlert( "login","Invalid credentials.",Alert.AlertType.ERROR);
+                    } else {
+                        AlertUtil.showAlert("Login", "Logged in successfully.", Alert.AlertType.INFORMATION);
                         UserSession.getInstance().setEmail(user.getEmail());
                         System.out.println("to the DASHBOARD");
-                        if (user.getRoles().equals("[\"ROLE_USER\"]")
-                                || user.getRoles().equals("[\"ROLE_ASSOCIATION\"]")) {
+                        if (user.getRoles().equals("[\"ROLE_CLIENT\"]")
+                                || user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
                             System.out.println("to the USERDASHBOARD");
-                            Parent root = FXMLLoader.load(getClass().getResource("/gui/UserDashboard.fxml"));
+                            Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
                             Scene scene = new Scene(root);
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                             stage.setScene(scene);
                             stage.show();
                         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
-                            Parent root = FXMLLoader.load(getClass().getResource("/gui/AdminDashboard.fxml"));
+                            Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBar.fxml"));
                             Scene scene = new Scene(root);
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                             stage.setScene(scene);
                             stage.show();
                         }
-                    } else {
-
-                        Map<String, String> data = new HashMap<>();
-                        data.put("emailSubject", "Confirm your email address for zeroWaste");
-                        data.put("titlePlaceholder", "Confirm Your Email Address");
-                        data.put("msgPlaceholder", "Here's the code to confirm your email address:");
-
-                        SendMail.send(user, data);
-
-                        TrayNotificationAlert.notif("Login", "Please verify your email.",
-                                NotificationType.WARNING, AnimationType.POPUP, Duration.millis(2500));
-
-                        UserSession.getInstance().setEmail(user.getEmail());
-                        Parent root = FXMLLoader.load(getClass().getResource("ConfirmEmail.fxml"));
-                        Scene scene = new Scene(root);
-                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        stage.setScene(scene);
-                        stage.show();
                     }
                 } else {
-                    TrayNotificationAlert.notif("Login", "Invalid credentials.",
-                            NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
+                    AlertUtil.showAlert("Login", "Invalid credentials.",Alert.AlertType.INFORMATION);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (MessagingException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-    }*/
+    }
+
+
+    public class AlertUtil {
+
+        public static void showAlert(String title, String message, AlertType alertType) {
+            Alert alert = new Alert(alertType);
+            alert.setTitle(title);
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
+    }
+}
+
+
 
 
