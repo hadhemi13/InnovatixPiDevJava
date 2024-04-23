@@ -114,6 +114,22 @@ public class OffreDeStage {
         this.pfeBook = pfeBook;
         this.datePostu = datePostu;
     }
+    public OffreDeStage(int id, int postePropose, String title, String domaine, String typeOffre, String experience,  String description, String exigenceOffre, Date datePostu) {
+        this.id = id;
+//        this.user_id = user_id;
+        this.postePropose = postePropose;
+        this.title = title;
+        this.domaine = domaine;
+        this.typeOffre = typeOffre;
+        this.experience = experience;
+//        this.niveau = niveau;
+//        this.language = language;
+        this.description = description;
+        this.exigenceOffre = exigenceOffre;
+//        this.motsCles = motsCles;
+//        this.pfeBook = pfeBook;
+        this.datePostu = datePostu;
+    }
 
     public int getId() {
         return id;

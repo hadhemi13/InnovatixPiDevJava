@@ -50,8 +50,8 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
 
     @Override
     public void modifier(OffreDeStage offreDeStage) throws SQLException {
-        String req = "Update offre_stage set title=?,domaine=?,type_offre=?,poste_propose=?,experience=?,description=?,exigence_offre=? where id=?)" +
-                "values(?,?,?,?,?,?,?)";
+        String req = "UPDATE offre_stage SET title=?, domaine=?, type_offre=?, poste_propose=?, experience=?, description=?, exigence_offre=?, date_postu=? WHERE id=?";
+
         try {
             PreparedStatement ps = connection.prepareStatement(req);
             ps.setString(1,offreDeStage.getTitle());
@@ -63,9 +63,11 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
 //            ps.setString(6,offreDeStage.getLanguage());
             ps.setString(6,offreDeStage.getDescription());
             ps.setString(7,offreDeStage.getExigenceOffre());
-            ps.setInt(8,offreDeStage.getId());
+//            ps.setString(8,offreDeStage.getPfeBook());
+            ps.setDate(8,offreDeStage.getDatePostu());
+            ps.setInt(9,offreDeStage.getId());
             ps.executeUpdate();
-            System.out.println("ajouté");
+            System.out.println("Update avec succès");
 
         }
         catch (SQLException e){

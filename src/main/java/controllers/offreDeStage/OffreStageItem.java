@@ -112,10 +112,11 @@ public class OffreStageItem implements Initializable {
 public void initData(OffreDeStage i) {
 //    System.out.println(i.getPostePropose());
 //    System.out.println(i);
-    System.out.println(i.getPostePropose());
+//    System.out.println(i.getPostePropose());
     a = i.getPostePropose();
+//    System.out.println(a);
 
-
+    System.out.println(i.getPostePropose());
     ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
 
 
@@ -159,7 +160,7 @@ public void initData(OffreDeStage i) {
             }
             );
     UpdateOffre.setOnMouseClicked(mouseEvent -> {
-        System.out.println("update mouse click" );
+//        System.out.println("update mouse click" );
         Stage primaryStage = new Stage();
         try {
 
@@ -173,9 +174,6 @@ public void initData(OffreDeStage i) {
             EditOffreController editOffreController = loader.getController();
             editOffreController.initData(Integer.parseInt(UpdateOffre.getId()));
             AfficheOffreController afficheOffreController = new AfficheOffreController();
-//            afficheOffreController.
-//            afficheOffreController.content_area.getChildren().clear();
-//            afficheOffreController.content_area.getChildren().add(parent);
 
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
