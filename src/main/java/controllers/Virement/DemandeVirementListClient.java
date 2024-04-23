@@ -3,7 +3,6 @@ package controllers.Virement;
 import Entities.Cheque;
 import Entities.Virement;
 import controllers.Cheque.AjouterChequeCard;
-import controllers.Cheque.ChequeItems;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
