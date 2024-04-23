@@ -4,115 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="19/4">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/Cheque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/Compte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/Virement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/CardAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/AjouterChequeCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ChequeItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ConfirmersuppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/DemandeChequeListClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ListeChequeAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ListeChequeClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ModifierCheque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Compte/ListeCompteAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updateCreditController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/AjouterVirementCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/DemandeVirementListClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/ListVirementAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/ListeVirementClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/ModifierVirement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/IServiceCheque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/IServiceCompte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/IServiceCredit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/IServiceVirement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCheque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCompte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/ServiceVirement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/CardAdmin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ChequeItems.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ChequecreditItems.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ConfirmSupp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeChequeListClient.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeVirementListClient.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardVirement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCradCheque.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/HistoriqueChequeA.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/HistoriqueCompteA.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/HistoriqueVirementA.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ListChequeAdmin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ListCompteAdmin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ListVirementAdmin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ModifierCheque.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ModifierVirement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClient.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/demandeStage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/hahdemi.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Compte.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/add-list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/carte-bancaire.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/carte-de-debit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/cloud-computing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/dateIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/event.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/femme.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/help.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/news.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/project.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/rename.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/upload-big-arrow.png" afterDir="false" />
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="correction gestion credit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/RDV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeRdvListClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/IServiceRdv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/ServiceRdv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeRdvListClient.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/rdvitems.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/CommentaireHadhemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/CommentaireHadhemi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/RDV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Reclamation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Reclamation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Reponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Reponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/ReponseCommentaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/ReponseCommentaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CreditController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/RdvController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/updateCreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updateCreditController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/updatecreditcontroller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/updaterdvcontroller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ICredit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/IRDV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceArticle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceCommentaireHadhemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceCommentaireHadhemi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceReclamation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceReclamation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceReponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceReponseCommentaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceReponseCommentaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceArticle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCommentaireHadhemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCommentaireHadhemi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReclamation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceReclamation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceReponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReponseCommentaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceReponseCommentaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MyDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MyDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/updatecredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/updatecredit.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/SideNavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/SideNavBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/compte.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/compte.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/credit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/credit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/homme.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/homme.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/images.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/stage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/stage.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,8 +99,8 @@
       <recent name="controllers.Credit" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controllers.Credit" />
       <recent name="services" />
+      <recent name="controllers.Credit" />
     </key>
   </component>
   <component name="RunManager">
@@ -218,7 +132,9 @@
       <workItem from="1713472307925" duration="36725000" />
       <workItem from="1713557871721" duration="57000" />
       <workItem from="1713558051156" duration="11426000" />
-      <workItem from="1713607917891" duration="27313000" />
+      <workItem from="1713607917891" duration="27408000" />
+      <workItem from="1713740118848" duration="7509000" />
+      <workItem from="1713813979715" duration="13278000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -284,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713514864819</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="correction gestion credit">
+      <option name="closed" value="true" />
+      <created>1713710278186</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713710278186</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +223,8 @@
     <MESSAGE value="card ajout credit" />
     <MESSAGE value="card rdv" />
     <MESSAGE value="19/4" />
-    <option name="LAST_COMMIT_MESSAGE" value="19/4" />
+    <MESSAGE value="correction gestion credit" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction gestion credit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -308,6 +233,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="9" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

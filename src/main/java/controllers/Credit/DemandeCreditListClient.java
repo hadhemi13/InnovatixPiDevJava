@@ -17,9 +17,13 @@ import javafx.scene.layout.VBox;
 import services.ServiceCheque;
 import javafx.fxml.Initializable;
 import services.ServiceCredit;
+import utils.MyDatabase;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +64,8 @@ public class DemandeCreditListClient implements Initializable {
         content_area.getChildren().add(addArticleParent);
 
     }
+    @FXML
+    private Button deletebtn;
 
     @FXML
     void statusChange(ActionEvent event) {
@@ -89,10 +95,38 @@ public class DemandeCreditListClient implements Initializable {
             }
         }
     }
-
+    Connection con=null;
+    PreparedStatement st=null;
+    ResultSet rs=null;
     public void AjouterC(MouseEvent mouseEvent) {
 
+
     }
+    int iddel = 0; // Variable globale pour stocker l'ID à supprimer
+
+    // Méthode pour affecter une valeur à la variable iddel
+    void rendid(int id){
+        iddel = id;
+    }
+
+    @FXML
+    void deletecredit(MouseEvent event) {
+        String Delete = "DELETE FROM credit WHERE id = ?";
+
+        Connection con = MyDatabase.getInstance().getConnection();
+        try {
+            // Préparation de la requête SQL
+            PreparedStatement st = con.prepareStatement(Delete);
+            // Affectation de la valeur de iddel au paramètre de la requête
+            st.setInt(1, iddel);
+            // Exécution de la requête de suppression
+            st.executeUpdate();
+        } catch (SQLException e) {
+            // Gestion des exceptions
+            throw new RuntimeException(e);
+        }
+    }
+
 }
 
 

@@ -109,4 +109,34 @@ public class updateCreditController {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void deletecredit(ActionEvent event) {
+        String Delete="delete from credit where id_client = ?";
+        System.out.println("test delete");
+        con=  MyDatabase.getInstance().getConnection();
+        try {
+
+            st=con.prepareStatement(Delete);
+            st.setInt(1,id);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void deletecredit(javafx.event.ActionEvent actionEvent) {
+        String Delete="delete from credit where id = ?";
+        System.out.println("test delete");
+        System.out.println(id);
+        con=  MyDatabase.getInstance().getConnection();
+        try {
+
+            st=con.prepareStatement(Delete);
+            st.setInt(1,id);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

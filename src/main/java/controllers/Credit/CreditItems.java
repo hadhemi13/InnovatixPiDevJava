@@ -141,8 +141,10 @@ public class CreditItems implements Initializable {
 
 
 
+    @FXML
+    private Text deleteitem;
 
-
+    int id=0;
 
     @FXML
     int getdata(MouseEvent event) throws IOException {
@@ -160,9 +162,11 @@ public class CreditItems implements Initializable {
                 throw new RuntimeException(e);
             }
             updateCreditController updaterdvController = loader.getController();
+
             String idvalue = userid.getText();
 
             Credit c11 = getCreditByUserId(con, idvalue);
+            int id = c11.getId();
 
             updaterdvController.initData(c11);
             Stage stage = new Stage();
@@ -206,6 +210,7 @@ public class CreditItems implements Initializable {
                     int duree = rs.getInt("duree");
                     double fraisretard = rs.getDouble("fraisretard");
                     credit = new Credit(id, id_client, montant, taux, datedebut, mensualite, duree, fraisretard);
+
                 }
             }
         }
@@ -214,6 +219,10 @@ public class CreditItems implements Initializable {
 
 
 
+    @FXML
+    void deletecredit(MouseEvent event) {
 
+
+    }
     public void updatecredit(MouseEvent mouseEvent) throws IOException {
 }}

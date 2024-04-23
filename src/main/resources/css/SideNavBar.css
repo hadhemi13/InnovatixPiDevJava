@@ -7,25 +7,8 @@
 }
 
 .bg {
-    -fx-background-image: url("../img/back1.jpg");
-    -fx-background-repeat: no-repeat;
+
     -fx-background-size: cover;
-}
-#idcreditchoisei .button {
-    -fx-background-color: orange;
-    -fx-background-radius: 10px; /* Adjust the value to control the roundness */
-    -fx-border-radius: 10px; /* Adjust the value to control the roundness */
-    -fx-padding: 3px 6px; /* Adjust the padding as needed */
-    -fx-text-fill: white;
-}
-
-
-updateButton{
-"-fx-background-color: orange;" +     // Set background color to orange
-"-fx-text-fill: white;" +             // Set text color to white
-"-fx-background-radius: 20em;" +      // Set the background radius to make it round
-"-fx-min-width: 80px;" +              // Set the minimum width of the button
-"-fx-min-height: 80px;"               // Set the minimum height of the button
 }
 .logo {
     -fx-fit-height: 50px; /* Hauteur réduite */
@@ -47,7 +30,7 @@ updateButton{
 }
 
 .text {
-    -fx-font-size: 30px;
+    -fx-font-size: 16px;
     -fx-font-weight: 800;
 }
 
@@ -98,44 +81,11 @@ updateButton{
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
 }
-.dash__container-card2 {
-    -fx-background-color: #fff;
-    -fx-background-radius: 30px 0 0 30px; /* Top-left, Top-right, Bottom-right, Bottom-left */
-    -fx-border-radius: 30px 0 0 30px; /* Top-left, Top-right, Bottom-right, Bottom-left */
-}
-.textfieldcredit {
-    -fx-border-color: green;
-    -fx-border-width: 0 0 2 0; /* Set only the bottom border width */
-    -fx-border-style: solid;
-}
-
-
-#tablecredit {
-    -fx-background-color: lightgray; /* Couleur de fond du TableView */
-}
-
-#colid, #colidentifiant, #colmontant, #coltaux, #coldatedebut, #colmensualite, #colduree, #colfraisretard {
-    -fx-background-color: lightblue; /* Couleur de fond des colonnes */
-}
-.table-row-cell {
-    -fx-background-color: transparent;
-}
-.action-button {
-    -fx-background-color: orange; /* Change la couleur de fond en orange */
-    -fx-background-radius: 20; /* Arrondit les coins du bouton */
-}
-
 
 .product-card {
     -fx-background-color: #fff;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
-}
-.rounded-button {
-    -fx-background-color: orange; /* Button background color */
-    -fx-background-radius: 20; /* Radius for rounded corners */
-    -fx-border-radius: 20; /* Radius for rounded corners */
-    -fx-padding: 10 20; /* Padding for the button text */
 }
 
 .product-card-scrollPane {
@@ -160,7 +110,11 @@ updateButton{
     -fx-background-radius: 30px;
     -fx-pref-width: 24px;
 }
-
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #43882b;
+    -fx-background-radius: 30px;
+    -fx-pref-width: 24px;
+}
 .scroll-bar:vertical *.increment-button,
 .scroll-bar:vertical *.decrement-button {
     -fx-background-color: #fff;
@@ -603,7 +557,7 @@ updateButton{
 }
 
 .userProductCard-name {
-    -fx-font-size: 25px;
+    -fx-font-size: 22px;
     -fx-font-weight: 800;
 }
 
@@ -1161,7 +1115,7 @@ updateButton{
 }
 
 .bg {
-    -fx-background-image: url("../img/back1.jpg");
+    -fx-background-color: linear-gradient(to bottom, rgba(151, 209, 88, 0.99), #2f611f);
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
@@ -1182,26 +1136,6 @@ updateButton{
     -fx-transition: all 2s ease;
     -fx-cursor: hand;
 }
-
-.nav-links2 {
-    -fx-background-radius: 30px;
-    -fx-border-radius: 30px;
-    -fx-transition: all 2s ease;
-    -fx-cursor: hand;
-}
-.nav-links2:hover {
-    -fx-background-color: rgba(255, 165, 0, 0.377); /* Orange color with 37.7% opacity */
-}
-.nav-buton {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-cursor: hand;
-}
-
-.nav-buton:hover {
-    -fx-text-fill: #000000; /* Change the color when hovering over the button */
-}
-
 
 .nav-links:hover {
     -fx-background-color: rgba(107, 175, 84, 0.377);
@@ -1233,7 +1167,7 @@ updateButton{
 }
 
 .nav-notif-bg {
-    -fx-background-color: #97d158;
+    -fx-background-color: #43882b;
     -fx-background-radius: 50%;
     -fx-border-radius: 50%;
 }
@@ -2264,9 +2198,3 @@ updateButton{
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
-
-.anchor-pane {
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
-}
-

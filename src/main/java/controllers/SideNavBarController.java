@@ -124,6 +124,19 @@ public class SideNavBarController {
             e.printStackTrace();
         }
     }
+    @FXML
+    void openDashboardClientCredit(MouseEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClientcreditredv.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
