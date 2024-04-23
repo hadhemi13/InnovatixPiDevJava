@@ -32,7 +32,29 @@ public class User {
         this.cin = cin;
         this.date_naissance = date_naissance;
     }
+    public User(String name,String cin,String adresse, String email ,String roles, String tel, String password, String photo) {
+        this.name=name;
+        this.roles=roles;
+        this.email=email;
+        this.password=password;
+        this.photo=photo;
+        this.tel=tel;
+        this.cin = cin;
 
+
+
+    }
+
+    public User(String name, String roles, String email, String password, String photo, String tel) {
+        this.name=name;
+        this.roles=roles;
+        this.email=email;
+        this.password=password;
+        this.photo=photo;
+        this.tel=tel;
+
+
+    }
 
 
     public int getSalaire() {

@@ -1,17 +1,22 @@
 package controllers;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import services.ServiceUser;
 import Entities.User;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,7 +24,10 @@ import javafx.scene.Parent;
 import javafx.collections.ObservableList;
 
 
-public class UsersListController {
+
+public class UsersListController implements Initializable {
+    @FXML
+    private HBox content_area;
 
     @FXML
     private ComboBox<?> roleInput;
@@ -56,69 +64,42 @@ public class UsersListController {
     }
 
 
-    public void initialize(URL location, ResourceBundle resources) {
-        ServiceUser userService = new ServiceUser();
-        User userToUpdate;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ServiceUser projectService = new ServiceUser();
+        List<User> list = new ArrayList<>();
+        try {
+            list = projectService.afficher();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        // userListContainer.getChildren().add();
+//           OffreStageItem offreStageItem = new OffreStageItem();
+//            userListContainer.getChildren().add(offreStageItem.initE());
 
-        // System.out.println(userEmailToUpdate);
-       /* if (UsersListController.getupdateUserModelShow() == 0) {
-            updateUserModel.setVisible(false);
-        } else if (UsersListController.getupdateUserModelShow() == 1) {
-            updateUserModel.setVisible(true);
-            FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("updateUserCard.fxml"));
-            VBox updateUserform;
+        for (User offre : list) {
             try {
-                updateUserform = fxmlLoader1.load();
-                UpdateUserCardController updateUserCardController = fxmlLoader1.getController();
-                UpdateUserCardController.setFxmlToLoad("UsersList.fxml");
-                userToUpdate = userService.getOneUser(userEmailToUpdate);
-
-                updateUserCardController.setUserUpdateData(userToUpdate);
-                updateUserModelContent.getChildren().add(updateUserform);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TEST.fxml"));
+                Parent offreItem = loader.load();
+                TESTCONTROLLER offreStageItem = loader.getController();
+                offreStageItem.initData(offre);
+                userListContainer.getChildren().add(offreItem);
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
-        }*/
-
-        try {
-            ArrayList<User> userList;
-            if (filter == 0) {
-                userList = userService.getAllUser();
-            } else if (filter == 1) {
-                userList = userService.getAllAdmin();
-            } else {
-                userList = userService.getAllAdmin();
-            }
-            // ArrayList<User> userList = userService.getAllUser();
-            for (int i = 0; i < userList.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("UserItem.fxml"));
-                HBox userItem = fxmlLoader.load();
-                TESTCONTROLLER userItemController = fxmlLoader.getController();
-                userItemController.setUserData(userList.get(i));
-                userListContainer.getChildren().add(userItem);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+    }
+    public void toAdduser(ActionEvent actionEvent)  throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AjoutUser.fxml"));
+        Parent addArticleParent = loader.load();
 
-      /*  ObservableList<String> items = roleInput.getItems();
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjoutUserController ajouterUSER = loader.getController();
 
-        // Add new items to the list
-        items.addAll("tout", "Admin", "client");
-
-        if (filter == 0) {
-            roleInput.setValue("tout");
-        } else if (filter == 1) {
-            roleInput.setValue("Admin");
-        } else {
-            roleInput.setValue("client");
-        }*/
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        userPane.getChildren().clear();
+        userPane.getChildren().add(addArticleParent);
     }
 
 

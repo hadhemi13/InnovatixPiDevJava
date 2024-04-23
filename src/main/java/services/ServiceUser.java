@@ -1,10 +1,11 @@
 package services;
 import Entities.User;
 import utils.MyDatabase;
-
+import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class ServiceUser  implements Iservice<User>{
     static Connection connection;
     public ServiceUser(){
@@ -15,16 +16,17 @@ public class ServiceUser  implements Iservice<User>{
     public void ajouter(User user) throws SQLException {
         String req = "INSERT INTO user (email, name, roles, password, cin, date_naissance, adresse, profession, photo, is_blocked, is_verified, poste, salaire, tel) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        String y = "yesser";
-        String a = "[\"" +y+"\"]";
+        String y = "ROLE_CLIENT";
+        String a = "[\"" + y + "\"]";
         System.out.println(a);
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getName());
             String[] rolesArray = user.getRoles().split(","); // Supposons que les rôles sont séparés par des virgules
-           // Array rolesJdbcArray = connection.createArrayOf("VARCHAR", rolesArray);
-            preparedStatement.setString(3, "[\"" +user.getRoles()+"\"]" ); // Définir le tableau JDBC dans la colonne roles
-            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setString(3, "[\"" + user.getRoles() + "\"]"); // Définir le tableau JDBC dans la colonne roles
+            String salt = BCrypt.gensalt(); // Générer un sel avec la version par défaut de BCrypt
+            String hashedPassword = BCrypt.hashpw(user.getPassword(), salt); // Hacher le mot de passe avec le sel généré
+            preparedStatement.setString(4, hashedPassword);
             preparedStatement.setString(5, user.getCin());
             preparedStatement.setString(6, user.getDate_naissance());
             preparedStatement.setString(7, user.getPhoto());
@@ -255,10 +257,87 @@ public class ServiceUser  implements Iservice<User>{
         ps.close();
         return userList;
     }
+    @Override
+    public void signUp(User user) {
+        // Assurez-vous que l'email n'est pas déjà utilisé
+        if (!isEmailUsed(user.getEmail())) {
+            // Définir le rôle par défaut sur ROLE_CLIENT
+            user.setRoles("ROLE_CLIENT");
 
+            // Ajouter l'utilisateur en utilisant votre méthode add existante
+            try {
+                ajouter(user); // Méthode pour ajouter un utilisateur
+                System.out.println("User signed up successfully.");
 
+            } catch (SQLException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Email is already used.");
+        }}
 
+    @Override
+    public boolean isEmailUsed(String email) {
+        // Vérifiez si l'email est déjà utilisé en consultant votre base de données
+        // Vous devrez remplacer cette partie par l'accès réel à votre base de données
 
+        // Par exemple, vous pouvez supposer qu'il y a une liste d'utilisateurs déjà enregistrés
+        List<User> userList = getUsersFromDatabase(); // Méthode hypothétique pour obtenir la liste des utilisateurs depuis la base de données
+
+        // Parcourez la liste des utilisateurs pour vérifier si l'email est déjà utilisé
+        for (User user : userList) {
+            if (user.getEmail().equals(email)) {
+                // L'email est déjà utilisé
+                return true;
+            }
+        }
+
+        // Si l'email n'est pas trouvé dans la liste des utilisateurs, il n'est pas utilisé
+        return false;
+    }
+
+    // Méthode fictive pour récupérer la liste des utilisateurs depuis la base de données
+    private List<User> getUsersFromDatabase() {
+        // Ici, vous devriez écrire le code pour récupérer les utilisateurs depuis votre base de données
+        // et renvoyer la liste des utilisateurs
+        // Par exemple :
+        // return userDao.getAllUsers(); // userDao est une instance de votre classe DAO pour gérer les utilisateurs
+        return new ArrayList<>(); // Pour l'exemple, nous retournons une liste vide
+    }
+    public int getActiveNB() throws SQLException {
+        String req = "SELECT * FROM `user` where is_blocked = ?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setString(1, "1");
+
+        ResultSet rs = ps.executeQuery();
+        int count = 0;
+
+        while (rs.next()) {
+            count++;
+        }
+        ps.close();
+        return count;
+    }
+    public int getunActiveNB() throws SQLException {
+        String req = "SELECT * FROM `user` where is_blocked = ?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setString(1, "0");
+
+        ResultSet rs = ps.executeQuery();
+        int count = 0;
+
+        while (rs.next()) {
+            count++;
+        }
+        ps.close();
+        return count;
+    }
 
 }
+
+
+
+
+
+
 
