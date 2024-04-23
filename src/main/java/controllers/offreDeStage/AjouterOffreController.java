@@ -212,4 +212,5 @@ public class AjouterOffreController implements Initializable {
         DescriptionError.setVisible(false);
         MotsClesError.setVisible(false);
     }
+
 }

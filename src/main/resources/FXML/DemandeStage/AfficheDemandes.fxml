@@ -86,10 +86,7 @@
       </HBox>
       <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane">
          <content>
-            <VBox fx:id="userListContainer" prefHeight="446.0" prefWidth="1005.0" spacing="13.0" styleClass="userTableBody">
-               <children>
-                  <ListView fx:id="list" prefHeight="300.0" prefWidth="985.0" />
-               </children></VBox>
+            <VBox fx:id="userListContainer" prefHeight="446.0" prefWidth="1005.0" spacing="13.0" styleClass="userTableBody" />
          </content>
       </ScrollPane>
    </children>

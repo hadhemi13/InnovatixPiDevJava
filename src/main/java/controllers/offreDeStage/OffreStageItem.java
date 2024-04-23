@@ -23,6 +23,8 @@ import java.util.ResourceBundle;
 public class OffreStageItem implements Initializable {
 
     public Label deleteOffre;
+    public Label refuser;
+    public Label Approuver;
     @FXML
     private Label listeDesDemandes;
 
