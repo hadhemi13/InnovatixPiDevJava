@@ -223,9 +223,5 @@ public void initData(OffreDeStage i) {
     public void delete(MouseEvent mouseEvent) {
     }
 
-//    @FXML
-//    void delete(MouseEvent event) {
-////        System.out.println(deleteOffre.getText());
-//    }
 
 }
