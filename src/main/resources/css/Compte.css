@@ -2468,4 +2468,24 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
+.imageCompte {
+    /* Largeur et hauteur désirées */
+    -fx-fit-width: 1366px;
+    -fx-fit-height: 750px;
+    /* Pour remplir toute la zone */
+    -fx-alignment: top-left;
+    -fx-pref-width: 1366px;
+    -fx-pref-height: 750px;
+    /* Ajustement de l'image pour remplir */
+    -fx-background-size: cover;
+    /* Empêcher le rognage de l'image */
+    -fx-background-repeat: no-repeat;
+    /* Position de l'image */
+    -fx-background-position: top left;
+}
+
+.combo-box {
+    -fx-background-color: white;
+}
+
 
