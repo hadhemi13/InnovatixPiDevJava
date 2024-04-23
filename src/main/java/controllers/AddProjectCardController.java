@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -129,7 +130,7 @@ public class AddProjectCardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      // Instancier le service de produit
+   //   numberInputErrorHbox.setVisible(false);
       IService serviceProject = new ServiceProjet();
       Project p = new Project();
       nameInput.setText(p.getNomProjet());
@@ -180,7 +181,14 @@ public class AddProjectCardController implements Initializable {
       project.setDateCreation(fxdate.getValue() != null ? fxdate.getValue().atStartOfDay() : null);
       project.setDescriptionProjet(fxDescription.getText());
       project.setBudgetProjet(Double.parseDouble(fxBudget.getText()));
-      project.setStatutProjet(Integer.parseInt(fxStatut.getText()));
+        if (fxStatut.getText().isEmpty()) {
+            numberTest = 0;
+            numberInputErrorHbox.setVisible(true);
+        } else {
+            if (numberTest == 1) {
+                project.setStatutProjet(Integer.parseInt(fxStatut.getText()));
+            }
+        }
       project.setCategorie(fxCategorie.getText());
       project.setDureeProjet(Integer.parseInt(fxDuree.getText()));
       project.setImg(imageName);
@@ -215,6 +223,26 @@ public class AddProjectCardController implements Initializable {
     }
 
   }
+
+    @FXML
+    void numberTypedInput(KeyEvent event) {
+        String numberText = ((TextField) event.getSource()).getText();
+        if (!numberText.matches("-?\\d+")) {
+            numberInputError.setText("number should be positive");
+            numberInputErrorHbox.setVisible(true);
+            numberTest = 0;
+        } else {
+            int number = Integer.parseInt(numberText);
+            if (number < 0) {
+                numberInputError.setText("number cannot be negative");
+                numberInputErrorHbox.setVisible(true);
+                numberTest = 0;
+            } else {
+                numberInputErrorHbox.setVisible(false);
+                numberTest = 1;
+            }
+        }
+    }
 
 }
 

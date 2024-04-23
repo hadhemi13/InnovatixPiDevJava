@@ -13,7 +13,7 @@
         <HBox prefHeight="53.0" prefWidth="570.0">
             <children>
                 <Text fx:id="productName" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                      styleClass="product__card-title" text="Product details">
+                      styleClass="product__card-title" text="Détails d'evenement">
                     <font>
                         <Font name="Montserrat ExtraBold" size="19.0"/>
                     </font>
@@ -26,7 +26,7 @@
         <HBox prefHeight="33.0" prefWidth="570.0">
             <children>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-desc"
-                      text="Add details of your product to help clients find out">
+                      text="Ajoutez les détails de votre evenement pour aider les clients à découvrir">
                     <font>
                         <Font name="Montserrat Regular" size="13.0"/>
                     </font>
@@ -49,7 +49,7 @@
                 <HBox prefHeight="6.0" prefWidth="538.0">
                     <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Name">
+                              styleClass="product__add-input-label" text="Nom d'evenement">
                             <HBox.margin>
                                 <Insets right="2.0"/>
                             </HBox.margin>
@@ -60,7 +60,7 @@
                     </padding>
                 </HBox>
                 <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0"
-                           promptText="Name" styleClass="product__add-input">
+                           promptText="Nom" styleClass="product__add-input">
                     <VBox.margin>
                         <Insets/>
                     </VBox.margin>
@@ -89,22 +89,69 @@
                           prefWidth="200.0" promptText="Description" styleClass="product__add-input-textArea"/>
             </children>
         </VBox>
-        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0"/>
-            </padding>
 
+        <VBox prefHeight="131.0" prefWidth="299.0">
             <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label"
-                      text="Date Debut"/>
-                <DatePicker fx:id="fxdateDebut" promptText="Date Debut"/>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Number">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <DatePicker fx:id="fxdateDebut" maxHeight="-Infinity" minHeight="-Infinity"  prefHeight="40.0" promptText="Number" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </DatePicker>
 
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label"
-                      text="Date Fin"/>
-                <DatePicker fx:id="fxdateFin" promptText="Date Fin"/>
             </children>
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+        </VBox>
 
-        </HBox>
+        <VBox prefHeight="131.0" prefWidth="299.0">
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Number">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <DatePicker fx:id="fxdateFin" maxHeight="-Infinity" minHeight="-Infinity"  prefHeight="40.0" promptText="Number" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </DatePicker>
+
+            </children>
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+        </VBox>
+
         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="570.0">
             <padding>
                 <Insets left="16.0" right="16.0"/>
@@ -170,7 +217,7 @@
                               minWidth="-Infinity" prefHeight="200.0" prefWidth="218.0" translateX="-200.0">
                             <children>
                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text="Resolution : 1920x1080 px">
+                                      styleClass="product__add-desc-img" text="Résolution : 1920x1080 px">
                                     <font>
                                         <Font name="Montserrat Regular" size="16.0"/>
                                     </font>
@@ -179,7 +226,7 @@
                                     </VBox.margin>
                                 </Text>
                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text="Supported file types : jpg,">
+                                      styleClass="product__add-desc-img" text="Types de fichiers pris en charge : jpg,">
                                     <font>
                                         <Font name="Montserrat Regular" size="16.0"/>
                                     </font>
@@ -188,7 +235,7 @@
                                     </VBox.margin>
                                 </Text>
                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text=".jpeg ,. gif ou .png No text">
+                                      styleClass="product__add-desc-img" text=".jpeg ,. gif ou .png Pas de texte">
                                     <font>
                                         <Font name="Montserrat Regular" size="16.0"/>
                                     </font>
@@ -197,7 +244,7 @@
                                     </VBox.margin>
                                 </Text>
                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text="on the image.">
+                                      styleClass="product__add-desc-img" text="sur l'image.">
                                     <font>
                                         <Font size="16.0"/>
                                     </font>
@@ -212,11 +259,11 @@
                                         <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true"
                                                    preserveRatio="true" translateY="-3.0">
                                             <image>
-                                                <Image url="@../../java/assets/img/upload-big-arrow.png"/>
+                                                <Image url="@../assets/img/upload-big-arrow.png"/>
                                             </image>
                                         </ImageView>
                                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              styleClass="product__add-textBtn" text="Choose a photo">
+                                              styleClass="product__add-textBtn" text="Choisir une photo">
                                             <font>
                                                 <Font name="Montserrat Bold" size="16.0"/>
                                             </font>
@@ -240,7 +287,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="photoInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="Choose a photo !">
+                              text="Choisissez une photo !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>
@@ -253,7 +300,7 @@
 
             <children>
                 <Button fx:id="add_new_EvenementBtn" mnemonicParsing="false" onMouseClicked="#addNewEvenement"
-                        styleClass="product__add-new-productBtn" text="Add New Product" textFill="WHITE">
+                        styleClass="product__add-new-productBtn" text="Ajouter un nouveau evenement" textFill="WHITE">
                     <font>
                         <Font name="Montserrat Regular" size="16.0"/>
                     </font>
@@ -266,19 +313,19 @@
                 <Insets/>
             </VBox.margin>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
-            <children>
-                <Button fx:id="update_EvenementBtn" mnemonicParsing="false" onMouseClicked="#updateEvenement"
-                        styleClass="product__add-new-productBtn" text="Update Product" textFill="WHITE"
-                        translateY="-46.0">
-                    <font>
-                        <Font name="Montserrat Regular" size="16.0"/>
-                    </font>
-                    <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
-                    </padding>
-                </Button>
-            </children>
-        </HBox>
+        <!--        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">-->
+        <!--            <children>-->
+        <!--                <Button fx:id="update_EvenementBtn" mnemonicParsing="false" onMouseClicked="#updateEvenement"-->
+        <!--                        styleClass="product__add-new-productBtn" text="Mettre à jour le produit" textFill="WHITE"-->
+        <!--                        translateY="-46.0">-->
+        <!--                    <font>-->
+        <!--                        <Font name="Montserrat Regular" size="16.0"/>-->
+        <!--                    </font>-->
+        <!--                    <padding>-->
+        <!--                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>-->
+        <!--                    </padding>-->
+        <!--                </Button>-->
+        <!--            </children>-->
+        <!--        </HBox>-->
     </children>
 </VBox>

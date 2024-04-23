@@ -21,6 +21,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
 import services.IService;
 import services.ServiceEvenement;
+import services.ServiceProjet;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
@@ -210,13 +211,13 @@ public class AddEvenementCardController implements Initializable {
     @FXML
     void updateEvenement(MouseEvent event) throws IOException, SQLException {
         Evenement evenement = new Evenement();
+        ServiceEvenement eventService = new ServiceEvenement();
         evenement.setNom(nameInput.getText());
         evenement.setLieu(fxLieu.getText());
         evenement.setDescription(descriptionInput.getText());
         evenement.setPrix(Double.parseDouble(prixInput.getText()));
         evenement.setImg(imageName);
         ServiceEvenement serviceEvenement = new ServiceEvenement();
-
         try {
             serviceEvenement.modifier(evenement);
             showNotification("Evenement", "Evenement updated successfully.", NotificationType.SUCCESS);
@@ -226,5 +227,4 @@ public class AddEvenementCardController implements Initializable {
             showNotification("Error", "Incorrect date format. Please enter dates in yyyy-MM-dd HH:mm:ss format.", NotificationType.ERROR);
         }
     }
-
 }
