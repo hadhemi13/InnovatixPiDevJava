@@ -2,6 +2,7 @@ package controllers.Cheque;
 
 import Entities.Cheque;
 import controllers.Cheque.AjouterChequeCard;
+import controllers.ChequeItemsController;
 import controllers.Virement.AjouterVirementCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -132,12 +133,13 @@ public class DemandeChequeListClient  implements  Initializable {
         // Parcourir chaque chèque et charger sa carte dans le conteneur
         for (Cheque cheque : cheques) {
             try {
+//                System.out.println(cheque.getId());
                 // Charger la carte de chèque à partir du fichier FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChequeItems.fxml"));
                 Parent chequeItem = loader.load();
 
                 // Récupérer le contrôleur de la carte de chèque
-                ChequeItems chequeItemController = loader.getController();
+                ChequeItemsController chequeItemController = loader.getController();
 
                 // Initialiser les données du chèque dans la carte de chèque
                 chequeItemController.initData(cheque);

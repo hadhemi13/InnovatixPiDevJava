@@ -198,9 +198,15 @@ public class ModifierCheque implements Initializable {
     public void edit(String text) {
         ServiceCheque serviceCheque= new ServiceCheque();
     }
-    public void initData( Cheque cheque) {
+    public void initData(Cheque cheque) {
 
-        initializeChequeFields();
+        NometPrenom.setText(cheque.getNom_prenom());
+        Email.setText(cheque.getEmail());
+        date.setValue(cheque.getDate().toLocalDate());
+        beneficiaire.setValue(cheque.getBeneficiaire());
+        tel.setText(String.valueOf(cheque.getTelephone()));
+        montant.setText(String.valueOf(cheque.getMontant()));
+
     }
 
     private void initializeChequeFields() {
@@ -245,5 +251,7 @@ public class ModifierCheque implements Initializable {
             e.printStackTrace();
             // Gérer l'exception appropriée ici
         }
+
     }
 }
+
