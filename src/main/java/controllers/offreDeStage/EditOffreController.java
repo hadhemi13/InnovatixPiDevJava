@@ -161,9 +161,6 @@ public class EditOffreController implements Initializable {
         List aa = (List) stage.getLanguage();
         id = a;
     }
-//    public static void setProjectUpdateData(OffreDeStage project) {
-//
-//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -249,12 +246,6 @@ public class EditOffreController implements Initializable {
         if (!validatorOffre.isValidEmpty(language.getText())){
             LanguageError.setVisible(true);
         }
-//        if (!validatorOffre.isValidEmpty(language.getText())){
-//            LanguageError.setVisible(true);
-//        }
-//        if (!validatorOffre.isValidEmpty(language.getText())){
-//            LanguageError.setVisible(true);
-//        }
         if (!validatorOffre.isValidDescriptionOffre(description.getText())){
             DescriptionError.setVisible(true);
             DescriptionError.setText("La description doit conetient plus que 100 caractère !");
@@ -286,6 +277,5 @@ public class EditOffreController implements Initializable {
             }
 
     }
-
 
 }
