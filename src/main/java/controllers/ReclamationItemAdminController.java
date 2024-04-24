@@ -19,8 +19,6 @@ import services.ServiceReclamation;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReclamationItemAdminController implements Initializable {
@@ -137,5 +135,21 @@ public class ReclamationItemAdminController implements Initializable {
         this.reclamation = reclamation;
 
         // Autres initialisations si nécessaire
+    }
+
+    public void RecItemDelete(MouseEvent mouseEvent) {
+        try {
+            if (reclamation != null) {
+                ServiceReclamation serviceReclamation = new ServiceReclamation();
+                serviceReclamation.supprimer(reclamation);
+
+
+            } else {
+                // Affichez un message d'erreur ou faites une action appropriée si la réclamation est null
+                System.err.println("La réclamation est null. Impossible de la supprimer.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

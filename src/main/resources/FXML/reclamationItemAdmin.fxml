@@ -43,17 +43,12 @@
             <Image url="@../imagesAct/attach.png" />
          </image>
       </ImageView>
-          <ImageView fx:id="RecdetailBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="160.0">
-              <image>
-                  <Image url="@../imagesAct/search.png" />
-              </image>
-          </ImageView>
           <ImageView fx:id="RecReplyBtnImg" fitHeight="22.0" fitWidth="26.0" onMouseClicked="#RecReplyBtn" pickOnBounds="true" preserveRatio="true" translateX="160.0">
               <image>
                   <Image url="@../imagesAct/reply.png" />
               </image>
           </ImageView>
-          <ImageView fx:id="RecItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="160.0">
+          <ImageView fx:id="RecItemDeleteBtnImg" fitHeight="22.0" fitWidth="26.0" onMouseClicked="#RecItemDelete" pickOnBounds="true" preserveRatio="true" translateX="160.0">
               <image>
                   <Image url="@../imagesAct/delete.png" />
               </image>
