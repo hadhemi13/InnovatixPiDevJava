@@ -13,9 +13,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceCheque;
+import services.ServiceVirement;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class VirementCard  implements Initializable {
@@ -54,13 +56,15 @@ public class VirementCard  implements Initializable {
 
     @FXML
     private HBox supprItems;
-    private Virement virement;
+//    private Virement virement;
 
 
     // Ne rien faire dans l'initialisation par défaut
 
     public void initData(Virement virement) {
-        this.virement = virement;
+        ServiceVirement serviceVirement = new ServiceVirement();
+        editItemsBtn.setId(String.valueOf(virement.getId()));
+        supprItems.setId(String.valueOf(virement.getId()));
         RibItems.setText(String.valueOf(virement.getRib()));
         cinItems.setText(String.valueOf(virement.getCin()));
         NomPrenomItems.setText(virement.getNomet_prenom());
@@ -69,6 +73,32 @@ public class VirementCard  implements Initializable {
         NumBenefItems.setText(String.valueOf(virement.getNum_beneficiare()));
         MontantItems.setText(String.valueOf(virement.getMontant()));
         DesicionItems.setText(virement.getDecision_v().toString());
+
+        editItemsBtn.setOnMouseClicked(mouseEvent -> {
+            Stage primaryStage = new Stage();
+            try {
+                Virement cheque = serviceVirement.getById(Integer.parseInt(editItemsBtn.getId()));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ModifierVirement.fxml")) ;
+                Parent parent = loader.load();
+                Scene scene = new Scene(parent);
+                primaryStage.setTitle("E-Flex Bank");
+                primaryStage.setScene(scene);
+                primaryStage.show();
+                ModifierVirement modifierCheque = loader.getController();
+                modifierCheque.initData(cheque);
+            }catch (SQLException | IOException exception)
+            {
+                throw new RuntimeException(exception);
+            }
+        });
+
+        supprItems.setOnMouseClicked(mouseEvent -> {
+            try {
+                serviceVirement.supprimer(Integer.parseInt(supprItems.getId()));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
     @FXML
     void DeleteVirement(MouseEvent event) {

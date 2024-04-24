@@ -17,6 +17,7 @@ public class Virement {
     private String decision_v ;
     private String photo_cin_v ;
     private String phone_number ;
+    public Virement(){}
 
 
     public Virement(int id, int compte_id, int user_id, String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String email, String decision_v, String photo_cin_v, String phone_number) {

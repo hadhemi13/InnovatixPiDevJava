@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -9,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="378.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.VirementCard">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="378.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.VirementCard">
     <children>
         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="60.0" prefWidth="354.0" styleClass="userProductCard-name" stylesheets="@../css/SideNavBar.css">
             <children>
@@ -163,7 +169,7 @@
         </HBox>
         <HBox prefHeight="34.0" prefWidth="295.0">
             <children>
-                <HBox fx:id="editItemsBtn" onMouseClicked="#updateVirement" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                <HBox fx:id="editItemsBtn" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                     <children>
                         <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -178,7 +184,7 @@
                         <Insets left="115.0" />
                     </HBox.margin>
                 </HBox>
-                <HBox fx:id="supprItems" onMouseClicked="#DeleteVirement" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                <HBox fx:id="supprItems" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                     <children>
                         <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>

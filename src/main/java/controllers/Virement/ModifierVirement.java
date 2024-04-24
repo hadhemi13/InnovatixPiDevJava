@@ -1,5 +1,6 @@
 package controllers.Virement;
 
+import Entities.Virement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -88,10 +89,16 @@ public class ModifierVirement {
     private HBox transferezInputErrorHbox;
 
     @FXML
-    private ComboBox<?> type;
+    private ComboBox<String> type;
 
     @FXML
     private Button update_VirementtBtn;
+
+    public void initData(Virement virement){
+        Cin.setText(String.valueOf(virement.getCin()));
+        NometPrenom.setText(virement.getNomet_prenom());
+
+    }
 
     @FXML
     void ajouter_imageV(MouseEvent event) {

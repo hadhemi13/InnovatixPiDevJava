@@ -1,4 +1,5 @@
 package services;
+import Entities.Cheque;
 import utils.MyDatabase;
 import Entities.Virement;
 import utils.MyDatabase;
@@ -165,6 +166,42 @@ public class ServiceVirement implements IServiceVirement <Virement> {
         }
         return list;
     }
+    public Virement getById(int id) throws SQLException {
+        Virement virement = new Virement();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        String query = "SELECT * FROM virement WHERE id = ?";
+        statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+
+        // Exécuter la requête
+        rs = statement.executeQuery();
+
+        // Parcourir les résultats
+        if (rs.next()) {
+            // Construire un objet Cheque à partir des données de la base de données
+            virement = new Virement(
+                    rs.getInt("id"),
+                    rs.getInt("compte_id"),
+                    rs.getInt("user_id"),
+                    rs.getString("nomet_prenom"),
+                    rs.getString("type_virement"),
+                    rs.getString("transferez_a"),
+                    rs.getInt("num_beneficiare"),
+                    rs.getString("montant"),
+                    rs.getInt("cin"),
+                    rs.getInt("rib"),
+                    rs.getString("email"),
+                    rs.getString("decision_v"),
+                    rs.getString("photo_cin_v"),
+                    rs.getString("phone_number")
+            );
+        }
+
+        return virement;
+    }
+
+
 
 }
 

@@ -13,12 +13,15 @@ import java.util.List;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Cheque cheque = new Cheque("hsh",22,12,"kahak",122121,"yshs",new Date(125,04,06),"dsshs","hsh",1,1);
-        System.out.println(cheque.getUser_id());
-        ServiceCheque serviceCheque = new ServiceCheque();
-       // serviceCheque.ajouterS(cheque);
-       Cheque a = serviceCheque.getById(2234606);
-        System.out.println("this : " + a);
+//        Cheque cheque = new Cheque("hsh",22,12,"kahak",122121,"yshs",new Date(125,04,06),"dsshs","hsh",1,1);
+//        System.out.println(cheque.getUser_id());
+//        ServiceCheque serviceCheque = new ServiceCheque();
+//       // serviceCheque.ajouterS(cheque);
+//       Cheque a = serviceCheque.getById(2234606);
+//        System.out.println("this : " + a);
+        ServiceVirement serviceVirement =new ServiceVirement();
+
+        System.out.println(serviceVirement.getById(1));
     }
 }
         // Créer une instance de ServiceVirement
