@@ -252,6 +252,8 @@ void modifierArt(MouseEvent event) throws IOException {
             }
             ModifierArticleController updateArticleController = loader.getController();
             updateArticleController.initData(article); // Passer l'article sélectionné
+//
+
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();

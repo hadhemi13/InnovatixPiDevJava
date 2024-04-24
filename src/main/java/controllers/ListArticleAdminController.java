@@ -176,24 +176,36 @@ public class ListArticleAdminController implements Initializable {
     }
 
     public void refreshArticleList() throws SQLException {
-//        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+////        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+////
+////        try {
+////            List<Article> articles = serviceArticle.afficher();
+////            loadArticles(articles);
+////        } catch (SQLException e) {
+////            e.printStackTrace();
+////            // Gérer l'exception appropriée ici
+////        }
+//        // Nettoyer le contenu actuel
+//        ArtListContainer.getChildren().clear();
 //
-//        try {
-//            List<Article> articles = serviceArticle.afficher();
-//            loadArticles(articles);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            // Gérer l'exception appropriée ici
-//        }
+//        // Charger à nouveau la liste des articles depuis la base de données
+//        List<Article> articles = serviceArticle.afficher();
+//
+//        // Charger à nouveau les cartes d'articles dans le conteneur
+//        loadArticleCards(articles);
         // Nettoyer le contenu actuel
         ArtListContainer.getChildren().clear();
 
-        // Charger à nouveau la liste des articles depuis la base de données
-        List<Article> articles = serviceArticle.afficher();
+        try {
+            // Charger à nouveau la liste des articles depuis la base de données
+            List<Article> articles = serviceArticle.afficher();
 
-        // Charger à nouveau les cartes d'articles dans le conteneur
-        loadArticleCards(articles);
-
+            // Charger à nouveau les cartes d'articles dans le conteneur
+            loadArticles(articles);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception appropriée ici
+        }
     }
 
 
@@ -202,7 +214,7 @@ public class ListArticleAdminController implements Initializable {
         ArtListContainer.getChildren().clear();
 
         // Réinitialiser les valeurs de la ligne et de la colonne
-        int row = 0;
+        int row = 1;
         int column = 0;
         int maxColumns = 3; // Nombre maximum de colonnes par ligne
 

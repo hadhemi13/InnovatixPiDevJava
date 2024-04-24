@@ -115,11 +115,6 @@ public class ReclamationItemAdminController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterReponseAdmin.fxml"));
 
         try {
-            //            Parent addResponseParent = loader.load();
-//            // Afficher le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
-//            Stage stage = new Stage();
-//            stage.setScene(new Scene(addResponseParent));
-//            stage.show();
 
             Parent addResponseParent = loader.load();
 
