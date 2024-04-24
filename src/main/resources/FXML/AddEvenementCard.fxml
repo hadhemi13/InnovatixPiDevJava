@@ -89,12 +89,12 @@
                           prefWidth="200.0" promptText="Description" styleClass="product__add-input-textArea"/>
             </children>
         </VBox>
-
+    <HBox>
         <VBox prefHeight="131.0" prefWidth="299.0">
             <children>
                 <HBox prefHeight="6.0" prefWidth="538.0">
                     <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Number">
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date de début">
                             <HBox.margin>
                                 <Insets right="2.0" />
                             </HBox.margin>
@@ -125,7 +125,7 @@
             <children>
                 <HBox prefHeight="6.0" prefWidth="538.0">
                     <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Number">
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date de fin">
                             <HBox.margin>
                                 <Insets right="2.0" />
                             </HBox.margin>
@@ -151,19 +151,98 @@
                 <Insets left="10.0" />
             </padding>
         </VBox>
-
-        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="570.0">
+    </HBox>
+        <HBox>
+        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
             <padding>
                 <Insets left="16.0" right="16.0"/>
             </padding>
             <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label"
-                      text="Lieu"/>
-                <TextField fx:id="fxLieu" promptText="Lieu"/>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label"
-                      text="Prix"/>
-                <TextField fx:id="prixInput" promptText="Prix"/>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="product__add-input-label" text="Lieu">
+                            <HBox.margin>
+                                <Insets right="2.0"/>
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0"/>
+                    </padding>
+                </HBox>
+                <TextField fx:id="fxLieu" maxHeight="-Infinity" minHeight="-Infinity"
+                           prefHeight="40.0" promptText="Nom" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </TextField>
+                <HBox fx:id="LieuInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              wrappingWidth="23.18400001525879"/>
+                        <Text fx:id="LieuInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="le nom du projet ne peut pas être vide !">
+                            <HBox.margin>
+                                <Insets top="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
             </children>
+        </VBox>
+        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
+            <padding>
+                <Insets left="16.0" right="16.0"/>
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="product__add-input-label" text="Prix">
+                            <HBox.margin>
+                                <Insets right="2.0"/>
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0"/>
+                    </padding>
+                </HBox>
+                <TextField fx:id="prixInput" maxHeight="-Infinity" minHeight="-Infinity"
+                           prefHeight="40.0" promptText="Nom" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </TextField>
+                <HBox fx:id="nameInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              wrappingWidth="23.18400001525879"/>
+                        <Text fx:id="nameInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="le nom du projet ne peut pas être vide !">
+                            <HBox.margin>
+                                <Insets top="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
         </HBox>
         <Line endX="498.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
             <VBox.margin>

@@ -64,7 +64,6 @@ public class ProjectService implements IProjectService {
         System.out.println("Project updated successfully");
         ps.close();
     }
-
     public void supprimer(int id) throws SQLException {
         String query = "DELETE FROM project WHERE id=?";
         try (PreparedStatement preparedStatement = (PreparedStatement) DataSource.getInstance().getCon().prepareStatement(query)) {
@@ -72,7 +71,6 @@ public class ProjectService implements IProjectService {
             preparedStatement.executeUpdate();
         }
     }
-
     public Project getOneProject(String email) throws SQLException {
         String req = "SELECT * FROM `Project` WHERE email = ?";
         PreparedStatement ps = conx.prepareStatement(req);

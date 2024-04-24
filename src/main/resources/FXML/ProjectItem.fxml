@@ -60,6 +60,25 @@
                 </ImageView>
             </graphic>
         </Label>
+        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0"
+              styleClass="product__card-btns">
+            <children>
+                <Label fx:id="ItemShowBtn" styleClass="projectItem__btn">
+                <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/img/view.png"/>
+                    </image>
+                </ImageView>
+                </graphic>
+                </Label>
+            </children>
+            <HBox.margin>
+                <Insets left="6.0"/>
+            </HBox.margin>
+        </HBox>
         <HBox fx:id="deleteProject" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
               minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" styleClass="product__card-btns1">
             <children>
