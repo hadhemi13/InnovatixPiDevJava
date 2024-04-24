@@ -2198,3 +2198,10 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
+.combo-box {
+    -fx-background-color: white;
+}
+.confirm-button {
+    -fx-background-color: #3ab63f; /* Vert */
+    -fx-text-fill: white; /* Texte blanc */
+}
