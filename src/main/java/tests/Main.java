@@ -16,7 +16,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
         ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
-        serviceOffreDeStage.afficheUne(1);
+        OffreDeStage a = serviceOffreDeStage.afficheUne(1);
+        System.out.println(a.getPostePropose());
     }
 
 

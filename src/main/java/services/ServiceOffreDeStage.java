@@ -158,7 +158,7 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
                 stage = new OffreDeStage(rs.getInt("id"), rs.getString("title"), rs.getString("domaine"),
                         rs.getString("type_offre"), rs.getString("experience"), rs.getString("description"),
                         rs.getString("exigence_offre"), rs.getDate("date_postu"));
-                System.out.println(stage.getPostePropose());
+//                System.out.println(stage.getPostePropose());
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage()); // Afficher l'exception réelle

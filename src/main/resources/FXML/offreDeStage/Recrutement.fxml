@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -14,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="711.0" prefWidth="1313.0" stylesheets="@/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.AjouterCompte">
+<AnchorPane prefHeight="711.0" prefWidth="1313.0" stylesheets="@/css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.Recrutement">
     <children>
       <ScrollPane prefHeight="711.0" prefWidth="1314.0">
          <content>
@@ -42,7 +48,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="120.0" styleClass="product__add-new-productBtn" text="Search " translateX="630.0">
+                  <Button fx:id="search" mnemonicParsing="false" onAction="#searsh" prefHeight="37.0" prefWidth="120.0" styleClass="product__add-new-productBtn" text="Search " translateX="630.0">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -58,7 +64,7 @@
             </HBox>
             <HBox prefHeight="45.0" prefWidth="1302.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="product__add-new-productBtn" text="Demande Stage sans Offre" translateX="200.0">
+                  <Button fx:id="DemandeSansOffre" mnemonicParsing="false" onAction="#demandeSansOffre" styleClass="product__add-new-productBtn" text="Demande Stage sans Offre" translateX="200.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -78,14 +84,14 @@
                         <Font name="Bodoni MT" size="18.0" />
                      </font>
                   </Text>
-                  <ComboBox prefWidth="189.0" styleClass="product__add-new-productBtn" translateX="580.0">
+                  <ComboBox fx:id="filtrage" onAction="#filtrage" prefWidth="189.0" styleClass="product__add-new-productBtn" translateX="580.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </ComboBox>
                </children>
             </HBox>
-            <VBox prefHeight="449.0" prefWidth="1302.0" />
+            <VBox fx:id="ListeOffre" prefHeight="449.0" prefWidth="1302.0" />
          </children>
       </VBox>
     </children>

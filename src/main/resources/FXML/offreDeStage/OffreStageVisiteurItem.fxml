@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageVisiteurItemController">
+   <children>
+      <Text fx:id="Titre" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="438.2734375">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="300.0" top="20.0" />
+         </VBox.margin>
+      </Text>
+      <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="1013.13671875">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" top="20.0" />
+         </VBox.margin>
+      </Text>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </Text>
+            <Button fx:id="VoirDetail" mnemonicParsing="false" text="Voir Details">
+               <HBox.margin>
+                  <Insets left="500.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

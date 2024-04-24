@@ -374,12 +374,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ServiceOffreDeStage;
 
 import java.io.IOException;
@@ -466,8 +468,12 @@ public class AfficheOffreController implements Initializable {
             }
             for (OffreDeStage offre : list) {
                 try {
+                    Stage primaryStage = new Stage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageItem.fxml"));
                     Parent offreItem = loader.load();
+                    Scene scene = new Scene(offreItem);
+                    primaryStage.setTitle("E-Flex Bank");
+                    primaryStage.setScene(scene);
                     OffreStageItem offreStageItem = loader.getController();
                     offreStageItem.initData(offre);
                     userListContainer.getChildren().add(offreItem);
