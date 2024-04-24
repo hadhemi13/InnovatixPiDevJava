@@ -20,6 +20,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceArticle;
 
+import javax.imageio.IIOParam;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -158,6 +159,8 @@ public class ModifierArticleController implements Initializable {
     public void initData(Article article) {
         this.article = article;
         initializeArticleFields();
+//         listLoader;
+//        ListArticleAdminController listArticleController = listLoader.getController();
     }
 
     private void initializeArticleFields() {
@@ -177,118 +180,165 @@ public class ModifierArticleController implements Initializable {
         }
     }
 
-    @FXML
-    void ModifierArt(MouseEvent mouseEvent) {
-        try {
-            boolean champsVides = false;
-
-            // Vérification des champs vides
-            if (ContenuArt.getText().isEmpty()) {
-                ContenuInputErrorHbox.setVisible(true);
-                champsVides = true;
-            } else {
-                ContenuInputErrorHbox.setVisible(false);
-            }
-
-            if (addCategorie.getSelectionModel().isEmpty()) {
-                categorieInputErrorHbox.setVisible(true);
-                champsVides = true;
-            } else {
-                categorieInputErrorHbox.setVisible(false);
-            }
-
-            if (imageInput.getImage() == null) {
-                imageInputErrorHbox.setVisible(true);
-                champsVides = true;
-            } else {
-                imageInputErrorHbox.setVisible(false);
-            }
-
-            if (titreArt.getText().isEmpty()) {
-                titreInputErrorHbox.setVisible(true);
-                champsVides = true;
-            } else {
-                titreInputErrorHbox.setVisible(false);
-            }
-
-            // Vérification du format du titre
-            String titre = titreArt.getText();
-            if (!Character.isUpperCase(titre.charAt(0))) {
-                titreInputErrorHbox.getChildren().setAll(new Text("Le titre doit commencer par une majuscule."));
-                titreInputErrorHbox.setVisible(true);
-                champsVides = true;
-            } else {
-                titreInputErrorHbox.setVisible(false);
-            }
-
-            // Si au moins un champ est vide, afficher les messages d'erreur
-            if (champsVides) {
-                return;
-            }
-            if (article != null) {
-                article.setTitre_art(titreArt.getText());
-                article.setContenu_art(ContenuArt.getText());
-                article.setDate_pub_art(LocalDateTime.now());
-                article.setCategorie_art(addCategorie.getValue());
-                article.setDuree_art(2);
-                // Assurez-vous que l'image de l'article n'est pas vide
-                if (imageInput.getImage() != null) {
-                    article.setImage_art(imageInput.getImage().getUrl());
-                }
-                // Appeler la méthode de service pour effectuer la mise à jour de l'article dans la base de données
-                ServiceArticle serviceArticle = new ServiceArticle();
-                serviceArticle.modifier(article);
+//    @FXML
+//    void ModifierArt(MouseEvent mouseEvent) {
+//        try {
+//            boolean champsVides = false;
 //
-////                    listArticleController.refreshArticleList();
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
-//                Pane listArtAdminPane = loader.load();
+//            // Vérification des champs vides
+//            if (ContenuArt.getText().isEmpty()) {
+//                ContenuInputErrorHbox.setVisible(true);
+//                champsVides = true;
+//            } else {
+//                ContenuInputErrorHbox.setVisible(false);
+//            }
 //
-//                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//            if (addCategorie.getSelectionModel().isEmpty()) {
+//                categorieInputErrorHbox.setVisible(true);
+//                champsVides = true;
+//            } else {
+//                categorieInputErrorHbox.setVisible(false);
+//            }
 //
-//                vboxmod.getChildren().setAll(listArtAdminPane);
-
-
-//                // Charger le fichier FXML de ListArticleAdmin.fxml
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
-//                Pane listArtAdminPane = loader.load();
+//            if (imageInput.getImage() == null) {
+//                imageInputErrorHbox.setVisible(true);
+//                champsVides = true;
+//            } else {
+//                imageInputErrorHbox.setVisible(false);
+//            }
 //
-//                // Récupérer le contrôleur de ListArticleAdminController
-//                ListArticleAdminController listArticleController = loader.getController();
+//            if (titreArt.getText().isEmpty()) {
+//                titreInputErrorHbox.setVisible(true);
+//                champsVides = true;
+//            } else {
+//                titreInputErrorHbox.setVisible(false);
+//            }
 //
-//                // Charger la liste des articles dans la Pane content_area de ListArticleAdmin.fxml
-//                listArticleController.loadArticles();
+//            // Vérification du format du titre
+//            String titre = titreArt.getText();
+//            if (!Character.isUpperCase(titre.charAt(0))) {
+//                titreInputErrorHbox.getChildren().setAll(new Text("Le titre doit commencer par une majuscule."));
+//                titreInputErrorHbox.setVisible(true);
+//                champsVides = true;
+//            } else {
+//                titreInputErrorHbox.setVisible(false);
+//            }
 //
-//                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-//                content_area.getChildren().setAll(listArtAdminPane);
-//
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
-//                try {
-//                    Parent root = loader.load();
-//                    // Accéder à la pane content_area depuis le controller de
-//                    // OneProductListCard.fxml
-//                    Pane content_area = (Pane) ((Node) mouseEvent.getSource()).getScene().lookup("#content_area");
-//
-//                    // Vider la pane et afficher le contenu de ProductsList.fxml
-//                    content_area.getChildren().clear();
-//                    content_area.getChildren().add(root);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
+//            // Si au moins un champ est vide, afficher les messages d'erreur
+//            if (champsVides) {
+//                return;
+//            }
+//            if (article != null) {
+//                article.setTitre_art(titreArt.getText());
+//                article.setContenu_art(ContenuArt.getText());
+//                article.setDate_pub_art(LocalDateTime.now());
+//                article.setCategorie_art(addCategorie.getValue());
+//                article.setDuree_art(2);
+//                // Assurez-vous que l'image de l'article n'est pas vide
+//                if (imageInput.getImage() != null) {
+//                    article.setImage_art(imageInput.getImage().getUrl());
 //                }
-                if (listArticleController != null) {
-                    listArticleController.refreshArticleList(); // Appel de la méthode pour rafraîchir la liste des articles
-                }
+//                // Appeler la méthode de service pour effectuer la mise à jour de l'article dans la base de données
+//                ServiceArticle serviceArticle = new ServiceArticle();
+//                serviceArticle.modifier(article);
+////
+//////                    listArticleController.refreshArticleList();
+////                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
+////                Pane listArtAdminPane = loader.load();
+////
+////                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+////
+////                vboxmod.getChildren().setAll(listArtAdminPane);
+//
+//
+////                // Charger le fichier FXML de ListArticleAdmin.fxml
+////                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
+////                Pane listArtAdminPane = loader.load();
+////
+////                // Récupérer le contrôleur de ListArticleAdminController
+////                ListArticleAdminController listArticleController = loader.getController();
+////
+////                // Charger la liste des articles dans la Pane content_area de ListArticleAdmin.fxml
+////                listArticleController.loadArticles();
+////
+////                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+////                content_area.getChildren().setAll(listArtAdminPane);
+////
+////                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+////                try {
+////                    Parent root = loader.load();
+////                    // Accéder à la pane content_area depuis le controller de
+////                    // OneProductListCard.fxml
+////                    Pane content_area = (Pane) ((Node) mouseEvent.getSource()).getScene().lookup("#content_area");
+////
+////                    // Vider la pane et afficher le contenu de ProductsList.fxml
+////                    content_area.getChildren().clear();
+////                    content_area.getChildren().add(root);
+////                } catch (IOException e) {
+////                    e.printStackTrace();
+////                }
+//                if (listArticleController != null) {
+//                    listArticleController.refreshArticleList(); // Appel de la méthode pour rafraîchir la liste des articles
+//                }
+//
+//                // Fermez la fenêtre de modification d'article
+//                Stage stage = (Stage) titreArt.getScene().getWindow();
+//                stage.close();
+//
+//
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            // Gérer l'exception appropriée ici
+//        }
+//    }
+@FXML
+void ModifierArt(MouseEvent mouseEvent) {
+    try {
+        // Vos opérations de validation et de modification de l'article ici...
 
-                // Fermez la fenêtre de modification d'article
-                Stage stage = (Stage) titreArt.getScene().getWindow();
-                stage.close();
-
-
+        if (article != null) {
+            // Mettre à jour les données de l'article avec les nouvelles valeurs
+            article.setTitre_art(titreArt.getText());
+            article.setContenu_art(ContenuArt.getText());
+            article.setDate_pub_art(LocalDateTime.now());
+            article.setCategorie_art(addCategorie.getValue());
+            article.setDuree_art(2);
+            // Assurez-vous que l'image de l'article n'est pas vide
+            if (imageInput.getImage() != null) {
+                article.setImage_art(imageInput.getImage().getUrl());
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Gérer l'exception appropriée ici
+
+            // Appeler la méthode de service pour effectuer la mise à jour de l'article dans la base de données
+            ServiceArticle serviceArticle = new ServiceArticle();
+            serviceArticle.modifier(article);
+
+            if (listArticleController != null) {
+                // Rafraîchir la liste des articles dans le contrôleur de la liste des articles
+                listArticleController.refreshArticleList();
+            }
+
+            // Fermer la fenêtre de modification d'article
+            Stage stage = (Stage) titreArt.getScene().getWindow();
+            stage.close();
+
+            // Charger le fichier FXML de listearticleadmin.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listearticleadmin.fxml"));
+            Parent root = loader.load();
+
+            // Accéder à la pane content_area depuis le controller actuel
+            Pane contentArea = (Pane) titreArt.getScene().lookup("#content_area");
+
+            // Vider la pane et afficher le contenu de listearticleadmin.fxml
+            contentArea.getChildren().clear();
+            contentArea.getChildren().add(root);
         }
+    } catch (SQLException | IOException e) {
+        e.printStackTrace();
+        // Gérer les exceptions appropriées ici
     }
+}
+
     @FXML
     void ajouter_image(MouseEvent mouseEvent) {
         FileChooser fileChooser = new FileChooser();

@@ -147,8 +147,8 @@ public void initializeData(Article article) {
             if (article != null) {
                 ServiceArticle sa = new ServiceArticle();
                 sa.supprimer(article);
-                Stage stage = (Stage) deleteArt.getScene().getWindow();
-                stage.close();
+               // Stage stage = (Stage) deleteArt.getScene().getWindow();
+               // stage.close();
             } else {
                 // Affichez un message d'erreur ou faites une action appropriée si l'article est null
                 System.err.println("L'article est null. Impossible de le supprimer.");
@@ -157,7 +157,25 @@ public void initializeData(Article article) {
             // Gérer l'exception SQLException ici
             e.printStackTrace();
             // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
+//        }
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+//            Pane listArticleAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//            content_area.getChildren().setAll(listArticleAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
         }
+
+/*
+                 try {
+                Parent root = FXMLLoader.load(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+                     action.getScene().setRoot(root);
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }*/
     }
 @FXML
 void modifierArt(MouseEvent event) throws IOException {

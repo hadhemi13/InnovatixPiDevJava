@@ -48,7 +48,7 @@ public class ListRecAdminController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ServiceReclamation sr = new ServiceReclamation() ;
+        ServiceReclamation sr = new ServiceReclamation();
         List<Reclamation> list = new ArrayList<>();
         try {
             list = sr.afficher();
@@ -61,15 +61,28 @@ public class ListRecAdminController implements Initializable {
 
         for (Reclamation reclamation : list) {
             try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReclamationItemAdmin.fxml"));
+//                Parent offreItem = loader.load();
+//                ReclamationItemAdminController RecItem = loader.getController();
+//                RecItem.initData(reclamation);
+//                RecListContainer.getChildren().add(offreItem);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReclamationItemAdmin.fxml"));
                 Parent offreItem = loader.load();
                 ReclamationItemAdminController RecItem = loader.getController();
+
+                // Initialisez les données de réclamation pour chaque élément de réclamation
                 RecItem.initData(reclamation);
+
+                // Passez la réclamation au contrôleur d'ajout de réponse
+                RecItem.initDataRec(reclamation);
+
                 RecListContainer.getChildren().add(offreItem);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
-    }
 
-}
+    }}

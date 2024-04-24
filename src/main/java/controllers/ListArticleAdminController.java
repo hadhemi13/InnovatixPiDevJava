@@ -67,6 +67,7 @@ public class ListArticleAdminController implements Initializable {
 
     }
 
+
     @FXML
     private void navigateToArticleAdd(MouseEvent event) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
@@ -246,5 +247,9 @@ public class ListArticleAdminController implements Initializable {
         }
 
     }
+
+
+
+
 
 }

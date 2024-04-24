@@ -82,6 +82,7 @@ public class ReclamationItemAdminController implements Initializable {
     private ImageView RecItemPieceJ;
     @FXML
     private Pane content_area;
+    public static int idAn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -105,28 +106,33 @@ public class ReclamationItemAdminController implements Initializable {
         RecItemObjet.setText(reclamation.getObjet_rec());
         RecItemMail.setText(reclamation.getAdr_rec());
 
+
+
+
     }
     @FXML
     void RecReplyBtn(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterReponseAdmin.fxml"));
-       try {
-//            Parent addResponseParent = loader.load();
+
+        try {
+            //            Parent addResponseParent = loader.load();
 //            // Afficher le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
 //            Stage stage = new Stage();
 //            stage.setScene(new Scene(addResponseParent));
 //            stage.show();
-        Parent addResponseParent = loader.load();
 
-        // Obtenez le contrôleur de vue d'ajout de réponse
-        AjouterReponseAdminController controller = loader.getController();
+            Parent addResponseParent = loader.load();
 
-        // Passez l'objet Reclamation actuel au contrôleur de vue d'ajout de réponse
-        controller.initDataRec(reclamation);
+            // Obtenez le contrôleur de vue d'ajout de réponse
+            AjouterReponseAdminController controller = loader.getController();
 
-        // Affichez le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
-        Stage stage = new Stage();
-        stage.setScene(new Scene(addResponseParent));
-        stage.show();
+            // Passez l'objet Reclamation actuel au contrôleur de vue d'ajout de réponse
+            controller.initDataRec(this.reclamation);
+            idAn=reclamation.getId();
+            // Affichez le formulaire d'ajout de réponse dans un nouveau dialogue ou une nouvelle fenêtre
+            Stage stage = new Stage();
+            stage.setScene(new Scene(addResponseParent));
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,6 +140,7 @@ public class ReclamationItemAdminController implements Initializable {
     private Reclamation reclamation;
     public void initDataRec(Reclamation reclamation) {
         this.reclamation = reclamation;
+
         // Autres initialisations si nécessaire
     }
 }

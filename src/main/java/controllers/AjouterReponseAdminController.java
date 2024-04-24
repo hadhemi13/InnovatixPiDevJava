@@ -58,6 +58,7 @@ public class AjouterReponseAdminController implements Initializable {
 
     @FXML
     void addReponse(MouseEvent event) {
+        int newId = ReclamationItemAdminController.idAn;
         ServiceReponse sr = new ServiceReponse();
         if (contenuInput.getText().isEmpty()) {
             contenuInputErrorBox.setVisible(true);
@@ -70,7 +71,7 @@ public class AjouterReponseAdminController implements Initializable {
         LocalDateTime dateTime = LocalDateTime.now();
         String adresse = "mahmoud";
         String pieceJointe = "admin";
-        Reponse reponse = new Reponse(reclamation.getId(),adresse,dateTime,contenuInput.getText(),pieceJointe);
+        Reponse reponse = new Reponse(newId,adresse,dateTime,contenuInput.getText(),pieceJointe);
         try {
             sr.ajouter(reponse);
         } catch (SQLException e) {
