@@ -50,8 +50,8 @@ public class ServiceVirement implements IServiceVirement <Virement> {
    public void ajouterV(Virement virement) throws SQLException {
        String req = "INSERT INTO virement "
                + "(nomet_prenom, type_virement, transferez_a, "
-               + "montant, cin, decision_v,photo_cin_v, phone_number) "
-               + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+               + "montant, cin, decision_v,photo_cin_v, phone_number,num_beneficiare) "
+               + "VALUES (?, ?, ?, ?, ?, ?, ?, ? ,? )";
        try {
            System.out.println("marche");
            PreparedStatement ps = connection.prepareStatement(req);
@@ -63,6 +63,7 @@ public class ServiceVirement implements IServiceVirement <Virement> {
            ps.setString(6, virement.getDecision_v());
            ps.setString(7, virement.getPhoto_cin_v());
            ps.setString(8, virement.getPhone_number());
+           ps.setInt(9, virement.getNum_beneficiare());
            ps.executeUpdate();
            System.out.println("Virement ajouté avec succès !");
        } catch (SQLException e) {

@@ -23,7 +23,7 @@ public class Compte {
     private long rib;
     private int statut;
 
-    public Compte(int id, String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, int numero_telephone, String preference_communic, String type_cin, long rib, int statut) {
+    public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, String preference_communic, String type_cin, int statut) {
         this.id = id;
         this.email = email;
         this.confirmation_email = confirmation_email;
@@ -42,9 +42,27 @@ public class Compte {
         this.preference_communic = preference_communic;
         this.type_cin = type_cin;
         this.rib = rib;
-        this.statut = statut;
+        this.statut = this.statut;
     }
 
+    public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, int numero_telephone, String type_cin, int statut) {
+        this.email = email;
+        this.confirmation_email = confirmation_email;
+        this.cin = cin;
+        this.date_delivrance_cin = date_delivrance_cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.sexe = sexe;
+        this.date_naissance = date_naissance;
+        this.proffesion = proffesion;
+        this.type_compte = type_compte;
+        this.montant = montant;
+        this.statut_marital = statut_marital;
+        this.nationalite = nationalite;
+        this.numero_telephone = numero_telephone;
+        this.type_cin = type_cin;
+        this.statut = statut;
+    }
 
     public int getId() {
         return id;

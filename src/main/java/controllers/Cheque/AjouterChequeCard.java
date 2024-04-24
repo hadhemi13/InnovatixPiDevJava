@@ -296,22 +296,26 @@ public class AjouterChequeCard implements Initializable {
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
 
-        Cheque cheque = new Cheque(beneficiairee,montantn,12,email,Cin,Nom, (java.sql.Date) sqlDate,imageName,decision,1,1);
+        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, (java.sql.Date) sqlDate,imageName,decision,1,1);
 
 
         ServiceCheque serviceCheque = new ServiceCheque();
         serviceCheque.ajouterS(cheque);
 
 
-        if (sc.ajouter(cheque)) {
-            // Redirection vers la liste des demandes de chèques
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
-            Pane addArticleParent = loader.load();
+        if (serviceCheque.ajouterS(cheque)) {
+            try {
+                // Charger la vue de la liste des demandes de chèques
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
+                Pane demandeChequeListParent = loader.load();
 
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(addArticleParent);
+                // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
+                content_area.getChildren().setAll(demandeChequeListParent);
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Gérer les erreurs de chargement de la vue si nécessaire
+            }
         }
-
 
     }
     @Override
@@ -338,6 +342,8 @@ public class AjouterChequeCard implements Initializable {
 
     public void ajouter_image(MouseEvent mouseEvent) {
     }
+
+
 }
 
 

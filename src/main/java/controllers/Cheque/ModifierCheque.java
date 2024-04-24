@@ -206,6 +206,15 @@ public class ModifierCheque implements Initializable {
         beneficiaire.setValue(cheque.getBeneficiaire());
         tel.setText(String.valueOf(cheque.getTelephone()));
         montant.setText(String.valueOf(cheque.getMontant()));
+        Cin.setText(String.valueOf(cheque.getCin()));
+        if (cheque != null) {
+            // Charger et afficher l'image du chèque
+            if (cheque.getPhoto_cin() != null && !cheque.getPhoto_cin().isEmpty()) {
+                Image image = new Image(cheque.getPhoto_cin());
+                imageInput.setImage(image);
+            }
+        }
+
 
     }
 

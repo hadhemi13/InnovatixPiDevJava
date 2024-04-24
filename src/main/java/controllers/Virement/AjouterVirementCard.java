@@ -250,6 +250,7 @@ public class AjouterVirementCard implements Initializable {
         String type_virement=selectedType;
         System.out.println(type_virement);
         String transf= transferez.getText();
+        String benefr=benef.getText();
         String montantv=montant.getText();
         String nom_prenom=NometPrenom.getText();
         int cin;
@@ -266,10 +267,8 @@ public class AjouterVirementCard implements Initializable {
 
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
-
-        Virement virement1=new Virement(type_virement,montantv,phone_number,transf,cin,nom_prenom,image,decision);
-
-
+        //String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number
+        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decision,image,phone_number);
         ServiceVirement serviceVirement = new ServiceVirement();
         serviceVirement.ajouterV(virement1);
 

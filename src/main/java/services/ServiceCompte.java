@@ -2,7 +2,6 @@ package services;
 
 import utils.MyDatabase;
 import Entities.Compte;
-import utils.MyDatabase;
 
 
 import java.sql.*;
@@ -116,16 +115,16 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-                list.add(new Compte(rs.getInt("id"), rs.getString("email"),
+                list.add(new Compte(rs.getString("email"),
                         rs.getString("confirmation_email"), rs.getInt("cin"),
                         rs.getDate("date_delivrance_cin"),
                         rs.getString("nom"), rs.getString("prenom"), rs.getString("sexe"),
                         rs.getDate("date_naissance") ,
                         rs.getString("proffesion"), rs.getString("type_compte"),
                         rs.getDouble("montant"), rs.getString("statut_marital"),
-                        rs.getString("nationalite"), rs.getInt("numero_telephone"),
+                        rs.getString("nationalite"),
                         rs.getString("preference_communic"), rs.getString("type_cin"),
-                        rs.getLong("rib"), rs.getInt("statut")));
+                       rs.getInt("statut")));
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());

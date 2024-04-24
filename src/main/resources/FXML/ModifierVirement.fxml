@@ -477,7 +477,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                             <children>
-                                <Button fx:id="add_new_VirementtBtn" mnemonicParsing="false"  styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Modifier" textFill="WHITE">
+                                <Button fx:id="add_new_VirementtBtn" mnemonicParsing="false" onMouseClicked="#updatevirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Modifier" textFill="WHITE">
                                     <font>
                                         <Font name="Montserrat Regular" size="16.0" />
                                     </font>

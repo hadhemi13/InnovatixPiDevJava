@@ -46,7 +46,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
 
         return false;
     }
-    public void ajouterS(Cheque cheque) throws SQLException {
+    public boolean ajouterS(Cheque cheque) throws SQLException {
      //   INSERT INTO `cheque` (`id`, `compte_id`, `user_id`, `beneficiaire`, `montant`, `telephone`, `email`, `cin`, `nom_prenom`, `date`, `decision`, `photo_cin`, `signature_id`, `document_id`, `signer_id`, `pdf_sans_signature`) VALUES (NULL, NULL, NULL, 'jbjqjs', '2222', '222222', 'Ddjdnjdn', '222222', 'djdjdd', '2024-04-23', 'dedeeed', 'eeee', NULL, NULL, NULL, NULL);
         String reqe = "INSERT INTO `cheque`";
 
@@ -76,6 +76,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             System.err.println(e.getMessage());
         }
 
+        return false;
     }
 
     @Override

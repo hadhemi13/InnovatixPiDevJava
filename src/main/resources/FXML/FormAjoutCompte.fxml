@@ -57,7 +57,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="1060.0">
                      <children>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="Email" prefHeight="44.0" prefWidth="296.0">
                            <opaqueInsets>
                               <Insets left="20.0" />
                            </opaqueInsets>
@@ -65,12 +65,12 @@
                               <Insets left="25.0" />
                            </HBox.margin>
                         </TextField>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="conformation_email" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="66.0" />
                            </HBox.margin>
                         </TextField>
-                        <ComboBox prefHeight="44.0" prefWidth="296.0" styleClass="combo-box" stylesheets="@../css/SideNavBar.css">
+                        <ComboBox fx:id="typeCin" prefHeight="44.0" prefWidth="296.0" styleClass="combo-box" stylesheets="@../css/SideNavBar.css">
                            <HBox.margin>
                               <Insets left="69.0" />
                            </HBox.margin>
@@ -91,7 +91,7 @@
                               </Text>
                            </children>
                         </HBox>
-                        <HBox fx:id="ConfEmailInputError" prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="ConfEmailInputErrorHbox" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Text fx:id="ConfEmailInputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez confirmer votre email ">
                                  <font>
@@ -103,9 +103,9 @@
                               </Text>
                            </children>
                         </HBox>
-                        <HBox fx:id="TypelInputErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="TypeCinInputErrorHbox" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text fx:id="TypelInputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez choisir votre type de cin " wrappingWidth="205.6702880859375">
+                              <Text fx:id="TypeCinInputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez choisir votre type de cin " wrappingWidth="205.6702880859375">
                                  <HBox.margin>
                                     <Insets left="190.0" top="8.0" />
                                  </HBox.margin>
@@ -148,17 +148,17 @@
                   </HBox>
                   <HBox prefHeight="131.0" prefWidth="1060.0">
                      <children>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="NumCin" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="25.0" top="8.0" />
                            </HBox.margin>
                         </TextField>
-                        <DatePicker prefHeight="42.0" prefWidth="241.0">
+                        <DatePicker fx:id="DatedelCin" prefHeight="42.0" prefWidth="241.0">
                            <HBox.margin>
                               <Insets left="70.0" top="8.0" />
                            </HBox.margin>
                         </DatePicker>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="NumTel" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="116.0" top="8.0" />
                            </HBox.margin>
@@ -239,17 +239,17 @@
                   </HBox>
                   <HBox prefHeight="46.0" prefWidth="1060.0">
                      <children>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="Nom" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="25.0" />
                            </HBox.margin>
                         </TextField>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="Prenom" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="64.0" />
                            </HBox.margin>
                         </TextField>
-                        <DatePicker prefHeight="42.0" prefWidth="241.0">
+                        <DatePicker fx:id="DateNaiss" prefHeight="42.0" prefWidth="241.0">
                            <HBox.margin>
                               <Insets left="70.0" />
                            </HBox.margin>
@@ -258,11 +258,11 @@
                   </HBox>
                   <HBox prefHeight="32.0" prefWidth="1060.0">
                      <children>
-                        <HBox fx:id="NomInputErrorHbox" prefHeight="32.0" prefWidth="100.0">
+                        <HBox prefHeight="32.0" prefWidth="100.0">
                            <children>
                               <HBox fx:id="NomInputErrorHbox" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Text fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez saisir votre nom ">
+                                    <Text fx:id="NomInputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez saisir votre nom ">
                                        <HBox.margin>
                                           <Insets left="27.0" top="5.0" />
                                        </HBox.margin>
@@ -274,7 +274,7 @@
                               </HBox>
                               <HBox fx:id="PrenomnputErrorHbox" prefHeight="32.0" prefWidth="255.0">
                                  <children>
-                                    <Text fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez saisir votre prenom">
+                                    <Text fx:id="PrenomnputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez saisir votre prenom">
                                        <HBox.margin>
                                           <Insets left="225.0" top="5.0" />
                                        </HBox.margin>
@@ -286,7 +286,7 @@
                               </HBox>
                               <HBox fx:id="DateNaissnputErrorHbox" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Text fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez saisir votre date de naissance ">
+                                    <Text fx:id="DateNaissnputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez saisir votre date de naissance ">
                                        <HBox.margin>
                                           <Insets left="209.0" top="5.0" />
                                        </HBox.margin>
@@ -337,17 +337,17 @@
                   </HBox>
                   <HBox prefHeight="49.0" prefWidth="1060.0">
                      <children>
-                        <ComboBox prefHeight="44.0" prefWidth="296.0" stylesheets="@../css/SideNavBar.css">
+                        <ComboBox fx:id="TypeCompte" prefHeight="44.0" prefWidth="296.0" stylesheets="@../css/SideNavBar.css">
                            <HBox.margin>
                               <Insets left="25.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="MontantDepot" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="60.0" />
                            </HBox.margin>
                         </TextField>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="Nationalite" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="73.0" />
                            </HBox.margin>
@@ -428,17 +428,17 @@
                   </HBox>
                   <HBox prefHeight="55.0" prefWidth="1060.0">
                      <children>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <TextField fx:id="Profession" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="25.0" top="5.0" />
                            </HBox.margin>
                         </TextField>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        <ComboBox fx:id="StatutMarital" prefHeight="40.0" prefWidth="296.0" stylesheets="@../css/SideNavBar.css">
                            <HBox.margin>
-                              <Insets left="61.0" top="5.0" />
+                              <Insets left="65.0" top="5.0" />
                            </HBox.margin>
-                        </TextField>
-                        <TextField prefHeight="44.0" prefWidth="296.0">
+                        </ComboBox>
+                        <TextField fx:id="Sexe" prefHeight="44.0" prefWidth="296.0">
                            <HBox.margin>
                               <Insets left="75.0" top="5.0" />
                            </HBox.margin>
@@ -471,7 +471,7 @@
                               </Text>
                            </children>
                         </HBox>
-                        <HBox fx:id="SexenputErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="SexenputErrorHbox" prefHeight="20.0" prefWidth="237.0">
                            <children>
                               <Text fx:id="SexenputError" fill="#c11036" strokeType="OUTSIDE" strokeWidth="0.0" text=". Veuillez entrer votre sexe ">
                                  <font>
