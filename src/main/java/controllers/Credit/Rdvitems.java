@@ -105,12 +105,11 @@ public class Rdvitems {
                 throw new RuntimeException(e);
             }
             updaterdvcontroller updaterdvController = loader.getController();
-
+           CalendarController cal=loader.getController();
             String idvalue = credit_id.getText();
 
             RDV c11 = getrdvByUserId(con, idvalue);
             int id = c11.getId();
-
             updaterdvController.initData(c11);
             Stage stage = new Stage();
             Scene scene = new Scene(root);

@@ -143,7 +143,7 @@ public class SideNavBarUserController {
     public void openDashboardClientCredit(javafx.scene.input.MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClientcreditredv.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClientUser.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu

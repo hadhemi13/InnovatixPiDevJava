@@ -24,6 +24,20 @@ public class RDV {
 
     private Time heure;
 
+    @Override
+    public String toString() {
+        return "RDV{" +
+                "id=" + id +
+                ", credit_id=" + credit_id +
+                ", idclient=" + idclient +
+                ", heure=" + heure +
+                ", daterdv=" + daterdv +
+                ", credit=" + credit +
+                ", methode='" + methode + '\'' +
+                ", employename='" + employename + '\'' +
+                '}';
+    }
+
     public Credit getCredit() {
         return credit;
     }

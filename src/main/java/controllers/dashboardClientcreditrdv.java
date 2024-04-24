@@ -2,6 +2,7 @@ package controllers;
 
 import controllers.Cheque.DemandeChequeListClient;
 import controllers.Credit.DemandeCreditListClient;
+import controllers.Credit.DemandeCreditListClientUser;
 import controllers.Credit.DemandeRdvListClient;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,12 +39,12 @@ public class dashboardClientcreditrdv {
     @FXML
     public void listcredit(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClientUser.fxml"));
         System.out.println("e");
         Parent addArticleParent = loader.load();
 
         // Récupération du contrôleur de la vue d'ajout d'article
-        DemandeCreditListClient demandeCreditListClient = loader.getController();
+        DemandeCreditListClientUser demandeCreditListClient = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
