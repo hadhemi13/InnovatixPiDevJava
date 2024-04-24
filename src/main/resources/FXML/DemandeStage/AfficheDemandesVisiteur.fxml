@@ -1,14 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="FXML.DemandeStage.AfficheDemandeVisiteur"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="711.0" prefWidth="1313.0" stylesheets="@/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.AjouterCompte">
+    <children>
+      <ScrollPane prefHeight="711.0" prefWidth="1314.0">
+         <content>
+              <!-- Image de fond -->
+              <ImageView fitHeight="748.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../../img/istockphoto-1411598175-1024x1024.jpg" />
+                  </image>
+              </ImageView>
+         </content>
+      </ScrollPane>
+      <VBox prefHeight="699.0" prefWidth="1302.0" styleClass="transparent-vbox" stylesheets="@../../css/SideNavBar.css">
+         <children>
+            <HBox prefHeight="42.0" prefWidth="1302.0">
+               <children>
+                  <TextField prefWidth="378.0" promptText=" Saisir votre numéro pour suivre votre demande" stylesheets="@../../css/SideNavBar.css" translateX="500.0">
+                     <styleClass>
+                        <String fx:value="product__list-searchInput" />
+                        <String fx:value="product__list-searchInput" />
+                     </styleClass></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="120.0" styleClass="product__add-new-productBtn" text="Search " translateX="630.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/magnifier.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="1302.0">
+               <children>
+                  <Button mnemonicParsing="false" styleClass="product__add-new-productBtn" text="Demande Stage sans Offre" translateX="200.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/stage.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrer par Domaine :" translateX="550.0">
+                     <HBox.margin>
+                        <Insets top="9.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Bodoni MT" size="18.0" />
+                     </font>
+                  </Text>
+                  <ComboBox prefWidth="189.0" styleClass="product__add-new-productBtn" translateX="580.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <VBox prefHeight="449.0" prefWidth="1302.0" />
+         </children>
+      </VBox>
+    </children>
 </AnchorPane>

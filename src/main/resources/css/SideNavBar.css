@@ -125,7 +125,7 @@
 }
 
 .product-title {
-    -fx-text-fill: #32594a;
+    -fx-text-fill: #376050;
     -fx-font-size: 26px;
     -fx-font-weight: 800;
 }
@@ -2195,3 +2195,33 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
+.userTableHead {
+    -fx-background-color: #b6f8bd;
+    -fx-background-radius: 35px 35px 0 0;
+    -fx-padding: 0 15px;
+}
+.compteTableHead {
+    -fx-background-color: #defee6;
+    -fx-background-radius: 35px 35px 0 0;
+    -fx-padding: 0 15px;
+}
+.compteTableHeadTitle {
+    -fx-fill: #5ba890;
+    -fx-font-size: 19px;
+    -fx-font-weight: 700;
+}
+.DemandeCard__title {
+    -fx-fill: #5ba890;
+    -fx-font-size:25px;
+    -fx-font-weight: 600;
+
+}
+.transparent-vbox {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Couleur blanche avec une opacité de 0.5 */
+}
+.product__list-searchInput {
+    -fx-prompt-text-fill: black; /* Définit la couleur du texte de l'invite en blanc */
+}
+
+
+

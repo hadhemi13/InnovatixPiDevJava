@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.ListeChequeAdmin">
+    <children>
+        <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="container-card" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <HBox layoutX="28.0" layoutY="18.0" prefHeight="59.0" prefWidth="1033.0" stylesheets="@../../css/SideNavBar.css">
+                    <children>
+                        <Text fill="#54bc96" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="compteTableHeadTitle" text="Liste des Contrats :">
+                            <font>
+                                <Font name="Bell MT" size="33.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="26.0" />
+                            </HBox.margin>
+                        </Text>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="110.0">
+                     <HBox.margin>
+                        <Insets top="27.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../../img/magnifier.png" />
+                     </image>
+                  </ImageView>
+                  <TextField styleClass="product__list-searchInput" stylesheets="@../../css/SideNavBar.css">
+                     <HBox.margin>
+                        <Insets left="50.0" top="21.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="37.0" right="40.0" />
+                     </padding>
+                  </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="compteTableHeadTitle" text=" Trier par : ">
+                            <HBox.margin>
+                                <Insets left="50.0" right="25.0" top="26.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Bell MT Bold" size="22.0" />
+                            </font>
+                        </Text>
+                        <ComboBox prefWidth="150.0" promptText="Tout " styleClass="product__add-comboBox">
+                            <HBox.margin>
+                                <Insets bottom="19.0" top="25.0" />
+                            </HBox.margin>
+                        </ComboBox>
+                  <Button mnemonicParsing="false" onMouseClicked="#ajouterContrat" prefHeight="43.0" prefWidth="55.0" styleClass="productBtn">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/add-list.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="100.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                    </children>
+                </HBox>
+                <HBox layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1033.0" styleClass="compteTableHead" stylesheets="@../../css/SideNavBar.css">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Contrat  ">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="50.0" top="20.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Stagiaire " wrappingWidth="76.18902587890625">
+                            <HBox.margin>
+                                <Insets left="100.0" top="20.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Date de Début " wrappingWidth="113.58123779296875">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="100.0" top="20.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Date de Fin">
+                            <HBox.margin>
+                                <Insets left="150.0" top="20.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Durée">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="180.0" top="20.0" />
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+                <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1040.0" styleClass="cheque_listScrollPane" stylesheets="@../css/Compte.css">
+                    <content>
+                        <VBox prefHeight="446.0" prefWidth="1023.0" spacing="13.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
