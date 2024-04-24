@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
@@ -34,13 +35,13 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class UpdateProjectCardController implements Initializable {
+public class ShowProjectCardController implements Initializable {
 
     @FXML
     private HBox choose_photoBtn;
 
     @FXML
-    private TextField nomProjetInput;
+    private Text nomProjetInput;
 
     @FXML
     private ImageView imageInput;
@@ -75,7 +76,7 @@ public class UpdateProjectCardController implements Initializable {
     }
 
     public static void setFxmlToLoad(String FxmlToLoad) {
-        UpdateProjectCardController.FxmlToLoad = FxmlToLoad;
+        ShowProjectCardController.FxmlToLoad = FxmlToLoad;
     }
 
     @FXML
@@ -133,6 +134,7 @@ public class UpdateProjectCardController implements Initializable {
         }
     }
 
+
     public void setProjectUpdateData(Project project) {
         projectToUpdate = project;
         nomProjetInput.setText(project.getNomProjet());
@@ -142,22 +144,7 @@ public class UpdateProjectCardController implements Initializable {
         budgetProjetInput.setText(String.valueOf(project.getBudgetProjet()));
         statutProjetInput.setText(String.valueOf(project.getStatutProjet()));
         dateCreationInput.setText(String.valueOf(project.getDateCreation()));
-
-        Image image = new Image(getClass().getResource("/assets/projectUploads/" + project.getImg()).toExternalForm());
-        imageInput.setImage(image);
-        imageName = project.getImg();
-    }
-    public void setProjectShowData(Project project) {
-        projectToUpdate = project;
-        nomProjetInput.setText(project.getNomProjet());
-        descriptionProjetInput.setText(project.getDescriptionProjet());
-        categorieInput.setText(project.getCategorie());
-        dureeProjetInput.setText(String.valueOf(project.getDureeProjet()));
-        budgetProjetInput.setText(String.valueOf(project.getBudgetProjet()));
-        statutProjetInput.setText(String.valueOf(project.getStatutProjet()));
-        dateCreationInput.setText(String.valueOf(project.getDateCreation()));
-
-        Image image = new Image(getClass().getResource("/assets/projectUploads/" + project.getImg()).toExternalForm());
+        Image image = new Image(getClass().getResource("/assets/projectUploads/" +"asma.jpg").toExternalForm());
         imageInput.setImage(image);
         imageName = project.getImg();
     }

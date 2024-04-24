@@ -24,7 +24,13 @@ public class ProjectListController implements Initializable {
     private HBox updateProjectModel;
 
     @FXML
+    private HBox ShowProjectModel;
+
+    @FXML
     private VBox updateProjectModelContent;
+
+    @FXML
+    private VBox ShowProjectModelContent;
 
     @FXML
     private HBox addProjectModel;
@@ -44,8 +50,10 @@ public class ProjectListController implements Initializable {
     @FXML
     private HBox projectTableHead;
     private static int updateProjectModelShow = 0;
+    private static int ShowProjectModelShow = 0;
     private static int addProjectModelShow = 0;
     private static int projetIdToUpdate = 0;
+    private static int projetIdToShow = 0;
     private static int filter = 0;
 
     @FXML
@@ -54,9 +62,14 @@ public class ProjectListController implements Initializable {
     public static int getupdateProjectModelShow() {
         return updateProjectModelShow;
     }
-
+    public static int getShowProjectModelShow() {
+        return ShowProjectModelShow;
+    }
     public static void setupdateProjectModelShow(int updateProjectModelShow) {
         ProjectListController.updateProjectModelShow = updateProjectModelShow;
+    }
+    public static void setShowProjectModelShow(int ShowProjectModelShow) {
+        ProjectListController.ShowProjectModelShow = ShowProjectModelShow;
     }
 
     public static int getaddProjectModelShow() {
@@ -78,14 +91,16 @@ public class ProjectListController implements Initializable {
     public static void setprojectEmailToUpdate(int projetIdToUpdate) {
         ProjectListController.projetIdToUpdate = projetIdToUpdate;
     }
+    public static void setprojectEmailToShow(int projetIdToShow) {
+        ProjectListController.projetIdToShow = projetIdToShow;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ServiceProjet projectService = new ServiceProjet();
         Project project;
 
-        // System.out.println(projectEmailToUpdate);
-        if (ProjectListController.getupdateProjectModelShow() == 0) {
+         if (ProjectListController.getupdateProjectModelShow() == 0) {
             updateProjectModel.setVisible(false);
         } else if (ProjectListController.getupdateProjectModelShow() == 1) {
             updateProjectModel.setVisible(true);
@@ -107,8 +122,31 @@ public class ProjectListController implements Initializable {
             }
         }
 
-        // System.out.println(projectEmailToUpdate);
-        if (ProjectListController.getaddProjectModelShow() == 0) {
+
+        if (ProjectListController.getShowProjectModelShow() == 0) {
+            ShowProjectModel.setVisible(false);
+        } else if (ProjectListController.getShowProjectModelShow() == 1) {
+            ShowProjectModel.setVisible(true);
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/ShowProjectCard.fxml"));
+            VBox ShowProjectform;
+            try {
+                ShowProjectform = fxmlLoader1.load();
+                ShowProjectCardController ShowUserCardController = fxmlLoader1.getController();
+                ShowProjectCardController.setFxmlToLoad("ProjectsList.fxml");
+                project = projectService.getOneProject(projetIdToUpdate);
+                ShowUserCardController.setProjectUpdateData(project);
+                ShowProjectModelContent.getChildren().add(ShowProjectform);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+         if (ProjectListController.getaddProjectModelShow() == 0) {
             addProjectModel.setVisible(false);
         } else if (ProjectListController.getaddProjectModelShow() == 1) {
             addProjectModel.setVisible(true);
@@ -151,6 +189,11 @@ public class ProjectListController implements Initializable {
     void close_updateProjectModel(MouseEvent event) {
         updateProjectModel.setVisible(false);
         updateProjectModelShow = 0;
+    }
+    @FXML
+    void close_ShowProjectModel(MouseEvent event) {
+        ShowProjectModel.setVisible(false);
+        ShowProjectModelShow = 0;
     }
 
     @FXML

@@ -65,6 +65,9 @@ public class ProjectItemController {
 
     @FXML
     private Label ItemUpdateBtn;
+
+    @FXML
+    private Label ItemShowBtn;
     @FXML
     private Label ItemAddBtn;
 
@@ -124,7 +127,22 @@ public class ProjectItemController {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Vider la pane et afficher le contenu de ProductsList.fxml
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        ItemShowBtn.setOnMouseClicked(event -> {
+            System.out.println("Project Name: " + project.getNomProjet());
+            ProjectListController.setShowProjectModelShow(1);
+            ProjectListController.setprojectEmailToUpdate(project.getId());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            try {
+                Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
                 contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
