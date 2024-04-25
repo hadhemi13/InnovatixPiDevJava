@@ -1,4 +1,3 @@
-
 package controllers;
 
 import Entities.Cheque;
@@ -7,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -97,4 +97,9 @@ public class ChequeItemsController {
 
     }
 
+    public void UpdateCheque(MouseEvent mouseEvent) {
+    }
+
+    public void DeleteCheque(MouseEvent mouseEvent) {
+    }
 }

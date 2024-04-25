@@ -1,8 +1,6 @@
 package controllers.Cheque;
 
 import Entities.Cheque;
-import Entities.Compte;
-import controllers.Compte.CompteItems;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import services.ServiceCheque;
-import services.ServiceCompte;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,22 +19,40 @@ import java.util.ResourceBundle;
 
 public class ListeChequeAdmin implements Initializable {
 
+
     @FXML
     private VBox ChequeContainer;
     @FXML
     private Pane content_area;
 
+    private static ListeChequeAdmin instance;
+
+    public ListeChequeAdmin() {
+        instance = this;
+    }
+
+    public static ListeChequeAdmin getInstance() {
+        return instance;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServiceCheque serviceCheque = new ServiceCheque();
-        List<Cheque> list = new ArrayList<>();
+        List<Cheque> allCheques = new ArrayList<>();
+        List<Cheque> filteredCheques = new ArrayList<>();
         try {
-            list = serviceCheque.afficher(); // Notez le changement ici
+            allCheques = serviceCheque.afficher(); // Fetch all cheques from the database
+            // Filter out cheques that are "Approuvé"
+            for (Cheque cheque : allCheques) {
+                if (!"Approuvé".equals(cheque.getDecision())) {
+                    filteredCheques.add(cheque);
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        for (Cheque cheque : list) {
+        for (Cheque cheque : filteredCheques) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChequeItemsAdmin.fxml"));
                 Parent offreItem = loader.load();
@@ -49,9 +64,34 @@ public class ListeChequeAdmin implements Initializable {
             }
         }
     }
+    // ListeChequeAdmin.java
 
+    public void refreshChequeList() {
+        ChequeContainer.getChildren().clear();  // Clear the existing views
+        List<Cheque> filteredCheques = new ArrayList<>();
+        try {
+            List<Cheque> allCheques = new ServiceCheque().afficher();
+            for (Cheque cheque : allCheques) {
+                if (!"Approuvé".equals(cheque.getDecision())) {
+                    filteredCheques.add(cheque);
+                }
+
+            }
+
+            for (Cheque cheque : filteredCheques) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChequeItemsAdmin.fxml"));
+                Parent item = loader.load();
+                ChequeItemsAdmin controller = loader.getController();
+                controller.initData(cheque);
+                ChequeContainer.getChildren().add(item);
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace(); // Proper error handling should be implemented
+        }
+    }
 
     public void returnbackCardCH(MouseEvent mouseEvent) {
+
         try {
             // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardAdmin.fxml"));
