@@ -38,7 +38,7 @@ public class Mailling {
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("E-FlexBank@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("khaluiyesser@gmail.com"));
             message.setSubject(data.get("emailSubject"));
             // message.setText("Hello, this is a test email from JavaFX.");
             message.setContent(htmlContent, "text/html");

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -21,35 +22,29 @@
    <top>
         <AnchorPane prefHeight="700.0" prefWidth="727.0" stylesheets="@../css/SideNavBar.css" BorderPane.alignment="CENTER">
             <children>
-                <Text layoutX="283.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signUp__title" text="Sign Up" />
-                <VBox layoutX="116.0" layoutY="160.0" prefHeight="380.0" prefWidth="482.0" styleClass="signUp__from__container" stylesheets="@../../resources/css/SideNavBar.css">
+                <Text layoutX="283.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signUp__title" text="Sign Up" />
+                <VBox layoutX="46.0" layoutY="125.0" prefHeight="563.0" prefWidth="596.0" styleClass="signUp__from__container" stylesheets="@../../resources/css/SideNavBar.css">
                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
+                        <VBox prefHeight="53.0" prefWidth="723.0" stylesheets="@../css/SideNavBar.css">
                             <children>
-                                <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Nom*" />
-                                <TextField fx:id="fullnameField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Nom..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
-                                    <styleClass>
-                                        <String fx:value="SignUp__input" />
-                                        <String fx:value="SignUp__input--email" />
-                                    </styleClass>
+                                <Label prefHeight="22.0" prefWidth="58.0" styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Nom*" />
+                                <TextField fx:id="fullnameField" alignment="CENTER" prefHeight="21.0" prefWidth="621.0" promptText="Nom..." style="-fx-background-radius: 50;" styleClass="SignUp__input" stylesheets="@../../resources/css/SideNavBar.css">
+                           <rotationAxis>
+                              <Point3D z="6.0" />
+                           </rotationAxis>
                                 </TextField>
                             </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
+                        <VBox prefHeight="76.0" prefWidth="579.0" stylesheets="@../css/SideNavBar.css">
                             <children>
                                 <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Email*" />
-                                <TextField fx:id="EmailField" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Email..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
-                                    <styleClass>
-                                        <String fx:value="SignUp__input" />
-                                        <String fx:value="SignUp__input--tel" />
-                                    </styleClass>
-                                </TextField>
+                                <TextField fx:id="EmailField" alignment="CENTER" prefHeight="81.0" prefWidth="571.0" promptText="Email.." style="-fx-background-radius: 50;" styleClass="SignUp__input" stylesheets="@../../resources/css/SideNavBar.css" />
                             </children>
                         </VBox>
                   <VBox layoutX="10.0" layoutY="157.0" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Numero Telephone*" />
-                        <TextField fx:id="phoneField1" alignment="CENTER" prefHeight="33.0" prefWidth="416.0" promptText="Tel..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
+                        <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Phone number*" />
+                        <TextField fx:id="phoneField1" alignment="CENTER" prefHeight="33.0" prefWidth="482.0" promptText="Tel..." style="-fx-background-radius: 50;" stylesheets="@../../resources/css/SideNavBar.css">
                            <styleClass>
                               <String fx:value="SignUp__input" />
                               <String fx:value="SignUp__input--tel" />
@@ -57,7 +52,7 @@
                         </TextField>
                      </children>
                   </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 10px;">
+                        <VBox prefHeight="200.0" prefWidth="575.0" style="-fx-spacing: 10px;">
                             <children>
                                 <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15px;">
                                     <children>
@@ -87,7 +82,7 @@
                                 </HBox>
                             </children>
                         </VBox>
-                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/SideNavBar.css">
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="202.0" prefWidth="596.0" stylesheets="@../css/SideNavBar.css">
                      <children>
                         <Label styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Photo*" />
                         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#uploadImage" prefHeight="84.0" prefWidth="86.0" styleClass="SignUp__btn" stylesheets="@../css/SideNavBar.css">
@@ -101,12 +96,12 @@
                         </Button>
                         <ImageView fx:id="imageView" fitHeight="74.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" />
                         <CheckBox alignment="TOP_LEFT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="478.0" styleClass="form__member" stylesheets="@../css/SideNavBar.css" text="j'accepte tous les conditions" />
-                            <Button fx:id="signUpBTN" mnemonicParsing="false" onAction="#signUp" onMouseClicked="#toLogin" prefHeight="46.0" prefWidth="314.0" styleClass="SignUp__btn" stylesheets="@../../resources/css/SideNavBar.css" text="Sign Up" />
+                            <Button fx:id="signUpBTN" mnemonicParsing="false" onAction="#signUp" onMouseClicked="#toLogin" prefHeight="24.0" prefWidth="314.0" styleClass="SignUp__btn" stylesheets="@../../resources/css/SideNavBar.css" text="Sign Up" />
                      </children>
                   </VBox>
                     </children>
                 </VBox>
-            <VBox layoutX="683.0" layoutY="2.0" prefHeight="700.0" prefWidth="686.0" styleClass="vbox_background_center" stylesheets="@../css/login.css" />
+            <VBox layoutX="683.0" layoutY="2.0" prefHeight="700.0" prefWidth="686.0" styleClass="vbox_background_center" stylesheets="@../css/login.css" translateY="10.0" />
             <ImageView fitHeight="113.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/logo.png" />

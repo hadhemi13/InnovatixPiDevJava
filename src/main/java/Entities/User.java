@@ -23,16 +23,15 @@ public class User {
 
     //update user set name=?,email=?,adresse=?,cin=?,date_naissance=?,profession=?  where id=?
 
-    public User(int id, String name, String email, String adresse, String profession, String cin, String date_naissance) {
+    public User(int id, String name, String email, String profession, String cin, String date_naissance) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.adresse = adresse;
         this.profession = profession;
         this.cin = cin;
         this.date_naissance = date_naissance;
     }
-    public User(String name,String cin,String adresse, String email ,String roles, String tel, String password, String photo) {
+    public User(String name,String cin,String photo, String adresse,String email ,String roles, String tel, String password) {
         this.name=name;
         this.roles=roles;
         this.email=email;
@@ -40,17 +39,18 @@ public class User {
         this.photo=photo;
         this.tel=tel;
         this.cin = cin;
+        this.adresse=adresse;
 
 
 
     }
 
-    public User(String name, String roles, String email, String password, String photo, String tel) {
+    public User(String name, String email, String tel, String password, String image, String roles) {
         this.name=name;
         this.roles=roles;
         this.email=email;
         this.password=password;
-        this.photo=photo;
+        this.photo=image;
         this.tel=tel;
 
 
@@ -110,39 +110,10 @@ public class User {
         this.poste= poste;
         this.salaire= salaire;
     }
-    public User(String name, String password, String tel, String email, String adresse, String profession, String roles, String cin, String photo,String date_naissance , int is_blocked,int is_verified, String poste , int salaire) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.tel = tel;
-        this.email = email;
-        this.adresse = adresse;
-        this.profession = profession;
-        this.roles = roles;
-        this.cin = cin;
-        this.photo = photo;
-        this.date_naissance= date_naissance;
-        this.is_blocked= is_blocked;
-        this.is_blocked=is_blocked;
-        this.poste= poste;
-        this.salaire= salaire;
-    }
 
 
     //email, name,roles ,password,cin, date_naissance, adresse,profession ,photo,is_blocked,is_verified, poste, salaire, tel
 
-    public User(String name, String password, String tel, String email, String adresse, String profession, String roles, String cin, String photo) {
-        this.name = name;
-        this.password = password;
-        this.tel = tel;
-        this.email = email;
-        this.adresse = adresse;
-        this.profession = profession;
-        this.roles = roles;
-        this.cin = cin;
-        this.photo = photo;
-
-    }
 
     public int getId() {
         return id;

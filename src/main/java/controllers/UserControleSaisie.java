@@ -14,9 +14,9 @@ import org.mindrot.jbcrypt.BCrypt;
 public class UserControleSaisie {
 
     public static boolean signUpValidator(User user, String repassword, ServiceUser userService) {
-        if (user.getName().isEmpty() || user.getEmail().isEmpty() || user.getTel().isEmpty()|| user.getPhoto().isEmpty()
+        if (user.getName().isEmpty() || user.getEmail().isEmpty() || user.getTel().isEmpty() || user.getPhoto().isEmpty()
                 || user.getPassword().isEmpty()) {
-           showAlert(AlertType.WARNING, "Sign Up Error", "Please fill out all required fields.");
+            showAlert(AlertType.WARNING, "Sign Up Error", "Please fill out all required fields.");
             return false;
         }
 
@@ -27,7 +27,7 @@ public class UserControleSaisie {
         }
 
         if (user.getName().length() < 3) {
-            showAlert(AlertType.WARNING, "Sign Up Error", "Not a valid fullname.");
+            showAlert(AlertType.WARNING, "Sign Up Error", "Not a valid name.");
             return false;
         }
 
@@ -38,16 +38,16 @@ public class UserControleSaisie {
             return false;
         }
 
-        Pattern telPattern = Pattern.compile("[0-9]+");
+       /* Pattern telPattern = Pattern.compile("[0-9]+");
         if (!(telPattern.matcher(user.getTel()).matches() && user.getTel().length() >= 8)) {
             showAlert(AlertType.WARNING, "Sign Up Error", "Not a valid phone number.");
             return false;
         }
 
-        if (!user.getRoles().equals("[\"ROLE_CLIENT\"]") ) {
+        if (!user.getRoles().equals("[\"ROLE_CLIENT\"]")) {
             showAlert(AlertType.WARNING, "Sign Up Error", "Hello little hacker 🐱‍💻👩‍💻");
             return false;
-        }
+        }*/
 
         if (user.getPassword().length() < 8) {
             showAlert(AlertType.WARNING, "Sign Up Error", "Your password must be at least 8 characters long.");
@@ -95,13 +95,28 @@ public class UserControleSaisie {
         }
 
         if (user.getId() == -999) {
-            showAlert("Forgot password", "Email not associated with zeroWaste account");
+            showAlert("Forgot password", "Email not associated with EflexBank account");
             return false;
         }
 
         return true;
     }
 
+
+    public boolean loginInputValidator(String email, String password) {
+        if (email.isEmpty() || password.isEmpty()) {
+            showAlert("Login", "Please fill out all required fields.");
+            return false;
+        }
+
+        Pattern emailPattern = Pattern.compile("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
+        if (!emailPattern.matcher(email).matches()) {
+            showAlert("Login", "The email " + email + " is not valid.");
+            return false;
+        }
+
+        return true;
+    }
     // Méthode pour afficher une boîte de dialogue d'alerte
     private static void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);

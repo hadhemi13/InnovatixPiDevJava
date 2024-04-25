@@ -1,11 +1,12 @@
 package controllers;
 
-public final class UserSession {
+public class UserSession {
 
     private static UserSession instance;
-    private String email;
 
-    private UserSession() {
+    public String email = null;
+
+    public UserSession() {
 
     }
 

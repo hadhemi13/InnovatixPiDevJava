@@ -1,60 +1,54 @@
 package controllers;
 
-import Entities.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 
 import java.io.IOException;
 import java.util.EventObject;
 
-public class SideNavBarController {
+public class SideNavBarUserController {
 
     @FXML
-    private HBox InvestBtn;
+    private HBox Compte;
 
     @FXML
-    private HBox actualitesBtn;
+    private HBox CreditBtn;
 
     @FXML
-    private ImageView actualitesIcon;
+    private HBox achatBtn;
 
     @FXML
-    private Label actualitesText;
+    private HBox achatBtn1;
 
     @FXML
-    private HBox chartContainer;
+    private ImageView achatIcon;
 
     @FXML
-    private HBox compteBtn;
+    private ImageView achatIcon1;
 
     @FXML
-    private ImageView comptesIcon;
+    private HBox collectBtn;
 
     @FXML
-    private Label comptesText;
+    private ImageView collectIcon;
+
+    @FXML
+    private HBox commandsBtn;
+
+    @FXML
+    private ImageView commandsIcon;
 
     @FXML
     private Pane content_area;
-
-    @FXML
-    private HBox creditsBtn;
-
-    @FXML
-    private ImageView creditsIcon;
-
-    @FXML
-    private Label creditsText;
 
     @FXML
     private HBox dashboardBtn;
@@ -63,16 +57,13 @@ public class SideNavBarController {
     private ImageView dashboardIcon;
 
     @FXML
-    private Label dashboardText;
+    private HBox favBtn;
 
     @FXML
-    private ImageView investissementsIcon;
+    private ImageView favIcon;
 
     @FXML
-    private Label investissementsText;
-
-    @FXML
-    private ImageView logo;
+    private ImageView fundrisingIcon;
 
     @FXML
     private HBox navBarLogout;
@@ -81,49 +72,24 @@ public class SideNavBarController {
     private Text navFullname;
 
     @FXML
-    private HBox recBtn;
+    private ImageView productsIcon;
 
     @FXML
-    private Label reclamationText;
+    private HBox profileBtn;
 
     @FXML
-    private ImageView reclamationsIcon;
+    private ImageView profileIcon;
 
     @FXML
-    private HBox sideBarLogout;
-
-    @FXML
-    private HBox stagesBtn;
-
-    @FXML
-    private ImageView stagesIcon;
-
-    @FXML
-    private Label stagesText;
-
-    @FXML
-    private HBox usersBtn;
-
-    @FXML
-    private ImageView usersIcon;
-
-    @FXML
-    private Label usersText;
-
-    private boolean sideBarVisible = true;
-    @FXML
-    void smallSide(MouseEvent event) {
-
-    }
-
+    private Text totalNotif;
 
     public void openLisUser(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UsersList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProfileUser.fxml"));
             Pane listArticleAdminPane = loader.load();
 
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            // Remplacer le contenu de content_area par le contenu
             content_area.getChildren().setAll(listArticleAdminPane);
         } catch (IOException e) {
             e.printStackTrace();
@@ -139,11 +105,6 @@ public class SideNavBarController {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void initData(User user) {
 
     }
 }
-
-
