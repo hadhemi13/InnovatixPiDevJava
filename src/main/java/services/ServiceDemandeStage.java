@@ -32,23 +32,23 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
         DemandeStage demandeStag = new DemandeStage(K,demandeStage.getNom(), demandeStage.getPrenom(), demandeStage.getEmail(), demandeStage.getNumeroTelephone(), demandeStage.getLettremotivation(), demandeStage.getCv(), demandeStage.getDomaine(), demandeStage.getEtat(), demandeStage.getDate(), score);
         DemandeStage demandeStageParOffre = new DemandeStage(K,demandeStage.getNom(),demandeStage.getPrenom(),demandeStage.getEmail(), demandeStage.getNumeroTelephone(),demandeStage.getLettremotivation(), demandeStage.getCv(), demandeStage.getDomaine(),demandeStage.getEtat(), demandeStage.getDate(),score);
 
-        System.out.println(
-                "DemandeStage{" +
-//                "id =" +id + '\''+
-                "nom='" + demandeStag.getNom() + '\'' +
-                ", prenom='" + demandeStag.getPrenom() + '\'' +
-                ", email='" + demandeStag.getEmail() + '\'' +
-                ", lettremotivation='" + demandeStag.getLettremotivation() + '\'' +
-                ", cv='" + demandeStag.getCv() + '\'' +
-                ", domaine='" + demandeStag.getDomaine() + '\'' +
-                ", etat='" + demandeStag.getEtat() + '\'' +
-                ", id_offre=" + demandeStag.getId_offre() +
-                ", numeroTelephone=" + demandeStag.getNumeroTelephone() +
-                ", score=" + demandeStag.getScore() +
-                ", date=" + demandeStag.getDate() +
-                '}'
-//                demandeStag
-                );
+//        System.out.println(
+//                "DemandeStage{" +
+////                "id =" +id + '\''+
+//                "nom='" + demandeStag.getNom() + '\'' +
+//                ", prenom='" + demandeStag.getPrenom() + '\'' +
+//                ", email='" + demandeStag.getEmail() + '\'' +
+//                ", lettremotivation='" + demandeStag.getLettremotivation() + '\'' +
+//                ", cv='" + demandeStag.getCv() + '\'' +
+//                ", domaine='" + demandeStag.getDomaine() + '\'' +
+//                ", etat='" + demandeStag.getEtat() + '\'' +
+//                ", id_offre=" + demandeStag.getId_offre() +
+//                ", numeroTelephone=" + demandeStag.getNumeroTelephone() +
+//                ", score=" + demandeStag.getScore() +
+//                ", date=" + demandeStag.getDate() +
+//                '}'
+////                demandeStag
+//                );
         String req = "INSERT INTO demandestage " +
                 "(offre_stage_id,nom, prenom, email, numeroTelephone, lettremotivation, cv, domaine, etat, date, score)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

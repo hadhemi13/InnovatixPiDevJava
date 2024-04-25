@@ -9,7 +9,7 @@ public class ValidatorOffre {
 
         if (input != null && !input.isEmpty()) {
             char firstChar = input.charAt(0);
-            if (firstChar == '2' || firstChar == '5' || firstChar == '9'){
+            if (firstChar == '2' || firstChar == '5' || firstChar == '9' || input.length()==8){
             etat = true;
             }
         }

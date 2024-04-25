@@ -52,6 +52,7 @@ public class DemandeStageController {
 
     @FXML
     private Button ajouterDemande;
+//    private int i = 0;
 
     @FXML
     void Upload(ActionEvent event) throws IOException {
@@ -139,4 +140,7 @@ public class DemandeStageController {
         }
     }
 
+    public void initData(int postePropose) {
+
+    }
 }

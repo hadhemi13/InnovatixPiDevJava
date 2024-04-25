@@ -48,7 +48,7 @@ public class Recrutement implements Initializable {
         }
         for (OffreDeStage offre : list) {
             try {
-                ListeOffre.setSpacing(0.5);
+//                ListeOffre.setSpacing(0.5);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageVisiteurItem.fxml"));
                 Parent offreItem = loader.load();
                 OffreStageVisiteurItemController offreStageItem = loader.getController();
