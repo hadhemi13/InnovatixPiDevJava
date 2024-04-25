@@ -88,6 +88,7 @@ public class ReclamationItemAdminController implements Initializable {
     }
 
     public void initData(Reclamation reclamation) {
+        ServiceReclamation serviceReclamation =new ServiceReclamation() ;
         Image image = new Image(getClass().getResource("/imagesAct/admin.png").toExternalForm());
         RecItemImg.setImage(image);
         Rectangle clip = new Rectangle(
@@ -133,8 +134,6 @@ public class ReclamationItemAdminController implements Initializable {
     private Reclamation reclamation;
     public void initDataRec(Reclamation reclamation) {
         this.reclamation = reclamation;
-
-        // Autres initialisations si nécessaire
     }
 
     public void RecItemDelete(MouseEvent mouseEvent) {

@@ -25,7 +25,7 @@
         </HBox.margin>
     </Text>
       <Text fx:id="dateartitemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="Date" textAlignment="CENTER" wrappingWidth="186.15474319458008" />
-      <ImageView fitHeight="35.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteComment" fitHeight="35.0" fitWidth="22.0" onMouseClicked="#deleteComment" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagesAct/trash-bin.gif" />
          </image>

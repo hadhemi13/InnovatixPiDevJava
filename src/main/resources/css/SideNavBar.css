@@ -1370,7 +1370,7 @@
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
     -fx-border-color: #defee6;
-    -fx-border-width: 1px;
+    -fx-border-width: 0.25px;
 }
 
 .product__add-img-btn {
@@ -1421,7 +1421,7 @@
 
 .product__list-imgContainer {
     -fx-border-color: transparent #defee6 transparent transparent;
-    -fx-border-width: 1px;
+    -fx-border-width: 0.25px;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
 }
@@ -1465,7 +1465,7 @@
 
 .one-categoryCard-imgContainer {
     -fx-border-color: transparent #defee6 transparent transparent;
-    -fx-border-width: 1px;
+    -fx-border-width: 0.25px;
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
 }
@@ -1646,7 +1646,7 @@
 }
 .userProductCard {
     -fx-border-color: #ccfccb;
-    -fx-border-width: 8px;
+    -fx-border-width: 4px;
     -fx-background-color: #fff;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;

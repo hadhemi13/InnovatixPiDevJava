@@ -160,6 +160,14 @@ public class ListArticleAdminController implements Initializable {
 
         // Ajoutez chaque article au GridPane
         int row = 0;
+        // Espacement entre les cartes
+        double verticalGap = 18; // Environ 9 mm
+        double horizontalGap = 50; // Environ 9 mm
+        // Espacement entre le GridPane et les cartes
+        double margin = 5; // Environ 10 mm
+        // Définir l'espacement vertical et horizontal
+        ArtListContainer.setVgap(verticalGap);
+        ArtListContainer.setHgap(horizontalGap);
         for (Article article : articles) {
             // Créez un contrôleur de carte d'article pour chaque article
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/articleCardAdmin.fxml"));
@@ -217,7 +225,14 @@ public class ListArticleAdminController implements Initializable {
         int row = 1;
         int column = 0;
         int maxColumns = 3; // Nombre maximum de colonnes par ligne
-
+        // Espacement entre les cartes
+        double verticalGap = 18; // Environ 9 mm
+        double horizontalGap = 50; // Environ 9 mm
+        // Espacement entre le GridPane et les cartes
+        double margin = 5; // Environ 10 mm
+        // Définir l'espacement vertical et horizontal
+        ArtListContainer.setVgap(verticalGap);
+        ArtListContainer.setHgap(horizontalGap);
         // Parcourir chaque article et charger sa carte dans le conteneur
         for (Article article : articles) {
             try {
