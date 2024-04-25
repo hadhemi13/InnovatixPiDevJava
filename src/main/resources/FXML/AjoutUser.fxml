@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="addProductCard" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjoutUserController">
+<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="addProductCard" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.AjoutUserController">
     <children>
         <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
             <children>
@@ -72,6 +72,11 @@
                                 <Insets right="70.0" />
                             </VBox.margin>
                         </VBox>
+                  <HBox fx:id="nameInputErrorHbox" prefHeight="27.0" prefWidth="681.0" styleClass="form_errors-cheque" stylesheets="@../css/SideNavBar.css">
+                     <children>
+                        <Text fx:id="NameinputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="    Veuilller saisir votre nom! " />
+                     </children>
+                  </HBox>
 
                         <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
                             <padding>
@@ -102,7 +107,6 @@
                                 </TextField>
                                 <HBox fx:id="cinInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                     <children>
-                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                         <Text fx:id="cinInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre Cin">
                                             <HBox.margin>
                                                 <Insets top="5.0" />
@@ -141,7 +145,6 @@
                                 </TextField>
                                 <HBox fx:id="NometPrenomInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                     <children>
-                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                         <Text fx:id="NometPrenomInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie votre adresse!">
                                             <HBox.margin>
                                                 <Insets top="5.0" />
@@ -181,7 +184,6 @@
                                 </TextField>
                                 <HBox fx:id="EmailInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                     <children>
-                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                         <Text fx:id="EmailInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie votre Email!">
                                             <HBox.margin>
                                                 <Insets top="5.0" />
@@ -220,7 +222,6 @@
                                         <ComboBox fx:id="role" prefHeight="40.0" prefWidth="299.0" styleClass="cheque__add-comboBox" />
                                         <HBox fx:id="beneficiaireInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                             <children>
-                                                <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                                 <Text fx:id="beneficiaireInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir un role!">
                                                     <HBox.margin>
                                                         <Insets top="5.0" />
@@ -269,7 +270,6 @@
                                 </TextField>
                                 <HBox fx:id="telInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                     <children>
-                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                         <Text fx:id="telInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text=" Veuillez saisie votre Numéro de télèphone!">
                                             <HBox.margin>
                                                 <Insets top="5.0" />
@@ -312,7 +312,6 @@
                                         </TextField>
                                         <HBox fx:id="montantInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                             <children>
-                                                <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                                 <Text fx:id="montantInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Mot de passe !">
                                                     <HBox.margin>
                                                         <Insets top="5.0" />
@@ -393,7 +392,6 @@
                                 </HBox>
                                 <HBox fx:id="imageInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../../resources/css/SideNavBar.css">
                                     <children>
-                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                         <Text fx:id="imageInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir une image !">
                                             <HBox.margin>
                                                 <Insets top="5.0" />

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.user;
 
 import java.sql.SQLException;
 import java.util.regex.Pattern;
@@ -114,6 +114,28 @@ public class UserControleSaisie {
             showAlert("Login", "The email " + email + " is not valid.");
             return false;
         }
+
+        return true;
+    }
+    public static boolean updateAccountValidator(User user) {
+        if (user.getName().isEmpty() || user.getEmail().isEmpty() || user.getTel().isEmpty() || user.getPhoto().isEmpty()
+        || user.getAdresse().isEmpty() || user.getCin().isEmpty()) {
+            showAlert("Update Account", "Please fill out all required fields.");
+            return false;
+        }
+
+        Pattern fullnamePattern = Pattern.compile(".*\\d.*");
+        if (fullnamePattern.matcher(user.getName()).matches()) {
+            showAlert("Update Account", "Your name cannot contain a number.");
+            return false;
+        }
+
+        if (user.getName().length() < 3) {
+            showAlert("Update Account", "Not a valid fullname.");
+            return false;
+        }
+
+
 
         return true;
     }

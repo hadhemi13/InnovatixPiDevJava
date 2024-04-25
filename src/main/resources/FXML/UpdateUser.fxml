@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="739.0" prefWidth="776.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UpdateUserController">
+<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.UpdateUserController">
     <children>
       <ScrollPane prefHeight="689.0" prefWidth="776.0">
          <content>
@@ -107,11 +107,15 @@
                                                     </Text>
                                                 </children>
                                             </HBox>
-                                    <Text fx:id="imageInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre photo">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Text>
+                                    <HBox fx:id="ImageErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text fx:id="imageInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque" text="Veuillez saisir votre photo">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </HBox>
                                         </children>
                                         <HBox.margin>
                                             <Insets left="30.0" />
@@ -153,11 +157,15 @@
                                     <Insets />
                                 </VBox.margin>
                             </TextField>
-                        <Text fx:id="NameError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre nom">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
+                        <HBox fx:id="NameErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="NameError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque" text="Veuillez saisir  votre nom">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
                         </children>
                     </VBox>
                     <VBox prefHeight="102.0" prefWidth="570.0" stylesheets="@../css/SideNavBar.css">
@@ -187,11 +195,15 @@
                                     <Insets />
                                 </VBox.margin>
                             </TextField>
-                        <Text fx:id="telError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre Tel">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
+                        <HBox fx:id="TelErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="telError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque" text="Veuillez saisir le numéro">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
                         </children>
                     </VBox>
                     <VBox prefHeight="102.0" prefWidth="570.0" stylesheets="@../css/SideNavBar.css">
@@ -221,11 +233,15 @@
                                     <Insets />
                                 </VBox.margin>
                             </TextField>
-                        <Text fx:id="EmailError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre Email">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
+                        <HBox fx:id="EmailErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="EmailError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque" text="Veuillez saisir  votre Email">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
                         </children>
                     </VBox>
                     <VBox prefHeight="102.0" prefWidth="570.0" stylesheets="@../css/SideNavBar.css">
@@ -255,11 +271,15 @@
                                     <Insets />
                                 </VBox.margin>
                             </TextField>
-                        <Text fx:id="CinError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre Cin">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
+                        <HBox fx:id="CinErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="CinError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque" text="Veuillez saisir votre Cin">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
                         </children>
                     </VBox>
                     <VBox prefHeight="102.0" prefWidth="570.0" stylesheets="@../css/SideNavBar.css">
@@ -289,21 +309,29 @@
                                     <Insets />
                                 </VBox.margin>
                             </TextField>
-                        <Text fx:id="AdresseError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre adresse">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
+                        <HBox fx:id="AdresseErrorHbox" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="AdresseError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque" text="Veuillez saisir  votre adresse">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
                         </children>
                     </VBox>
-                      <Button fx:id="update_userBtn" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#updateUser" styleClass="product__add-new-productBtn" stylesheets="@../css/SideNavBar.css" text="Update" textFill="WHITE" translateX="200.0" translateY="30.0">
-                          <font>
-                              <Font name="Montserrat Regular" size="16.0" />
-                          </font>
-                          <padding>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                          </padding>
-                      </Button>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                            <Button fx:id="update_userBtn" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#updateUser" styleClass="product__add-new-productBtn" stylesheets="@../css/SideNavBar.css" text="Update" textFill="WHITE">
+                                <font>
+                                    <Font name="Montserrat Regular" size="16.0" />
+                                </font>
+                                <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                </padding>
+                            </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </content>

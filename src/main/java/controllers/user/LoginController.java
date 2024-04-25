@@ -1,5 +1,6 @@
-package controllers;
+package controllers.user;
 import Entities.User;
+import controllers.SideNavBarController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,17 +12,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
-import java.util.EventObject;
 import java.util.ResourceBundle;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import javafx.event.ActionEvent;
+
 import org.mindrot.jbcrypt.BCrypt;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
-import javafx.event.ActionEvent;
-import controllers.UserControleSaisie;
 
 
 import javafx.scene.Parent;
@@ -30,7 +26,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
 import services.ServiceUser;
 
 
@@ -134,9 +129,10 @@ public class LoginController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        UserSession userSession = new UserSession();
-        userSession.email = emailField.getText();
-        System.out.println(userSession.email);
+        // Ne créez pas une nouvelle instance UserSession ici
+        // UserSession userSession = new UserSession();
+        // userSession.email = emailField.getText();
+        // System.out.println(userSession.email);
     }
 
     @Override
@@ -176,6 +172,7 @@ public class LoginController implements Initializable {
             alert.showAndWait();
         }
     }
+
 }
 
 

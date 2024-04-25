@@ -1,10 +1,15 @@
-package controllers;
+package controllers.user;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.ImageInput;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.fxml.Initializable;
 
@@ -36,31 +41,52 @@ public class UpdateUserController  implements Initializable{
     private Text AdresseError;
 
     @FXML
-    private TextField AdresseInput;
+    private HBox AdresseErrorHbox;
+
+    @FXML
+    public TextField AdresseInput;
 
     @FXML
     private Text CinError;
 
     @FXML
-    private TextField CinInput;
+    private HBox CinErrorHbox;
+
+    @FXML
+    public TextField CinInput;
 
     @FXML
     private Text EmailError;
 
     @FXML
-    private TextField EmailInput;
+    private VBox content_area;
+
+    @FXML
+    private HBox EmailErrorHbox;
+
+    @FXML
+    public TextField EmailInput;
+
+    @FXML
+    private HBox ImageErrorHbox;
 
     @FXML
     private Text NameError;
 
     @FXML
+    private HBox NameErrorHbox;
+
+    @FXML
+    private HBox TelErrorHbox;
+
+    @FXML
     private HBox choose_photoBtn;
 
     @FXML
-    private TextField fullnameInput;
+    public TextField fullnameInput;
 
     @FXML
-    private ImageView imageInput;
+    public ImageView imageInput;
 
     @FXML
     private Text imageInputError;
@@ -69,7 +95,7 @@ public class UpdateUserController  implements Initializable{
     private Text telError;
 
     @FXML
-    private TextField telInput;
+    public TextField telInput;
 
     @FXML
     private Button update_userBtn;
@@ -149,30 +175,47 @@ public class UpdateUserController  implements Initializable{
 
     }
 
+
     @FXML
     void updateUser(MouseEvent mouseEvent) {
+        ServiceUser serviceUser = new ServiceUser();
+
+        // Vérifier si user est null et initialiser si nécessaire
+        if (user == null) {
+            user = new User();
+        }
+
+        // Mettre à jour les informations de l'utilisateur
+        user.setName(fullnameInput.getText());
+        user.setCin(CinInput.getText());
+        user.setEmail(EmailInput.getText());
+        user.setTel(telInput.getText());
+        user.setAdresse(AdresseInput.getText());
+        user.setPhoto(imageName);
+
         try {
-            if (user != null) {
-                user.setName(fullnameInput.getText());
-                user.setCin(CinInput.getText());
-                user.setEmail(EmailInput.getText());
-                user.setTel(telInput.getText());
-                user.setAdresse(AdresseInput.getText());
-
-
-
-
-                // Appeler la méthode de service pour effectuer la mise à jour du virement dans la base de données
-                ServiceUser serviceUser = new ServiceUser();
+            if (UserControleSaisie.updateAccountValidator(user)) {
                 serviceUser.modifier(user);
 
-                // Fermer la fenêtre après la mise à jour
-                Stage stage = (Stage) update_userBtn.getScene().getWindow();
-                stage.close();
+                // Afficher un message d'alerte pour indiquer que la mise à jour du compte est réussie
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Update Account");
+                alert.setHeaderText(null);
+                alert.setContentText("Account updated successfully.");
+                alert.showAndWait();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UsersList.fxml"));
+                Pane listArtAdminPane = loader.load();
+
+                // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+                content_area.getChildren().setAll(listArtAdminPane);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gérer l'exception appropriée ici
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
+
+
 }
