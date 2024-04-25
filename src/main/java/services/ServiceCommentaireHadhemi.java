@@ -137,4 +137,38 @@ public class ServiceCommentaireHadhemi  implements IServiceCommentaireHadhemi<Co
         );
     }
 
+//    public List<CommentaireHadhemi> getCommentairesByUserId(int userId) throws SQLException {
+//        List<CommentaireHadhemi> commentaires = new ArrayList<>();
+//
+//        // Établir une connexion à la base de données
+//        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/votre_base_de_donnees", "utilisateur", "mot_de_passe");
+//
+//        // Préparer la requête SQL pour récupérer les commentaires de l'utilisateur donné
+//        String query = "SELECT * FROM commentaires WHERE user_id = ?";
+//        PreparedStatement statement = connection.prepareStatement(query);
+//        statement.setInt(1, userId);
+//
+//        // Exécuter la requête et récupérer les résultats
+//        ResultSet resultSet = statement.executeQuery();
+//
+//        // Parcourir les résultats et créer des objets Commentaire
+//        while (resultSet.next()) {
+//            int id = resultSet.getInt("id");
+//            String contenu = resultSet.getString("contenu");
+//            // Récupérer d'autres champs si nécessaire
+//
+//            // Créer un objet Commentaire et l'ajouter à la liste
+//            CommentaireHadhemi commentaire = new CommentaireHadhemi();
+//            commentaires.add(commentaire);
+//        }
+//
+//        // Fermer les ressources
+//        resultSet.close();
+//        statement.close();
+//        connection.close();
+//
+//        return commentaires;
+//    }
+
+
 }

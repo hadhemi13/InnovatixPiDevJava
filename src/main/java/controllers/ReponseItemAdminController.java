@@ -161,8 +161,8 @@ public class ReponseItemAdminController{
             ContenuRep.setText(reponse.getContenu_rep());
             dateRec.setText(String.valueOf(reponse.getReclamation().getDate_rec()));
             mailRep.setText(reponse.getReclamation().getAdr_rec());
-            deleteRep.setId(String.valueOf(reponse.getId()));
-        deleteRep.setOnMouseClicked(event -> {
+            deleterep.setId(String.valueOf(reponse.getId()));
+            deleterep.setOnMouseClicked(event -> {
             System.out.println("ID de l'article à supprimer : " + reponse.getId());
             try {
                 serviceReponse.supprimerParId(reponse.getId());

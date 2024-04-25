@@ -1,6 +1,11 @@
 package Entities;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommentaireHadhemi {
 
@@ -124,7 +129,6 @@ public class CommentaireHadhemi {
         this.article = article;
 
     }
-
     public Article getArticle() {
         return this.article;
     }

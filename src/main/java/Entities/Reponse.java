@@ -42,7 +42,7 @@ public class Reponse {
         this.reclamation = reclamation;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

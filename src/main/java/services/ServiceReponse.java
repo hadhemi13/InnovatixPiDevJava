@@ -79,7 +79,8 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
                 reponse.setDate_rep(rs.getTimestamp("date_rep").toLocalDateTime());
                 reponse.setContenu_rep(rs.getString("contenu_rep"));
                 reponse.setPiece_jrep(rs.getString("piece_jrep"));
-                // Ajouter les données de la réclamation associée
+                reponse.setId(rs.getInt("id"));
+
                 Reclamation reclamation = new Reclamation();
                 reclamation.setId(rs.getInt("id"));
                 reponse.setDate_rep(rs.getTimestamp("date_rep").toLocalDateTime());
@@ -120,7 +121,7 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
     }
     @Override
     public void supprimerParId(int id) throws SQLException {
-        String query = "DELETE FROM project WHERE id=?";
+            String query = "DELETE FROM reponse WHERE id=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();

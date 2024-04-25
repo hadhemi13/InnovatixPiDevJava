@@ -26,9 +26,6 @@ public class SideNavBarUserController {
     private Label actualitesText;
 
     @FXML
-    private HBox chartContainer;
-
-    @FXML
     private HBox compteBtn;
 
     @FXML
@@ -112,20 +109,81 @@ public class SideNavBarUserController {
     @FXML
     private Label usersText;
 
-    @FXML
-    void smallSide(MouseEvent event) {
+
+
+    // public void openDashboardClient( MouseEvent mouseEvent) {
+    //   try {
+    // Charger le fichier FXML de listArticleAdmin
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+    //   Pane listArticleAdminPane = loader.load();
+
+//            // Remplacer le contenu de content_area par le contenu
+    //          content_area.getChildren().setAll(listArticleAdminPane);
+    //    } catch (IOException e) {
+    //      e.printStackTrace();
+    //}
+    //}
+
+//    public void openDashboardClient(javafx.scene.input.MouseEvent mouseEvent) {
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+//            Pane listArticleAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu
+//            content_area.getChildren().setAll(listArticleAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void open_dashboard(MouseEvent mouseEvent) {
 
     }
-    public void openRecListclient(MouseEvent mouseEvent) {
-        try {
-            // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeRecClient.fxml"));
-            Pane listRecAdminPane = loader.load();
 
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(listRecAdminPane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void open_profile(MouseEvent mouseEvent) {
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+//            Pane listArticleAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu
+//            content_area.getChildren().setAll(listArticleAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public void open_fundrisingList(MouseEvent mouseEvent) {
+    }
+
+    public void open_productsList(MouseEvent mouseEvent) {
+    }
+
+    public void open_favList(MouseEvent mouseEvent) {
+    }
+
+    public void open_collectList(MouseEvent mouseEvent) {
+    }
+
+    public void open_commandsList(MouseEvent mouseEvent) {
+    }
+
+    public void open_achatList(MouseEvent mouseEvent) {
+    }
+
+    public void open_actualite(MouseEvent mouseEvent) {
+    }
+
+    public void logout(MouseEvent mouseEvent) {
+    }
+
+    public void open_notifModel(MouseEvent mouseEvent) {
+    }
+
+    public void open_Compte(MouseEvent mouseEvent) {
+    }
+
+    public void open_Credit(MouseEvent mouseEvent) {
     }
 }
