@@ -1,25 +1,26 @@
 package controllers.Credit;
 
 import Entities.Credit;
-import Entities.RDV;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceCheque;
 import utils.MyDatabase;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ResourceBundle;
 
-public class credititemsuser {
+public class credititemsuser implements Initializable {
 
     @FXML
     private HBox accepteritem;
@@ -58,7 +59,19 @@ public class credititemsuser {
     private Text useritemidclient;
 
 
+    private DemandeCreditListClientUser demandeCreditListClientUser;
 
+    Pane content_areap;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+DemandeCreditListClientUser d=new DemandeCreditListClientUser();
+        Pane content_areap=d.getContentArea();
+
+
+    }
     @FXML
     void getrdv(MouseEvent event) throws SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/calandar.fxml"));
@@ -102,5 +115,27 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
 
 
     }
+    public Pane setContentArea(Pane content_area) {
+        content_areap=content_area;
+        return  content_area;
+    }
+    @FXML
+    void takerdv(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredittest.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_areap.getChildren().clear();
+        content_areap.getChildren().add(addArticleParent);
+
+    }
+
+
+    public void ajoutercredit(MouseEvent mouseEvent) {
+    }
+
+
 
 }

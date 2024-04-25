@@ -3,15 +3,22 @@ package controllers.Credit;
 import Entities.RDV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import org.w3c.dom.events.MouseEvent;
 import utils.MyDatabase;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.net.URL;
@@ -217,7 +224,8 @@ public class CalendarController implements Initializable {
             for (RDV rdv : rdvList) {
                 // Extract the year, month, and day of the month from the RDV's date
                 Date sqlDate = (Date) rdv.getDaterdv();
-                LocalDate localDate = sqlDate.toLocalDate();                int rdvYear = localDate.getYear();
+                LocalDate localDate = sqlDate.toLocalDate();
+                int rdvYear = localDate.getYear();
                 int rdvMonth = localDate.getMonthValue();
                 int rdvDayOfMonth = localDate.getDayOfMonth();
 
@@ -243,5 +251,22 @@ public class CalendarController implements Initializable {
 
 
 
+    @FXML
+    void sendsms(MouseEvent event) {
 
+       
+    }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    @FXML
+
+    public void sendsms(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/senssms.fxml"));
+        Parent root = loader.load();
+        stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

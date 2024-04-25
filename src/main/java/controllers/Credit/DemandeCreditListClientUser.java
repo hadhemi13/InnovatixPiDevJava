@@ -35,7 +35,7 @@ public class DemandeCreditListClientUser  implements Initializable {
     private Button chequebtn;
 
     @FXML
-    private Pane content_area;
+    public  Pane content_area;
 
     @FXML
     private ComboBox<?> statusInput;
@@ -46,9 +46,22 @@ public class DemandeCreditListClientUser  implements Initializable {
     @FXML
     private HBox userTableHead;
 
-    @FXML
-    void AjouterC(MouseEvent event) {
+    public Pane getContentArea() {
+        return this.content_area;
+    }
 
+    @FXML
+    void ajoutercredit(MouseEvent event) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredittest.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        AjouterCreditCard ajouterCreditCard = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
 
     @FXML
@@ -60,6 +73,7 @@ public class DemandeCreditListClientUser  implements Initializable {
     void statusChange(ActionEvent event) {
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServiceCredit serviceCredit = new ServiceCredit();
@@ -69,8 +83,10 @@ public class DemandeCreditListClientUser  implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-       loadcredit(list);
+    credititemsuser  c= new credititemsuser();
+        Pane pane;
+        pane = c.setContentArea(this.content_area);
+        loadcredit(list);
     }
     private void loadcredit(List<Credit> credits) {
         // Nettoyer le conteneur actuel

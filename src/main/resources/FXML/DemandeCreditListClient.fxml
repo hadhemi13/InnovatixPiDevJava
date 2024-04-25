@@ -55,7 +55,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/add-list.png" />
+                        <Image url="@../img/delete.png" />
                      </image>
                   </ImageView>
                </graphic>
