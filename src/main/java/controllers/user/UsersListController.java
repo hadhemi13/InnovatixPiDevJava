@@ -1,15 +1,11 @@
-package controllers;
-import javafx.collections.ObservableList;
+package controllers.user;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import services.ServiceUser;
 import Entities.User;
 import java.io.IOException;
@@ -21,8 +17,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.collections.ObservableList;
-
 
 
 public class UsersListController implements Initializable {

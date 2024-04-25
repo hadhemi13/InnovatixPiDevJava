@@ -1,4 +1,4 @@
-package controllers;
+package controllers.user;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;

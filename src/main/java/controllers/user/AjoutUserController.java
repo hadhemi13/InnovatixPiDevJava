@@ -1,4 +1,4 @@
-package controllers;
+package controllers.user;
 
 import Entities.User;
 import javafx.collections.FXCollections;
@@ -32,6 +32,9 @@ public class AjoutUserController implements Initializable {
 
     @FXML
     private Button ChequeImg;
+
+    @FXML
+    private VBox content_area;
 
     @FXML
     private TextField Cin;
@@ -72,8 +75,7 @@ public class AjoutUserController implements Initializable {
     @FXML
     private HBox cinInputErrorHbox;
 
-    @FXML
-    private VBox content_area;
+
 
     @FXML
     private ImageView imageInput;
@@ -107,6 +109,10 @@ public class AjoutUserController implements Initializable {
 
     @FXML
     private HBox telInputErrorHbox;
+    @FXML
+    private Text NameinputError;
+    @FXML
+    private HBox nameInputErrorHbox;
     String fileName = null;
     @FXML
     private void uploadImage()  {
@@ -125,13 +131,14 @@ public class AjoutUserController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        NometPrenomInputErrorHbox.setVisible(false);
-        imageInputErrorHbox.setVisible(false);
+        NometPrenomInputError.setVisible(false);
+        imageInputError.setVisible(false);
         EmailInputError.setVisible(false);
-        montantInputErrorHbox.setVisible(false);
-        cinInputErrorHbox.setVisible(false);
-        beneficiaireInputErrorHbox.setVisible(false);
-
+        montantInputError.setVisible(false);
+        cinInputError.setVisible(false);
+        beneficiaireInputError.setVisible(false);
+        NameinputError.setVisible(false);
+        telInputError.setVisible(false);
 
 
         ObservableList<String> roles = FXCollections.observableArrayList(
@@ -151,10 +158,22 @@ public class AjoutUserController implements Initializable {
 //
         boolean champsVides = false;
         if (name.getText().isEmpty()) {
+            NameinputError.setVisible(true);
+            champsVides = true;
+        } else {
+            nameInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+        }
+        if (adresse.getText().isEmpty()) {
             NometPrenomInputError.setVisible(true);
             champsVides = true;
         } else {
             NometPrenomInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+        }
+        if (montant.getText().isEmpty()) {
+            montantInputError.setVisible(true);
+            champsVides = true;
+        } else {
+            montantInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
 
         if (role.getSelectionModel().isEmpty()) {
@@ -164,7 +183,7 @@ public class AjoutUserController implements Initializable {
             beneficiaireInputError.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
         if (imageInput.getImage() == null) {
-            imageInputErrorHbox.setVisible(true);
+            imageInputError.setVisible(true);
             champsVides = true;
         } else {
             imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
@@ -174,18 +193,21 @@ public class AjoutUserController implements Initializable {
             cinInputError.setVisible(true);
             champsVides = true;
         } else {
-            cinInputError.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+            cinInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
         if (Email.getText().isEmpty()) {
             EmailInputError.setVisible(true);
             champsVides = true;
         } else {
-            EmailInputError.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+            EmailInputErrorHbox.setVisible(false);
+        }// Masquer le message d'erreur si le champ est rempli
             if (tel.getText().isEmpty()) {
                 telInputError.setVisible(true);
                 champsVides = true;
-            } else {
-                telInputError.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+            }
+            else {
+                telInputErrorHbox.setVisible(false);}
+            // Masquer le message d'erreur si le champ est rempli
 
 
 // Si au moins un champ est vide, afficher les messages d'erreur
@@ -212,4 +234,4 @@ public class AjoutUserController implements Initializable {
             }
 
         }
-    }}
+

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.user;
 
 public class DashbordUserController {
 }

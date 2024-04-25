@@ -1,7 +1,6 @@
-package controllers;
+package controllers.user;
 
 import Entities.User;
-import controllers.UserControleSaisie;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,14 +13,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceUser;
-import javafx.stage.StageStyle;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
 
 public class SignUpController {
 

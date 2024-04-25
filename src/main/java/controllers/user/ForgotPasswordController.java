@@ -1,4 +1,4 @@
-package controllers;
+package controllers.user;
 
 import Entities.User;
 import javafx.event.ActionEvent;
@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import services.ServiceUser;
 
-import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -18,8 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import javafx.fxml.FXMLLoader;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import javafx.fxml.FXML;
