@@ -172,7 +172,7 @@ public class ModifierArticleController implements Initializable {
 //            if (valueFactory != null) {
 //                valueFactory.setValue(article.getDuree_art());
 //            }
-            // Assurez-vous que l'image de l'article n'est pas vide
+         //    Assurez-vous que l'image de l'article n'est pas vide
             if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
                 Image image = new Image(article.getImage_art());
                 imageInput.setImage(image);
@@ -313,30 +313,43 @@ void ModifierArt(MouseEvent mouseEvent) {
             ServiceArticle serviceArticle = new ServiceArticle();
             serviceArticle.modifier(article);
 
-            if (listArticleController != null) {
-                // Rafraîchir la liste des articles dans le contrôleur de la liste des articles
-                listArticleController.refreshArticleList();
-            }
+//            if (listArticleController != null) {
+//                // Rafraîchir la liste des articles dans le contrôleur de la liste des articles
+//                listArticleController.refreshArticleList();
+//            }
 
             // Fermer la fenêtre de modification d'article
             Stage stage = (Stage) titreArt.getScene().getWindow();
             stage.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+            try {
+                Parent root = loader.load();
 
-            // Charger le fichier FXML de listearticleadmin.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listearticleadmin.fxml"));
-            Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) mouseEvent.getSource()).getScene().lookup("#content_area");
 
-            // Accéder à la pane content_area depuis le controller actuel
-            Pane contentArea = (Pane) titreArt.getScene().lookup("#content_area");
-
-            // Vider la pane et afficher le contenu de listearticleadmin.fxml
-            contentArea.getChildren().clear();
-            contentArea.getChildren().add(root);
-        }
-    } catch (SQLException | IOException e) {
-        e.printStackTrace();
-        // Gérer les exceptions appropriées ici
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }} catch (SQLException e) {
+        throw new RuntimeException(e);
     }
+//            // Charger le fichier FXML de listearticleadmin.fxml
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listearticleadmin.fxml"));
+//            Parent root = loader.load();
+//
+//            // Accéder à la pane content_area depuis le controller actuel
+//            Pane contentArea = (Pane) titreArt.getScene().lookup("#content_area");
+//
+//            // Vider la pane et afficher le contenu de listearticleadmin.fxml
+//            contentArea.getChildren().clear();
+//            contentArea.getChildren().add(root);
+//        }
+//    } catch (SQLException | IOException e) {
+//        e.printStackTrace();
+//        // Gérer les exceptions appropriées ici
+//    }
 }
 
     @FXML

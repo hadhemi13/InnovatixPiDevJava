@@ -141,6 +141,30 @@ public void initializeData(Article article) {
         String formattedDate = article.getDate_pub_art().format(formatter);
         datepubArt.setText(formattedDate);
         contenuArtFront.setText(article.getContenu_art());
+        editArt.setId(String.valueOf(article.getId()));
+        editArt.setOnMouseClicked(event -> {
+            try {
+                // Charger le fichier FXML du formulaire de modification d'article
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+                Parent editArticlePopupParent = loader.load();
+
+                // Récupérer le contrôleur du formulaire de modification d'article
+                ModifierArticleController modifierArticleController = loader.getController();
+
+                // Passer l'article à modifier au contrôleur
+                modifierArticleController.initData(article);
+
+                // Créer une nouvelle fenêtre modale pour le formulaire de modification
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Modifier Article");
+                stage.setScene(new Scene(editArticlePopupParent));
+                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         deleteArtBtn.setId(String.valueOf(article.getId()));
         deleteArtBtn.setOnMouseClicked(event -> {
             System.out.println("ID de l'article à supprimer : " + article.getId());
