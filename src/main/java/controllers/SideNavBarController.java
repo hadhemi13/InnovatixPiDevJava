@@ -1,5 +1,6 @@
 package controllers;
 
+import Entities.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -139,6 +140,10 @@ public class SideNavBarController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void initData(User user) {
+
     }
+}
 
 

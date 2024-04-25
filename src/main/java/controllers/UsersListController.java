@@ -30,7 +30,7 @@ public class UsersListController implements Initializable {
     private HBox content_area;
 
     @FXML
-    private ComboBox<?> roleInput;
+    private ComboBox<String> roleInput;
 
     @FXML
     private VBox userListContainer;

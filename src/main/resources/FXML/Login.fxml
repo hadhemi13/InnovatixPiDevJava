@@ -52,18 +52,10 @@
                         </Label>
                         <HBox alignment="TOP_RIGHT" prefHeight="73.0" prefWidth="418.0">
                            <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#ToSignUp" prefHeight="27.0" prefWidth="90.0" style="-fx-background-radius: 50; -fx-background-color: #008000;" styleClass="SignUp__btnLogin" stylesheets="@../css/SideNavBar.css" text="Sign UP">
+                              <Button mnemonicParsing="false" onMouseClicked="#ToSignUp" prefHeight="41.0" prefWidth="90.0" style="-fx-background-radius: 50; -fx-background-color: #008000;" styleClass="SignUp__btnLogin" stylesheets="@../css/SideNavBar.css" text="Sign UP">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" style="-fx-background-radius: 50; -fx-background-color: #008000;" text="Sign IN">
-                                 <font>
-                                    <Font name="System Bold Italic" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="7.0" />
-                                 </HBox.margin>
                               </Button>
                            </children>
                            <HBox.margin>
@@ -83,7 +75,7 @@
                         <HBox prefHeight="100.0" prefWidth="200.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E_Flex_Bank" wrappingWidth="243.70472645759583">
                            <font>
-                              <Font name="Impact" size="36.0" />
+                              <Font name="Franklin Gothic Medium" size="36.0" />
                            </font>
                            <HBox.margin>
                               <Insets top="100.0" />

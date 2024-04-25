@@ -1,29 +1,21 @@
 package controllers;
 
-import Entities.User;
-import controllers.user.UserSession;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import services.ServiceUser;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
 import java.util.EventObject;
-import java.util.ResourceBundle;
 
-public class SideNavBarUserController implements Initializable {
+public class SideNavBarUserController {
 
     @FXML
     private HBox Compte;
@@ -90,9 +82,8 @@ public class SideNavBarUserController implements Initializable {
 
     @FXML
     private Text totalNotif;
-    User user = null;
 
-    public void openProfil(MouseEvent mouseEvent) {
+    public void openLisUser(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProfileUser.fxml"));
@@ -116,26 +107,4 @@ public class SideNavBarUserController implements Initializable {
         stage.show();
 
     }
-    public void initialize(URL url, ResourceBundle rb) {
-
-
-        ServiceUser userService = new ServiceUser();
-
-        try {
-            // user = userService.getOneUser(UserSession.getInstance().getEmail());
-            if (UserSession.getInstance().getEmail() == null) {
-                user = userService.getOneUser("mariem@gmail.com");
-            } else {
-                user = userService.getOneUser(UserSession.getInstance().getEmail());
-            }
-         //   Image img = new Image("img/admin.png" + user.getPhoto());
-
-
-            navFullname.setText(user.getName());
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }}
+}

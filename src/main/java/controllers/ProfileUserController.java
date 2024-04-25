@@ -1,23 +1,40 @@
 package controllers;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.EventObject;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class ProfileUserController {
-    public void logout(MouseEvent mouseEvent) throws IOException {
-        UserSession.getInstance().cleanUserSession();
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
-        Scene scene = new Scene(root);
-        EventObject event;
-        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
+
+    @FXML
+    private Button changePassBTN;
+
+    @FXML
+    private Text descriptionText;
+
+    @FXML
+    private Text emailText;
+
+    @FXML
+    private Text fullnameText;
+
+    @FXML
+    private Pane profilePane;
+
+    @FXML
+    private Text telText;
+
+    @FXML
+    private ImageView userItemImg;
+
+    @FXML
+    private Label userItemUpdateBtn;
+
+    @FXML
+    private ImageView userItemUpdateBtnImg;
+
 }
+
