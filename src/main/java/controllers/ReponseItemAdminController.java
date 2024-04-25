@@ -100,12 +100,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import services.ServiceReponse;
 
 import java.io.IOException;
@@ -161,6 +164,29 @@ public class ReponseItemAdminController{
             ContenuRep.setText(reponse.getContenu_rep());
             dateRec.setText(String.valueOf(reponse.getReclamation().getDate_rec()));
             mailRep.setText(reponse.getReclamation().getAdr_rec());
+            editRep.setId(String.valueOf(reponse.getId()));
+            editRep.setOnMouseClicked(event -> {try {
+                // Charger le fichier FXML du formulaire de modification d'article
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierRéponse.fxml"));
+                Parent editArticlePopupParent = loader.load();
+
+                // Récupérer le contrôleur du formulaire de modification d'article
+                ModifierRéponseController modifierRéponseController = loader.getController();
+
+                // Passer l'article à modifier au contrôleur
+                modifierRéponseController.initData(reponse);
+
+                // Créer une nouvelle fenêtre modale pour le formulaire de modification
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Modifier Article");
+                stage.setScene(new Scene(editArticlePopupParent));
+                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            });
             deleterep.setId(String.valueOf(reponse.getId()));
             deleterep.setOnMouseClicked(event -> {
             System.out.println("ID de l'article à supprimer : " + reponse.getId());

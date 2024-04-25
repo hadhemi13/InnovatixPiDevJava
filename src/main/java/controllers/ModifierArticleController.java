@@ -313,6 +313,7 @@ void ModifierArt(MouseEvent mouseEvent) {
             ServiceArticle serviceArticle = new ServiceArticle();
             serviceArticle.modifier(article);
 
+
 //            if (listArticleController != null) {
 //                // Rafraîchir la liste des articles dans le contrôleur de la liste des articles
 //                listArticleController.refreshArticleList();

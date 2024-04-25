@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierRéponseController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierRéponseController">
 <children>
     <HBox prefHeight="53.0" prefWidth="570.0">
         <children>
@@ -49,7 +49,7 @@
             <Insets bottom="30.0" left="16.0" />
         </VBox.margin>
     </Line>
-      <ScrollPane prefHeight="597.0" prefWidth="630.0" translateY="-50.0">
+      <ScrollPane prefHeight="579.0" prefWidth="630.0" translateY="-50.0">
          <content>
           <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="326.0" prefWidth="570.0">
               <padding>
@@ -139,7 +139,7 @@
                               <Insets />
                           </VBox.margin>
                           <children>
-                              <Button fx:id="reponseBtn" mnemonicParsing="false" onMouseClicked="#addHistory" styleClass="product__add-new-productBtn" text="Modifier" textFill="WHITE" translateY="60.0">
+                              <Button fx:id="reponseBtn" mnemonicParsing="false" onMouseClicked="#reponseBtn" styleClass="product__add-new-productBtn" text="Modifier" textFill="WHITE" translateY="60.0">
                                   <font>
                                       <Font name="Montserrat Regular" size="16.0" />
                                   </font>
