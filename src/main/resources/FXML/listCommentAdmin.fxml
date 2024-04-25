@@ -33,10 +33,10 @@
         </HBox>
         <HBox fx:id="commentTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1023.0" styleClass="userTableHead" stylesheets="@../css/style.scss">
             <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Titre article" textAlignment="CENTER" wrappingWidth="177.3547248840332" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Commentaire" textAlignment="CENTER" wrappingWidth="258.95480728149414" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de publication" textAlignment="CENTER" translateX="15.0" wrappingWidth="166.95473861694336" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom utilisateur" textAlignment="CENTER" translateX="30.0" wrappingWidth="146.95456314086914" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Titre article" textAlignment="CENTER" wrappingWidth="177.3547248840332" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de publication de l'article" textAlignment="CENTER" wrappingWidth="199.75461196899414" />
             </children>
         </HBox>

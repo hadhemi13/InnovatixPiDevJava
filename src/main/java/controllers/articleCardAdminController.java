@@ -16,6 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.ServiceArticle;
+import services.ServiceCommentaireHadhemi;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +26,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class articleCardAdminController implements Initializable {
+
 
     @FXML
     private HBox action;
@@ -39,7 +41,7 @@ public class articleCardAdminController implements Initializable {
     private Text datepubArt;
 
     @FXML
-    private HBox deleteArt;
+    private HBox deleteArtBtn;
 
     @FXML
     private HBox editArt;
@@ -55,6 +57,7 @@ public class articleCardAdminController implements Initializable {
 
     @FXML
     private HBox viewdetailArt;
+
     private Article article;
     private ListArticleAdminController listArticleController;
 
@@ -131,31 +134,53 @@ public class articleCardAdminController implements Initializable {
 //
 //   }
 public void initializeData(Article article) {
-    this.article = article;
+    ServiceArticle serviceArticle = new ServiceArticle();
     if (article != null) {
         titreArtFront.setText(article.getTitre_art());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formattedDate = article.getDate_pub_art().format(formatter);
         datepubArt.setText(formattedDate);
         contenuArtFront.setText(article.getContenu_art());
+        deleteArtBtn.setId(String.valueOf(article.getId()));
+        deleteArtBtn.setOnMouseClicked(event -> {
+            System.out.println("ID de l'article à supprimer : " + article.getId());
+            try {
+                serviceArticle.supprimer(article);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+            try {
+                Parent root = loader.load();
+
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
-}
+    }
+
+
 
     @FXML
     void deleteArtBtn(MouseEvent event) {
-        try {
-            if (article != null) {
-                ServiceArticle sa = new ServiceArticle();
-                sa.supprimer(article);
-               // Stage stage = (Stage) deleteArt.getScene().getWindow();
-               // stage.close();
-            } else {
-                // Affichez un message d'erreur ou faites une action appropriée si l'article est null
-                System.err.println("L'article est null. Impossible de le supprimer.");
-            }
-        } catch (SQLException e) {
-            // Gérer l'exception SQLException ici
-            e.printStackTrace();
+//        try {
+//            if (article != null) {
+//                ServiceArticle sa = new ServiceArticle();
+//                sa.supprimer(article);
+//               // Stage stage = (Stage) deleteArt.getScene().getWindow();
+//               // stage.close();
+//            } else {
+//                // Affichez un message d'erreur ou faites une action appropriée si l'article est null
+//                System.err.println("L'article est null. Impossible de le supprimer.");
+//            }
+//        } catch (SQLException e) {
+//            // Gérer l'exception SQLException ici
+//            e.printStackTrace();
             // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
 //        }
 //        try {
@@ -176,7 +201,7 @@ public void initializeData(Article article) {
             } catch (IOException e) {
                 System.err.println(e.getMessage());
             }*/
-    }
+
 @FXML
 void modifierArt(MouseEvent event) throws IOException {
 ////    ListArticleAdminController listArticleController = this;
