@@ -2224,4 +2224,21 @@
 }
 
 
+.scroll-pane {
+    -fx-background-radius: 50px; /* Coins arrondis */
+    -fx-border-width: 8px; /* Largeur de la bordure */
+    -fx-border-radius: 50px; /* Coins arrondis de la bordure */
+}
+.mini-title {
+    -fx-font-size: 12px; /* Taille de la police */
+    -fx-font-weight: bold; /* Gras */
+    -fx-text-fill: #5ba890; /* Couleur du texte */
+    /* Autres propriétés de style selon vos préférences */
+}
+
+
+
+
+
+
 
