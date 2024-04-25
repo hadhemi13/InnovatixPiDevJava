@@ -1,8 +1,6 @@
 package controllers.user;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -83,30 +81,6 @@ public class UsersListController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            try {
-                ArrayList<User> userList;
-                if (filter == 0) {
-                    userList = projectService.getAllUser();
-                } else if (filter == 1) {
-                    userList = projectService.getAllClient();
-                } else {
-                    userList = projectService.getAllAdmin();
-                }
-        } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        ObservableList<String> items = roleInput.getItems();
-
-        // Add new items to the list
-        items.addAll("Tout", "Client", "Admin");
-
-        if (filter == 0) {
-            roleInput.setValue("Tout");
-        } else if (filter == 1) {
-            roleInput.setValue("Client");
-        } else {
-            roleInput.setValue("Admin");
         }
     }
     public void toAdduser(ActionEvent actionEvent)  throws IOException {
@@ -121,34 +95,6 @@ public class UsersListController implements Initializable {
         userPane.getChildren().clear();
         userPane.getChildren().add(addArticleParent);
     }
-    @FXML
-    void roleChange(ActionEvent event) {
-        if (roleInput != null && roleInput.getValue() != null) { // Vérifier si roleInput et sa valeur ne sont pas null
-            if (roleInput.getValue().equals("Tout")) {
-                filter = 0;
-            } else if (roleInput.getValue().equals("Client")) {
-                filter = 1;
-            } else {
-                filter = 2;
-            }
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UsersList.fxml"));
-            try {
-                Parent  userPane = loader.load(); // Charger le fichier FXML
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
-                // Vider la pane et afficher le contenu de UsersList.fxml
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(userPane);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            // Gérer le cas où roleInput ou sa valeur est null
-            System.out.println("Role input is null or has no value.");
-        }
-    }
-
 
 
 }

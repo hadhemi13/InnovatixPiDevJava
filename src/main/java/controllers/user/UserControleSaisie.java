@@ -69,7 +69,6 @@ public class UserControleSaisie {
         }
 
         return true;
-
     }
 
     // Les autres méthodes de validation peuvent être ajustées de la même manière
@@ -140,30 +139,6 @@ public class UserControleSaisie {
 
         return true;
     }
-    public static boolean changePasswordValidator(User user, String oldPassword, String password, String rePassword) {
-        if (password.equals("") || rePassword.equals("")) {
-            showAlert("Change Password", "Please fill out all required fields.");
-            return false;
-        }
-
-        if (!BCrypt.checkpw(oldPassword, user.getPassword().replace("$2y$", "$2a$"))) {
-            showAlert("Change Password", "Please verify your old password.");
-            return false;
-        }
-
-        if (password.length() < 8) {
-            showAlert("Change Password", "Your password must be at least 8 characters long.");
-            return false;
-        }
-
-        if (!password.equals(rePassword)) {
-            showAlert("Change Password", "Passwords do NOT match.");
-            return false;
-        }
-
-        return true;
-    }
-
     // Méthode pour afficher une boîte de dialogue d'alerte
     private static void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);

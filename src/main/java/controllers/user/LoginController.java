@@ -108,7 +108,6 @@ public class LoginController implements Initializable {
                                 || user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
                             System.out.println("to the USERDASHBOARD");
                             Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
-                           // System.out.println("hahaha 3ersna");
                             Scene scene = new Scene(root);
                             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                             stage.setScene(scene);
