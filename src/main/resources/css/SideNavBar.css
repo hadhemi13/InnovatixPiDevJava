@@ -2205,3 +2205,6 @@
     -fx-background-color: #3ab63f; /* Vert */
     -fx-text-fill: white; /* Texte blanc */
 }
+.dash__container-card {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}

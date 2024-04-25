@@ -55,17 +55,16 @@ public class CardAdmin {
     }
 
     public void OpenListeChequeAd(MouseEvent mouseEvent) throws IOException {
-        // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListChequeAdmin.fxml"));
-        Parent addArticleParent = loader.load();
+        Parent ajoutChequeParent = loader.load();
 
-        // Récupération du contrôleur de la vue d'ajout d'article
         ListeChequeAdmin listeChequeAdmin = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
-        content_area.getChildren().add(addArticleParent);
+        content_area.getChildren().add(ajoutChequeParent);
     }
+
 
     public void OpenListeVirAd(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListVirementAdmin.fxml"));

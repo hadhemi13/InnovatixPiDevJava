@@ -11,7 +11,7 @@
 
 <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CardAdmin">
     <children>
-        <HBox fx:id="offreModel" alignment="CENTER" layoutX="-30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="categoriesModel" translateX="30.0">
+        <HBox alignment="CENTER" layoutX="-30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/SideNavBar.css" translateX="30.0">
             <children>
                 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="450.0" style="-fx-background-color: #fff;" styleClass="categoriesModel-card">
                     <children>
