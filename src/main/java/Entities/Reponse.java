@@ -42,7 +42,7 @@ public class Reponse {
         this.reclamation = reclamation;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -106,4 +106,17 @@ public class Reponse {
         return this.reclamation;
     }
 
+    @Override
+    public String toString() {
+        return "Reponse{" +
+                "id=" + id +
+                ", reclamation_id=" + reclamation_id +
+                ", user_id=" + user_id +
+                ", adr_rep='" + adr_rep + '\'' +
+                ", date_rep=" + date_rep +
+                ", contenu_rep='" + contenu_rep + '\'' +
+                ", piece_jrep='" + piece_jrep + '\'' +
+                ", reclamation=" + reclamation +
+                '}';
+    }
 }

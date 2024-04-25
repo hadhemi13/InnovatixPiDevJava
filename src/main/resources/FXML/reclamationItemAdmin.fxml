@@ -48,11 +48,6 @@
                   <Image url="@../imagesAct/reply.png" />
               </image>
           </ImageView>
-          <ImageView fx:id="RecItemDeleteBtnImg" fitHeight="22.0" fitWidth="26.0" onMouseClicked="#RecItemDelete" pickOnBounds="true" preserveRatio="true" translateX="160.0">
-              <image>
-                  <Image url="@../imagesAct/delete.png" />
-              </image>
-          </ImageView>
 
 
     </children>

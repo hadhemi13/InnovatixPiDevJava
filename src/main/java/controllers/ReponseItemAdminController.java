@@ -96,72 +96,114 @@ package controllers;
 
 import Entities.Reponse;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import services.ServiceReponse;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ReponseItemAdminController implements Initializable {
+public class ReponseItemAdminController{
+
 
     @FXML
     private Text ContenuRep;
 
     @FXML
+    private Text dateRec;
+
+    @FXML
     private Text dateRep;
 
     @FXML
-    private ImageView deleteRep;
+    private ImageView deleterep;
+
+    @FXML
+    private HBox deleteRep;
+
+    @FXML
+    private ImageView editRep;
+
+    @FXML
+    private HBox editrep;
+
+    @FXML
+    private HBox itemRep;
 
     @FXML
     private Text mailRep;
 
     @FXML
-    private Text dateRec;
-
-    @FXML
     private ImageView piecejrep;
-    public static int reponseId;
-    Reponse reponse ;
+    private ReponseItemAdminController reponse;
 
-
+    public void setreponse(ReponseItemAdminController reponse) {
+        this.reponse = reponse;
+    }
 
     public void initData(Reponse reponse) {
-        Image imageJ = new Image(getClass().getResource("/imagesAct/attach.png").toExternalForm());
-        piecejrep.setImage(imageJ);
-        dateRep.setText(String.valueOf(reponse.getDate_rep()));
-        ContenuRep.setText(reponse.getContenu_rep());
-        dateRec.setText(String.valueOf(reponse.getReclamation().getDate_rec()));
-        mailRep.setText(reponse.getReclamation().getAdr_rec());
+        ServiceReponse serviceReponse = new ServiceReponse();
 
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-
-    @FXML
-    void deleteRep(MouseEvent event) {
-        initData(reponse);
-        try {
-            if (reponse != null) {
-                ServiceReponse serviceReponse = new ServiceReponse();
-                serviceReponse.supprimer(reponse);
-                System.out.println("Réponse supprimée avec succès.");
-            } else {
-                System.err.println("La réponse est null. Impossible de la supprimer.");
+        if (reponse != null) {
+            Image imageJ = new Image(getClass().getResource("/imagesAct/attach.png").toExternalForm());
+            piecejrep.setImage(imageJ);
+            dateRep.setText(String.valueOf(reponse.getDate_rep()));
+            ContenuRep.setText(reponse.getContenu_rep());
+            dateRec.setText(String.valueOf(reponse.getReclamation().getDate_rec()));
+            mailRep.setText(reponse.getReclamation().getAdr_rec());
+            deleteRep.setId(String.valueOf(reponse.getId()));
+        deleteRep.setOnMouseClicked(event -> {
+            System.out.println("ID de l'article à supprimer : " + reponse.getId());
+            try {
+                serviceReponse.supprimerParId(reponse.getId());
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listRepAdmin.fxml"));
+            try {
+                Parent root = loader.load();
+
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         }
     }
+    @FXML
+    void deleteRep(MouseEvent event) {
+//        if (reponse != null && reponse.getId() != null) {
+//            try {
+//                ServiceReponse serviceReponse = new ServiceReponse();
+//                serviceReponse.supprimer(reponse);
+//                System.out.println("Réponse supprimée avec succès.");
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listCommentAdmin.fxml"));
+//                Parent root = loader.load();
+//                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+//                contentArea.getChildren().clear();
+//                contentArea.getChildren().add(root);
+//            } catch (SQLException | IOException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            System.err.println("La réponse est null ou son ID est null. Impossible de la supprimer.");
+//        }
+
+    }
+
         @FXML
     void editRep(MouseEvent event) {
 

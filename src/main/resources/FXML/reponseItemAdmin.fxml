@@ -54,9 +54,10 @@
                     </ImageView>
                 </children>
             </HBox>
-            <HBox fx:id="deleterep" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="35.0" styleClass="one-categoryCard-btns" translateX="65.0">
+            <HBox fx:id="deleteRep" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deleteRep" prefHeight="35.0" prefWidth="35.0" styleClass="one-categoryCard-btns" translateX="65.0">
+              
                 <children>
-                    <ImageView fx:id="deleteRep" fitHeight="20.0" fitWidth="18.0" onMouseClicked="#deleteRep" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="deleterep" fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../imagesAct/trashCateg.png" />
                         </image>

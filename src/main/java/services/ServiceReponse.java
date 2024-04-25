@@ -118,6 +118,14 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
                 rs.getString("piece_jrep")
         );
     }
+    @Override
+    public void supprimerParId(int id) throws SQLException {
+        String query = "DELETE FROM project WHERE id=?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        }
+    }
 
 }
 

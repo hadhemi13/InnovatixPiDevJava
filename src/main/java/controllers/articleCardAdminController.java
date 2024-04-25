@@ -192,6 +192,7 @@ public void initializeData(Article article) {
 //            content_area.getChildren().setAll(listArticleAdminPane);
 //        } catch (IOException e) {
 //            e.printStackTrace();
+
         }
 
 /*

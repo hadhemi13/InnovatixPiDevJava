@@ -61,6 +61,7 @@ public class ListRepAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServiceReponse sr = new ServiceReponse() ;
+
         List<Reponse> list = new ArrayList<>();
         try {
             list = sr.afficher();
@@ -75,6 +76,7 @@ public class ListRepAdminController implements Initializable {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponseItemAdmin.fxml"));
                 Parent offreItem = loader.load();
+
                 ReponseItemAdminController RepItem = loader.getController();
                 RepItem.initData(reponse);
                 repListContainer.getChildren().add(offreItem);
