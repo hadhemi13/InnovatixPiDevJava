@@ -196,7 +196,7 @@ public class AjoutUserController implements Initializable {
 
                 String image = imageInput.getImage().getUrl();
                 String selectedCategory = role.getSelectionModel().getSelectedItem();
-                User user = new User(name.getText(), Cin.getText(), adresse.getText(), Email.getText(), selectedCategory, tel.getText(), montant.getText(), fileName);
+                User user = new User(name.getText(), Cin.getText(), fileName, adresse.getText(), Email.getText(), selectedCategory, tel.getText(), montant.getText());
                 serviceUser.ajouter(user);
                // if (sa.ajouter(user)) {
 

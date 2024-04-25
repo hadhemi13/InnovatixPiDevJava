@@ -126,6 +126,8 @@ public class TESTCONTROLLER {
         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
             userItemRole.setText("admin");
         }
+
+
         userItemStateBtn.setOnMouseClicked(event -> {
             System.out.println("user EMAIL: " + user.getEmail());
             try {

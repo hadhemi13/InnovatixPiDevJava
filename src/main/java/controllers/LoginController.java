@@ -2,6 +2,7 @@ package controllers;
 import Entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -9,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
+import java.net.URL;
 import java.util.EventObject;
 import java.util.ResourceBundle;
 import java.sql.SQLException;
@@ -19,6 +21,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 import javafx.event.ActionEvent;
+import controllers.UserControleSaisie;
 
 
 import javafx.scene.Parent;
@@ -32,7 +35,7 @@ import services.ServiceUser;
 
 
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
     private TextField emailField;
@@ -51,6 +54,7 @@ public class LoginController {
 
     @FXML
     private Button signUpLink;
+
 
     public void ToSignUp(MouseEvent mouseEvent) {
 
@@ -83,6 +87,12 @@ public class LoginController {
     public void logIn(ActionEvent actionEvent) {
         String email = emailField.getText();
         String password = passField.getText();
+        UserControleSaisie userControleSaisie = new UserControleSaisie();
+
+        // Vérification des champs email et mot de passe avec la fonction loginInputValidator
+        if (!userControleSaisie.loginInputValidator(email, password)) {
+            return; // Sortir de la méthode si la validation échoue
+        }
 
         ServiceUser userService = new ServiceUser();
         User user;
@@ -94,7 +104,7 @@ public class LoginController {
             } else {
                 if (BCrypt.checkpw(password, user.getPassword().replace("$2y$", "$2a$"))) {
                     if (user.getIs_blocked() == 1) {
-                        AlertUtil.showAlert( "login","Invalid credentials.",Alert.AlertType.ERROR);
+                        AlertUtil.showAlert("Login", "Your account is blocked.", Alert.AlertType.ERROR);
                     } else {
                         AlertUtil.showAlert("Login", "Logged in successfully.", Alert.AlertType.INFORMATION);
                         UserSession.getInstance().setEmail(user.getEmail());
@@ -116,7 +126,7 @@ public class LoginController {
                         }
                     }
                 } else {
-                    AlertUtil.showAlert("Login", "Invalid credentials.",Alert.AlertType.INFORMATION);
+                    AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
                 }
             }
         } catch (SQLException e) {
@@ -124,8 +134,37 @@ public class LoginController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        UserSession userSession = new UserSession();
+        userSession.email = emailField.getText();
+        System.out.println(userSession.email);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        UserSession userSession = new UserSession();
+        if (userSession.email != null){
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            //Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+            ServiceUser serviceUser  = new ServiceUser();
+            try {
+                User user = serviceUser.getOneUser(userSession.email);
+                SideNavBarController sideNavBarController = new SideNavBarController();
+                sideNavBarController.initData(user);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+    }
 
     public class AlertUtil {
 
