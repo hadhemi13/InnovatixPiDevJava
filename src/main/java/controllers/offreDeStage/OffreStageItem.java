@@ -118,7 +118,8 @@ public void initData(OffreDeStage i) {
     a = i.getPostePropose();
 //    System.out.println(a);
 
-    System.out.println(i.getPostePropose());
+//    System.out.println(i.getPostePropose());
+//    System.out.println(i.getId());
     ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
 
 
@@ -222,6 +223,7 @@ public void initData(OffreDeStage i) {
 
     public void delete(MouseEvent mouseEvent) {
     }
+
 
 
 }
