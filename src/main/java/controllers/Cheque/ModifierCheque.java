@@ -5,12 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -30,6 +32,8 @@ import java.util.UUID;
 
 public class ModifierCheque implements Initializable {
 
+    @FXML
+    private Pane content_areah;
     @FXML
     private TextField Cin;
 
@@ -120,34 +124,40 @@ public class ModifierCheque implements Initializable {
 
     }
 
-
-    @FXML
-    void updateCheque (MouseEvent mouseEvent) {
-        try {
-            if (cheque != null) {
-                cheque.setBeneficiaire(beneficiaire.getValue().toString());
-                cheque.setMontant(Double.parseDouble(montant.getText()));
-                cheque.setTelephone(Integer.parseInt(tel.getText()));
-                if (date.getValue() != null) {
-                    cheque.setDate(Date.valueOf(date.getValue()));
-                }
-                // Assurez-vous que l'image du chèque n'est pas vide
-                if (imageInput.getImage() != null) {
-                    cheque.setPhoto_cin(imageInput.getImage().getUrl());
-                }
-                // Appeler la méthode de service pour effectuer la mise à jour du chèque dans la base de données
-                ServiceCheque serviceCheque = new ServiceCheque();
-                serviceCheque.modifier(cheque);
-
-                // Fermer la fenêtre après la mise à jour
-                Stage stage = (Stage) update_chequetBtn.getScene().getWindow();
-                stage.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Gérer l'exception appropriée ici
-        }
-    }
+//
+//    @FXML
+//    void UpdateCheque (MouseEvent mouseEvent) throws IOException {
+//        try {
+//            if (cheque != null) {
+//                cheque.setBeneficiaire(beneficiaire.getValue().toString());
+//                cheque.setMontant(Double.parseDouble(montant.getText()));
+//                cheque.setTelephone(Integer.parseInt(tel.getText()));
+//                if (date.getValue() != null) {
+//                    cheque.setDate(Date.valueOf(date.getValue()));
+//                }
+//                // Assurez-vous que l'image du chèque n'est pas vide
+//                if (imageInput.getImage() != null) {
+//                    cheque.setPhoto_cin(imageInput.getImage().getUrl());
+//                }
+//                // Appeler la méthode de service pour effectuer la mise à jour du chèque dans la base de données
+//                ServiceCheque serviceCheque = new ServiceCheque();
+//                serviceCheque.modifier(cheque);
+//
+//                // Fermer la fenêtre après la mise à jour
+//                Stage stage = (Stage) update_chequetBtn.getScene().getWindow();
+//                stage.close();
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            // Gérer l'exception appropriée ici
+////
+////            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
+////            Pane demandeChequeListParent = loader.load();
+////
+////            // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
+////            content_areah.getChildren().setAll(demandeChequeListParent);
+//        }
+//    }
     @FXML
     void ImporterImg(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -234,7 +244,6 @@ public class ModifierCheque implements Initializable {
             }
         }
     }
-
     public void UpdateCheque(MouseEvent mouseEvent) {
         try {
             if (cheque != null) {
@@ -245,8 +254,10 @@ public class ModifierCheque implements Initializable {
                     cheque.setDate(Date.valueOf(date.getValue()));
                 }
                 // Assurez-vous que l'image du chèque n'est pas vide
-                if (imageInput.getImage() != null) {
-                    cheque.setPhoto_cin(imageInput.getImage().getUrl());
+                if (selectedImageFile != null) {
+                    // Utilisez l'URI du fichier sélectionné pour obtenir l'URL de l'image
+                    String imageURL = selectedImageFile.toURI().toString();
+                    cheque.setPhoto_cin(imageURL);
                 }
                 // Appeler la méthode de service pour effectuer la mise à jour du chèque dans la base de données
                 ServiceCheque serviceCheque = new ServiceCheque();
@@ -260,7 +271,8 @@ public class ModifierCheque implements Initializable {
             e.printStackTrace();
             // Gérer l'exception appropriée ici
         }
+    }
 
     }
-}
+
 

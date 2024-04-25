@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="Hboxcheque" alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1060.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.ChequeItemsAdmin">
+<HBox fx:id="Hboxcheque" alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1060.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.ChequeItemsAdmin">
     <children>
         <Text fx:id="Rib" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="123456789022" wrappingWidth="100.04805755615234">
             <HBox.margin>
@@ -40,7 +40,7 @@
         <Text fx:id="benificaire" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" translateX="80.0" wrappingWidth="82.70153427124023" />
         <Text fx:id="tel" strokeType="OUTSIDE" strokeWidth="0.0" text="22345678" translateX="110.0" wrappingWidth="92.3485107421875" />
         <Text fx:id="Montant" strokeType="OUTSIDE" strokeWidth="0.0" text="22,000" translateX="150.0" wrappingWidth="58.150081634521484" />
-        <Label fx:id="ApprouveBtnC" onMouseClicked="#ApprouverCheque" styleClass="userItem__btn" translateX="180.0">
+        <Label fx:id="ApprouveBtnC" onMouseClicked="#ApprouverCheque" styleClass="userItem__btn" translateX="170.0">
             <graphic>
                 <ImageView fx:id="Approuver" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -52,7 +52,7 @@
                 <Insets />
             </HBox.margin>
         </Label>
-        <Label fx:id="RefusBtnC" onMouseClicked="#RefuserCheque" styleClass="userItem__btn" translateX="90.0">
+        <Label fx:id="RefusBtnC" onMouseClicked="#RefuserCheque" styleClass="userItem__btn" translateX="70.0">
             <graphic>
                 <ImageView fx:id="Refuser" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>

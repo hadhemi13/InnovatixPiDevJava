@@ -13,7 +13,7 @@
     <children>
         <HBox alignment="CENTER" layoutX="-30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/SideNavBar.css" translateX="30.0">
             <children>
-                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="450.0" style="-fx-background-color: #fff;" styleClass="categoriesModel-card">
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="450.0" style="-fx-background-color: #fff;" styleClass="categoriesModel-card">
                     <children>
                         <HBox alignment="CENTER_LEFT" layoutX="133.0" layoutY="-86.0" prefHeight="227.0" prefWidth="353.0">
                             <opaqueInsets>
@@ -51,6 +51,21 @@
                                         <Insets top="30.0" />
                                     </VBox.margin>
                                 </Button>
+                        <Button fx:id="HistorCompte" mnemonicParsing="false" onMouseClicked="#OpenHistoriqueCompte" prefHeight="37.0" prefWidth="426.0" styleClass="compte__add__btn" stylesheets="@../css/SideNavBar.css" text="Historique des Demandes de Compte">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="HistorCheque" mnemonicParsing="false" onMouseClicked="#OpenHistoriqueCheque" prefHeight="37.0" prefWidth="443.0" styleClass="compte__add__btn" text="Historique des Demandes des Chéque">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="HistorVir" mnemonicParsing="false" onMouseClicked="#OpenHistoriqueVirement" prefHeight="37.0" prefWidth="430.0" styleClass="compte__add__btn" text="Historiqur des Demandes de Virement">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Button>
                             </children>
                         </VBox>
                     </children>

@@ -185,10 +185,6 @@ public class ModifierVirement implements Initializable {
 
     }
 
-    @FXML
-    void modifiervirement(MouseEvent event) {
-
-    }
 
     @FXML
     void updatevirement(MouseEvent mouseEvent) {

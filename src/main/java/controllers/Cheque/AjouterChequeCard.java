@@ -301,21 +301,26 @@ public class AjouterChequeCard implements Initializable {
 
         ServiceCheque serviceCheque = new ServiceCheque();
         serviceCheque.ajouterS(cheque);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
+        Pane demandeChequeListParent = loader.load();
 
+        // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
+        content_area.getChildren().setAll(demandeChequeListParent);
 
-        if (serviceCheque.ajouterS(cheque)) {
-            try {
-                // Charger la vue de la liste des demandes de chèques
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
-                Pane demandeChequeListParent = loader.load();
-
-                // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
-                content_area.getChildren().setAll(demandeChequeListParent);
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Gérer les erreurs de chargement de la vue si nécessaire
-            }
-        }
+//        if (serviceCheque.ajouterS(cheque)) {
+//            try {
+//                // Charger la vue de la liste des demandes de chèques
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
+//                Pane demandeChequeListParent = loader.load();
+//
+//                // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
+//                content_area.getChildren().setAll(demandeChequeListParent);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                // Gérer les erreurs de chargement de la vue si nécessaire
+//            }
+//        }
+//
 
     }
     @Override

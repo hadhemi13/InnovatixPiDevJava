@@ -105,13 +105,15 @@ public class VirementCard  implements Initializable {
 
     }
 
-    @FXML
-    void updateVirement(MouseEvent event) {
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void updatevirement(MouseEvent mouseEvent) {
+    }
+
+    public void deletevirement(MouseEvent mouseEvent) {
     }
 }

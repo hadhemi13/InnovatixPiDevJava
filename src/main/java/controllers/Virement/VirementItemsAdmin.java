@@ -2,22 +2,48 @@ package controllers.Virement;
 
 import Entities.Compte;
 import Entities.Virement;
+import controllers.Cheque.ListeChequeAdmin;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import services.ServiceCheque;
 import services.ServiceCompte;
 import services.ServiceVirement;
+import controllers.Compte.ApprouverCompte;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-public class VirementItemsAdmin {
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+public class VirementItemsAdmin  implements  Initializable {
 
     @FXML
     private Label ApprouveBtnV;
 
     @FXML
     private ImageView Approuver;
+
+    @FXML
+    private ImageView Refuser;
+
 
     @FXML
     private Text Cin;
@@ -45,10 +71,16 @@ public class VirementItemsAdmin {
 
     @FXML
     private Text TypeVir;
+    @FXML
+    private Virement virement;
 
     @FXML
     private ImageView photoCin;
+    @FXML
+    private HBox Hboxvirement;
+
     public void initData(Virement i){
+        this.virement=i ;
         ServiceVirement serviceVirement = new ServiceVirement();
 
         Rib.setText(String.valueOf(i.getRib()));
@@ -59,16 +91,82 @@ public class VirementItemsAdmin {
         TypeVir.setText(i.getType_virement());
         Transferez.setText(i.getTransferez_a());
         NumBenif.setText(String.valueOf(i.getNum_beneficiare()));
-        Montant.setText(i.getMontant());}
+        Montant.setText(i.getMontant());
+
+        if ("Approuvé".equals(virement.getDecision_v()) || "Rejeté".equals(virement.getDecision_v())) {
+            disableDecisionButtons();
+        }
+    }
+//    @FXML
+//    private void approuverVir(MouseEvent event) {
+//        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce virement ?")) {
+//            updateChequeDecision("Approuvé");
+//        }
+//    }
+
 
     @FXML
-    void approuverVir(MouseEvent event) {
+    private void approuverVir(MouseEvent event) {
+        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce virement ?")) {
+            updateVirementDecision("Approuvé");
+        }
+    }
+
+@FXML
+private void refuserVir(MouseEvent event) {
+    if (showConfirmationDialog("Reject", "Voulez vous réfuser ce virement?")) {
+        updateVirementDecision("Rejeté");
+    }
+}
+
+    private boolean showConfirmationDialog(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title + " Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        Optional<ButtonType> action = alert.showAndWait();
+        return action.isPresent() && action.get() == ButtonType.OK;
+    }
+    private void updateVirementDecision(String newDecisionV) {
+        try {
+            virement.setDecision_v(newDecisionV);
+            new ServiceVirement().modifier(virement);
+            showAlert(Alert.AlertType.INFORMATION, "Success", "virement decision updated to " + newDecisionV + ".");
+            disableDecisionButtons();
+            applyRejectedStyle();
+
+            ListVirementAdmin.getInstance().refreshVirementList();
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to update virement decision.");
+            e.printStackTrace();
+        }
+    }
+    private void applyRejectedStyle() {
+        if ("Rejeté".equals(virement.getDecision_v())) {
+            Hboxvirement.getStyleClass().clear();
+            Hboxvirement.getStyleClass().add("virement-rejected");
+        }
+    }
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void disableDecisionButtons() {
+        ApprouveBtnV.setDisable(true);
+        RefusBtnV.setDisable(true);
+        Approuver.setOpacity(0.4);  // Optionally set opacity to visually indicate the button is disabled
+        Refuser.setOpacity(0.4);    // Optionally set opacity to visually indicate the button is disabled
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    @FXML
-    void refuserVir(MouseEvent event) {
-
-    }
 
 }

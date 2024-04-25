@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
@@ -88,6 +90,8 @@ public class AjouterVirementCard implements Initializable {
 
     @FXML
     private TextField benef;
+    @FXML
+    private Pane content_areaV;
 
     @FXML
     private Text benefInputError;
@@ -145,7 +149,7 @@ public class AjouterVirementCard implements Initializable {
 
 
     @FXML
-    public void ajouterVirement(MouseEvent mouseEvent)  throws SQLException {
+    public void ajouterVirement(MouseEvent mouseEvent) throws SQLException, IOException {
 
         ServiceVirement sv = new ServiceVirement();
         if (Cin.getText().isEmpty()) {
@@ -263,73 +267,21 @@ public class AjouterVirementCard implements Initializable {
             return; // Exit the method if the Cin value is not valid
         }
         String phone_number = Num.getText();
-        String decision = "Encours";
+        String decisionV = "Encours";
 
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
         //String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number
-        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decision,image,phone_number);
+        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decisionV,image,phone_number);
         ServiceVirement serviceVirement = new ServiceVirement();
         serviceVirement.ajouterV(virement1);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeVirementListClient.fxml"));
+        Pane VirementList = loader.load();
+
+        content_areaV.getChildren().setAll(VirementList);
 
     }
-//    @FXML
-//    void ajouterVirement(MouseEvent event) throws SQLException {
-//        // Vérification des champs obligatoires
-//        boolean isValid = true;
-//        if (NometPrenom.getText().isEmpty()) {
-//            NometPrenomInputError.setVisible(true);
-//            isValid = false;
-//        }
-//        if (type.getSelectionModel().isEmpty()) {
-//            typeInputError.setVisible(true);
-//            isValid = false;
-//        }
-//        if (transferez.getText().isEmpty()) {
-//            transferezInputError.setVisible(true);
-//            isValid = false;
-//        }
-//        if (benef.getText().isEmpty()) {
-//            benefInputError.setVisible(true);
-//            isValid = false;
-//        }
-//        if (montant.getText().isEmpty()) {
-//            montantInputError.setVisible(true);
-//            isValid = false;
-//        }
-//        if (Cin.getText().isEmpty()) {
-//            cinInputError.setVisible(true);
-//            isValid = false;
-//        }
-//
-//        if (Num.getText().isEmpty()) {
-//            NumInputError.setVisible(true);
-//            isValid = false;
-//        }
-//
-//        if (isValid) {
-//            // Création d'une instance de Virement à partir des champs de la vue
-//            String nometPrenom = NometPrenom.getText();
-//            String typeVirement = String.valueOf(type.getValue());
-//            String transferezA = transferez.getText();
-//            int numBeneficiaire = Integer.parseInt(Num.getText());
-//            String montantText = montant.getText();
-//            int cinNum = Integer.parseInt(Cin.getText());
-//            int ribNum = Integer.parseInt(RIB.getText());
-//            String emailText = benef.getText();
-//            String phoneNumber =Num.getText();
-//
-//            Virement virement = new Virement(nometPrenom, typeVirement, transferezA, numBeneficiaire, montantText,
-//                    cinNum, ribNum, emailText, phoneNumber);
-//
-//            // Appel du service pour ajouter le virement à la base de données
-//            ServiceVirement serviceVirement = new ServiceVirement();
-//            serviceVirement.ajouterV(virement);
-//
-//            // Réinitialisation des champs et des messages d'erreur
-//            resetFields();
-//        }
-//    }
+
 
     private void resetFields() {
     }
@@ -367,8 +319,6 @@ public class AjouterVirementCard implements Initializable {
 //
 //    }
 
-    public void UpdateVirement (MouseEvent mouseEvent){
-        }
 
         public void ImporterImageV (ActionEvent event){
             FileChooser fileChooser = new FileChooser();

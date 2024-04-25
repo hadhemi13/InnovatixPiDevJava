@@ -1,8 +1,10 @@
 package controllers;
 
+import controllers.Cheque.HistoriqueChequeAdmin;
 import controllers.Cheque.ListeChequeAdmin;
 import controllers.Compte.ListeCompteAdmin;
 import controllers.Virement.AjouterVirementCard;
+import controllers.Virement.HistoriqueVirementAdmin;
 import controllers.Virement.ListVirementAdmin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +27,18 @@ import java.io.IOException;
 public class CardAdmin {
 
     @FXML
+    private Button HistorCheque;
+
+    @FXML
+    private Button HistorCompte;
+
+    @FXML
+    private Button HistorVir;
+
+    @FXML
     private Pane content_area;
+    @FXML
+    private Pane content_areaC;
 
     @FXML
     private Button listC;
@@ -35,9 +48,6 @@ public class CardAdmin {
 
     @FXML
     private Button listV;
-
-    @FXML
-    private HBox offreModel;
 
     @FXML
     private VBox reductionForm;
@@ -76,6 +86,42 @@ public class CardAdmin {
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
+    }
+
+    public void OpenHistoriqueCheque(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HistoriqueChequeAdmin.fxml"));
+        Parent HistoriqueParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        HistoriqueChequeAdmin historiqueChequeAdmin = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(HistoriqueParent);
+    }
+
+    public void OpenHistoriqueVirement(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HistoriqueVirementAdmin.fxml"));
+        Parent HistoriqueParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        HistoriqueVirementAdmin historiqueVirementAdmin = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(HistoriqueParent);
+    }
+
+    public void OpenHistoriqueCompte(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HistoriqueCompteA.fxml.fxml"));
+        Parent HistoriqueParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+        ListeCompteAdmin listeCompteAdmin = loader.getController();
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(HistoriqueParent);
     }
 }
 

@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import services.ServiceCompte;
+import services.ValidSaisie;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import static services.ValidSaisie.isValidEmail;
 
 public class AjouterCompte implements Initializable {
 
@@ -164,6 +167,73 @@ public class AjouterCompte implements Initializable {
     void ajouterCompte(MouseEvent event) throws SQLException, IOException {
         ServiceCompte serviceCompte = new ServiceCompte();
         boolean champsVides = false;
+
+        ValidSaisie validSaisie=new ValidSaisie();
+
+        if (!ValidSaisie.isValidEmail(Email.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            EmailInputErrorHbox.setVisible(true);
+            EmailInputError.setText("L'adresse e-mail n'est pas valide !");
+        }
+        if (!ValidSaisie.isValidEmail(conformation_email.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            ConfEmailInputErrorHbox.setVisible(true);
+            ConfEmailInputError.setText("L'adresse e-mail n'est pas valide !");
+        }
+        if (!ValidSaisie.isValidEmpty(String.valueOf(typeCin.getSelectionModel()))) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            TypeInputErrorHbox.setVisible(true);
+        }
+        if (!ValidSaisie.isValidCin(NumCin.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            NumCinInputErrorHbox.setVisible(true);
+            NumCinInputError.setText("Le numéro de cin doit contenir 8 chiffres !");
+            NumCinInputError.setText("Le numéro de cin doit commencer par 1 ou 0");
+        }
+        if (!ValidSaisie.isValidNumber(NumTel.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            NumTel.setVisible(true);
+            NumTelInputErrorHbox.setText("Le numéro de téléphone doit contenir 8 chiffres !");
+            NumCinInputError.setText("Le numéro de téléphone doit commencer par 2 ou 5 ou 9 et contenir 8 chiffres");
+        }
+        if (!ValidSaisie.isValidEmpty(Nom.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            NumTelInputError.setVisible(true);
+        }
+        if (!ValidSaisie.isValidEmpty(Prenom.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            PrenomnputError.setVisible(true);
+        }
+        if (!ValidSaisie.isValidEmpty(String.valueOf(TypeCompte.getSelectionModel()))) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            TypeInputError.setVisible(true);
+        }
+         if (!ValidSaisie.isValidEmpty(String.valueOf(MontantDepot.getText()))) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+             MontantInputError.setVisible(true);
+        }
+         if (!ValidSaisie.isValidEmpty(Nationalite.getText())) {
+        // Afficher un message d'erreur si l'e-mail n'est pas valide
+        NatioInputError.setVisible(true);
+    }
+        if (!ValidSaisie.isValidEmpty(Profession.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            ProffesionInputError.setVisible(true);
+        }
+        if (!ValidSaisie.isValidEmpty(String.valueOf(StatutMarital.getSelectionModel()))) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            StatutnputError.setVisible(true);
+        }
+        if (!ValidSaisie.isValidEmpty(Sexe.getText())) {
+            // Afficher un message d'erreur si l'e-mail n'est pas valide
+            SexenputError.setVisible(true);
+        }
+        if( ValidSaisie.isValidEmail(Email.getText()) && ValidSaisie.isValidEmail(conformation_email.getText()) && ValidSaisie.isValidEmpty(String.valueOf(typeCin).getSelectionModel()) && ValidSaisie.isValidCin(NumCin.getText()) && ValidSaisie.isValidEmpty())
+
+
+
+
+
 
         // Vérification de chaque champ
         if (Email.getText().isEmpty()) {

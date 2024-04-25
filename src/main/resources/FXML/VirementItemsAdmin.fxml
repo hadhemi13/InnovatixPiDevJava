@@ -55,7 +55,7 @@
         </Label>
         <Label fx:id="RefusBtnV" onMouseClicked="#refuserVir" styleClass="userItem__btn">
             <graphic>
-                <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="Refuser" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/delete.png" />
                     </image>

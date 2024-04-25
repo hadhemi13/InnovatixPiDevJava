@@ -124,6 +124,8 @@ public class DemandeVirementListClient  implements Initializable {
     private HBox stagesBtn;
 
     @FXML
+    private Pane content_areaV;
+    @FXML
     private ImageView stagesIcon;
 
     @FXML
@@ -142,6 +144,8 @@ public class DemandeVirementListClient  implements Initializable {
     private Label usersText;
     @FXML
     private Button btnvir;
+
+
 
     @FXML
     void statusChange(ActionEvent event) {
@@ -165,8 +169,8 @@ public class DemandeVirementListClient  implements Initializable {
         AjouterVirementCard ajouterVirementCard = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
-        content_area.getChildren().clear();
-        content_area.getChildren().add(addArticleParent);
+        content_areaV.getChildren().clear();
+        content_areaV.getChildren().add(addArticleParent);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
