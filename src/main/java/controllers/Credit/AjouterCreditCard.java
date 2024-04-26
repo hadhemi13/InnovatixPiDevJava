@@ -117,7 +117,32 @@ public class AjouterCreditCard implements Initializable {
     PreparedStatement st=null;
     ResultSet rs=null;
     private Timer timer;
+    @FXML
+    void calculertaux(ActionEvent event) {
+        try {
+            // Parse values from text fields
+            Double montantValue = Double.parseDouble(montant.getText());
+            Double mensualiteValue = Double.parseDouble(Email.getText());
+            Double dureeValue = Double.parseDouble(duree.getText());
 
+            // Calculate the interest rate
+            Double interestRate = (((mensualiteValue * dureeValue) - montantValue) / montantValue) * 12 / dureeValue;
+
+            // Set the calculated interest rate to the taux field
+            taux.setText(String.valueOf(interestRate));
+        } catch (NumberFormatException e) {
+            // Handle parsing errors (e.g., invalid input format)
+            System.err.println("Error parsing input values: " + e.getMessage());
+            // You may want to display an error message to the user
+        }
+    }
+    @FXML
+    void calculerfraisretard(ActionEvent event) {
+        Double montantValue = Double.parseDouble(montant.getText());
+        var fraisretardv= montantValue*0.01;
+        fraisretard.setText(String.valueOf(fraisretardv));
+
+    }
     @FXML
     void ajoutercredit(MouseEvent event) throws SQLException {
         String insert = "insert into credit (user_id, id_client, montant, taux, datedebut, mensualite, duree, fraisretard) values (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -206,6 +231,9 @@ public class AjouterCreditCard implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void saverdv(ActionEvent actionEvent) {
     }
 }
 

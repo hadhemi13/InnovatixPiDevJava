@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
@@ -24,31 +23,11 @@
                                 <Insets right="8.0" />
                             </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="home__msg__text" text="Espace de Compte Bancaire">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="home__msg__text" text="GESTION CREDIT RDV">
                             <HBox.margin>
                                 <Insets left="10.0" top="5.0" />
                             </HBox.margin></Text>
                     </children>
-                </HBox>
-                <HBox layoutX="25.0" layoutY="94.0" prefHeight="334.0" prefWidth="614.0" spacing="60.0">
-               <children>
-                  <AreaChart prefHeight="237.0" prefWidth="311.0">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                  </AreaChart>
-                  <LineChart>
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
-                  </LineChart>
-               </children>
                 </HBox>
                 <Button fx:id="ListeCheque" layoutX="757.0" layoutY="127.0" maxHeight="84.0" maxWidth="219.0" mnemonicParsing="false" onMouseClicked="#listcredit" prefHeight="84.0" prefWidth="219.0" styleClass="cheque__addBtn" text="Credit" textFill="#f2eaea">
                <font>
@@ -56,6 +35,15 @@
                </font></Button>
                 <Button fx:id="ListeVirement" layoutX="757.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#listrdv" prefHeight="84.0" prefWidth="229.0" styleClass="cheque__addBtn" text="RDV" />
             <PieChart layoutX="103.0" layoutY="432.0" prefHeight="153.0" prefWidth="200.0" />
+            <Pane layoutX="132.0" layoutY="409.0" prefHeight="200.0" prefWidth="531.0" />
+            <BarChart fx:id="stat1" prefHeight="334.0" prefWidth="586.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
             </children>
         </Pane>
     </children>

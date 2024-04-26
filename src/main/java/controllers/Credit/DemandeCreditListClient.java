@@ -155,8 +155,13 @@ public class DemandeCreditListClient implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void prendrerdv(MouseEvent event) {
 
-}
+
+        }
+    }
+
 
 
 

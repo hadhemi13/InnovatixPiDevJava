@@ -105,7 +105,7 @@ public class Rdvitems {
                 throw new RuntimeException(e);
             }
             updaterdvcontroller updaterdvController = loader.getController();
-           CalendarController cal=loader.getController();
+          // CalendarController cal=loader.getController();
             String idvalue = credit_id.getText();
 
             RDV c11 = getrdvByUserId(con, idvalue);
@@ -156,5 +156,6 @@ public class Rdvitems {
         }
         return rdv;
     }
+
 }
 

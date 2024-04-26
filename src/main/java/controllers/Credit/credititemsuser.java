@@ -17,6 +17,8 @@ import utils.MyDatabase;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -121,7 +123,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
     }
     @FXML
     void takerdv(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredittest.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredit.fxml"));
         Parent addArticleParent = loader.load();
 
         // Récupération du contrôleur de la vue d'ajout d'article
@@ -137,5 +139,21 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
     }
 
 
+    Connection con=null;
+    PreparedStatement st=null;
+    ResultSet rs=null;
 
+    public void deletecredit(MouseEvent mouseEvent) {
+        String Delete="delete from credit where id = ?";
+        String idvalue = useriditem.getText();
+
+        con = MyDatabase.getInstance().getConnection();
+        try {
+            st=con.prepareStatement(Delete);
+            st.setInt(1, Integer.parseInt(idvalue));
+            st.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

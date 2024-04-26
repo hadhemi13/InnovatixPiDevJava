@@ -148,25 +148,37 @@
                 </Label>
             </children>
         </HBox>
-      <HBox prefHeight="34.0" prefWidth="295.0">
+      <HBox prefHeight="39.0" prefWidth="346.0">
          <children>
-            <HBox fx:id="accepteritem" onMouseClicked="#UpdateCheque" prefHeight="34.0" prefWidth="41.0" styleClass="product__card-btns">
+            <HBox fx:id="deletecredit" onMouseClicked="#deletecredit" prefHeight="39.0" prefWidth="39.0" style="-fx-background-color: ff80white00;" styleClass="product__card-btns">
+               <children>
+                  <ImageView fx:id="deletebutton" fitHeight="23.0" fitWidth="83.0" onMouseClicked="#deletecredit" pickOnBounds="true" preserveRatio="true" scaleX="2.0" scaleY="2.0" translateX="10.0" translateY="10.0">
+                     <image>
+                        <Image url="@../img/pngtree-recycle-bin-icon-glossy-blue-round-button-delete-photo-png-image_13830767.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox fx:id="refuseritem" layoutX="55.0" layoutY="4.0" onMouseClicked="#UpdateCheque" prefHeight="34.0" prefWidth="41.0" styleClass="product__card-btns" translateX="50.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="8.0" translateY="5.0">
+                     <image>
+                        <Image url="@../img/4676081.png" />
+                     </image>
+                  </ImageView>
+               </children>
                <HBox.margin>
-                  <Insets left="105.0" />
+                  <Insets left="-14.0" right="-20.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox fx:id="accepteritem" layoutX="5.0" layoutY="5.0" onMouseClicked="#UpdateCheque" prefHeight="34.0" prefWidth="41.0" styleClass="product__card-btns">
+               <HBox.margin>
+                  <Insets left="120.0" />
                </HBox.margin>
                <children>
                   <ImageView fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="9.0" translateY="5.0">
                      <image>
                         <Image url="@../img/2550322.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <HBox fx:id="refuseritem" layoutX="115.0" layoutY="10.0" onMouseClicked="#UpdateCheque" prefHeight="34.0" prefWidth="41.0" styleClass="product__card-btns" translateX="50.0">
-               <children>
-                  <ImageView fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="9.0" translateY="5.0">
-                     <image>
-                        <Image url="@../img/4676081.png" />
                      </image>
                   </ImageView>
                </children>

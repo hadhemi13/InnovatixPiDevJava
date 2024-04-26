@@ -1,6 +1,6 @@
 package Entities;
 
-import java.util.Date;
+import java.util.*;
 
 public class Credit {
     private int id;
@@ -22,7 +22,25 @@ public class Credit {
         this.duree = duree;
         this.fraisretard = fraisretard;
     }
+    public Map<Integer, Integer> countCreditsByYear(List<Credit> credits) {
+        Map<Integer, Integer> creditCountByYear = new HashMap<>();
 
+        // Iterate through the list of credits
+        for (Credit credit : credits) {
+            // Extract the year from the credit's start date
+            int year = getYearFromDate(credit.getDateDebut());
+
+            // Increment the count for the corresponding year in the map
+            creditCountByYear.put(year, creditCountByYear.getOrDefault(year, 0) + 1);
+        }
+
+        return creditCountByYear;
+    }
+    private int getYearFromDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.YEAR);
+    }
     public void setId(int id) {
         this.id = id;
     }

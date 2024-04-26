@@ -4,9 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="api">
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="calander+sms">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/RdvController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/IRDV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardRdv.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/corbeille-icone-vecteur-isole-sur-fond-transparent-la-transparence-corbeille-concept-logo-r1rxyh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pngtree-recycle-bin-icon-glossy-blue-round-button-delete-photo-png-image_13830767.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pngtree-trash-icon-creative-design-template-png-image_5259002.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/sms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/sms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,26 +78,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Ahmed",
-    "last_opened_file_path": "C:/Users/21650/Desktop/ahmedjava/src/main/resources/FXML",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.reader.mode",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Ahmed&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/21650/Desktop/ahmedjava/src/main/resources/FXML&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.reader.mode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\21650\Desktop\ahmedjava\src\main\resources\FXML" />
@@ -84,8 +108,8 @@
       <recent name="controllers.Credit" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="services" />
       <recent name="controllers.Credit" />
+      <recent name="services" />
     </key>
   </component>
   <component name="RunManager">
@@ -122,7 +146,8 @@
       <workItem from="1713813979715" duration="14907000" />
       <workItem from="1713908662463" duration="17220000" />
       <workItem from="1713965669910" duration="18913000" />
-      <workItem from="1714027158345" duration="5901000" />
+      <workItem from="1714027158345" duration="24842000" />
+      <workItem from="1714109594815" duration="12162000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -236,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714035403434</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="calander+sms">
+      <option name="closed" value="true" />
+      <created>1714035936646</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714035936646</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +299,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="calendrier rdv + correction affichage credit" />
     <MESSAGE value="api" />
-    <option name="LAST_COMMIT_MESSAGE" value="api" />
+    <MESSAGE value="calander+sms" />
+    <option name="LAST_COMMIT_MESSAGE" value="calander+sms" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -7,7 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -16,11 +18,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCredit;
+import utils.MyDatabase;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +60,7 @@ public class DemandeCreditListClientUser  implements Initializable {
     @FXML
     void ajoutercredit(MouseEvent event) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredittest.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredit.fxml"));
         Parent addArticleParent = loader.load();
 
         // Récupération du contrôleur de la vue d'ajout d'article
@@ -136,5 +143,30 @@ public class DemandeCreditListClientUser  implements Initializable {
             }
         }
     }
+    Connection con=null;
+    PreparedStatement st=null;
+    ResultSet rs=null;
 
-}
+    public void deletecredit(MouseEvent mouseEvent) {
+
+
+    }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    @FXML
+    void prendrerdv(MouseEvent event) throws IOException {
+        // Chargement de la vue FXML de la page d'ajout d'article
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterrdv.fxml"));
+        Parent addArticleParent = loader.load();
+
+        // Récupération du contrôleur de la vue d'ajout d'article
+
+        // Remplacer le contenu actuel par la vue d'ajout d'article
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
+    }
+
+    }
+

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -8,6 +7,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -15,9 +16,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="486.0" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RdvController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1177.0" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.RdvController">
     <children>
-        <VBox layoutX="-48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="56.0" styleClass="dash__side-bar">
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="8.0" styleClass="dash__side-bar">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
@@ -30,73 +31,94 @@
                 </HBox>
             </children>
         </VBox>
-        <HBox alignment="CENTER_RIGHT" layoutX="28.0" layoutY="30.0" prefHeight="593.0" prefWidth="629.0">
+        <HBox alignment="CENTER_RIGHT" layoutX="82.0" layoutY="58.0" prefHeight="78.0" prefWidth="1115.0">
             <children>
-              <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="398.0" styleClass="dash__container-card">
-                  <children>
-                      <HBox alignment="CENTER_LEFT" layoutX="-27.0" layoutY="-21.0" prefWidth="49.0" />
-                      <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
-                  <TextField fx:id="idclientlabel" layoutX="107.0" layoutY="175.0" prefHeight="49.0" prefWidth="263.0" promptText="IDCLIENT" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="Bauhaus 93" size="21.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="heurelabel" layoutX="107.0" layoutY="240.0" prefHeight="49.0" prefWidth="263.0" promptText="heure" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="Bauhaus 93" size="21.0" />
-                     </font>
-                  </TextField>
-                  <DatePicker fx:id="datedebutlabel" layoutX="107.0" layoutY="321.0" prefHeight="49.0" prefWidth="263.0" promptText="DATE" />
-                  <TextField fx:id="methodelabel" layoutX="107.0" layoutY="388.0" prefHeight="49.0" prefWidth="263.0" promptText="methode" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="Bauhaus 93" size="21.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="employename" layoutX="107.0" layoutY="461.0" prefHeight="49.0" prefWidth="263.0" promptText="employename" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="Bauhaus 93" size="21.0" />
-                     </font>
-                  </TextField>
-                  <Button fx:id="btnsave" layoutX="170.0" layoutY="555.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" text="SAVE" />
-                  <ChoiceBox fx:id="pvr" layoutX="170.0" layoutY="127.0" prefWidth="150.0" />
-                  <Label layoutX="75.0" layoutY="132.0" prefHeight="25.0" prefWidth="91.0" text="id credit" textFill="#cdcdcd" />
-                  <Label layoutX="6.0" layoutY="8.0" text="PRENDRE UN RDV" textFill="#c5c9c4">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  </children>
-              </Pane>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="ajouter un RDV" translateX="-660.0">
-                    <font>
-                        <Font name="Montserrat ExtraBold" size="18.0" />
-                    </font>
-                </Text>
                 <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
                     <HBox.margin>
                         <Insets right="16.0" />
                     </HBox.margin>
                 </HBox>
+                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
+                    <image>
+                        <Image url="@../img/bell.png" />
+                    </image>
+                </ImageView>
             </children>
         </HBox>
+        <Pane fx:id="content_area" layoutX="372.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="453.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" layoutX="-27.0" layoutY="-21.0" prefWidth="49.0" />
+                <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
+                <TextField fx:id="idclientlabel" layoutX="100.0" layoutY="65.0" prefHeight="49.0" prefWidth="263.0" promptText="IDCLIENT" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Bauhaus 93" size="22.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="heurelabel" layoutX="96.0" layoutY="133.0" prefHeight="49.0" prefWidth="263.0" promptText="heure" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Bauhaus 93" size="21.0" />
+                    </font>
+                </TextField>
+                <DatePicker fx:id="datedebutlabel" layoutX="96.0" layoutY="214.0" prefHeight="49.0" prefWidth="263.0" promptText="DATE" />
+                <TextField fx:id="methodelabel" layoutX="100.0" layoutY="303.0" prefHeight="49.0" prefWidth="263.0" promptText="methode" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Bauhaus 93" size="21.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="employename" layoutX="96.0" layoutY="380.0" prefHeight="49.0" prefWidth="263.0" promptText="employename" style="-fx-border-width: 0 0 2 0; -fx-background-color: transparent transparent green transparent; -fx-border-style: solid;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="Bauhaus 93" size="21.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="btnsave" layoutX="232.0" layoutY="459.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: orange;" text="SAVE" />
+                <ChoiceBox fx:id="idcreditchoise" layoutX="181.0" layoutY="8.0" prefWidth="150.0" />
+                <Label layoutX="84.0" layoutY="13.0" prefHeight="25.0" prefWidth="91.0" text="id credit" textFill="#cdcdcd" />
+            </children>
+        </Pane>
+        <Label layoutX="40.0" layoutY="33.0" text="PRENDRE UN RDV" textFill="#c5c9c4">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+      <Text fx:id="idclienterror" fill="RED" layoutX="795.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="181.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="heureerror" fill="RED" layoutX="795.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="181.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="methodeerror" fill="RED" layoutX="786.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="181.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="employenameerror" fill="RED" layoutX="795.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="181.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="dateerror" fill="RED" layoutX="786.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="181.13671875">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
 
 
 
     </children>
-   <styleClass>
-      <String fx:value="bg" />
-      <String fx:value="dash__container-card" />
-   </styleClass>
 </AnchorPane>
