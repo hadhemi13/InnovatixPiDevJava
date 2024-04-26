@@ -122,13 +122,45 @@ public class TESTCONTROLLER {
         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
             userItemRole.setText("admin");
         }
+        if (user.getIs_blocked()==0) {
+
+            if (!userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
+                userItemStateLabel.getStyleClass().add("userItem__field-active");
+            }
+
+            if (userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {
+                userItemStateLabel.getStyleClass().remove("userItem__field-unactive");
+            }
+
+            userItemStateText.setText("active");
+
+            Image stateBtnImg = new Image(
+                    getClass().getResource("/img/lock-icon.png").toExternalForm());
+            userItemStateBtnImg.setImage(stateBtnImg);
+
+        } else {
+            if (!userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {
+                userItemStateLabel.getStyleClass().add("userItem__field-unactive");
+            }
+
+            if (userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
+                userItemStateLabel.getStyleClass().remove("userItem__field-active");
+            }
+            userItemStateText.setText("unactive");
+
+            Image stateBtnImg = new Image(
+                    getClass().getResource("/img/unlock-icon.png").toExternalForm());
+            userItemStateBtnImg.setImage(stateBtnImg);
+
+        }
+
 
         userItemStateBtn.setOnMouseClicked(event -> {
             System.out.println("user EMAIL: " + user.getEmail());
             try {
-                //   user.setIs_blocked(!user.getIs_blocked());
+                user.setIs_blocked(user.getIs_blocked() == 0 ? 1 : 0);
                 userService.modifier(user);
-                //  updateStateLabel(user);
+                 updateStateLabel(user);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -165,5 +197,38 @@ public class TESTCONTROLLER {
             }
         });
     }
+
+
+    public void updateStateLabel(User user) {
+        if (user.getIs_blocked() == 0) { // Utilisateur actif
+            if (!userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
+                userItemStateLabel.getStyleClass().add("userItem__field-active");
+            }
+
+            if (userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {
+                userItemStateLabel.getStyleClass().remove("userItem__field-unactive");
+            }
+            userItemStateText.setText("active");
+
+            Image stateBtnImg = new Image(
+                    getClass().getResource("/../img/lock-icon.png").toExternalForm());
+            userItemStateBtnImg.setImage(stateBtnImg);
+
+        } else { // Utilisateur inactif
+            if (!userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {
+                userItemStateLabel.getStyleClass().add("userItem__field-unactive");
+            }
+
+            if (userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
+                userItemStateLabel.getStyleClass().remove("userItem__field-active");
+            }
+            userItemStateText.setText("inactive");
+
+            Image stateBtnImg = new Image(
+                    getClass().getResource("/../img/unlock-icon.png").toExternalForm());
+            userItemStateBtnImg.setImage(stateBtnImg);
+        }
+    }
+
 
 }
