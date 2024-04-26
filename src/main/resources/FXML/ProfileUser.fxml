@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="977.0" styleClass="userProductsContainer" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.ProfileUserController">
+<Pane fx:id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="1086.0" styleClass="userProductsContainer" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.ProfileUserController">
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="32.0" layoutY="38.0" stylesheets="@../css/SideNavBar.css" />
-        <AnchorPane layoutX="298.0" layoutY="142.0" prefHeight="453.0" prefWidth="641.0" styleClass="profileContainer" stylesheets="@../css/SideNavBar.css">
+        <AnchorPane layoutX="234.0" layoutY="76.0" prefHeight="453.0" prefWidth="641.0" styleClass="profileContainer" stylesheets="@../css/SideNavBar.css">
             <children>
                 <Label fx:id="userItemUpdateBtn" layoutX="583.0" layoutY="14.0" styleClass="userItem__btn">
                     <graphic>
@@ -26,9 +26,10 @@
                 </Label>
                 <Label layoutX="266.0" layoutY="-55.0" prefHeight="110.0" prefWidth="110.0" styleClass="profileImgBorder" />
                 <ImageView fx:id="userItemImg" fitHeight="100.0" fitWidth="100.0" layoutX="271.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
-
-                </ImageView>
-                <Text layoutX="258.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Description" textAlignment="CENTER" wrappingWidth="125.336669921875" />
+               <image>
+                  <Image url="@../img/admin.png" />
+               </image></ImageView>
+                <Text layoutX="258.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Role" textAlignment="CENTER" wrappingWidth="125.336669921875" />
                 <Text fx:id="descriptionText" layoutX="50.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="association for helping children without family support." textAlignment="CENTER" wrappingWidth="541.3367919921875" />
                 <Text layoutX="83.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Fullname" wrappingWidth="125.336669921875" />
                 <Text fx:id="fullnameText" layoutX="83.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="Nabil Mersni" wrappingWidth="270.13671875" />
@@ -36,7 +37,7 @@
                 <Text fx:id="emailText" layoutX="83.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="nabil@gmail.com" wrappingWidth="270.13671875" />
                 <Text layoutX="388.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Phone number" wrappingWidth="178.9366455078125" />
                 <Text fx:id="telText" layoutX="388.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="41156289" wrappingWidth="162.9366455078125" />
-                <Button fx:id="changePassBTN" layoutX="75.0" layoutY="334.0" mnemonicParsing="false" prefHeight="42.0" styleClass="changePass__btn" stylesheets="@../../resources/css/SideNavBar.css" text="change password" />
+                <Button fx:id="changePassBTN" layoutX="75.0" layoutY="334.0" mnemonicParsing="false" onAction="#changePass" prefHeight="42.0" styleClass="changePass__btn" stylesheets="@../../resources/css/SideNavBar.css" text="change password" />
                 <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="253.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
 
                     <cursor>

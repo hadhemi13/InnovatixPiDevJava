@@ -239,7 +239,7 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </HBox>
-                <Text fx:id="navFullname" onMouseClicked="#openLisUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Client ">
+                <Text fx:id="navFullname" onMouseClicked="#openProfil" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Client ">
                     <font>
                         <Font name="Montserrat Bold" size="18.0" />
                     </font>
