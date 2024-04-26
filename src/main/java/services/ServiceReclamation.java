@@ -42,7 +42,7 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
 
 
         @Override
-    public void ajouter(Reclamation reclamation) throws SQLException {
+    public boolean ajouter(Reclamation reclamation) throws SQLException {
 
         String req = "INSERT INTO reclamation (objet_rec, contenu_rec, adr_rec, nom_aut_rec, dep_rec, statut_rec, piece_jrec, date_rec) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -64,7 +64,8 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
         } catch (SQLException e) {
             System.out.println("Erreur lors de l'ajout de la réclamation : " + e.getMessage());
         }
-    }
+            return false;
+        }
 
 
 

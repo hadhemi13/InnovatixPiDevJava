@@ -170,16 +170,7 @@ public class SideNavBarUserController {
     }
 
     public void open_achatList(MouseEvent mouseEvent) {
-        try {
-            // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeArticlesClients.fxml"));
-            Pane listArticleAdminPane = loader.load();
 
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(listArticleAdminPane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void open_actualite(MouseEvent mouseEvent) {
@@ -196,5 +187,31 @@ public class SideNavBarUserController {
     }
 
     public void open_Credit(MouseEvent mouseEvent) {
+    }
+
+    public void open_ArtList(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeArticlesClients.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void open_RecList(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeRecClient.fxml"));
+            Pane listRecAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listRecAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

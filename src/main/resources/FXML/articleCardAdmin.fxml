@@ -86,17 +86,8 @@
                             <Insets bottom="2.0" />
                         </VBox.margin>
                     </HBox>
-                    <HBox fx:id="action" alignment="CENTER" prefHeight="50.0" prefWidth="306.0" translateY="40.0">
+                    <HBox fx:id="action" alignment="CENTER" prefHeight="50.0" prefWidth="257.0" translateX="-10.0" translateY="40.0">
                         <children>
-                            <HBox fx:id="viewdetailArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns">
-                                <children>
-                                    <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../imagesAct/view.png" />
-                                        </image>
-                                    </ImageView>
-                                </children>
-                            </HBox>
                             <HBox fx:id="editArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#modifierArt" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns">
                                 <children>
                                     <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">

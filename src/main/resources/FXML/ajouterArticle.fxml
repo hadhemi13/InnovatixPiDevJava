@@ -291,7 +291,7 @@
                                                   </Text>
                                                   <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="48.0" prefWidth="200.0" styleClass="product__add-img-btn">
                                                       <children>
-                                                          <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-3.0">
+                                                          <ImageView fx:id="selectedImage" fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-3.0">
                                                               <image>
                                                                   <Image url="@../imagesAct/upload-big-arrow.png" />
                                                               </image>

@@ -10,15 +10,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="listrecClient" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListeRecClientController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListeRecClientController">
 <children>
     <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
 
     </ScrollPane>
-    <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
+    <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1213.0">
         <children>
             <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title" text="Liste des réclamations" />
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="50.0" styleClass="productBtn" translateX="650.0">
+
+            <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :" translateX="60.0">
+                <HBox.margin>
+                    <Insets right="25.0" />
+                </HBox.margin>
+            </Text>
+            <ComboBox fx:id="inputRectrie" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="60.0" />
+            <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#AjouterRec" prefHeight="40.0" prefWidth="186.0" styleClass="onlyOfferItemsBtn" translateX="180.0">
+                <children>
+                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="+   Réclamation" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="50.0" styleClass="productBtn" translateX="340.0">
                 <children>
                     <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -30,16 +42,9 @@
                     <Insets left="10.0" />
                 </HBox.margin>
             </HBox>
-
-            <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :" translateX="60.0">
-                <HBox.margin>
-                    <Insets right="25.0" />
-                </HBox.margin>
-            </Text>
-            <ComboBox fx:id="inputRectrie" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="60.0" />
         </children>
     </HBox>
-    <HBox fx:id="recTableHead" alignment="CENTER_LEFT" layoutX="19.0" layoutY="92.0" prefHeight="74.0" prefWidth="1047.0" styleClass="userTableHead" stylesheets="@../css/style.scss">
+    <HBox fx:id="recTableHead" alignment="CENTER_LEFT" layoutX="19.0" layoutY="92.0" prefHeight="74.0" prefWidth="1191.0" styleClass="userTableHead" stylesheets="@../css/style.scss">
         <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Objet" textAlignment="CENTER" wrappingWidth="215.0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Contenu" textAlignment="CENTER" wrappingWidth="269.0" />
@@ -51,9 +56,9 @@
         </children>
 
     </HBox>
-    <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1044.0" styleClass="user_listScrollPane" translateX="-12.0">
+    <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1191.0" styleClass="user_listScrollPane" translateX="-12.0">
          <content>
-            <VBox fx:id="RecListContainer" prefHeight="446.0" prefWidth="1200.0" spacing="13.0" styleClass="userTableBody" />
+            <VBox fx:id="RecListContainer" prefHeight="446.0" prefWidth="1216.0" spacing="13.0" styleClass="userTableBody" />
          </content>
     </ScrollPane>
 </children>

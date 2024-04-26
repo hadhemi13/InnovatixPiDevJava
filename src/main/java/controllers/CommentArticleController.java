@@ -2,13 +2,17 @@
 package controllers;
 
         import Entities.Article;
+        import Entities.CommentaireHadhemi;
         import javafx.fxml.FXML;
+        import javafx.fxml.FXMLLoader;
         import javafx.fxml.Initializable;
         import javafx.scene.control.Label;
+        import javafx.scene.control.TextField;
         import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.layout.HBox;
+        import javafx.scene.layout.Pane;
         import javafx.scene.layout.VBox;
         import javafx.scene.paint.Color;
         import javafx.scene.text.Text;
@@ -17,8 +21,11 @@ package controllers;
         import objects.PostAudience;
         import objects.Reactions;
         import services.ServiceArticle;
+        import services.ServiceCommentaireHadhemi;
 
         import java.net.URL;
+        import java.sql.SQLException;
+        import java.time.LocalDateTime;
         import java.time.format.DateTimeFormatter;
         import java.util.ResourceBundle;
 
@@ -116,6 +123,9 @@ public class CommentArticleController implements Initializable {
     Article article;
     private long startTime = 0;
     private Reactions currentReaction;
+
+    @FXML
+    private TextField inputTextCommenta;
     @FXML
     public void onLikeContainerPressed(MouseEvent me){
         startTime = System.currentTimeMillis();
@@ -265,6 +275,22 @@ public class CommentArticleController implements Initializable {
         setData(getArticle());
     }
 
-    public void commenter(MouseEvent mouseEvent) {
+    public void commenter(MouseEvent mouseEvent) throws SQLException {
+
+
+
+        }
+
+    public void commenterArt(MouseEvent mouseEvent) throws SQLException {
+        int id = article.getId();
+        String nom = "hadhemi";
+        String adresse = "mahmoud";
+        ServiceCommentaireHadhemi sch = new ServiceCommentaireHadhemi();
+        String commentairein = inputTextCommenta.getText();
+        String image ="admin";
+        LocalDateTime dateTime = LocalDateTime.now();
+        CommentaireHadhemi commentaire = new CommentaireHadhemi(commentairein,dateTime,nom,id,image);
+        sch.ajouter(commentaire);
+
     }
 }

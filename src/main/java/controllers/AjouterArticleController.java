@@ -24,6 +24,9 @@ import services.ServiceArticle;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -239,7 +242,36 @@ public class AjouterArticleController implements Initializable {
             imageInput.setImage(image);
         }
     }
-
+//@FXML
+//private void importerImage() {
+//    FileChooser fileChooser = new FileChooser();
+//    fileChooser.setTitle("Choisir une image");
+//    fileChooser.getExtensionFilters().addAll(
+//            new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
+//    );
+//    File selectedImageFile = fileChooser.showOpenDialog(choose_photoBtn.getScene().getWindow());
+//    if (selectedImageFile != null) {
+//        try {
+//            // Définir le chemin de destination du dossier "uploads"
+//            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\resources\\uploads";
+//            // Créer un objet Path pour le dossier de destination
+//            Path destinationFolderPath = Paths.get(destinationFolder);
+//            // Vérifier si le dossier de destination existe, sinon le créer
+//            if (!Files.exists(destinationFolderPath)) {
+//                Files.createDirectories(destinationFolderPath);
+//            }
+//            // Définir le chemin de destination du fichier image dans le dossier "uploads"
+//            String destinationFilePath = destinationFolder + File.separator + selectedImageFile.getName();
+//            // Copier le fichier sélectionné vers le dossier de destination
+//            Files.copy(selectedImageFile.toPath(), Paths.get(destinationFilePath));
+//            // Afficher l'image importée dans l'interface utilisateur
+//            Image image = new Image("file:" + destinationFilePath);
+//            imageInput.setImage(image);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            // Gérer les exceptions liées à la copie du fichier
+//        }
+//    }}
     public void ajouterPiece(MouseEvent mouseEvent) {
 
 

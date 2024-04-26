@@ -150,7 +150,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="achatBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_achatList" prefHeight="50.0" prefWidth="54.0" styleClass="nav-links">
+                        <HBox fx:id="achatBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_RecList" prefHeight="50.0" prefWidth="54.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="achatIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
                                     <image>
@@ -168,7 +168,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="achatBtn1" alignment="CENTER_LEFT" layoutX="10.0" layoutY="436.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_achatList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="achatBtn1" alignment="CENTER_LEFT" layoutX="10.0" layoutY="436.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_ArtList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <padding>
                                 <Insets left="20.0" />
                             </padding>

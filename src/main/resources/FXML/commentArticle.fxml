@@ -281,17 +281,16 @@
                                           <Image url="@../imagesAct/admin.png" />
                                        </image>
                                     </ImageView>
-                                    <TextField prefHeight="0.0" prefWidth="68.0" promptText="Nom" translateY="4.0" />
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="327.0">
                            <children>
-                              <TextField prefHeight="26.0" prefWidth="287.0" promptText="Vous pouvez commenter ici" translateX="15.0" />
+                              <TextField fx:id="inputTextCommenta" prefHeight="26.0" prefWidth="287.0" promptText="Vous pouvez commenter ici" translateX="15.0" />
                            </children>
                         </HBox>
-                        <ImageView fitHeight="28.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="commenterArt" fitHeight="28.0" fitWidth="32.0" onMouseClicked="#commenterArt" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imagesAct/ic_share.png" />
                            </image>

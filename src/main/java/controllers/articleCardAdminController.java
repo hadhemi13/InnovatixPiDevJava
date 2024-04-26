@@ -18,12 +18,17 @@ import javafx.stage.StageStyle;
 import services.ServiceArticle;
 import services.ServiceCommentaireHadhemi;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.security.cert.PolicyNode;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import static java.lang.System.err;
 
 public class articleCardAdminController implements Initializable {
 
@@ -141,6 +146,52 @@ public void initializeData(Article article) {
         String formattedDate = article.getDate_pub_art().format(formatter);
         datepubArt.setText(formattedDate);
         contenuArtFront.setText(article.getContenu_art());
+//        // Définir le chemin de l'image dans le dossier "uploads"
+//        String imagePath = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\resources\\uploads\\" + article.getImage_art();
+//
+//        // Créer un objet File pour vérifier si l'image existe
+//        File imageFile = new File(imagePath);
+//        if (imageFile.exists()) {
+//            // Charger l'image à partir du chemin et l'afficher dans l'ImageView
+//            Image image = new Image(imageFile.toURI().toString());
+//            imgArtFront.setImage(image);
+//        } else {
+//            err.println("L'image n'existe pas : " + imagePath);
+//        }
+//        String cheminImage = article.getImage_art();
+//        // Vérifier si le chemin de l'image est valide
+//        if (cheminImage != null && !cheminImage.isEmpty()) {
+//            try {
+//                cheminImage = URLDecoder.decode(cheminImage, "UTF-8");
+//                File imageFile = new File(cheminImage);
+//                if (imageFile.exists()) {
+//                    // Charger l'image à partir du chemin et l'afficher dans l'ImageView
+//                    Image image = new Image(imageFile.toURI().toString());
+//                    imgArtFront.setImage(image);
+//                } else {
+//                    err.println("L'image n'existe pas : " + cheminImage);
+//                }
+//            } catch (UnsupportedEncodingException e) {
+//                err.println("Erreur lors du décodage du chemin de l'image : " + e.getMessage());
+//            }
+//        } else {
+//            err.println("Chemin d'image invalide ou non spécifié pour l'article.");
+//        }
+
+//        imgArtFront.setImage(article.getImage_art());
+//        String imagePath = article.getImage_art();
+//        if (imagePath != null && !imagePath.isEmpty()) {
+//            File imageFile = new File(imagePath);
+//            if (imageFile.exists()) {
+//                Image image = new Image(imageFile.toURI().toString());
+//                imgArtFront.setImage(image);
+//            } else {
+//                err.println("L'image n'existe pas : " + imagePath);
+//            }
+//        } else {
+//            err.println("Chemin d'image invalide ou non spécifié pour l'article.");
+//        }
+
         editArt.setId(String.valueOf(article.getId()));
         editArt.setOnMouseClicked(event -> {
             try {
