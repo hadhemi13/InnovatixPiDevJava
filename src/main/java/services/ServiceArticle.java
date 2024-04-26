@@ -7,6 +7,7 @@ import utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ServiceArticle  implements IServiceArticle<Article> {
     Connection connection;
@@ -170,6 +171,25 @@ public class ServiceArticle  implements IServiceArticle<Article> {
         }
         return articles;
     }
+
+
+
+    public List<Article> search(String searchTerm) throws SQLException {
+        // Liste pour stocker les articles correspondants à la recherche
+        List<Article> matchingArticles = new ArrayList<>();
+
+        // Récupérer la liste complète des articles
+        List<Article> allArticles = getAllArticles(); // Assurez-vous d'avoir une méthode getAllArticles() définie
+
+        // Filtrer les articles dont le titre commence par le terme de recherche
+        matchingArticles = allArticles.stream()
+                .filter(article -> article.getTitre_art().startsWith(searchTerm))
+                .collect(Collectors.toList());
+
+        // Renvoyer la liste des articles correspondants à la recherche
+        return matchingArticles;
+    }
+
 
 }
 

@@ -16,7 +16,9 @@ public class Article {
     private String image_art;
     private int likes=0;
     private int dislikes=0;
-
+    private int totalReactions;
+    private int nbComments;
+    private int nbShares;
     public Article() {
     }
 
@@ -191,6 +193,31 @@ public class Article {
                 ", piecejointe_art='" + piecejointe_art + '\'' +
                 ", image_art='" + image_art + '\'' +
                 '}';
+    }
+    
+
+    public void setTotalReactions(int totalReactions) {
+        this.totalReactions = totalReactions;
+    }
+
+    public int getNbComments() {
+        return nbComments;
+    }
+
+    public void setNbComments(int nbComments) {
+        this.nbComments = nbComments;
+    }
+
+    public int getNbShares() {
+        return nbShares;
+    }
+
+    public void setNbShares(int nbShares) {
+        this.nbShares = nbShares;
+    }
+
+    public int getTotalReactions() {
+        return totalReactions;
     }
 
 }

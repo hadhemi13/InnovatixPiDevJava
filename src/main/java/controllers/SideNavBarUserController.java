@@ -170,9 +170,20 @@ public class SideNavBarUserController {
     }
 
     public void open_achatList(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeArticlesClients.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void open_actualite(MouseEvent mouseEvent) {
+
     }
 
     public void logout(MouseEvent mouseEvent) {

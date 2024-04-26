@@ -2,6 +2,8 @@ package controllers;
 
 import Entities.Reclamation;
 import Entities.Reponse;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import services.ServiceReclamation;
 import services.ServiceReponse;
 
@@ -43,6 +46,7 @@ public class ListRepAdminController implements Initializable {
 
     @FXML
     private ComboBox<?> trierepInput;
+
     @FXML
     void returnBack(MouseEvent event) {
         try {
@@ -58,8 +62,8 @@ public class ListRepAdminController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void load()
+    {
         ServiceReponse sr = new ServiceReponse() ;
 
         List<Reponse> list = new ArrayList<>();
@@ -84,5 +88,10 @@ public class ListRepAdminController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        load();
     }
 }

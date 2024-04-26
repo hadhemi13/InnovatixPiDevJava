@@ -1,6 +1,9 @@
 package controllers;
 
 import Entities.Article;
+import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -184,21 +187,21 @@ public class ListArticleAdminController implements Initializable {
     }
 
     public void refreshArticleList() throws SQLException {
-////        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
-////
-////        try {
-////            List<Article> articles = serviceArticle.afficher();
-////            loadArticles(articles);
-////        } catch (SQLException e) {
-////            e.printStackTrace();
-////            // Gérer l'exception appropriée ici
-////        }
-//        // Nettoyer le contenu actuel
-//        ArtListContainer.getChildren().clear();
-//
-//        // Charger à nouveau la liste des articles depuis la base de données
-//        List<Article> articles = serviceArticle.afficher();
-//
+        ////        ArtListContainer.getChildren().clear(); // Nettoyer le contenu actuel
+        ////
+        ////        try {
+        ////            List<Article> articles = serviceArticle.afficher();
+        ////            loadArticles(articles);
+        ////        } catch (SQLException e) {
+        ////            e.printStackTrace();
+        ////            // Gérer l'exception appropriée ici
+        ////        }
+        //        // Nettoyer le contenu actuel
+        //        ArtListContainer.getChildren().clear();
+        //
+        //        // Charger à nouveau la liste des articles depuis la base de données
+        //        List<Article> articles = serviceArticle.afficher();
+        //
 //        // Charger à nouveau les cartes d'articles dans le conteneur
 //        loadArticleCards(articles);
         // Nettoyer le contenu actuel
@@ -274,9 +277,42 @@ public class ListArticleAdminController implements Initializable {
         }
 
     }
-
-
-
-
-
+//
+//    public void searchActivite() throws SQLException {
+//        FilteredList<Article> filteredData = new FilteredList<>(FXCollections.observableArrayList(serviceArticle.afficher()), p -> true);
+//        ArticlesclientsfSearchInput.textProperty().addListener((observable, oldValue, newValue) -> {
+//            filteredData.setPredicate(article -> {
+//                if (newValue == null || newValue.isEmpty()) {
+//                    return true;
+//                }
+//                String titre = String.valueOf(article.getTitre_art());
+//                String contenu = String.valueOf(article.getContenu_art());
+//                String cat = String.valueOf(article.getCategorie_art());
+//                String date = String.valueOf(article.getDate_pub_art());
+//                String lowerCaseFilter = newValue.toLowerCase();
+//
+//                if (titre.toLowerCase().contains(lowerCaseFilter)) {
+//                    return true;
+//                } else if (contenu.toLowerCase().contains(lowerCaseFilter)) {
+//                    return true;
+//                } else if (cat.toLowerCase().contains(lowerCaseFilter)) {
+//                    return true;
+//                } else if (date.toLowerCase().contains(lowerCaseFilter)) {
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            });
+//        });
+//        SortedList<Article> sortedData = new SortedList<>(filteredData);
+//        // Liaison du tri de sortedData avec le tri par défaut du conteneur d'articles
+//        sortedData.comparatorProperty().bind(ArtListContainer.getChildren().toArray());
+//
+//// Effacement du contenu actuel du conteneur d'articles et ajout des articles triés
+//        ArtListContainer.getChildren().setAll(sortedData);
+//
+//=
+//
+//
+//    }
 }

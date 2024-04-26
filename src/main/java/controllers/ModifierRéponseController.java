@@ -76,6 +76,8 @@ public class ModifierRéponseController implements Initializable {
     @FXML
     void reponseBtn(MouseEvent mouseEvent) {
         try {
+
+
             // Vos opérations de validation et de modification de l'article ici...
 
             if (reponse != null) {
@@ -92,10 +94,11 @@ public class ModifierRéponseController implements Initializable {
                 stage.close();
 
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }}
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeRepFields();}}
+        initializeRepFields();}
+}
