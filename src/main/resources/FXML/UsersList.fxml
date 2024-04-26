@@ -23,7 +23,7 @@
                         <Insets right="25.0" />
                     </HBox.margin>
                 </Text>
-                <ComboBox fx:id="roleInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" prefHeight="40.0" prefWidth="181.0" promptText="Tout" styleClass="product__add-comboBox" translateX="-150.0" />
+                <ComboBox fx:id="roleInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#roleChange" prefHeight="40.0" prefWidth="181.0" promptText="Tout" styleClass="product__add-comboBox" translateX="-150.0" />
             <Button mnemonicParsing="false" onAction="#toAdduser" prefHeight="58.0" prefWidth="82.0" styleClass="logoutBtn" stylesheets="@../css/SideNavBar.css" text="+Add" translateX="-80.0">
                <font>
                   <Font size="10.0" />
