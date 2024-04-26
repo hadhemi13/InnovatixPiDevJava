@@ -178,7 +178,7 @@
                         <Insets left="115.0" />
                     </HBox.margin>
                 </HBox>
-                <HBox fx:id="supprItems" onMouseClicked="#deletevirement" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                <HBox fx:id="supprItems" onMouseClicked="#deletevirement" prefHeight="35.0" prefWidth="46.0" styleClass="Refus__card-btns">
                     <children>
                         <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>

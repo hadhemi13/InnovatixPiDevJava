@@ -142,6 +142,7 @@ public class DemandeVirementListClient  implements Initializable {
 
     @FXML
     private Label usersText;
+
     @FXML
     private Button btnvir;
 
@@ -169,8 +170,8 @@ public class DemandeVirementListClient  implements Initializable {
         AjouterVirementCard ajouterVirementCard = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
-        content_areaV.getChildren().clear();
-        content_areaV.getChildren().add(addArticleParent);
+        content_area.getChildren().clear();
+        content_area.getChildren().add(addArticleParent);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

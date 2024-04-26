@@ -28,21 +28,6 @@ public class ValidSaisie {
         return etat;
     }
 
-    public static boolean isValidDateDemande(String input) {
-        boolean isValid = false;
-
-        // Vérifie si l'entrée n'est pas vide
-        if (input != null && !input.isEmpty()) {
-            // Convertit la chaîne en LocalDate
-            LocalDate date = LocalDate.parse(input, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
-            // Vérifie si la date est antérieure à 7 jours par rapport à la date d'aujourd'hui
-            LocalDate sevenDaysAgo = LocalDate.now().minusDays(7);
-            isValid = date.isBefore(sevenDaysAgo);
-        }
-
-        return isValid;
-    }
 
 
     public static boolean isValidEmail(String email) {
@@ -57,6 +42,41 @@ public class ValidSaisie {
             etat = true;
         }
         return etat;
+    }
+    public static boolean isValidDate(LocalDate date) {
+        // Vérifie si la date est antérieure à 2025 (puisque vous avez mentionné "après 2024")
+        LocalDate limiteDate = LocalDate.of(2024, 1, 1);
+        return date.isBefore(limiteDate);
+    }
+    public static void ValidDateV() {
+        // Obtenir la date d'aujourd'hui
+        LocalDate aujourdhui = LocalDate.now();
+
+        // Formater la date pour l'affichage
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String dateAujourdhuiFormatee = aujourdhui.format(formatter);
+
+        // Afficher la date d'aujourd'hui
+        System.out.println("La date d'aujourd'hui est : " + dateAujourdhuiFormatee);
+    }
+    public static boolean isValidNumB(String input) {
+        if (input != null && !input.isEmpty()) {
+            // Vérifie si le numéro de compte a 24 chiffres ou si les 13 derniers chiffres sont supérieurs ou égaux à 12
+            if (input.length() == 24) {
+                return true; // Si le numéro de compte a 24 chiffres, retourne true
+            } else if (input.length() >= 13) {
+                // Si le numéro de compte a plus de 13 chiffres, vérifie les 13 derniers chiffres
+                String last13Digits = input.substring(input.length() - 13);
+                try {
+                    long last13Number = Long.parseLong(last13Digits);
+                    return last13Number >= 12; // Vérifie si les 13 derniers chiffres sont supérieurs ou égaux à 12
+                } catch (NumberFormatException e) {
+                    // Si une exception est levée, cela signifie que les 13 derniers chiffres ne sont pas valides
+                    return false;
+                }
+            }
+        }
+        return false; // Retourne false si l'entrée est vide, nulle ou ne satisfait pas les critères
     }
 
 

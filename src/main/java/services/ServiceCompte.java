@@ -110,6 +110,7 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
     public List<Compte> afficher() throws SQLException {
         List<Compte> list = new ArrayList<>();
 
+
         try {
             String req = "SELECT * FROM compte";
             Statement st = connection.createStatement();

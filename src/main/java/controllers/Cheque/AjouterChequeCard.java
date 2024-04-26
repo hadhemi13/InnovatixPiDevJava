@@ -18,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
+import services.ValidSaisie;
 import utils.MyDatabase;
 import javafx.stage.FileChooser.ExtensionFilter;
 import services.ServiceCheque;
@@ -198,6 +199,65 @@ public class AjouterChequeCard implements Initializable {
     public void ajouterCheque(MouseEvent mouseEvent) throws SQLException, IOException {
 
         ServiceCheque sc = new ServiceCheque();
+        boolean champsInvalides = false;
+
+        // Vérification du numéro de CIN
+        if (Cin.getText().isEmpty() || !ValidSaisie.isValidCin(Cin.getText())) {
+            cinInputErrorHbox.setVisible(true);
+            cinInputError.setText("Le numéro de cin doit contenir 8 chiffres qui commence par 0 ou 1");
+            champsInvalides = true; // Marquer le champ comme invalide
+        } else {
+            cinInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du nom et prénom
+        if (NometPrenom.getText().isEmpty()) {
+            NometPrenomInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            NometPrenomInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du bénéficiaire
+        if (beneficiaire.getSelectionModel().isEmpty()) {
+            beneficiaireInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            beneficiaireInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification de l'email
+        if (Email.getText().isEmpty() || !ValidSaisie.isValidEmail(Email.getText())) {
+            EmailInputErrorHbox.setVisible(true);
+            EmailInputError.setText("Adresse email invalide");
+            champsInvalides = true;
+
+        } else {
+            EmailInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du montant
+        if (montant.getText().isEmpty()) {
+            montantInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            montantInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du numéro de téléphone
+        if (tel.getText().isEmpty() || !ValidSaisie.isValidNumber(tel.getText())) {
+            telInputErrorHbox.setVisible(true);
+            telInputError.setText("Le numéro de téléphone doit commencer par 2 ou 5 ou 9 et contenir 8 chiffres");
+            champsInvalides = true;
+        } else {
+            telInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification si au moins un champ est invalide
+        if (champsInvalides) {
+            return; // Arrêter le traitement si des champs sont invalides
+        }
+
         if (Cin.getText().isEmpty()) {
             cinInputErrorHbox.setVisible(true);
             if (NometPrenom.getText().isEmpty()) {
@@ -301,26 +361,12 @@ public class AjouterChequeCard implements Initializable {
 
         ServiceCheque serviceCheque = new ServiceCheque();
         serviceCheque.ajouterS(cheque);
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
         Pane demandeChequeListParent = loader.load();
 
         // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
         content_area.getChildren().setAll(demandeChequeListParent);
-
-//        if (serviceCheque.ajouterS(cheque)) {
-//            try {
-//                // Charger la vue de la liste des demandes de chèques
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
-//                Pane demandeChequeListParent = loader.load();
-//
-//                // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
-//                content_area.getChildren().setAll(demandeChequeListParent);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//                // Gérer les erreurs de chargement de la vue si nécessaire
-//            }
-//        }
-//
 
     }
     @Override

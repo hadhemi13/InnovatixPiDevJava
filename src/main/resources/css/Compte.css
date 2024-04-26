@@ -38,15 +38,15 @@
     -fx-cursor: hand;
 }
 .VIR__add-comboBox {
-    -fx-background-color: #defee633;
-    -fx-border-color: #defee6;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ffffff;
     -fx-border-width: 1px;
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
     -fx-font-size: 14px;
     -fx-font-weight: 600;
     -fx-pref-height: 40px;
-    -fx-text-fill: #32594a;
+    -fx-text-fill: #ffffff;
     -fx-cursor: hand;
 }
 .AddBtn {

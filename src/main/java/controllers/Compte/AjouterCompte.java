@@ -10,7 +10,9 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import services.ServiceCheque;
 import services.ServiceCompte;
 import services.ValidSaisie;
 
@@ -162,94 +164,44 @@ public class AjouterCompte implements Initializable {
 
     @FXML
     private ComboBox<String> typeCin;
+    @FXML
+    private VBox content_area;
+
 
     @FXML
     void ajouterCompte(MouseEvent event) throws SQLException, IOException {
         ServiceCompte serviceCompte = new ServiceCompte();
-        boolean champsVides = false;
-
-        ValidSaisie validSaisie=new ValidSaisie();
-
-        if (!ValidSaisie.isValidEmail(Email.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            EmailInputErrorHbox.setVisible(true);
-            EmailInputError.setText("L'adresse e-mail n'est pas valide !");
-        }
-        if (!ValidSaisie.isValidEmail(conformation_email.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            ConfEmailInputErrorHbox.setVisible(true);
-            ConfEmailInputError.setText("L'adresse e-mail n'est pas valide !");
-        }
-        if (!ValidSaisie.isValidEmpty(String.valueOf(typeCin.getSelectionModel()))) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            TypeInputErrorHbox.setVisible(true);
-        }
-        if (!ValidSaisie.isValidCin(NumCin.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            NumCinInputErrorHbox.setVisible(true);
-            NumCinInputError.setText("Le numéro de cin doit contenir 8 chiffres !");
-            NumCinInputError.setText("Le numéro de cin doit commencer par 1 ou 0");
-        }
-        if (!ValidSaisie.isValidNumber(NumTel.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            NumTel.setVisible(true);
-            NumTelInputErrorHbox.setText("Le numéro de téléphone doit contenir 8 chiffres !");
-            NumCinInputError.setText("Le numéro de téléphone doit commencer par 2 ou 5 ou 9 et contenir 8 chiffres");
-        }
-        if (!ValidSaisie.isValidEmpty(Nom.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            NumTelInputError.setVisible(true);
-        }
-        if (!ValidSaisie.isValidEmpty(Prenom.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            PrenomnputError.setVisible(true);
-        }
-        if (!ValidSaisie.isValidEmpty(String.valueOf(TypeCompte.getSelectionModel()))) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            TypeInputError.setVisible(true);
-        }
-         if (!ValidSaisie.isValidEmpty(String.valueOf(MontantDepot.getText()))) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-             MontantInputError.setVisible(true);
-        }
-         if (!ValidSaisie.isValidEmpty(Nationalite.getText())) {
-        // Afficher un message d'erreur si l'e-mail n'est pas valide
-        NatioInputError.setVisible(true);
-    }
-        if (!ValidSaisie.isValidEmpty(Profession.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            ProffesionInputError.setVisible(true);
-        }
-        if (!ValidSaisie.isValidEmpty(String.valueOf(StatutMarital.getSelectionModel()))) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            StatutnputError.setVisible(true);
-        }
-        if (!ValidSaisie.isValidEmpty(Sexe.getText())) {
-            // Afficher un message d'erreur si l'e-mail n'est pas valide
-            SexenputError.setVisible(true);
-        }
-        if( ValidSaisie.isValidEmail(Email.getText()) && ValidSaisie.isValidEmail(conformation_email.getText()) && ValidSaisie.isValidEmpty(String.valueOf(typeCin).getSelectionModel()) && ValidSaisie.isValidCin(NumCin.getText()) && ValidSaisie.isValidEmpty())
-
-
-
-
-
+        boolean champsVides = false; // Variable pour suivre les champs vides
+        boolean champsInvalides = false; // Variable pour suivre les champs invalides
 
         // Vérification de chaque champ
-        if (Email.getText().isEmpty()) {
+
+        // Vérification de l'email
+        if (!ValidSaisie.isValidEmail(Email.getText())) {
+            // Si l'email est invalide, afficher un message d'erreur et marquer le champ comme vide
             EmailInputErrorHbox.setVisible(true);
+            EmailInputError.setText("Adresse email invalide"); // Message d'erreur personnalisé
             champsVides = true;
+            champsInvalides = true; // Marquer le champ comme invalide
         } else {
+            // Sinon, masquer le message d'erreur
             EmailInputErrorHbox.setVisible(false);
         }
-
-        if (conformation_email.getText().isEmpty()) {
+        if (!ValidSaisie.isValidEmail(conformation_email.getText())) {
+            // Si l'email est invalide, afficher un message d'erreur et marquer le champ comme vide
             ConfEmailInputErrorHbox.setVisible(true);
+            ConfEmailInputError.setText("Adresse email invalide"); // Message d'erreur personnalisé
             champsVides = true;
+            champsInvalides = true; // Marquer le champ comme invalide
         } else {
+            // Sinon, masquer le message d'erreur
             ConfEmailInputErrorHbox.setVisible(false);
         }
 
+        // Vérification de la confirmation de l'email (si nécessaire)
+        // Vous pouvez ajouter des vérifications supplémentaires ici si nécessaire
+
+        // Vérification du type de CIN
         if (typeCin.getSelectionModel().isEmpty()) {
             TypeCinInputErrorHbox.setVisible(true);
             champsVides = true;
@@ -257,20 +209,37 @@ public class AjouterCompte implements Initializable {
             TypeCinInputErrorHbox.setVisible(false);
         }
 
-        if (NumCin.getText().isEmpty()) {
+        // Vérification du numéro de CIN
+        if (!ValidSaisie.isValidCin(NumCin.getText())) {
             NumCinInputErrorHbox.setVisible(true);
+            NumCinInputError.setText("Le numéro de cin doit contenir 8 chiffres qui commence par 0 ou 1 ");
             champsVides = true;
+            champsInvalides = true; // Marquer le champ comme invalide
         } else {
             NumCinInputErrorHbox.setVisible(false);
         }
+        LocalDate dateDelivranceCIN = DatedelCin.getValue();
+        if (dateDelivranceCIN != null && !ValidSaisie.isValidDate(dateDelivranceCIN)) {
+            // Si la date de délivrance est après 2024, afficher un message d'erreur
+            DateInputErrorHbox.setVisible(true);
+            DateInputError.setText("La date ne doit pas être après 2024"); // Message d'erreur personnalisé
+            champsInvalides = true; // Marquer le champ comme invalide
+        } else {
+            DateInputErrorHbox.setVisible(false);
+        }
 
-        if (NumTel.getText().isEmpty()) {
+
+        // Vérification du numéro de téléphone
+        if (!ValidSaisie.isValidNumber(NumTel.getText())) {
             NumTelInputErrorHbox.setVisible(true);
+            NumTelInputError.setText("Le numéro de téléphone doit commencer par 2 ou 5 ou 9 et contenir 8 chiffres");
             champsVides = true;
+            champsInvalides = true; // Marquer le champ comme invalide
         } else {
             NumTelInputErrorHbox.setVisible(false);
         }
 
+        // Vérification des autres champs
         if (Nom.getText().isEmpty()) {
             NomInputErrorHbox.setVisible(true);
             champsVides = true;
@@ -283,6 +252,15 @@ public class AjouterCompte implements Initializable {
             champsVides = true;
         } else {
             PrenomnputErrorHbox.setVisible(false);
+        }
+        LocalDate dateNaissance = DateNaiss.getValue();
+        if (dateNaissance != null && !ValidSaisie.isValidDate(dateNaissance)) {
+            // Si la date de naissance est après 2024, afficher un message d'erreur
+            DateNaissnputErrorHbox.setVisible(true);
+            DateNaissnputError.setText("La date de naissance ne doit pas être après 2024"); // Message d'erreur personnalisé
+            champsInvalides = true; // Marquer le champ comme invalide
+        } else {
+            DateNaissnputErrorHbox.setVisible(false);
         }
 
         if (TypeCompte.getSelectionModel().isEmpty()) {
@@ -327,29 +305,13 @@ public class AjouterCompte implements Initializable {
             SexenputErrorHbox.setVisible(false);
         }
 
-        LocalDate dateDelivranceCIN = DatedelCin.getValue();
-        LocalDate dateNaissance = DateNaiss.getValue();
-
-        // Vérification si les dates sont après 2024
-        if (dateDelivranceCIN != null && dateDelivranceCIN.isAfter(LocalDate.of(2024, 12, 31))) {
-            // Afficher un message d'erreur ou prendre une autre action
-            DateInputErrorHbox.setVisible(true);
-            return; // Sortir de la méthode
-        } else {
-            DateInputErrorHbox.setVisible(false);
+        // Vérification si les champs sont vides ou invalides
+        if (champsVides || champsInvalides) {
+            return; // Arrêter le traitement si des champs sont vides ou invalides
         }
 
-        if (dateNaissance != null && dateNaissance.isAfter(LocalDate.of(2024, 12, 31))) {
-            // Afficher un message d'erreur ou prendre une autre action
-            DateNaissnputErrorHbox.setVisible(true);
-            return; // Sortir de la méthode
-        } else {
-            DateNaissnputErrorHbox.setVisible(false);
-        }
-        // Si au moins un champ est vide, afficher les messages d'erreur
-        if (champsVides) {
-            return;
-        }
+        // Si tous les champs sont valides, continuer le traitement
+
         LocalDate selectedDate = LocalDate.now();
 
         // Récupération des données des champs
@@ -369,17 +331,251 @@ public class AjouterCompte implements Initializable {
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
         int statut=1;
 
-
         // Création du compte
         Compte compte = new Compte(email, confirmationEmail, numCIN, sqlDate, nom, prenom, sexe, sqlDate, profession, typeCompte, montant, statutMarital, nationalite, numTel, typeCIN,statut);
 
         // Ajout du compte
         serviceCompte.ajouter(compte);
 
-        // Réinitialiser les champs après l'ajout
+        // Chargement de la vue de succès
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+        Pane demandeChequeListParent = loader.load();
+
+        // Réinitialisation des champs après l'ajout
         resetFields();
 
+        // Remplacement du contenu de content_area par la liste des demandes de chèques
+        content_area.getChildren().setAll(demandeChequeListParent);
     }
+
+
+//    @FXML
+//    void ajouterCompte(MouseEvent event) throws SQLException, IOException {
+
+//        ServiceCompte serviceCompte = new ServiceCompte();
+//        boolean champsVides = false;
+////
+//        ValidSaisie validSaisie=new ValidSaisie();
+//
+//        if (!ValidSaisie.isValidEmail(Email.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            EmailInputErrorHbox.setVisible(true);
+//            EmailInputError.setText("L'adresse e-mail n'est pas valide !");
+//        }
+//        if (!ValidSaisie.isValidEmail(conformation_email.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            ConfEmailInputErrorHbox.setVisible(true);
+//            ConfEmailInputError.setText("L'adresse e-mail n'est pas valide !");
+//        }
+//        if (!ValidSaisie.isValidEmpty(String.valueOf(typeCin.getSelectionModel()))) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            TypeInputErrorHbox.setVisible(true);
+//        }
+//        if (!ValidSaisie.isValidCin(NumCin.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            NumCinInputErrorHbox.setVisible(true);
+//            NumCinInputError.setText("Le numéro de cin doit contenir 8 chiffres !");
+//            NumCinInputError.setText("Le numéro de cin doit commencer par 1 ou 0");
+//        }
+//        if (!ValidSaisie.isValidNumber(NumTel.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            NumTel.setVisible(true);
+//            NumTelInputError.setText("Le numéro de téléphone doit contenir 8 chiffres !");
+//            NumTelInputError.setText("Le numéro de téléphone doit commencer par 2 ou 5 ou 9 et contenir 8 chiffres");
+//        }
+//        if (!ValidSaisie.isValidEmpty(Nom.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            NomInputError.setVisible(true);
+//        }
+//        if (!ValidSaisie.isValidEmpty(Prenom.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            PrenomnputError.setVisible(true);
+//        }
+//        if (!ValidSaisie.isValidEmpty(String.valueOf(TypeCompte.getSelectionModel()))) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            TypeInputError.setVisible(true);
+//        }
+//         if (!ValidSaisie.isValidEmpty(String.valueOf(MontantDepot.getText()))) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//             MontantInputError.setVisible(true);
+//        }
+//         if (!ValidSaisie.isValidEmpty(Nationalite.getText())) {
+//        // Afficher un message d'erreur si l'e-mail n'est pas valide
+//        NatioInputError.setVisible(true);
+//    }
+//        if (!ValidSaisie.isValidEmpty(Profession.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            ProffesionInputError.setVisible(true);
+//        }
+//        if (!ValidSaisie.isValidEmpty(String.valueOf(StatutMarital.getSelectionModel()))) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            StatutnputError.setVisible(true);
+//        }
+//        if (!ValidSaisie.isValidEmpty(Sexe.getText())) {
+//            // Afficher un message d'erreur si l'e-mail n'est pas valide
+//            SexenputError.setVisible(true);
+//        }
+//        if( ValidSaisie.isValidEmail(Email.getText()) && ValidSaisie.isValidEmail(conformation_email.getText()) && ValidSaisie.isValidEmpty(String.valueOf(typeCin).getSelectionModel()) && ValidSaisie.isValidCin(NumCin.getText())
+//                && ValidSaisie.isValidEmpty(NumTel.getText()) &&  ValidSaisie.isValidEmpty(Nom.getText() )
+//                && ValidSaisie.isValidEmpty(Prenom.getText()) && ValidSaisie.isValidEmpty(String.valueOf(TypeCompte.getSelectionModel())) && ValidSaisie.isValidEmpty(MontantDepot.getText()) && ValidSaisie.isValidEmpty(Nationalite.getText())
+//                && ValidSaisie.isValidEmpty(Profession.getText()) && ValidSaisie.isValidEmpty(String.valueOf(StatutMarital.getSelectionModel())) && ValidSaisie.isValidEmpty(Sexe.getText()))
+
+
+
+
+
+
+//        // Vérification de chaque champ
+//        if (Email.getText().isEmpty()) {
+//            EmailInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            EmailInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (conformation_email.getText().isEmpty()) {
+//            ConfEmailInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            ConfEmailInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (typeCin.getSelectionModel().isEmpty()) {
+//            TypeCinInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            TypeCinInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (NumCin.getText().isEmpty()) {
+//            NumCinInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            NumCinInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (NumTel.getText().isEmpty()) {
+//            NumTelInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            NumTelInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (Nom.getText().isEmpty()) {
+//            NomInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            NomInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (Prenom.getText().isEmpty()) {
+//            PrenomnputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            PrenomnputErrorHbox.setVisible(false);
+//        }
+//
+//        if (TypeCompte.getSelectionModel().isEmpty()) {
+//            TypeInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            TypeInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (MontantDepot.getText().isEmpty()) {
+//            MontantInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            MontantInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (Nationalite.getText().isEmpty()) {
+//            NatioInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            NatioInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (Profession.getText().isEmpty()) {
+//            ProffesionInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            ProffesionInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (StatutMarital.getSelectionModel().isEmpty()) {
+//            StatutnputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            StatutnputErrorHbox.setVisible(false);
+//        }
+//
+//        if (Sexe.getText().isEmpty()) {
+//            SexenputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            SexenputErrorHbox.setVisible(false);
+//        }
+//
+//        LocalDate dateDelivranceCIN = DatedelCin.getValue();
+//        LocalDate dateNaissance = DateNaiss.getValue();
+//
+//        // Vérification si les dates sont après 2024
+//        if (dateDelivranceCIN != null && dateDelivranceCIN.isAfter(LocalDate.of(2024, 12, 31))) {
+//            // Afficher un message d'erreur ou prendre une autre action
+//            DateInputErrorHbox.setVisible(true);
+//            return; // Sortir de la méthode
+//        } else {
+//            DateInputErrorHbox.setVisible(false);
+//        }
+//
+//        if (dateNaissance != null && dateNaissance.isAfter(LocalDate.of(2024, 12, 31))) {
+//            // Afficher un message d'erreur ou prendre une autre action
+//            DateNaissnputErrorHbox.setVisible(true);
+//            return; // Sortir de la méthode
+//        } else {
+//            DateNaissnputErrorHbox.setVisible(false);
+//        }
+//        // Si au moins un champ est vide, afficher les messages d'erreur
+//        if (champsVides) {
+//            return;
+//        }
+//        LocalDate selectedDate = LocalDate.now();
+//
+//        // Récupération des données des champs
+//        String email = Email.getText();
+//        String confirmationEmail = conformation_email.getText();
+//        String typeCIN = typeCin.getSelectionModel().getSelectedItem();
+//        int numCIN = Integer.parseInt(NumCin.getText());
+//        String numTel = NumTel.getText();
+//        String nom = Nom.getText();
+//        String prenom = Prenom.getText();
+//        String typeCompte = TypeCompte.getSelectionModel().getSelectedItem();
+//        double montant = Double.parseDouble(MontantDepot.getText());
+//        String nationalite = Nationalite.getText();
+//        String profession = Profession.getText();
+//        String statutMarital = StatutMarital.getSelectionModel().getSelectedItem();
+//        String sexe = Sexe.getText();
+//        Date sqlDate = java.sql.Date.valueOf(selectedDate);
+//        int statut=1;
+//
+//
+//        // Création du compte
+//        Compte compte = new Compte(email, confirmationEmail, numCIN, sqlDate, nom, prenom, sexe, sqlDate, profession, typeCompte, montant, statutMarital, nationalite, numTel, typeCIN,statut);
+//
+//        ServiceCompte serviceCompte1 = new ServiceCompte();
+//        // Ajout du compte
+//        serviceCompte.ajouter(compte);
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+//        Pane demandeChequeListParent = loader.load();
+//
+//        // Réinitialiser les champs après l'ajout
+//        resetFields();
+//
+//        // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
+//        content_area.getChildren().setAll(demandeChequeListParent);
+//
+//    }
 
     // Méthode pour réinitialiser les champs après l'ajout
     private void resetFields() {

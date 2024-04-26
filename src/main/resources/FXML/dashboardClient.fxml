@@ -177,6 +177,13 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="15.0" top="15.0" />
                      </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="152.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="40.0">
+                           <image>
+                              <Image url="@../img/virement.png" />
+                           </image>
+                        </ImageView>
+                     </children>
                   </VBox>
                </children>
             </VBox>
@@ -184,6 +191,31 @@
                <padding>
                   <Insets bottom="10.0" right="15.0" />
                </padding>
+               <children>
+                  <HBox prefHeight="221.0" prefWidth="283.0" translateX="10.0" translateY="10.0">
+                     <children>
+                        <ImageView fitHeight="198.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+                           <image>
+                              <Image url="@../img/statistique.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="298.0" translateX="10.0" translateY="30.0">
+                     <children>
+                        <Text fill="#286b44" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="add-categoryCard-btn-text" text="Lorsque vous effectuez des virements ou utilisez des chèques écoresponsables, vous êtes éligible à recevoir des packs offerts en récompense de votre engagement en faveur de la durabilité." textAlignment="CENTER" wrappingWidth="282.5546875" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" translateX="10.0" translateY="35.0">
+                     <children>
+                        <ImageView fitHeight="92.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="100.0" translateY="20.0">
+                           <image>
+                              <Image url="@../img/offrir.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
             </VBox>
             </children>
         </Pane>

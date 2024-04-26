@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
 import services.ServiceVirement;
+import javafx.scene.layout.VBox;
 
 import java.awt.*;
 import java.io.File;
@@ -37,6 +38,7 @@ import java.util.*;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import services.ValidSaisie;
 
 import javax.swing.*;
 import java.io.File;
@@ -58,6 +60,8 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.UUID;
+
+import static services.ValidSaisie.isValidNumB;
 
 public class AjouterVirementCard implements Initializable {
 
@@ -101,6 +105,8 @@ public class AjouterVirementCard implements Initializable {
 
     @FXML
     private HBox beneficiaireInputErrorHbox;
+    @FXML
+    private VBox content_area;
 
     @FXML
     private HBox choose_photoBtn;
@@ -152,6 +158,75 @@ public class AjouterVirementCard implements Initializable {
     public void ajouterVirement(MouseEvent mouseEvent) throws SQLException, IOException {
 
         ServiceVirement sv = new ServiceVirement();
+        boolean champsInvalides = false;
+
+        if (Cin.getText().isEmpty() || !ValidSaisie.isValidCin(Cin.getText())) {
+            cinInputErrorHbox.setVisible(true);
+            cinInputError.setText("Le numéro de cin doit contenir 8 chiffres qui commence par 0 ou 1");
+            champsInvalides = true; // Marquer le champ comme invalide
+        } else {
+            cinInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du nom et prénom
+        if (NometPrenom.getText().isEmpty()) {
+            NometPrenomInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            NometPrenomInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du numéro de téléphone
+        if (Num.getText().isEmpty() || !ValidSaisie.isValidNumber(Num.getText())) {
+            NumInputErrorHbox.setVisible(true);
+            NumInputError.setText("Le numéro de téléphone doit commencer par 2 ou 5 ou 9 et contenir 8 chiffres");
+            champsInvalides = true;
+        } else {
+            NumInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du type de virement
+        if (type.getSelectionModel().isEmpty()) {
+            beneficiaireInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            beneficiaireInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du montant
+        if (montant.getText().isEmpty()) {
+            montantInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            montantInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du champ transferez
+        if (transferez.getText().isEmpty()) {
+            transferezInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            transferezInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification du champ benef
+        if (benef.getText().isEmpty() ) {
+            benefInputErrorHbox.setVisible(true);
+            champsInvalides = true;
+        } else {
+            benefInputErrorHbox.setVisible(false);
+        }
+
+        // Vérification si au moins un champ est invalide
+        if (champsInvalides) {
+            return; // Arrêter le traitement si des champs sont invalides
+        }
+
+
+
+
+
+
         if (Cin.getText().isEmpty()) {
             cinInputErrorHbox.setVisible(true);
             if (NometPrenom.getText().isEmpty()) {
@@ -267,20 +342,23 @@ public class AjouterVirementCard implements Initializable {
             return; // Exit the method if the Cin value is not valid
         }
         String phone_number = Num.getText();
-        String decisionV = "Encours";
+        String decision = "Encours";
 
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
         //String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number
-        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decisionV,image,phone_number);
+        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decision,image,phone_number);
         ServiceVirement serviceVirement = new ServiceVirement();
         serviceVirement.ajouterV(virement1);
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeVirementListClient.fxml"));
-        Pane VirementList = loader.load();
+        Pane demandeVirement = loader.load();
 
-        content_areaV.getChildren().setAll(VirementList);
-
+        // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
+        content_area.getChildren().setAll(demandeVirement);
     }
+
+
 
 
     private void resetFields() {

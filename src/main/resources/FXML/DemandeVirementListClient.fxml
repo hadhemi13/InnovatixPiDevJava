@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_areaV" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="controllers.Virement.DemandeVirementListClient">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.DemandeVirementListClient">
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="86.0" prefWidth="1205.0">
             <children>
