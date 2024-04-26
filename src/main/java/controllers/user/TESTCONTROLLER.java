@@ -121,7 +121,10 @@ public class TESTCONTROLLER {
             userItemRole.setText("client");
         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
             userItemRole.setText("admin");
+        } else if (user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
+            userItemRole.setText("employe");
         }
+
         if (user.getIs_blocked()==0) {
 
             if (!userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
