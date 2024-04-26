@@ -49,7 +49,7 @@ public class ServiceUser  implements Iservice<User>{
 
     @Override
     public void modifier(User user) throws SQLException {
-        String req="update user set name=?,email=?,adresse=?,cin=?,date_naissance=?,profession=?  where id=?";
+        String req="update user set name=?,email=?,adresse=?,cin=?,date_naissance=?,profession=?,photo=?, is_blocked=?,tel=? where id=?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(req);
             preparedStatement.setString(1, user.getName());
@@ -59,6 +59,9 @@ public class ServiceUser  implements Iservice<User>{
             preparedStatement.setString(5, user.getProfession());
             preparedStatement.setString(6, user.getDate_naissance());
             preparedStatement.setInt(7, user.getId());
+            preparedStatement.setInt(8,user.getIs_blocked());
+            preparedStatement.setString(9, user.getPhoto());
+            preparedStatement.setString(10,user.getTel());
             preparedStatement.executeUpdate();
             System.out.println("modifie");
         }
