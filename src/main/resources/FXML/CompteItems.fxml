@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1060.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.CompteItems">
+<HBox fx:id="HboxCompte" alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1060.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.CompteItems">
     <children>
         <Text fx:id="Email" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="shayma@gmail.com" wrappingWidth="158.44805145263672">
             <HBox.margin>
@@ -34,9 +34,9 @@
         <Text fx:id="Professon" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingénieur" translateX="70.0" wrappingWidth="80.54998779296875" />
       <Text fx:id="Numtel" strokeType="OUTSIDE" strokeWidth="0.0" text="22121212" translateX="80.0" wrappingWidth="71.75011825561523" />
       <Text fx:id="TypeCompte" strokeType="OUTSIDE" strokeWidth="0.0" text="Compte Courant" translateX="80.0" wrappingWidth="101.46728563308716" />
-        <Label fx:id="ApprouveBtn" styleClass="userItem__btn" translateX="100.0">
+        <Label fx:id="ApprouveBtn" onMouseClicked="#ApprouverCompte" styleClass="userItem__btn" translateX="100.0">
             <graphic>
-                <ImageView fx:id="Approuver" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="ApprouverC" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/verifier.png" />
                     </image>
@@ -46,9 +46,9 @@
                 <Insets />
             </HBox.margin>
         </Label>
-        <Label fx:id="RefusBtn" styleClass="userItem__btn">
+        <Label fx:id="RefusBtn" onMouseClicked="#RefuserCompte" styleClass="userItem__btn">
             <graphic>
-                <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="reffuserC" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/delete.png" />
                     </image>

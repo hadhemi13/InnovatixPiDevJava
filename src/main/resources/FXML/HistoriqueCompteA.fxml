@@ -1,14 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="FXML.HistoriqueCompteA"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.HistoriqueComptAdmin">
+    <children>
+        <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="container-card" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <HBox layoutX="4.0" layoutY="21.0" prefHeight="75.0" prefWidth="1057.0">
+                    <children>
+                        <Button fx:id="retour" mnemonicParsing="false" onMouseClicked="#returnbackCard" prefHeight="38.0" prefWidth="40.0" styleClass="checkoutCard__btn" stylesheets="@../css/SideNavBar.css">
+                            <graphic>
+                                <ImageView fitHeight="38.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Text fill="#2e2c2c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="LiteCheque__Title" text="Historique des  Comptes Bancaires">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="26.0" />
+                            </HBox.margin>
+                        </Text>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="120.0">
+                            <HBox.margin>
+                                <Insets top="29.0" />
+                            </HBox.margin>
+                            <image>
+                                <Image url="@../img/magnifier.png" />
+                            </image>
+                        </ImageView>
+                        <TextField prefHeight="27.0" prefWidth="289.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="80.0">
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                    </children>
+                </HBox>
+                <ScrollPane layoutX="14.0" prefHeight="75.0" prefWidth="1050.0" translateY="100.0">
+                    <content>
+                        <HBox prefHeight="54.0" prefWidth="1160.0" styleClass="compteTableHead" stylesheets="@../css/Compte.css">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" wrappingWidth="147.23433303833008">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="59.0" top="20.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" wrappingWidth="37.52490222454071">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="15.0" top="20.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Prénom" wrappingWidth="60.18902587890625">
+                                    <HBox.margin>
+                                        <Insets left="30.0" top="20.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type Cin" wrappingWidth="66.3812255859375">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="30.0" top="20.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Cin" wrappingWidth="54.83599853515625">
+                                    <HBox.margin>
+                                        <Insets left="35.0" top="20.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de Naissance ">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="25.0" top="20.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Profession">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="30.0" top="20.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Num tél" wrappingWidth="79.2515869140625">
+                                    <HBox.margin>
+                                        <Insets left="25.0" top="20.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type Compte" wrappingWidth="112.13916015625">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="30.0" top="20.0" />
+                                    </HBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions ">
+                                    <HBox.margin>
+                                        <Insets left="40.0" top="20.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </HBox>
+                    </content>
+                </ScrollPane>
+                <ScrollPane hbarPolicy="NEVER" layoutX="12.0" layoutY="167.0" prefHeight="449.0" prefWidth="1057.0" styleClass="cheque_listScrollPane" stylesheets="@../css/Compte.css">
+                    <content>
+                        <VBox fx:id="CompteContainer" prefHeight="446.0" prefWidth="1046.0" spacing="13.0" styleClass="compteTableBody" stylesheets="@../css/Compte.css" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

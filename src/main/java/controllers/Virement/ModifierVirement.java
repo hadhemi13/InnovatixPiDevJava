@@ -43,6 +43,9 @@ public class ModifierVirement implements Initializable {
     private TextField NometPrenom;
 
     @FXML
+    private Button add_new_VirementtBtn;
+
+    @FXML
     private Text NometPrenomInputError;
 
     @FXML
@@ -65,6 +68,10 @@ public class ModifierVirement implements Initializable {
 
     @FXML
     private Text benefInputError;
+
+
+    @FXML
+    private Button ImporterImage;
 
     @FXML
     private HBox benefInputErrorHbox;
@@ -131,12 +138,12 @@ public class ModifierVirement implements Initializable {
         montant.setText(virement.getMontant());
         type.setValue(virement.getType_virement());
         benef.setText(String.valueOf(virement.getNum_beneficiare()));
-        if (virement != null){
-            if (virement.getPhoto_cin_v() != null && !virement.getPhoto_cin_v().isEmpty()){
-                Image image =new Image(virement.getPhoto_cin_v());
-                imageInput.setImage(image);
-            }
-        }
+//        if (virement != null){
+//            if (virement.getPhoto_cin_v() != null && !virement.getPhoto_cin_v().isEmpty()){
+//                Image image =new Image(virement.getPhoto_cin_v());
+//                imageInput.setImage(image);
+//            }
+//        }
 
 
 
@@ -188,8 +195,11 @@ public class ModifierVirement implements Initializable {
 
     @FXML
     void updatevirement(MouseEvent mouseEvent) {
+        Virement virement = new Virement();
+        System.out.println("g");
+     //   System.out.println(virement);
             try {
-                if (virement != null) {
+//                if (virement != null) {
                     virement.setNomet_prenom(NometPrenom.getText());
                     virement.setType_virement(type.getSelectionModel().getSelectedItem());
                     virement.setTransferez_a(transferez.getText());
@@ -202,6 +212,7 @@ public class ModifierVirement implements Initializable {
                     if (imageInput.getImage() != null) {
                         virement.setPhoto_cin_v(imageInput.getImage().getUrl());
                     }
+                System.out.println(virement);
 
                     // Appeler la méthode de service pour effectuer la mise à jour du virement dans la base de données
                     ServiceVirement serviceVirement = new ServiceVirement();
@@ -210,7 +221,7 @@ public class ModifierVirement implements Initializable {
                     // Fermer la fenêtre après la mise à jour
                     Stage stage = (Stage) update_VirementtBtn.getScene().getWindow();
                     stage.close();
-                }
+              //  }
             } catch (SQLException e) {
                 e.printStackTrace();
                 // Gérer l'exception appropriée ici

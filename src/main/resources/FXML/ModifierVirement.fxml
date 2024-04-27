@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.ModifierVirement">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="630.0" styleClass="addProductCard" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.ModifierVirement">
     <children>
         <HBox prefHeight="53.0" prefWidth="570.0">
             <children>
@@ -228,7 +228,7 @@
                                             <children>
                                                 <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#ajouter_imageV" prefHeight="48.0" prefWidth="200.0" stylesheets="@../css/Compte.css">
                                                     <children>
-                                                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="218.0" styleClass="cheque__add-img-btn">
+                                                        <Button fx:id="ImporterImage" mnemonicParsing="false" onMouseClicked="#ajouter_imageV" prefHeight="48.0" prefWidth="218.0" styleClass="cheque__add-img-btn">
                                                             <graphic>
                                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-textBtn" text="Importer ">
                                                                     <font>

@@ -1,32 +1,16 @@
 package controllers.Virement;
 
-import Entities.Compte;
 import Entities.Virement;
-import controllers.Cheque.ListeChequeAdmin;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import services.ServiceCheque;
-import services.ServiceCompte;
 import services.ServiceVirement;
-import controllers.Compte.ApprouverCompte;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;

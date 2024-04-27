@@ -54,7 +54,7 @@ public class ChequeItemsController {
     public void initData(Cheque i ){
         ServiceCheque serviceCheque = new ServiceCheque();
 
-        userItemUpdateBtn.setId(String.valueOf(i.getId()));
+       userItemUpdateBtn.setId(String.valueOf(i.getId()));
 
         userItemStateBtn.setId(String.valueOf(i.getId()));
 

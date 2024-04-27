@@ -21,9 +21,9 @@ public class Compte {
     private String preference_communic ;
     private String type_cin;
     private long rib;
-    private int statut;
+    private String statut;
 
-    public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, String preference_communic, String type_cin, int statut) {
+    public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, String preference_communic, String type_cin, String statut) {
         this.id = id;
         this.email = email;
         this.confirmation_email = confirmation_email;
@@ -45,7 +45,7 @@ public class Compte {
         this.statut = this.statut;
     }
 
-    public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, int numero_telephone, String type_cin, int statut) {
+    public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, int numero_telephone, String type_cin, String statut) {
         this.email = email;
         this.confirmation_email = confirmation_email;
         this.cin = cin;
@@ -210,11 +210,11 @@ public class Compte {
         this.rib = rib;
     }
 
-    public int getStatut() {
+    public String getStatut() {
         return statut;
     }
 
-    public void setStatut(int statut) {
+    public void setStatut(String statut) {
         this.statut = statut;
     }
 

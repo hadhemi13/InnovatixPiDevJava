@@ -2,7 +2,7 @@ package controllers.Cheque;
 
 import Entities.Cheque;
 import Entities.Compte;
-import controllers.Compte.ApprouverCompte;
+import controllers.Cheque.ChequeItemsAdmin;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -79,32 +79,7 @@ public class ChequeItemsAdmin implements Initializable {
         benificaire.setText(i.getBeneficiaire());
         tel.setText(String.valueOf(i.getTelephone()));
         Montant.setText(String.valueOf(i.getMontant()));
-//        ApprouveBtnC.setOnMouseClicked(mouseEvent -> {
-//            Stage primaryStage = new Stage();
-//            try {
-//                Cheque compte = serviceCheque.afficher().get(Integer.parseInt(ApprouveBtnC.getId()));
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HistoriqueChequeAdmin.fxml")) ;
-//                Parent parent = loader.load();
-//                Scene scene = new Scene(parent);
-//                primaryStage.setTitle("E-Flex Bank");
-//                primaryStage.setScene(scene);
-//                primaryStage.show();
-//                ApprouverXheque app = loader.getController();
-//                ApprouverXheque.initData(compte);
-//            }catch (SQLException | IOException exception)
-//            {
-//                throw new RuntimeException(exception);
-//            }
-//
-//        });
-//        RefusBtn.setOnMouseClicked(mouseEvent -> {
-//            try {
-//                serviceCompte.supprimer(Integer.parseInt(RefusBtn.getId()));
-//
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//        });
+
         if ("Approuvé".equals(cheque.getDecision()) || "Rejeté".equals(cheque.getDecision())) {
             disableDecisionButtons();
         }

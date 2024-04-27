@@ -2,6 +2,7 @@ package controllers;
 
 import controllers.Cheque.HistoriqueChequeAdmin;
 import controllers.Cheque.ListeChequeAdmin;
+import controllers.Compte.HistoriqueComptAdmin;
 import controllers.Compte.ListeCompteAdmin;
 import controllers.Virement.AjouterVirementCard;
 import controllers.Virement.HistoriqueVirementAdmin;
@@ -113,15 +114,17 @@ public class CardAdmin {
     }
 
     public void OpenHistoriqueCompte(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HistoriqueCompteA.fxml.fxml"));
-        Parent HistoriqueParent = loader.load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/HistoriqueCompteA.fxml"));
+        Parent historiqueParent = loader.load();
 
-        // Récupération du contrôleur de la vue d'ajout d'article
-        ListeCompteAdmin listeCompteAdmin = loader.getController();
+        // Récupération du contrôleur de la vue d'historique des comptes
+        HistoriqueComptAdmin historiqueComptAdmin = loader.getController();
 
-        // Remplacer le contenu actuel par la vue d'ajout d'article
+        // Remplacer le contenu actuel par la vue d'historique des comptes
         content_area.getChildren().clear();
-        content_area.getChildren().add(HistoriqueParent);
+        content_area.getChildren().add(historiqueParent);
     }
+
+
 }
 

@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -114,17 +115,26 @@ public class ModifierCheque implements Initializable {
     @FXML
     private Button update_chequetBtn;
     private Cheque cheque;
-    Image selectedCvFile ;
-    private String imageName = null ;
+    Image selectedCvFile;
+    private String imageName = null;
 
     private File selectedImageFile;
+
+    @FXML
+    private HBox updateBtnContainer;
+
+    @FXML
+    private HBox addReviewsModel;
+    private Object value;
+    private Object Collecte;
+
 
     @FXML
     void ajouter_image(MouseEvent event) {
 
     }
 
-//
+    //
 //    @FXML
 //    void UpdateCheque (MouseEvent mouseEvent) throws IOException {
 //        try {
@@ -183,6 +193,7 @@ public class ModifierCheque implements Initializable {
         }
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageInputErrorHbox.setVisible(false);
@@ -206,8 +217,9 @@ public class ModifierCheque implements Initializable {
     }
 
     public void edit(String text) {
-        ServiceCheque serviceCheque= new ServiceCheque();
+        ServiceCheque serviceCheque = new ServiceCheque();
     }
+
     public void initData(Cheque cheque) {
 
         NometPrenom.setText(cheque.getNom_prenom());
@@ -244,6 +256,7 @@ public class ModifierCheque implements Initializable {
             }
         }
     }
+
     public void UpdateCheque(MouseEvent mouseEvent) {
         try {
             if (cheque != null) {
@@ -271,8 +284,8 @@ public class ModifierCheque implements Initializable {
             e.printStackTrace();
             // Gérer l'exception appropriée ici
         }
-    }
+
 
     }
-
+}
 

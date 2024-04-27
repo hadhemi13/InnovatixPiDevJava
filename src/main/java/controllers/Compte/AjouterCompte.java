@@ -329,7 +329,7 @@ public class AjouterCompte implements Initializable {
         String statutMarital = StatutMarital.getSelectionModel().getSelectedItem();
         String sexe = Sexe.getText();
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
-        int statut=1;
+        String statut="Approuvé";
 
         // Création du compte
         Compte compte = new Compte(email, confirmationEmail, numCIN, sqlDate, nom, prenom, sexe, sqlDate, profession, typeCompte, montant, statutMarital, nationalite, numTel, typeCIN,statut);

@@ -45,7 +45,7 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
             ps.setString(15, compte.getPreference_communic());
             ps.setString(16, compte.getType_cin());
             ps.setLong(17, compte.getRib());
-            ps.setInt(18, compte.getStatut());
+            ps.setString(18, compte.getStatut());
 
             ps.executeUpdate();
             System.out.println("Compte ajouté avec succès !");
@@ -80,7 +80,7 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
             ps.setString(15, compte.getPreference_communic());
             ps.setString(16, compte.getType_cin());
             ps.setLong(17, compte.getRib());
-            ps.setInt(18, compte.getStatut());
+            ps.setString(18, compte.getStatut());
             ps.setInt(19, compte.getId());
 
             ps.executeUpdate();
@@ -125,7 +125,7 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
                         rs.getDouble("montant"), rs.getString("statut_marital"),
                         rs.getString("nationalite"),
                         rs.getString("preference_communic"), rs.getString("type_cin"),
-                       rs.getInt("statut")));
+                       rs.getString("statut")));
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
