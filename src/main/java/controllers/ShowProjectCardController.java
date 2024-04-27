@@ -133,8 +133,6 @@ public class ShowProjectCardController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
     public void setProjectUpdateData(Project project) {
         projectToUpdate = project;
         nomProjetInput.setText(project.getNomProjet());
@@ -144,7 +142,7 @@ public class ShowProjectCardController implements Initializable {
         budgetProjetInput.setText(String.valueOf(project.getBudgetProjet()));
         statutProjetInput.setText(String.valueOf(project.getStatutProjet()));
         dateCreationInput.setText(String.valueOf(project.getDateCreation()));
-        Image image = new Image(getClass().getResource("/assets/projectUploads/" +"asma.jpg").toExternalForm());
+        Image image = new Image(getClass().getResource("/assets/projectUploads/" +project.getImg()).toExternalForm());
         imageInput.setImage(image);
         imageName = project.getImg();
     }
