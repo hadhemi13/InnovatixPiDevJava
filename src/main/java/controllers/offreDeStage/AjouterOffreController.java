@@ -159,7 +159,7 @@ public class AjouterOffreController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Modification effectuée");
             alert.setHeaderText(null);
-            alert.setContentText("L'offre de stage a été modifiée avec succès.");
+            alert.setContentText("L'offre de stage a été ajouté avec succès.");
             alert.showAndWait();
         }
         else {

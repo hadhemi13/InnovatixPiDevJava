@@ -16,8 +16,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
         ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
-        OffreDeStage a = serviceOffreDeStage.afficheUne(1);
-        System.out.println(a.getPostePropose());
+//        OffreDeStage a = serviceOffreDeStage.afficheUne(1);
+//        System.out.println(a.getPostePropose());
+        Symfony symfony = new Symfony();
+        symfony.Recommendation(1);
+
     }
 
 

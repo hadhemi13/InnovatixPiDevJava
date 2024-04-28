@@ -52,7 +52,7 @@
                                         </TextField>
                                         <HBox prefHeight="40.0" prefWidth="701.0">
                                             <children>
-                                                <Text fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir votre Nom  !">
+                                                <Text fx:id="nomError" fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir votre Nom  !">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="10.0" />
                                                     </HBox.margin>
@@ -82,7 +82,7 @@
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre prenom !">
+                                                <Text fx:id="prenomError" fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre prenom !">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -109,7 +109,7 @@
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Email !">
+                                                <Text fx:id="EmailError" fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Email !">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -136,7 +136,7 @@
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir vote Numéro ! ">
+                                                <Text fx:id="NumeroError" fill="#e81a1a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir vote Numéro ! ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -166,7 +166,7 @@
                                         </ComboBox>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#fc3131" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Domaine !">
+                                                <Text fx:id="domainError" fill="#fc3131" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Domaine !">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -204,7 +204,7 @@
                                         </Button>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#f23a3a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir votre Cv !">
+                                                <Text fx:id="CvError" fill="#f23a3a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir votre Cv !">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -231,7 +231,7 @@
                                         </DatePicker>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#e42c2c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir la date ! ">
+                                                <Text fx:id="dateError" fill="#e42c2c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir la date ! ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -254,7 +254,7 @@
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Text fill="#eb2b2b" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre lettre de motivation !">
+                                                <Text fx:id="lettreError" fill="#eb2b2b" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre lettre de motivation !">
                                                     <HBox.margin>
                                                         <Insets top="15.0" />
                                                     </HBox.margin>
@@ -270,13 +270,9 @@
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>
-                                    <children>
-                                        <Button fx:id="ajouterDemande" mnemonicParsing="false" onAction="#ajouterDemande" prefHeight="45.0" prefWidth="93.0" styleClass="AddBtn" stylesheets="@../../css/ajout.css" text="Ajouter">
-                                            <HBox.margin>
-                                                <Insets bottom="15.0" left="300.0" top="30.0" />
-                                            </HBox.margin>
-                                        </Button>
-                                    </children>
+                           <children>
+                              <Button fx:id="ajouterDemande" mnemonicParsing="false" onAction="#ajouterDemande" text="Update" />
+                           </children>
                                 </HBox>
                             </children>
                         </VBox>

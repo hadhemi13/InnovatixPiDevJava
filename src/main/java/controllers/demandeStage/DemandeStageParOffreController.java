@@ -3,6 +3,7 @@ package controllers.demandeStage;
 import Entities.DemandeStage;
 import Entities.OffreDeStage;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
@@ -10,15 +11,18 @@ import javafx.stage.FileChooser;
 import services.ServiceDemandeStage;
 import services.Symfony;
 import services.Upload;
+import services.ValidatorOffre;
 import utils.MyDatabase;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class DemandeStageParOffreController {
+public class DemandeStageParOffreController implements Initializable {
 
     @FXML
     private DatePicker date;
@@ -69,12 +73,16 @@ public class DemandeStageParOffreController {
             cv.setText(fileName);
         }
     }
-    public int yy = 0;
+    public static int yy ;
 
     public void initData(OffreDeStage offreDeStage) {
         this.stageYesser = offreDeStage;
-        this.yy = offreDeStage.getPostePropose();
-        System.out.println(yy);
+        yy = offreDeStage.getPostePropose();
+//        this.yy = offreDeStage.getPostePropose();
+        System.out.println("init = " + yy );
+
+
+//        System.out.println(yy);
 
 //        idOffre.setText(String.valueOf(offreDeStage.getPostePropose()));
 //        System.out.println("offre fel init   " + idOffre.getText());
@@ -82,6 +90,10 @@ public class DemandeStageParOffreController {
 
     @FXML
     void ajouterDemande(ActionEvent event) {
+        ValidatorOffre validatorOffre = new ValidatorOffre();
+
+        System.out.println("button = " + yy);
+//        System.out.println("button " + yy);
         if (event.getSource() == ajouterDemande) {
             // Vérifier si stageYesser n'est pas null avant de l'utiliser
 //            if (stageYesser != null) {
@@ -102,7 +114,7 @@ public class DemandeStageParOffreController {
                     ServiceDemandeStage demandeStage = new ServiceDemandeStage();
 
                     try {
-                        demandeStage.ajouterParOffre(stage, 1);
+                        demandeStage.ajouterParOffre(stage, yy);
                         showAlert(Alert.AlertType.CONFIRMATION, "Ajouté avec succès", null, "Votre activité a été ajoutée avec succès.");
                     } catch (SQLException | IOException | InterruptedException e) {
                         showAlert(Alert.AlertType.ERROR, "Ajouté Failed", null, "Failed.");
@@ -126,6 +138,12 @@ public class DemandeStageParOffreController {
         alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("initialize = " + yy);
+
     }
 }
 

@@ -76,6 +76,7 @@ public class DetailsOffreController {
             DemandeStageParOffreController demandeStageController = new DemandeStageParOffreController();
 //            System.out.println(offreDeStage);
             demandeStageController.initData(offreDeStage);
+            demandeStageController.yy=offreDeStage.getPostePropose();
 
         });
 

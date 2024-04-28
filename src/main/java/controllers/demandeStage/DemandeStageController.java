@@ -3,13 +3,17 @@ package controllers.demandeStage;
 import Entities.DemandeStage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 //import javafx.scene.web.WebView;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceDemandeStage;
 import services.Upload;
+import services.ValidatorOffre;
 import utils.MyDatabase;
 
+import java.net.URL;
 import java.nio.file.Path;
 import java.io.File;
 import java.io.IOException;
@@ -19,10 +23,11 @@ import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.UUID;
 //import javafx.scene.web.WebView;
 
-public class DemandeStageController {
+public class DemandeStageController implements Initializable {
 //    @FXML
 //    private WebView CvDemInput;
 
@@ -48,6 +53,26 @@ public class DemandeStageController {
     private TextField cv;
     private File selectedCvFile;
     private String fileName;
+//    @FXML
+//    private Text dateError;
+//    @FXML
+//    private Text prenomError;
+//
+//    @FXML
+//    private Text NumeroError;
+//
+//    @FXML
+//    private Text CvError;
+//
+//    @FXML
+//    private Text nomError;
+//    @FXML
+//    private Text domainError;
+//    @FXML
+//    private Text EmailError;
+//
+//    @FXML
+//    private Text lettreError;
 
 
     @FXML
@@ -69,7 +94,23 @@ public class DemandeStageController {
     }
     @FXML
     void ajouterDemande(ActionEvent event) {
+//        ValidatorOffre validatorOffre = new ValidatorOffre();
+//        if (!validatorOffre.isValidEmpty(NomDemInput.getText())){
+//            nomError.setVisible(true);
+//        }
+//        if (!validatorOffre.isValidEmpty(PrenomDemInput.getText())){
+//            prenomError.setVisible(true);
+//        }
+//        if (!validatorOffre.isValidEmail(EmailDemInput.getText())){
+//            EmailError.setVisible(true);
+//        }
+
+
+
+
+
         if (event.getSource() == ajouterDemande){
+
 
             if (NomDemInput.getText().isEmpty() &&  LettreDemInput.getText().isEmpty() && EmailDemInput.getText().isEmpty() && PrenomDemInput.getText().isEmpty() && NumeroDemInput.getText().isEmpty() && cv.getText().isEmpty() ){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -141,6 +182,41 @@ public class DemandeStageController {
     }
 
     public void initData(int postePropose) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        @FXML
+//        private Text dateError;
+//        dateError.setVisible(false);
+////        @FXML
+////        private Text prenomError;
+//        prenomError.setVisible(false);
+////
+////        @FXML
+////        private Text NumeroError;
+//        NumeroError.setVisible(false);
+////
+////        @FXML
+////        private Text CvError;
+//        CvError.setVisible(false);
+////
+////        @FXML
+//        private Text nomError;
+//        nomError.setVisible(false);
+////        @FXML
+////        private Text domainError;
+//        domainError.setVisible(false);
+////        @FXML
+////        private Text EmailError;
+//        EmailError.setVisible(false);
+////
+////        @FXML
+////        private Text lettreError;
+//        lettreError.setVisible(false);
+
+
 
     }
 }
