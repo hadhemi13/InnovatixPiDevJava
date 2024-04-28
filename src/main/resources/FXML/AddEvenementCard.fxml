@@ -68,6 +68,20 @@
                         <Insets/>
                     </VBox.margin>
                 </TextField>
+                <HBox fx:id="nameInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              wrappingWidth="23.18400001525879"/>
+                        <Text fx:id="nameInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="le nom du Evenement ne peut pas être vide !">
+                            <HBox.margin>
+                                <Insets top="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
             </children>
         </VBox>
         <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="183.0" prefWidth="570.0">
@@ -90,6 +104,20 @@
                 </HBox>
                 <TextArea fx:id="descriptionInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0"
                           prefWidth="200.0" promptText="Description" styleClass="product__add-input-textArea"/>
+                <HBox fx:id="descriptionInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              wrappingWidth="23.18400001525879"/>
+                        <Text fx:id="descriptionInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="le nom du projet ne peut pas être vide !">
+                            <HBox.margin>
+                                <Insets top="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
             </children>
         </VBox>
     <HBox>
@@ -117,6 +145,20 @@
                         <Insets />
                     </VBox.margin>
                 </DatePicker>
+                <HBox fx:id="fxdateDebutErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              wrappingWidth="23.18400001525879"/>
+                        <Text fx:id="fxdateDebutError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="le nom du projet ne peut pas être vide !">
+                            <HBox.margin>
+                                <Insets top="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
 
             </children>
             <padding>
@@ -148,7 +190,20 @@
                         <Insets />
                     </VBox.margin>
                 </DatePicker>
-
+                <HBox fx:id="fxdateFinErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              wrappingWidth="23.18400001525879"/>
+                        <Text fx:id="fxdateFinError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="le nom du projet ne peut pas être vide !">
+                            <HBox.margin>
+                                <Insets top="5.0"/>
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
             </children>
             <padding>
                 <Insets left="10.0" />
@@ -185,13 +240,13 @@
                         <Insets/>
                     </VBox.margin>
                 </TextField>
-                <HBox fx:id="LieuInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                <HBox fx:id="fxLieuErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
                       stylesheets="@../assets/style/aliStyle.css">
                     <children>
                         <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
-                        <Text fx:id="LieuInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                        <Text fx:id="fxLieuError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                               text="le nom du projet ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
@@ -230,13 +285,13 @@
                         <Insets/>
                     </VBox.margin>
                 </TextField>
-                <HBox fx:id="nameInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
+                <HBox fx:id="prixInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
                       stylesheets="@../assets/style/aliStyle.css">
                     <children>
                         <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
-                        <Text fx:id="nameInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                        <Text fx:id="prixInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                               text="le nom du projet ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
@@ -415,7 +470,7 @@
                 <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                     <children>
                         <Button fx:id="update_EvenementBtn" mnemonicParsing="false" onMouseClicked="#updateEvenement"
-                                styleClass="product__add-new-productBtn" text="Mettre à jour le produit" textFill="WHITE"
+                                styleClass="product__add-new-productBtn" text="Mettre à jour le evenement" textFill="WHITE"
                                 translateY="-46.0">
                             <font>
                                 <Font name="Montserrat Regular" size="16.0"/>

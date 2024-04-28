@@ -23,7 +23,6 @@ public class AddProjectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             fxmlLoader1.setLocation(getClass().getResource("/FXML/AddProjectCard.fxml"));

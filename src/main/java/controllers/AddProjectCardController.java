@@ -188,7 +188,12 @@ public class AddProjectCardController implements Initializable {
         Project project = new Project();
 
         if (fxCategorie.getText()== null) {
-            descriptionInputErrorHbox.setVisible(true);
+            CategorieTest = 0;
+            CategorieInputErrorHbox.setVisible(true);
+        }else {
+            if (CategorieTest == 1) {
+                project.setCategorie(fxCategorie.getText());
+            }
         }
 
         if (nameInput.getText()== null) {

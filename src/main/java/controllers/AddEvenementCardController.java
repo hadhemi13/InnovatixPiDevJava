@@ -91,8 +91,7 @@ public class AddEvenementCardController implements Initializable {
     @FXML
     private Text photoInputError;
 
-    @FXML
-    private HBox descriptionInputErrorHbox;
+
 
     @FXML
     private HBox categoryInputErrorHbox;
@@ -127,15 +126,39 @@ public class AddEvenementCardController implements Initializable {
     private double score;
 
 
-
+    @FXML
+    private HBox nameInputErrorHbox;
+    @FXML
+    private HBox fxdateDebutErrorHbox;
+    @FXML
+    private HBox fxdateFinErrorHbox;
+    @FXML
+    private HBox fxLieuErrorHbox;
+    @FXML
+    private HBox descriptionInputErrorHbox;
+    @FXML
+    private HBox prixInputErrorHbox;
+    private int nameInputTest = 0;
+    private int fxdateDebutTest = 0;
+    private int fxdateFinTest = 0;
+    private int fxLieuTest = 0;
+    private int descriptionInputTest = 0;
+    private int prixInputTest = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println(Evenement.actionTest);
 
+        nameInputErrorHbox.setVisible(false);
+        descriptionInputErrorHbox.setVisible(false);
+        prixInputErrorHbox.setVisible(false);
+        fxLieuErrorHbox.setVisible(false);
+        fxdateFinErrorHbox.setVisible(false);
+        fxdateDebutErrorHbox.setVisible(false);
+        nameInputErrorHbox.setVisible(false);
+
         if (Evenement.actionTest == 0) {
             update_EvenementBtn.setVisible(false);
-
         } else {
             add_new_EvenementBtn.setVisible(false);
             IService evenementService = new ServiceEvenement();
@@ -162,11 +185,54 @@ public class AddEvenementCardController implements Initializable {
                 imageInput.setImage(image);
             }
             imageName = e1.getImg();
-
         }
-
+        nameInputTest = 1;
+        fxdateDebutTest = 1;
+        fxdateFinTest = 1;
+        fxLieuTest = 1;
+        descriptionInputTest = 1;
+        prixInputTest = 1;
     }
 
+    @FXML
+    void addNewEvenement(MouseEvent event) throws SQLException {
+        Evenement evenement = new Evenement();
+        int projectId = new ServiceEvenement().getProjectIdByName("Ayoub");
+
+        if (nameInput.getText()== null) {
+            nameInputErrorHbox.setVisible(true);
+        }
+        if (fxdateDebut.getValue()== null) {
+            fxdateDebutErrorHbox.setVisible(true);
+        }
+        if (fxdateFin.getValue()== null) {
+            fxdateFinErrorHbox.setVisible(true);
+        }
+        if (fxLieu.getText()== null) {
+            fxLieuErrorHbox.setVisible(true);
+        }
+        if (descriptionInput.getText()== null) {
+            descriptionInputErrorHbox.setVisible(true);
+        }
+        if (prixInput.getText()== null) {
+            prixInputErrorHbox.setVisible(true);
+        }
+        evenement.setNom(nameInput.getText());
+        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
+        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
+        evenement.setLieu(fxLieu.getText());
+        evenement.setDescription(descriptionInput.getText());
+        evenement.setPrix(Double.parseDouble(prixInput.getText()));
+        evenement.setImg(imageName);
+        IService evenementService = new ServiceEvenement();
+        try {
+            evenementService.ajouter1(evenement,projectId);
+            showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
+            switchToEvenementsList(event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void setEvenementFields(Evenement e) {
 
@@ -201,27 +267,6 @@ public class AddEvenementCardController implements Initializable {
         contentArea.getChildren().add(root);
     }
 
-    @FXML
-    void addNewEvenement(MouseEvent event) throws SQLException {
-        Evenement evenement = new Evenement();
-
-         int projectId = new ServiceEvenement().getProjectIdByName("Ayoub");
-         evenement.setNom(nameInput.getText());
-        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
-        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
-        evenement.setLieu(fxLieu.getText());
-        evenement.setDescription(descriptionInput.getText());
-        evenement.setPrix(Double.parseDouble(prixInput.getText()));
-        evenement.setImg(imageName);
-        IService evenementService = new ServiceEvenement();
-        try {
-            evenementService.ajouter1(evenement,projectId);
-            showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
-            switchToEvenementsList(event);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     void ajouter_image(MouseEvent event) throws IOException {
@@ -246,16 +291,20 @@ public class AddEvenementCardController implements Initializable {
         evenement.setNom(nameInput.getText());
         evenement.setLieu(fxLieu.getText());
         evenement.setDescription(descriptionInput.getText());
+        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
+        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
         evenement.setPrix(Double.parseDouble(prixInput.getText()));
         evenement.setImg(imageName);
         ServiceEvenement serviceEvenement = new ServiceEvenement();
         try {
             serviceEvenement.modifier(evenement);
-            showNotification("Evenement", "Evenement updated successfully.", NotificationType.SUCCESS);
+            showNotification("Evenement", "Événement mis à jour avec succès.", NotificationType.SUCCESS);
             switchToEvenementsList(event);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+
         } catch (DateTimeParseException e) {
             e.printStackTrace();
-            showNotification("Error", "Incorrect date format. Please enter dates in yyyy-MM-dd HH:mm:ss format.", NotificationType.ERROR);
+            showNotification("Erreur", "Format de date incorrect. Veuillez saisir les dates au format aaaa-MM-jj HH:mm:ss.", NotificationType.ERROR);
         }
     }
 }

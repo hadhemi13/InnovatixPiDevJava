@@ -1,6 +1,7 @@
 package services;
 
 import Entities.Evenement;
+import Entities.Project;
 import utils.DataSource;
 
 import java.sql.*;
@@ -34,7 +35,6 @@ public class ServiceEvenement implements IService<Evenement> {
             preparedStatement.setString(2, "%" + search + "%");
             preparedStatement.setString(3, "%" + search + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
-            // Parcours du résultat de la requête
             while (resultSet.next()) {
                 Evenement evenement = new Evenement();
                 evenement.setId(resultSet.getInt("id"));
@@ -113,9 +113,10 @@ public class ServiceEvenement implements IService<Evenement> {
             preparedStatement.setInt(9, evenement.getDislikes());
             preparedStatement.setInt(10, evenement.getId());
             preparedStatement.executeUpdate();
+            System.out.println("Project updated successfully");
+            preparedStatement.close();
         }
     }
-
     @Override
     public Evenement getOneEvenement(int idEvenement) throws SQLException {
         String req = "SELECT * FROM `evenement` where id = ?";

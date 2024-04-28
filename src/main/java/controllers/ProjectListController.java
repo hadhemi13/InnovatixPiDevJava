@@ -1,5 +1,6 @@
 package controllers;
 
+import Entities.Evenement;
 import Entities.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -198,6 +199,7 @@ public class ProjectListController implements Initializable {
 
     @FXML
     private void open_addProject(MouseEvent event) throws IOException {
+        Evenement.actionTest = 0;
         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddProject.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);

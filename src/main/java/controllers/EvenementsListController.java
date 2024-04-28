@@ -162,6 +162,7 @@ public class EvenementsListController implements Initializable {
 
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
+        Evenement.actionTest = 0;
         Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
