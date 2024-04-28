@@ -166,31 +166,31 @@ public class ModifierVirement implements Initializable {
         }
     }
 
-    @FXML
-    void ajouter_imageV(MouseEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-        if (selectedImageFile != null) {
-            Image image = new Image(selectedImageFile.toURI().toString());
-            imageInput.setImage(image);
-
-            // Générer un nom de fichier unique pour l'image
-            String uniqueID = UUID.randomUUID().toString();
-            String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
-            imageName = uniqueID + extension;
-
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", imageName);
-            try {
-                Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                // e.printStackTrace();
-                System.out.println("non");
-            }
-        }
-
-    }
+//    @FXML
+//    void ajouter_imageV(MouseEvent event) {
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Choisir une image");
+//        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+//        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+//        if (selectedImageFile != null) {
+//            Image image = new Image(selectedImageFile.toURI().toString());
+//            imageInput.setImage(image);
+//
+//            // Générer un nom de fichier unique pour l'image
+//            String uniqueID = UUID.randomUUID().toString();
+//            String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
+//            imageName = uniqueID + extension;
+//
+//            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", imageName);
+//            try {
+//                Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+//            } catch (IOException e) {
+//                // e.printStackTrace();
+//                System.out.println("non");
+//            }
+//        }
+//
+//    }
 
 
     @FXML

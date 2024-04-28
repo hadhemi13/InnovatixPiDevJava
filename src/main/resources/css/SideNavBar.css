@@ -2211,6 +2211,10 @@
     -fx-background-color: #3ab63f; /* Vert */
     -fx-text-fill: white; /* Texte blanc */
 }
+.refus-button {
+    -fx-background-color: #da2626; /* Vert */
+    -fx-text-fill: white; /* Texte blanc */
+}
 .dash__container-card {
     -fx-background-color: rgba(0, 0, 0, 0);
 }
@@ -2219,4 +2223,25 @@
     font-size: 13em;
     color: #97d158;
     margin-bottom: 10px;
+}
+
+.dash__container-card {
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+.scroll-bar:vertical .track {
+    -fx-background-color: #defee6;
+    -fx-border-color: #fff;
+    -fx-background-radius: 30px;
+    -fx-pref-width: 24px;
+}
+.product-card-scrollPane {
+    -fx-background: #fff;
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: #fff;
+    -fx-border-color: #fff;
 }

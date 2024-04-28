@@ -264,6 +264,6 @@
             </HBox>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="115.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" />
+        <Pane fx:id="content_area" layoutX="130.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" styleClass="dash__container-card" translateX="20.0" />
     </children>
 </AnchorPane>

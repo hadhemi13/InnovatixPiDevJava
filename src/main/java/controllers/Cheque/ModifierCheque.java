@@ -236,8 +236,6 @@ public class ModifierCheque implements Initializable {
                 imageInput.setImage(image);
             }
         }
-
-
     }
 
     private void initializeChequeFields() {
