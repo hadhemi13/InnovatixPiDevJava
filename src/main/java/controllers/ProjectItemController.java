@@ -119,7 +119,6 @@ public class ProjectItemController {
         });
         ItemUpdateBtn.setOnMouseClicked(event -> {
             System.out.println("project Name: " + project.getNomProjet());
-
             ProjectListController.setupdateProjectModelShow(1);
             ProjectListController.setprojectEmailToUpdate(project.getId());
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));

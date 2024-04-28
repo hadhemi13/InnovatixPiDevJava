@@ -20,7 +20,6 @@ import utils.TrayNotificationAlert;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
 public class OneEvenementListCardController {
 
     @FXML
@@ -31,6 +30,8 @@ public class OneEvenementListCardController {
 
     @FXML
     private HBox editEvenement;
+    @FXML
+    private HBox showEvenement;
 
     @FXML
     private Text productName;
@@ -70,55 +71,62 @@ public class OneEvenementListCardController {
         lieufx.setText(evenement.getLieu());
         pricefx.setText(String.valueOf(evenement.getPrix()));
 
-
-        // deleteEvenement btn click
         deleteEvenement.setId(String.valueOf(evenement.getId()));
 
         deleteEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement à supprimer : " + evenement.getId());
             try {
                 EvenementService.supprimer(evenement.getId());
-                TrayNotificationAlert.notif("Evenement", "Evenement deleted successfully.",
+                TrayNotificationAlert.notif("Événement", "Événement supprimé avec succès.",
                         NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-//             supprimer le contenu de la liste et afficher la nouvelle liste(apres
-//             supprimer)
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
             try {
                 Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneProductListCard.fxml
+
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Vider la pane et afficher le contenu de ProductsList.fxml
                 contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            // end
-        });
-        // END deleteEvenement btn click
 
-        // editEvenement btn click
+        });
+
         editEvenement.setId(String.valueOf(evenement.getId()));
 
         editEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement à modifier : " + evenement.getId());
-            //  Collecte.setIdEvenement(evenement.getId());
-
-            //    Collecte.actionTest = 1; // pour afficher le bouton update
-
+            Evenement.setIdEvenement(evenement.getId());
+            Evenement.actionTest = 1;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AddEvenement.fxml"));
             try {
                 Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneProductListCard.fxml
+
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Vider la pane et afficher le contenu de AddProduct.fxml
+                 contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        showEvenement.setId(String.valueOf(evenement.getId()));
+
+        showEvenement.setOnMouseClicked(event -> {
+            System.out.println("ID du Evenement à modifier : " + evenement.getId());
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenement.fxml"));
+            try {
+                Parent root = loader.load();
+
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+
                 contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {

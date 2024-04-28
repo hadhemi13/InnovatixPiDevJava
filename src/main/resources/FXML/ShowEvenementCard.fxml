@@ -412,19 +412,19 @@
                 <Insets/>
             </VBox.margin>
         </HBox>
-                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
-                    <children>
-                        <Button fx:id="update_EvenementBtn" mnemonicParsing="false" onMouseClicked="#updateEvenement"
-                                styleClass="product__add-new-productBtn" text="Mettre à jour le produit" textFill="WHITE"
-                                translateY="-46.0">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0"/>
-                            </font>
-                            <padding>
-                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
-                            </padding>
-                        </Button>
-                    </children>
-                </HBox>
+        <!--        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">-->
+        <!--            <children>-->
+        <!--                <Button fx:id="update_EvenementBtn" mnemonicParsing="false" onMouseClicked="#updateEvenement"-->
+        <!--                        styleClass="product__add-new-productBtn" text="Mettre à jour le produit" textFill="WHITE"-->
+        <!--                        translateY="-46.0">-->
+        <!--                    <font>-->
+        <!--                        <Font name="Montserrat Regular" size="16.0"/>-->
+        <!--                    </font>-->
+        <!--                    <padding>-->
+        <!--                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>-->
+        <!--                    </padding>-->
+        <!--                </Button>-->
+        <!--            </children>-->
+        <!--        </HBox>-->
     </children>
 </VBox>

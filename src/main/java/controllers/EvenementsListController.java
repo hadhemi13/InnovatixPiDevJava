@@ -195,7 +195,6 @@ public class EvenementsListController implements Initializable {
                 HBox oneEvenementCard = fxmlLoader.load();
                 OneEvenementListCardController evenementCardController = fxmlLoader.getController();
                 evenementCardController.setEvenementData(evenement);
-
                 if (column == 1) {
                     column = 0;
                     ++row;

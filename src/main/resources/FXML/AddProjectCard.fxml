@@ -116,7 +116,7 @@
                       styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
                     <children>
                         <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                              styleClass="form_errors-product-point" text=". " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="descriptionInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                               text="la description du projet ne peut pas être vide !">
@@ -198,15 +198,15 @@
                         </padding>
                     </HBox>
                     <TextField fx:id="fxCategorie" maxHeight="-Infinity" minHeight="-Infinity"
-                               onKeyTyped="#priceTypedInput" prefHeight="40.0" promptText="Categorie"
+                                prefHeight="40.0" promptText="Categorie"
                                styleClass="product__add-input"/>
-                    <HBox fx:id="priceInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
+                    <HBox fx:id="CategorieInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
                           styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
                         <children>
                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                                   wrappingWidth="23.18400001525879"/>
-                            <Text fx:id="priceInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                            <Text fx:id="categoryInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   text="le categorie du projet ne peut pas être vide !">
                                 <HBox.margin>
                                     <Insets top="5.0"/>
@@ -242,13 +242,13 @@
                     <TextField fx:id="fxBudget" maxHeight="-Infinity" minHeight="-Infinity"
                                onKeyTyped="#priceTypedInput" prefHeight="40.0" promptText="Prix"
                                styleClass="product__add-input"/>
-                    <HBox fx:id="priceInputErrorHboxBudget" prefHeight="67.0" prefWidth="598.0"
+                    <HBox fx:id="BudgetInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
                           styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
                         <children>
                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                                   wrappingWidth="23.18400001525879"/>
-                            <Text fx:id="priceInputErrorBudget" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                            <Text fx:id="BudgetInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   text="le budget du projet ne peut pas être vide !">
                                 <HBox.margin>
                                     <Insets top="5.0"/>
@@ -285,13 +285,13 @@
                     </HBox>
                     <TextField fx:id="fxDuree" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0"
                                promptText="Quantité" styleClass="product__add-input"/>
-                    <HBox fx:id="quantityInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
+                    <HBox fx:id="DureeInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
                           styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
                         <children>
                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                                   wrappingWidth="23.18400001525879"/>
-                            <Text fx:id="quantityInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                            <Text fx:id="DureeInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   text="la durée du projet ne peut pas être vide !">
                                 <HBox.margin>
                                     <Insets top="5.0"/>
@@ -326,13 +326,13 @@
                     </HBox>
                     <TextField fx:id="fxStatut" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0"
                                promptText="Quantité" styleClass="product__add-input"/>
-                    <HBox fx:id="quantityInputErrorHboxStatut" prefHeight="67.0" prefWidth="598.0"
+                    <HBox fx:id="StatutInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
                           styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
                         <children>
                             <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                                   wrappingWidth="23.18400001525879"/>
-                            <Text fx:id="quantityInputErrorStatut" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                            <Text fx:id="StatutInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                                   text="la statut du projet ne peut pas être vide !">
                                 <HBox.margin>
                                     <Insets top="5.0"/>

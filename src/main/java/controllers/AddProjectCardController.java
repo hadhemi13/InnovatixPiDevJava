@@ -34,6 +34,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddProjectCardController implements Initializable {
@@ -80,25 +81,35 @@ public class AddProjectCardController implements Initializable {
     private Text categoryInputError;
     @FXML
     private Text numberInputError;
-
+    @FXML
+    private Text StatutInputError;
+    @FXML
+    private Text DureeInputError;
     @FXML
     private Text priceInputError;
     @FXML
     private Text pointsInputError;
+    @FXML
+    private Text BudgetInputError;
 
     @FXML
     private Text photoInputError;
 
-
+    @FXML
+    private Text dateInputError;
     @FXML
     private HBox descriptionInputErrorHbox;
-
+    @FXML
+    private HBox BudgetInputErrorHbox;
     @FXML
     private HBox categoryInputErrorHbox;
     @FXML
     private HBox StatutInputErrorHbox;
     @FXML
     private HBox CategorieInputErrorHbox;
+
+    @FXML
+    private HBox dateInputErrorHbox;
 
     @FXML
     private HBox DureeInputErrorHbox;
@@ -129,17 +140,22 @@ public class AddProjectCardController implements Initializable {
     private int pointsTest = 0;
     private int StatutTest = 0;
     private int photoTest = 0;
+    private int DateTest = 0;
     private String etiquette = null;
 
     private double score;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //   numberInputErrorHbox.setVisible(false);
+
         nameInputErrorHbox.setVisible(false);
+        descriptionInputErrorHbox.setVisible(false);
+        BudgetInputErrorHbox.setVisible(false);
+        StatutInputErrorHbox.setVisible(false);
+        CategorieInputErrorHbox.setVisible(false);
+        DureeInputErrorHbox.setVisible(false);
+        dateInputErrorHbox.setVisible(false);
 
         IService serviceProject = new ServiceProjet();
         Project p = new Project();
@@ -157,38 +173,25 @@ public class AddProjectCardController implements Initializable {
             imageInput.setImage(image);
         }
         imageName = p.getImg();
+        nomTest = 1;
+        descriptionTest = 1;
+        BudgetTest = 1;
+        StatutTest = 1;
+        CategorieTest = 1;
+        DureeTest = 1;
+        DateTest = 1;
     }
-    // Ajouter la liste des categories au combobox-----------------
-    // Instancier le service de categorie
-    // Récupérer tous les categories
-    // Afficher les categories dans la console (juste pour tester)
-    /*
-     * System.out.println("Liste des produits:");
-     * for (Categorie_produit categorie : categories) {
-     * System.out.println(categorie);
-     * }
-     */
-//        Map<String, Integer> valuesMap = new HashMap<>();
-//        for (Categorie_Collecte categorie : categories) {
-//            categoryInput.getItems().add(categorie.getNom_categorie());
-//            valuesMap.put(categorie.getNom_categorie(), categorie.getId());
-//        }
-//
-//        categoryInput.setOnAction(event -> {
-//            String selectedOption = categoryInput.getValue();
-//            int selectedValue = valuesMap.get(selectedOption);
-//            categId = selectedValue;
-//            categoryTest = 1;
-//            categoryInputErrorHbox.setVisible(false);
-//            // System.out.println("Selected option: " + selectedOption);
-//            // System.out.println("Selected value: " + selectedValue);
-//        });
+
 
     @FXML
     void addNewProject(MouseEvent event) throws SQLException {
         Project project = new Project();
 
-        if (nameInput.getText().isEmpty()) {
+        if (fxCategorie.getText()== null) {
+            descriptionInputErrorHbox.setVisible(true);
+        }
+
+        if (nameInput.getText()== null) {
             nomTest = 0;
             nameInputErrorHbox.setVisible(true);
         } else {
@@ -196,9 +199,17 @@ public class AddProjectCardController implements Initializable {
                 project.setNomProjet(nameInput.getText());
             }
         }
-        project.setDateCreation(fxdate.getValue() != null ? fxdate.getValue().atStartOfDay() : null);
+        if (fxdate.getValue() != null && fxdate.getValue().isEqual(LocalDate.now())) {
+            project.setDateCreation(fxdate.getValue().atStartOfDay());
 
-        if (fxDescription.getText().isEmpty()) {
+        } else {
+            dateInputErrorHbox.setVisible(true);
+            TrayNotificationAlert.notif("Date", " Insérer date correcte!!!",
+                    NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
+            DateTest=0;
+        }
+
+        if (fxDescription.getText()== null) {
             descriptionTest = 0;
             descriptionInputErrorHbox.setVisible(true);
         } else {
@@ -206,15 +217,15 @@ public class AddProjectCardController implements Initializable {
                 project.setDescriptionProjet(fxDescription.getText());
             }
         }
-        if (fxBudget.getText().isEmpty()) {
+        if (fxBudget.getText()== null) {
             BudgetTest = 0;
-            descriptionInputErrorHbox.setVisible(true);
+            BudgetInputErrorHbox.setVisible(true);
         } else {
             if (BudgetTest == 1) {
                 project.setBudgetProjet(Double.parseDouble(fxBudget.getText()));
             }
         }
-        if (fxStatut.getText().isEmpty()) {
+        if (fxStatut.getText()== null) {
             StatutTest = 0;
             StatutInputErrorHbox.setVisible(true);
         } else {
@@ -222,7 +233,7 @@ public class AddProjectCardController implements Initializable {
                 project.setStatutProjet(Integer.parseInt(fxStatut.getText()));
             }
         }
-        if (fxCategorie.getText().isEmpty()) {
+        if (fxCategorie.getText()== null) {
             CategorieTest = 0;
             CategorieInputErrorHbox.setVisible(true);
         } else {
@@ -230,7 +241,7 @@ public class AddProjectCardController implements Initializable {
                 project.setCategorie(fxCategorie.getText());
             }
         }
-        if (fxDuree.getText().isEmpty()) {
+        if (fxDuree.getText()== null) {
             DureeTest = 0;
             DureeInputErrorHbox.setVisible(true);
         } else {
@@ -246,8 +257,16 @@ public class AddProjectCardController implements Initializable {
             project.setImg(imageName);
 
         }
-        if (nomTest == 1 && descriptionTest == 1 && BudgetTest == 1 && StatutTest == 1 && CategorieTest == 1
-                && DureeTest == 1 && photoTest == 1) {
+        project.setNomProjet(nameInput.getText());
+        project.setDescriptionProjet(fxDescription.getText());
+        project.setBudgetProjet(Double.parseDouble(fxBudget.getText()));
+        project.setStatutProjet(Integer.parseInt(fxStatut.getText()));
+        project.setCategorie(fxCategorie.getText());
+        project.setDureeProjet(Integer.parseInt(fxDuree.getText()));
+        project.setDateCreation(fxdate.getValue() != null ? fxdate.getValue().atStartOfDay() : null);
+        project.setImg(imageName);
+
+
             IService serviceProject = new ServiceProjet();
             try {
                 serviceProject.ajouter(project);
@@ -261,7 +280,7 @@ public class AddProjectCardController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+
     }
 
     @FXML

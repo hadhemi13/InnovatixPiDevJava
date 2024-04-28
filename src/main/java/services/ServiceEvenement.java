@@ -116,6 +116,31 @@ public class ServiceEvenement implements IService<Evenement> {
         }
     }
 
+    @Override
+    public Evenement getOneEvenement(int idEvenement) throws SQLException {
+        String req = "SELECT * FROM `evenement` where id = ?";
+        PreparedStatement ps = DataSource.getInstance().getCon().prepareStatement(req);
+        ps.setInt(1, idEvenement);
+
+        ResultSet resultSet = ps.executeQuery();
+        Evenement evenement = new Evenement();
+        while (resultSet.next()) {
+            evenement.setId(resultSet.getInt("id"));
+            evenement.setNom(resultSet.getString("nom"));
+            evenement.setImg(resultSet.getString("img"));
+            evenement.setDescription(resultSet.getString("description"));
+            evenement.setDateDebut(resultSet.getTimestamp("date_debut").toLocalDateTime());
+            evenement.setDateFin(resultSet.getTimestamp("date_fin").toLocalDateTime());
+            evenement.setLieu(resultSet.getString("lieu"));
+            evenement.setOrganisateur(resultSet.getString("organisateur"));
+            evenement.setPrix(resultSet.getDouble("prix"));
+            evenement.setLikes(resultSet.getInt("likes"));
+            evenement.setDislikes(resultSet.getInt("dislikes"));
+            evenement.setProjectId(resultSet.getInt("project_id"));
+        }
+        ps.close();
+        return evenement;
+    }
 
     @Override
     public void supprimer(int id) throws SQLException {

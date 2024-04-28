@@ -5,6 +5,17 @@ import java.util.List;
 
 public class Evenement extends AbstractEntity {
     private int id;
+    public static int actionTest = 0;
+
+    public static int getIdEvenement() {
+        return idEvenement;
+    }
+
+    public static void setIdEvenement(int idEvenement) {
+        Evenement.idEvenement = idEvenement;
+    }
+
+    private static int idEvenement;
 
     private static String searchValue;
 
@@ -89,12 +100,12 @@ public class Evenement extends AbstractEntity {
                 '}';
     }
 
-    @Override
+
     public int getId() {
         return id;
     }
 
-    @Override
+
     public void setId(int id) {
         this.id = id;
     }

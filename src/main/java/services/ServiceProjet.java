@@ -1,5 +1,6 @@
 package services;
 
+import Entities.Evenement;
 import Entities.Project;
 import utils.DataSource;
 
@@ -97,6 +98,11 @@ public class ServiceProjet implements IService<Project> {
             preparedStatement.setInt(9, projet.getId());
             preparedStatement.executeUpdate();
         }
+    }
+
+    @Override
+    public Evenement getOneEvenement(int idEvenement) throws SQLException {
+        return null;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package services;
 
 import Entities.Commentaire;
+import Entities.Evenement;
 import utils.DataSource;
 
 import java.sql.PreparedStatement;
@@ -40,6 +41,11 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.setInt(6, commentaire.getId()); // Assuming you have an id field in the commentaire class
             preparedStatement.executeUpdate();
         }
+    }
+
+    @Override
+    public Evenement getOneEvenement(int idEvenement) throws SQLException {
+        return null;
     }
 
 

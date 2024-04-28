@@ -96,8 +96,7 @@
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="600.0">
                             <children>
-                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="updateUserModel-card-title" text="Modifier le Projet"/>
+                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="updateUserModel-card-title" text="Modifier le Projet"/>
                                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
                                       minHeight="-Infinity" minWidth="-Infinity"
                                       onMouseClicked="#close_updateProjectModel" prefHeight="30.0" prefWidth="30.0"
@@ -144,6 +143,7 @@
                             <children>
                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
                                       styleClass="updateUserModel-card-title" text="Détails de projet"/>
+
                                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
                                       minHeight="-Infinity" minWidth="-Infinity"
                                       onMouseClicked="#close_ShowProjectModel" prefHeight="30.0" prefWidth="30.0"

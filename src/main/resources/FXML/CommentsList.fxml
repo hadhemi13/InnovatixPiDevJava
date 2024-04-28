@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
 <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card"
-      stylesheets="@../assets/style/aliStyle.css"
-      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.EvenementsListControllerfront">
+      stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.CommentsListController">
     <children>
         <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0"
                     styleClass="product-card-scrollPane" stylesheets="@../assets/style/aliStyle.css">
             <content>
-                <GridPane fx:id="evenementsListContainerfront">
+                <GridPane fx:id="CommentsListContainer">
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
@@ -26,9 +24,9 @@
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
-                      text="Liste des événements"/>
+                      text="👑Liste des événements👑"/>
                 <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                           minWidth="-Infinity" onKeyTyped="#searchEvenement" prefWidth="250.0"
+                           minWidth="-Infinity" prefWidth="250.0"
                            styleClass="product__list-searchInput">
                     <HBox.margin>
                         <Insets left="20.0"/>
@@ -43,10 +41,42 @@
                         <Image url="@../assets/img/magnifier.png"/>
                     </image>
                 </ImageView>
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="40.0" prefWidth="76.0" styleClass="sort-text"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text"
+                              text="Trier par:"/>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                </HBox>
+
+
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" onMouseClicked="#open_addComment" prefHeight="41.0" prefWidth="50.0"
+                      styleClass="productBtn" translateX="80.0">
+                    <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/img/add-list.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </HBox>
+
             </children>
         </HBox>
+
         <HBox fx:id="qrCodeImgModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity"
-              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#close_QrCodeModel"
+              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
               prefHeight="700.0" prefWidth="1366.0" styleClass="categoriesModel">
             <children>
                 <ImageView fx:id="qrCodeImg" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true"
@@ -80,7 +110,7 @@
                                         <Insets top="20.0"/>
                                     </HBox.margin>
                                     <children>
-                                        <Text fill="#32594a" onMouseClicked="#close_offerModel" strokeType="OUTSIDE"
+                                        <Text fill="#32594a"  strokeType="OUTSIDE"
                                               strokeWidth="0.0" styleClass="closeOffreModelBtn" text="close"/>
                                     </children>
                                 </HBox>
@@ -131,7 +161,17 @@
                                 </HBox>
                             </children>
                         </VBox>
-
+                        <HBox alignment="TOP_RIGHT" layoutX="243.0" layoutY="314.0" prefHeight="100.0"
+                              prefWidth="180.0">
+                            <children>
+                                <Text fx:id="addNewCouponBtn" fill="#32bb6f"
+                                      strokeType="OUTSIDE" strokeWidth="0.0" styleClass="addCouponBtn"
+                                      text="Add New Coupon"/>
+                            </children>
+                            <padding>
+                                <Insets top="15.0"/>
+                            </padding>
+                        </HBox>
 
                         <VBox fx:id="couponForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity"
                               minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0"
@@ -172,8 +212,9 @@
                                 </HBox>
                             </children>
                         </VBox>
+
                         <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0"
-                              strokeType="OUTSIDE" strokeWidth="0.0"
+                               strokeType="OUTSIDE" strokeWidth="0.0"
                               styleClass="closeOffreModelBtn" text="back" translateX="5.0" translateY="-4.0"/>
                     </children>
                 </Pane>

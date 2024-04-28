@@ -5,6 +5,8 @@
  */
 package services;
 
+import Entities.Evenement;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public interface IService<T> {
 
     void modifier (T t) throws SQLException;
 
+    public Evenement getOneEvenement(int idEvenement) throws SQLException;
 
 
   public void supprimer(int id) throws SQLException;

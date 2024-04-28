@@ -1,7 +1,6 @@
 package controllers;
 
 import Entities.Evenement;
-import Entities.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,12 +32,11 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class AddEvenementCardController implements Initializable {
+public class ShowEvenementCardController implements Initializable {
     @FXML
     public TextField fxNom;
     @FXML
@@ -127,49 +125,26 @@ public class AddEvenementCardController implements Initializable {
     private double score;
 
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(Evenement.actionTest);
+        IService serviceEvenement = new ServiceEvenement();
+        Evenement e1 = new Evenement();
+        setEvenementFields(e1);
+        try {
+            List<String> projectNames = new ServiceEvenement().getAllProjectNames();
+            fxProjectName.getItems().addAll(projectNames);
 
-        if (Evenement.actionTest == 0) {
-            update_EvenementBtn.setVisible(false);
 
-        } else {
-            add_new_EvenementBtn.setVisible(false);
-            IService evenementService = new ServiceEvenement();
-            Evenement e1 = new Evenement();
-            try {
-                e1 = evenementService.getOneEvenement(Evenement.getIdEvenement());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            nameInput.setText(e1.getNom());
-            fxLieu.setText(e1.getLieu());
-            descriptionInput.setText(e1.getDescription());
-            prixInput.setText(String.valueOf(e1.getPrix()));
-            LocalDateTime dateDebut = e1.getDateDebut();
-            fxdateDebut.setValue(dateDebut != null ? dateDebut.toLocalDate() : null);
-            LocalDateTime dateFin = e1.getDateFin();
-            fxdateFin.setValue(dateFin != null ? dateFin.toLocalDate() : null);
-            descriptionInput.setText(e1.getDescription());
-            if (e1.getImg() != null) {
-                Image image = new Image(getClass().getResource("/assets/ProductUploads/" + e1.getImg()).toExternalForm());
-                imageInput.setImage(image);
-            } else {
-                Image image = new Image(getClass().getResource("/assets/ProductUploads/" + "pngwing1.com.png").toExternalForm());
-                imageInput.setImage(image);
-            }
-            imageName = e1.getImg();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception as needed
         }
 
     }
 
 
     private void setEvenementFields(Evenement e) {
-
         nameInput.setText(e.getNom());
         fxLieu.setText(e.getLieu());
         descriptionInput.setText(e.getDescription());

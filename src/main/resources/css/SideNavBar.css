@@ -17,6 +17,12 @@
     -fx-background-color: #dc284c;
     -fx-cursor: hand;
 }
+.product__card-btns2 {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #03bfbf;
+    -fx-cursor: hand;
+}
 .logo {
     -fx-fit-height: 50px; /* Hauteur réduite */
     -fx-fit-width: 50px; /* Largeur réduite */
