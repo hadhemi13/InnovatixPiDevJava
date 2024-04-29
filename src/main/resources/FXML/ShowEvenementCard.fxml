@@ -1,430 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0"
-      prefWidth="630.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.AddEvenementCardController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card"
+      stylesheets="@../assets/style/aliStyle.css"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.ShowEvenementCardController">
     <children>
-        <HBox prefHeight="53.0" prefWidth="570.0">
+        <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0"
+                    styleClass="product-card-scrollPane" stylesheets="@../assets/style/aliStyle.css">
+            <content>
+                <GridPane fx:id="evenementsListContainerfront">
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
-                <Text fx:id="productName" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                      styleClass="product__card-title" text="Détails d'evenement">
-                    <font>
-                        <Font name="Montserrat ExtraBold" size="19.0"/>
-                    </font>
-                </Text>
-            </children>
-            <padding>
-                <Insets bottom="10.0" left="16.0" top="26.0"/>
-            </padding>
-        </HBox>
-        <HBox prefHeight="33.0" prefWidth="570.0">
-            <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-desc"
-                      text="Ajoutez les détails de votre evenement pour aider les clients à découvrir">
-                    <font>
-                        <Font name="Montserrat Regular" size="13.0"/>
-                    </font>
-                </Text>
-            </children>
-            <padding>
-                <Insets bottom="27.0" left="16.0"/>
-            </padding>
-        </HBox>
-        <Line endX="488.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
-            <VBox.margin>
-                <Insets bottom="27.0" left="16.0" right="16.0"/>
-            </VBox.margin>
-        </Line>
-
-
-
-        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0"/>
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Nom d'evenement">
-                            <HBox.margin>
-                                <Insets right="2.0"/>
-                            </HBox.margin>
-                        </Text>
-                    </children>
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
+                      text="Liste des événements"/>
+                <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                           minWidth="-Infinity" onKeyTyped="#searchEvenement" prefWidth="250.0"
+                           styleClass="product__list-searchInput">
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
                     <padding>
-                        <Insets bottom="10.0"/>
+                        <Insets left="37.0"/>
                     </padding>
-                </HBox>
-                <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0"
-                           promptText="Nom" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets/>
-                    </VBox.margin>
                 </TextField>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true"
+                           translateX="-240.0">
+                    <image>
+                        <Image url="@../assets/img/magnifier.png"/>
+                    </image>
+                </ImageView>
             </children>
-        </VBox>
-        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="183.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0"/>
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Description">
-                            <HBox.margin>
-                                <Insets right="2.0"/>
-                            </HBox.margin>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0"/>
-                    </padding>
-                </HBox>
-                <TextArea fx:id="descriptionInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0"
-                          prefWidth="200.0" promptText="Description" styleClass="product__add-input-textArea"/>
-            </children>
-        </VBox>
-    <HBox>
-        <VBox prefHeight="131.0" prefWidth="299.0">
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date de début">
-                            <HBox.margin>
-                                <Insets right="2.0" />
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" />
-                    </padding>
-                </HBox>
-                <DatePicker fx:id="fxdateDebut" maxHeight="-Infinity" minHeight="-Infinity"  prefHeight="40.0" promptText="Number" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </DatePicker>
-
-            </children>
-            <padding>
-                <Insets left="10.0" />
-            </padding>
-        </VBox>
-
-        <VBox prefHeight="131.0" prefWidth="299.0">
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date de fin">
-                            <HBox.margin>
-                                <Insets right="2.0" />
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" />
-                    </padding>
-                </HBox>
-                <DatePicker fx:id="fxdateFin" maxHeight="-Infinity" minHeight="-Infinity"  prefHeight="40.0" promptText="Number" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </DatePicker>
-
-            </children>
-            <padding>
-                <Insets left="10.0" />
-            </padding>
-        </VBox>
-    </HBox>
-        <HBox>
-        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0"/>
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Lieu">
-                            <HBox.margin>
-                                <Insets right="2.0"/>
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0"/>
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0"/>
-                    </padding>
-                </HBox>
-                <TextField fx:id="fxLieu" maxHeight="-Infinity" minHeight="-Infinity"
-                           prefHeight="40.0" promptText="Nom" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets/>
-                    </VBox.margin>
-                </TextField>
-                <HBox fx:id="LieuInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
-                      stylesheets="@../assets/style/aliStyle.css">
-                    <children>
-                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
-                              wrappingWidth="23.18400001525879"/>
-                        <Text fx:id="LieuInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
-                            <HBox.margin>
-                                <Insets top="5.0"/>
-                            </HBox.margin>
-                        </Text>
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
-        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0"/>
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Prix">
-                            <HBox.margin>
-                                <Insets right="2.0"/>
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0"/>
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0"/>
-                    </padding>
-                </HBox>
-                <TextField fx:id="prixInput" maxHeight="-Infinity" minHeight="-Infinity"
-                           prefHeight="40.0" promptText="Nom" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets/>
-                    </VBox.margin>
-                </TextField>
-                <HBox fx:id="nameInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
-                      stylesheets="@../assets/style/aliStyle.css">
-                    <children>
-                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
-                              wrappingWidth="23.18400001525879"/>
-                        <Text fx:id="nameInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
-                            <HBox.margin>
-                                <Insets top="5.0"/>
-                            </HBox.margin>
-                        </Text>
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
         </HBox>
-
-        <HBox prefHeight="6.0" prefWidth="600.0">
-        <children>
-            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                  styleClass="product__add-input-label" text="sélectionner un projet">
-                <HBox.margin>
-                    <Insets right="2.0"/>
-                </HBox.margin>
-            </Text>
-            <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                <font>
-                    <Font name="Montserrat Regular" size="16.0"/>
-                </font>
-            </Text>
-        </children>
-        <ComboBox fx:id="fxProjectName" layoutX="100.0" layoutY="299.0" prefHeight="25.0" prefWidth="200.0"/>
-        </HBox>
-        <Line endX="498.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
-            <VBox.margin>
-                <Insets bottom="30.0" left="16.0"/>
-            </VBox.margin>
-        </Line>
-        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="263.0" prefWidth="680.0">
-            <padding>
-                <Insets left="16.0" right="16.0"/>
-            </padding>
+        <HBox fx:id="qrCodeImgModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity"
+              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#close_QrCodeModel"
+              prefHeight="700.0" prefWidth="1366.0" styleClass="categoriesModel">
             <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
+                <ImageView fx:id="qrCodeImg" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true"
+                           preserveRatio="true"/>
+            </children>
+        </HBox>
+        <HBox fx:id="offreModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity"
+              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0"
+              styleClass="categoriesModel">
+            <children>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                      prefHeight="366.0" prefWidth="450.0" style="-fx-background-color: #fff;"
+                      styleClass="categoriesModel-card">
                     <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Image">
-                            <HBox.margin>
-                                <Insets right="2.0"/>
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0"/>
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0"/>
-                    </padding>
-                </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0">
-                    <children>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                              minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0"
-                              styleClass="product__add-img-container">
+                        <HBox alignment="CENTER_LEFT" prefHeight="129.0" prefWidth="486.0">
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="30.0" right="30.0"/>
+                            </padding>
                             <children>
-                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true"
+                                           translateY="20.0">
                                     <image>
-                                        <Image url="@../../java/assets/img/cloud-computing.png"/>
+                                        <Image url="@../assets/img/gift1.gif"/>
                                     </image>
                                 </ImageView>
-                            </children>
-                        </VBox>
-                        <HBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                              prefHeight="100.0" prefWidth="200.0" translateX="-200.0">
-                            <children>
-                                <ImageView fx:id="imageInput" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true"
-                                           preserveRatio="true"/>
+                                <HBox alignment="TOP_RIGHT" prefHeight="109.0" prefWidth="297.0">
+                                    <HBox.margin>
+                                        <Insets top="20.0"/>
+                                    </HBox.margin>
+                                    <children>
+                                        <Text fill="#32594a" onMouseClicked="#close_offerModel" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" styleClass="closeOffreModelBtn" text="close"/>
+                                    </children>
+                                </HBox>
                             </children>
                         </HBox>
-                        <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                              minWidth="-Infinity" prefHeight="200.0" prefWidth="218.0" translateX="-200.0">
+                        <Line endX="391.0" layoutX="31.0" layoutY="493.0" startX="-16.0" stroke="#defee6"
+                              strokeWidth="2.0" translateY="-180.0"/>
+                        <VBox fx:id="reductionForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity"
+                              minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0">
+                            <padding>
+                                <Insets left="20.0" right="16.0"/>
+                            </padding>
                             <children>
-                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text="Résolution : 1920x1080 px">
-                                    <font>
-                                        <Font name="Montserrat Regular" size="16.0"/>
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets bottom="5.0"/>
-                                    </VBox.margin>
-                                </Text>
-                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text="Types de fichiers pris en charge : jpg,">
-                                    <font>
-                                        <Font name="Montserrat Regular" size="16.0"/>
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets bottom="5.0"/>
-                                    </VBox.margin>
-                                </Text>
-                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text=".jpeg ,. gif ou .png Pas de texte">
-                                    <font>
-                                        <Font name="Montserrat Regular" size="16.0"/>
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets bottom="5.0"/>
-                                    </VBox.margin>
-                                </Text>
-                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                                      styleClass="product__add-desc-img" text="sur l'image.">
-                                    <font>
-                                        <Font size="16.0"/>
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets bottom="5.0"/>
-                                    </VBox.margin>
-                                </Text>
-                                <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity"
-                                      minHeight="-Infinity" onMouseClicked="#ajouter_image" prefHeight="48.0"
-                                      prefWidth="200.0" styleClass="product__add-img-btn">
+                                <HBox prefHeight="6.0" prefWidth="538.0">
                                     <children>
-                                        <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true"
-                                                   preserveRatio="true" translateY="-3.0">
-                                            <image>
-                                                <Image url="@../assets/img/upload-big-arrow.png"/>
-                                            </image>
-                                        </ImageView>
-                                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              styleClass="product__add-textBtn" text="Choisir une photo">
-                                            <font>
-                                                <Font name="Montserrat Bold" size="16.0"/>
-                                            </font>
+                                        <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="product__add-input-label" text="Reduction %">
                                             <HBox.margin>
-                                                <Insets left="20.0"/>
+                                                <Insets right="2.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <TextField fx:id="reductionInput" maxHeight="-Infinity" maxWidth="-Infinity"
+                                           minHeight="-Infinity" minWidth="-Infinity"
+                                           prefHeight="40.0" prefWidth="225.0" promptText="Reduction %"
+                                           styleClass="product__add-input">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </TextField>
+                                <HBox fx:id="reductionInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
+                                      styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
+                                    <children>
+                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                                              wrappingWidth="23.18400001525879"/>
+                                        <Text fx:id="reductionInputError" fill="#dc284c" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="reduction can not be negative !">
+                                            <HBox.margin>
+                                                <Insets top="5.0"/>
                                             </HBox.margin>
                                         </Text>
                                     </children>
                                 </HBox>
                             </children>
-                            <HBox.margin>
-                                <Insets left="30.0"/>
-                            </HBox.margin>
                         </VBox>
-                    </children>
-                </HBox>
-                <HBox fx:id="photoInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
-                      stylesheets="@../../java/assets/style/aliStyle.css">
-                    <children>
-                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
-                              wrappingWidth="23.18400001525879"/>
-                        <Text fx:id="photoInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="Choisissez une photo !">
-                            <HBox.margin>
-                                <Insets top="5.0"/>
-                            </HBox.margin>
-                        </Text>
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
-        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
 
-            <children>
-                <Button fx:id="add_new_EvenementBtn" mnemonicParsing="false" onMouseClicked="#addNewEvenement"
-                        styleClass="product__add-new-productBtn" text="Ajouter un nouveau evenement" textFill="WHITE">
-                    <font>
-                        <Font name="Montserrat Regular" size="16.0"/>
-                    </font>
-                    <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
-                    </padding>
-                </Button>
+
+                        <VBox fx:id="couponForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity"
+                              minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0"
+                              stylesheets="@../assets/style/aliStyle.css">
+                            <padding>
+                                <Insets left="20.0" right="16.0"/>
+                            </padding>
+                            <children>
+                                <HBox prefHeight="6.0" prefWidth="538.0">
+                                    <children>
+                                        <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="product__add-input-label" text="Email">
+                                            <HBox.margin>
+                                                <Insets right="2.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <ComboBox fx:id="couponCombobox" minHeight="-Infinity" prefHeight="43.0"
+                                          prefWidth="223.0" promptText="Select email" styleClass="product__add-comboBox"
+                                          stylesheets="@../assets/style/aliStyle.css"/>
+                                <HBox fx:id="couponInputErrorHbox" prefHeight="28.0" prefWidth="405.0"
+                                      styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
+                                    <children>
+                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                                              wrappingWidth="23.18400001525879"/>
+                                        <Text fx:id="couponInputError" fill="#dc284c" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="phone number can not be negative !">
+                                            <HBox.margin>
+                                                <Insets top="5.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0"
+                              strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="closeOffreModelBtn" text="back" translateX="5.0" translateY="-4.0"/>
+                    </children>
+                </Pane>
             </children>
-            <VBox.margin>
-                <Insets/>
-            </VBox.margin>
         </HBox>
-        <!--        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">-->
-        <!--            <children>-->
-        <!--                <Button fx:id="update_EvenementBtn" mnemonicParsing="false" onMouseClicked="#updateEvenement"-->
-        <!--                        styleClass="product__add-new-productBtn" text="Mettre à jour le produit" textFill="WHITE"-->
-        <!--                        translateY="-46.0">-->
-        <!--                    <font>-->
-        <!--                        <Font name="Montserrat Regular" size="16.0"/>-->
-        <!--                    </font>-->
-        <!--                    <padding>-->
-        <!--                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>-->
-        <!--                    </padding>-->
-        <!--                </Button>-->
-        <!--            </children>-->
-        <!--        </HBox>-->
     </children>
-</VBox>
+</Pane>

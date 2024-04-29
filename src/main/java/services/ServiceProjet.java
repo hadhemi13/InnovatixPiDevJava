@@ -138,4 +138,9 @@ public class ServiceProjet implements IService<Project> {
         return projets;
     }
 
+    @Override
+    public Project afficher1(int id) throws SQLException {
+        return null;
+    }
+
 }

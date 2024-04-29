@@ -77,4 +77,9 @@ public class ServiceCommentaire implements IService<Commentaire> {
         }
         return commentaires;
     }
+
+    @Override
+    public Commentaire afficher1(int id) throws SQLException {
+        return null;
+    }
 }

@@ -119,9 +119,9 @@ public class OneEvenementListCardController {
         showEvenement.setId(String.valueOf(evenement.getId()));
 
         showEvenement.setOnMouseClicked(event -> {
-            System.out.println("ID du Evenement à modifier : " + evenement.getId());
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenement.fxml"));
+            System.out.println("ID du Evenement : " + evenement.getId());
+            Evenement.setIdEvenement(evenement.getId());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
             try {
                 Parent root = loader.load();
 

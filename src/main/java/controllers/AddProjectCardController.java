@@ -213,7 +213,6 @@ public class AddProjectCardController implements Initializable {
                     NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
             DateTest=0;
         }
-
         if (fxDescription.getText()== null) {
             descriptionTest = 0;
             descriptionInputErrorHbox.setVisible(true);

@@ -4,14 +4,17 @@ import Entities.Evenement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -37,200 +40,165 @@ import java.util.ResourceBundle;
 
 
 public class ShowEvenementCardController implements Initializable {
-    @FXML
-    public TextField fxNom;
-    @FXML
-    private TextField fxDesc;
-    @FXML
-    private DatePicker fxdateDebut;
-    @FXML
-    private DatePicker fxdateFin;
-    @FXML
-    private TextField fxLieu;
 
     @FXML
-    private TextField nameInput;
+    private GridPane evenementsListContainerfront;
 
     @FXML
-    private TextArea descriptionInput;
+    private Pane content_area;
 
     @FXML
-    private TextField prixInput;
-    @FXML
-    private Button add_new_EvenementBtn;
+    private HBox categoriesModel;
 
     @FXML
-    private Button update_EvenementBtn;
+    private TextField productSearchInput;
+    @FXML
+    private GridPane categoriesListContainer;
 
     @FXML
-    private ImageView imageInput;
+    private TextField evenementsearchInput;
 
     @FXML
-    private HBox choose_photoBtn;
+    private Button stockBtn;
 
     @FXML
-    private Text nameInputError;
+    private ComboBox<String> categoryInput;
 
     @FXML
-    private Text descriptionInputError;
+    private ImageView qrCodeImg;
 
     @FXML
-    private Text categoryInputError;
+    private HBox qrCodeImgModel;
 
     @FXML
-    private Text numberInputError;
+    private HBox offreModel;
 
     @FXML
-    private Text priceInputError;
+    private TextField reductionInput;
 
     @FXML
-    private Text pointsInputError;
+    private TextField couponInput;
 
     @FXML
-    private Text photoInputError;
+    private Text reductionInputError;
 
     @FXML
-    private HBox descriptionInputErrorHbox;
+    private Text couponInputError;
 
     @FXML
-    private HBox categoryInputErrorHbox;
+    private Text backToReductionBtn;
 
     @FXML
-    private HBox numberInputErrorHbox;
+    private Text addNewCouponBtn;
 
     @FXML
-    private HBox priceInputErrorHbox;
+    private HBox reductionInputErrorHbox;
 
     @FXML
-    private HBox pointsInputErrorHbox;
+    private HBox couponInputErrorHbox;
 
     @FXML
-    private HBox photoInputErrorHbox;
-    @FXML
-    private ComboBox<String> fxProjectName;
+    private VBox couponForm;
 
+    @FXML
+    private VBox reductionForm;
+
+    @FXML
+    private HBox submitCouponBtn;
+
+    @FXML
+    private HBox submitOfferBtn;
+
+    @FXML
+    private ComboBox<String> couponCombobox;
 
     private int categId = -1;
-    private File selectedImageFile;
-    private String imageName = null;
-    private int nomTest = 0;
-    private int descriptionTest = 0;
-    private int categoryTest = 0;
-    private int numberTest = 0;
-    private int priceTest = 0;
-    private int pointsTest = 0;
-    private int photoTest = 0;
-    private String etiquette = null;
 
-    private double score;
+    private int sortValue = -1; // 1: sort by stock *** 0: filter by category *** 2: filter by category and sort
+    // by stock
+    private int submitOfferTest = 0;
+    private int submitCouponTest = 0;
+
+    private static int categoryModelShow = 0;
+    private String selectedOption = null;
+
+    public static int getCategoryModelShow() {
+        return categoryModelShow;
+    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        IService serviceEvenement = new ServiceEvenement();
-        Evenement e1 = new Evenement();
-        setEvenementFields(e1);
-        try {
-            List<String> projectNames = new ServiceEvenement().getAllProjectNames();
-            fxProjectName.getItems().addAll(projectNames);
+        qrCodeImgModel.setVisible(false);
+        offreModel.setVisible(false);
+        reductionInputErrorHbox.setVisible(false);
+        couponForm.setVisible(false);
+        couponInputErrorHbox.setVisible(false);
+        backToReductionBtn.setVisible(false);
 
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle the exception as needed
-        }
-
-    }
-
-
-    private void setEvenementFields(Evenement e) {
-        nameInput.setText(e.getNom());
-        fxLieu.setText(e.getLieu());
-        descriptionInput.setText(e.getDescription());
-        prixInput.setText(String.valueOf(e.getPrix()));
-        LocalDateTime dateDebut = e.getDateDebut();
-        fxdateDebut.setValue(dateDebut != null ? dateDebut.toLocalDate() : null);
-        LocalDateTime dateFin = e.getDateFin();
-        fxdateFin.setValue(dateFin != null ? dateFin.toLocalDate() : null);
-        descriptionInput.setText(e.getDescription());
-        if (e.getImg() != null) {
-            Image image = new Image(getClass().getResource("/assets/ProductUploads/" + e.getImg()).toExternalForm());
-            imageInput.setImage(image);
-        } else {
-            Image image = new Image(getClass().getResource("/assets/ProductUploads/" + "pngwing1.com.png").toExternalForm());
-            imageInput.setImage(image);
-        }
-        imageName = e.getImg();
-    }
-
-    private void showNotification(String title, String message, NotificationType type) {
-        TrayNotificationAlert.notif(title, message, type, AnimationType.POPUP, Duration.millis(2500));
-    }
-
-    private void switchToEvenementsList(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
-        Parent root = loader.load();
-        Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-        contentArea.getChildren().clear();
-        contentArea.getChildren().add(root);
     }
 
     @FXML
-    void addNewEvenement(MouseEvent event) throws SQLException {
-        Evenement evenement = new Evenement();
+    void searchEvenement() throws IOException, SQLException {
+        this.setEvenementGridPaneList();
+    }
 
-         int projectId = new ServiceEvenement().getProjectIdByName("Ayoub");
-         evenement.setNom(nameInput.getText());
-        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
-        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
-        evenement.setLieu(fxLieu.getText());
-        evenement.setDescription(descriptionInput.getText());
-        evenement.setPrix(Double.parseDouble(prixInput.getText()));
-        evenement.setImg(imageName);
+    @FXML
+    private void open_addEvenement(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
+
+    }
+
+    @FXML
+    void open_CategoriesModel(MouseEvent event) {
+        categoriesModel.setVisible(true);
+    }
+
+    @FXML
+    void close_CategoriesModel(MouseEvent event) {
+        categoriesModel.setVisible(false);
+        EvenementsListControllerfront.setCategoryModelShow(0);
+    }
+
+    private void setEvenementGridPaneList() throws SQLException {
         IService evenementService = new ServiceEvenement();
+        Evenement e1 = new Evenement();
+
+        e1 = evenementService.getOneEvenement(Evenement.getIdEvenement());
+
+        Evenement evenement = (Evenement) evenementService.afficher1(Evenement.getIdEvenement());
+        int column = 0;
+        int row = 1;
         try {
-            evenementService.ajouter1(evenement,projectId);
-            showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
-            switchToEvenementsList(event);
+                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
+                HBox oneEvenementCard = fxmlLoader.load();
+                OneEvenementListCardControllerfront evenementCardController = fxmlLoader.getController();
+                evenementCardController.setEvenementData(evenement);
+                if (column == 1) {
+                    column = 0;
+                    ++row;
+                }
+                evenementsListContainerfront.add(oneEvenementCard, column++, row);
+                GridPane.setMargin(oneEvenementCard, new Insets(0, 10, 25, 10));
+                oneEvenementCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @FXML
-    void ajouter_image(MouseEvent event) throws IOException {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-        if (selectedImageFile != null) {
-            Image image = new Image(selectedImageFile.toURI().toString());
-            imageInput.setImage(image);
-            imageName = selectedImageFile.getName();
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
-            Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-            photoTest = 1;
-            photoInputErrorHbox.setVisible(false);
-        }
+    void close_QrCodeModel(MouseEvent event) {
+        qrCodeImgModel.setVisible(false);
     }
+
     @FXML
-    void updateEvenement(MouseEvent event) throws IOException, SQLException {
-        Evenement evenement = new Evenement();
-        ServiceEvenement eventService = new ServiceEvenement();
-        evenement.setNom(nameInput.getText());
-        evenement.setLieu(fxLieu.getText());
-        evenement.setDescription(descriptionInput.getText());
-        evenement.setPrix(Double.parseDouble(prixInput.getText()));
-        evenement.setImg(imageName);
-        ServiceEvenement serviceEvenement = new ServiceEvenement();
-        try {
-            serviceEvenement.modifier(evenement);
-            showNotification("Evenement", "Evenement updated successfully.", NotificationType.SUCCESS);
-            switchToEvenementsList(event);
-        } catch (DateTimeParseException e) {
-            e.printStackTrace();
-            showNotification("Error", "Incorrect date format. Please enter dates in yyyy-MM-dd HH:mm:ss format.", NotificationType.ERROR);
-        }
+    void close_offerModel(MouseEvent event) {
+        offreModel.setVisible(false);
     }
+
 }

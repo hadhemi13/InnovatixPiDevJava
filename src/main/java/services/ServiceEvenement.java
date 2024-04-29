@@ -153,6 +153,37 @@ public class ServiceEvenement implements IService<Evenement> {
         }
     }
 
+
+
+    @Override
+    public Evenement afficher1(int id) throws SQLException {
+        String query = "SELECT * FROM evenement WHERE id = ?";
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query)) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    Evenement evenement = new Evenement();
+                    evenement.setId(resultSet.getInt("id"));
+                    evenement.setNom(resultSet.getString("nom"));
+                    evenement.setImg(resultSet.getString("img"));
+                    evenement.setDescription(resultSet.getString("description"));
+                    evenement.setDateDebut(resultSet.getTimestamp("date_debut").toLocalDateTime());
+                    evenement.setDateFin(resultSet.getTimestamp("date_fin").toLocalDateTime());
+                    evenement.setLieu(resultSet.getString("lieu"));
+                    evenement.setOrganisateur(resultSet.getString("organisateur"));
+                    evenement.setPrix(resultSet.getDouble("prix"));
+                    evenement.setLikes(resultSet.getInt("likes"));
+                    evenement.setDislikes(resultSet.getInt("dislikes"));
+                    evenement.setProjectId(resultSet.getInt("project_id"));
+                    return evenement;
+                } else {
+                    throw new SQLException("Evenement not found");
+                }
+
+            }
+        }
+    }
+
     @Override
     public List<Evenement> afficher() throws SQLException {
         List<Evenement> evenements = new ArrayList<>();

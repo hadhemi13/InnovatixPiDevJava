@@ -8,7 +8,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneEvenementListCardControllerfront">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.OneEvenementListCardControllerfront">
     <children>
         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="948.0" styleClass="productDetails__Container">
             <children>
