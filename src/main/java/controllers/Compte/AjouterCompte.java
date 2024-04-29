@@ -6,12 +6,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
 import services.ValidSaisie;
@@ -338,8 +340,10 @@ public class AjouterCompte implements Initializable {
         serviceCompte.ajouter(compte);
 
         // Chargement de la vue de succès
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Captcha.fxml"));
         Pane demandeChequeListParent = loader.load();
+
+
 
         // Réinitialisation des champs après l'ajout
         resetFields();

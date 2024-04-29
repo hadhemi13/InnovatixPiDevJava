@@ -1,6 +1,7 @@
 package controllers.Cheque;
 
 import Entities.Cheque;
+import controllers.CaptureEcran;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.ChequeItemsController;
 import controllers.Virement.AjouterVirementCard;
@@ -10,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -54,6 +56,12 @@ public class DemandeChequeListClient  implements  Initializable {
     private HBox userTableHead;
     private Cheque cheque;
     private Throwable e;
+
+    @FXML
+    private Button captureEcran;
+
+    @FXML
+    private Button Refresh;
 
 
     @FXML
@@ -108,8 +116,30 @@ public class DemandeChequeListClient  implements  Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        Refresh.setOnAction((ActionEvent event) -> {
+        //    ShowListe();
+        });
 
         loadCheques(list);
+        captureEcran.setOnAction(event -> {
+            CaptureEcran cap = new CaptureEcran();
+            try {
+                cap.capturer(content_area);
+                System.out.println("La capture d'écran a été générée avec succès !");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Capture d'écran");
+                alert.setHeaderText("Capture d'écran générée avec succès !");
+                alert.showAndWait();
+            } catch (Exception ex) {
+                System.out.println("Erreur lors de la capture d'écran : " + ex.getMessage());
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Erreur lors de la capture d'écran !");
+                alert.setContentText("Une erreur est survenue lors de la capture d'écran : " + ex.getMessage());
+                alert.showAndWait();
+            }
+        });
+
     }
 
     private void loadCheques(List<Cheque> cheques) {
@@ -164,6 +194,10 @@ public class DemandeChequeListClient  implements  Initializable {
 
     public void SearchCheque(KeyEvent keyEvent) {
     }
+
+
+
+
 
 }
 

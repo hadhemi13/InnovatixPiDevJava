@@ -2245,3 +2245,10 @@
     -fx-background-color: #fff;
     -fx-border-color: #fff;
 }
+.AddBtnCapt {
+    -fx-background-color: #43882b;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-transition: all 0.5s ease;
+    -fx-cursor: hand;
+}

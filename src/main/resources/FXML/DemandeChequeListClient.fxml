@@ -17,25 +17,25 @@
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="86.0" prefWidth="1205.0">
             <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Chéque Bancaires ">
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Chéque Bancaires " textAlignment="CENTER" translateX="-20.0" wrappingWidth="271.08682775497437">
                     <font>
-                        <Font name="Bell MT" size="22.0" />
+                        <Font name="Bell MT" size="24.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="30.0" />
                     </HBox.margin></Text>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="90.0">
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
                <image>
                   <Image url="@../img/magnifier.png" />
                </image>
             </ImageView>
-            <TextField fx:id="ChequeSearch" onKeyTyped="#SearchCheque" prefHeight="27.0" prefWidth="202.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css">
+            <TextField fx:id="ChequeSearch" onKeyTyped="#SearchCheque" prefHeight="27.0" prefWidth="210.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="-30.0">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
             </TextField>
 
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" wrappingWidth="113.8538818359375">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="-30.0" wrappingWidth="113.8538818359375">
                     <HBox.margin>
                         <Insets left="20.0" right="10.0" />
                     </HBox.margin>
@@ -43,14 +43,32 @@
                         <Font size="22.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" prefWidth="185.0" promptText="Bénéficiaire " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
+                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" prefWidth="185.0" promptText="Bénéficiaire " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-30.0">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
                     <padding>
                         <Insets top="4.0" />
                     </padding></ComboBox>
-                <Button fx:id="chequebtn" mnemonicParsing="false" onMouseClicked="#AjouterC" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css" translateX="-40.0">
+            <Button fx:id="Refresh" mnemonicParsing="false" prefHeight="35.0" prefWidth="41.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" translateX="-10.0">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/symbole-de-recyclage.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="captureEcran" mnemonicParsing="false" prefHeight="39.0" prefWidth="135.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" text="Capturer" textFill="#fcfcfc" translateX="10.0">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/capturer (1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+                <Button fx:id="chequebtn" mnemonicParsing="false" onMouseClicked="#AjouterC" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css" translateX="-50.0">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                             <image>

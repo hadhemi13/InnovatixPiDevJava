@@ -94,10 +94,13 @@ public class captchaController  implements Initializable{
             tray.showAndDismiss(Duration.millis(3000));
 
             //     try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
             CaptchaPane.getChildren().removeAll();
             CaptchaPane.getChildren().setAll(fxml);
 //            stage.show();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+
 //        } catch (IOException ex) {
 //            Logger.getLogger(Agent_mainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,7 +132,7 @@ public class captchaController  implements Initializable{
     @FXML
     void FormAJoutBack(ActionEvent event) throws IOException {
 
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/Front.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
         CaptchaPane.getChildren().removeAll();
         CaptchaPane.getChildren().setAll(fxml);
 
