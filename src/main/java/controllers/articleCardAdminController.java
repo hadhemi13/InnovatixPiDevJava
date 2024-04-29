@@ -71,17 +71,17 @@ public class articleCardAdminController implements Initializable {
     }
 
 
-public void initializeData(Article article) {
-    ServiceArticle serviceArticle = new ServiceArticle();
-    if (article != null) {
-        titreArtFront.setText(article.getTitre_art());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String formattedDate = article.getDate_pub_art().format(formatter);
-        datepubArt.setText(formattedDate);
-        contenuArtFront.setText(article.getContenu_art());
-        imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+    public void initializeData(Article article) {
+        ServiceArticle serviceArticle = new ServiceArticle();
+        if (article != null) {
+            titreArtFront.setText(article.getTitre_art());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String formattedDate = article.getDate_pub_art().format(formatter);
+            datepubArt.setText(formattedDate);
+            contenuArtFront.setText(article.getContenu_art());
+            imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
 
-    }
+        }
 
 
 
@@ -137,24 +137,24 @@ public void initializeData(Article article) {
     @FXML
     void deleteArtBtn(MouseEvent event) {
 
-        }
+    }
 
 
 
-@FXML
-void modifierArt(MouseEvent event) throws IOException {
+    @FXML
+    void modifierArt(MouseEvent event) throws IOException {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-    Parent editArticlePopupParent = loader.load();
-    ModifierArticleController modifyArticleController = loader.getController();
-    ModifierArticleController modifierArticleController = loader.getController();
-    modifierArticleController.initData(article); // Passer l'article à modifier
-    Stage stage = new Stage();
-    stage.initModality(Modality.WINDOW_MODAL);
-    stage.initOwner(((Node) event.getSource()).getScene().getWindow());
-    stage.setScene(new Scene(editArticlePopupParent));
-    stage.showAndWait();
-}
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+        Parent editArticlePopupParent = loader.load();
+        ModifierArticleController modifyArticleController = loader.getController();
+        ModifierArticleController modifierArticleController = loader.getController();
+        modifierArticleController.initData(article); // Passer l'article à modifier
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+        stage.setScene(new Scene(editArticlePopupParent));
+        stage.showAndWait();
+    }
 
 
 

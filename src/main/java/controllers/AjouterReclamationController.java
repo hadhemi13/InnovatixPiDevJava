@@ -15,16 +15,23 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import services.ServiceReclamation;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class AjouterReclamationController implements Initializable {
 
@@ -133,4 +140,31 @@ public class AjouterReclamationController implements Initializable {
         }
     }
 
+
+    public void addpieceJBtn(MouseEvent mouseEvent) {
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Choisir un fichier PDF");
+//        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+//        File selectedPDFFile = fileChooser.showOpenDialog(ajouterPiece.getScene().getWindow());
+//        if (selectedPDFFile != null) {
+//            // Générer un nom de fichier unique pour le PDF
+//            String uniqueID = UUID.randomUUID().toString();
+//            String extension = ".pdf";
+//            String pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
+//
+//            // Définir le répertoire de destination pour les PDF téléchargés
+//            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+//
+//            // Créer le chemin de destination pour le PDF
+//            Path destination = (Path) Paths.get(destinationFolder, pdfName);
+//
+//            try {
+//                // Copier le fichier sélectionné vers le dossier de destination
+//                Files.copy(selectedPDFFile.toPath(), (java.nio.file.Path) destination, StandardCopyOption.REPLACE_EXISTING);
+//            } catch (IOException e) {
+//                // Gérer les erreurs de copie
+//                e.printStackTrace();
+//            }
+//        }
+    }
 }

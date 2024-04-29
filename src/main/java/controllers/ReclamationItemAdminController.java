@@ -16,8 +16,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceReclamation;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -104,10 +108,25 @@ public class ReclamationItemAdminController implements Initializable {
         RecItemDepText.setText(reclamation.getDep_rec());
         RecItemObjet.setText(reclamation.getObjet_rec());
         RecItemMail.setText(reclamation.getAdr_rec());
+        RecItemPieceJ.setOnMouseClicked(this::openArticleImage);
 
 
 
 
+    }
+    private void openArticleImage(MouseEvent mouseEvent) {
+        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", reclamation.getPiece_jrec());
+
+        try {
+            File file = destination.toFile();
+            if (file.exists()) {
+                Desktop.getDesktop().open(file);
+            } else {
+                System.out.println("File not found: " + destination);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     void RecReplyBtn(MouseEvent event) throws IOException {
