@@ -324,7 +324,7 @@ public class AjouterVirementCard implements Initializable {
         // Date Now
         LocalDate selectedDate = LocalDate.now();
         // Create a new instance of cheque from View
-        String image="admin";
+        String image=imageName;
         Integer Rib = 345678644;
         String type_virement=selectedType;
         System.out.println(type_virement);
@@ -347,7 +347,7 @@ public class AjouterVirementCard implements Initializable {
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
         //String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number
-        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decision,image,phone_number);
+        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decision,imageName,phone_number);
         ServiceVirement serviceVirement = new ServiceVirement();
         serviceVirement.ajouterV(virement1);
 
@@ -422,7 +422,5 @@ public class AjouterVirementCard implements Initializable {
             }
         }
 
-        public void ajouter_imageV (MouseEvent mouseEvent){
-        }
     }
 

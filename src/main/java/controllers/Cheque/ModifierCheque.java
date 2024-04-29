@@ -30,6 +30,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.UUID;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class ModifierCheque implements Initializable {
 
@@ -122,12 +123,14 @@ public class ModifierCheque implements Initializable {
 
     @FXML
     private HBox updateBtnContainer;
+    @FXML
+    private Button update_Btn;
 
     @FXML
     private HBox addReviewsModel;
     private Object value;
     private Object Collecte;
-
+    public static int idy;
 
     @FXML
     void ajouter_image(MouseEvent event) {
@@ -229,11 +232,19 @@ public class ModifierCheque implements Initializable {
         tel.setText(String.valueOf(cheque.getTelephone()));
         montant.setText(String.valueOf(cheque.getMontant()));
         Cin.setText(String.valueOf(cheque.getCin()));
-        if (cheque != null) {
-            // Charger et afficher l'image du chèque
-            if (cheque.getPhoto_cin() != null && !cheque.getPhoto_cin().isEmpty()) {
-                Image image = new Image(cheque.getPhoto_cin());
-                imageInput.setImage(image);
+        if (cheque.getPhoto_cin() != null && !cheque.getPhoto_cin().isEmpty()) {
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", cheque.getPhoto_cin());
+            if (Files.exists(destination)) {
+                try {
+                    Image image = new Image(destination.toUri().toString());
+                    imageInput.setImage(image);
+                } catch (Exception e) {
+                    System.err.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                    // Gérer l'erreur de chargement de l'image ici
+                }
+            } else {
+                System.err.println("Le fichier image n'existe pas : " + destination);
+                // Gérer l'absence du fichier image ici
             }
         }
     }
@@ -249,15 +260,32 @@ public class ModifierCheque implements Initializable {
             montant.setText(String.valueOf(cheque.getMontant()));
             // Assurez-vous que l'image de l'article n'est pas vide
             if (cheque.getPhoto_cin() != null && !cheque.getPhoto_cin().isEmpty()) {
-                Image image = new Image(cheque.getPhoto_cin());
-                imageInput.setImage(image);
+                Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", cheque.getPhoto_cin());
+                if (Files.exists(destination)) {
+                    try {
+                        Image image = new Image(destination.toUri().toString());
+                        imageInput.setImage(image);
+                    } catch (Exception e) {
+                        System.err.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                        // Gérer l'erreur de chargement de l'image ici
+                    }
+                } else {
+                    System.err.println("Le fichier image n'existe pas : " + destination);
+                    // Gérer l'absence du fichier image ici
+                }
             }
+
         }
     }
 
     public void UpdateCheque(MouseEvent mouseEvent) {
         try {
+            ServiceCheque serviceCheque = new ServiceCheque();
+
+            //System.out.println(cheque);
+            Cheque cheque = serviceCheque.getById(idy);
             if (cheque != null) {
+                System.out.println(cheque.getTelephone());
                 cheque.setBeneficiaire(beneficiaire.getValue().toString());
                 cheque.setMontant(Double.parseDouble(montant.getText()));
                 cheque.setTelephone(Integer.parseInt(tel.getText()));
@@ -271,11 +299,11 @@ public class ModifierCheque implements Initializable {
                     cheque.setPhoto_cin(imageURL);
                 }
                 // Appeler la méthode de service pour effectuer la mise à jour du chèque dans la base de données
-                ServiceCheque serviceCheque = new ServiceCheque();
+               // ServiceCheque serviceCheque = new ServiceCheque();
                 serviceCheque.modifier(cheque);
 
                 // Fermer la fenêtre après la mise à jour
-                Stage stage = (Stage) update_chequetBtn.getScene().getWindow();
+                Stage stage = (Stage) update_Btn.getScene().getWindow();
                 stage.close();
             }
         } catch (SQLException e) {

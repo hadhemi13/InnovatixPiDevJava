@@ -64,7 +64,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             ps.setString(5, cheque.getNom_prenom());
             ps.setDate(6, cheque.getDate());
             ps.setString(7, cheque.getDecision());
-            ps.setInt(8, cheque.getCin());
+            ps.setString(8, cheque.getPhoto_cin());
             ps.setInt(9,cheque.getCompte_id());
             ps.setInt(10,cheque.getUser_id());
             ps.setInt(11,cheque.getTelephone());
@@ -94,7 +94,6 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             ps.setString(8, cheque.getDecision());
             ps.setString(9, cheque.getPhoto_cin());
             ps.setInt(10, cheque.getId());
-
             ps.executeUpdate();
             System.out.println("Chèque avec ID " + cheque.getId() + " modifié !");
         } catch (SQLException e) {
@@ -180,19 +179,11 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
                         resultSet.getString("pdf_sans_signature")
                 );
             }
-        } finally {
-            // Fermer les ressources
-            if (resultSet != null) {
-                resultSet.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        }
 
+
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
         return cheque;
     }
 }

@@ -123,14 +123,19 @@ public class ModifierVirement implements Initializable {
 
     @FXML
     private Button update_VirementtBtn;
+    @FXML
+    private Button updateVirement_Btn;
+
     private Virement virement;
     private File selectedImageFile;
     private String imageName;
+    public  static int idV;
 
 
 
 
     public void initData(Virement virement){
+        this.virement = virement;
         Cin.setText(String.valueOf(virement.getCin()));
         NometPrenom.setText(virement.getNomet_prenom());
         transferez.setText(virement.getTransferez_a());
@@ -138,6 +143,21 @@ public class ModifierVirement implements Initializable {
         montant.setText(virement.getMontant());
         type.setValue(virement.getType_virement());
         benef.setText(String.valueOf(virement.getNum_beneficiare()));
+        if (virement.getPhoto_cin_v() != null && !virement.getPhoto_cin_v().isEmpty()) {
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", virement.getPhoto_cin_v());
+            if (Files.exists(destination)) {
+                try {
+                    Image image = new Image(destination.toUri().toString());
+                    imageInput.setImage(image);
+                } catch (Exception e) {
+                    System.err.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                    // Gérer l'erreur de chargement de l'image ici
+                }
+            } else {
+                System.err.println("Le fichier image n'existe pas : " + destination);
+                // Gérer l'absence du fichier image ici
+            }
+        }
 //        if (virement != null){
 //            if (virement.getPhoto_cin_v() != null && !virement.getPhoto_cin_v().isEmpty()){
 //                Image image =new Image(virement.getPhoto_cin_v());
@@ -158,49 +178,60 @@ public class ModifierVirement implements Initializable {
             benef.setText(String.valueOf(virement.getNum_beneficiare()));
             type.setValue(virement.getType_virement());
             transferez.setText(virement.getTransferez_a());
-            if(virement.getPhoto_cin_v() !=null && !virement.getPhoto_cin_v().isEmpty()){
-                Image image = new Image(virement.getPhoto_cin_v());
-                imageInput.setImage(image);
+            // Charger et afficher l'image si elle est déjà définie
+            if (virement.getPhoto_cin_v() != null && !virement.getPhoto_cin_v().isEmpty()) {
+                Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", virement.getPhoto_cin_v());
+                if (Files.exists(destination)) {
+                    try {
+                        Image image = new Image(destination.toUri().toString());
+                        imageInput.setImage(image);
+                    } catch (Exception e) {
+                        System.err.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                        // Gérer l'erreur de chargement de l'image ici
+                    }
+                } else {
+                    System.err.println("Le fichier image n'existe pas : " + destination);
+                    // Gérer l'absence du fichier image ici
+                }
             }
 
         }
     }
 
-//    @FXML
-//    void ajouter_imageV(MouseEvent event) {
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Choisir une image");
-//        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-//        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-//        if (selectedImageFile != null) {
-//            Image image = new Image(selectedImageFile.toURI().toString());
-//            imageInput.setImage(image);
-//
-//            // Générer un nom de fichier unique pour l'image
-//            String uniqueID = UUID.randomUUID().toString();
-//            String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
-//            imageName = uniqueID + extension;
-//
-//            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", imageName);
-//            try {
-//                Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-//            } catch (IOException e) {
-//                // e.printStackTrace();
-//                System.out.println("non");
-//            }
-//        }
-//
-//    }
-
-
     @FXML
-    void updatevirement(MouseEvent mouseEvent) {
-        Virement virement = new Virement();
-        System.out.println("g");
-     //   System.out.println(virement);
+    void ajouter_imageV(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+        if (selectedImageFile != null) {
+            Image image = new Image(selectedImageFile.toURI().toString());
+            imageInput.setImage(image);
+
+            // Générer un nom de fichier unique pour l'image
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
+            imageName = uniqueID + extension;
+
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", imageName);
             try {
-//                if (virement != null) {
-                    virement.setNomet_prenom(NometPrenom.getText());
+                Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                // e.printStackTrace();
+                System.out.println();
+            }
+        }
+
+    }
+
+    public void updatevirement(MouseEvent mouseEvent) {
+        try {
+            ServiceVirement serviceVirement = new ServiceVirement();
+
+            //System.out.println(cheque);
+            Virement virement = serviceVirement.getById(idV);
+            if (virement != null) {
+                virement.setNomet_prenom(NometPrenom.getText());
                     virement.setType_virement(type.getSelectionModel().getSelectedItem());
                     virement.setTransferez_a(transferez.getText());
                     virement.setMontant(montant.getText());
@@ -208,25 +239,72 @@ public class ModifierVirement implements Initializable {
                     virement.setNum_beneficiare(Integer.parseInt(benef.getText()));
                     virement.setCin(Integer.parseInt(Cin.getText()));
 
-                    // Assurez-vous que l'image du chèque n'est pas vide
-                    if (imageInput.getImage() != null) {
-                        virement.setPhoto_cin_v(imageInput.getImage().getUrl());
-                    }
-                System.out.println(virement);
+                // Assurez-vous que l'image du chèque n'est pas vide
+                if (selectedImageFile != null) {
+                    // Utilisez l'URI du fichier sélectionné pour obtenir l'URL de l'image
+                    String imageURL = selectedImageFile.toURI().toString();
+                    virement.setPhoto_cin_v(imageURL);
+                }
+                // Appeler la méthode de service pour effectuer la mise à jour du chèque dans la base de données
+                // ServiceCheque serviceCheque = new ServiceCheque();
+                serviceVirement.modifier(virement);
 
-                    // Appeler la méthode de service pour effectuer la mise à jour du virement dans la base de données
-                    ServiceVirement serviceVirement = new ServiceVirement();
-                    serviceVirement.modifier(virement);
-
-                    // Fermer la fenêtre après la mise à jour
-                    Stage stage = (Stage) update_VirementtBtn.getScene().getWindow();
-                    stage.close();
-              //  }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                // Gérer l'exception appropriée ici
+                // Fermer la fenêtre après la mise à jour
+                Stage stage = (Stage) updateVirement_Btn.getScene().getWindow();
+                stage.close();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception appropriée ici
         }
+
+
+    }
+
+
+//    @FXML
+//    void updatevirement(MouseEvent mouseEvent) {
+////        Virement virement = new Virement();
+////        System.out.println("g");
+//     //   System.out.println(virement);
+//            try {
+//                ServiceVirement serviceVirement = new ServiceVirement();
+//                Virement virement1= serviceVirement.getById(idS);
+////                if (virement != null) {
+//                    virement.setNomet_prenom(NometPrenom.getText());
+//                    virement.setType_virement(type.getSelectionModel().getSelectedItem());
+//                    virement.setTransferez_a(transferez.getText());
+//                    virement.setMontant(montant.getText());
+//                    virement.setPhone_number(Num.getText());
+//                    virement.setNum_beneficiare(Integer.parseInt(benef.getText()));
+//                    virement.setCin(Integer.parseInt(Cin.getText()));
+//
+//                    // Assurez-vous que l'image du chèque n'est pas vide
+//                // Assurez-vous que l'image du chèque n'est pas vide
+//                if (imageInput.getImage() != null) {
+//                    // Si une image a été sélectionnée dans imageInput
+//
+//                    String imageUrl = selectedImageFile.toURI().toString();
+//                    virement.setPhoto_cin_v(imageUrl);
+//                }
+//
+//                // Afficher les informations de virement
+//               // System.out.println(virement);
+//
+//
+//                    // Appeler la méthode de service pour effectuer la mise à jour du virement dans la base de données
+//                    ServiceVirement serviceVirement = new ServiceVirement();
+//                    serviceVirement.modifier(virement);
+//
+//                    // Fermer la fenêtre après la mise à jour
+//                    Stage stage = (Stage) update_VirementtBtn.getScene().getWindow();
+//                    stage.close();
+//              //  }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                // Gérer l'exception appropriée ici
+//            }
+//        }
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
         imageInputErrorHbox.setVisible(false);
@@ -247,9 +325,6 @@ public class ModifierVirement implements Initializable {
 
 
     }
-
-
-
 
 
 }

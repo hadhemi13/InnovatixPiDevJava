@@ -68,6 +68,8 @@ public class ChequeItemsController {
         personne.setText(i.getBeneficiaire().toString());
 
         userItemUpdateBtn.setOnMouseClicked(mouseEvent -> {
+            ModifierCheque chequey = new ModifierCheque();
+            chequey.idy = Integer.parseInt(userItemUpdateBtn.getId());
             Stage primaryStage = new Stage();
             try {
                 Cheque cheque = serviceCheque.getById(Integer.parseInt(userItemUpdateBtn.getId()));
@@ -98,6 +100,7 @@ public class ChequeItemsController {
     }
 
     public void UpdateCheque(MouseEvent mouseEvent) {
+
     }
 
     public void DeleteCheque(MouseEvent mouseEvent) {

@@ -453,7 +453,7 @@
                   </Line>
                   <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                      <children>
-                        <Button fx:id="add_new_chequetBtn" mnemonicParsing="false" onMouseClicked="#UpdateCheque" styleClass="cheque__add-new-chequetBtn" stylesheets="@../css/Compte.css" text="Modifier" textFill="WHITE">
+                        <Button fx:id="update_Btn" mnemonicParsing="false" onMouseClicked="#UpdateCheque" styleClass="cheque__add-new-chequetBtn" stylesheets="@../css/Compte.css" text="Modifier" textFill="WHITE">
                            <font>
                               <Font name="Montserrat Regular" size="16.0" />
                            </font>

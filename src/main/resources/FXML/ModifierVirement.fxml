@@ -226,7 +226,7 @@
                                         </HBox>
                                         <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="218.0" translateX="-200.0">
                                             <children>
-                                                <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#ajouter_imageV" prefHeight="48.0" prefWidth="200.0" stylesheets="@../css/Compte.css">
+                                                <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="48.0" prefWidth="200.0" stylesheets="@../css/Compte.css">
                                                     <children>
                                                         <Button fx:id="ImporterImage" mnemonicParsing="false" onMouseClicked="#ajouter_imageV" prefHeight="48.0" prefWidth="218.0" styleClass="cheque__add-img-btn">
                                                             <graphic>
@@ -477,7 +477,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
                             <children>
-                                <Button fx:id="add_new_VirementtBtn" mnemonicParsing="false" onMouseClicked="#updatevirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Modifier" textFill="WHITE">
+                                <Button fx:id="updateVirement_Btn" mnemonicParsing="false" onMouseClicked="#updatevirement" styleClass="Virement__add-new-VirementBtn" stylesheets="@../css/Compte.css" text="Modifier" textFill="WHITE">
                                     <font>
                                         <Font name="Montserrat Regular" size="16.0" />
                                     </font>

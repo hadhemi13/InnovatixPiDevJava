@@ -145,31 +145,6 @@ public class AjouterChequeCard implements Initializable {
 
     @FXML
     void ImporterImg(ActionEvent event) {
-       /* FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir votre CV");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image files", "*.png","*.jpg"));
-        selectedCvFile = fileChooser.showOpenDialog(ChequeImg.getScene().getWindow());
-
-        if (selectedCvFile != null) {
-            // Charger le PDF dans la WebView
-//            String url = selectedCvFile.toURI().toString();
-//            cv.getEngine().load(url);
-            Image cva = new Image(selectedCvFile.toURI().toString());
-            imageInput.setText(String.valueOf(cva));
-            // Générer un nom de fichier unique pour le CV
-            String uniqueID = UUID.randomUUID().toString();
-            String extension = selectedCvFile.getName().substring(selectedCvFile.getName().lastIndexOf(".")); // L'extension est déjà spécifiée dans le filtre de l'FileChooser
-            fileName = uniqueID + extension;
-
-            // Copier le fichier PDF vers le répertoire de destination
-            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", fileName);
-            try {
-                Files.copy(selectedCvFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        }*/
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
@@ -342,7 +317,7 @@ public class AjouterChequeCard implements Initializable {
         // Date Now
         LocalDate selectedDate = LocalDate.now();
         // Create a new instance of cheque from View
-        String image="admin";
+        String image=imageName;
         Integer Rib = 345678644;
         String telText = tel.getText();
         Integer aa = Integer.parseInt(telText);
@@ -391,8 +366,6 @@ public class AjouterChequeCard implements Initializable {
 
     }
 
-    public void ajouter_image(MouseEvent mouseEvent) {
-    }
 
 
 }

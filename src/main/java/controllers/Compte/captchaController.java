@@ -74,10 +74,8 @@ public class captchaController  implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        reCaptchaFX.siteKeyProperty().setValue("6LeGWckpAAAAABk4EpaQvKloqNvfRrycncXoHmmh");
-        reCaptchaFX.themeProperty().setValue("light"); // Vous pouvez changer le thème si nécessaire
-        reCaptchaFX.callbackProperty().setValue("myCallback");
-        reCaptchaFX.languageProperty().setValue("fr"); // Vous pouvez changer la langue si nécessaire
+        captcha =  setCaptcha();
+
     }
     //Verifier l captcha + notification systéme
     @FXML

@@ -216,7 +216,7 @@
                                     </HBox>
                                     <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="218.0" translateX="-200.0">
                                         <children>
-                                            <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#ajouter_imageV" prefHeight="48.0" prefWidth="200.0" stylesheets="@../css/Compte.css">
+                                            <HBox fx:id="choose_photoBtn" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="48.0" prefWidth="200.0" stylesheets="@../css/Compte.css">
                                                 <children>
                                           <Button fx:id="imp" mnemonicParsing="false" onAction="#ImporterImageV" prefHeight="48.0" prefWidth="218.0" styleClass="cheque__add-img-btn">
                                              <graphic>
