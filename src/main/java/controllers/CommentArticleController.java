@@ -22,11 +22,13 @@ package controllers;
         import objects.Reactions;
         import services.ServiceArticle;
         import services.ServiceCommentaireHadhemi;
+        import java.util.ArrayList;
 
         import java.net.URL;
         import java.sql.SQLException;
         import java.time.LocalDateTime;
         import java.time.format.DateTimeFormatter;
+        import java.util.List;
         import java.util.ResourceBundle;
 
 public class CommentArticleController implements Initializable {
@@ -129,6 +131,27 @@ public class CommentArticleController implements Initializable {
     @FXML
     public void onLikeContainerPressed(MouseEvent me){
         startTime = System.currentTimeMillis();
+    }
+    // Liste de mots inappropriés
+    private static List<String> badWords = new ArrayList<>();
+    static {
+        badWords.add("fuck");
+        badWords.add("bhim");
+        badWords.add("fuck u");
+        badWords.add("stupid");
+        badWords.add("mamstek");
+
+        // Ajoutez d'autres mots inappropriés à cette liste
+    }
+
+    public String filterComment(String comment) {
+        // Remplacer les mots inappropriés par des pasteurises
+        for (String badWord : badWords) {
+            // Utilisation d'une expression régulière pour remplacer les occurrences du mot entier,
+            // indépendamment de sa casse et entouré de délimitations de mots
+            comment = comment.replaceAll("\\b" + badWord + "\\b", "*".repeat(badWord.length()));
+        }
+        return comment;
     }
 
     @FXML
@@ -289,8 +312,17 @@ public class CommentArticleController implements Initializable {
         String commentairein = inputTextCommenta.getText();
         String image ="admin";
         LocalDateTime dateTime = LocalDateTime.now();
-        CommentaireHadhemi commentaire = new CommentaireHadhemi(commentairein,dateTime,nom,id,image);
-        sch.ajouter(commentaire);
+//        CommentaireHadhemi commentaire = new CommentaireHadhemi(commentairein,dateTime,nom,id,image);
+//        sch.ajouter(commentaire);
+        // Filtrer le commentaire
 
+        String commentaireFiltre = filterComment(commentairein);
+
+
+        // Créer un objet CommentaireHadhemi avec le commentaire filtré
+        CommentaireHadhemi commentaire = new CommentaireHadhemi(commentaireFiltre, dateTime, nom, id, image);
+
+        // Ajouter le commentaire à la base de données
+        sch.ajouter(commentaire);
     }
 }

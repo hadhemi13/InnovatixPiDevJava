@@ -424,6 +424,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -436,6 +439,7 @@ import javafx.stage.Stage;
 import services.ServiceArticle;
 
 import javax.imageio.IIOParam;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -580,6 +584,17 @@ public class ModifierArticleController implements Initializable {
     public void initData(Article article) {
         this.article = article;
         initializeArticleFields();
+        pieceJArtInput.setOnMouseClicked(mouseEvent -> {
+//            if (Desktop.isDesktopSupported()) {
+//                try {
+//                    File pdfFile = new File("C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"); // Remplacez le chemin par le chemin de votre fichier PDF
+//
+//                    Desktop.getDesktop().open(pdfFile);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+        });
 //         listLoader;
 //        ListArticleAdminController listArticleController = listLoader.getController();
     }
@@ -589,11 +604,7 @@ public class ModifierArticleController implements Initializable {
             titreArt.setText(article.getTitre_art());
             ContenuArt.setText(article.getContenu_art());
             addCategorie.setValue(article.getCategorie_art());
-//            SpinnerValueFactory<Integer> valueFactory = dureeArt.getValueFactory();
-//            if (valueFactory != null) {
-//                valueFactory.setValue(article.getDuree_art());
-//            }
-            //    Assurez-vous que l'image de l'article n'est pas vide
+
             if (article.getImage_art() != null) {
                 System.out.println(article.getImage_art());
                 Image image = new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art());
@@ -935,6 +946,9 @@ public class ModifierArticleController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void pieceJArtInput(MouseEvent mouseEvent) {
     }
 
 
