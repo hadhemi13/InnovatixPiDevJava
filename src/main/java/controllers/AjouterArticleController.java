@@ -20,7 +20,9 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceArticle;
-
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import java.io.File;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -46,7 +48,8 @@ public class AjouterArticleController implements Initializable {
 
     @FXML
     private Text ContenuArtInputError;
-
+    @FXML
+    private WebView pdfWebView;
     @FXML
     private HBox ContenuHboxErreur;
 
@@ -97,6 +100,10 @@ public class AjouterArticleController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
+    private File selectedCvFile;
+    private String fileName;
+    private String pdfName;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageInputErrorHbox.setVisible(false);
@@ -164,8 +171,8 @@ public class AjouterArticleController implements Initializable {
         LocalDateTime dateTime = LocalDateTime.now();
         int dureeArt=4;
         String img = imageName;
-        String pieceJArt= "admin";
-        String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
+        String pieceJArt = pdfName;
+       String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
         Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt,selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,img);
         boolean ajoutReussi = sa.ajouter(article);
 
@@ -220,8 +227,49 @@ public class AjouterArticleController implements Initializable {
         return imageName;
     }
 
-    public void ajouterPiece(MouseEvent mouseEvent) {
+//
+public void ajouterPiece(MouseEvent mouseEvent) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Choisir un fichier PDF");
+    fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+    File selectedPDFFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+    if (selectedPDFFile != null) {
+        // Générer un nom de fichier unique pour le PDF
+        String uniqueID = UUID.randomUUID().toString();
+        String extension = ".pdf";
+        pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
 
+        // Définir le répertoire de destination pour les PDF téléchargés
+        String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
 
+        // Créer le chemin de destination pour le PDF
+        Path destination = Paths.get(destinationFolder, pdfName);
+
+        try {
+            // Copier le fichier sélectionné vers le dossier de destination
+            Files.copy(selectedPDFFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            // Gérer les erreurs de copie
+            e.printStackTrace();
+        }
     }
 }
+
+    @FXML
+    void PieceJArtInput(MouseEvent event) {
+        if (pdfName != null) {
+            String pdfFilePath = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH\\" + pdfName;
+            File selectedPdfFile = new File(pdfFilePath);
+            if (selectedPdfFile.exists()) {
+                // Charger le fichier PDF dans la WebView
+                WebEngine webEngine = pdfWebView.getEngine();
+                String url = selectedPdfFile.toURI().toString();
+                webEngine.load(url);
+            } else {
+                System.out.println("Le fichier PDF spécifié n'existe pas.");
+            }
+        } else {
+            System.out.println("Aucun fichier PDF n'a été téléchargé.");
+        }
+
+}}

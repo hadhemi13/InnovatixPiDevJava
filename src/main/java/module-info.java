@@ -6,7 +6,8 @@
                 requires javafx.graphics;
                 requires javafx.base;
                 requires java.net.http;
-                opens tests to javafx.fxml;
+     requires javafx.web;
+     opens tests to javafx.fxml;
                 opens controllers to javafx.fxml;
                 opens Entities to javafx.base;
                 opens services to javafx.base;
