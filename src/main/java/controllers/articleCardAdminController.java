@@ -70,74 +70,7 @@ public class articleCardAdminController implements Initializable {
         this.listArticleController = listArticleController;
     }
 
-//    public void initializeData(Article article) {
-//
-//
-//        titreArtFront.setText(article.getTitre_art());
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        String formattedDate = article.getDate_pub_art().format(formatter);
-//        datepubArt.setText(formattedDate);
-//        contenuArtFront.setText(article.getContenu_art());
-//
-//    }
-//    private Article article; // Article associé à cette carte d'article
-//
-//    public void setArticle(Article article) {
-//        this.article = article;
-//        // Remplir les éléments graphiques avec les données de l'article
-//        if (article != null) {
-//            // Assurez-vous que l'image de l'article n'est pas vide
-////            if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
-////                imgArtFront.setImage(new Image(article.getImage_art()));
-////            }
-//            titreArtFront.setText(article.getTitre_art());
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//            String formattedDate = article.getDate_pub_art().format(formatter);
-//            datepubArt.setText(formattedDate);
-//            contenuArtFront.setText(article.getContenu_art());
-//        }
-//    }
-//    @FXML
-//    void modifierArt(MouseEvent event) throws IOException {
-////        // Charger la vue FXML du formulaire de modification d'article
-////        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-////        Parent editArticleFormParent = loader.load();
-////
-////        // Créer une nouvelle scène
-////        Scene editArticleFormScene = new Scene(editArticleFormParent);
-////
-////        // Obtenir la scène actuelle
-////        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-////
-////        // Créer une nouvelle fenêtre modale
-////        Stage modalStage = new Stage();
-////        modalStage.initModality(Modality.WINDOW_MODAL);
-////        modalStage.initOwner(stage);
-////        modalStage.setScene(editArticleFormScene);
-////        modalStage.showAndWait();
-//        // Charger la vue FXML de la boîte de dialogue modale personnalisée
-//
-//
-//
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-//        Parent editArticlePopupParent = loader.load();
-//
-//        // Créer une nouvelle scène
-//        Scene editArticlePopupScene = new Scene(editArticlePopupParent);
-//
-//        // Obtenir la scène actuelle
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//        // Créer une nouvelle fenêtre modale
-//        Stage modalStage = new Stage();
-//        modalStage.initModality(Modality.WINDOW_MODAL);
-//        modalStage.initOwner(stage);
-//        modalStage.initStyle(StageStyle.TRANSPARENT); // Définir le style de la fenêtre comme transparent
-//        modalStage.setScene(editArticlePopupScene);
-//        modalStage.showAndWait();
-//
-//
-//   }
+
 public void initializeData(Article article) {
     ServiceArticle serviceArticle = new ServiceArticle();
     if (article != null) {
@@ -146,51 +79,11 @@ public void initializeData(Article article) {
         String formattedDate = article.getDate_pub_art().format(formatter);
         datepubArt.setText(formattedDate);
         contenuArtFront.setText(article.getContenu_art());
-//        // Définir le chemin de l'image dans le dossier "uploads"
-//        String imagePath = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\resources\\uploads\\" + article.getImage_art();
-//
-//        // Créer un objet File pour vérifier si l'image existe
-//        File imageFile = new File(imagePath);
-//        if (imageFile.exists()) {
-//            // Charger l'image à partir du chemin et l'afficher dans l'ImageView
-//            Image image = new Image(imageFile.toURI().toString());
-//            imgArtFront.setImage(image);
-//        } else {
-//            err.println("L'image n'existe pas : " + imagePath);
-//        }
-//        String cheminImage = article.getImage_art();
-//        // Vérifier si le chemin de l'image est valide
-//        if (cheminImage != null && !cheminImage.isEmpty()) {
-//            try {
-//                cheminImage = URLDecoder.decode(cheminImage, "UTF-8");
-//                File imageFile = new File(cheminImage);
-//                if (imageFile.exists()) {
-//                    // Charger l'image à partir du chemin et l'afficher dans l'ImageView
-//                    Image image = new Image(imageFile.toURI().toString());
-//                    imgArtFront.setImage(image);
-//                } else {
-//                    err.println("L'image n'existe pas : " + cheminImage);
-//                }
-//            } catch (UnsupportedEncodingException e) {
-//                err.println("Erreur lors du décodage du chemin de l'image : " + e.getMessage());
-//            }
-//        } else {
-//            err.println("Chemin d'image invalide ou non spécifié pour l'article.");
-//        }
+        imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
 
-//        imgArtFront.setImage(article.getImage_art());
-//        String imagePath = article.getImage_art();
-//        if (imagePath != null && !imagePath.isEmpty()) {
-//            File imageFile = new File(imagePath);
-//            if (imageFile.exists()) {
-//                Image image = new Image(imageFile.toURI().toString());
-//                imgArtFront.setImage(image);
-//            } else {
-//                err.println("L'image n'existe pas : " + imagePath);
-//            }
-//        } else {
-//            err.println("Chemin d'image invalide ou non spécifié pour l'article.");
-//        }
+    }
+
+
 
         editArt.setId(String.valueOf(article.getId()));
         editArt.setOnMouseClicked(event -> {
@@ -237,70 +130,25 @@ public void initializeData(Article article) {
             }
         });
     }
-    }
+
 
 
 
     @FXML
     void deleteArtBtn(MouseEvent event) {
-//        try {
-//            if (article != null) {
-//                ServiceArticle sa = new ServiceArticle();
-//                sa.supprimer(article);
-//               // Stage stage = (Stage) deleteArt.getScene().getWindow();
-//               // stage.close();
-//            } else {
-//                // Affichez un message d'erreur ou faites une action appropriée si l'article est null
-//                System.err.println("L'article est null. Impossible de le supprimer.");
-//            }
-//        } catch (SQLException e) {
-//            // Gérer l'exception SQLException ici
-//            e.printStackTrace();
-            // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
-//        }
-//        try {
-//            // Charger le fichier FXML de listArticleAdmin
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
-//            Pane listArticleAdminPane = loader.load();
-//
-//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-//            content_area.getChildren().setAll(listArticleAdminPane);
-//        } catch (IOException e) {
-//            e.printStackTrace();
 
         }
 
-/*
-                 try {
-                Parent root = FXMLLoader.load(getClass().getResource("/FXML/listArticleAdmin.fxml"));
-                     action.getScene().setRoot(root);
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
-            }*/
+
 
 @FXML
 void modifierArt(MouseEvent event) throws IOException {
-////    ListArticleAdminController listArticleController = this;
-// FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-//    Parent editArticlePopupParent = loader.load();
-//
-//    ModifierArticleController modifierArticleController = loader.getController();
-//    modifierArticleController.initData(article); // Passer l'article à modifier
-////    modifierArticleController.setListArticleController(this);
-//
-//    Stage stage = new Stage();
-//    stage.initModality(Modality.WINDOW_MODAL);
-//    stage.initOwner(((Node) event.getSource()).getScene().getWindow());
-//    stage.setScene(new Scene(editArticlePopupParent));
-//    stage.showAndWait();
 
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
     Parent editArticlePopupParent = loader.load();
     ModifierArticleController modifyArticleController = loader.getController();
     ModifierArticleController modifierArticleController = loader.getController();
     modifierArticleController.initData(article); // Passer l'article à modifier
-//    modifyArticleController.initListArticleController(this); // Passer une référence au contrôleur ListArticleAdminController
-
     Stage stage = new Stage();
     stage.initModality(Modality.WINDOW_MODAL);
     stage.initOwner(((Node) event.getSource()).getScene().getWindow());
@@ -309,38 +157,9 @@ void modifierArt(MouseEvent event) throws IOException {
 }
 
 
-//    @FXML
-//    void deleteArtBtn(MouseEvent event) {
-//
-//        setArticle(article);
-//        try {
-//            if (article != null) {
-//                ServiceArticle sa = new ServiceArticle();
-//                sa.supprimer(article);
-//                Stage stage = (Stage) deleteArt.getScene().getWindow();
-//                stage.close();
-//            } else {
-//                // Affichez un message d'erreur ou faites une action appropriée si l'article est null
-//                System.err.println("L'article est null. Impossible de le supprimer.");
-//            }
-//        } catch (SQLException e) {
-//            // Gérer l'exception SQLException ici
-//            e.printStackTrace();
-//            // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
-//        }
-//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        deleteArt.setOnMouseClicked(event -> {
-//            try {
-//                deleteArtBtn(event);
-//            } catch (SQLException e) {
-//                // Gérer l'exception SQLException ici
-//                e.printStackTrace(); // Afficher l'erreur dans la console
-//                // Vous pouvez également afficher un message d'erreur à l'utilisateur ici
-//            }
-//        });
 
         editArt.setOnMouseClicked(event -> {
             // Rediriger vers l'interface "UpdateArticle.fxml" pour éditer l'article

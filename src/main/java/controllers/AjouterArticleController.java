@@ -27,17 +27,21 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class AjouterArticleController implements Initializable {
     @FXML
     private Text CatArtInputError;
-
+    private  File selectedImageFile;
+    private String imageName = null ;
     @FXML
+
     private TextArea ContenuArt;
 
     @FXML
@@ -100,21 +104,7 @@ public class AjouterArticleController implements Initializable {
         ContenuHboxErreur.setVisible(false);
         pieceJInputErrorHbox.setVisible(false);
         titreInputErrorHbox.setVisible(false);
-//        SpinnerValueFactory<Integer> valueFactory =
-//                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Valeur initiale, valeur maximale, valeur minimale
-//        dureeArt.setValueFactory(valueFactory);
-//
-//        // Autoriser la saisie directe des valeurs dans le Spinner
-//        dureeArt.setEditable(true);
-//
-//        // Limiter la saisie à des nombres entiers
-//        dureeArt.getEditor().setTextFormatter(new TextFormatter<>(c -> {
-//            if (c.getControlNewText().matches("\\d*")) {
-//                return c;
-//            } else {
-//                return null;
-//            }
-//        }));
+
         ObservableList<String> categories = FXCollections.observableArrayList(
                 "Développement durable",
                 "Finance",
@@ -166,44 +156,21 @@ public class AjouterArticleController implements Initializable {
         } else {
             titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
-//        if (datePubArt.getValue() == null) {
-//            DateHboxErreur.setVisible(true);
-//            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
-//        } else {
-//            if (datePubArt.getValue().isBefore(LocalDate.now())) {
-//                DateHboxErreur.getChildren().setAll(new Text("Veuillez sélectionner une date de publication valide."));
-//                DateHboxErreur.setVisible(true);
-//                champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
-//            } else {
-//                DateHboxErreur.setVisible(false); // Masquer le message d'erreur si la date est valide
-//            }
-//        }
 
-        // Si au moins un champ est vide, afficher les messages d'erreur
         if (champsVides) {
             return;
         }
-//        LocalDate selectedDate = datePubArt.getValue();
-//        LocalTime currentTime = LocalTime.now();
-//        LocalDateTime dateTime = LocalDateTime.of(selectedDate, currentTime);
+
         LocalDateTime dateTime = LocalDateTime.now();
         int dureeArt=4;
-        String image = imageInput.getImage().getUrl();
+        String img = imageName;
         String pieceJArt= "admin";
         String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
-        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt,selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,image);
-        sa.ajouter(article);
-        if (sa.ajouter(article)) {
+        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt,selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,img);
+        boolean ajoutReussi = sa.ajouter(article);
 
+        if (ajoutReussi) {
 
-            // Redirection vers la liste des articles
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
-//            Parent root = loader.load();
-//            ListArticleAdminController controller = loader.getController();
-//            controller.initData(); // Méthode pour rafraîchir la liste des articles si nécessaire
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stage.setScene(new Scene(root));
-//            stage.show();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ListArticleAdmin.fxml"));
             Pane listArtAdminPane = loader.load();
 
@@ -230,51 +197,31 @@ public class AjouterArticleController implements Initializable {
 
 
     @FXML
-    private void importerImage() {
+    void importerImage() throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        File selectedImageFile = fileChooser.showOpenDialog(choose_photoBtn.getScene().getWindow());
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
         if (selectedImageFile != null) {
             Image image = new Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
+
+            // Générer un nom de fichier unique pour l'image
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
+            imageName = uniqueID + extension;
+
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploads", imageName);
+            Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+
         }
     }
-//@FXML
-//private void importerImage() {
-//    FileChooser fileChooser = new FileChooser();
-//    fileChooser.setTitle("Choisir une image");
-//    fileChooser.getExtensionFilters().addAll(
-//            new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
-//    );
-//    File selectedImageFile = fileChooser.showOpenDialog(choose_photoBtn.getScene().getWindow());
-//    if (selectedImageFile != null) {
-//        try {
-//            // Définir le chemin de destination du dossier "uploads"
-//            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\resources\\uploads";
-//            // Créer un objet Path pour le dossier de destination
-//            Path destinationFolderPath = Paths.get(destinationFolder);
-//            // Vérifier si le dossier de destination existe, sinon le créer
-//            if (!Files.exists(destinationFolderPath)) {
-//                Files.createDirectories(destinationFolderPath);
-//            }
-//            // Définir le chemin de destination du fichier image dans le dossier "uploads"
-//            String destinationFilePath = destinationFolder + File.separator + selectedImageFile.getName();
-//            // Copier le fichier sélectionné vers le dossier de destination
-//            Files.copy(selectedImageFile.toPath(), Paths.get(destinationFilePath));
-//            // Afficher l'image importée dans l'interface utilisateur
-//            Image image = new Image("file:" + destinationFilePath);
-//            imageInput.setImage(image);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            // Gérer les exceptions liées à la copie du fichier
-//        }
-//    }}
+    public String getImageName() {
+        return imageName;
+    }
+
     public void ajouterPiece(MouseEvent mouseEvent) {
 
 
-            }
     }
-
+}
