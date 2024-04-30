@@ -584,21 +584,23 @@ public class ModifierArticleController implements Initializable {
     public void initData(Article article) {
         this.article = article;
         initializeArticleFields();
-        pieceJArtInput.setOnMouseClicked(mouseEvent -> {
-//            if (Desktop.isDesktopSupported()) {
-//                try {
-//                    File pdfFile = new File("C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"); // Remplacez le chemin par le chemin de votre fichier PDF
-//
-//                    Desktop.getDesktop().open(pdfFile);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-        });
-//         listLoader;
+        pieceJArtInput.setOnMouseClicked(this::openArticleImage);
 //        ListArticleAdminController listArticleController = listLoader.getController();
     }
+    private void openArticleImage(MouseEvent mouseEvent) {
+        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", article.getPiecejointe_art());
 
+        try {
+            File file = destination.toFile();
+            if (file.exists()) {
+                Desktop.getDesktop().open(file);
+            } else {
+                System.out.println("File not found: " + destination);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void initializeArticleFields() {
         if (article != null) {
             titreArt.setText(article.getTitre_art());
