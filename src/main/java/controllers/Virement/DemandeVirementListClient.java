@@ -2,6 +2,7 @@ package controllers.Virement;
 
 import Entities.Cheque;
 import Entities.Virement;
+import controllers.CaptureEcran;
 import controllers.Cheque.AjouterChequeCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -34,6 +36,10 @@ public class DemandeVirementListClient  implements Initializable {
 
     @FXML
     private GridPane FundsListContainer;
+    @FXML
+    private Button Refresh;
+    @FXML
+    private Button captureEcran;
 
     @FXML
     private HBox InvestBtn;
@@ -184,6 +190,24 @@ public class DemandeVirementListClient  implements Initializable {
         }
 
         loadVirement(list);
+        captureEcran.setOnAction(event -> {
+            CaptureEcran cap = new CaptureEcran();
+            try {
+                cap.capturer(content_area);
+                System.out.println("La capture d'écran a été générée avec succès !");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Capture d'écran");
+                alert.setHeaderText("Capture d'écran générée avec succès !");
+                alert.showAndWait();
+            } catch (Exception ex) {
+                System.out.println("Erreur lors de la capture d'écran : " + ex.getMessage());
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Erreur lors de la capture d'écran !");
+                alert.setContentText("Une erreur est survenue lors de la capture d'écran : " + ex.getMessage());
+                alert.showAndWait();
+            }
+        });
     }
     private void loadVirement(List<Virement> virements) {
         // Nettoyer le conteneur actuel
@@ -234,6 +258,19 @@ public class DemandeVirementListClient  implements Initializable {
             }}}
 
     public void searchVirement(KeyEvent keyEvent) {
+    }
+
+    public void RetourBackV(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

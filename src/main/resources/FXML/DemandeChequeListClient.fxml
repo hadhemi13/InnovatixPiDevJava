@@ -17,25 +17,34 @@
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="86.0" prefWidth="1205.0">
             <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Chéque Bancaires " textAlignment="CENTER" translateX="-20.0" wrappingWidth="271.08682775497437">
+            <Button fx:id="retourCh" mnemonicParsing="false" onMouseClicked="#RetourBackC" styleClass="checkoutCard__btn" stylesheets="@../css/SideNavBar.css" translateY="-4.0">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Chéque Bancaires " textAlignment="CENTER" wrappingWidth="271.08682775497437">
                     <font>
                         <Font name="Bell MT" size="24.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="30.0" />
                     </HBox.margin></Text>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="80.0">
                <image>
                   <Image url="@../img/magnifier.png" />
                </image>
             </ImageView>
-            <TextField fx:id="ChequeSearch" onKeyTyped="#SearchCheque" prefHeight="27.0" prefWidth="210.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="-30.0">
+            <TextField fx:id="ChequeSearch" onKeyTyped="#SearchCheque" prefHeight="27.0" prefWidth="210.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
             </TextField>
 
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="-30.0" wrappingWidth="113.8538818359375">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="-9.0" wrappingWidth="113.8538818359375">
                     <HBox.margin>
                         <Insets left="20.0" right="10.0" />
                     </HBox.margin>
@@ -43,7 +52,7 @@
                         <Font size="22.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" prefWidth="185.0" promptText="Bénéficiaire " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-30.0">
+                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" prefWidth="185.0" promptText="Bénéficiaire " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-20.0">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>

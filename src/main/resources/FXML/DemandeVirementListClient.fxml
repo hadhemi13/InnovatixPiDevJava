@@ -17,14 +17,23 @@
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="86.0" prefWidth="1205.0">
             <children>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Virement  Bancaires ">
+            <Button fx:id="retourCh" mnemonicParsing="false" onMouseClicked="#RetourBackV" styleClass="checkoutCard__btn" stylesheets="@../css/SideNavBar.css" translateY="-5.0">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Virement  Bancaires " textAlignment="CENTER" wrappingWidth="294.50469970703125">
                     <font>
                         <Font name="Bell MT" size="22.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="30.0" />
                     </HBox.margin></Text>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="49.0">
                <image>
                   <Image url="@../img/magnifier.png" />
                </image>
@@ -35,7 +44,7 @@
                </HBox.margin>
             </TextField>
 
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" wrappingWidth="113.8538818359375">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="-40.0" wrappingWidth="113.8538818359375">
                     <HBox.margin>
                         <Insets left="50.0" right="10.0" />
                     </HBox.margin>
@@ -43,11 +52,29 @@
                         <Font size="22.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="146.0" onAction="#statusChange" prefHeight="40.0" prefWidth="146.0" promptText="Type" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
+                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="146.0" onAction="#statusChange" prefHeight="40.0" prefWidth="146.0" promptText="Type" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-50.0">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin></ComboBox>
-                <Button fx:id="VirementBtn" mnemonicParsing="false" onMouseClicked="#AjouterV" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css" translateX="-40.0">
+            <Button fx:id="Refresh" mnemonicParsing="false" prefHeight="35.0" prefWidth="36.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" translateX="-30.0">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/symbole-de-recyclage.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="captureEcran" mnemonicParsing="false" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" text="Capturer " textFill="WHITE" translateX="-10.0">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/capturer (1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+                <Button fx:id="VirementBtn" mnemonicParsing="false" onMouseClicked="#AjouterV" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css" translateX="-69.0">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                             <image>
