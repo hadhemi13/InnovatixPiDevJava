@@ -170,4 +170,7 @@ public class ReclamationItemAdminController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    public void RecItemPieceJ(MouseEvent mouseEvent) {
+    }
 }

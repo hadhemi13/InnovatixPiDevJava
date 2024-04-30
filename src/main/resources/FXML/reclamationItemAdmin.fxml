@@ -38,7 +38,7 @@
         </Text>
           <Text fx:id="RecItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Statut" textAlignment="CENTER" wrappingWidth="109.66741943359375" />
           <Text fx:id="RecItemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Date" textAlignment="CENTER" translateX="20.0" wrappingWidth="117.66735458374023" />
-      <ImageView fx:id="RecItemPieceJ" fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="80.0">
+      <ImageView fx:id="RecItemPieceJ" fitHeight="26.0" fitWidth="32.0" onMouseClicked="#RecItemPieceJ" pickOnBounds="true" preserveRatio="true" translateX="80.0">
          <image>
             <Image url="@../imagesAct/attach.png" />
          </image>

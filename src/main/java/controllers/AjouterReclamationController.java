@@ -15,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceReclamation;
@@ -24,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
@@ -79,6 +79,7 @@ public class AjouterReclamationController implements Initializable {
 
     @FXML
     private Text titreInputError;
+    private String pdfName;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -121,12 +122,12 @@ public class AjouterReclamationController implements Initializable {
             return;
         }
         LocalDateTime dateTime = LocalDateTime.now();
-        String pieceJointe = "admin";
 
         String selectedDepartment = departementRec.getSelectionModel().getSelectedItem();
+        String pieceJArt = pdfName;
 
         String statut ="En cours de traitement";
-        Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJointe, dateTime);
+        Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJArt, dateTime);
                 sr.ajouter(reclamation);
         if (sr.ajouter(reclamation)) {
 
@@ -142,29 +143,28 @@ public class AjouterReclamationController implements Initializable {
 
 
     public void addpieceJBtn(MouseEvent mouseEvent) {
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Choisir un fichier PDF");
-//        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
-//        File selectedPDFFile = fileChooser.showOpenDialog(ajouterPiece.getScene().getWindow());
-//        if (selectedPDFFile != null) {
-//            // Générer un nom de fichier unique pour le PDF
-//            String uniqueID = UUID.randomUUID().toString();
-//            String extension = ".pdf";
-//            String pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
-//
-//            // Définir le répertoire de destination pour les PDF téléchargés
-//            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
-//
-//            // Créer le chemin de destination pour le PDF
-//            Path destination = (Path) Paths.get(destinationFolder, pdfName);
-//
-//            try {
-//                // Copier le fichier sélectionné vers le dossier de destination
-//                Files.copy(selectedPDFFile.toPath(), (java.nio.file.Path) destination, StandardCopyOption.REPLACE_EXISTING);
-//            } catch (IOException e) {
-//                // Gérer les erreurs de copie
-//                e.printStackTrace();
-//            }
-//        }
-    }
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir un fichier PDF");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+        File selectedPDFFile = fileChooser.showOpenDialog(pieceJArtInput.getScene().getWindow());
+        if (selectedPDFFile != null) {
+            // Générer un nom de fichier unique pour le PDF
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = ".pdf";
+            pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
+
+            // Définir le répertoire de destination pour les PDF téléchargés
+            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+
+            // Créer le chemin de destination pour le PDF
+            Path destination = Paths.get(destinationFolder, pdfName);
+
+            try {
+                // Copier le fichier sélectionné vers le dossier de destination
+                Files.copy(selectedPDFFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                // Gérer les erreurs de copie
+                e.printStackTrace();
+            }
+        }}
 }
