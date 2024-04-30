@@ -208,6 +208,22 @@ public class DemandeVirementListClient  implements Initializable {
                 alert.showAndWait();
             }
         });
+        Refresh.setOnAction((ActionEvent event) -> {
+            ShowListe();
+        });
+
+    }
+    private void ShowListe() {
+        ServiceVirement serviceVirement = new ServiceVirement();
+        List<Virement> list = new ArrayList<>();
+        try {
+            list = serviceVirement.afficher();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        loadVirement(list);
+
     }
     private void loadVirement(List<Virement> virements) {
         // Nettoyer le conteneur actuel

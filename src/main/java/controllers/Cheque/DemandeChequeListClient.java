@@ -141,6 +141,22 @@ public class DemandeChequeListClient  implements  Initializable {
                 alert.showAndWait();
             }
         });
+        Refresh.setOnAction((ActionEvent event) -> {
+            ShowListe();
+        });
+
+    }
+
+    private void ShowListe() {
+        ServiceCheque serviceCheque = new ServiceCheque();
+        List<Cheque> list = new ArrayList<>();
+        try {
+            list = serviceCheque.afficher();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        loadCheques(list);
 
     }
 

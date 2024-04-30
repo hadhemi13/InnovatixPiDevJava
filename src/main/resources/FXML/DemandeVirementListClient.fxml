@@ -28,23 +28,23 @@
             </Button>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Les Demande de Virement  Bancaires " textAlignment="CENTER" wrappingWidth="294.50469970703125">
                     <font>
-                        <Font name="Bell MT" size="22.0" />
+                        <Font name="Bell MT Bold" size="22.0" />
                     </font>
                     <HBox.margin>
                         <Insets left="30.0" />
                     </HBox.margin></Text>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="49.0">
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
                <image>
                   <Image url="@../img/magnifier.png" />
                </image>
             </ImageView>
-            <TextField fx:id="VirementSearch" onKeyTyped="#searchVirement" prefHeight="27.0" prefWidth="200.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css">
+            <TextField fx:id="VirementSearch" onKeyTyped="#searchVirement" prefHeight="27.0" prefWidth="200.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="-47.0">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </TextField>
 
-                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="-40.0" wrappingWidth="113.8538818359375">
+                <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="-80.0" wrappingWidth="113.8538818359375">
                     <HBox.margin>
                         <Insets left="50.0" right="10.0" />
                     </HBox.margin>
@@ -52,11 +52,11 @@
                         <Font size="22.0" />
                     </font>
                 </Text>
-                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="146.0" onAction="#statusChange" prefHeight="40.0" prefWidth="146.0" promptText="Type" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-50.0">
+                <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="146.0" onAction="#statusChange" prefHeight="40.0" prefWidth="146.0" promptText="Type" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="-90.0">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin></ComboBox>
-            <Button fx:id="Refresh" mnemonicParsing="false" prefHeight="35.0" prefWidth="36.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" translateX="-30.0">
+            <Button fx:id="Refresh" mnemonicParsing="false" prefHeight="35.0" prefWidth="36.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" translateX="-70.0">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -65,7 +65,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="captureEcran" mnemonicParsing="false" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" text="Capturer " textFill="WHITE" translateX="-10.0">
+            <Button fx:id="captureEcran" mnemonicParsing="false" prefHeight="38.0" prefWidth="158.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" text="Capturer " textFill="WHITE" translateX="-40.0">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,7 +74,7 @@
                   </ImageView>
                </graphic>
             </Button>
-                <Button fx:id="VirementBtn" mnemonicParsing="false" onMouseClicked="#AjouterV" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css" translateX="-69.0">
+                <Button fx:id="VirementBtn" mnemonicParsing="false" onMouseClicked="#AjouterV" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtnCapt" stylesheets="@../css/SideNavBar.css" translateX="-69.0">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                             <image>

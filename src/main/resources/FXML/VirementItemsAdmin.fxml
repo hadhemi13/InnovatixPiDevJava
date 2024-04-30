@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1044.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.VirementItemsAdmin">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" prefWidth="1055.0" styleClass="userItem" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Virement.VirementItemsAdmin">
     <children>
-        <Text fx:id="Rib" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="123456789022" wrappingWidth="98.44808197021484">
+        <Text fx:id="Rib" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="123456789098" wrappingWidth="98.44808197021484">
             <HBox.margin>
                 <Insets left="8.0" right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="Cin" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12121212" wrappingWidth="72.04792785644531">
+        <Text fx:id="Cin" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" translateX="-10.0" wrappingWidth="72.04792785644531">
             <HBox.margin>
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-      <ImageView fx:id="photoCin" fitHeight="47.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="photoCin" fitHeight="47.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" translateX="15.0">
          <image>
             <Image url="@../img/cloud-computing.png" />
          </image>
@@ -27,7 +27,7 @@
             <Insets bottom="5.0" />
          </HBox.margin>
       </ImageView>
-        <Text fx:id="NometPrenom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" wrappingWidth="120.84813690185547">
+        <Text fx:id="NometPrenom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" translateX="30.0" wrappingWidth="120.84813690185547">
             <HBox.margin>
                 <Insets left="20.0" right="4.0" />
             </HBox.margin>
@@ -37,11 +37,11 @@
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Text fx:id="TypeVir" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" wrappingWidth="82.70153427124023" />
-        <Text fx:id="Transferez" strokeType="OUTSIDE" strokeWidth="0.0" text="shyheb ouerhani" translateX="20.0" wrappingWidth="92.3485107421875" />
-        <Text fx:id="NumBenif" strokeType="OUTSIDE" strokeWidth="0.0" text="111212121212" translateX="70.0" wrappingWidth="118.14996337890625" />
-        <Text fx:id="Montant" strokeType="OUTSIDE" strokeWidth="0.0" text="22,000" translateX="80.0" wrappingWidth="72.55004501342773" />
-        <Label fx:id="ApprouveBtnV" onMouseClicked="#approuverVir" styleClass="userItem__btn" translateX="70.0">
+        <Text fx:id="TypeVir" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" translateX="-20.0" wrappingWidth="82.70153427124023" />
+        <Text fx:id="Transferez" strokeType="OUTSIDE" strokeWidth="0.0" text="shyheb ouerhani" translateX="10.0" wrappingWidth="92.3485107421875" />
+        <Text fx:id="NumBenif" strokeType="OUTSIDE" strokeWidth="0.0" text="111212121" translateX="60.0" wrappingWidth="118.14996337890625" />
+        <Text fx:id="Montant" strokeType="OUTSIDE" strokeWidth="0.0" text="22,000" translateX="40.0" wrappingWidth="72.55004501342773" />
+        <Label fx:id="ApprouveBtnV" onMouseClicked="#approuverVir" styleClass="userItem__btn" translateX="50.0">
             <graphic>
                 <ImageView fx:id="Approuver" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -53,7 +53,7 @@
                 <Insets />
             </HBox.margin>
         </Label>
-        <Label fx:id="RefusBtnV" onMouseClicked="#refuserVir" styleClass="userItem__btn">
+        <Label fx:id="RefusBtnV" onMouseClicked="#refuserVir" styleClass="userItem__btn" translateX="-26.0">
             <graphic>
                 <ImageView fx:id="Refuser" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>

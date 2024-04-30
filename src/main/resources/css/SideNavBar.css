@@ -2260,3 +2260,21 @@
     -fx-font-size: 21px;
     -fx-font-weight: 800;
 }
+.container-card {
+    -fx-background-color: #fff;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+
+.compteTableHead {
+    -fx-background-color: #defee6;
+    -fx-background-radius: 35px 35px 0 0;
+    -fx-padding: 0 15px;
+}
+.cheque_listScrollPane {
+    -fx-background: rgba(251, 237, 237, 0.166);
+    -fx-background-color: transparent;
+}
+.compteTableBody {
+    -fx-padding: 15px 10px;
+}

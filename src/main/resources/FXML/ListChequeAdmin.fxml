@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.ListeChequeAdmin">
     <children>
-        <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="container-card" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+        <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="container-card" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <HBox layoutX="4.0" layoutY="18.0" prefHeight="64.0" prefWidth="1057.0">
                     <children>
@@ -67,71 +67,71 @@
                 </HBox>
                 <HBox layoutX="24.0" layoutY="92.0" prefHeight="74.0" prefWidth="1033.0" styleClass="compteTableHead" stylesheets="@../css/Compte.css">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Rib " wrappingWidth="61.63436508178711">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rib " wrappingWidth="61.63436508178711">
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="14.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="20.0" top="20.0" />
                             </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="cin " wrappingWidth="55.90310478210449">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="cin " wrappingWidth="55.90310478210449">
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="45.0" top="20.0" />
                             </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Photo Cin " textAlignment="CENTER" wrappingWidth="76.18902587890625">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Cin " textAlignment="CENTER" wrappingWidth="76.18902587890625">
                             <HBox.margin>
                                 <Insets left="18.0" top="20.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Nom et Prenom" textAlignment="CENTER" wrappingWidth="102.3812255859375">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom et Prenom" textAlignment="CENTER" translateY="-7.0" wrappingWidth="102.3812255859375">
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="21.0" top="20.0" />
                             </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Email " wrappingWidth="80.54833602905273">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email " wrappingWidth="80.54833602905273">
                             <HBox.margin>
                                 <Insets left="20.0" top="20.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Bénéficiaire ">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bénéficiaire ">
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="25.0" top="20.0" />
                             </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Num téléphone " textAlignment="CENTER" wrappingWidth="94.05938720703125">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Num téléphone " textAlignment="CENTER" translateY="-7.0" wrappingWidth="94.05938720703125">
                             <HBox.margin>
                                 <Insets left="25.0" top="20.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Montant ">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Montant ">
                             <font>
-                                <Font size="16.0" />
+                                <Font name="Bell MT" size="16.0" />
                             </font>
                             <HBox.margin>
                                 <Insets left="25.0" top="20.0" />
                             </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeTableHeadTitle" text="Actions " translateX="20.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Actions " translateX="20.0">
                             <HBox.margin>
                                 <Insets left="35.0" top="20.0" />
                             </HBox.margin>
@@ -141,9 +141,9 @@
                         </Text>
                     </children>
                 </HBox>
-                <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="167.0" prefHeight="449.0" prefWidth="1033.0" styleClass="cheque_listScrollPane" stylesheets="@../css/Compte.css">
+                <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="167.0" prefHeight="449.0" prefWidth="1033.0" styleClass="cheque_listScrollPane" stylesheets="@../css/SideNavBar.css">
                     <content>
-                        <VBox fx:id="ChequeContainer" prefHeight="446.0" prefWidth="1024.0" spacing="13.0" styleClass="compteTableBody" stylesheets="@../css/Compte.css" />
+                        <VBox fx:id="ChequeContainer" prefHeight="446.0" prefWidth="1024.0" spacing="13.0" styleClass="compteTableBody" stylesheets="@../css/SideNavBar.css" />
                     </content>
                 </ScrollPane>
             </children>
