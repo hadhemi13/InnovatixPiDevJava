@@ -205,13 +205,13 @@ public class CommentArticleController implements Initializable {
         reactionName.setTextFill(Color.web(reaction.getColor()));
 
         if(currentReaction == Reactions.NON){
-//            article.setTotalReactions(article.getTotalReactions() + 1);
+            article.setTotalReactions(article.getTotalReactions() + 1);
         }
 
         currentReaction = reaction;
 
         if(currentReaction == Reactions.NON){
-//            article.setTotalReactions(article.getTotalReactions() - 1);
+            article.setTotalReactions(article.getTotalReactions() - 1);
         }
 
         nbReactions.setText(String.valueOf(article.getTotalReactions()));
@@ -266,12 +266,12 @@ public class CommentArticleController implements Initializable {
 //            imgPost.setVisible(false);
 //            imgPost.setManaged(false);
 //        }
-
+//
 //        nbReactions.setText(String.valueOf(article.getTotalReactions()));
 //        nbComments.setText(article.getNbComments() + " comments");
-
+//
 //        nbShares.setText(article.getNbShares()+" shares");
-
+//
 //        currentReaction = Reactions.NON;
     }
 
@@ -281,6 +281,7 @@ public class CommentArticleController implements Initializable {
         account.setName("Mahmoud Hamwi");
         account.setProfileImg("/imagesAct/user.png");
         account.setVerified(true);
+        post.setTotalReactions(0);
 //        post.setAccount(account);
 //        post.setDate("Feb 18, 2021 at 12:00 PM");
 //        post.setAudience(PostAudience.PUBLIC);
