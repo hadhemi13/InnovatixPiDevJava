@@ -2252,3 +2252,11 @@
     -fx-transition: all 0.5s ease;
     -fx-cursor: hand;
 }
+.cheque__add-input-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+.cheque__card-title {
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+}
