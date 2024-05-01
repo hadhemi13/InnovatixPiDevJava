@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" styleClass="signUp__container" stylesheets="@../../resources/css/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.LoginController">
     <left>
         <AnchorPane fx:id="left" prefHeight="700.0" prefWidth="652.0" styleClass="left" stylesheets="@../../resources/css/login.css" BorderPane.alignment="CENTER">
          <children>
@@ -90,7 +90,7 @@
    <center>
       <VBox prefHeight="700.0" prefWidth="418.0" stylesheets="@../css/login.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="702.0" prefWidth="443.0" rotate="180.0" styleClass="vbox_background_right" stylesheets="@../css/login.css">
+            <VBox alignment="CENTER" prefHeight="702.0" prefWidth="443.0" rotate="180.0" style="-fx-background-color: WHITE;" styleClass="vbox_background_right" stylesheets="@../css/login.css">
                <children>
                   <Hyperlink onAction="#toForgotPassword" prefHeight="24.0" prefWidth="285.0" rotate="178.6" text="Fogot password" />
                   <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#logIn" prefHeight="38.0" prefWidth="306.0" rotate="179.3" style="-fx-background-radius: 50; -fx-background-color: #008000;" styleClass="SignUp__btn" stylesheets="@../css/SideNavBar.css" text="Se connecter ">

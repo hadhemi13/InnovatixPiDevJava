@@ -103,7 +103,9 @@ public class TESTCONTROLLER {
         });
     }
 
+
     public void initData(User user) {
+
         ServiceUser userService = new ServiceUser();
         Image image = new Image(getClass().getResource("/img/admin.png" ).toExternalForm());
         userItemImg.setImage(image);
@@ -185,6 +187,7 @@ public class TESTCONTROLLER {
 
                 // Remplir les champs du formulaire de mise à jour avec les informations de l'utilisateur correspondant
                 UpdateUserController updateUserController = loader.getController();
+                //updateUserController.id = user.getEmail();
                 updateUserController.CinInput.setText(String.valueOf(user.getCin()));
                 updateUserController.fullnameInput.setText(user.getName());
                 updateUserController.telInput.setText(String.valueOf(user.getTel()));

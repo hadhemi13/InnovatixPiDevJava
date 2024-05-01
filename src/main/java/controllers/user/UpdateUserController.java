@@ -131,7 +131,7 @@ public class UpdateUserController  implements Initializable{
         }
 
     }
-
+    public  static String id="";
     public void initData(User user) {
         CinInput.setText(String.valueOf(user.getCin()));
         fullnameInput.setText(user.getName());
@@ -183,9 +183,11 @@ public class UpdateUserController  implements Initializable{
         // Vérifier si user est null et initialiser si nécessaire
         if (user == null) {
             user = new User();
+
         }
 
         // Mettre à jour les informations de l'utilisateur
+
         user.setName(fullnameInput.getText());
         user.setCin(CinInput.getText());
         user.setEmail(EmailInput.getText());

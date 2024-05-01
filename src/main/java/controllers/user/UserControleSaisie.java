@@ -69,6 +69,7 @@ public class UserControleSaisie {
         }
 
         return true;
+
     }
 
     // Les autres méthodes de validation peuvent être ajustées de la même manière

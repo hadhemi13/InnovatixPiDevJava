@@ -6171,3 +6171,19 @@
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.09), 35, 0.1, 0, 0);
 }
+
+
+.captcha__btn {
+    -fx-background-color: rgba(227, 9, 9, 0.18);
+    -fx-padding: 6px 8px;
+    -fx-text-fill: black; /* Couleur du texte noire */
+    -fx-background-radius: 1000px;
+    -fx-border-radius: 1000px;
+    -fx-transition: all 2s ease;
+    -fx-cursor: hand;
+}
+
+.captcha__btn:hover {
+    -fx-background-color: #c20d0d;
+    -fx-text-fill: #defee6;
+}
