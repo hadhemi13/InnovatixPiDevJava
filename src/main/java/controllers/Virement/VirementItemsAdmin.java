@@ -16,8 +16,13 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 public class VirementItemsAdmin  implements  Initializable {
+    public static final String ACCOUNT_SID = System.getenv("AC3e7c4fb14b4c902709bc986f10f29f5c");
+    public static final String AUTH_TOKEN = System.getenv("a734dc1ae9533b42e8031e036cc45278");
 
     @FXML
     private Label ApprouveBtnV;
@@ -120,6 +125,10 @@ private void refuserVir(MouseEvent event) {
             disableDecisionButtons();
             applyRejectedStyle();
 
+            if ("Approuvé".equals(newDecisionV)) {
+                sendSMS(virement.getPhone_number());
+            }
+
             ListVirementAdmin.getInstance().refreshVirementList();
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to update virement decision.");
@@ -147,9 +156,30 @@ private void refuserVir(MouseEvent event) {
         Refuser.setOpacity(0.4);    // Optionally set opacity to visually indicate the button is disabled
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    private void sendSMS(String phoneNumber) {
+        try {
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+            Message message = Message.creator(
+                            new PhoneNumber("phone Number "),
+                            new PhoneNumber("+13156586121"),
+                            "Bonjour " + ", " +
+                                    "Nous sommes heureux de vous informer que votre demande de virement " +
+                                    "a été approuvée avec succès. " +
+                                    "Cordialement, [ EFB]")
+                    .create();
+
+            System.out.println("Message SID: " + message.getSid());
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Gérez l'erreur ici, par exemple affichez un message d'erreur ou enregistrez les détails de l'erreur dans un fichier journal.
+        }
     }
 
 

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="711.0" prefWidth="1313.0" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.AjouterCompte">
+<AnchorPane prefHeight="500.0" prefWidth="1313.0" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.AjouterCompte">
    <children>
       <!-- Image de fond -->
       <ImageView fitHeight="748.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="true" translateY="20.0">
@@ -23,7 +23,7 @@
       </ImageView>
 
             <!-- VBox transparente -->
-      <VBox fx:id="content_area" alignment="CENTER" layoutX="142.0" layoutY="51.0" prefHeight="654.0" prefWidth="1060.0" style="-fx-background-color: rgba(255, 255, 255, 0.5);">
+      <VBox fx:id="content_area" alignment="CENTER" layoutX="142.0" layoutY="51.0" prefHeight="654.0" prefWidth="1060.0" style="-fx-background-color: rgba(255, 255, 255, 0.6);">
          <children>
             <VBox prefHeight="86.0" prefWidth="1058.0" translateY="-30.0">
                <children>
@@ -438,11 +438,7 @@
                               <Insets left="65.0" top="5.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <TextField fx:id="Sexe" prefHeight="44.0" prefWidth="296.0">
-                           <HBox.margin>
-                              <Insets left="75.0" top="5.0" />
-                           </HBox.margin>
-                        </TextField>
+                        <ComboBox fx:id="Sexe" prefHeight="40.0" prefWidth="296.0" stylesheets="@../css/SideNavBar.css" translateX="68.0" translateY="5.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="16.0" prefWidth="1060.0">

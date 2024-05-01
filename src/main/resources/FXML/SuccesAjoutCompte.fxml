@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1366.0" translateX="-30.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.Succes">
+<AnchorPane prefHeight="708.0" prefWidth="1366.0" translateX="-30.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Compte.Succes">
    <children>
-      <ImageView fitHeight="726.0" fitWidth="1329.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="750.0" fitWidth="1336.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/succes.jpg" />
+            <Image url="@../img/istockphoto-1363583906-1024x1024.jpg" />
          </image>
       </ImageView>
       <VBox fx:id="content_area" layoutY="41.0" prefHeight="307.0" prefWidth="300.0" style="-fx-background-color: rgba(255, 255, 255, 0.5);" stylesheets="@../css/SideNavBar.css" translateX="430.0" translateY="100.0">

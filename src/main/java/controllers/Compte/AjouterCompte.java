@@ -26,6 +26,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+//import static javafx.scene.control.skin.TableSkinUtils.getSelectionModel;
 import static services.ValidSaisie.isValidEmail;
 
 public class AjouterCompte implements Initializable {
@@ -106,6 +107,9 @@ public class AjouterCompte implements Initializable {
     private TextField NumTel;
 
     @FXML
+    private ComboBox<String> Sexe;
+
+    @FXML
     private Text NumTelInputError;
 
     @FXML
@@ -129,8 +133,6 @@ public class AjouterCompte implements Initializable {
     @FXML
     private HBox ProffesionInputErrorHbox;
 
-    @FXML
-    private TextField Sexe;
 
     @FXML
     private Text SexenputError;
@@ -300,7 +302,7 @@ public class AjouterCompte implements Initializable {
             StatutnputErrorHbox.setVisible(false);
         }
 
-        if (Sexe.getText().isEmpty()) {
+        if (Sexe.getSelectionModel().isEmpty()) {
             SexenputErrorHbox.setVisible(true);
             champsVides = true;
         } else {
@@ -329,7 +331,7 @@ public class AjouterCompte implements Initializable {
         String nationalite = Nationalite.getText();
         String profession = Profession.getText();
         String statutMarital = StatutMarital.getSelectionModel().getSelectedItem();
-        String sexe = Sexe.getText();
+        String sexe = Sexe.getSelectionModel().getSelectedItem();
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
         String statut="Approuvé";
 
@@ -597,7 +599,7 @@ public class AjouterCompte implements Initializable {
         DateNaiss.setValue(null);
         DatedelCin.setValue(null);
         StatutMarital.getSelectionModel().clearSelection();
-        Sexe.clear();
+        Sexe.getSelectionModel().clearSelection();
 
 
         // Masquer tous les messages d'erreur
@@ -656,6 +658,10 @@ public class AjouterCompte implements Initializable {
                 "Marié",
                 "Divorcé"
         );
+        ObservableList<String> Sexes =FXCollections.observableArrayList(
+                "Femme",
+                "Homme"
+        );
 
 
         TypeCompte.setItems(TypeComptes);
@@ -663,6 +669,9 @@ public class AjouterCompte implements Initializable {
         typeCin.setItems(TypeCin);
 
         StatutMarital.setItems(StatutMaritals);
+
+
+        Sexe.setItems(Sexes);
 
 
 

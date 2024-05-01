@@ -36,6 +36,8 @@ import java.util.ResourceBundle;
 
 public class DemandeChequeListClient  implements  Initializable {
 
+    @FXML
+    private TextField fxrecherches;
 
     @FXML
     private Button chequebtn;
@@ -46,8 +48,12 @@ public class DemandeChequeListClient  implements  Initializable {
     private Pane content_area;
 
     @FXML
-    private ComboBox<?> statusInput;
+    private ComboBox<String> statusInput;
 
+
+
+//    @FXML
+//    private TextField fxrecherche;
     @FXML
     private GridPane ChequeListContainer;
     @FXML
@@ -64,6 +70,7 @@ public class DemandeChequeListClient  implements  Initializable {
 
     @FXML
     private Button Refresh;
+
 
 
     @FXML
@@ -145,6 +152,11 @@ public class DemandeChequeListClient  implements  Initializable {
             ShowListe();
         });
 
+
+    }
+    @FXML
+    void fixType(KeyEvent event) {
+        filterCheques(fxrecherches.getText());
     }
 
     private void ShowListe() {
@@ -208,10 +220,9 @@ public class DemandeChequeListClient  implements  Initializable {
                 // Gérer l'exception ici, si nécessaire
             }
         }
+
     }
 
-    public void SearchCheque(KeyEvent keyEvent) {
-    }
 
 
     public void RetourBackC(MouseEvent mouseEvent) {
@@ -227,6 +238,52 @@ public class DemandeChequeListClient  implements  Initializable {
             e.printStackTrace();
         }
     }
+    public void SearchCheque(KeyEvent keyEvent) {
+        String keyword = fxrecherches.getText().toLowerCase().trim(); // Récupérer le texte de la zone de recherche et le convertir en minuscules
+
+        if (keyword.isEmpty()) {
+            // Si le champ de recherche est vide, afficher tous les chèques
+            loadCheques(getAllCheques());
+        } else {
+            // Sinon, filtrer les chèques en fonction du nom du bénéficiaire
+            List<Cheque> filteredCheques = filterCheques(keyword);
+            loadCheques(filteredCheques);
+        }
+    }
+
+    // Méthode pour récupérer tous les chèques depuis le service de chèques
+    private List<Cheque> getAllCheques() {
+        ServiceCheque serviceCheque = new ServiceCheque();
+        try {
+            return serviceCheque.afficher();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ArrayList<>(); // Retourner une liste vide en cas d'erreur
+        }
+    }
+
+    // Méthode pour filtrer les chèques en fonction du nom du bénéficiaire
+    private List<Cheque> filterCheques(String keyword) {
+        ServiceCheque serviceCheque = new ServiceCheque();
+        try {
+            List<Cheque> allCheques = serviceCheque.afficher();
+            List<Cheque> filteredCheques = new ArrayList<>();
+
+            for (Cheque cheque : allCheques) {
+                // Vérifier si le nom du bénéficiaire contient le mot-clé de recherche
+                if (cheque.getNom_prenom().toLowerCase().contains(keyword)) {
+                    filteredCheques.add(cheque);
+                }
+            }
+
+            return filteredCheques;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ArrayList<>(); // Retourner une liste vide en cas d'erreur
+        }
+    }
+
+
 }
 
 
