@@ -58,10 +58,11 @@ public class ServiceUser  implements Iservice<User>{
             preparedStatement.setString(4, user.getCin());
             preparedStatement.setString(5, user.getProfession());
             preparedStatement.setString(6, user.getDate_naissance());
-            preparedStatement.setInt(7, user.getId());
+            preparedStatement.setString(7, user.getPhoto());
             preparedStatement.setInt(8,user.getIs_blocked());
-            preparedStatement.setString(9, user.getPhoto());
-            preparedStatement.setString(10,user.getTel());
+
+            preparedStatement.setString(9,user.getTel());
+            preparedStatement.setInt(10, 12);
             preparedStatement.executeUpdate();
             System.out.println("modifie");
         }
