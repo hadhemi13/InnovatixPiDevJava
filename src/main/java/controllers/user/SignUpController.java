@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceUser;
@@ -20,14 +21,43 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.IOException;
 
-public class SignUpController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import nl.captcha.Captcha;
+import nl.captcha.backgrounds.GradiatedBackgroundProducer;
+import nl.captcha.noise.CurvedLineNoiseProducer;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
+
+public class SignUpController implements Initializable{
 
 
     @FXML
     private TextField EmailField;
+    @FXML
+    private BorderPane CaptchaPane;
 
     @FXML
     private TextField fullnameField;
+    @FXML
+    private TextField code;
 
     @FXML
     private AnchorPane left;
@@ -45,6 +75,14 @@ public class SignUpController {
     private Button signUpBTN;
     @FXML
     private ImageView imageView;
+
+    @FXML
+    private ImageView cap;
+    @FXML
+    private Button submit;
+    @FXML
+    private Button reset;
+
     private String imagePath;
     @FXML
     void uploadImage() {
@@ -125,8 +163,82 @@ public class SignUpController {
         stage.setScene(scene);
         stage.show();
     }
-        
+
+    public Captcha setCaptcha() {
+        Captcha captchaV = new Captcha.Builder(250, 200)
+                .addText()
+                .addBackground(new GradiatedBackgroundProducer()) // Ajout d'un fond gradient
+                .addNoise()
+                .addBorder()
+                .build();
+
+        System.out.println(captchaV.getImage());
+        Image image = SwingFXUtils.toFXImage(captchaV.getImage(), null);
+
+        cap.setImage(image);
+
+        return captchaV;
+    }
+
+
+    Captcha captcha;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        captcha =  setCaptcha();
 
     }
+
+
+    public void submit(ActionEvent actionEvent)   throws IOException {
+        if (captcha.isCorrect(code.getText())) {
+
+            String tilte = "Captcha";
+            String message = "Vous avez saisi le code avec succés!";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
+
+            //     try {
+          //  Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+          //  CaptchaPane.getChildren().removeAll();
+         //   CaptchaPane.getChildren().setAll(fxml);
+//            stage.show();
+         //   Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         //   stage.close();
+
+//        } catch (IOException ex) {
+//            Logger.getLogger(Agent_mainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        else {
+
+            String tilte = "Captcha";
+            String message = "Vous avez saisi un faux code !";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
+
+            captcha =  setCaptcha();
+            code.setText("");
+        }
+
+    }
+
+    public void reseting(ActionEvent actionEvent) {
+        captcha =  setCaptcha();
+        code.setText("");
+    }
+}
 
 
