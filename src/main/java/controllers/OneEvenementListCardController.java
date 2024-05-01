@@ -124,9 +124,7 @@ public class OneEvenementListCardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
             try {
                 Parent root = loader.load();
-
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
                 contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
@@ -183,8 +181,5 @@ public class OneEvenementListCardController {
 //
 //        });
         // END offreEvenement btn click
-
     }
-
-
 }

@@ -24,7 +24,7 @@
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
-                      text="Liste des événements"/>
+                      text="🎉 Liste des événements 🎉"/>
                 <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                            minWidth="-Infinity" onKeyTyped="#searchEvenement" prefWidth="250.0"
                            styleClass="product__list-searchInput">

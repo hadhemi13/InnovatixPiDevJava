@@ -451,7 +451,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void open_commentaireList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/commentaire.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/CommentsList.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 

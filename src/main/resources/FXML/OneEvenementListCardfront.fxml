@@ -6,16 +6,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controllers.OneEvenementListCardControllerfront">
     <children>
         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="948.0" styleClass="productDetails__Container">
             <children>
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="405.0">
                     <children>
-                        <ImageView fx:id="img" fitHeight="204.0" fitWidth="309.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" scaleY="1.733" translateX="-12.0" translateY="-2.0">
+                        <ImageView fx:id="img" fitHeight="193.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" scaleY="1.733" translateX="-12.0" translateY="-2.0">
+                            <clip>
+                                <Rectangle arcHeight="20" arcWidth="20" height="204.0" width="309.0" />
+                            </clip>
                             <image>
                                 <Image url="@../assets/ProductUploads/34e6caba-ff8e-4910-99d8-a7edf9a0fc4a.png" />
                             </image>

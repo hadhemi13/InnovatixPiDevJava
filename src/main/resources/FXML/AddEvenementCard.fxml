@@ -152,7 +152,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="fxdateDebutError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
+                              text="le date d'evenement ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>
@@ -197,7 +197,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="fxdateFinError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
+                              text="le date d'evenement ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>
@@ -247,7 +247,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="fxLieuError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
+                              text="le lieu d'evnement ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>
@@ -292,7 +292,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="prixInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
+                              text="le prix du evenement ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>

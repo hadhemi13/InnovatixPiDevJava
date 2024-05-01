@@ -155,8 +155,6 @@ public class AddEvenementCardController implements Initializable {
         fxLieuErrorHbox.setVisible(false);
         fxdateFinErrorHbox.setVisible(false);
         fxdateDebutErrorHbox.setVisible(false);
-        nameInputErrorHbox.setVisible(false);
-
         if (Evenement.actionTest == 0) {
             update_EvenementBtn.setVisible(false);
         } else {
@@ -201,6 +199,9 @@ public class AddEvenementCardController implements Initializable {
 
         if (nameInput.getText()== null) {
             nameInputErrorHbox.setVisible(true);
+        }
+        if (descriptionInput.getText()== null) {
+            descriptionInputErrorHbox.setVisible(true);
         }
         if (fxdateDebut.getValue()== null) {
             fxdateDebutErrorHbox.setVisible(true);

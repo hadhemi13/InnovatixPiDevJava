@@ -15,7 +15,7 @@
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
-                      text="Liste des projets"/>
+                      text="🚀 Liste des projets 🚀"/>
                 <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                            minWidth="-Infinity" prefWidth="250.0" styleClass="product__list-searchInput">
                     <HBox.margin>
