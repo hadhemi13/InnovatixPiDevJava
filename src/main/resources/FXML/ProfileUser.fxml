@@ -15,15 +15,7 @@
         <HBox alignment="CENTER_LEFT" layoutX="32.0" layoutY="38.0" stylesheets="@../css/SideNavBar.css" />
         <AnchorPane layoutX="234.0" layoutY="76.0" prefHeight="453.0" prefWidth="641.0" styleClass="profileContainer" stylesheets="@../css/SideNavBar.css">
             <children>
-                <Label fx:id="userItemUpdateBtn" layoutX="583.0" layoutY="14.0" styleClass="userItem__btn">
-                    <graphic>
-                        <ImageView fx:id="userItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../img/update-icon.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Label>
+                <Label fx:id="userItemUpdateBtn" layoutX="583.0" layoutY="14.0" styleClass="userItem__btn" />
                 <Label layoutX="266.0" layoutY="-55.0" prefHeight="110.0" prefWidth="110.0" styleClass="profileImgBorder" />
                 <ImageView fx:id="userItemImg" fitHeight="100.0" fitWidth="100.0" layoutX="271.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true" styleClass="userItem__img">
                <image>
@@ -45,6 +37,11 @@
                     </cursor>
                 </ImageView>
                 <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="home__msg" text="Profile |" />
+                  <ImageView fx:id="downloadPdfButton" fitHeight="46.0" fitWidth="54.0" layoutX="555.0" layoutY="26.0" onMouseClicked="#generatePdf" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@../img/format-de-fichier-pdf.png" />
+                      </image>
+                  </ImageView>
 
             </children>
         </AnchorPane>
