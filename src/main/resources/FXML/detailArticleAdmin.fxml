@@ -112,7 +112,7 @@
                                     </HBox>
                                     <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="630.0">
                                         <children>
-                                            <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" text="Voir la piece jointe" />
+                                            <Text fx:id="piece" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" text="Voir la piece jointe" />
                                         </children>
                                         <VBox.margin>
                                             <Insets bottom="10.0" top="10.0" />
