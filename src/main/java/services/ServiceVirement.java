@@ -46,30 +46,32 @@ public class ServiceVirement implements IServiceVirement <Virement> {
 
 
     }
-   // Virement virement = new Virement(typee,montant,aa,transferez,Cin,Nom,image,decisionV);
-   public void ajouterV(Virement virement) throws SQLException {
-       String req = "INSERT INTO virement "
-               + "(nomet_prenom, type_virement, transferez_a, "
-               + "montant, cin, decision_v,photo_cin_v, phone_number,num_beneficiare) "
-               + "VALUES (?, ?, ?, ?, ?, ?, ?, ? ,? )";
-       try {
-           System.out.println("marche");
-           PreparedStatement ps = connection.prepareStatement(req);
-           ps.setString(1, virement.getNomet_prenom());
-           ps.setString(2, virement.getType_virement());
-           ps.setString(3, virement.getTransferez_a());
-           ps.setString(4, virement.getMontant());
-           ps.setInt(5, virement.getCin());
-           ps.setString(6, virement.getDecision_v());
-           ps.setString(7, virement.getPhoto_cin_v());
-           ps.setString(8, virement.getPhone_number());
-           ps.setInt(9, virement.getNum_beneficiare());
-           ps.executeUpdate();
-           System.out.println("Virement ajouté avec succès !");
-       } catch (SQLException e) {
-           System.err.println(e.getMessage());
-       }
-   }
+    // Virement virement = new Virement(typee,montant,aa,transferez,Cin,Nom,image,decisionV);
+    public void ajouterV(Virement virement) throws SQLException {
+        String req = "INSERT INTO virement "
+                + "(nomet_prenom, type_virement, transferez_a, "
+                + "montant, cin, decision_v,photo_cin_v, phone_number,num_beneficiare, qrCode) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+        try {
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setString(1, virement.getNomet_prenom());
+            ps.setString(2, virement.getType_virement());
+            ps.setString(3, virement.getTransferez_a());
+            ps.setString(4, virement.getMontant());
+            ps.setInt(5, virement.getCin());
+            ps.setString(6, virement.getDecision_v());
+            ps.setString(7, virement.getPhoto_cin_v());
+            ps.setString(8, virement.getPhone_number());
+            ps.setInt(9, virement.getNum_beneficiare());
+            ps.setString(10, virement.getQrCode()); // Set the qrCode field
+
+            ps.executeUpdate();
+            System.out.println("Virement ajouté avec succès !");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
 
 
     @Override
@@ -158,15 +160,18 @@ public class ServiceVirement implements IServiceVirement <Virement> {
                         rs.getString("email"),
                         rs.getString("decision_v"),
                         rs.getString("photo_cin_v"),
-                        rs.getString("phone_number")
+                        rs.getString("phone_number"),
+                        rs.getString("qrCode")
                 );
                 list.add(virement);
             }
         } catch (SQLException e) {
             System.err.println("Erreur lors de la récupération des virements : " + e.getMessage());
         }
+        System.out.println(list);
         return list;
     }
+
     public Virement getById(int id) throws SQLException {
         Virement virement = new Virement();
         PreparedStatement statement = null;

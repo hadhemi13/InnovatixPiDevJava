@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -15,9 +17,11 @@ import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceVirement;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
 public class VirementCard  implements Initializable {
@@ -56,6 +60,8 @@ public class VirementCard  implements Initializable {
 
     @FXML
     private HBox supprItems;
+    @FXML
+    private ImageView qrCodeImage;
 //    private Virement virement;
 
 
@@ -112,6 +118,19 @@ public class VirementCard  implements Initializable {
         NumBenefItems.setText(String.valueOf(virement.getNum_beneficiare()));
         MontantItems.setText(String.valueOf(virement.getMontant()));
         DesicionItems.setText(virement.getDecision_v().toString());
+        String base64QRCode = virement.getQrCode();
+
+
+        if (base64QRCode != null) {
+            // Convert the Base64 string to byte array
+            byte[] qrCodeBytes = Base64.getDecoder().decode(base64QRCode);
+
+            // Load the byte array into an Image
+            Image qrCode = new Image(new ByteArrayInputStream(qrCodeBytes));
+
+            // Set the Image to the ImageView
+            qrCodeImage.setImage(qrCode);
+        }
 
         // Définissez un gestionnaire d'événements pour le bouton de modification
         ServiceVirement serviceVirement = new ServiceVirement();

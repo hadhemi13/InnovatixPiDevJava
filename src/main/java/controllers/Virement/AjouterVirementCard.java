@@ -19,13 +19,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 import services.ServiceCheque;
 import services.ServiceVirement;
 import javafx.scene.layout.VBox;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -35,6 +36,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
+
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -145,13 +147,12 @@ public class AjouterVirementCard implements Initializable {
     private HBox transferezInputErrorHbox;
 
     @FXML
-    private ComboBox<String > type;
+    private ComboBox<String> type;
 
     @FXML
     private Text typeInputError;
     private File selectedImageFile;
-    private String imageName = null ;
-
+    private String imageName = null;
 
 
     @FXML
@@ -210,7 +211,7 @@ public class AjouterVirementCard implements Initializable {
         }
 
         // Vérification du champ benef
-        if (benef.getText().isEmpty() ) {
+        if (benef.getText().isEmpty()) {
             benefInputErrorHbox.setVisible(true);
             champsInvalides = true;
         } else {
@@ -223,10 +224,6 @@ public class AjouterVirementCard implements Initializable {
         }
 
 
-
-
-
-
         if (Cin.getText().isEmpty()) {
             cinInputErrorHbox.setVisible(true);
             if (NometPrenom.getText().isEmpty()) {
@@ -234,12 +231,12 @@ public class AjouterVirementCard implements Initializable {
                 if (Num.getText().isEmpty()) {
                     NumInputErrorHbox.setVisible(true);
                     if (type.getSelectionModel().isEmpty()) {
-                        beneficiaireInputErrorHbox .setVisible(true);
+                        beneficiaireInputErrorHbox.setVisible(true);
                         if (transferez.getText().isEmpty()) {
                             transferezInputErrorHbox.setVisible(true);
                             if (benef.getText().isEmpty()) {
                                 benefInputErrorHbox.setVisible(true);
-                                if(montant.getText().isEmpty()){
+                                if (montant.getText().isEmpty()) {
                                     montantInputErrorHbox.setVisible(true);
                                 }
                             }
@@ -254,7 +251,7 @@ public class AjouterVirementCard implements Initializable {
                                 transferezInputErrorHbox.setVisible(true);
                                 if (benef.getText().isEmpty()) {
                                     benefInputErrorHbox.setVisible(true);
-                                    if(montant.getText().isEmpty()){
+                                    if (montant.getText().isEmpty()) {
                                         montantInputErrorHbox.setVisible(true);
                                     }
 
@@ -269,7 +266,7 @@ public class AjouterVirementCard implements Initializable {
                                 transferezInputErrorHbox.setVisible(true);
                                 if (benef.getText().isEmpty()) {
                                     benefInputErrorHbox.setVisible(true);
-                                    if(montant.getText().isEmpty()) {
+                                    if (montant.getText().isEmpty()) {
                                         montantInputErrorHbox.setVisible(true);
                                     }
                                 }
@@ -290,7 +287,7 @@ public class AjouterVirementCard implements Initializable {
                 }
             }
 
-        }else {
+        } else {
             if (!Cin.getText().isEmpty()) {
                 cinInputErrorHbox.setVisible(false);
                 if (!NometPrenom.getText().isEmpty()) {
@@ -303,7 +300,7 @@ public class AjouterVirementCard implements Initializable {
                                 transferezInputErrorHbox.setVisible(false);
                                 if (!benef.getText().isEmpty()) {
                                     benefInputErrorHbox.setVisible(false);
-                                    if(!montant.getText().isEmpty()){
+                                    if (!montant.getText().isEmpty()) {
                                         montantInputErrorHbox.setVisible(false);
                                     }
 
@@ -315,7 +312,6 @@ public class AjouterVirementCard implements Initializable {
             }
 
 
-
         }
         // Select for combo
         SingleSelectionModel<String> selectionModel = type.getSelectionModel();
@@ -324,14 +320,14 @@ public class AjouterVirementCard implements Initializable {
         // Date Now
         LocalDate selectedDate = LocalDate.now();
         // Create a new instance of cheque from View
-        String image=imageName;
+        String image = imageName;
         Integer Rib = 345678644;
-        String type_virement=selectedType;
+        String type_virement = selectedType;
         System.out.println(type_virement);
-        String transf= transferez.getText();
-        String benefr=benef.getText();
-        String montantv=montant.getText();
-        String nom_prenom=NometPrenom.getText();
+        String transf = transferez.getText();
+        String benefr = benef.getText();
+        String montantv = montant.getText();
+        String nom_prenom = NometPrenom.getText();
         int cin;
         try {
             cin = Integer.parseInt(Cin.getText());
@@ -346,8 +342,19 @@ public class AjouterVirementCard implements Initializable {
 
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);
+        String virementData =  "Type: " + type_virement + "\n" +
+                "Transferez à: " + transf + "\n" +
+                "Benef: " + benefr + "\n" +
+                "Montant: " + montantv + "\n" +
+                "Nom & Prenom: " + nom_prenom + "\n" +
+                "CIN: " + cin + "\n" +
+                "Numéro de téléphone: " + phone_number;
+
+        String base64QRCode = generateBase64QRCode(virementData);
+
         //String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number
-        Virement virement1=new Virement(nom_prenom,type_virement,transf,Integer.parseInt(benefr),montantv,cin,Rib,decision,imageName,phone_number);
+        Virement virement1 = new Virement(nom_prenom, type_virement, transf, Integer.parseInt(benefr), montantv, cin, Rib, decision, imageName, phone_number);
+        virement1.setQrCode(base64QRCode);
         ServiceVirement serviceVirement = new ServiceVirement();
         serviceVirement.ajouterV(virement1);
 
@@ -357,34 +364,36 @@ public class AjouterVirementCard implements Initializable {
         // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
         content_area.getChildren().setAll(demandeVirement);
     }
-
-
-
+    private String generateBase64QRCode(String data) {
+        ByteArrayOutputStream stream = QRCode.from(data).to(ImageType.JPG).stream();
+        byte[] byteArray = stream.toByteArray();
+        return Base64.getEncoder().encodeToString(byteArray);
+    }
 
     private void resetFields() {
     }
 
 
     @Override
-    public void initialize (URL url, ResourceBundle resourceBundle){
-            imageInputErrorHbox.setVisible(false);
-            NumInputErrorHbox.setVisible(false);
-            montantInputErrorHbox.setVisible(false);
-            transferezInputErrorHbox.setVisible(false);
-            cinInputErrorHbox.setVisible(false);
-            NometPrenomInputErrorHbox.setVisible(false);
-            beneficiaireInputErrorHbox.setVisible(false);
-            benefInputErrorHbox.setVisible(false);
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageInputErrorHbox.setVisible(false);
+        NumInputErrorHbox.setVisible(false);
+        montantInputErrorHbox.setVisible(false);
+        transferezInputErrorHbox.setVisible(false);
+        cinInputErrorHbox.setVisible(false);
+        NometPrenomInputErrorHbox.setVisible(false);
+        beneficiaireInputErrorHbox.setVisible(false);
+        benefInputErrorHbox.setVisible(false);
 
 
         ObservableList<String> types = FXCollections.observableArrayList(
                 "Personne",
                 "VEcoresponsabilité"
         );
-            type.setItems(types);
+        type.setItems(types);
 
 
-        }
+    }
 
 //    private void hideErrorMessages() {
 //        NometPrenomInputError.setVisible(false);
@@ -398,29 +407,29 @@ public class AjouterVirementCard implements Initializable {
 //    }
 
 
-        public void ImporterImageV (ActionEvent event){
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Choisir une image");
-            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-             selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-            if (selectedImageFile != null) {
-                Image image = new Image(selectedImageFile.toURI().toString());
-                imageInput.setImage(image);
+    public void ImporterImageV(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+        if (selectedImageFile != null) {
+            Image image = new Image(selectedImageFile.toURI().toString());
+            imageInput.setImage(image);
 
-                // Générer un nom de fichier unique pour l'image
-                String uniqueID = UUID.randomUUID().toString();
-                String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
-                imageName = uniqueID + extension;
+            // Générer un nom de fichier unique pour l'image
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
+            imageName = uniqueID + extension;
 
-                Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", imageName);
-                try {
-                    Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException e) {
-                    // e.printStackTrace();
-                    System.out.println("non");
-                }
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "Images", imageName);
+            try {
+                Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                // e.printStackTrace();
+                System.out.println("non");
             }
         }
+    }
 
     public void retourBackDash(MouseEvent mouseEvent) {
 

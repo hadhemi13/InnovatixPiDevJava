@@ -22,15 +22,15 @@
                 <Insets bottom="10.0" top="10.0" />
             </padding>
         </HBox>
-      <HBox prefHeight="152.0" prefWidth="362.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets left="80.0" />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
+        <HBox prefHeight="152.0" prefWidth="362.0">
+            <children>
+                <ImageView fx:id="qrCodeImage" fitHeight="150.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true" translateX="20.0">
+                    <HBox.margin>
+                        <Insets left="80.0" />
+                    </HBox.margin>
+                </ImageView>
+            </children>
+        </HBox>
         <HBox prefHeight="48.0" prefWidth="354.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="RIB :">
@@ -129,20 +129,20 @@
                 </Text>
             </children>
         </HBox>
-      <HBox layoutX="18.0" layoutY="424.0" prefHeight="44.0" prefWidth="354.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="Montant :  " wrappingWidth="120.70001220703125">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Text>
-            <Text fx:id="MontantItems" strokeType="OUTSIDE" strokeWidth="0.0" text="220">
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </Text>
-         </children>
-      </HBox>
+        <HBox layoutX="18.0" layoutY="424.0" prefHeight="44.0" prefWidth="354.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="Montant :  " wrappingWidth="120.70001220703125">
+                    <HBox.margin>
+                        <Insets left="50.0" />
+                    </HBox.margin>
+                </Text>
+                <Text fx:id="MontantItems" strokeType="OUTSIDE" strokeWidth="0.0" text="220">
+                    <HBox.margin>
+                        <Insets left="30.0" />
+                    </HBox.margin>
+                </Text>
+            </children>
+        </HBox>
         <HBox alignment="TOP_CENTER" prefHeight="47.0" prefWidth="342.0">
             <VBox.margin>
                 <Insets right="11.0" />

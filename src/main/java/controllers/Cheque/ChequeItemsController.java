@@ -62,7 +62,7 @@ public class ChequeItemsController {
         userItemStateBtn.setId(String.valueOf(i.getId()));
 
         userItemEmail.setText(String.valueOf(i.getCin()));
-        userItemName.setText(String.valueOf(i.getCompte_id()));
+       userItemName.setText(String.valueOf(i.getCompte_id()));
         userItemTel.setText(i.getNom_prenom());
         userItemRole.setText(i.getEmail());
         userItemStateText.setText(i.getDecision());

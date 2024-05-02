@@ -19,7 +19,7 @@
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-      <ImageView fx:id="photoCin" fitHeight="47.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" translateX="15.0">
+      <ImageView fx:id="photoCin" fitHeight="47.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/cloud-computing.png" />
          </image>
@@ -27,7 +27,7 @@
             <Insets bottom="5.0" />
          </HBox.margin>
       </ImageView>
-        <Text fx:id="NometPrenom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" translateX="30.0" wrappingWidth="120.84813690185547">
+        <Text fx:id="NometPrenom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="shayma ouerhani" translateX="10.0" wrappingWidth="120.84813690185547">
             <HBox.margin>
                 <Insets left="20.0" right="4.0" />
             </HBox.margin>
@@ -39,7 +39,7 @@
         </Text>
         <Text fx:id="TypeVir" strokeType="OUTSIDE" strokeWidth="0.0" text="Personne" translateX="-20.0" wrappingWidth="82.70153427124023" />
         <Text fx:id="Transferez" strokeType="OUTSIDE" strokeWidth="0.0" text="shyheb ouerhani" translateX="10.0" wrappingWidth="92.3485107421875" />
-        <Text fx:id="NumBenif" strokeType="OUTSIDE" strokeWidth="0.0" text="111212121" translateX="60.0" wrappingWidth="118.14996337890625" />
+        <Text fx:id="NumBenif" strokeType="OUTSIDE" strokeWidth="0.0" text="111212121" translateX="40.0" wrappingWidth="118.14996337890625" />
         <Text fx:id="Montant" strokeType="OUTSIDE" strokeWidth="0.0" text="22,000" translateX="40.0" wrappingWidth="72.55004501342773" />
         <Label fx:id="ApprouveBtnV" onMouseClicked="#approuverVir" styleClass="userItem__btn" translateX="50.0">
             <graphic>

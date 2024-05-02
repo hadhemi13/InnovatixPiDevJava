@@ -45,118 +45,118 @@
                 </TextField>
             </children>
         </VBox>
-      <VBox layoutX="34.0" layoutY="47.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-         <padding>
-            <Insets left="16.0" right="16.0" />
-         </padding>
-         <children>
-            <HBox prefHeight="6.0" prefWidth="538.0">
-               <children>
-                  <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="CIN">
-                     <HBox.margin>
-                        <Insets right="2.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                     <font>
-                        <Font name="Montserrat Regular" size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <TextField fx:id="Cin" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="CIN" styleClass="product__add-input">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </TextField>
-         </children>
-      </VBox>
-      <VBox layoutX="34.0" layoutY="240.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-         <padding>
-            <Insets left="16.0" right="16.0" />
-         </padding>
-         <children>
-            <HBox prefHeight="6.0" prefWidth="538.0">
-               <children>
-                  <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Nom et Prénom">
-                     <HBox.margin>
-                        <Insets right="2.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                     <font>
-                        <Font name="Montserrat Regular" size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <TextField fx:id="NometPrenom" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="nom et prénom" styleClass="product__add-input">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </TextField>
-         </children>
-      </VBox>
-      <VBox layoutX="34.0" layoutY="292.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-         <padding>
-            <Insets left="16.0" right="16.0" />
-         </padding>
-         <children>
-            <HBox prefHeight="6.0" prefWidth="538.0">
-               <children>
-                  <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Email">
-                     <HBox.margin>
-                        <Insets right="2.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                     <font>
-                        <Font name="Montserrat Regular" size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <TextField fx:id="Email" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="Email" styleClass="product__add-input">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </TextField>
-         </children>
-      </VBox>
-      <VBox layoutX="34.0" layoutY="343.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-         <padding>
-            <Insets left="16.0" right="16.0" />
-         </padding>
-         <children>
-            <HBox prefHeight="6.0" prefWidth="538.0">
-               <children>
-                  <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date ">
-                     <HBox.margin>
-                        <Insets right="2.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                     <font>
-                        <Font name="Montserrat Regular" size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <DatePicker fx:id="date" prefHeight="26.0" prefWidth="217.0" styleClass="product__add-input-label" stylesheets="@../assets/style/aliStyle.css" />
-         </children>
-      </VBox>
+        <VBox layoutX="34.0" layoutY="47.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="CIN">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <TextField fx:id="Cin" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="CIN" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </TextField>
+            </children>
+        </VBox>
+        <VBox layoutX="34.0" layoutY="240.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Nom et Prénom">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <TextField fx:id="NometPrenom" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="nom et prénom" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </TextField>
+            </children>
+        </VBox>
+        <VBox layoutX="34.0" layoutY="292.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Email">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <TextField fx:id="Email" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="Email" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </TextField>
+            </children>
+        </VBox>
+        <VBox layoutX="34.0" layoutY="343.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date ">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <DatePicker fx:id="date" prefHeight="26.0" prefWidth="217.0" styleClass="product__add-input-label" stylesheets="@../assets/style/aliStyle.css" />
+            </children>
+        </VBox>
         <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="478.0">
             <padding>
                 <Insets left="16.0" right="16.0" />
@@ -182,64 +182,64 @@
                 <ComboBox fx:id="beneficiaire" prefHeight="37.0" prefWidth="222.0" styleClass="product__add-comboBox" />
             </children>
         </VBox>
-      <VBox layoutX="34.0" layoutY="298.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-         <padding>
-            <Insets left="16.0" right="16.0" />
-         </padding>
-         <children>
-            <HBox prefHeight="6.0" prefWidth="538.0">
-               <children>
-                  <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Téléphone">
-                     <HBox.margin>
-                        <Insets right="2.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                     <font>
-                        <Font name="Montserrat Regular" size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <TextField fx:id="tel" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="téléphone" styleClass="product__add-input">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </TextField>
-         </children>
-      </VBox>
-      <VBox layoutX="34.0" layoutY="522.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-         <padding>
-            <Insets left="16.0" right="16.0" />
-         </padding>
-         <children>
-            <HBox prefHeight="6.0" prefWidth="538.0">
-               <children>
-                  <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Montant">
-                     <HBox.margin>
-                        <Insets right="2.0" />
-                     </HBox.margin>
-                  </Text>
-                  <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                     <font>
-                        <Font name="Montserrat Regular" size="16.0" />
-                     </font>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <TextField fx:id="montant" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="montant" styleClass="product__add-input">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </TextField>
-         </children>
-      </VBox>
+        <VBox layoutX="34.0" layoutY="298.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Téléphone">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <TextField fx:id="tel" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="téléphone" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </TextField>
+            </children>
+        </VBox>
+        <VBox layoutX="34.0" layoutY="522.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <children>
+                <HBox prefHeight="6.0" prefWidth="538.0">
+                    <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Montant">
+                            <HBox.margin>
+                                <Insets right="2.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+                <TextField fx:id="montant" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="427.0" promptText="montant" styleClass="product__add-input">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </TextField>
+            </children>
+        </VBox>
         <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="491.0">
             <padding>
                 <Insets left="16.0" right="16.0" />

@@ -37,7 +37,7 @@
                                 <Insets left="10.0" top="26.0" />
                             </HBox.margin>
                         </Text>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="65.0">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="230.0">
                      <HBox.margin>
                         <Insets top="30.0" />
                      </HBox.margin>

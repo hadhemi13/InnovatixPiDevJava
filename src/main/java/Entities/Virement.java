@@ -17,8 +17,35 @@ public class Virement {
     private String decision_v ;
     private String photo_cin_v ;
     private String phone_number ;
+
+    private String qrCode ;
     public Virement(){}
 
+    public Virement(int id, int compteId, int userId, String nometPrenom, String typeVirement, String transferezA, int numBeneficiare, String montant, int cin, int rib, String email, String decisionV, String photoCinV, String phoneNumber, String qrCode) {
+        this.id = id;
+        this.compte_id = compteId;
+        this.user_id = userId;
+        this.nomet_prenom = nometPrenom;
+        this.type_virement = typeVirement;
+        this.transferez_a = transferezA;
+        this.num_beneficiare = numBeneficiare;
+        this.montant = montant;
+        this.cin = cin;
+        this.rib = rib;
+        this.email = email;
+        this.decision_v = decisionV;
+        this.photo_cin_v = photoCinV;
+        this.phone_number = phoneNumber;
+        this.qrCode = qrCode ;
+    }
+
+    public String getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
+    }
 
     public Virement(int id, int compte_id, int user_id, String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String email, String decision_v, String photo_cin_v, String phone_number) {
         this.id = id;
@@ -49,17 +76,19 @@ public class Virement {
         this.photo_cin_v = photo_cin_v;
         this.phone_number = phone_number;
     }
-   // Virement virement = new Virement(montant,aa,transferez,Cin,Nom,image,decisionV);
-   public Virement(String type_virement, String montant, String phone_number,String transferez_a, int cin,  String nomet_prenom ,String photo_cin_v, String decision_v ){
-       this.nomet_prenom = nomet_prenom;
-       this.type_virement = type_virement;
-       this.transferez_a = transferez_a;
-       this.montant = montant;
-       this.cin = cin;
-       this.decision_v = decision_v;
-       this.photo_cin_v = photo_cin_v;
-       this.phone_number = phone_number;
-   }
+
+    // Virement virement = new Virement(montant,aa,transferez,Cin,Nom,image,decisionV);
+    public Virement(String type_virement, String montant, String phone_number,String transferez_a, int cin,  String nomet_prenom ,String photo_cin_v, String decision_v ){
+        this.nomet_prenom = nomet_prenom;
+        this.type_virement = type_virement;
+        this.transferez_a = transferez_a;
+        this.montant = montant;
+        this.cin = cin;
+        this.decision_v = decision_v;
+        this.photo_cin_v = photo_cin_v;
+        this.phone_number = phone_number;
+    }
+
 
 
     public int getId() {
