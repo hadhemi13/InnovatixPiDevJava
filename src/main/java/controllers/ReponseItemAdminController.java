@@ -119,6 +119,8 @@ import java.util.ResourceBundle;
 public class ReponseItemAdminController{
 
 
+
+
     @FXML
     private Text ContenuRep;
 
@@ -165,28 +167,45 @@ public class ReponseItemAdminController{
             dateRec.setText(String.valueOf(reponse.getReclamation().getDate_rec()));
             mailRep.setText(reponse.getReclamation().getAdr_rec());
             editRep.setId(String.valueOf(reponse.getId()));
-            editRep.setOnMouseClicked(event -> {try {
-                // Charger le fichier FXML du formulaire de modification d'article
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierRéponse.fxml"));
-                Parent editArticlePopupParent = loader.load();
 
-                // Récupérer le contrôleur du formulaire de modification d'article
-                ModifierRéponseController modifierRéponseController = loader.getController();
+            editRep.setOnMouseClicked(event -> {
+                System.out.println("reponse contenu: " + reponse.getContenu_rep());
+                ListRepAdminController.setUpdateRepModelShow(1);
+                ListRepAdminController.setArticleEmailToUpdate(reponse.getId());
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listRepAdmin.fxml"));
+                try {
+                    Parent root = loader.load();
+                    Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Passer l'article à modifier au contrôleur
-                modifierRéponseController.initData(reponse);
+                    contentArea.getChildren().clear();
+                    contentArea.getChildren().add(root);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
-                // Créer une nouvelle fenêtre modale pour le formulaire de modification
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setTitle("Modifier Article");
-                stage.setScene(new Scene(editArticlePopupParent));
-                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
             });
+//            editRep.setOnMouseClicked(event -> {try {
+//                // Charger le fichier FXML du formulaire de modification d'article
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierRéponse.fxml"));
+//                Parent editArticlePopupParent = loader.load();
+//
+//                // Récupérer le contrôleur du formulaire de modification d'article
+//                ModifierRéponseController modifierRéponseController = loader.getController();
+//
+//                // Passer l'article à modifier au contrôleur
+//                modifierRéponseController.initData(reponse);
+//
+//                // Créer une nouvelle fenêtre modale pour le formulaire de modification
+//                Stage stage = new Stage();
+//                stage.initModality(Modality.APPLICATION_MODAL);
+//                stage.setTitle("Modifier Article");
+//                stage.setScene(new Scene(editArticlePopupParent));
+//                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            });
             deleterep.setId(String.valueOf(reponse.getId()));
             deleterep.setOnMouseClicked(event -> {
             System.out.println("ID de l'article à supprimer : " + reponse.getId());

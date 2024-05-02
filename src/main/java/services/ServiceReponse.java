@@ -1,5 +1,6 @@
 package services;
 
+import Entities.Article;
 import Entities.Reclamation;
 import Entities.Reponse;
 import utils.MyDatabase;
@@ -96,6 +97,27 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
         }
         return reponses;
     }
+    public Reponse getOneProject(int id) throws SQLException {
+        String req = "SELECT * FROM `reponse` where id = ?";
+        PreparedStatement ps = MyDatabase.getInstance().getConnection().prepareStatement(req);
+        ps.setInt(1, id);
+
+        ResultSet rs = ps.executeQuery();
+        Reponse reponse= new Reponse();
+        reponse.setId(-999);
+
+        while (rs.next()) {
+            reponse.setId(rs.getInt("id"));
+            reponse.setContenu_rep(rs.getString("contenu_rep"));
+            reponse.setPiece_jrep(rs.getString("piece_jrep"));
+            reponse.setDate_rep(rs.getTimestamp("date_rep").toLocalDateTime());
+            reponse.setAdr_rep(rs.getString("adr_rep"));
+
+        }
+        ps.close();
+        return reponse;
+    }
+
     public Reponse getReponseById(int id) throws SQLException {
         String req = "SELECT * FROM reponse WHERE id=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {

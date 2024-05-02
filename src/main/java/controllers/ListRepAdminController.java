@@ -1,5 +1,6 @@
 package controllers;
 
+import Entities.Article;
 import Entities.Reclamation;
 import Entities.Reponse;
 import javafx.animation.KeyFrame;
@@ -16,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import services.ServiceArticle;
 import services.ServiceReclamation;
 import services.ServiceReponse;
 
@@ -28,7 +30,8 @@ import java.util.ResourceBundle;
 
 public class ListRepAdminController implements Initializable {
 
-
+    @FXML
+    private HBox updateArticleModel;
     @FXML
     private ImageView backBtn;
 
@@ -37,7 +40,8 @@ public class ListRepAdminController implements Initializable {
 
     @FXML
     private VBox repListContainer;
-
+    @FXML
+    private VBox updateArticleModelContent;
     @FXML
     private Text repListTitle;
 
@@ -46,6 +50,75 @@ public class ListRepAdminController implements Initializable {
 
     @FXML
     private ComboBox<?> trierepInput;
+    private static int updaterepModelShow = 0;
+    private static int ShowProjectModelShow = 0;
+    private static int RepIdToUpdate = 0;
+    private final ServiceReponse serviceReponse = new ServiceReponse();
+
+    public static void setUpdateRepModelShow(int updaterepModelShow) {
+        ListRepAdminController.updaterepModelShow = updaterepModelShow;
+    }
+    public static void setShowArticleModelShow(int ShowArticleModelShow) {
+        ListRepAdminController.ShowProjectModelShow = ShowArticleModelShow;
+    }
+    public static void setArticleEmailToUpdate(int RepIdToUpdate) {
+        ListRepAdminController.RepIdToUpdate = RepIdToUpdate;
+    }
+    public static int getUpdateRepModelShow() {
+        return updaterepModelShow;
+    }
+    @FXML
+    void close_updateProjectModel(MouseEvent event) {
+        updateArticleModel.setVisible(false);
+        updaterepModelShow = 0;
+    }
+    @FXML
+    private VBox updateRepModelContent;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Reponse reponse;
+
+        if (ListRepAdminController.getUpdaterepModelShow() == 0) {
+            updateArticleModel.setVisible(false);
+        } else if (ListRepAdminController.getUpdaterepModelShow() == 1) {
+            updateArticleModel.setVisible(true);
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateReponseCard.fxml"));
+            VBox updateRepform;
+            try {
+                updateRepform = fxmlLoader1.load();
+                UpdateReponseCardController updateRepCardControllerr = fxmlLoader1.getController();
+                UpdateArtcileCardController.setFxmlToLoad("listRepAdmin.fxml");
+                reponse = serviceReponse.getOneProject(RepIdToUpdate);
+                updateRepCardControllerr.setProjectUpdateData(reponse);
+                updateArticleModelContent.getChildren().add(updateRepform);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        refreshReponseList();
+
+    }
+
+    private void refreshReponseList() {
+        // Nettoyer le contenu actuel
+        repListContainer.getChildren().clear();
+
+        try {
+            // Charger à nouveau la liste des articles depuis la base de données
+            List<Reponse> reponses = serviceReponse.afficher();
+
+            // Charger à nouveau les cartes d'articles dans le conteneur
+            load();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception appropriée ici
+        }
+
+    }
 
     @FXML
     void returnBack(MouseEvent event) {
@@ -89,9 +162,8 @@ public class ListRepAdminController implements Initializable {
             }
         }
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        load();
+    public static int getUpdaterepModelShow() {
+        return updaterepModelShow;
     }
+
 }
