@@ -126,6 +126,38 @@ public class ServiceCommentaireHadhemi  implements IServiceCommentaireHadhemi<Co
         throw new SQLException("Commentaire non trouvé avec l'ID : " + id);
     }
 
+
+    public List<CommentaireHadhemi> afficherById(int idAuto) throws SQLException {
+        List<CommentaireHadhemi> commentaires = new ArrayList<>();
+        String req = "SELECT c.*, a.* " +
+                "FROM commentaire_hadhemi c " +
+                "INNER JOIN article a ON c.article_id = a.id " +
+                "WHERE c.article_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+            preparedStatement.setInt(1, idAuto);
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                while (rs.next()) {
+                    CommentaireHadhemi commentaire = new CommentaireHadhemi();
+                    commentaire.setId(rs.getInt("c.id"));
+                    commentaire.setContenu(rs.getString("c.contenu"));
+                    commentaire.setDate_creation(rs.getObject("c.date_creation", LocalDateTime.class));
+                    commentaire.setNom_aut_com(rs.getString("c.nom_aut_com"));
+                    commentaire.setArticle_id(rs.getInt("c.article_id"));
+                    commentaire.setImage_u(rs.getString("c.image_u"));
+                    Article article = new Article();
+                    LocalDateTime dateArticle = rs.getObject("a.date_pub_art", LocalDateTime.class);
+                    article.setDate_pub_art(dateArticle);
+                    article.setId(rs.getInt("a.id"));
+                    article.setTitre_art(rs.getString("a.titre_art"));
+                    commentaire.setArticle(article);
+                    commentaires.add(commentaire);
+                }
+            }
+        }
+        return commentaires;
+    }
+
+
     private CommentaireHadhemi mapResultSetToCommentaire(ResultSet rs) throws SQLException {
         return new CommentaireHadhemi(
                 rs.getInt("id"),
@@ -136,6 +168,8 @@ public class ServiceCommentaireHadhemi  implements IServiceCommentaireHadhemi<Co
                 rs.getString("image_u")
         );
     }
+
+
 
 //    public List<CommentaireHadhemi> getCommentairesByUserId(int userId) throws SQLException {
 //        List<CommentaireHadhemi> commentaires = new ArrayList<>();

@@ -8,11 +8,10 @@ import javafx.stage.Stage;
 
 public class MainFX extends Application {
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBar.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBar.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBarUser.fxml"));
 
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeArticlesClients.fxml"));
         Parent root = loader.load();

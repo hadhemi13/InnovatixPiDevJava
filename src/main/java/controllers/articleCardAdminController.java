@@ -64,6 +64,9 @@ public class articleCardAdminController implements Initializable {
     private HBox viewdetailArt;
 
     private Article article;
+
+    @FXML
+    private HBox ItemUpdateBtn;
     private ListArticleAdminController listArticleController;
 
     public void setListArticleController(ListArticleAdminController listArticleController) {
@@ -85,29 +88,46 @@ public class articleCardAdminController implements Initializable {
 
 
 
-        editArt.setId(String.valueOf(article.getId()));
-        editArt.setOnMouseClicked(event -> {
+//        editArt.setId(String.valueOf(article.getId()));
+//        editArt.setOnMouseClicked(event -> {
+//            try {
+//                // Charger le fichier FXML du formulaire de modification d'article
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+//                Parent editArticlePopupParent = loader.load();
+//
+//                // Récupérer le contrôleur du formulaire de modification d'article
+//                ModifierArticleController modifierArticleController = loader.getController();
+//
+//                // Passer l'article à modifier au contrôleur
+//                modifierArticleController.initData(article);
+//
+//                // Créer une nouvelle fenêtre modale pour le formulaire de modification
+//                Stage stage = new Stage();
+//                stage.initModality(Modality.APPLICATION_MODAL);
+//                stage.setTitle("Modifier Article");
+//                stage.setScene(new Scene(editArticlePopupParent));
+//                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+
+        ItemUpdateBtn.setOnMouseClicked(event -> {
+            System.out.println("article Name: " + article.getCategorie_art());
+            ListArticleAdminController.setupdateArticleModelShow(1);
+            ListArticleAdminController.setArticleEmailToUpdate(article.getId());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
             try {
-                // Charger le fichier FXML du formulaire de modification d'article
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-                Parent editArticlePopupParent = loader.load();
+                Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Récupérer le contrôleur du formulaire de modification d'article
-                ModifierArticleController modifierArticleController = loader.getController();
-
-                // Passer l'article à modifier au contrôleur
-                modifierArticleController.initData(article);
-
-                // Créer une nouvelle fenêtre modale pour le formulaire de modification
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.setTitle("Modifier Article");
-                stage.setScene(new Scene(editArticlePopupParent));
-                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
-
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         });
         deleteArtBtn.setId(String.valueOf(article.getId()));
         deleteArtBtn.setOnMouseClicked(event -> {
@@ -161,23 +181,23 @@ public class articleCardAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        editArt.setOnMouseClicked(event -> {
-            // Rediriger vers l'interface "UpdateArticle.fxml" pour éditer l'article
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
-            Parent root = null;
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            ModifierArticleController updateArticleController = loader.getController();
-            updateArticleController.initData(article); // Passer l'article sélectionné
+//        editArt.setOnMouseClicked(event -> {
+//            // Rediriger vers l'interface "UpdateArticle.fxml" pour éditer l'article
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierArticle.fxml"));
+//            Parent root = null;
+//            try {
+//                root = loader.load();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            ModifierArticleController updateArticleController = loader.getController();
+//            updateArticleController.initData(article); // Passer l'article sélectionné
+////
 //
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        });
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//            stage.show();
+//        });
 
 
     }

@@ -1,18 +1,26 @@
 package controllers;
 
+import Entities.Reclamation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import services.ServiceReclamation;
 
 import java.io.IOException;
+import java.net.URL;
 import java.security.cert.PolicyNode;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class ListeRecClientController {
+public class ListeRecClientController implements Initializable {
     @FXML
     private VBox RecListContainer;
 
@@ -28,6 +36,7 @@ public class ListeRecClientController {
 
     @FXML
     private HBox recTableHead;
+
     public void AjouterRec(MouseEvent mouseEvent) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterReclamation.fxml"));
@@ -41,4 +50,41 @@ public class ListeRecClientController {
         content_area.getChildren().add(addRecParent);
 
     }
+
+    public void Affichge() {
+        ServiceReclamation sr = new ServiceReclamation();
+        List<Reclamation> list = new ArrayList<>();
+        try {
+            //list = sr.afficher();
+            //Affichage by id ///
+            list = sr.afficherById(3);
+            System.out.println("list: "+list);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (Reclamation reclamation : list) {
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReclamationItemClient.fxml"));
+                Parent offreItem = loader.load();
+                ReclamationItemclientController RecItem = loader.getController();
+
+                // Initialisez les données de réclamation pour chaque élément de réclamation
+                RecItem.initData(reclamation);
+
+                // Passez la réclamation au contrôleur d'ajout de réponse
+                RecItem.initDataRec(reclamation);
+
+                RecListContainer.getChildren().add(offreItem);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Affichge();
+    }
+
 }

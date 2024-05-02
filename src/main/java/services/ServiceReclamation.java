@@ -112,6 +112,28 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
         return reclamations;
     }
 
+    public List<Reclamation> afficherById(int id) throws SQLException {
+            List<Reclamation> reclamations = new ArrayList<>();
+            String req = "SELECT * FROM reclamation WHERE user_id = ?";
+            PreparedStatement statement = connection.prepareStatement(req);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Reclamation reclamation = new Reclamation();
+                reclamation.setId(rs.getInt("id"));
+                reclamation.setObjet_rec(rs.getString("objet_rec"));
+                reclamation.setContenu_rec(rs.getString("contenu_rec"));
+                reclamation.setAdr_rec(rs.getString("adr_rec"));
+                reclamation.setNom_aut_rec(rs.getString("nom_aut_rec"));
+                reclamation.setDep_rec(rs.getString("dep_rec"));
+                reclamation.setStatut_rec(rs.getString("statut_rec"));
+                reclamation.setPiece_jrec(rs.getString("piece_jrec"));
+                reclamation.setDate_rec(rs.getTimestamp("date_rec").toLocalDateTime());
+                reclamations.add(reclamation);
+            }
+            return reclamations;
+
+    }
 }
 
 

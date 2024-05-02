@@ -30,7 +30,11 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
 public class ListArticleAdminController implements Initializable {
+
+    @FXML
+    private HBox updateArticleModel;
 
     @FXML
     private Text AjouterArtBtn;
@@ -61,30 +65,76 @@ public class ListArticleAdminController implements Initializable {
 
     @FXML
     void SearchByImage(MouseEvent event) {
-
     }
-
-
     @FXML
     void searchProduct(KeyEvent event) {
+    }
+    private static int updateArticleModelShow = 0;
+    private static int ShowProjectModelShow = 0;
+    private static int ArticleIdToUpdate = 0;
+
+    public static void setupdateArticleModelShow(int updateArticleModelShow) {
+        ListArticleAdminController.updateArticleModelShow = updateArticleModelShow;
+    }
+    public static void setShowArticleModelShow(int ShowArticleModelShow) {
+        ListArticleAdminController.ShowProjectModelShow = ShowArticleModelShow;
+    }
+    public static void setArticleEmailToUpdate(int ArticleIdToUpdate) {
+        ListArticleAdminController.ArticleIdToUpdate = ArticleIdToUpdate;
+    }
+    public static int getupdateArticleModelShow() {
+        return updateArticleModelShow;
+    }
+    @FXML
+    void close_updateProjectModel(MouseEvent event) {
+        updateArticleModel.setVisible(false);
+        updateArticleModelShow = 0;
+    }
+    @FXML
+    private VBox updateArticleModelContent;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Article article;
+
+        if (ListArticleAdminController.getUpdateArticleModelShow() == 0) {
+            updateArticleModel.setVisible(false);
+        } else if (ListArticleAdminController.getupdateArticleModelShow() == 1) {
+            updateArticleModel.setVisible(true);
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
+            VBox updateProjectform;
+            try {
+                updateProjectform = fxmlLoader1.load();
+                UpdateArtcileCardController updateUserCardController = fxmlLoader1.getController();
+                UpdateArtcileCardController.setFxmlToLoad("listArticleAdmin.fxml");
+                article = serviceArticle.getOneProject(ArticleIdToUpdate);
+                updateUserCardController.setProjectUpdateData(article);
+                updateArticleModelContent.getChildren().add(updateProjectform);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            refreshArticleList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
-
-
     @FXML
     private void navigateToArticleAdd(MouseEvent event) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ajouterArticle.fxml"));
         Parent addArticleParent = loader.load();
-
         // Récupération du contrôleur de la vue d'ajout d'article
         AjouterArticleController addArticleController = loader.getController();
-
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
-
     @FXML
     void openListComment(MouseEvent event) {
         try {
@@ -266,17 +316,18 @@ public class ListArticleAdminController implements Initializable {
             }
         }
     }
+    public static int getUpdateArticleModelShow() {
+        return updateArticleModelShow;
+    }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void categorieInput(ActionEvent actionEvent) {
+    }
 
-        try {
-            refreshArticleList();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+    public void ArticlesclientsfSearchInput(KeyEvent keyEvent) throws SQLException {
+
         }
 
-    }
+
 //
 //    public void searchActivite() throws SQLException {
 //        FilteredList<Article> filteredData = new FilteredList<>(FXCollections.observableArrayList(serviceArticle.afficher()), p -> true);

@@ -6,6 +6,7 @@ package controllers;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.fxml.Initializable;
+        import javafx.scene.Parent;
         import javafx.scene.control.Label;
         import javafx.scene.control.TextField;
         import javafx.scene.image.Image;
@@ -22,6 +23,8 @@ package controllers;
         import objects.Reactions;
         import services.ServiceArticle;
         import services.ServiceCommentaireHadhemi;
+
+        import java.io.IOException;
         import java.util.ArrayList;
 
         import java.net.URL;
@@ -30,6 +33,8 @@ package controllers;
         import java.time.format.DateTimeFormatter;
         import java.util.List;
         import java.util.ResourceBundle;
+
+        import static java.lang.reflect.Array.setInt;
 
 public class CommentArticleController implements Initializable {
 
@@ -41,6 +46,9 @@ public class CommentArticleController implements Initializable {
 
     @FXML
     private Text categArt;
+
+    @FXML
+    private VBox CommentListContainer;
 
     @FXML
     private Label commenter;
@@ -132,6 +140,13 @@ public class CommentArticleController implements Initializable {
     public void onLikeContainerPressed(MouseEvent me){
         startTime = System.currentTimeMillis();
     }
+
+    public int idAuto ;
+    List<CommentaireHadhemi> list = new ArrayList<>();
+
+
+
+
     // Liste de mots inappropriés
     private static List<String> badWords = new ArrayList<>();
     static {
@@ -234,7 +249,42 @@ public class CommentArticleController implements Initializable {
 //                String formattedDate = article.getDate_pub_art().format(formatter);
 //                datepub.setText(formattedDate);
                 contenuart.setText(article.getContenu_art());
+                idAuto = article.getId();
+                System.out.println("setArticle is called avec id  "+idAuto);
+
             }
+
+
+            //////////////////////Ajb/////////////////
+
+        ServiceCommentaireHadhemi sch = new ServiceCommentaireHadhemi() ;
+        List<CommentaireHadhemi> list = new ArrayList<>();
+        try {
+            System.out.println("000111 id of this article is :: "+idAuto);
+
+            //list = sch.afficher();
+
+            System.out.println("000222 id of this article is :: "+idAuto);
+            list = sch.afficherById(idAuto);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (CommentaireHadhemi commentaireHadhemi : list) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/commentaireItemFront.fxml"));
+                Parent offreItem = loader.load();
+                CommentaireItemFrontController ComItem = loader.getController();
+                System.out.println("contenue du comm page1 "+ComItem);
+                ComItem.initData(commentaireHadhemi);
+                CommentListContainer.getChildren().add(offreItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        ///////////////////Ajb////////////////////////
+
 //        Image img;
 //        img = new Image(getClass().getResourceAsStream(post.getAccount().getProfileImg()));
 //        imgProfile.setImage(img);
@@ -290,13 +340,52 @@ public class CommentArticleController implements Initializable {
 //        post.setTotalReactions(10);
 //        post.setNbComments(2);
 //        post.setNbShares(3);
+        System.out.println("getArticle is called ");
+
 
         return post;
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setData(getArticle());
+
+        article=this.article;
+       // setData(article); ///////////////////////////////////////////////Ajbounnnnnnnnni
+        //System.out.println("id of this article is :: "+article.getId());
+
+/*
+        ServiceCommentaireHadhemi sch = new ServiceCommentaireHadhemi() ;
+        List<CommentaireHadhemi> list = new ArrayList<>();
+        try {
+            System.out.println("111 id of this article is :: "+idAuto);
+
+            list = sch.afficher();
+         //   int IdAuto = article.getId();
+
+            System.out.println("222 id of this article is :: "+idAuto);
+           // list = sch.afficherById(IdAuto);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
+        // userListContainer.getChildren().add();
+//           OffreStageItem offreStageItem = new OffreStageItem();
+//            userListContainer.getChildren().add(offreStageItem.initE());
+/*
+        for (CommentaireHadhemi commentaireHadhemi : list) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/commentaireItemFront.fxml"));
+                Parent offreItem = loader.load();
+                CommentaireItemFrontController ComItem = loader.getController();
+                System.out.println("contenue du comm page1 "+ComItem);
+                ComItem.initData(commentaireHadhemi);
+                CommentListContainer.getChildren().add(offreItem);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
+
+
+
     }
 
     public void commenter(MouseEvent mouseEvent) throws SQLException {
@@ -326,4 +415,7 @@ public class CommentArticleController implements Initializable {
         // Ajouter le commentaire à la base de données
         sch.ajouter(commentaire);
     }
+
+
+
 }

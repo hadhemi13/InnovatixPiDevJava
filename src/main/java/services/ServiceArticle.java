@@ -97,6 +97,33 @@ public class ServiceArticle  implements IServiceArticle<Article> {
         }
     }
 
+    public Article getOneProject(int id) throws SQLException {
+        String req = "SELECT * FROM `article` where id = ?";
+        PreparedStatement ps = MyDatabase.getInstance().getConnection().prepareStatement(req);
+        ps.setInt(1, id);
+
+        ResultSet rs = ps.executeQuery();
+        Article article = new Article();
+        article.setId(-999);
+
+        while (rs.next()) {
+            article.setId(rs.getInt("id"));
+            article.setNom_aut_art(rs.getString("nom_aut_art"));
+            article.setAdr_aut_art(rs.getString("adr_aut_art"));
+            article.setDate_pub_art(rs.getTimestamp("date_pub_art").toLocalDateTime());
+            article.setDuree_art(rs.getInt("duree_art"));
+            article.setCategorie_art(rs.getString("categorie_art"));
+            article.setTitre_art(rs.getString("titre_art"));
+            article.setContenu_art(rs.getString("contenu_art"));
+            article.setPiecejointe_art(rs.getString("piecejointe_art"));
+            article.setImage_art(rs.getString("image_art"));
+
+        }
+        ps.close();
+        return article;
+    }
+
+
     @Override
     public List<Article> afficher() throws SQLException {
         List<Article> articles = new ArrayList<>();

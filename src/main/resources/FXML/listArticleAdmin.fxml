@@ -10,9 +10,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="userProductsContainer" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListArticleAdminController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../assets/style/nabilStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListArticleAdminController">
     <children>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1084.0">
             <children>
@@ -22,13 +24,13 @@
                         <Image url="@../imagesAct/magnifier.png" />
                     </image>
                 </ImageView>
-                <TextField fx:id="ArticlesclientsfSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#searchProduct" prefWidth="221.0" styleClass="product__list-searchInput" translateX="70.0">
+                <TextField fx:id="ArticlesclientsfSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#ArticlesclientsfSearchInput" prefWidth="221.0" styleClass="product__list-searchInput" translateX="70.0">
                     <padding>
                         <Insets left="37.0" right="40.0" />
                     </padding>
                 </TextField>
                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" translateX="125.0" />
-                  <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="145.0" promptText="Categories" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="135.0" />
+                  <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" onAction="#categorieInput" prefHeight="40.0" prefWidth="145.0" promptText="Categories" styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css" translateX="135.0" />
                 <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#navigateToArticleAdd" prefHeight="40.0" prefWidth="186.0" styleClass="onlyOfferItemsBtn" translateX="180.0">
                     <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Nouvel article" />
@@ -39,6 +41,7 @@
                 <Insets left="15.0" />
             </padding>
         </HBox>
+
         <ScrollPane fx:id="listArtScroll" layoutX="11.0" layoutY="84.0" prefHeight="521.0" prefWidth="1068.0" styleClass="product-card-scrollPane" stylesheets="@../css/SideNavBar.css">
          <content>
                 <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" prefHeight="500.0" prefWidth="1047.0" translateX="10.0" translateY="10.0">
@@ -48,5 +51,40 @@
                 </GridPane>
          </content>
         </ScrollPane>
+        <HBox fx:id="updateArticleModel" alignment="CENTER" layoutX="-274.0" layoutY="-85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1384.0" styleClass="updateUserModel" stylesheets="@../assets/style/nabilStyle.css">
+            <children>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="630.0" style="-fx-background-color: #fff;" styleClass="updateUserModel-card" stylesheets="@../assets/style/nabilStyle.css">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="600.0">
+                            <children>
+                                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="updateUserModel-card-title" text="Modifier le Projet" />
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#close_updateProjectModel" prefHeight="30.0" prefWidth="30.0" styleClass="updateUserModel-card-exitBtn" translateX="311.0">
+                                    <children>
+                                        <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/img/cross.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="30.0" right="30.0" />
+                            </padding>
+                        </HBox>
+                        <Line endX="540.0" layoutX="30.0" layoutY="84.0" stroke="#defee6" strokeWidth="2.0" />
+                        <ScrollPane hbarPolicy="NEVER" layoutX="30.0" layoutY="111.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="571.0" styleClass="updateProjectModel-scrollPane" stylesheets="@../assets/style/nabilStyle.css">
+                            <content>
+                                <VBox fx:id="updateArticleModelContent" prefHeight="402.0" prefWidth="551.0" />
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+
     </children>
 </Pane>

@@ -102,4 +102,5 @@ public class articleCardClientController implements Initializable {
 
     public void viewdetailArt(MouseEvent mouseEvent) {
     }
+
 }
