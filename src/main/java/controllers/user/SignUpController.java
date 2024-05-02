@@ -108,6 +108,7 @@ public class SignUpController implements Initializable{
 
         // Créer un objet User avec les informations saisies
         User newUser = new User(name, email, tel, password, image, roles);
+        //User usd = new User(name,email,tel,password,fileName,roles);
         UserControleSaisie userControleSaisie = new UserControleSaisie();
         ServiceUser userService = new ServiceUser();
 
@@ -118,6 +119,7 @@ public class SignUpController implements Initializable{
 
         // Ajouter l'utilisateur à la base de données ou effectuer toute autre action nécessaire
         addUserToDatabase(name,email,tel,password,image,roles);
+       // userService.ajouter(usd);
         clearInputFields();
     }
 
