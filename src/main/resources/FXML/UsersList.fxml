@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -24,21 +26,28 @@
                     </HBox.margin>
                 </Text>
                 <ComboBox fx:id="roleInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#roleChange" prefHeight="40.0" prefWidth="181.0" promptText="Tout" styleClass="product__add-comboBox" translateX="-150.0" />
-            <Button mnemonicParsing="false" onAction="#toAdduser" prefHeight="58.0" prefWidth="82.0" styleClass="logoutBtn" stylesheets="@../css/SideNavBar.css" text="+Add" translateX="-80.0">
+            <Button mnemonicParsing="false" onAction="#toAdduser" prefHeight="41.0" prefWidth="51.0" styleClass="logoutBtn" stylesheets="@../css/SideNavBar.css" translateX="-80.0">
                <font>
                   <Font size="10.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             </children>
         </HBox>
         <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="14.0" layoutY="93.0" prefHeight="74.0" prefWidth="1023.0" styleClass="userTableHead" stylesheets="@../../resources/css/SideNavBar.css">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" wrappingWidth="287.7546730041504" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" wrappingWidth="230.15475845336914" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="TEL" wrappingWidth="100.55472183227539" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Role" wrappingWidth="106.15463638305664" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Etat du compte" wrappingWidth="138.15475845336914" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Action" wrappingWidth="172.55461502075195" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" translateX="30.0" wrappingWidth="287.7546730041504" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" translateX="15.0" wrappingWidth="230.15475845336914" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="TEL" translateX="12.0" wrappingWidth="100.55472183227539" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Role" translateX="12.0" wrappingWidth="106.15463638305664" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Etat du compte" translateX="10.0" wrappingWidth="138.15475845336914" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Action" translateX="10.0" wrappingWidth="172.55461502075195" />
             </children>
         </HBox>
         <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane" stylesheets="@../css/SideNavBar.css">

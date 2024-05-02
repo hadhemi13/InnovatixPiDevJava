@@ -125,7 +125,7 @@
                       </VBox>
                </content>
             </ScrollPane>
-            <VBox layoutX="683.0" layoutY="2.0" prefHeight="700.0" prefWidth="686.0" styleClass="vbox_background_center" stylesheets="@../css/login.css" translateY="10.0" />
+            <VBox layoutX="683.0" layoutY="-11.0" prefHeight="700.0" prefWidth="686.0" styleClass="vbox_background_center" stylesheets="@../css/login.css" translateY="10.0" />
             <ImageView fitHeight="113.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/logo.png" />
