@@ -1,6 +1,7 @@
 package tests;
 
 import com.twilio.Twilio;
+import controllers.Credit.GMailer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +22,8 @@ public class MainFX extends Application {
         primaryStage.setTitle("E-Flex Bank");
         primaryStage.setScene(scene);
         primaryStage.show();
+        new GMailer().sendMail("subject","hello rouaa");
+
     }
 
     public static void main(String[] args) {

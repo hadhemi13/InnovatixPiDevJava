@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="calander+sms">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/RdvController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/IRDV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardRdv.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/corbeille-icone-vecteur-isole-sur-fond-transparent-la-transparence-corbeille-concept-logo-r1rxyh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pngtree-recycle-bin-icon-glossy-blue-round-button-delete-photo-png-image_13830767.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pngtree-trash-icon-creative-design-template-png-image_5259002.jpg" afterDir="false" />
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="26/4 premier validation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -147,7 +125,8 @@
       <workItem from="1713908662463" duration="17220000" />
       <workItem from="1713965669910" duration="18913000" />
       <workItem from="1714027158345" duration="24842000" />
-      <workItem from="1714109594815" duration="12162000" />
+      <workItem from="1714109594815" duration="12807000" />
+      <workItem from="1714262683551" duration="14961000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -269,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714035936646</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="26/4 premier validation">
+      <option name="closed" value="true" />
+      <created>1714154245178</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714154245178</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +287,8 @@
     <MESSAGE value="calendrier rdv + correction affichage credit" />
     <MESSAGE value="api" />
     <MESSAGE value="calander+sms" />
-    <option name="LAST_COMMIT_MESSAGE" value="calander+sms" />
+    <MESSAGE value="26/4 premier validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="26/4 premier validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -309,6 +297,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java</url>
           <line>151</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
