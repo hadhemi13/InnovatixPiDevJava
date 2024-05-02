@@ -14,14 +14,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceReponse;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class AjouterReponseAdminController implements Initializable {
 
@@ -49,6 +56,8 @@ public class AjouterReponseAdminController implements Initializable {
     @FXML
     private Button reponseBtn;
     private Reclamation reclamation;
+    private String pdfName;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,33 +68,39 @@ public class AjouterReponseAdminController implements Initializable {
     }
     @FXML
     void ajouter_image(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir un fichier PDF");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+        File selectedPDFFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+        if (selectedPDFFile != null) {
+            // Générer un nom de fichier unique pour le PDF
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = ".pdf";
+            pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
+
+            // Définir le répertoire de destination pour les PDF téléchargés
+            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+
+            // Créer le chemin de destination pour le PDF
+            Path destination = Paths.get(destinationFolder, pdfName);
+
+            try {
+                // Copier le fichier sélectionné vers le dossier de destination
+                Files.copy(selectedPDFFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                // Gérer les erreurs de copie
+                e.printStackTrace();
+            }
+        }
 
     }
 
 
     @FXML
     void addReponse(MouseEvent event) {
-//        int newId = ReclamationItemAdminController.idAn;
-//        ServiceReponse sr = new ServiceReponse();
-//        if (contenuInput.getText().isEmpty()) {
-//            contenuInputErrorBox.setVisible(true);
-//            return;
-//        }
-//        if (addpieceJBtn.getText().isEmpty()) {
-//            pieceInputErrorBox.setVisible(true);
-//            return;
-//        }
-//        LocalDateTime dateTime = LocalDateTime.now();
-//        String adresse = "mahmoud";
-//        String pieceJointe = "admin";
-//        Reponse reponse = new Reponse(newId,adresse,dateTime,contenuInput.getText(),pieceJointe);
-//        try {
-//            sr.ajouter(reponse);
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+
         int newId = ReclamationItemAdminController.idAn;
+
         ServiceReponse sr = new ServiceReponse();
         if (contenuInput.getText().isEmpty()) {
             contenuInputErrorBox.setVisible(true);
@@ -97,10 +112,12 @@ public class AjouterReponseAdminController implements Initializable {
         }
         LocalDateTime dateTime = LocalDateTime.now();
         String adresse = "mahmoud";
-        String pieceJointe = "admin";
+        String pieceJointe = pdfName;
         Reponse reponse = new Reponse(newId, adresse, dateTime, contenuInput.getText(), pieceJointe);
         try {
             sr.ajouter(reponse);
+            reclamation.setStatut_rec("Traitée");
+
             // Fermeture de la fenêtre d'ajout de réponse
             ((Stage) contenuInput.getScene().getWindow()).close(); // Assurez-vous d'importer javafx.stage.Stage
 

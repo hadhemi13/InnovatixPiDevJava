@@ -36,7 +36,11 @@
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-          <Text fx:id="RecItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Statut" textAlignment="CENTER" wrappingWidth="109.66741943359375" />
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="109.66741943359375">
+         <children>
+            <ImageView fx:id="RecItemState" fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
           <Text fx:id="RecItemDateText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="Date" textAlignment="CENTER" translateX="20.0" wrappingWidth="117.66735458374023" />
       <ImageView fx:id="RecItemPieceJ" fitHeight="26.0" fitWidth="32.0" onMouseClicked="#RecItemPieceJ" pickOnBounds="true" preserveRatio="true" translateX="80.0">
          <image>

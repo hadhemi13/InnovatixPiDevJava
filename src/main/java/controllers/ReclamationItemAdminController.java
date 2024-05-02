@@ -67,6 +67,8 @@ public class ReclamationItemAdminController implements Initializable {
     private Text RecItemcontenu;
 
     @FXML
+    private ImageView RecItemState;
+    @FXML
     private Label RecPieceJBtn;
 
     @FXML
@@ -104,8 +106,14 @@ public class ReclamationItemAdminController implements Initializable {
         Image imageJ = new Image(getClass().getResource("/imagesAct/attach.png").toExternalForm());
         RecItemPieceJ.setImage(imageJ);
         RecItemDateText.setText(String.valueOf(reclamation.getDate_rec()));
-        RecItemStateText.setText(reclamation.getStatut_rec());
-        RecItemDepText.setText(reclamation.getDep_rec());
+        if (reclamation.getStatut_rec().equals("En cours de traitement")) {
+            Image imagestat=new Image(getClass().getResource("/imagesAct/chargement.gif").toExternalForm());
+            RecItemState.setImage(imagestat);
+        } else { Image imgstat=new Image(getClass().getResource("/imagesAct/tick-mark.png").toExternalForm());
+
+            RecItemState.setImage(imgstat);}
+
+            RecItemDepText.setText(reclamation.getDep_rec());
         RecItemObjet.setText(reclamation.getObjet_rec());
         RecItemMail.setText(reclamation.getAdr_rec());
         RecItemPieceJ.setOnMouseClicked(this::openArticleImage);
