@@ -22,7 +22,7 @@
                   <Image url="@../imagesAct/back.png" />
                </image>
             </ImageView>
-                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Ajouter un nouveau article" textAlignment="CENTER" translateX="-100.0">
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Ajouter un nouveau article" textAlignment="CENTER">
                     <font>
                         <Font name="Montserrat ExtraBold" size="19.0" />
                     </font>
@@ -38,45 +38,7 @@
                <content>
                   <VBox id="scrollPane" alignment="CENTER" prefHeight="898.0" prefWidth="1068.0" style="-fx-background-color: white;">
                      <children>
-                          <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="183.0" prefWidth="943.0">
-                              <padding>
-                                  <Insets left="16.0" right="16.0" />
-                              </padding>
-                              <children>
-                                  <HBox prefHeight="6.0" prefWidth="538.0">
-                                      <children>
-                                          <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Contenu">
-                                              <HBox.margin>
-                                                  <Insets right="2.0" />
-                                              </HBox.margin>
-                                          </Text>
-                                          <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                                              <font>
-                                                  <Font name="Montserrat Regular" size="16.0" />
-                                              </font>
-                                          </Text>
-                                      </children>
-                                      <padding>
-                                          <Insets bottom="10.0" />
-                                      </padding>
-                                  </HBox>
-                                  <TextArea fx:id="ContenuArt" prefHeight="60.0" prefWidth="400.0" promptText="Entrez le contenu ici" styleClass="product__add-input-textArea" translateX="-10.0" />
-                              <HBox fx:id="ContenuHboxErreur" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
-                                 <children>
-                                    <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                    <Text fx:id="ContenuArtInputError1" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
-                                       <HBox.margin>
-                                          <Insets top="5.0" />
-                                       </HBox.margin>
-                                    </Text>
-                                 </children>
-                              </HBox>
-                              </children>
-                              <VBox.margin>
-                                  <Insets />
-                              </VBox.margin>
-                          </VBox>
-                          <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
+                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="466.0" translateX="30.0">
                               <padding>
                                   <Insets left="16.0" right="16.0" />
                               </padding>
@@ -98,7 +60,7 @@
                                           <Insets bottom="10.0" />
                                       </padding>
                                   </HBox>
-                                  <TextField fx:id="titreInput" prefHeight="31.0" prefWidth="600.0" promptText="Tapez le titre de l'article" styleClass="product__add-input" translateX="-10.0">
+                                  <TextField fx:id="titreInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="402.0" promptText="Tapez le titre de l'article" styleClass="product__add-input" translateX="-10.0">
                                       <VBox.margin>
                                           <Insets />
                                       </VBox.margin>
@@ -114,13 +76,54 @@
                                       </children>
                                   </HBox>
                               </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                           </VBox>
-                          <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="105.0" prefWidth="570.0">
+                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="479.0" translateX="30.0">
                               <padding>
                                   <Insets left="16.0" right="16.0" />
                               </padding>
                               <children>
-                                  <VBox prefHeight="131.0" prefWidth="299.0">
+                                  <HBox prefHeight="6.0" prefWidth="538.0">
+                                      <children>
+                                          <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Contenu">
+                                              <HBox.margin>
+                                                  <Insets right="2.0" />
+                                              </HBox.margin>
+                                          </Text>
+                                          <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                                              <font>
+                                                  <Font name="Montserrat Regular" size="16.0" />
+                                              </font>
+                                          </Text>
+                                      </children>
+                                      <padding>
+                                          <Insets bottom="10.0" />
+                                      </padding>
+                                  </HBox>
+                                  <TextArea fx:id="ContenuArt" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="402.0" promptText="Entrez le contenu ici" styleClass="product__add-input-textArea" translateX="-10.0" />
+                              <HBox fx:id="ContenuHboxErreur" prefHeight="26.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                                 <children>
+                                    <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
+                                    <Text fx:id="ContenuArtInputError1" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu obligatoire !">
+                                       <HBox.margin>
+                                          <Insets top="5.0" />
+                                       </HBox.margin>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              </children>
+                              <VBox.margin>
+                                  <Insets />
+                              </VBox.margin>
+                          </VBox>
+                          <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="413.0" translateY="-30.0">
+                              <padding>
+                                  <Insets left="16.0" right="16.0" />
+                              </padding>
+                              <children>
+                                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="299.0">
                                       <children>
                                           <HBox prefHeight="6.0" prefWidth="538.0">
                                               <children>
@@ -139,7 +142,7 @@
                                                   <Insets bottom="10.0" />
                                               </padding>
                                           </HBox>
-                                          <ComboBox fx:id="categoriechoice" prefHeight="40.0" prefWidth="299.0" styleClass="product__add-comboBox" />
+                                          <ComboBox fx:id="categoriechoice" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="399.0" styleClass="product__add-comboBox" translateX="-5.0" />
                                           <HBox fx:id="categorieErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
                                               <children>
                                                   <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
@@ -158,7 +161,7 @@
                                   </VBox>
                               </children>
                           </HBox>
-                          <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="105.0" prefWidth="570.0">
+                          <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="415.0">
                               <padding>
                                   <Insets left="16.0" right="16.0" />
                               </padding>
@@ -217,7 +220,7 @@
                                   </VBox>
                               </children>
                           </HBox>
-                          <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="263.0" prefWidth="680.0">
+                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="680.0" translateX="130.0">
                               <padding>
                                   <Insets left="16.0" right="16.0" />
                               </padding>
@@ -315,7 +318,7 @@
                                   </HBox>
                               </children>
                           </VBox>
-                            <HBox fx:id="imageInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css">
+                            <HBox fx:id="imageInputErrorHbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../css/SideNavBar.css" translateX="115.0">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
                                     <Text fx:id="imageInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Image obligatoire !">

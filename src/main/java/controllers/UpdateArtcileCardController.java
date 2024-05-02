@@ -17,12 +17,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.stage.FileChooser;
+ import javafx.scene.text.Text;
+ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
  import services.ServiceArticle;
 
 
+ import java.awt.*;
  import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -37,19 +39,30 @@ import java.util.UUID;
 
 public class UpdateArtcileCardController implements Initializable {
     @FXML
-    private TextField titreArt;
+    private TextArea ContenuArt;
 
     @FXML
-    private TextArea ContenuArt;
+    private Text addpieceJBtn;
 
     @FXML
     private HBox choose_photoBtn;
 
     @FXML
-    private TextField nomProjetInput;
+    private ImageView imageInput;
 
     @FXML
-    private ImageView imageInput;
+    private ImageView pieceJArtInput;
+
+    @FXML
+    private TextField titreArt;
+
+    @FXML
+    private Button update_projectBtn;
+
+
+    @FXML
+    private TextField nomProjetInput;
+
     @FXML
     private TextField categorieInput;
 
@@ -68,8 +81,6 @@ public class UpdateArtcileCardController implements Initializable {
     @FXML
     private TextField statutProjetInput;
 
-    @FXML
-    private Button update_projectBtn;
 
     Article articleToUpdate;
     private File selectedImageFile;
@@ -83,6 +94,7 @@ public class UpdateArtcileCardController implements Initializable {
         return FxmlToLoad;
     }
     private String pdfName;
+
 
     public static void setFxmlToLoad(String FxmlToLoad) {
         UpdateArtcileCardController.FxmlToLoad = FxmlToLoad;
@@ -187,6 +199,53 @@ public class UpdateArtcileCardController implements Initializable {
                 "Crédits"
         );
         addCategorie.setItems(categories);
+        pieceJArtInput.setOnMouseClicked(this::openArticleImage);
 
+
+    }
+    private void openArticleImage(MouseEvent mouseEvent) {
+
+        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", articleToUpdate.getPiecejointe_art());
+
+        try {
+            File file = destination.toFile();
+            if (file.exists()) {
+                Desktop.getDesktop().open(file);
+            } else {
+                System.out.println("File not found: " + destination);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ajouterPiece(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir un fichier PDF");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+        File selectedPDFFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+        if (selectedPDFFile != null) {
+            // Générer un nom de fichier unique pour le PDF
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = ".pdf";
+            pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
+
+            // Définir le répertoire de destination pour les PDF téléchargés
+            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+
+            // Créer le chemin de destination pour le PDF
+            Path destination = Paths.get(destinationFolder, pdfName);
+
+            try {
+                // Copier le fichier sélectionné vers le dossier de destination
+                Files.copy(selectedPDFFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                // Gérer les erreurs de copie
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void PieceJArtInput(MouseEvent mouseEvent) {
     }
 }

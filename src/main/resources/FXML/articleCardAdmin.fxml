@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="backArt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="297.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.articleCardAdminController">
+<VBox fx:id="backArt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#backArt" prefHeight="464.0" prefWidth="297.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.articleCardAdminController">
     <children>
           <HBox fx:id="open_productDetails" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="412.0" prefWidth="311.0" styleClass="openProductDetailsBtn">
          <children>
@@ -48,39 +48,6 @@
                         <padding>
                             <Insets bottom="10.0" />
                         </padding>
-                    </HBox>
-                    <HBox alignment="CENTER" prefHeight="27.0" prefWidth="264.0" styleClass="ratingProductCard" translateY="30.0">
-                        <children>
-                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../imagesAct/star.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../imagesAct/star.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../imagesAct/star.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../imagesAct/star.png" />
-                                </image>
-                            </ImageView>
-                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../imagesAct/star.png" />
-                                </image>
-                            </ImageView>
-            
-                        </children>
-                        <VBox.margin>
-                            <Insets bottom="2.0" />
-                        </VBox.margin>
                     </HBox>
                     <HBox fx:id="action" alignment="CENTER" prefHeight="50.0" prefWidth="257.0" translateX="-10.0" translateY="40.0">
                         <children>

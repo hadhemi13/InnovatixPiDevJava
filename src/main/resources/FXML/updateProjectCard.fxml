@@ -13,9 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="534.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UpdateArtcileCardController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="534.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UpdateArtcileCardController">
     <children>
-        <VBox prefHeight="263.0" prefWidth="680.0">
+        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="491.0">
             <padding>
                 <Insets left="16.0" right="16.0" />
             </padding>
@@ -37,7 +37,7 @@
                         <Insets bottom="10.0" />
                     </padding>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0">
+                <HBox minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
                     <children>
                         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="product__add-img-container">
                             <children>
@@ -118,7 +118,7 @@
                 <Insets bottom="27.0" />
             </VBox.margin>
         </Line>
-        <VBox prefHeight="102.0" prefWidth="570.0">
+        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
             <padding>
                 <Insets left="16.0" right="16.0" />
             </padding>
@@ -140,14 +140,14 @@
                         <Insets bottom="10.0" />
                     </padding>
                 </HBox>
-                <TextField fx:id="titreArt" promptText="Titre" styleClass="product__add-input">
+                <TextField fx:id="titreArt" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="289.0" promptText="Titre" styleClass="product__add-input">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
                 </TextField>
             </children>
         </VBox>
-        <VBox prefHeight="183.0" prefWidth="570.0">
+        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="478.0">
             <padding>
                 <Insets left="16.0" right="16.0" />
             </padding>
@@ -169,13 +169,13 @@
                         <Insets bottom="10.0" />
                     </padding>
                 </HBox>
-                <TextArea fx:id="ContenuArt" prefHeight="200.0" prefWidth="200.0" promptText="Description" styleClass="product__add-input-textArea" />
+                <TextArea fx:id="ContenuArt" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="289.0" promptText="Description" styleClass="product__add-input-textArea" />
             </children>
             <VBox.margin>
                 <Insets />
             </VBox.margin>
         </VBox>
-        <VBox prefHeight="102.0" prefWidth="570.0">
+        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="478.0">
             <padding>
                 <Insets left="16.0" right="16.0" />
             </padding>
@@ -200,16 +200,18 @@
             <ComboBox fx:id="addCategorie" prefWidth="150.0" styleClass="product__add-comboBox" />
             </children>
         </VBox>
-        <VBox prefHeight="102.0" prefWidth="570.0">
+        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="474.0">
             <padding>
                 <Insets left="16.0" right="16.0" />
             </padding>
             <children>
                 <HBox prefHeight="6.0" prefWidth="538.0">
                     <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Durée">
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Pièce jointe">
                             <HBox.margin>
                                 <Insets right="2.0" />
+
+
                             </HBox.margin>
                         </Text>
                         <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
@@ -222,104 +224,23 @@
                         <Insets bottom="10.0" />
                     </padding>
                 </HBox>
-                <TextField fx:id="dureeProjetInput" promptText="Profile URL" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </TextField>
-            </children>
-        </VBox>
-        <VBox prefHeight="102.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0" />
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Statut">
-                            <HBox.margin>
-                                <Insets right="2.0" />
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" />
-                    </padding>
-                </HBox>
-                <TextField fx:id="statutProjetInput" promptText="Profile URL" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </TextField>
-            </children>
-        </VBox>
-        <VBox prefHeight="102.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0" />
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Budget">
-                            <HBox.margin>
-                                <Insets right="2.0" />
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" />
-                    </padding>
-                </HBox>
-                <TextField fx:id="budgetProjetInput" promptText="Budget" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </TextField>
-            </children>
-        </VBox>
-        <VBox prefHeight="102.0" prefWidth="570.0">
-            <padding>
-                <Insets left="16.0" right="16.0" />
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date de creation">
-                            <HBox.margin>
-                                <Insets right="2.0" />
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" />
-                    </padding>
-                </HBox>
-                <TextField fx:id="dateCreationInput" promptText="Date de creation" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </TextField>
+            <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="249.0">
+               <children>
+                   <ImageView fx:id="pieceJArtInput" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#PieceJArtInput" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+                     <image>
+                        <Image url="@../imagesAct/add-image.png" />
+                     </image>
+                  </ImageView>
+                   <Text fx:id="addpieceJBtn" onMouseClicked="#ajouterPiece" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="category__add-btn-icon" text="Ajouter une pièce jointe" />
+
+               </children>
+            </HBox>
             </children>
         </VBox>
 
         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
             <children>
-                <Button fx:id="update_projectBtn" mnemonicParsing="false" onMouseClicked="#updateProject" styleClass="product__add-new-productBtn" text="Modifier le projet" textFill="WHITE" translateY="-46.0">
+                <Button fx:id="update_projectBtn" mnemonicParsing="false" onMouseClicked="#updateProject" styleClass="product__add-img-btn" text="Modifier " textFill="WHITE" translateY="-46.0">
                     <font>
                         <Font name="Montserrat Regular" size="16.0" />
                     </font>
