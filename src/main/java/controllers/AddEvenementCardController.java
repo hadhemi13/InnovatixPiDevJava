@@ -31,7 +31,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
@@ -214,7 +216,6 @@ public class AddEvenementCardController implements Initializable {
                 evenement.setNom(nameInput.getText());
             }
         }
-
         if (descriptionInput.getText().isEmpty()) {
             //descriptionTest = 0;
             descriptionInputErrorHbox.setVisible(true);
@@ -257,16 +258,44 @@ public class AddEvenementCardController implements Initializable {
              //   evenement.setPrix(prixInput.getText());
             }
         }
-        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
-        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
-        evenement.setLieu(fxLieu.getText());
-        evenement.setDescription(descriptionInput.getText());
-        evenement.setPrix(Double.parseDouble(prixInput.getText()));
-        evenement.setImg(imageName);
+
+//        java.util.Date utilDate = new java.util.Date();
+//        Date currentDate = new Date(utilDate.getTime());
+//        LocalDate date_don_limite = dateDonLimite.getValue();
+//        Date sqlDate = Date.valueOf(date_don_limite);
+//        if (sqlDate.before(currentDate)) {
+//            // Display an error message using an Alert dialog
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setHeaderText("The selected date is earlier than the current date");
+//            alert.setContentText("Please select a valid date.");
+//            alert.showAndWait();
+//            // Return from the method and prevent the data from being added to the database
+//            return;
+//        }
+//        Date dateDon = fundrising.getDate_don();
+//        if (dateDon != null && sqlDate.before(dateDon)) {
+//            // Display an error message using an Alert dialog
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setHeaderText("The limit date for donations is earlier than the beginning date of the fund");
+//            alert.setContentText("Please select a valid date.");
+//            alert.showAndWait();
+//            // Return from the method and prevent the data from being added to the database
+//            return;
+//        }
+//        fundrising.setDate_don(currentDate);
+//        fundrising.setDate_don_limite(sqlDate);
+//        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
+//        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
+//        evenement.setLieu(fxLieu.getText());
+//        evenement.setDescription(descriptionInput.getText());
+//        evenement.setPrix(Double.parseDouble(prixInput.getText()));
+//        evenement.setImg(imageName);
             IService evenementService = new ServiceEvenement();
             try {
                 evenementService.ajouter1(evenement, projectId);
-                showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
+                showNotification("Evenement", "Événement ajouté avec succès.", NotificationType.SUCCESS);
                 switchToEvenementsList(event);
             } catch (IOException e) {
                 e.printStackTrace();

@@ -137,19 +137,14 @@ public class OneEvenementListCardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AddEvenement.fxml"));
             try {
                 Parent root = loader.load();
-
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
                 contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         });
-
         showEvenement.setId(String.valueOf(evenement.getId()));
-
         showEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
@@ -164,28 +159,24 @@ public class OneEvenementListCardController {
             }
 
         });
-
-
         editEvenement.setId(String.valueOf(evenement.getId()));
         qrCodeEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement à générer qr Code : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
             StringBuilder builder = new StringBuilder();
-            builder.append("ID de l'événement: ").append(evenement.getId()).append("\n");
+            builder.append(" ID de l'événement: ").append(evenement.getId()).append("\n");
             builder.append("Nom de l'événement: ").append(evenement.getNom()).append("\n");
             builder.append("Description de l'événement: ").append(evenement.getDescription()).append("\n");
             builder.append("Prix de l'événement: ").append(evenement.getPrix()).append("\n");
             builder.append("Lieu de l'événement: ").append(evenement.getLieu()).append("\n");
-
             String text = builder.toString();
-             QRCodeWriter qrCodeWriter = new QRCodeWriter();
-             BitMatrix bitMatrix;
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix;
             try {
                 bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
                  BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
                 ImageView qrCodeImg = (ImageView) ((Node) event.getSource()).getScene().lookup("#qrCodeImg");
                 qrCodeImg.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
-
                 HBox qrCodeImgModel = (HBox) ((Node) event.getSource()).getScene().lookup("#qrCodeImgModel");
                 qrCodeImgModel.setVisible(true);
             } catch (WriterException e) {

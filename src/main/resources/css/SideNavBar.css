@@ -180,7 +180,19 @@
     -fx-background-color: #32bb6f;
     -fx-cursor: hand;
 }
+.product__card-btnsL {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #0393bf;
+    -fx-cursor: hand;
+}
 
+.product__card-btns3 {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #e18383;
+    -fx-cursor: hand;
+}
 .product__card-btns:hover {
     -fx-background-color: #2ba160;
 }

@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
 <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card"
       stylesheets="@../assets/style/nabilStyle.css" xmlns="http://javafx.com/javafx/19"
@@ -14,6 +15,15 @@
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
+<!--                <Button fx:id="retourCh" mnemonicParsing="false" onMouseClicked="#RetourBackC" styleClass="checkoutCard__btn" stylesheets="@../css/SideNavBar.css" translateY="-4.0">-->
+<!--                    <graphic>-->
+<!--                        <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                            <image>-->
+<!--                                <Image url="@../img/back.png" />-->
+<!--                            </image>-->
+<!--                        </ImageView>-->
+<!--                    </graphic>-->
+<!--                </Button>-->
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
                       text="🚀 Liste des projets 🚀"/>
                 <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"

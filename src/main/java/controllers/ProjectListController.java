@@ -95,6 +95,19 @@ public class ProjectListController implements Initializable {
     public static void setprojectEmailToShow(int projetIdToShow) {
         ProjectListController.projetIdToShow = projetIdToShow;
     }
+    public void RetourBackC(MouseEvent mouseEvent) {
+
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

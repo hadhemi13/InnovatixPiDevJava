@@ -1,6 +1,8 @@
 package controllers;
 
 import Entities.Evenement;
+import Entities.PDFExporter;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -209,6 +211,12 @@ public class EvenementsListController implements Initializable {
         }
 
     }
+    @FXML
+    private void exportToPDF(ActionEvent event) {
+        PDFExporter pdfExporter = new PDFExporter();
+        pdfExporter.generatePDF(evenementsListContainer); // Assuming your HBox is named 'hbox'
+    }
+
 
 //    @FXML
 //    void sort__ByStock(MouseEvent event) {
