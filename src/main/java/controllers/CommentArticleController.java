@@ -50,6 +50,7 @@ public class CommentArticleController implements Initializable {
     @FXML
     private VBox CommentListContainer;
 
+
     @FXML
     private Label commenter;
 

@@ -294,10 +294,12 @@ public class ListArticleAdminController implements Initializable {
 
     public void categorieInput(ActionEvent actionEvent) {
     }
+    @FXML
 
     public void ArticlesclientsfSearchInput(KeyEvent keyEvent) throws SQLException {
 
         }
+
 
 
 }

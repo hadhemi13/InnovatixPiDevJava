@@ -28,7 +28,7 @@ public class CommentaireItemFrontController {
     private Text nomCom;
 
 
-    /////////////////////Ajb////////////////////////////
+
     public void initData(CommentaireHadhemi commentaireHadhemi) {
         ServiceCommentaireHadhemi serviceCommentaireHadhemi = new ServiceCommentaireHadhemi();
         commentAff.setText(commentaireHadhemi.getContenu());
@@ -38,7 +38,8 @@ public class CommentaireItemFrontController {
 
 
     }
-/////////////////////Ajb////////////////////////////
+
+
 
 
 }

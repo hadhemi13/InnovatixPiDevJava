@@ -85,7 +85,30 @@ public class articleCardAdminController implements Initializable {
             imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
 
         }
+        open_productDetails.setId(String.valueOf(article.getId()));
+        open_productDetails.setOnMouseClicked(event -> {
+            try {
+                // Charger le fichier FXML du formulaire de modification d'article
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/detailArticleAdmin.fxml"));
+                Parent editArticlePopupParent = loader.load();
 
+                // Récupérer le contrôleur du formulaire de modification d'article
+                DetailArticleAdminController  comment = loader.getController();
+
+                // Passer l'article à modifier au contrôleur
+                comment.setData(article);
+
+                // Créer une nouvelle fenêtre modale pour le formulaire de modification
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Commenter Article");
+                stage.setScene(new Scene(editArticlePopupParent));
+                stage.showAndWait(); // Attendre que la fenêtre se ferme avant de continuer
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         ItemUpdateBtn.setOnMouseClicked(event -> {
             System.out.println("article Name: " + article.getCategorie_art());
