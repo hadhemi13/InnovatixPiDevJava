@@ -70,4 +70,7 @@ public class AfficheDemandeController implements Initializable {
             }
         }
     }
+
+    public void statusChange(ActionEvent actionEvent) {
+    }
 }

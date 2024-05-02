@@ -11,29 +11,36 @@
 
 <HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="1274.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageItemController">
    <children>
-      <Text fx:id="Nom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui " wrappingWidth="95.84808349609375">
+      <Text fx:id="Nom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="nom" wrappingWidth="95.84808349609375">
          <HBox.margin>
             <Insets left="10.0" right="4.0" />
          </HBox.margin>
       </Text>
-      <Text fx:id="prenom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="yesser" wrappingWidth="95.84808349609375" />
-      <Text fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="41156289" wrappingWidth="196.84814453125">
+      <Text fx:id="prenom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="prenom" wrappingWidth="95.84808349609375" />
+      <Text fx:id="email" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="email" wrappingWidth="196.84814453125">
          <HBox.margin>
             <Insets right="4.0" />
          </HBox.margin>
       </Text>
-      <Text fx:id="numero" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="106.84808349609375" />
-      <Text fx:id="domaine" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="108.84808349609375" />
-      <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="Khaloui yesser" wrappingWidth="115.84808349609375" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lettreMotivation" wrappingWidth="290.189453125" />
-      <Hyperlink prefHeight="23.0" prefWidth="144.0" text="cv" />
+      <Text fx:id="numero" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="numero" wrappingWidth="106.84808349609375" />
+      <Text fx:id="domaine" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="domaine" wrappingWidth="108.84808349609375" />
+      <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="date" wrappingWidth="115.84808349609375" />
+      <Text fx:id="Lettre" strokeType="OUTSIDE" strokeWidth="0.0" text="lettreMotivation" wrappingWidth="290.189453125" />
+      <Hyperlink fx:id="cv" onAction="#showCv" prefHeight="41.0" prefWidth="113.0">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/pdf%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic></Hyperlink>
       <HBox prefHeight="99.0" prefWidth="77.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css">
          <children>
             <Label fx:id="Approuver" styleClass="userItem__btn">
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="26.0" onMouseClicked="#edit" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/images.png" />
+                        <Image url="@../../img/verifier.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -41,11 +48,11 @@
                   <Insets left="10.0" top="40.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="refuser" onMouseClicked="#delete" styleClass="userItem__btn" >
+            <Label fx:id="refuser" styleClass="userItem__btn">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/png-clipart-simply-styled-icon-set-731-icons-free-security-denied-red-and-white-shield-x-icon.png" />
+                        <Image url="@../../img/supprimer.png" />
                      </image>
                   </ImageView>
                </graphic>
