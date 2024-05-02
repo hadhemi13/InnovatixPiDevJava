@@ -1,6 +1,11 @@
 package controllers;
 
 import Entities.Article;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
+import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,15 +17,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.ServiceArticle;
 import services.ServiceCommentaireHadhemi;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.security.cert.PolicyNode;
@@ -32,7 +37,8 @@ import static java.lang.System.err;
 
 public class articleCardAdminController implements Initializable {
 
-
+    @FXML
+    private HBox pdf;
     @FXML
     private HBox action;
 
@@ -93,7 +99,7 @@ public class articleCardAdminController implements Initializable {
                 Parent editArticlePopupParent = loader.load();
 
                 // Récupérer le contrôleur du formulaire de modification d'article
-                DetailArticleAdminController  comment = loader.getController();
+                DetailArticleAdminController comment = loader.getController();
 
                 // Passer l'article à modifier au contrôleur
                 comment.setData(article);
@@ -146,18 +152,289 @@ public class articleCardAdminController implements Initializable {
                 e.printStackTrace();
             }
         });
+//        pdf.setOnMouseClicked(event -> { if (article != null) {
+//            Document document = new Document();
+//
+//            if (article != null) {
+//                document = new Document();
+//                try {
+//                    // Spécifier le chemin où le PDF sera enregistré
+//                    FileChooser fileChooser = new FileChooser();
+//                    fileChooser.setTitle("Enregistrer le PDF");
+//                    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
+//                    File file = fileChooser.showSaveDialog(new Stage());
+//
+//                    if (file != null) {
+//                        // Écrire le contenu de l'article dans le document PDF
+//                        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
+//                        document.open();
+//                        document.add(new Paragraph("Titre: " + article.getTitre_art()));
+//                        document.add(new Paragraph("Contenu: " + article.getContenu_art()));
+//
+//                        // Ajouter l'image à partir du chemin spécifié dans l'article
+//                        if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
+//                            try {
+//                                String userDir = System.getProperty("user.dir"); // Obtient le répertoire de travail actuel
+//                                String imagePath = userDir + "/src/main/java/uploads/" + article.getImage_art(); // Construit le chemin absolu
+//                                com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(imagePath);
+//                                // Redimensionner l'image selon vos besoins
+//                                image.scaleToFit(400, 400);
+//                                document.add(image);
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//
+//
+//                        }
+//
+//                        document.close();
+//                        System.out.println("PDF enregistré avec succès !");
+//                    } else {
+//                        System.out.println("L'enregistrement du PDF a été annulé.");
+//                    }
+//                } catch (FileNotFoundException | DocumentException e) {
+//                    e.printStackTrace();
+//                    err.println("Erreur lors de la création du PDF.");
+//                }
+//            } else {
+//                err.println("L'article n'est pas initialisé.");
+//            }
+//
+//        }
+//    });
+//        pdf.setOnMouseClicked(event -> {
+//            if (article != null) {
+//                Document document = new Document();
+//                try {
+//                    // Spécifier le chemin où le PDF sera enregistré
+//                    FileChooser fileChooser = new FileChooser();
+//                    fileChooser.setTitle("Enregistrer le PDF");
+//                    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
+//                    File file = fileChooser.showSaveDialog(new Stage());
+//
+//                    if (file != null) {
+//                        // Écrire le contenu de l'article dans le document PDF
+//                        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
+//                        document.open();
+//
+//                        // Ajouter le logo de votre application en haut à gauche du PDF
+//                        String userDir = System.getProperty("user.dir");
+//                        String imagePath = userDir + "/src/main/resources/img/logoo.png";
+//                        System.out.println("Chemin du logo : " + imagePath); // Vérifiez le chemin du logo
+//                        com.itextpdf.text.Image logo = com.itextpdf.text.Image.getInstance(imagePath);
+//                        logo.scaleToFit(100, 100);
+//                        logo.setAlignment(Element.ALIGN_LEFT);
+//                        document.add(logo);
+//
+//                        Paragraph emptyLinee = new Paragraph("\n");
+//                        document.add(emptyLinee);
+//                        // Ajouter une ligne pour séparer le logo et le contenu
+//                        document.add(new LineSeparator());
+//
+//                        // Ajouter le titre de l'article centré avec une belle police et en gras
+//                        Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 24, Font.BOLD, BaseColor.BLACK);
+//                        Paragraph title = new Paragraph(article.getTitre_art(), titleFont);
+//                        title.setAlignment(Element.ALIGN_CENTER);
+//                        document.add(title);
+//
+//
+//                        // Ajouter l'image de l'article avec un cadre professionnel
+//                        if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
+//                            String imagePathArt = userDir + "/src/main/java/uploads/" + article.getImage_art();
+//                            System.out.println("Chemin de l'image de l'article : " + imagePathArt); // Vérifiez le chemin de l'image de l'article
+//                            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(imagePathArt);
+//                            image.setBorder(Rectangle.BOX);
+//                            image.setBorderWidth(2);
+//                            image.setBorderColor(BaseColor.BLACK);
+//                            image.scaleToFit(300, 300); // Redimensionner l'image
+//                            image.setAlignment(Element.ALIGN_CENTER);
+//                            document.add(image);
+//                        }
+//                        // Ajouter la catégorie de l'article
+//                        Font categoryFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
+//                        Paragraph category = new Paragraph("Catégorie: " + article.getCategorie_art(), categoryFont);
+//                        category.setAlignment(Element.ALIGN_CENTER);
+//                        document.add(category);
+//
+//// Ajouter le contenu de l'article
+//                        Font contentFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
+//                        Paragraph content = new Paragraph(article.getContenu_art(), contentFont);
+//                        content.setAlignment(Element.ALIGN_CENTER);
+//                        document.add(content);
+//
+//// Ajouter la date de publication, l'auteur et la signature en bas à droite
+//                        Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL, BaseColor.BLACK);
+//                        Paragraph footer = new Paragraph();
+//                        footer.setAlignment(Element.ALIGN_RIGHT);
+//
+//// Ajouter la date de publication
+//                        String datePublication = "Publié le: " + article.getDate_pub_art();
+//                        Chunk dateChunk = new Chunk(datePublication, dateFont);
+//                        footer.add(dateChunk);
+//
+//// Ajouter l'auteur
+//                        String auteur = "\nPar: " + article.getAdr_aut_art();
+//                        Chunk auteurChunk = new Chunk(auteur, dateFont);
+//                        footer.add(auteurChunk);
+//
+//// Ajouter un retour à la ligne
+//                        Paragraph emptyLine = new Paragraph("\n");
+//                        document.add(emptyLine);
+//
+//// Ajouter l'image de la signature
+//                        String imagePathSig = userDir + "/src/main/resources/img/signature.png";
+//                        System.out.println("Chemin de l'image de la signature : " + imagePathSig); // Vérifiez le chemin de l'image de la signature
+//                        com.itextpdf.text.Image imageSig = com.itextpdf.text.Image.getInstance(imagePathSig);
+//                        imageSig.scaleToFit(50, 50); // Redimensionner l'image de la signature
+//                        Chunk imageChunk = new Chunk(imageSig, 0, 0, true);
+//                        footer.add(imageChunk);
+//
+//                        document.add(footer);
+//
+//
+//                        // Fermer le document
+//                        document.close();
+//                        System.out.println("PDF enregistré avec succès !");
+//                    } else {
+//                        System.out.println("L'enregistrement du PDF a été annulé.");
+//                    }
+//                } catch (FileNotFoundException | DocumentException e) {
+//                    e.printStackTrace();
+//                    System.err.println("Erreur lors de la création du PDF.");
+//                } catch (MalformedURLException e) {
+//                    throw new RuntimeException(e);
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            } else {
+//                System.err.println("L'article n'est pas initialisé.");
+//            }
+//        });
+//    }
+        pdf.setOnMouseClicked(event -> {
+            if (article != null) {
+                Document document = new Document();
+                try {
+                    // Spécifier le chemin où le PDF sera enregistré
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setTitle("Enregistrer le PDF");
+                    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
+                    File file = fileChooser.showSaveDialog(new Stage());
+
+                    if (file != null) {
+                        // Écrire le contenu de l'article dans le document PDF
+                        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
+                        document.open();
+
+                        // Créer un cadre autour de tout le document
+                        Rectangle rectangle = new Rectangle(document.getPageSize());
+                        rectangle.setBorder(Rectangle.BOX);
+                        rectangle.setBorderWidth(2);
+                        rectangle.setBorderColor(new BaseColor(107, 175, 84)); // Vert foncé
+                        PdfContentByte canvas = writer.getDirectContent();
+                        canvas.rectangle(rectangle);
+
+                        // Ajouter le logo de votre application en haut à gauche du PDF
+                        String userDir = System.getProperty("user.dir");
+                        String imagePath = userDir + "/src/main/resources/img/logoo.png";
+                        com.itextpdf.text.Image logo = com.itextpdf.text.Image.getInstance(imagePath);
+                        logo.scaleToFit(100, 100);
+                        logo.setAlignment(Element.ALIGN_LEFT);
+                        document.add(logo);
+
+                        // Ajouter une ligne pour séparer le logo et le contenu
+                        document.add(new LineSeparator());
+
+                        // Ajouter le titre de l'article centré avec une belle police et en vert foncé
+                        Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 24, Font.BOLD, new BaseColor(107, 175, 84)); // Vert foncé
+                        Paragraph title = new Paragraph(article.getTitre_art(), titleFont);
+                        title.setAlignment(Element.ALIGN_CENTER);
+                        document.add(title);
+
+                        // Ajouter l'image de l'article avec un cadre professionnel
+                        if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
+                            String imagePathArt = userDir + "/src/main/java/uploads/" + article.getImage_art();
+                            com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(imagePathArt);
+                            image.setBorder(Rectangle.BOX);
+                            image.setBorderWidth(2);
+                            image.setBorderColor(BaseColor.BLACK);
+                            image.scaleToFit(300, 300); // Redimensionner l'image
+                            image.setAlignment(Element.ALIGN_CENTER);
+                            document.add(image);
+                        }
+
+                        // Ajouter la catégorie de l'article
+                        Font categoryFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
+                        Paragraph category = new Paragraph("Catégorie: " + article.getCategorie_art(), categoryFont);
+                        category.setAlignment(Element.ALIGN_CENTER);
+                        document.add(category);
+
+                        // Ajouter le contenu de l'article
+                        Font contentFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
+                        Paragraph content = new Paragraph(article.getContenu_art(), contentFont);
+                        content.setAlignment(Element.ALIGN_CENTER);
+                        document.add(content);
+
+                        // Ajouter la date de publication, l'auteur et la signature en bas à droite
+                        Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 10, Font.NORMAL, BaseColor.BLACK);
+                        Paragraph footer = new Paragraph();
+                        footer.setAlignment(Element.ALIGN_RIGHT);
+
+                        // Ajouter la date de publication
+                        String datePublication = "Publié le: " + article.getDate_pub_art();
+                        Chunk dateChunk = new Chunk(datePublication, dateFont);
+                        footer.add(dateChunk);
+
+                        // Ajouter l'auteur
+                        String auteur = "\nPar: " + article.getAdr_aut_art();
+                        Chunk auteurChunk = new Chunk(auteur, dateFont);
+                        footer.add(auteurChunk);
+
+                        // Ajouter un retour à la ligne
+                        Paragraph emptyLine = new Paragraph("\n");
+                        document.add(emptyLine);
+
+                        // Ajouter l'image de la signature
+                        String imagePathSig = userDir + "/src/main/resources/img/signature.png";
+                        com.itextpdf.text.Image imageSig = com.itextpdf.text.Image.getInstance(imagePathSig);
+                        imageSig.scaleToFit(50, 50); // Redimensionner l'image de la signature
+                        Chunk imageChunk = new Chunk(imageSig, 0, 0, true);
+                        footer.add(imageChunk);
+
+                        document.add(footer);
+
+                        // Fermer le document
+                        document.close();
+                        System.out.println("PDF enregistré avec succès !");
+                    } else {
+                        System.out.println("L'enregistrement du PDF a été annulé.");
+                    }
+                } catch (FileNotFoundException | DocumentException e) {
+                    e.printStackTrace();
+                    System.err.println("Erreur lors de la création du PDF.");
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                System.err.println("L'article n'est pas initialisé.");
+            }
+        });
     }
 
 
-
-
-    @FXML
+        @FXML
     void deleteArtBtn(MouseEvent event) {
 
     }
 
 
+    @FXML
+    void pdf(MouseEvent event) {
+            // Vérifier si l'article est initialisé
 
+        }
 
 
 

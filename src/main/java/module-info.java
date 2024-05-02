@@ -7,6 +7,7 @@
                 requires javafx.base;
                 requires java.net.http;
      requires javafx.web;
+     requires itextpdf;
      opens tests to javafx.fxml;
                 opens controllers to javafx.fxml;
                 opens Entities to javafx.base;
