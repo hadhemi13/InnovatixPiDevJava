@@ -162,12 +162,12 @@ private void refuserVir(MouseEvent event) {
 
     }
 
-    private void sendSMS(String phoneNumber) {
+    public void sendSMS(String phoneNumber) {
         try {
-            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Twilio.init("AC3e7c4fb14b4c902709bc986f10f29f5c", "a734dc1ae9533b42e8031e036cc45278");
 
             Message message = Message.creator(
-                            new PhoneNumber("phone Number "),
+                            new PhoneNumber("+21628160626"),
                             new PhoneNumber("+13156586121"),
                             "Bonjour " + ", " +
                                     "Nous sommes heureux de vous informer que votre demande de virement " +

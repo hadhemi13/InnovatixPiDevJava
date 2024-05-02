@@ -71,7 +71,12 @@ public class DemandeChequeListClient  implements  Initializable {
     @FXML
     private Button Refresh;
 
-
+    private static int chequeIdToUpdate = 0;
+    private static int updateChequeModelShow = 0;
+    @FXML
+    private HBox updateChequeModel;
+    @FXML
+    private VBox updateChequeModelContent;
 
     @FXML
     void AjouterC(MouseEvent event) throws IOException {
@@ -86,11 +91,23 @@ public class DemandeChequeListClient  implements  Initializable {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
-
+    public static void setupdateChequeModelShow(int updateChequeModelShow) {
+        DemandeChequeListClient.updateChequeModelShow = updateChequeModelShow;
+    }
+    public static void setchequeEmailToUpdate(int chequeIdToUpdate) {
+        DemandeChequeListClient.chequeIdToUpdate = chequeIdToUpdate;
+    }
+    public static int getupdateChequeModelShow() {
+        return updateChequeModelShow;
+    }
     public void statusChange(ActionEvent event) {
     }
+    @FXML
+    void close_updateChequeModel(MouseEvent event) {
+        updateChequeModel.setVisible(false);
+        updateChequeModelShow = 0;
+    }
 
-//
 
 
 //    @Override
@@ -118,6 +135,7 @@ public class DemandeChequeListClient  implements  Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Cheque cheque;
         ServiceCheque serviceCheque = new ServiceCheque();
         List<Cheque> list = new ArrayList<>();
         try {
@@ -128,6 +146,27 @@ public class DemandeChequeListClient  implements  Initializable {
         Refresh.setOnAction((ActionEvent event) -> {
         //    ShowListe();
         });
+        if (DemandeChequeListClient.getupdateChequeModelShow() == 0) {
+            updateChequeModel.setVisible(false);
+        } else if (DemandeChequeListClient.getupdateChequeModelShow() == 1) {
+            updateChequeModel.setVisible(true);
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateChequeCard.fxml"));
+            VBox updateProjectform;
+            try {
+                updateProjectform = fxmlLoader1.load();
+                updateChequeCard updateUserCardController = fxmlLoader1.getController();
+                updateChequeCard.setFxmlToLoad("DemandeChequeListClient.fxml");
+                cheque = serviceCheque.getById(chequeIdToUpdate);
+
+                updateUserCardController.setProjectUpdateData(cheque);
+                updateChequeModelContent.getChildren().add(updateProjectform);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         loadCheques(list);
         captureEcran.setOnAction(event -> {
@@ -154,6 +193,7 @@ public class DemandeChequeListClient  implements  Initializable {
 
 
     }
+
     @FXML
     void fixType(KeyEvent event) {
         filterCheques(fxrecherches.getText());
@@ -284,6 +324,11 @@ public class DemandeChequeListClient  implements  Initializable {
     }
 
 
+    @FXML
+    void close_updateProjectModel(MouseEvent event) {
+        updateChequeModel.setVisible(false);
+        updateChequeModelShow = 0;
+    }
 }
 
 

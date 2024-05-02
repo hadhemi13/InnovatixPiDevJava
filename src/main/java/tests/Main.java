@@ -2,6 +2,7 @@ package tests;
 
 import Entities.Cheque;
 import Entities.Virement;
+import controllers.Virement.VirementItemsAdmin;
 import services.*;
 import utils.MyDatabase;
 
@@ -20,8 +21,12 @@ public class Main {
 //       Cheque a = serviceCheque.getById(2234606);
 //        System.out.println("this : " + a);
         ServiceVirement serviceVirement =new ServiceVirement();
+        VirementItemsAdmin virementItemsAdmin = new VirementItemsAdmin();
+        virementItemsAdmin.sendSMS(String.valueOf(2));
+        System.out.println("passe");
 
-        System.out.println(serviceVirement.getById(1));
+
+        //System.out.println(serviceVirement.getById(1));
     }
 }
         // Créer une instance de ServiceVirement

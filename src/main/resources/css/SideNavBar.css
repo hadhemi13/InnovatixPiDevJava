@@ -2278,3 +2278,7 @@
 .compteTableBody {
     -fx-padding: 15px 10px;
 }
+.cheque_listScrollPane {
+    -fx-background: rgba(251, 237, 237, 0.166);
+    -fx-background-color: transparent;
+}
