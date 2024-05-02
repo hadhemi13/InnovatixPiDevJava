@@ -102,16 +102,7 @@ public class UpdateArtcileCardController implements Initializable {
 
     @FXML
     void ajouter_image(MouseEvent mouseEvent) throws IOException {
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Choisir une image");
-//        fileChooser.getExtensionFilters().addAll(
-//                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
-//        );
-//        File selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-//        if (selectedImageFile != null) {
-//            Image image = new Image(selectedImageFile.toURI().toString());
-//            imageInput.setImage(image);
-//        }
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
@@ -169,21 +160,9 @@ public class UpdateArtcileCardController implements Initializable {
         Image image = new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art());
         imageInput.setImage(image);
         imageName = article.getImage_art();
+        pdfName=article.getPiecejointe_art();
     }
-//    public void setProjectShowData(Project project) {
-//        projectToUpdate = project;
-//        nomProjetInput.setText(project.getNomProjet());
-//        descriptionProjetInput.setText(project.getDescriptionProjet());
-//        categorieInput.setText(project.getCategorie());
-//        dureeProjetInput.setText(String.valueOf(project.getDureeProjet()));
-//        budgetProjetInput.setText(String.valueOf(project.getBudgetProjet()));
-//        statutProjetInput.setText(String.valueOf(project.getStatutProjet()));
-//        dateCreationInput.setText(String.valueOf(project.getDateCreation()));
-//
-//        Image image = new Image(getClass().getResource("/assets/projectUploads/" + project.getImg()).toExternalForm());
-//        imageInput.setImage(image);
-//        imageName = project.getImg();
-//    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //        imageInputErrorHbox.setVisible(false);
