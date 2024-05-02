@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -21,6 +21,7 @@ import utils.TrayNotificationAlert;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class ProjectItemController {
 
@@ -92,29 +93,46 @@ public class ProjectItemController {
         ItemDateCreation.setText(dateCreation != null ? dateCreation.toString() : "");
 
 
-
         deleteProject.setId(String.valueOf(project.getId()));
 
         deleteProject.setOnMouseClicked(event -> {
-            System.out.println("ID du Evenement à supprimer : " + project.getId());
-            try {
-                projectService.supprimer(project.getId());
-                TrayNotificationAlert.notif("Project", "project deleted successfully.",
-                        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Supprimer le projet");
+            alert.setContentText("Êtes-vous sûr de vouloir supprimer ce projet?");
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
-            try {
-                Parent root = loader.load();
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("/assets/style/alerts.css").toExternalForm());
+            dialogPane.getStyleClass().add("my-dialog");
 
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
+            ButtonType ouiButton = new ButtonType("Oui", ButtonBar.ButtonData.OK_DONE);
+            ButtonType nonButton = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(ouiButton, nonButton);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ouiButton) {
+                System.out.println("ID du projet à supprimer : " + project.getId());
+                try {
+                    projectService.supprimer(project.getId());
+                    TrayNotificationAlert.notif("Projet", "Projet supprimé avec succès.",
+                            NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+                try {
+                    Parent root = loader.load();
+
+                    Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+
+                    contentArea.getChildren().clear();
+                    contentArea.getChildren().add(root);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
         ItemUpdateBtn.setOnMouseClicked(event -> {

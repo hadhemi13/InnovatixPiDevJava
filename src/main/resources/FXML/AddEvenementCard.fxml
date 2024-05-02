@@ -52,18 +52,23 @@
                 <HBox prefHeight="6.0" prefWidth="538.0">
                     <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0"
-                              styleClass="product__add-input-label" text="Nom d'evenement">
+                              styleClass="product__add-input-label" text="Nom">
                             <HBox.margin>
                                 <Insets right="2.0"/>
                             </HBox.margin>
+                        </Text>
+                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                            <font>
+                                <Font name="Montserrat Regular" size="16.0"/>
+                            </font>
                         </Text>
                     </children>
                     <padding>
                         <Insets bottom="10.0"/>
                     </padding>
                 </HBox>
-                <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0"
-                           promptText="Nom" styleClass="product__add-input">
+                <TextField fx:id="nameInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#nameTypedInput"
+                           prefHeight="40.0" promptText="Nom" styleClass="product__add-input">
                     <VBox.margin>
                         <Insets/>
                     </VBox.margin>
@@ -75,7 +80,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="nameInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du Evenement ne peut pas être vide !">
+                              text="le nom du evenment ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>
@@ -111,7 +116,7 @@
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                               wrappingWidth="23.18400001525879"/>
                         <Text fx:id="descriptionInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
-                              text="le nom du projet ne peut pas être vide !">
+                              text="le description du evenement ne peut pas être vide !">
                             <HBox.margin>
                                 <Insets top="5.0"/>
                             </HBox.margin>
@@ -280,7 +285,7 @@
                     </padding>
                 </HBox>
                 <TextField fx:id="prixInput" maxHeight="-Infinity" minHeight="-Infinity"
-                           prefHeight="40.0" promptText="Nom" styleClass="product__add-input">
+                           prefHeight="40.0" promptText="prix" styleClass="product__add-input">
                     <VBox.margin>
                         <Insets/>
                     </VBox.margin>

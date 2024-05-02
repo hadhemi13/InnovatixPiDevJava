@@ -1,10 +1,20 @@
 package controllers;
 
 import Entities.Evenement;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -17,8 +27,10 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class OneEvenementListCardController {
 
@@ -74,27 +86,47 @@ public class OneEvenementListCardController {
         deleteEvenement.setId(String.valueOf(evenement.getId()));
 
         deleteEvenement.setOnMouseClicked(event -> {
-            System.out.println("ID du Evenement à supprimer : " + evenement.getId());
-            try {
-                EvenementService.supprimer(evenement.getId());
-                TrayNotificationAlert.notif("Événement", "Événement supprimé avec succès.",
-                        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-            } catch (SQLException e) {
-                e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Supprimer l'événement");
+            alert.setContentText("Êtes-vous sûr de vouloir supprimer cet événement?");
+
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("/assets/style/alerts.css").toExternalForm());
+            dialogPane.getStyleClass().add("my-dialog");
+
+
+            ButtonType ouiButton = new ButtonType("Oui", ButtonBar.ButtonData.OK_DONE);
+            ButtonType nonButton = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(ouiButton, nonButton);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ouiButton) {
+                System.out.println("ID du Evenement à supprimer : " + evenement.getId());
+                try {
+                    EvenementService.supprimer(evenement.getId());
+                    TrayNotificationAlert.notif("Événement", "Événement supprimé avec succès.",
+                            NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+                try {
+                    Parent root = loader.load();
+
+                    Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+
+                    contentArea.getChildren().clear();
+                    contentArea.getChildren().add(root);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
-            try {
-                Parent root = loader.load();
-
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
         });
+
 
         editEvenement.setId(String.valueOf(evenement.getId()));
 
@@ -108,7 +140,7 @@ public class OneEvenementListCardController {
 
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                 contentArea.getChildren().clear();
+                contentArea.getChildren().clear();
                 contentArea.getChildren().add(root);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -132,54 +164,33 @@ public class OneEvenementListCardController {
             }
 
         });
-        // END editEvenement btn click
 
-        // qrCodeEvenement btn click
-        //     editEvenement.setId(String.valueOf(evenement.getId()));
 
-//        qrCodeEvenement.setOnMouseClicked(event -> {
-//            System.out.println("ID du Evenement à générer qr Code : " + evenement.getId());
-//        //    Evenement.setIdEvenement(evenement.getId());
-//
-//            String text = "Product ID: " + evenement.getId() + "\nProduct Name: " + evenement.getNom()
-//                    + "\nProduct Description: " + evenement.getDescription() + "\nProduct Price: "
-//                    + evenement.getPrix() + "\nProduct Points: " + evenement.getLieu();
-//             // Créer un objet QRCodeWriter pour générer le QR code
-//            QRCodeWriter qrCodeWriter = new QRCodeWriter();
-//            // Générer la matrice de bits du QR code à partir du texte saisi
-//            BitMatrix bitMatrix;
-//            try {
-//                bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
-//                // Convertir la matrice de bits en image BufferedImage
-//                BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
-//                // Enregistrer l'image en format PNG
-//                // File outputFile = new File("qrcode.png");
-//                // ImageIO.write(bufferedImage, "png", outputFile);
-//                // Afficher l'image dans l'interface utilisateur
-//
-//                ImageView qrCodeImg = (ImageView) ((Node) event.getSource()).getScene().lookup("#qrCodeImg");
-//                qrCodeImg.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
-//
-//                HBox qrCodeImgModel = (HBox) ((Node) event.getSource()).getScene().lookup("#qrCodeImgModel");
-//                qrCodeImgModel.setVisible(true);
-//            } catch (WriterException e) {
-//                e.printStackTrace();
-//            }
-//
-//        });
-        // END qrCodeEvenement btn click
+        editEvenement.setId(String.valueOf(evenement.getId()));
+        qrCodeEvenement.setOnMouseClicked(event -> {
+            System.out.println("ID du Evenement à générer qr Code : " + evenement.getId());
+            Evenement.setIdEvenement(evenement.getId());
+            StringBuilder builder = new StringBuilder();
+            builder.append("ID de l'événement: ").append(evenement.getId()).append("\n");
+            builder.append("Nom de l'événement: ").append(evenement.getNom()).append("\n");
+            builder.append("Description de l'événement: ").append(evenement.getDescription()).append("\n");
+            builder.append("Prix de l'événement: ").append(evenement.getPrix()).append("\n");
+            builder.append("Lieu de l'événement: ").append(evenement.getLieu()).append("\n");
 
-        // offreEvenement btn click
-        //  offerEvenement.setId(String.valueOf(Evenement.getId()));
+            String text = builder.toString();
+             QRCodeWriter qrCodeWriter = new QRCodeWriter();
+             BitMatrix bitMatrix;
+            try {
+                bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
+                 BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+                ImageView qrCodeImg = (ImageView) ((Node) event.getSource()).getScene().lookup("#qrCodeImg");
+                qrCodeImg.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
 
-//        offerEvenement.setOnMouseClicked(event -> {
-//            System.out.println("ID du Evenement à créer une offre : " + Evenement.getId());
-//            Collecte.setIdEvenement(Evenement.getId());
-//
-//            HBox offreModel = (HBox) ((Node) event.getSource()).getScene().lookup("#offreModel");
-//            offreModel.setVisible(true);
-//
-//        });
-        // END offreEvenement btn click
+                HBox qrCodeImgModel = (HBox) ((Node) event.getSource()).getScene().lookup("#qrCodeImgModel");
+                qrCodeImgModel.setVisible(true);
+            } catch (WriterException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

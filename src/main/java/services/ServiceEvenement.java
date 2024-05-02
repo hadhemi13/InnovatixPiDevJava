@@ -60,15 +60,16 @@ public class ServiceEvenement implements IService<Evenement> {
 
     @Override
     public void ajouter1(Evenement evenement, int projectId) throws SQLException {
-        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO evenement (nom, description, date_debut, date_fin, lieu, organisateur, prix, project_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO evenement (nom,img, description, date_debut, date_fin, lieu, organisateur, prix, project_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, evenement.getNom());
-            preparedStatement.setString(2, evenement.getDescription());
-            preparedStatement.setTimestamp(3, Timestamp.valueOf(evenement.getDateDebut()));
-            preparedStatement.setTimestamp(4, Timestamp.valueOf(evenement.getDateFin()));
-            preparedStatement.setString(5, evenement.getLieu());
-            preparedStatement.setString(6, evenement.getOrganisateur());
-            preparedStatement.setDouble(7, evenement.getPrix());
-            preparedStatement.setInt(8, projectId); // Set the project_id
+            preparedStatement.setString(2, evenement.getImg());
+            preparedStatement.setString(3, evenement.getDescription());
+            preparedStatement.setTimestamp(4, Timestamp.valueOf(evenement.getDateDebut()));
+            preparedStatement.setTimestamp(5, Timestamp.valueOf(evenement.getDateFin()));
+            preparedStatement.setString(6, evenement.getLieu());
+            preparedStatement.setString(7, evenement.getOrganisateur());
+            preparedStatement.setDouble(8, evenement.getPrix());
+            preparedStatement.setInt(9, projectId); // Set the project_id
             preparedStatement.executeUpdate();
             System.out.println("Evenement ajouté");
         }

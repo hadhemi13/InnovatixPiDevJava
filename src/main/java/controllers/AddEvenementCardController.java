@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -191,50 +192,87 @@ public class AddEvenementCardController implements Initializable {
         descriptionInputTest = 1;
         prixInputTest = 1;
     }
+    @FXML
+    void nameTypedInput(KeyEvent event) {
+        String nameText = ((TextField) event.getSource()).getText();
+        if (!nameText.isEmpty()) {
+            nameInputErrorHbox.setVisible(false);
+            nomTest = 1;
+        }
+    }
 
     @FXML
     void addNewEvenement(MouseEvent event) throws SQLException {
         Evenement evenement = new Evenement();
         int projectId = new ServiceEvenement().getProjectIdByName("Ayoub");
 
-        if (nameInput.getText()== null) {
+        if (nameInput.getText().isEmpty()) {
+            nomTest = 0;
             nameInputErrorHbox.setVisible(true);
+        } else {
+            if (nomTest == 1) {
+                evenement.setNom(nameInput.getText());
+            }
         }
-        if (descriptionInput.getText()== null) {
+
+        if (descriptionInput.getText().isEmpty()) {
+            //descriptionTest = 0;
             descriptionInputErrorHbox.setVisible(true);
+        } else {
+            if (descriptionTest == 1) {
+                evenement.setNom(descriptionInput.getText());
+            }
         }
-        if (fxdateDebut.getValue()== null) {
+        if (fxdateDebut.getValue() == null) {
+            // fxdateDebutTest = 0;
             fxdateDebutErrorHbox.setVisible(true);
+        } else {
+            if (fxdateDebutTest == 1) {
+                evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
+            }
         }
-        if (fxdateFin.getValue()== null) {
+        if (fxdateFin.getValue() == null) {
+            //  fxdateFinTest = 0;
             fxdateFinErrorHbox.setVisible(true);
+        } else {
+            if (fxdateFinTest == 1) {
+                evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
+            }
         }
-        if (fxLieu.getText()== null) {
+        if (fxLieu.getText().isEmpty()) {
+            //  fxLieuTest = 0;
             fxLieuErrorHbox.setVisible(true);
+        } else {
+            if (fxLieuTest == 1) {
+                descriptionTest = 0;
+                evenement.setLieu(fxLieu.getText());
+            }
         }
-        if (descriptionInput.getText()== null) {
-            descriptionInputErrorHbox.setVisible(true);
-        }
-        if (prixInput.getText()== null) {
+
+        if (prixInput.getText().isEmpty() || !prixInput.getText().matches("\\d+")) {
+            //  prixInputTest = 0;
             prixInputErrorHbox.setVisible(true);
+        } else {
+            if (prixInputTest == 1) {
+             //   evenement.setPrix(prixInput.getText());
+            }
         }
-        evenement.setNom(nameInput.getText());
         evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
         evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
         evenement.setLieu(fxLieu.getText());
         evenement.setDescription(descriptionInput.getText());
         evenement.setPrix(Double.parseDouble(prixInput.getText()));
         evenement.setImg(imageName);
-        IService evenementService = new ServiceEvenement();
-        try {
-            evenementService.ajouter1(evenement,projectId);
-            showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
-            switchToEvenementsList(event);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+            IService evenementService = new ServiceEvenement();
+            try {
+                evenementService.ajouter1(evenement, projectId);
+                showNotification("Evenement", "Evenement added successfully.", NotificationType.SUCCESS);
+                switchToEvenementsList(event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
+    }
     private void setEvenementFields(Evenement e) {
 
         nameInput.setText(e.getNom());
@@ -279,7 +317,7 @@ public class AddEvenementCardController implements Initializable {
             Image image = new Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
             imageName = selectedImageFile.getName();
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
+            Path destination = Paths.get(System.getProperty("user.dir"), "java", "assets", "ProductUploads", imageName);
             Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
             photoTest = 1;
             photoInputErrorHbox.setVisible(false);

@@ -187,15 +187,6 @@ public class AddProjectCardController implements Initializable {
     void addNewProject(MouseEvent event) throws SQLException {
         Project project = new Project();
 
-        if (fxCategorie.getText()== null) {
-            CategorieTest = 0;
-            CategorieInputErrorHbox.setVisible(true);
-        }else {
-            if (CategorieTest == 1) {
-                project.setCategorie(fxCategorie.getText());
-            }
-        }
-
         if (nameInput.getText()== null) {
             nomTest = 0;
             nameInputErrorHbox.setVisible(true);
@@ -204,15 +195,7 @@ public class AddProjectCardController implements Initializable {
                 project.setNomProjet(nameInput.getText());
             }
         }
-        if (fxdate.getValue() != null && fxdate.getValue().isEqual(LocalDate.now())) {
-            project.setDateCreation(fxdate.getValue().atStartOfDay());
 
-        } else {
-            dateInputErrorHbox.setVisible(true);
-            TrayNotificationAlert.notif("Date", " Insérer date correcte!!!",
-                    NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
-            DateTest=0;
-        }
         if (fxDescription.getText()== null) {
             descriptionTest = 0;
             descriptionInputErrorHbox.setVisible(true);
@@ -221,7 +204,16 @@ public class AddProjectCardController implements Initializable {
                 project.setDescriptionProjet(fxDescription.getText());
             }
         }
-        if (fxBudget.getText()== null) {
+
+        if (fxCategorie.getText()== null) {
+
+            CategorieInputErrorHbox.setVisible(true);
+        }else {
+            if (CategorieTest == 1) {
+                project.setCategorie(fxCategorie.getText());
+            }
+        }
+        if (fxBudget.getText().isEmpty()) {
             BudgetTest = 0;
             BudgetInputErrorHbox.setVisible(true);
         } else {
@@ -235,14 +227,6 @@ public class AddProjectCardController implements Initializable {
         } else {
             if (StatutTest == 1) {
                 project.setStatutProjet(Integer.parseInt(fxStatut.getText()));
-            }
-        }
-        if (fxCategorie.getText()== null) {
-            CategorieTest = 0;
-            CategorieInputErrorHbox.setVisible(true);
-        } else {
-            if (CategorieTest == 1) {
-                project.setCategorie(fxCategorie.getText());
             }
         }
         if (fxDuree.getText()== null) {
@@ -261,6 +245,14 @@ public class AddProjectCardController implements Initializable {
             project.setImg(imageName);
 
         }
+        if (fxdate.getValue() != null && fxdate.getValue().isEqual(LocalDate.now())) {
+            project.setDateCreation(fxdate.getValue().atStartOfDay());
+
+        } else {
+            dateInputErrorHbox.setVisible(true);
+            TrayNotificationAlert.notif("Date", " Insérer date correcte!!!",
+                    NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
+        }
         project.setNomProjet(nameInput.getText());
         project.setDescriptionProjet(fxDescription.getText());
         project.setBudgetProjet(Double.parseDouble(fxBudget.getText()));
@@ -270,11 +262,12 @@ public class AddProjectCardController implements Initializable {
         project.setDateCreation(fxdate.getValue() != null ? fxdate.getValue().atStartOfDay() : null);
         project.setImg(imageName);
 
-
+        if (nomTest == 1 && descriptionTest == 1 && CategorieTest == 1 && DateTest == 1 &&  StatutTest== 1 && BudgetTest== 1
+                && DureeTest == 1 && photoTest == 1) {
             IService serviceProject = new ServiceProjet();
             try {
                 serviceProject.ajouter(project);
-                TrayNotificationAlert.notif("Projet", "Projet ajouté avec succès!!!",
+                TrayNotificationAlert.notif("Projet", "Projet ajouté avec succès!!!!",
                         NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
                 Parent root = loader.load();
@@ -284,7 +277,7 @@ public class AddProjectCardController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+        }
     }
 
     @FXML
@@ -299,7 +292,6 @@ public class AddProjectCardController implements Initializable {
             imageInput.setImage(image);
             imageName = selectedImageFile.getName();
             Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
-            Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
             photoTest = 1;
             photoInputErrorHbox.setVisible(false);
         }
