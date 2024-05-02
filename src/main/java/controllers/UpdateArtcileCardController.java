@@ -165,12 +165,7 @@ public class UpdateArtcileCardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        imageInputErrorHbox.setVisible(false);
-//        categorieInputErrorHbox.setVisible(false);
-//        ContenuInputErrorHbox.setVisible(false);
-//        PieceJInputErrorHbox.setVisible(false);
-//        titreInputErrorHbox.setVisible(false);
-        // Initialiser la liste des catégories
+
         ObservableList<String> categories = FXCollections.observableArrayList(
                 "Développement durable",
                 "Finance",
