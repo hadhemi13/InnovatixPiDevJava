@@ -34,6 +34,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -62,7 +63,8 @@ public class ListArticleAdminController implements Initializable {
     private HBox articleaddBtn;
 
     @FXML
-    private ComboBox<?> categorieInput;
+    private ComboBox<String> categorieInput;
+    private final String[] categ = {"Categories", "Date"};
 
     @FXML
     private Pane content_area;
@@ -299,14 +301,63 @@ public class ListArticleAdminController implements Initializable {
         return updateArticleModelShow;
     }
 
-    public void categorieInput(ActionEvent actionEvent) {
-    }
-    @FXML
 
+    @FXML
+    public void categorieInput(ActionEvent actionEvent) {
+        String selectedSortOption = categorieInput.getValue();
+
+        if (selectedSortOption != null) {
+            try {
+                // Get the list of articles
+                List<Article> articles = serviceArticle.getAllArticles();
+
+                // Sort the articles based on the selected option
+                switch (selectedSortOption) {
+                    case "Categories":
+                        // Filter out articles with null categories
+                        articles = articles.stream()
+                                .filter(article -> article.getCategorie_art() != null)
+                                .sorted(Comparator.comparing(Article::getCategorie_art))
+                                .toList();
+                        break;
+                    case "Date":
+                        // Filter out articles with null publication dates
+                        articles = articles.stream()
+                                .filter(article -> article.getDate_pub_art() != null)
+                                .sorted(Comparator.comparing(Article::getDate_pub_art))
+                                .toList();
+                        break;
+                    // Add more cases for other sorting options if needed
+                }
+
+                // Reload the article cards with the sorted list
+                loadArticles(articles);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle the exception
+            }
+        } else {
+            System.out.println(selectedSortOption);
+        }
+    }
+
+    @FXML
     public void ArticlesclientsfSearchInput(KeyEvent keyEvent) throws SQLException {
 
-        }
+        String searchKeyword = ArticlesclientsfSearchInput.getText();
 
+        if (searchKeyword.isEmpty()) {
+            // If the search keyword is empty, refresh the list of articles
+            refreshArticleList();
+        } else {
+            // Search articles based on the attribute and keyword
+            List<Article> searchResults = serviceArticle.searchArticles( searchKeyword);
+
+            // Set a custom cell factory for the GridPane
+            loadArticles(searchResults);
+
+        }
+    }
 
     public void capturer(MouseEvent mouseEvent) {
 

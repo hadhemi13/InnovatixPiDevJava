@@ -218,5 +218,55 @@ public class ServiceArticle  implements IServiceArticle<Article> {
     }
 
 
+    public List<Article> searchArticles(String searchTerm) throws SQLException {
+        List<Article> articles = new ArrayList<>();
+
+        String sql = "SELECT * FROM article WHERE ";
+        // Construct the WHERE clause to search across all attributes
+        sql += "nom_aut_art LIKE ? OR ";
+        sql += "adr_aut_art LIKE ? OR ";
+        sql += "date_pub_art LIKE ? OR ";
+        sql += "duree_art LIKE ? OR ";
+        sql += "categorie_art LIKE ? OR ";
+        sql += "titre_art LIKE ? OR ";
+        sql += "contenu_art LIKE ? OR ";
+        sql += "piecejointe_art LIKE ? OR ";
+        sql += "image_art LIKE ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            // Set the search term for each attribute in the WHERE clause
+            for (int i = 1; i <= 9; i++) {
+                preparedStatement.setString(i, "%" + searchTerm + "%");
+            }
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                Article article = new Article();
+                article.setId(rs.getInt("id"));
+                article.setNom_aut_art(rs.getString("nom_aut_art"));
+                article.setAdr_aut_art(rs.getString("adr_aut_art"));
+                article.setDate_pub_art(rs.getTimestamp("date_pub_art").toLocalDateTime());
+                article.setDuree_art(rs.getInt("duree_art"));
+                article.setCategorie_art(rs.getString("categorie_art"));
+                article.setTitre_art(rs.getString("titre_art"));
+                article.setContenu_art(rs.getString("contenu_art"));
+                article.setPiecejointe_art(rs.getString("piecejointe_art"));
+                article.setUser_id(rs.getInt("user_id"));
+                article.setImage_art(rs.getString("image_art"));
+                article.setLikes(rs.getInt("likes"));
+                article.setDislikes(rs.getInt("dislikes"));
+                //article.setTotalReactions(rs.getInt("totalReactions"));
+                // article.setNbComments(rs.getInt("nbComments"));
+                //article.setNbShares(rs.getInt("nbShares"));
+
+                articles.add(article);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error while searching for article: " + ex.getMessage());
+        }
+
+        return articles;
+    }
 }
 
