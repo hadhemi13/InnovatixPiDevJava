@@ -43,6 +43,8 @@ public class articleCardAdminController implements Initializable {
     private HBox action;
 
     @FXML
+    private Text cat;
+    @FXML
     private VBox backArt;
 
     @FXML
@@ -88,11 +90,12 @@ public class articleCardAdminController implements Initializable {
             String formattedDate = article.getDate_pub_art().format(formatter);
             datepubArt.setText(formattedDate);
             contenuArtFront.setText(article.getContenu_art());
+            cat.setText(article.getCategorie_art());
             imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
 
         }
-        open_productDetails.setId(String.valueOf(article.getId()));
-        open_productDetails.setOnMouseClicked(event -> {
+        imgArtFront.setId(String.valueOf(article.getId()));
+        imgArtFront.setOnMouseClicked(event -> {
             try {
                 // Charger le fichier FXML du formulaire de modification d'article
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/detailArticleAdmin.fxml"));

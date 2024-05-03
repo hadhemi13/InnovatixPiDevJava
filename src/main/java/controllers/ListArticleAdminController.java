@@ -2,6 +2,7 @@ package controllers;
 
 import Entities.Article;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.embed.swing.SwingFXUtils;
@@ -64,7 +65,6 @@ public class ListArticleAdminController implements Initializable {
 
     @FXML
     private ComboBox<String> categorieInput;
-    private final String[] categ = {"Categories", "Date"};
 
     @FXML
     private Pane content_area;
@@ -104,7 +104,12 @@ public class ListArticleAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Article article;
-
+        ObservableList<String> categ = FXCollections.observableArrayList(
+                "Tous",
+                "Categories",
+                "Date"
+        );
+        categorieInput.setItems(categ);
         if (ListArticleAdminController.getUpdateArticleModelShow() == 0) {
             updateArticleModel.setVisible(false);
         } else if (ListArticleAdminController.getupdateArticleModelShow() == 1) {
@@ -131,6 +136,7 @@ public class ListArticleAdminController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
 
     }
     @FXML
@@ -302,44 +308,96 @@ public class ListArticleAdminController implements Initializable {
     }
 
 
-    @FXML
-    public void categorieInput(ActionEvent actionEvent) {
-        String selectedSortOption = categorieInput.getValue();
 
-        if (selectedSortOption != null) {
-            try {
-                // Get the list of articles
-                List<Article> articles = serviceArticle.getAllArticles();
 
-                // Sort the articles based on the selected option
-                switch (selectedSortOption) {
-                    case "Categories":
-                        // Filter out articles with null categories
-                        articles = articles.stream()
-                                .filter(article -> article.getCategorie_art() != null)
-                                .sorted(Comparator.comparing(Article::getCategorie_art))
-                                .toList();
-                        break;
-                    case "Date":
-                        // Filter out articles with null publication dates
-                        articles = articles.stream()
-                                .filter(article -> article.getDate_pub_art() != null)
-                                .sorted(Comparator.comparing(Article::getDate_pub_art))
-                                .toList();
-                        break;
-                    // Add more cases for other sorting options if needed
-                }
+//    @FXML
+//    public void categorieInput(ActionEvent actionEvent) {
+//        String selectedSortOption = categorieInput.getValue();
+//
+//        if (selectedSortOption != null && !selectedSortOption.equals("Tous")) {
+//            try {
+//                // Get the list of articles
+//                List<Article> articles = serviceArticle.getAllArticles();
+//
+//                // Sort the articles based on the selected option
+//                switch (selectedSortOption) {
+//                    case "Categories":
+//                        // Filter out articles with null categories
+//                        articles = articles.stream()
+//                                .filter(article -> article.getCategorie_art() != null)
+//                                .sorted(Comparator.comparing(Article::getCategorie_art))
+//                                .toList();
+//                        break;
+//                    case "Date":
+//                        // Filter out articles with null publication dates
+//                        articles = articles.stream()
+//                                .filter(article -> article.getDate_pub_art() != null)
+//                                .sorted(Comparator.comparing(Article::getDate_pub_art).reversed()) // Tri par date décroissante
+//                                .toList();
+//                        break;
+//                }
+//                // Reload the article cards with the sorted list
+//                loadArticles(articles);
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                // Handle the exception
+//            }
+//        } else {
+//            // Si "Tous" est sélectionné, rechargez simplement tous les articles sans tri
+//            try {
+//                refreshArticleList();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+@FXML
+public void categorieInput(ActionEvent actionEvent) {
+    String selectedSortOption = categorieInput.getValue();
 
-                // Reload the article cards with the sorted list
-                loadArticles(articles);
-            } catch (SQLException e) {
-                e.printStackTrace();
-                // Handle the exception
+    if (selectedSortOption != null && !selectedSortOption.equals("Tous")) {
+        try {
+            // Get the list of articles
+            List<Article> articles = serviceArticle.getAllArticles();
+
+            System.out.println("Before sorting: " + articles);
+
+            // Sort the articles based on the selected option
+            switch (selectedSortOption) {
+                case "Categories":
+                    // Filter out articles with null categories
+                    articles = articles.stream()
+                            .filter(article -> article.getCategorie_art() != null)
+                            .sorted(Comparator.comparing(Article::getCategorie_art))
+                            .toList();
+                    break;
+                case "Date":
+                    // Filter out articles with null publication dates
+                    articles = articles.stream()
+                            .filter(article -> article.getDate_pub_art() != null)
+                            .sorted(Comparator.comparing(Article::getDate_pub_art).reversed()) // Tri par date décroissante
+                            .toList();
+                    break;
             }
-        } else {
-            System.out.println(selectedSortOption);
+
+            System.out.println("After sorting: " + articles);
+
+            // Reload the article cards with the sorted list
+            loadArticles(articles);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
+    } else {
+        // Si "Tous" est sélectionné, rechargez simplement tous les articles sans tri
+        try {
+            refreshArticleList();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
+}
+
 
     @FXML
     public void ArticlesclientsfSearchInput(KeyEvent keyEvent) throws SQLException {
@@ -358,6 +416,7 @@ public class ListArticleAdminController implements Initializable {
 
         }
     }
+
 
     public void capturer(MouseEvent mouseEvent) {
 

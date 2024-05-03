@@ -33,6 +33,11 @@
                             <Insets bottom="10.0" top="10.0" />
                         </padding>
                     </HBox>
+                  <HBox alignment="CENTER" prefHeight="20.0" prefWidth="290.0" translateY="25.0">
+                     <children>
+                        <Text fx:id="cat" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="categorie" textAlignment="CENTER" wrappingWidth="245.12405395507812" />
+                     </children>
+                  </HBox>
                     <HBox alignment="CENTER" prefHeight="27.0" prefWidth="264.0" styleClass="ratingProductCard" translateY="30.0">
                         <children>
                             <Text fx:id="datepubArt" fill="#26647a" strokeType="OUTSIDE" strokeWidth="0.0" text="Date pub" />
