@@ -15,7 +15,7 @@
 
 <VBox fx:id="content_area" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" style="-fx-background-color: White;" styleClass="addProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterArticleController">
     <children>
-        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="570.0">
+        <HBox alignment="CENTER" prefHeight="55.0" prefWidth="1084.0">
             <children>
             <ImageView fitHeight="41.0" fitWidth="39.0" onMouseClicked="#returnbackarticle" pickOnBounds="true" preserveRatio="true" translateX="-350.0">
                <image>
@@ -32,11 +32,11 @@
                 <Insets bottom="10.0" left="16.0" top="26.0" />
             </padding>
         </HBox>
-      <VBox alignment="CENTER" prefHeight="546.0" prefWidth="968.0" style="-fx-background-color: White;">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="1084.0" style="-fx-background-color: White;">
          <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="550.0" prefWidth="1084.0" style="-fx-background-color: White;">
+            <ScrollPane fx:id="scrollPane" prefHeight="513.0" prefWidth="1084.0" style="-fx-background-color: White;">
                <content>
-                  <VBox id="scrollPane" alignment="CENTER" prefHeight="898.0" prefWidth="1068.0" style="-fx-background-color: white;">
+                  <VBox id="scrollPane" alignment="CENTER" prefHeight="1000.0" prefWidth="1068.0" style="-fx-background-color: white;">
                      <children>
                           <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="466.0" translateX="30.0">
                               <padding>
@@ -154,7 +154,7 @@
                                               </children>
                                           </HBox>
                   
-                                      </children>
+                                            </children>
                                       <padding>
                                           <Insets right="10.0" />
                                       </padding>
@@ -328,7 +328,16 @@
                                     </Text>
                                 </children>
                             </HBox>
-                          <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
+                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" translateX="-170.0">
+                             <children>
+                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Captcha" translateX="100.0" />
+                                 <TextField fx:id="captchaInput" prefHeight="31.0" prefWidth="133.0" promptText="Entrez le captcha" styleClass="product__add-input" translateX="220.0" />
+                                 <TextField fx:id="captchaTextField" editable="false" prefHeight="31.0" prefWidth="80.0" styleClass="product__add-input" translateX="-25.0" />
+                                 <!-- Ajoutez un label pour afficher les messages d'erreur du captcha -->
+                                 <Text fx:id="captchaErrorText" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="" translateY="30.0" />
+                             </children>
+                         </HBox>
+                          <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0" translateY="25.0">
                               <children>
                           <Button fx:id="addArticleBtn" mnemonicParsing="false" onMouseClicked="#ajouter_article" prefHeight="48.0" prefWidth="110.0" styleClass="product__add-img-btn" text="Ajouter" textFill="#f4f2f2">
                               <font>

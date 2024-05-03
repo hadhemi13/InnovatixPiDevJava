@@ -36,6 +36,11 @@
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Nouvel article" />
                     </children>
                 </HBox>
+            <ImageView fx:id="capturer" fitHeight="31.0" fitWidth="30.0" onMouseClicked="#capturer" pickOnBounds="true" preserveRatio="true" translateX="170.0">
+               <image>
+                  <Image url="@../imagesAct/capture.png" />
+               </image>
+            </ImageView>
             </children>
             <padding>
                 <Insets left="15.0" />

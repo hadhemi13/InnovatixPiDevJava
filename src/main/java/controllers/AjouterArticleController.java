@@ -1,6 +1,25 @@
 package controllers;
 
 import Entities.Article;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.util.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,8 +53,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ResourceBundle;
-import java.util.UUID;
+import java.util.Random;
 
 public class AjouterArticleController implements Initializable {
     @FXML
@@ -45,6 +63,7 @@ public class AjouterArticleController implements Initializable {
     @FXML
 
     private TextArea ContenuArt;
+    private String captchaValue;
 
     @FXML
     private Text ContenuArtInputError;
@@ -85,6 +104,14 @@ public class AjouterArticleController implements Initializable {
 
     @FXML
     private Text piecejointeInputError;
+    @FXML
+    private Text captchaErrorText;
+
+    @FXML
+    private TextField captchaInput;
+
+    @FXML
+    private TextField captchaTextField;
 
 
     @FXML
@@ -119,16 +146,69 @@ public class AjouterArticleController implements Initializable {
                 "Crédits"
         );
         categoriechoice.setItems(categories);
+        generateCaptcha();
 
 
     }
+    private void generateCaptcha() {
+        Random random = new Random();
+        // Générer un captcha aléatoire (par exemple, une chaîne de 4 chiffres)
+        captchaValue = String.format("%04d", random.nextInt(10000));
 
+        // Afficher le captcha dans l'interface utilisateur (par exemple, dans un champ de texte)
+        captchaTextField.setText(captchaValue);
+    }
     @FXML
+//    void ajouter_article(MouseEvent event) throws SQLException, IOException {
+//        String nom = "hadhemi";
+//        String adresse = "mahmoud";
+//        ServiceArticle sa = new ServiceArticle();
+//        boolean champsVides = false;
+//        if (ContenuArt.getText().isEmpty()) {
+//            ContenuHboxErreur.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            ContenuHboxErreur.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+//        }
+//
+//        if (categoriechoice.getSelectionModel().isEmpty()) {
+//            categorieErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            categorieErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+//        }
+//        if (imageInput.getImage() == null) {
+//            imageInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+//        }
+//
+//        if (titreInput.getText().isEmpty()) {
+//            titreInputErrorHbox.setVisible(true);
+//            champsVides = true;
+//        } else {
+//            titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+//        }
+//        String titre = titreInput.getText();
+//        if (!Character.isUpperCase(titre.charAt(0))) {
+//            titreInputErrorHbox.getChildren().setAll(new Text("Le titre doit commencer par une majuscule."));
+//            titreInputErrorHbox.setVisible(true);
+//            champsVides = true; // Mettre à jour champsVides pour indiquer qu'il y a une erreur
+//        } else {
+//            titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
+//        }
+//
+//        if (champsVides) {
+//            return;
+//        }
     void ajouter_article(MouseEvent event) throws SQLException, IOException {
         String nom = "hadhemi";
         String adresse = "mahmoud";
         ServiceArticle sa = new ServiceArticle();
         boolean champsVides = false;
+
+        // Vérifier si le contenu est vide
         if (ContenuArt.getText().isEmpty()) {
             ContenuHboxErreur.setVisible(true);
             champsVides = true;
@@ -136,12 +216,15 @@ public class AjouterArticleController implements Initializable {
             ContenuHboxErreur.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
 
+        // Vérifier si la catégorie est sélectionnée
         if (categoriechoice.getSelectionModel().isEmpty()) {
             categorieErrorHbox.setVisible(true);
             champsVides = true;
         } else {
             categorieErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
+
+        // Vérifier si une image est sélectionnée
         if (imageInput.getImage() == null) {
             imageInputErrorHbox.setVisible(true);
             champsVides = true;
@@ -149,12 +232,15 @@ public class AjouterArticleController implements Initializable {
             imageInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
 
+        // Vérifier si le titre est vide
         if (titreInput.getText().isEmpty()) {
             titreInputErrorHbox.setVisible(true);
             champsVides = true;
         } else {
             titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
+
+        // Vérifier si le titre commence par une majuscule
         String titre = titreInput.getText();
         if (!Character.isUpperCase(titre.charAt(0))) {
             titreInputErrorHbox.getChildren().setAll(new Text("Le titre doit commencer par une majuscule."));
@@ -164,10 +250,17 @@ public class AjouterArticleController implements Initializable {
             titreInputErrorHbox.setVisible(false); // Masquer le message d'erreur si le champ est rempli
         }
 
+        // Vérifier si des champs sont vides
         if (champsVides) {
-            return;
+            return; // Sortir de la fonction si des champs sont vides
         }
 
+        // Vérifier le captcha
+        String userCaptchaInput = captchaInput.getText();
+        if (!userCaptchaInput.equals(captchaValue)) {
+            captchaErrorText.setText("Captcha incorrect !");
+            return; // Sortir de la fonction si le captcha est incorrect
+        }
         LocalDateTime dateTime = LocalDateTime.now();
         int dureeArt=4;
         String img = imageName;
