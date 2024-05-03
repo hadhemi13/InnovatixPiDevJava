@@ -6,13 +6,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ServiceCredit;
 import services.ServiceRdv;
 
@@ -44,8 +47,16 @@ public class DemandeRdvListClient implements Initializable {
     private HBox userTableHead;
 
     @FXML
-    void ajoutercredit(MouseEvent event) {
+    void getrdv(MouseEvent event) throws IOException {
+        System.out.println("Opening SensSMS page...");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/senssms.fxml"));
+        Parent root = loader.load();
 
+        // Create a new stage for the SensSMS page
+        Stage newStage = new Stage();
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
     }
 
     @FXML
@@ -82,6 +93,10 @@ public class DemandeRdvListClient implements Initializable {
                 e.printStackTrace();
             }
         }
-    }
+    }private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+
 
 }

@@ -39,9 +39,9 @@
                     <padding>
                         <Insets top="4.0" />
                     </padding></ComboBox>
-                <Button fx:id="addcreditbtn" mnemonicParsing="false" onMouseClicked="#ajoutercredit" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
+                <Button fx:id="addcreditbtn" mnemonicParsing="false" onMouseClicked="#getrdv" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="20.0" fitWidth="73.0" onMouseClicked="#getrdv" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../img/add-list.png" />
                             </image>

@@ -57,6 +57,7 @@ public class dashboardClientcreditrdv implements Initializable  {
         content_area.getChildren().add(addArticleParent);
     }
 
+
     @FXML
     void listrdv(MouseEvent event) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
@@ -79,7 +80,7 @@ public class dashboardClientcreditrdv implements Initializable  {
 
         XYChart.Series series1 = new XYChart.Series<>();
         series1.setName("2003");
-        series1.getData().add(new XYChart.Data<>("2024", 3));
+        series1.getData().add(new XYChart.Data<>("2024", 4));
 
         XYChart.Series  series2 = new XYChart.Series<>();
         series2.setName("2004");

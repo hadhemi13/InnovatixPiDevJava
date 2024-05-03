@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -42,5 +43,6 @@
             </HBox.margin>
         </Label>
       <Text fx:id="userid" layoutX="28.0" layoutY="47.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" translateX="150.0" wrappingWidth="52.447983264923096" />
+      <Button mnemonicParsing="false" onMouseClicked="#approuvercredit" text="approuver" />
     </children>
 </HBox>

@@ -31,15 +31,71 @@
          <content>
             <VBox prefHeight="1208.0" prefWidth="600.0" translateX="250.0">
                <children>
+                  <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <children>
+                        <HBox prefHeight="6.0" prefWidth="538.0">
+                           <children>
+                              <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-input-label" text="CIN">
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <TextField fx:id="id_client" promptText="Cin" styleClass="cin-input-label" stylesheets="@../css/Compte.css">
+                           <VBox.margin>
+                              <Insets right="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox fx:id="cinInputErrorHbox1" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
+                           <children>
+                              <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
+                              <Text fx:id="cinInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre Cin">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="26.0" layoutY="10.0" prefHeight="6.0" prefWidth="538.0">
+                           <children>
+                              <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-input-label" text="CIN">
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
             
-                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
+                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="109.0" prefWidth="600.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
                         <children>
                             <HBox prefHeight="6.0" prefWidth="538.0">
                                 <children>
-                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-input-label" text="CIN">
+                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-input-label" text="DESCRIPTION">
                                         <HBox.margin>
                                             <Insets right="2.0" />
                                         </HBox.margin>
@@ -54,34 +110,13 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                            <TextField fx:id="id_client" promptText="Cin" styleClass="cin-input-label" stylesheets="@../css/Compte.css">
+                            <TextField fx:id="descriptionlabel" prefHeight="44.0" prefWidth="504.0" promptText="objectif" styleClass="cin-input-label" stylesheets="@../css/Compte.css" translateY="9.0">
                                 <VBox.margin>
                                     <Insets right="70.0" />
                                 </VBox.margin>
                             </TextField>
-                            <HBox fx:id="cinInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css">
-                                <children>
-                                    <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-cheque-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
-                                    <Text fx:id="cinInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir le numéro de votre Cin">
-                                        <HBox.margin>
-                                            <Insets top="5.0" />
-                                        </HBox.margin>
-                                    </Text>
-                                </children>
-                            </HBox>
+                            <HBox fx:id="cinInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/Compte.css" />
                         <HBox layoutX="26.0" layoutY="10.0" prefHeight="6.0" prefWidth="538.0">
-                           <children>
-                              <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__add-input-label" text="CIN">
-                                 <HBox.margin>
-                                    <Insets right="2.0" />
-                                 </HBox.margin>
-                              </Text>
-                              <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                                 <font>
-                                    <Font name="Montserrat Regular" size="16.0" />
-                                 </font>
-                              </Text>
-                           </children>
                            <padding>
                               <Insets bottom="10.0" />
                            </padding>

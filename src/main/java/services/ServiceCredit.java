@@ -59,13 +59,13 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         List<Credit> list = new ArrayList<>();
 
         try {
-            String req = "SELECT * FROM credit";
+            String req = "SELECT * FROM credit where user_id=1";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 list.add(new Credit
                         (rs.getInt("id"),
-                        rs.getInt("id_client"), rs.getInt("montant"), rs.getDouble("taux"),
+                        rs.getInt("id_client"), rs.getInt("montant"), rs.getString("statusclient"), rs.getDouble("taux"),
                                 rs.getObject("datedebut", Date.class),rs.getDouble("mensualite"),
                         rs.getInt("duree"),
                         rs.getDouble("fraisretard")));

@@ -5,9 +5,38 @@ import java.util.*;
 public class Credit {
     private int id;
     private int id_client;
+
+    public String getStatusclient() {
+        return statusclient;
+    }
+
+    public Credit(int id, int id_client, double montant, String statusclient, double taux, Date datedebut, double mensualite, int duree, double fraisretard) {
+        this.id = id;
+        this.id_client = id_client;
+        this.montant = montant;
+        this.statusclient = statusclient;
+        this.taux = taux;
+        this.datedebut = datedebut;
+        this.mensualite = mensualite;
+        this.duree = duree;
+        this.fraisretard = fraisretard;
+    }
+
+    public void setStatusclient(String statusclient) {
+        this.statusclient = statusclient;
+    }
+
+    public Date getDatedebut() {
+        return datedebut;
+    }
+
+    public void setDatedebut(Date datedebut) {
+        this.datedebut = datedebut;
+    }
+
     private double montant;
 
-
+     private String statusclient;
     public int getId() {
         return id;
     }

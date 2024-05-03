@@ -136,7 +136,7 @@ public class RdvController implements IRDV <RDV> , Initializable {
     @FXML
     private HBox sideBarLogout;
     @FXML
-    private ChoiceBox<Integer> idcreditchoise;
+    private ChoiceBox<String> idcreditchoise;
     @FXML
     private HBox stagesBtn;
 
@@ -179,32 +179,34 @@ public class RdvController implements IRDV <RDV> , Initializable {
     Connection connection;
     Integer[] numbers = {1, 2, 5};
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         connection = MyDatabase.getInstance().getConnection();
 
         Connection connection2 = MyDatabase.getInstance().getConnection();
-        String selectQuery = "SELECT id FROM credit";
+        String selectQuery = "SELECT statusclient FROM credit where user_id=1";
 
-        List<Integer> idList = new ArrayList<>();
+        List<String> statusList = new ArrayList<>();
 
         try (Statement statement = connection2.createStatement();
              ResultSet resultSet = statement.executeQuery(selectQuery)) {
 
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                idList.add(id);
+                String status = resultSet.getString("statusclient");
+                statusList.add(status);
             }
-            System.out.println("IDs from credit table: " + idList);
+            System.out.println("Status from credit table: " + statusList);
 
             // Populate the ComboBox here
-            idcreditchoise.getItems().addAll(idList);
+            idcreditchoise.getItems().addAll(statusList);
 
         } catch (SQLException e) {
             // Handle or log the exception as needed
             e.printStackTrace();
         }
     }
+
 
     private Timer timer;
 

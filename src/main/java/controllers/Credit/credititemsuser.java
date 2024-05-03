@@ -14,8 +14,10 @@ import javafx.stage.Stage;
 import services.ServiceCheque;
 import utils.MyDatabase;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,7 +100,12 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void approuvercredit(MouseEvent event) throws GeneralSecurityException, IOException, MessagingException {
+        System.out.println("rrrrrrrrrrrrrrrr");
+        new GMailer().sendMail("subject","credit approuve ");
 
+    }
 
     @FXML
     void UpdateCheque(MouseEvent event) {
@@ -108,7 +115,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
         ServiceCheque serviceCheque = new ServiceCheque();
         
         useriditem.setText(String.valueOf(i.getId()));
-       useritemidclient.setText(String.valueOf(i.getId_client()));
+       useritemidclient.setText(String.valueOf(i.getStatusclient()));
         montantuseritem.setText(String.valueOf(i.getMontant()));
         mensualiteuserrole.setText(String.valueOf(i.getMensualite()));
         dateitem.setText(String.valueOf(i.getDateDebut()));
@@ -139,6 +146,8 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
     }
 
 
+
+
     Connection con=null;
     PreparedStatement st=null;
     ResultSet rs=null;
@@ -155,5 +164,6 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 }

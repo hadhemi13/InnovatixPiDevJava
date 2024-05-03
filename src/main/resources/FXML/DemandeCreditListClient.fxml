@@ -53,9 +53,9 @@
                 </Button>
             <Button fx:id="deletebtn" layoutX="865.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#prendrerdv" prefHeight="41.0" prefWidth="91.0" styleClass="AddBtn" stylesheets="@../css/Compte.css">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/delete.png" />
+                        <Image url="@../img/un-evenement.png" />
                      </image>
                   </ImageView>
                </graphic>

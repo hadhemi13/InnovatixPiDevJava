@@ -167,6 +167,20 @@ public class DemandeCreditListClientUser  implements Initializable {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
+    @FXML
+    void convertir(MouseEvent event) throws IOException {
+        System.out.println("converrtir...");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/sample.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage for the SensSMS page
+        Stage newStage = new Stage();
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
 
     }
+    public void initialize() {
+    }
+}
 

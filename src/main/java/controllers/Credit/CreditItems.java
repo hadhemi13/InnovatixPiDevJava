@@ -1,4 +1,5 @@
 package controllers.Credit;
+import java.security.GeneralSecurityException;
 import java.sql.*;
 
 import Entities.Cheque;
@@ -25,6 +26,7 @@ import javafx.stage.Stage;
 import services.ServiceCheque;
 import utils.MyDatabase;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -191,6 +193,13 @@ public class CreditItems implements Initializable {
 
         return rdvid != null ? rdvid : -1;
     }
+    @FXML
+    void approuvercredit(MouseEvent event) throws GeneralSecurityException, IOException, MessagingException {
+        System.out.println("rrrrrrrrrrrrrrrr");
+        new GMailer().sendMail("subject","credit approuve ");
+
+    }
+
 
     // Retrieve Credit object by user ID using an existing connection
     private Credit getCreditByUserId(Connection con, String userId) throws SQLException {

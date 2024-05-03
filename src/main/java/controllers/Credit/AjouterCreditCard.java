@@ -1,11 +1,14 @@
 package controllers.Credit;
+import Entities.Credit;
+import controllers.SideNavBarUserController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import Entities.Cheque;
 import javafx.collections.FXCollections;
@@ -22,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import services.ServiceCheque;
+import services.ServiceCredit;
 import utils.MyDatabase;
 
 import java.io.File;
@@ -118,6 +122,9 @@ public class AjouterCreditCard implements Initializable {
     ResultSet rs=null;
     private Timer timer;
     @FXML
+    private GridPane userListContainer;
+
+    @FXML
     void calculertaux(ActionEvent event) {
         try {
             // Parse values from text fields
@@ -144,8 +151,10 @@ public class AjouterCreditCard implements Initializable {
 
     }
     @FXML
+    private TextField descriptionlabel;
+    @FXML
     void ajoutercredit(MouseEvent event) throws SQLException {
-        String insert = "insert into credit (user_id, id_client, montant, taux, datedebut, mensualite, duree, fraisretard) values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String insert = "insert into credit (user_id, id_client, montant,statusclient, taux, datedebut, mensualite, duree, fraisretard) values (?, ?, ?, ?, ?, ?, ?, ?,?)";
         con = MyDatabase.getInstance().getConnection();
 
 
@@ -214,19 +223,35 @@ public class AjouterCreditCard implements Initializable {
             st = con.prepareStatement(insert);
             st.setInt(1, 1); // Static value for user_id
             st.setInt(2, Integer.parseInt(id_client.getText())); // id_client
+
             st.setDouble(3, Double.parseDouble(montant.getText())); // montant
-            st.setDouble(4, Double.parseDouble(taux.getText())); // taux
-            st.setDate(5, java.sql.Date.valueOf(datedebut.getValue())); // datedebut
-            st.setDouble(6, Double.parseDouble(Email.getText())); // mensualite
-            st.setInt(7, Integer.parseInt(duree.getText())); // duree
-            st.setDouble(8, Double.parseDouble(fraisretard.getText())); // fraisretard
+            st.setString(4, ((descriptionlabel.getText()))); // id_client
+
+            st.setDouble(5, Double.parseDouble(taux.getText())); // taux
+            st.setDate(6, java.sql.Date.valueOf(datedebut.getValue())); // datedebut
+            st.setDouble(7, Double.parseDouble(Email.getText())); // mensualite
+            st.setInt(8, Integer.parseInt(duree.getText())); // duree
+            st.setDouble(9, Double.parseDouble(fraisretard.getText())); // fraisretard
 
             st.executeUpdate();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClientUser.fxml"));
+            Parent addArticleParent = loader.load();
+
+            // Récupération du contrôleur de la vue d'ajout d'article
+
+
+            // Remplacer le contenu actuel par la vue d'ajout d'article
+            content_area.getChildren().clear();
+            content_area.getChildren().add(addArticleParent);
+
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
