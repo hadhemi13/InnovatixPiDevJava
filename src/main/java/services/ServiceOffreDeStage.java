@@ -98,18 +98,7 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
             ResultSet rs = st.executeQuery(req);
             while (rs.next()){
                 list.add(new OffreDeStage(rs.getInt("id"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu")));
-                //LocalDateTime dt = list.getDate("date").toLocalDate;
-                //System.out.println(list);
             }
-//            for (OffreDeStage i : list){
-//                System.out.println("DemandeStage{" +
-//                        ", id=" + i.getPostePropose() +
-//                        "nom='" + i.getTitle() + '\'' +
-////                        ", prenom='" + i.getExigenceOffre() + '\'' +
-//                        ", email='" + i.getExperience() + '\'' +
-//                        ", cv='" + i.getDatePostu() + '\'' +
-//                        '}');
-//            }
         }catch (SQLException e){
             System.err.println("e.getMessage()");
         }
@@ -124,19 +113,7 @@ public class ServiceOffreDeStage implements IService<OffreDeStage>{
             ResultSet rs = st.executeQuery(req);
             while (rs.next()){
                 list.add(new OffreDeStage(rs.getInt("id"),rs.getString("title"),rs.getString("domaine"), rs.getString("type_offre"),rs.getString("experience"),rs.getString("description"),rs.getString("exigence_offre"),rs.getDate("date_postu")));
-                //LocalDateTime dt = list.getDate("date").toLocalDate;
-//                System.out.println(rs.getInt("id"));
-//                System.out.println(list);
             }
-//            for (OffreDeStage i : list) {
-//                System.out.println("DemandeStage{" +
-//                        ", id=" + i.getPostePropose());
-////                        "nom='" + i.getTitle() + '\'' +
-////                        ", prenom='" + i.getExigenceOffre() + '\'' +
-////                        ", email='" + i.getExperience() + '\'' +
-////                        ", cv='" + i.getDatePostu() + '\'' +
-////                        '}');
-//            }
 
         }catch (SQLException e){
             System.err.println("e.getMessage()");

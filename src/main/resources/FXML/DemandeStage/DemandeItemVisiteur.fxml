@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="1100.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageItemController">
+<HBox alignment="CENTER_LEFT" prefHeight="99.0" prefWidth="1100.0" styleClass="userItem" stylesheets="@../../css/ItemStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeItemVisiteurController">
    <children>
       <Text fx:id="Nom" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="nom" wrappingWidth="54.84808349609375">
          <HBox.margin>
@@ -25,7 +25,12 @@
       <Text fx:id="numero" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="numero" translateX="20.0" wrappingWidth="106.84808349609375" />
       <Text fx:id="domaine" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="domaine" translateX="20.0" wrappingWidth="108.84808349609375" />
       <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="date" translateX="20.0" wrappingWidth="115.84808349609375" />
-      <Text fx:id="Lettre" strokeType="OUTSIDE" strokeWidth="0.0" text="lettreMotivation" wrappingWidth="118.189453125" />
+      <Text fx:id="Lettre" strokeType="OUTSIDE" strokeWidth="0.0" text="LettreMotivation" />
+      <ImageView fx:id="imageStaut" fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="50.0" />
+         </HBox.margin>
+      </ImageView>
       <Hyperlink fx:id="cv" onAction="#showCv" prefHeight="41.0" prefWidth="79.0" translateX="20.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
@@ -33,7 +38,8 @@
                   <Image url="@../../img/pdf%20(1).png" />
                </image>
             </ImageView>
-         </graphic></Hyperlink>
+         </graphic>
+      </Hyperlink>
       <HBox prefHeight="99.0" prefWidth="77.0" translateX="20.0" translateY="-20.0">
          <children>
             <Label fx:id="Approuver" styleClass="userItem__btn">

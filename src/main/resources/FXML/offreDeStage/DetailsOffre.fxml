@@ -86,7 +86,7 @@
                         </HBox>
                         <HBox prefHeight="346.0" prefWidth="1334.0">
                            <children>
-                              <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…" textAlignment="CENTER" />
+                              <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…" textAlignment="JUSTIFY" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -103,7 +103,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text fx:id="Exigence" strokeType="OUTSIDE" strokeWidth="0.0" text="En informatique, la notion de texte s'oppose à la notion de données binaires, on parle alors ">
+                              <Text fx:id="Exigence" strokeType="OUTSIDE" strokeWidth="0.0" text="En informatique, la notion de texte s'oppose à la notion de données binaires, on parle alors " textAlignment="CENTER">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>

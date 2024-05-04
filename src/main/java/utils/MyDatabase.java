@@ -16,7 +16,7 @@ public class MyDatabase {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Connexion établie");
         } catch (SQLException e) {
-            throw new RuntimeException(e);        }
+            System.out.println("ouvre xampp");      }
     }
 
 
@@ -28,6 +28,7 @@ public class MyDatabase {
 
 
     public Connection getConnection() {
+
         return connection;
     }
 

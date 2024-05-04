@@ -126,6 +126,15 @@
 <!--            <version>8.2.0</version>-->
 <!--        </dependency>-->
 
+<!--        maryeemm-->
+        <dependency>
+            <groupId>com.memetix</groupId>
+            <artifactId>microsoft-translator-java-api</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
 
     </dependencies>
 

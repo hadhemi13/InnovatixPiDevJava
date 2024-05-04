@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "627025552162",
+    "project_id": "eflexjava",
+    "storage_bucket": "eflexjava.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627025552162:android:7a37ec5db760f122edbb7b",
+        "android_client_info": {
+          "package_name": "esprit.efd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsaVivRy7UxqalgsLv9ppxnis_IUgVXhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

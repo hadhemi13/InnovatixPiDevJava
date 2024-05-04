@@ -77,7 +77,7 @@ public class CurrencyConverterApp extends Application {
         double amountInDZD = amountInTND * rates.getDouble("DZD");
 
 // Afficher les résultats
-        System.out.println("2 TND équivaut à :");
+        System.out.println("8 TND équivaut à :");
         System.out.println("EUR : " + amountInEUR);
         System.out.println("USD : " + amountInUSD);
         System.out.println("SAR : " + amountInSAR);
