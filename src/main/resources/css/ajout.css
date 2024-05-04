@@ -114,7 +114,7 @@
     -fx-border-width: 2px;
 }
 .stage-input-label{
-    -fx-font-size: 14px;
+    -fx-font-size: 12px;
     -fx-font-weight: 700;
 }
 .stage__card-title {

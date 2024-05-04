@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -20,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AjouterOffreController">
+<AnchorPane fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AjouterOffreController">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="1084.0">
          <children>
@@ -52,7 +46,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <TextField fx:id="titre" promptText="saisir le title" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                              <TextField fx:id="titre" promptText="saisir le title" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="20.0" />
                                  </VBox.margin>
@@ -82,7 +76,7 @@
                                     <Insets left="15.0" />
                                  </VBox.margin>
                               </HBox>
-                              <TextField fx:id="domaine" promptText="saisir le domaine" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                              <TextField fx:id="domaine" promptText="saisir le domaine" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="20.0" />
                                  </VBox.margin>
@@ -109,7 +103,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <ComboBox fx:id="type" prefHeight="58.0" prefWidth="564.0" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                              <ComboBox fx:id="type" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="302.0" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <padding>
                                     <Insets top="10.0" />
                                  </padding>
@@ -139,7 +133,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <TextField fx:id="poste" promptText="saisir le poste proposé " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                              <TextField fx:id="poste" promptText="saisir le poste proposé " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="20.0" top="15.0" />
                                  </VBox.margin>
@@ -166,7 +160,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <ComboBox fx:id="experience" prefHeight="40.0" prefWidth="564.0">
+                              <ComboBox fx:id="experience" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="315.0" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <padding>
                                     <Insets top="15.0" />
                                  </padding>
@@ -190,7 +184,7 @@
                         </VBox>
                         <VBox prefHeight="57.0" prefWidth="701.0">
                            <children>
-                              <TextField fx:id="niveau" promptText="saisir le niveau " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                              <TextField fx:id="niveau" promptText="saisir le niveau " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="20.0" top="15.0" />
                                  </VBox.margin>
@@ -216,7 +210,7 @@
                                     <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="la language " />
                                  </children>
                               </HBox>
-                              <TextField fx:id="language" promptText="saisir la language " styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                              <TextField fx:id="language" promptText="saisir la language " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets right="20.0" top="15.0" />
                                  </VBox.margin>
@@ -246,7 +240,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <TextField fx:id="description" promptText="saisir la description ">
+                              <TextField fx:id="description" promptText="saisir la description " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="15.0" top="15.0" />
                                  </VBox.margin>
@@ -273,7 +267,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <TextField fx:id="exigence" promptText="saisir l'exigence des offres ">
+                              <TextField fx:id="exigence" promptText="saisir l'exigence des offres " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="15.0" top="15.0" />
                                  </VBox.margin>
@@ -300,7 +294,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <TextField fx:id="motsCles" promptText="Saisir les Mots Clés ">
+                              <TextField fx:id="motsCles" promptText="Saisir les Mots Clés " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="15.0" top="15.0" />
                                  </VBox.margin>
@@ -330,7 +324,7 @@
                               <ImageView fx:id="pfeImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="121.0" text="Importer ">
+                                    <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="121.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Importer ">
                                        <HBox.margin>
                                           <Insets left="280.0" top="15.0" />
                                        </HBox.margin>
@@ -341,7 +335,7 @@
                         </VBox>
                         <HBox prefHeight="53.0" prefWidth="687.0">
                            <children>
-                              <Button fx:id="ajouterOffre" mnemonicParsing="false" onAction="#ajouterOffre" prefHeight="26.0" prefWidth="92.0" styleClass="AddBtn" stylesheets="@../../css/ajout.css" text="Ajouter">
+                              <Button fx:id="ajouterOffre" mnemonicParsing="false" onAction="#ajouterOffre" prefHeight="26.0" prefWidth="92.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Ajouter">
                                  <HBox.margin>
                                     <Insets bottom="15.0" left="294.0" top="30.0" />
                                  </HBox.margin>

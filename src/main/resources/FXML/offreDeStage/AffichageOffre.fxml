@@ -17,21 +17,30 @@
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
          <children>
-            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Liste des Offres des Stages ">
+            <Button fx:id="RetourL" mnemonicParsing="false" onMouseClicked="#RetourBack" prefHeight="37.0" prefWidth="42.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/back (1).png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DemandeCard__title" text="Liste des Offres des Stages " translateX="20.0">
                <font>
                   <Font name="Bell MT" size="22.0" />
                </font>
                <HBox.margin>
                   <Insets left="9.0" top="5.0" />
                </HBox.margin></Text>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="60.0">
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="300.0">
                <image>
                   <Image url="@../../img/magnifier.png" />
                </image>
             </ImageView>
-            <TextField prefHeight="26.0" prefWidth="309.0" styleClass="product__list-searchInput" stylesheets="@../../css/SideNavBar.css" />
+            <TextField prefHeight="26.0" prefWidth="309.0" styleClass="product__list-searchInput" stylesheets="@../../css/SideNavBar.css" translateX="20.0" />
 
-            <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :">
+            <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Trier par :" translateX="30.0">
                <HBox.margin>
                   <Insets left="10.0" right="2.0" />
                </HBox.margin>
@@ -39,14 +48,14 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" promptText="All" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css">
+            <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="150.0" onAction="#statusChange" prefHeight="40.0" promptText="All" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css" translateX="20.0">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
                <padding>
                   <Insets top="4.0" />
                </padding></ComboBox>
-            <Button fx:id="ajoutOffre" mnemonicParsing="false" onMouseClicked="#AjouterOffre" prefHeight="44.0" prefWidth="58.0" styleClass="productBtn" stylesheets="@../../css/SideNavBar.css">
+            <Button fx:id="ajoutOffre" mnemonicParsing="false" onMouseClicked="#AjouterOffre" prefHeight="44.0" prefWidth="58.0" styleClass="productBtn" stylesheets="@../../css/SideNavBar.css" translateX="10.0">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>

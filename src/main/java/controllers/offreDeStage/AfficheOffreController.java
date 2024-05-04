@@ -395,6 +395,8 @@ public class AfficheOffreController implements Initializable {
 
     @FXML
     private ComboBox<String> statusInput;
+    @FXML
+    private Button RetourL;
 
     @FXML
     private HBox userTableHead;
@@ -500,5 +502,19 @@ public class AfficheOffreController implements Initializable {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
-}
+
+    public void RetourBack(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardNavBar.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    }
+
 

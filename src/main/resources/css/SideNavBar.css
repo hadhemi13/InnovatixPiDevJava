@@ -2230,9 +2230,9 @@
     -fx-border-radius: 50px; /* Coins arrondis de la bordure */
 }
 .mini-title {
-    -fx-font-size: 12px; /* Taille de la police */
+    -fx-font-size: 13px; /* Taille de la police */
     -fx-font-weight: bold; /* Gras */
-    -fx-text-fill: #5ba890; /* Couleur du texte */
+    -fx-text-fill: #0b6651; /* Couleur du texte */
     /* Autres propriétés de style selon vos préférences */
 }
 

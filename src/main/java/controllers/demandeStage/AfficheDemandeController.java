@@ -12,6 +12,8 @@ import javafx.scene.control.ListView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -34,6 +36,8 @@ public class AfficheDemandeController implements Initializable {
 
     @FXML
     private ComboBox<String> statusInput;
+    @FXML
+    private Button RetourS;
     @FXML
     private HBox userTableHead;
 
@@ -70,4 +74,21 @@ public class AfficheDemandeController implements Initializable {
             }
         }
     }
-}
+
+    public void statusChange(ActionEvent event) {
+    }
+
+    public void RetourBack(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardNavBar.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    }
+

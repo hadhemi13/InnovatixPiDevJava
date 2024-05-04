@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
@@ -13,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsOffreController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsOffreController">
     <children>
-      <ScrollPane prefHeight="700.0" prefWidth="1376.0" stylesheets="@../../css/SideNavBar.css">
+      <ScrollPane prefHeight="816.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
          <content>
-            <VBox prefHeight="1078.0" prefWidth="1370.0" styleClass="userProductCard">
+            <VBox prefHeight="1100.0" prefWidth="1370.0" styleClass="userProductCard">
                <children>
                     <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="53.0" prefWidth="1360.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
                         <children>
@@ -31,17 +26,17 @@
                             <Insets bottom="10.0" top="10.0" />
                         </padding>
                     </HBox>
-                  <VBox prefHeight="184.0" prefWidth="1354.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0">
                      <children>
                         <HBox prefHeight="18.0" prefWidth="1354.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Poste Vacantes " translateX="340.0">
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Poste Vacantes " translateX="340.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Type d'Offre " translateX="550.0" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Expérience " translateX="770.0" />
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Type d'Offre " translateX="550.0" />
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Expérience " translateX="770.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="15.0" />
@@ -49,9 +44,15 @@
                         </HBox>
                         <HBox prefHeight="43.0" prefWidth="1354.0">
                            <children>
-                              <Text fx:id="poste" strokeType="OUTSIDE" strokeWidth="0.0" text="5" translateX="380.0" />
-                              <Text fx:id="typeOffre" strokeType="OUTSIDE" strokeWidth="0.0" text="Offre d'emploi" translateX="624.0" />
-                              <Text fx:id="experience" strokeType="OUTSIDE" strokeWidth="0.0" text="0 -1 " translateX="855.0" />
+                              <Text fx:id="poste" strokeType="OUTSIDE" strokeWidth="0.0" text="5" translateX="380.0">
+                                 <font>
+                                    <Font name="Bell MT" size="12.0" />
+                                 </font></Text>
+                              <Text fx:id="typeOffre" strokeType="OUTSIDE" strokeWidth="0.0" text="Offre d'emploi" translateX="639.0">
+                                 <font>
+                                    <Font name="Bookman Old Style" size="12.0" />
+                                 </font></Text>
+                              <Text fx:id="experience" strokeType="OUTSIDE" strokeWidth="0.0" text="0 -1 " translateX="885.0" />
                            </children>
                            <padding>
                               <Insets top="15.0" />
@@ -59,8 +60,8 @@
                         </HBox>
                         <HBox prefHeight="26.0" prefWidth="1354.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Niveau " translateX="500.0" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Langue" translateX="750.0" />
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Niveau " translateX="500.0" />
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Langue" translateX="750.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="15.0" />
@@ -69,7 +70,7 @@
                         <HBox prefHeight="38.0" prefWidth="1354.0">
                            <children>
                               <Text fx:id="Niveau" strokeType="OUTSIDE" strokeWidth="0.0" text="Bac Mastére Ingénieurie" translateX="460.0" />
-                              <Text fx:id="langue" strokeType="OUTSIDE" strokeWidth="0.0" text="3 langues " translateX="661.0" />
+                              <Text fx:id="langue" strokeType="OUTSIDE" strokeWidth="0.0" text="3 langues " translateX="665.0" />
                            </children>
                            <VBox.margin>
                               <Insets top="15.0" />
@@ -77,16 +78,16 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="390.0" prefWidth="1354.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
                      <children>
                         <HBox prefHeight="26.0" prefWidth="1354.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Description :" translateX="20.0" />
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Description :" translateX="20.0" translateY="15.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="346.0" prefWidth="1334.0">
                            <children>
-                              <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construction et association des phrases…" textAlignment="CENTER" />
+                              <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construc" textAlignment="CENTER" translateY="15.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -94,16 +95,16 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="138.0" prefWidth="1334.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
                      <children>
                         <HBox prefHeight="27.0" prefWidth="1334.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Exigence : " translateX="20.0" />
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Exigence : " translateX="20.0" translateY="15.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text fx:id="Exigence" strokeType="OUTSIDE" strokeWidth="0.0" text="En informatique, la notion de texte s'oppose à la notion de données binaires, on parle alors ">
+                              <Text fx:id="Exigence" strokeType="OUTSIDE" strokeWidth="0.0" text="En informatique, la notion de texte s'oppose à la notion de données binaires, on parle alors " translateY="15.0">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
@@ -115,21 +116,21 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </VBox>
-                  <VBox prefHeight="115.0" prefWidth="1334.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <children>
                         <HBox prefHeight="30.0" prefWidth="1334.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Mot Clés : ">
+                              <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Mot Clés : " translateY="8.0">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Text>
                            </children>
                         </HBox>
-                        <HBox prefHeight="27.0" prefWidth="1334.0">
+                        <HBox prefHeight="27.0" prefWidth="1334.0" translateX="15.0">
                            <children>
                               <Text fx:id="MotCle" strokeType="OUTSIDE" strokeWidth="0.0" text="- Banque ">
                                  <HBox.margin>
@@ -138,7 +139,7 @@
                               </Text>
                            </children>
                         </HBox>
-                        <HBox prefHeight="31.0" prefWidth="1334.0">
+                        <HBox prefHeight="31.0" prefWidth="1334.0" translateX="15.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Java">
                                  <HBox.margin>
@@ -147,7 +148,7 @@
                               </Text>
                            </children>
                         </HBox>
-                        <HBox prefHeight="24.0" prefWidth="1334.0">
+                        <HBox prefHeight="24.0" prefWidth="1334.0" translateX="15.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Python">
                                  <HBox.margin>
@@ -158,19 +159,14 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="62.0" prefWidth="1334.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <children>
                         <HBox prefHeight="30.0" prefWidth="1334.0">
                            <children>
-                              <Text fx:id="datet" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Date de Postulation  :">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Text>
-                              <Text fx:id="datet1" layoutX="30.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Date de Postulation  :" />
+                              <Text fx:id="datet1" fill="#0b6651" layoutX="30.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Date de Postulation  :" translateX="15.0" />
                            </children>
                         </HBox>
                         <HBox fx:id="DatePost" prefHeight="28.0" prefWidth="1334.0">
@@ -184,14 +180,14 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="56.0" prefWidth="1334.0">
+                  <VBox prefHeight="56.0" prefWidth="1334.0" translateY="25.0">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <children>
                         <HBox prefHeight="62.0" prefWidth="1334.0">
                            <children>
-                              <Button fx:id="Postuler" mnemonicParsing="false" prefHeight="54.0" prefWidth="704.0" text="Postuler Maintenant" translateX="300.0" />
+                              <Button fx:id="Postuler" mnemonicParsing="false" prefHeight="54.0" prefWidth="704.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="300.0" />
                            </children>
                         </HBox>
                      </children>
