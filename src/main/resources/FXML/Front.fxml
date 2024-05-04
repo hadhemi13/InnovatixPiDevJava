@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontControlleur">
+<AnchorPane fx:id="content_area" prefHeight="750.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontControlleur">
     <children>
         <ScrollPane prefHeight="750.0" prefWidth="1366.0">
             <content>
-                <VBox fx:id="content_area" prefHeight="1000.0" prefWidth="1366.0">
+                <VBox prefHeight="1000.0" prefWidth="1366.0">
                     <children>
                         <VBox prefHeight="762.0" prefWidth="1366.0" styleClass="bgfront" stylesheets="@../css/front.css">
                             <children>

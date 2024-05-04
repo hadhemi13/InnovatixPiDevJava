@@ -72,6 +72,7 @@ public class captchaController  implements Initializable{
     Captcha captcha;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         captcha =  setCaptcha();
@@ -98,6 +99,7 @@ public class captchaController  implements Initializable{
             CaptchaPane.getChildren().removeAll();
             CaptchaPane.getChildren().setAll(fxml);
 //            stage.show();
+            ((Stage) submit.getScene().getWindow()).close();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
 
@@ -136,6 +138,25 @@ public class captchaController  implements Initializable{
         CaptchaPane.getChildren().removeAll();
         CaptchaPane.getChildren().setAll(fxml);
 
+    }
+    @FXML
+    private void initialize() {
+        submit.setOnAction(event -> {
+            try {
+                // Charger la page de succès
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+                AnchorPane successPane = loader.load();
+                Scene scene = new Scene(successPane);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+
+                // Fermer la fenêtre de captcha
+                ((Stage) submit.getScene().getWindow()).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }
