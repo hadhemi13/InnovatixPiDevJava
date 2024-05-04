@@ -29,9 +29,10 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.stage.FileChooser;
+import tests.TranslatorText;
 
 public class ProfileUserController  implements Initializable {
-
+/*
     @FXML
     private Button changePassBTN;
 
@@ -43,6 +44,15 @@ public class ProfileUserController  implements Initializable {
 
     @FXML
     private Text emailText;
+
+    @FXML
+    private ImageView en;
+
+    @FXML
+    private ImageView fr;
+
+    @FXML
+    private ImageView tn;
 
     @FXML
     private Text fullnameText;
@@ -62,6 +72,67 @@ public class ProfileUserController  implements Initializable {
     @FXML
     private ImageView userItemUpdateBtnImg;
 
+
+    @FXML
+    private Text EmailLab;
+
+    @FXML
+    private Text PhoneNumberLabel;
+
+    @FXML
+    private Text fullnameLab;
+*/
+@FXML
+private Text EmailLab;
+
+    @FXML
+    private Text PhoneNumberLabel;
+
+    @FXML
+    private Button changePassBTN;
+
+    @FXML
+    private Text descriptionText;
+
+    @FXML
+    private ImageView downloadPdfButton;
+
+    @FXML
+    private Text emailText;
+
+    @FXML
+    private ImageView en;
+
+    @FXML
+    private ImageView fr;
+
+    @FXML
+    private Text fullnameLab;
+
+    @FXML
+    private Text fullnameText;
+
+    @FXML
+    private Text profile;
+
+    @FXML
+    private Pane profilePane;
+
+    @FXML
+    private Text role;
+
+    @FXML
+    private Text telText;
+
+    @FXML
+    private ImageView tn;
+
+    @FXML
+    private ImageView userItemImg;
+
+    @FXML
+    private Label userItemUpdateBtn;
+    String from = "";
     @Override
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,6 +146,7 @@ public class ProfileUserController  implements Initializable {
                 user = userService.getOneUser(UserSession.getInstance().getEmail());
             }
 
+
             // Image image = new Image(
             // getClass().getResource("/img/admin.png/" + user.getPhoto()).toExternalForm());
             // userItemImg.setImage(image);
@@ -84,6 +156,54 @@ public class ProfileUserController  implements Initializable {
             descriptionText.setText(user.getRoles());
             emailText.setText(user.getEmail());
             telText.setText(user.getTel());
+            TranslatorText translatorText = new TranslatorText();
+
+            tn.setOnMouseClicked(mouseEvent -> {
+                from = "ar";
+                try {
+                    fullnameLab.setText(translatorText.post(fullnameLab.getText(),"fr","ar"));
+                    role.setText(translatorText.post(role.getText(),"fr","ar"));
+                    profile.setText(translatorText.post(profile.getText(),"fr","ar"));
+                    EmailLab.setText(translatorText.post(EmailLab.getText(),"fr","ar"));
+                    PhoneNumberLabel.setText(translatorText.post(PhoneNumberLabel.getText(),"fr","ar"));
+                    changePassBTN.setText(translatorText.post(changePassBTN.getText(),"fr","ar"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+            });
+            fr.setOnMouseClicked(mouseEvent -> {
+                from = "fr";
+                try {
+                    fullnameLab.setText(translatorText.post(fullnameLab.getText(),"ar","fr"));
+                    role.setText(translatorText.post(role.getText(),"ar","fr"));
+                    profile.setText(translatorText.post(profile.getText(),"ar","fr"));
+                    EmailLab.setText(translatorText.post(EmailLab.getText(),"ar","fr"));
+                    PhoneNumberLabel.setText(translatorText.post(PhoneNumberLabel.getText(),"ar","fr"));
+                    changePassBTN.setText(translatorText.post(changePassBTN.getText(),"ar","fr"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            en.setOnMouseClicked(mouseEvent -> {
+                from = "en";
+                try {
+                    fullnameLab.setText(translatorText.post(fullnameLab.getText(),"ar","en"));
+                    role.setText(translatorText.post(role.getText(),"ar","en"));
+                    profile.setText(translatorText.post(profile.getText(),"ar","en"));
+                    EmailLab.setText(translatorText.post(EmailLab.getText(),"ar","en"));
+                    PhoneNumberLabel.setText(translatorText.post(PhoneNumberLabel.getText(),"ar","en"));
+                    changePassBTN.setText(translatorText.post(changePassBTN.getText(),"ar","en"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
 
 
 
@@ -104,6 +224,7 @@ public class ProfileUserController  implements Initializable {
             e.printStackTrace(); // handle exception properly
         }
     }
+
 
     private void generatePdf(User user) {
         Document document = new Document();

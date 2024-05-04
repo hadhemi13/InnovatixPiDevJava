@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="CaptchaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.SignUpController">
+<BorderPane fx:id="CaptchaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" style="-fx-background-color: #defee6;" styleClass="signUp__container" stylesheets="@../../resources/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.SignUpController">
     <left>
         <AnchorPane fx:id="left" prefHeight="700.0" prefWidth="652.0" styleClass="left" stylesheets="@../../resources/css/SideNavBar.css" BorderPane.alignment="CENTER" />
     </left>
@@ -26,9 +26,9 @@
                 <Text layoutX="283.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signUp__title" text="Sign Up" />
             <ScrollPane prefHeight="573.0" prefWidth="682.0" style="-fx-background-color: #97d158;" translateY="130.0">
                <content>
-                      <VBox prefHeight="1050.0" prefWidth="661.0" styleClass="signUp__from__container" stylesheets="@../../resources/css/SideNavBar.css" translateX="6.0">
+                      <VBox prefHeight="1050.0" prefWidth="661.0" style="-fx-background-color: #defee6;" styleClass="signUp__from__container" stylesheets="@../../resources/css/SideNavBar.css" translateX="6.0">
                           <children>
-                              <VBox prefHeight="53.0" prefWidth="723.0" stylesheets="@../css/SideNavBar.css">
+                              <VBox prefHeight="53.0" prefWidth="723.0" style="-fx-background-color: #defee6;" stylesheets="@../css/SideNavBar.css">
                                   <children>
                                       <Label prefHeight="22.0" prefWidth="58.0" styleClass="SignUp__input__label" stylesheets="@../../resources/css/SideNavBar.css" text="Nom*" />
                                       <TextField fx:id="fullnameField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="621.0" promptText="Nom..." style="-fx-background-radius: 50;" styleClass="SignUp__input" stylesheets="@../../resources/css/SideNavBar.css">
