@@ -23,7 +23,6 @@ import services.ServiceEvenement;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
