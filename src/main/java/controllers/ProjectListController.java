@@ -237,8 +237,7 @@ public class ProjectListController implements Initializable {
 
     @FXML
     void pdf(MouseEvent event) throws SQLException {
-        // Afficher la boîte de dialogue de sélection de fichier
-        FileChooser fileChooser = new FileChooser();
+         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Enregistrer le fichier PDF");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PDF", "*.pdf"));
         File selectedFile = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
@@ -253,16 +252,9 @@ public class ProjectListController implements Initializable {
                 PdfWriter.getInstance(document, new FileOutputStream(selectedFile));
                 document.open();
 
-
                 Image image = Image.getInstance(System.getProperty("user.dir") + "/src/assets/img/logo.png");
-
-
                 image.setAbsolutePosition(5, document.getPageSize().getHeight() - 120);
-
-
                 image.scaleAbsolute(100, 100);
-
-
                 document.add(image);
 
 
