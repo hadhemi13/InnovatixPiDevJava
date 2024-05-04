@@ -6,6 +6,7 @@ public class Article {
     private Integer id;
     private String nom_aut_art;
     private String adr_aut_art;
+
     private LocalDateTime date_pub_art;
     private Integer duree_art;
     private String categorie_art;
