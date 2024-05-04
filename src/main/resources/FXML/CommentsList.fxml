@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card"
+      stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.CommentsListController">
+    <children>
+        <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0"
+                    styleClass="product-card-scrollPane" stylesheets="@../assets/style/aliStyle.css">
+            <content>
+                <GridPane fx:id="CommentsListContainer" alignment="CENTER">
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+        <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
+            <children>
+                <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
+                      text="💬Liste des commentaires💬"/>
+                <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                           minWidth="-Infinity" prefWidth="250.0"
+                           styleClass="product__list-searchInput">
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets left="37.0"/>
+                    </padding>
+                </TextField>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true"
+                           translateX="-240.0">
+                    <image>
+                        <Image url="@../assets/img/magnifier.png"/>
+                    </image>
+                </ImageView>
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="40.0" prefWidth="76.0" styleClass="sort-text"
+                      stylesheets="@../assets/style/aliStyle.css">
+                    <children>
+                        <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text"
+                              text="Trier par:"/>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                </HBox>
+
+            </children>
+        </HBox>
+
+        <HBox fx:id="qrCodeImgModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity"
+              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="700.0" prefWidth="1366.0" styleClass="categoriesModel">
+            <children>
+                <ImageView fx:id="qrCodeImg" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true"
+                           preserveRatio="true"/>
+            </children>
+        </HBox>
+        <HBox fx:id="offreModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity"
+              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0"
+              styleClass="categoriesModel">
+            <children>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                      prefHeight="366.0" prefWidth="450.0" style="-fx-background-color: #fff;"
+                      styleClass="categoriesModel-card">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="129.0" prefWidth="486.0">
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="30.0" right="30.0"/>
+                            </padding>
+                            <children>
+                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true"
+                                           translateY="20.0">
+                                    <image>
+                                        <Image url="@../assets/img/gift1.gif"/>
+                                    </image>
+                                </ImageView>
+                                <HBox alignment="TOP_RIGHT" prefHeight="109.0" prefWidth="297.0">
+                                    <HBox.margin>
+                                        <Insets top="20.0"/>
+                                    </HBox.margin>
+                                    <children>
+                                        <Text fill="#32594a" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" styleClass="closeOffreModelBtn" text="close"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <Line endX="391.0" layoutX="31.0" layoutY="493.0" startX="-16.0" stroke="#defee6"
+                              strokeWidth="2.0" translateY="-180.0"/>
+                        <VBox fx:id="reductionForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity"
+                              minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0">
+                            <padding>
+                                <Insets left="20.0" right="16.0"/>
+                            </padding>
+                            <children>
+                                <HBox prefHeight="6.0" prefWidth="538.0">
+                                    <children>
+                                        <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="product__add-input-label" text="Reduction %">
+                                            <HBox.margin>
+                                                <Insets right="2.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <TextField fx:id="reductionInput" maxHeight="-Infinity" maxWidth="-Infinity"
+                                           minHeight="-Infinity" minWidth="-Infinity"
+                                           prefHeight="40.0" prefWidth="225.0" promptText="Reduction %"
+                                           styleClass="product__add-input">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </TextField>
+                                <HBox fx:id="reductionInputErrorHbox" prefHeight="67.0" prefWidth="598.0"
+                                      styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
+                                    <children>
+                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                                              wrappingWidth="23.18400001525879"/>
+                                        <Text fx:id="reductionInputError" fill="#dc284c" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="reduction can not be negative !">
+                                            <HBox.margin>
+                                                <Insets top="5.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="couponForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity"
+                              minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0"
+                              stylesheets="@../assets/style/aliStyle.css">
+                            <padding>
+                                <Insets left="20.0" right="16.0"/>
+                            </padding>
+                            <children>
+                                <HBox prefHeight="6.0" prefWidth="538.0">
+                                    <children>
+                                        <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="product__add-input-label" text="Email">
+                                            <HBox.margin>
+                                                <Insets right="2.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0"/>
+                                    </padding>
+                                </HBox>
+                                <ComboBox fx:id="couponCombobox" minHeight="-Infinity" prefHeight="43.0"
+                                          prefWidth="223.0" promptText="Select email" styleClass="product__add-comboBox"
+                                          stylesheets="@../assets/style/aliStyle.css"/>
+                                <HBox fx:id="couponInputErrorHbox" prefHeight="28.0" prefWidth="405.0"
+                                      styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
+                                    <children>
+                                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
+                                              styleClass="form_errors-product-point" text=".  " translateY="-15.0"
+                                              wrappingWidth="23.18400001525879"/>
+                                        <Text fx:id="couponInputError" fill="#dc284c" strokeType="OUTSIDE"
+                                              strokeWidth="0.0" text="phone number can not be negative !">
+                                            <HBox.margin>
+                                                <Insets top="5.0"/>
+                                            </HBox.margin>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0"
+                              strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="closeOffreModelBtn" text="back" translateX="5.0" translateY="-4.0"/>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+    </children>
+</Pane>

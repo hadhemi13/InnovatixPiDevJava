@@ -105,6 +105,49 @@ public class SideNavBarController {
 
     private boolean sideBarVisible = true;
 
+
+
+
+    @FXML
+    void smallSide(MouseEvent event) {
+
+
+
+
+//    @FXML
+//    void openArticleList(MouseEvent event) {
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+//            Pane listArticleAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//            content_area.getChildren().setAll(listArticleAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//    @FXML
+//    void openRecList(MouseEvent event) {
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listRecAdmin.fxml"));
+//            Pane listRecAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//            content_area.getChildren().setAll(listRecAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
+
+    }
+
+
     public void openRecList(MouseEvent mouseEvent) {
     }
 
@@ -140,6 +183,7 @@ public class SideNavBarController {
 //        }
 //
 //    }
+
 
 
 

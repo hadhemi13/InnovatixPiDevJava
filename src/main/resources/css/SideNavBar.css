@@ -10,6 +10,19 @@
 
     -fx-background-size: cover;
 }
+
+.product__card-btns1 {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #dc284c;
+    -fx-cursor: hand;
+}
+.product__card-btns2 {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #03bfbf;
+    -fx-cursor: hand;
+}
 .logo {
     -fx-fit-height: 50px; /* Hauteur réduite */
     -fx-fit-width: 50px; /* Largeur réduite */
@@ -167,7 +180,25 @@
     -fx-background-color: #32bb6f;
     -fx-cursor: hand;
 }
+.product__card-btnsO {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: rgb(255, 131, 131);
+    -fx-cursor: hand;
+}
+.product__card-btnsL {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #0393bf;
+    -fx-cursor: hand;
+}
 
+.product__card-btns3 {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #e18383;
+    -fx-cursor: hand;
+}
 .product__card-btns:hover {
     -fx-background-color: #2ba160;
 }

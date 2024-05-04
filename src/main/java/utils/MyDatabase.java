@@ -1,11 +1,13 @@
 package utils;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 
 public class MyDatabase {
 
-    final String URL="jdbc:mysql://localhost:3306/efbaa";
+    final String URL="jdbc:mysql://localhost:3306/dev";
     private final String USERNAME = "root";
     private final String PASSWORD = "";
     private Connection connection;
