@@ -5,8 +5,10 @@ import Entities.Project;
 import utils.DataSource;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class ServiceEvenement implements IService<Evenement> {
 
@@ -35,28 +37,41 @@ public class ServiceEvenement implements IService<Evenement> {
             preparedStatement.setString(2, "%" + search + "%");
             preparedStatement.setString(3, "%" + search + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                Evenement evenement = new Evenement();
-                evenement.setId(resultSet.getInt("id"));
-                evenement.setNom(resultSet.getString("nom"));
-                evenement.setImg(resultSet.getString("img"));
-                evenement.setDescription(resultSet.getString("description"));
-                evenement.setDateDebut(resultSet.getTimestamp("date_debut").toLocalDateTime());
-                evenement.setDateFin(resultSet.getTimestamp("date_fin").toLocalDateTime());
-                evenement.setLieu(resultSet.getString("lieu"));
-                evenement.setOrganisateur(resultSet.getString("organisateur"));
-                evenement.setPrix(resultSet.getDouble("prix"));
-                evenement.setLikes(resultSet.getInt("likes"));
-                evenement.setDislikes(resultSet.getInt("dislikes"));
-                evenement.setProjectId(resultSet.getInt("project_id"));
-                evenements.add(evenement);
-            }
+
+            Stream<Evenement> stream = Stream.generate(() -> {
+                try {
+                    if (resultSet.next()) {
+                        Evenement evenement = new Evenement();
+                        evenement.setId(resultSet.getInt("id"));
+                        evenement.setNom(resultSet.getString("nom"));
+                        evenement.setImg(resultSet.getString("img"));
+                        evenement.setDescription(resultSet.getString("description"));
+                        evenement.setDateDebut(resultSet.getTimestamp("date_debut").toLocalDateTime());
+                        evenement.setDateFin(resultSet.getTimestamp("date_fin").toLocalDateTime());
+                        evenement.setLieu(resultSet.getString("lieu"));
+                        evenement.setOrganisateur(resultSet.getString("organisateur"));
+                        evenement.setPrix(resultSet.getDouble("prix"));
+                        evenement.setLikes(resultSet.getInt("likes"));
+                        evenement.setDislikes(resultSet.getInt("dislikes"));
+                        evenement.setProjectId(resultSet.getInt("project_id"));
+                        return evenement;
+                    } else {
+                        return null;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }).takeWhile(Objects::nonNull);
+
+            evenements = stream.collect(Collectors.toList());
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return evenements;
     }
+
 
     @Override
     public void ajouter1(Evenement evenement, int projectId) throws SQLException {
@@ -97,7 +112,6 @@ public class ServiceEvenement implements IService<Evenement> {
         }
         return projectNames;
     }
-
     public int getProjectIdByName(String projectName) throws SQLException {
         try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("SELECT id FROM project WHERE nomProjet = ?")) {
             preparedStatement.setString(1, projectName);
@@ -107,10 +121,9 @@ public class ServiceEvenement implements IService<Evenement> {
             } else {
                 throw new SQLException("Project not found: " + projectName);
             }
+            
         }
     }
-
-
     @Override
     public void modifier(Evenement evenement) throws SQLException {
         String query = "UPDATE evenement SET nom=?, description=?, date_debut=?, date_fin=?, lieu=?, organisateur=?, prix=?, likes=?, dislikes=? WHERE id=?";
