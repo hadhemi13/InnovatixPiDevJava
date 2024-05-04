@@ -55,6 +55,11 @@
                         <Insets left="10.0"/>
                     </padding>
                 </HBox>
+                <Button fx:id="stockBtn" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#sort__Byevent" prefHeight="40.0" styleClass="sort__stockBtn" stylesheets="@../assets/style/aliStyle.css" text="prix">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Button>
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                       minWidth="-Infinity" onMouseClicked="#open_addEvenement" prefHeight="41.0" prefWidth="50.0"
                       styleClass="productBtn" translateX="80.0">

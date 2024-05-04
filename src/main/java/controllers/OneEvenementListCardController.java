@@ -153,7 +153,7 @@ public class OneEvenementListCardController {
         offerEvent.setId(String.valueOf(evenement.getId()));
 
         offerEvent.setOnMouseClicked(event -> {
-            System.out.println("ID du produit à créer une offre : " + evenement.getId());
+            System.out.println("ID du evenement à créer une offre : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
 
             HBox offreModel = (HBox) ((Node) event.getSource()).getScene().lookup("#offreModel");

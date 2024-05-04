@@ -27,6 +27,60 @@ public class ServiceEvenement implements IService<Evenement> {
             System.out.println("Evenement ajouté");
         }
     }
+    public List<Evenement> sortEvent(int value, int idCategory) {
+        System.out.println("sortEvent is working");
+        List<Evenement> evenementList = new ArrayList<>();
+        try {
+            StringBuilder queryBuilder = new StringBuilder("SELECT * FROM evenement");
+            if (value == 1 && idCategory == -1) {
+                queryBuilder.append(" ORDER BY prix ASC");
+            }
+            String query = queryBuilder.toString();
+            PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            Iterator<Evenement> iterator = new Iterator<Evenement>() {
+                @Override
+                public boolean hasNext() {
+                    try {
+                        return resultSet.next();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+                @Override
+                public Evenement next() {
+                    Evenement evenement = new Evenement();
+                    try {
+                        evenement.setId(resultSet.getInt("id"));
+                        evenement.setNom(resultSet.getString("nom"));
+                        evenement.setImg(resultSet.getString("img"));
+                        evenement.setDescription(resultSet.getString("description"));
+                        evenement.setDateDebut(resultSet.getTimestamp("date_debut").toLocalDateTime());
+                        evenement.setDateFin(resultSet.getTimestamp("date_fin").toLocalDateTime());
+                        evenement.setLieu(resultSet.getString("lieu"));
+                        evenement.setOrganisateur(resultSet.getString("organisateur"));
+                        evenement.setPrix(resultSet.getDouble("prix"));
+                        evenement.setLikes(resultSet.getInt("likes"));
+                        evenement.setDislikes(resultSet.getInt("dislikes"));
+                        evenement.setProjectId(resultSet.getInt("project_id"));
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    return evenement;
+                }
+            };
+            Stream<Evenement> stream = StreamSupport.stream(
+                    Spliterators.spliteratorUnknownSize(iterator, Spliterator.ORDERED), false);
+
+            evenementList = stream.collect(Collectors.toList());
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return evenementList;
+    }
 
     public static List<Evenement> searchEvenement(String search) {
         List<Evenement> evenements = new ArrayList<>();
@@ -63,7 +117,6 @@ public class ServiceEvenement implements IService<Evenement> {
                     return null;
                 }
             }).takeWhile(Objects::nonNull);
-
             evenements = stream.collect(Collectors.toList());
             preparedStatement.close();
         } catch (SQLException e) {
@@ -139,7 +192,7 @@ public class ServiceEvenement implements IService<Evenement> {
             preparedStatement.setInt(9, evenement.getDislikes());
             preparedStatement.setInt(10, evenement.getId());
             preparedStatement.executeUpdate();
-            System.out.println("Project updated successfully");
+            System.out.println("Event updated successfully");
             preparedStatement.close();
         }
     }

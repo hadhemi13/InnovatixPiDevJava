@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class ServiceProjet implements IService<Project> {
@@ -84,6 +87,11 @@ public class ServiceProjet implements IService<Project> {
     }
 
     @Override
+    public List<Evenement> sortEvent(int value, int idCategory) {
+        return null;
+    }
+
+    @Override
     public void modifier(Project projet) throws SQLException {
         String query = "UPDATE project SET nomprojet=?, img=?, categorie=?, descriptionprojet=?, budgetprojet=?, datecreation=?, dureeprojet=?, statutprojet=? WHERE id=?";
         try (PreparedStatement preparedStatement = (PreparedStatement) DataSource.getInstance().getCon().prepareStatement(query)) {
@@ -98,6 +106,44 @@ public class ServiceProjet implements IService<Project> {
             preparedStatement.setInt(9, projet.getId());
             preparedStatement.executeUpdate();
         }
+    }
+    public static List<Project> searchProject(String search) {
+        List<Project> projects = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM project WHERE nomprojet LIKE ? ";
+            PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query);
+            preparedStatement.setString(1, "%" + search + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            Stream<Project> stream = Stream.generate(() -> {
+                try {
+                    if (resultSet.next()) {
+                        Project projet = new Project();
+                        projet.setId(resultSet.getInt("id"));
+
+                        projet.setNomProjet(resultSet.getString("nomprojet"));
+                        projet.setImg(resultSet.getString("img"));
+                        projet.setCategorie(resultSet.getString("categorie"));
+                        projet.setDescriptionProjet(resultSet.getString("descriptionprojet"));
+                        projet.setBudgetProjet(resultSet.getDouble("budgetprojet"));
+                        projet.setDateCreation(resultSet.getTimestamp("datecreation").toLocalDateTime());
+                        projet.setDureeProjet(resultSet.getInt("dureeprojet"));
+                        projet.setStatutProjet(resultSet.getInt("statutprojet"));
+                        return projet;
+                    } else {
+                        return null;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }).takeWhile(Objects::nonNull);
+            projects = stream.collect(Collectors.toList());
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return projects;
     }
 
     @Override

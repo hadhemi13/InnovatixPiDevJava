@@ -136,7 +136,20 @@ public class EvenementsListController implements Initializable {
     public static void setCategoryModelShow(int categoryModelShow) {
         EvenementsListController.categoryModelShow = categoryModelShow;
     }
-
+    @FXML
+    void sort__Byevent(MouseEvent event) {
+        Evenement.setSearchValue(null);
+        if (!stockBtn.getStyleClass().contains("sort__stockBtn-active")) {
+            stockBtn.getStyleClass().add("sort__stockBtn-active");
+            sortValue = 1;
+        } else {
+            stockBtn.getStyleClass().remove("sort__stockBtn-active");
+            sortValue = -1;
+        }
+        GridPane productsListContainer = (GridPane) content_area.lookup("#evenementsListContainer");
+        productsListContainer.getChildren().clear();
+        this.setEvenementGridPaneList();
+    }
     @FXML
     void searchEvenement(KeyEvent event) throws IOException {
         Evenement.setSearchValue(((TextField) event.getSource()).getText());
@@ -145,9 +158,6 @@ public class EvenementsListController implements Initializable {
         evenementsListContainer.getChildren().clear();
         this.setEvenementGridPaneList();
     }
-
-
-
 
     @FXML
     void excelBtn(MouseEvent event) throws IOException, SQLException {
@@ -203,11 +213,17 @@ public class EvenementsListController implements Initializable {
 
         List<Evenement> evenements = null;
         if (Evenement.getSearchValue() == null) {
-        try {
-            evenements = evenementService.afficher();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }} else {
+            if (sortValue == 1 ) {
+                 evenements = evenementService.sortEvent(1, -1);
+            }else{
+                try {
+                    evenements = evenementService.afficher();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+      } else {
         evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
         }
         int column = 0;

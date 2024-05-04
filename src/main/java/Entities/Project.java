@@ -15,6 +15,7 @@ public class Project extends AbstractEntity {
     private LocalDateTime dateCreation;
     private int dureeProjet;
     private int statutProjet;
+    private static String searchValue;
     private Set<Evenement> evenements = new HashSet<>();
 
 
@@ -29,6 +30,9 @@ public class Project extends AbstractEntity {
         this.dateCreation = dateCreation;
         this.dureeProjet = dureeProjet;
         this.statutProjet = statutProjet;
+    }
+    public static String getSearchValue() {
+        return searchValue;
     }
 
     public Project(int id) {

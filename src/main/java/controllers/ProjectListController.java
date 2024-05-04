@@ -11,7 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -61,6 +64,7 @@ public class ProjectListController implements Initializable {
     @FXML
     private Text projectListTitle;
 
+
     @FXML
     private Pane projectPane;
 
@@ -89,6 +93,14 @@ public class ProjectListController implements Initializable {
         ProjectListController.ShowProjectModelShow = ShowProjectModelShow;
     }
 
+
+    @FXML
+    void searchProject(KeyEvent event) throws IOException {
+        Evenement.setSearchValue(((TextField) event.getSource()).getText());
+        GridPane projectListContainer = (GridPane) content_area.lookup("#projectListContainer");
+        projectListContainer.getChildren().clear();
+        this.setProjectGridPaneList();
+    }
     public static int getaddProjectModelShow() {
         return updateProjectModelShow;
     }
@@ -213,6 +225,35 @@ public class ProjectListController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void setProjectGridPaneList() {
+        ServiceProjet projectService = new ServiceProjet();
+        List<Project> projects = null;
+        if (Evenement.getSearchValue() == null) {
+            try {
+                projects = projectService.afficher();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }} else {
+            projects = ServiceProjet.searchProject(Project.getSearchValue());
+        }
+
+        try {
+        ArrayList<Project> projectList;
+        projectList = (ArrayList<Project>) projectService.getAllProject();
+        for (int i = 0; i < projectList.size(); i++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
+            HBox projectItem = fxmlLoader.load();
+            ProjectItemController projectItemController = fxmlLoader.getController();
+            projectItemController.setprojectData(projectList.get(i));
+            projectListContainer.getChildren().add(projectItem);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML

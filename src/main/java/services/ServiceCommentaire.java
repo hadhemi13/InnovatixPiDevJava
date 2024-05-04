@@ -29,6 +29,11 @@ public class ServiceCommentaire implements IService<Commentaire> {
 
     }
 
+    @Override
+    public List<Evenement> sortEvent(int value, int idCategory) {
+        return null;
+    }
+
 
     @Override
     public void modifier(Commentaire commentaire) throws SQLException {

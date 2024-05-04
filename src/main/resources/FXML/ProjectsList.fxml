@@ -24,10 +24,12 @@
 <!--                        </ImageView>-->
 <!--                    </graphic>-->
 <!--                </Button>-->
+
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title"
                       text="🚀 Liste des projets 🚀"/>
                 <TextField fx:id="productSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                           minWidth="-Infinity" prefWidth="250.0" styleClass="product__list-searchInput">
+                           minWidth="-Infinity" prefWidth="250.0"
+                           styleClass="product__list-searchInput" onKeyTyped="#searchProject">
                     <HBox.margin>
                         <Insets left="20.0"/>
                     </HBox.margin>
