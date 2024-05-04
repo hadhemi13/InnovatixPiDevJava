@@ -2,21 +2,37 @@ package controllers;
 
 import Entities.Evenement;
 import Entities.Project;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.util.Duration;
+import services.IService;
+import services.ServiceEvenement;
 import services.ServiceProjet;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import utils.TrayNotificationAlert;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProjectListController implements Initializable {
@@ -95,19 +111,19 @@ public class ProjectListController implements Initializable {
     public static void setprojectEmailToShow(int projetIdToShow) {
         ProjectListController.projetIdToShow = projetIdToShow;
     }
-    public void RetourBackC(MouseEvent mouseEvent) {
-
-        try {
-            // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
-            Pane listArticleAdminPane = loader.load();
-
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(listArticleAdminPane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void RetourBackC(MouseEvent mouseEvent) {
+//
+//        try {
+//            // Charger le fichier FXML de listArticleAdmin
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+//            Pane listArticleAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//            content_area.getChildren().setAll(listArticleAdminPane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -217,5 +233,184 @@ public class ProjectListController implements Initializable {
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
+    }
+
+    @FXML
+    void pdf(MouseEvent event) throws SQLException {
+        // Afficher la boîte de dialogue de sélection de fichier
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer le fichier PDF");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PDF", "*.pdf"));
+        File selectedFile = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
+
+        if (selectedFile != null) {
+
+            IService serviceProjet = new ServiceProjet();
+            List<Project> projetList = serviceProjet.afficher();
+
+            try {
+                Document document = new Document();
+                PdfWriter.getInstance(document, new FileOutputStream(selectedFile));
+                document.open();
+
+
+                Image image = Image.getInstance(System.getProperty("user.dir") + "/src/assets/img/logo.png");
+
+
+                image.setAbsolutePosition(5, document.getPageSize().getHeight() - 120);
+
+
+                image.scaleAbsolute(100, 100);
+
+
+                document.add(image);
+
+
+                Font fontDate = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+                BaseColor color = new BaseColor(50, 187, 111); // Rouge: 50, Vert: 187, Bleu: 111
+                fontDate.setColor(color);
+
+
+                Paragraph tunis = new Paragraph("Tunis", fontDate);
+                tunis.setIndentationLeft(455); //
+                tunis.setSpacingBefore(-30);
+                 document.add(tunis);
+
+                LocalDate today = LocalDate.now();
+
+                Paragraph date = new Paragraph(today.toString(), fontDate);
+
+                date.setIndentationLeft(437);
+
+                date.setSpacingBefore(1);
+
+                document.add(date);
+
+                Font font = new Font(Font.FontFamily.TIMES_ROMAN, 32, Font.BOLD);
+                BaseColor titleColor = new BaseColor(67, 136, 43); //
+                font.setColor(titleColor);
+
+                Paragraph title = new Paragraph("Liste des Projets", font);
+                title.setAlignment(Element.ALIGN_CENTER);
+                title.setSpacingBefore(50);
+                title.setSpacingAfter(20);
+                document.add(title);
+
+                PdfPTable table = new PdfPTable(6);
+                table.setWidthPercentage(100);
+                table.setSpacingBefore(30f);
+                table.setSpacingAfter(30f);
+
+                Font hrFont = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.BOLD);
+                BaseColor hrColor = new BaseColor(50, 89, 74);
+                hrFont.setColor(hrColor);
+
+                PdfPCell cell1 = new PdfPCell(new Paragraph("Nom de projet", hrFont));
+                BaseColor bgColor = new BaseColor(222, 254, 230);
+                cell1.setBackgroundColor(bgColor);
+                cell1.setBorderColor(titleColor);
+                cell1.setPaddingTop(20);
+                cell1.setPaddingBottom(20);
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell2 = new PdfPCell(new Paragraph("Déscription", hrFont));
+                cell2.setBackgroundColor(bgColor);
+                cell2.setBorderColor(titleColor);
+                cell2.setPaddingTop(20);
+                cell2.setPaddingBottom(20);
+                cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell3 = new PdfPCell(new Paragraph("Catégorie", hrFont));
+                cell3.setBackgroundColor(bgColor);
+                cell3.setBorderColor(titleColor);
+                cell3.setPaddingTop(20);
+                cell3.setPaddingBottom(20);
+                cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell4 = new PdfPCell(new Paragraph("Budget", hrFont));
+                cell4.setBackgroundColor(bgColor);
+                cell4.setBorderColor(titleColor);
+                cell4.setPaddingTop(20);
+                cell4.setPaddingBottom(20);
+                cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell5 = new PdfPCell(new Paragraph("Date de creation", hrFont));
+                cell5.setBackgroundColor(bgColor);
+                cell5.setBorderColor(titleColor);
+                cell5.setPaddingTop(20);
+                cell5.setPaddingBottom(20);
+                cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell6 = new PdfPCell(new Paragraph("Durée par mois", hrFont));
+                cell6.setBackgroundColor(bgColor);
+                cell6.setBorderColor(titleColor);
+                cell6.setPaddingTop(20);
+                cell6.setPaddingBottom(20);
+                cell6.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                table.addCell(cell1);
+                table.addCell(cell2);
+                table.addCell(cell3);
+                table.addCell(cell4);
+                table.addCell(cell5);
+                table.addCell(cell6);
+
+                Font hdFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.NORMAL);
+                BaseColor hdColor = new BaseColor(50, 89, 74); //
+                hrFont.setColor(hdColor);
+                 for (Project projet : projetList) {
+                    PdfPCell cellR1 = new PdfPCell(new Paragraph(String.valueOf(projet.getNomProjet()), hdFont));
+                    cellR1.setBorderColor(titleColor);
+                    cellR1.setPaddingTop(10);
+                    cellR1.setPaddingBottom(10);
+                    cellR1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR1);
+
+                    PdfPCell cellR2 = new PdfPCell(new Paragraph(projet.getDescriptionProjet(), hdFont));
+                    cellR2.setBorderColor(titleColor);
+                    cellR2.setPaddingTop(10);
+                    cellR2.setPaddingBottom(10);
+                    cellR2.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR2);
+
+                    PdfPCell cellR3 = new PdfPCell(new Paragraph(projet.getCategorie(), hdFont));
+                    cellR3.setBorderColor(titleColor);
+                    cellR3.setPaddingTop(10);
+                    cellR3.setPaddingBottom(10);
+                    cellR3.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR3);
+
+                    PdfPCell cellR4 = new PdfPCell(new Paragraph(String.valueOf(projet.getBudgetProjet()), hdFont));
+                    cellR4.setBorderColor(titleColor);
+                    cellR4.setPaddingTop(10);
+                    cellR4.setPaddingBottom(10);
+                    cellR4.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR4);
+                    PdfPCell cellR5 = new PdfPCell(
+                            new Paragraph(String.valueOf(projet.getDateCreation()), hdFont));
+                    cellR5.setBorderColor(titleColor);
+                    cellR5.setPaddingTop(10);
+                    cellR5.setPaddingBottom(10);
+                    cellR5.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR5);
+                    PdfPCell cellR6 = new PdfPCell(
+                            new Paragraph(String.valueOf(projet.getDureeProjet()), hdFont));
+                    cellR6.setBorderColor(titleColor);
+                    cellR6.setPaddingTop(10);
+                    cellR6.setPaddingBottom(10);
+                    cellR6.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR6);
+                }
+                table.setSpacingBefore(20);
+                document.add(table);
+                document.close();
+                System.out.println("Le fichier PDF a été généré avec succès.");
+                TrayNotificationAlert.notif("Projet", "Le fichier PDF a été généré avec succès.",
+                        NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

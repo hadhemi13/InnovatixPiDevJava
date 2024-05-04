@@ -7,6 +7,7 @@ public class Evenement extends AbstractEntity {
     private int id;
     public static int actionTest = 0;
 
+    private float remise;
     public static int getIdEvenement() {
         return idEvenement;
     }
@@ -77,6 +78,12 @@ public class Evenement extends AbstractEntity {
         return commentaires;
     }
 
+    public float getRemise() {
+        return remise;
+    }
+    public void setRemise(float remise) {
+        this.remise = remise;
+    }
     public void setCommentaires(List<Commentaire> commentaires) {
         this.commentaires = commentaires;
     }
@@ -99,6 +106,7 @@ public class Evenement extends AbstractEntity {
                 ", commentaires=" + commentaires +
                 '}';
     }
+
 
 
     public int getId() {

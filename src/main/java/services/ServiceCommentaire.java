@@ -48,6 +48,11 @@ public class ServiceCommentaire implements IService<Commentaire> {
         return null;
     }
 
+    @Override
+    public void AddEvenenemtOffer(Evenement evenement) {
+
+    }
+
 
     @Override
     public void supprimer(int id) throws SQLException {

@@ -16,14 +16,14 @@ import java.util.List;
  */
 public interface IService<T> {
 
+
     void ajouter(T t) throws SQLException;
   void ajouter1(T t,int projectId) throws SQLException;
 
-    void modifier (T t) throws SQLException;
+  void modifier (T t) throws SQLException;
 
-    public Evenement getOneEvenement(int idEvenement) throws SQLException;
-
-
+  public Evenement getOneEvenement(int idEvenement) throws SQLException;
+  public void AddEvenenemtOffer(Evenement evenement);
   public void supprimer(int id) throws SQLException;
   public List<T> afficher() throws SQLException;
   public T afficher1(int id) throws SQLException;

@@ -180,6 +180,12 @@
     -fx-background-color: #32bb6f;
     -fx-cursor: hand;
 }
+.product__card-btnsO {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: rgb(255, 131, 131);
+    -fx-cursor: hand;
+}
 .product__card-btnsL {
     -fx-background-radius: 100px;
     -fx-border-radius: 100px;

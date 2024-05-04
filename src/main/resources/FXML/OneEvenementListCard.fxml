@@ -57,7 +57,7 @@
                                 <Text fx:id="test" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="" />
                             </children>
                         </HBox>
-                        <HBox fx:id="test1" prefHeight="20.0" prefWidth="30.0" translateX="5.0">
+                        <HBox fx:id="priceAfterOfferHbox" prefHeight="20.0" prefWidth="30.0" translateX="5.0">
                             <children>
                                 <Text fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="\$" />
                                 <Text fx:id="" fill="#f53737" strokeType="OUTSIDE" strokeWidth="0.0" text="300.0">
@@ -134,6 +134,18 @@
                                         <Insets left="6.0" />
                                     </HBox.margin>
                                 </HBox>
+                                <HBox fx:id="offerEvent" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btnsO">
+                                    <children>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/img/giftbox.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="6.0" />
+                                    </HBox.margin>
+                                </HBox>
                                 <HBox fx:id="editEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns2">
                                     <children>
                                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -160,7 +172,7 @@
                                 </HBox>
                             </children>
                         </HBox>
-                        <HBox fx:id="qrCodeEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns3" translateX="-200.0">
+                        <HBox fx:id="qrCodeEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns3" translateX="-255.0">
                             <children>
                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

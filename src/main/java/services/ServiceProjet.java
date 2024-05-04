@@ -106,6 +106,11 @@ public class ServiceProjet implements IService<Project> {
     }
 
     @Override
+    public void AddEvenenemtOffer(Evenement evenement) {
+
+    }
+
+    @Override
     public void supprimer(int id) throws SQLException {
         String query = "DELETE FROM project WHERE id=?";
         try (PreparedStatement preparedStatement = (PreparedStatement) DataSource.getInstance().getCon().prepareStatement(query)) {

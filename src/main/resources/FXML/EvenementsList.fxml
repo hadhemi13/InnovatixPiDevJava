@@ -55,8 +55,6 @@
                         <Insets left="10.0"/>
                     </padding>
                 </HBox>
-
-
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                       minWidth="-Infinity" onMouseClicked="#open_addEvenement" prefHeight="41.0" prefWidth="50.0"
                       styleClass="productBtn" translateX="80.0">
@@ -72,6 +70,17 @@
                     </HBox.margin>
                 </HBox>
 
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="748.0" layoutY="565.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#excelBtn" prefHeight="60.0" prefWidth="60.0"
+              styleClass="pdfBtn" stylesheets="@../assets/style/aliStyle.css" translateX="200.0" translateY="-430.0">
+            <children>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/img/excel.png"/>
+                    </image>
+                </ImageView>
             </children>
         </HBox>
         <HBox fx:id="categoriesModel" alignment="CENTER" layoutX="-266.0" layoutY="-78.0" maxHeight="-Infinity"
@@ -260,7 +269,11 @@
                                 </HBox>
                             </children>
                         </VBox>
-
+                        <HBox fx:id="submitOfferBtn" alignment="CENTER" layoutX="18.0" layoutY="286.0" onMouseClicked="#submit_offer" prefHeight="41.0" prefWidth="126.0" styleClass="submitOfferBtn" translateY="-38.0">
+                            <children>
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="submitOfferBtnText" text="Submit offer" />
+                            </children>
+                        </HBox>
                         <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0"
                               onMouseClicked="#back_toReduction" strokeType="OUTSIDE" strokeWidth="0.0"
                               styleClass="closeOffreModelBtn" text="back" translateX="5.0" translateY="-4.0"/>

@@ -60,16 +60,26 @@ public class OneEvenementListCardController {
 
     @FXML
     private Text stockProduit;
+
     @FXML
     private HBox qrCodeEvenement;
+
+    @FXML
+    private HBox offerEvent;
 
     @FXML
     private HBox offerEvenement;
 
 
     @FXML
+    private Text priceAfterOffer;
+    @FXML
     private HBox priceHbox;
+    @FXML
+    private HBox priceAfterOfferHbox;
 
+    @FXML
+    private Text priceBeforeOffer;
     public void setEvenementData(Evenement evenement) {
         float prixApresOffre = 0;
         IService EvenementService = new ServiceEvenement();
@@ -81,7 +91,21 @@ public class OneEvenementListCardController {
         productName.setText(evenement.getNom());
         descfx.setText(evenement.getDescription());
         lieufx.setText(evenement.getLieu());
-        pricefx.setText(String.valueOf(evenement.getPrix()));
+
+        if (evenement.getRemise() == 0) {
+            priceAfterOfferHbox.setVisible(false);
+            priceHbox.setVisible(true);
+            pricefx.setText("" + evenement.getPrix());
+        } else {
+            priceHbox.setVisible(false);
+            priceAfterOfferHbox.setVisible(true);
+            priceBeforeOffer.setText("" + evenement.getPrix());
+            prixApresOffre = (float) (evenement.getPrix()
+                    - (evenement.getPrix() * evenement.getRemise() / 100.0));
+            String prixApresOffreStr = String.format("%.1f", prixApresOffre);
+            priceAfterOffer.setText(prixApresOffreStr);
+        }
+       // pricefx.setText(String.valueOf(evenement.getPrix()));
 
         deleteEvenement.setId(String.valueOf(evenement.getId()));
 
@@ -126,7 +150,16 @@ public class OneEvenementListCardController {
                 }
             }
         });
+        offerEvent.setId(String.valueOf(evenement.getId()));
 
+        offerEvent.setOnMouseClicked(event -> {
+            System.out.println("ID du produit à créer une offre : " + evenement.getId());
+            Evenement.setIdEvenement(evenement.getId());
+
+            HBox offreModel = (HBox) ((Node) event.getSource()).getScene().lookup("#offreModel");
+            offreModel.setVisible(true);
+
+        });
 
         editEvenement.setId(String.valueOf(evenement.getId()));
 

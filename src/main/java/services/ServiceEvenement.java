@@ -74,7 +74,19 @@ public class ServiceEvenement implements IService<Evenement> {
             System.out.println("Evenement ajouté");
         }
     }
-
+    public void AddEvenenemtOffer(Evenement evenement) {
+        try {
+            String req = "UPDATE `evenement` SET `remise`=? WHERE id=? ";
+            PreparedStatement ps = DataSource.getInstance().getCon().prepareStatement(req);
+            ps.setFloat(1, evenement.getRemise());
+            ps.setInt(2, evenement.getId());
+            ps.executeUpdate();
+            System.out.println("Offer added successfully");
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println("Une erreur s'est evenement lors de la creation d'une offre : " + e.getMessage());
+        }
+    }
     public List<String> getAllProjectNames() throws SQLException {
         List<String> projectNames = new ArrayList<>();
         try (Statement statement = DataSource.getInstance().getCon().createStatement();

@@ -39,7 +39,7 @@ public class PDFExporter {
 
                 // Title
                 Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 24, BaseColor.RED); // Red color and bigger size
-                Paragraph title = new Paragraph("User List", titleFont);
+                Paragraph title = new Paragraph("Liste des evenements", titleFont);
                 title.setAlignment(Element.ALIGN_CENTER);
                 title.setSpacingAfter(20); // Add spacing after title
                 document.add(title);
@@ -47,18 +47,14 @@ public class PDFExporter {
                 PdfPTable pdfTable = new PdfPTable(gridPane.getColumnConstraints().size());
                 addTableHeaders(pdfTable, gridPane);
                 addTableData(pdfTable, gridPane);
-
                 document.add(pdfTable);
                 document.close();
-
                 System.out.println("PDF generated successfully.");
             } catch (DocumentException | IOException e) {
                 e.printStackTrace();
             }
         }
     }
-
-
     private void addTableHeaders(PdfPTable pdfTable, GridPane gridPane) {
         int numColumns = gridPane.getColumnConstraints().size();
         for (int i = 0; i < numColumns; i++) {
@@ -74,7 +70,6 @@ public class PDFExporter {
         ObservableList<Node> children = gridPane.getChildren();
         int numRows = gridPane.getRowConstraints().size();
         int numColumns = gridPane.getColumnConstraints().size();
-
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numColumns; j++) {
                 Node node = getNodeByRowColumnIndex(i, j, gridPane);
@@ -85,9 +80,7 @@ public class PDFExporter {
             }
         }
     }
-
-    // Helper method to get node by row and column index
-    private Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+     private Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
         Node result = null;
         ObservableList<Node> children = gridPane.getChildren();
 
