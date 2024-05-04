@@ -15,7 +15,7 @@ import java.util.Properties;
 import javax.mail.PasswordAuthentication;
 
 public class Mailling {
-    public static void send(User user, Map<String, String> data) throws MessagingException {
+    public static void send(User user, Map<String, String> data) throws MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.ssl.protokls", "TLSv1.2");
@@ -29,25 +29,20 @@ public class Mailling {
         });
 
         String htmlFilePath = "./css/emailTemplate.html";
-        try {
-            String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
+        String htmlContent = new String(Files.readAllBytes(Paths.get(htmlFilePath)));
 
-            htmlContent = htmlContent.replace("[titlePlaceholder]", data.get("titlePlaceholder"));
-            htmlContent = htmlContent.replace("[msgPlaceholder]", data.get("msgPlaceholder"));
-            htmlContent = htmlContent.replace("[codePlaceholder]", Integer.toString(user.getIs_verified()));
+        htmlContent = htmlContent.replace("[titlePlaceholder]", data.get("titlePlaceholder"));
+          htmlContent = htmlContent.replace("[msgPlaceholder]", data.get("msgPlaceholder"));
+         htmlContent = htmlContent.replace("[codePlaceholder]", Integer.toString(user.getIs_verified()));
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("E-FlexBank@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("khaluiyesser@gmail.com"));
-            message.setSubject(data.get("emailSubject"));
-            // message.setText("Hello, this is a test email from JavaFX.");
-            message.setContent(htmlContent, "text/html");
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress("E-FlexBank@gmail.com"));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("khaluiyesser@gmail.com"));
+        message.setSubject(data.get("emailSubject"));
+        message.setText("Hello, this is a test email from JavaFX.");
+          message.setContent(htmlContent, "text/html");
 
-            Transport.send(message);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Transport.send(message);
 
     }
 }
