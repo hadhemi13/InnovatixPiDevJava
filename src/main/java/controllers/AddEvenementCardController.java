@@ -40,6 +40,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
+
+
 public class AddEvenementCardController implements Initializable {
     @FXML
     public TextField fxNom;
