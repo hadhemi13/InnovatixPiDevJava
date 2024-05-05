@@ -518,3 +518,5 @@ public class AfficheOffreController implements Initializable {
     }
 
 
+}
+

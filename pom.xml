@@ -61,7 +61,15 @@
             <artifactId>google-api-client</artifactId>
             <version>1.31.2</version>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>samples</artifactId>
+            <version>1.17.6</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
+        <!--        <dependency>-->
 <!--            <groupId>com.google.http-client</groupId>-->
 <!--            <artifactId>google-http-client-jackson2</artifactId>-->
 <!--            <version>2.12.0</version> &lt;!&ndash; Utilisez la dernière version disponible &ndash;&gt;-->
@@ -87,6 +95,47 @@
             <artifactId>google-http-client</artifactId>
             <version>1.43.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+            <version>5.3.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.3.25</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>8.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+
+        <!-- Thanks for using https://jar-download.com -->
+
+<!--        <dependency>-->
+<!--            <groupId>com.google.firebase</groupId>-->
+<!--            <artifactId>firebase-admin-auth</artifactId>-->
+<!--            <version>8.2.0</version>-->
+<!--        </dependency>-->
+
+<!--        maryeemm-->
+        <dependency>
+            <groupId>com.memetix</groupId>
+            <artifactId>microsoft-translator-java-api</artifactId>
+            <version>0.6.2</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
+
 
     </dependencies>
 

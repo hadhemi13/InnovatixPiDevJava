@@ -207,18 +207,18 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
         }catch (SQLException e){
             System.err.println(e.getMessage());
         }
-        for (DemandeStage i : list){
-
-            System.out.println("Demande de stage{" +
-                    ", id=" + i.getId() +
-                    "nom='" + i.getNom() + '\'' +
-                    ", prenom='" + i.getPrenom() + '\'' +
-                    ", email='" + i.getEmail() + '\'' +
-                    ", cv='" + i.getCv() + '\'' +
-                    ", domaine='" + i.getDomaine() + '\'' +
-                    ", date='" + i.getScore() + '\'' +
-                    '}');
-        }
+//        for (DemandeStage i : list){
+//
+//            System.out.println("Demande de stage{" +
+//                    ", id=" + i.getId() +
+//                    "nom='" + i.getNom() + '\'' +
+//                    ", prenom='" + i.getPrenom() + '\'' +
+//                    ", email='" + i.getEmail() + '\'' +
+//                    ", cv='" + i.getCv() + '\'' +
+//                    ", domaine='" + i.getDomaine() + '\'' +
+//                    ", date='" + i.getScore() + '\'' +
+//                    '}');
+//        }
         return list;
     }
 
