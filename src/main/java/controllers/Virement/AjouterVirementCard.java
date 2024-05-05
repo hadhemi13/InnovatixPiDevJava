@@ -445,4 +445,3 @@ public class AjouterVirementCard implements Initializable {
         }
     }
 }
-

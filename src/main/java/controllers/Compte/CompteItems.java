@@ -2,11 +2,13 @@ package controllers.Compte;
 
 import Entities.Cheque;
 import Entities.Compte;
+import controllers.Cheque.AjouterChequeCard;
 import controllers.Cheque.ListeChequeAdmin;
 import controllers.Cheque.ModifierCheque;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -30,6 +32,8 @@ public class CompteItems implements Initializable {
 
     @FXML
     private Label ApprouveBtn;
+    @FXML
+    private ImageView showC;
 
     @FXML
     private ImageView ApprouverC;
@@ -70,6 +74,9 @@ public class CompteItems implements Initializable {
     @FXML
     private HBox HboxCompte;
 
+    @FXML
+    private Label ShowBtn;
+
 
     public void initData(Compte i){
         this.compte= i ;
@@ -78,12 +85,12 @@ public class CompteItems implements Initializable {
         Email.setText(i.getEmail());
         Nom.setText(i.getNom());
         Prenom.setText(i.getPrenom());
-        TypeCin.setText(i.getType_cin());
-        NumCin.setText(String.valueOf(i.getCin()));
-        DateNaiss.setText(String.valueOf(i.getDate_naissance()));
-        Professon.setText(i.getProffesion());
-        Numtel.setText(String.valueOf(i.getNumero_telephone()));
-        TypeCompte.setText(i.getType_compte());
+//        TypeCin.setText(i.getType_cin());
+//        NumCin.setText(String.valueOf(i.getCin()));
+//        DateNaiss.setText(String.valueOf(i.getDate_naissance()));
+//        Professon.setText(i.getProffesion());
+//        Numtel.setText(String.valueOf(i.getNumero_telephone()));
+//        TypeCompte.setText(i.getType_compte());
    //     ApprouveBtn.setOnMouseClicked(mouseEvent -> {
  //           Stage primaryStage = new Stage();
  //           try {
@@ -180,8 +187,29 @@ public class CompteItems implements Initializable {
     }
 
 
+    public void showCompte(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowDetailsCompte.fxml"));
+            Parent parent = loader.load();
 
+            // Obtenez le contrôleur de la nouvelle vue chargée
+            ShowCompte showCompte = loader.getController();
 
+            // Initialisez les données nécessaires au contrôleur de la nouvelle vue
+            showCompte.initData(compte);
 
+            // Créez une nouvelle scène avec la nouvelle vue
+//            Scene scene = new Scene(parent);
 
-}
+            // Obtenez la fenêtre actuelle à partir de la source de l'événement
+//            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+
+            // Définissez la nouvelle scène sur la fenêtre actuelle
+//            stage.setScene(scene);
+//            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    }
+

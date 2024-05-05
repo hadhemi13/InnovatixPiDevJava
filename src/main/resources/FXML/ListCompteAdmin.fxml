@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -65,100 +66,70 @@
                   </ComboBox>
                </children>
             </HBox>
-            <ScrollPane layoutX="14.0" prefHeight="75.0" prefWidth="1050.0" translateY="100.0">
-               <content>
-                  <HBox prefHeight="54.0" prefWidth="1160.0" styleClass="compteTableHead" stylesheets="@../css/Compte.css">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" wrappingWidth="147.23433303833008">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="59.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" wrappingWidth="37.52490222454071">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="15.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Prénom" wrappingWidth="60.18902587890625">
-                           <HBox.margin>
-                              <Insets left="30.0" top="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type Cin" wrappingWidth="66.3812255859375">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Cin" wrappingWidth="54.83599853515625">
-                           <HBox.margin>
-                              <Insets left="35.0" top="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Date de Naissance ">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="25.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Profession">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Num tél" wrappingWidth="79.2515869140625">
-                           <HBox.margin>
-                              <Insets left="25.0" top="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Type Compte" wrappingWidth="112.13916015625">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" top="20.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions ">
-                           <HBox.margin>
-                              <Insets left="40.0" top="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </HBox>
-               </content>
-            </ScrollPane>
             <ScrollPane hbarPolicy="NEVER" layoutX="12.0" layoutY="167.0" prefHeight="449.0" prefWidth="1057.0" styleClass="cheque_listScrollPane" stylesheets="@../css/Compte.css">
                <content>
                   <VBox fx:id="CompteContainer" prefHeight="446.0" prefWidth="1046.0" spacing="13.0" styleClass="compteTableBody" stylesheets="@../css/Compte.css" />
                </content>
             </ScrollPane>
+            <HBox layoutX="14.0" layoutY="100.0" prefHeight="68.0" prefWidth="1057.0" styleClass="compteTableHead" stylesheets="@../css/SideNavBar.css">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" translateX="20.0" translateY="20.0" wrappingWidth="357.1241912841797">
+                     <font>
+                        <Font name="Bell MT" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom " translateX="20.0" translateY="20.0" wrappingWidth="248.03087997436523">
+                     <font>
+                        <Font name="Bell MT" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom" translateX="20.0" translateY="20.0" wrappingWidth="202.92613983154297">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Actions" translateX="80.0" translateY="20.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fx:id="ShowCompteDetails" prefHeight="622.0" prefWidth="1084.0" styleClass="updateUserModel" stylesheets="@../assets/style/nabilStyle.css">
+               <children>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="630.0" style="-fx-background-color: #fff;" styleClass="updateUserModel-card" stylesheets="@../assets/style/nabilStyle.css" translateX="200.0" translateY="30.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="630.0">
+                           <children>
+                              <Text fill="#125632" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="updateUserModel-card-title" text="Détaille Compte " translateX="30.0" translateY="30.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#CloseDetails" prefHeight="49.0" prefWidth="46.0" styleClass="updateUserModel-card-exitBtn" translateX="400.0" translateY="15.0">
+                                 <children>
+                                    <ImageView fitHeight="31.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" translateX="7.0" translateY="10.0">
+                                       <image>
+                                          <Image url="@../assets/img/cross.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Line endX="531.3999633789062" endY="7.62939453125E-6" startX="-100.0" stroke="#defee6" translateX="99.0" translateY="80.0" />
+                        <ScrollPane layoutX="10.0" layoutY="81.0" prefHeight="421.0" prefWidth="613.0" styleClass="updateProjectModel-scrollPane" stylesheets="@../assets/style/nabilStyle.css">
+                           <content>
+                              <VBox fx:id="ShowComteContent" prefHeight="418.0" prefWidth="594.0" />
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
          </children>
       </Pane>
+
    </children>
+
 </AnchorPane>
