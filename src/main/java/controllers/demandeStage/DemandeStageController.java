@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 //import javafx.scene.web.WebView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceDemandeStage;
@@ -30,6 +31,8 @@ import java.util.UUID;
 //import javafx.scene.web.WebView;
 
 public class DemandeStageController implements Initializable {
+
+    public VBox content_area;
 //    @FXML
 //    private WebView CvDemInput;
 
@@ -81,6 +84,7 @@ public class DemandeStageController implements Initializable {
 
     @FXML
     private Button ajouterDemande;
+//    public static domaine;
 //    private int i = 0;
 
     @FXML
@@ -203,6 +207,7 @@ public class DemandeStageController implements Initializable {
                 "Comptabilité",
                 "Management"
         );
+
         domaine.setItems(choices);
 
     }

@@ -1,6 +1,9 @@
 package controllers.offreDeStage;
 
 import Entities.OffreDeStage;
+import controllers.demandeStage.DemandeStageController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +69,17 @@ public class Recrutement implements Initializable {
     }
 
     @FXML
-    void demandeSansOffre(ActionEvent event) {
+    void demandeSansOffre(ActionEvent event) throws IOException {
+        System.out.println("tekhdem");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/DemandeStage.fxml"));
+        Parent offreItem = loader.load();
+        DemandeStageController offreStageItem = loader.getController();
+        ListeOffre.getChildren().clear();
+        ListeOffre.getChildren().add(offreItem);
+
+
+
+
 
     }
 
