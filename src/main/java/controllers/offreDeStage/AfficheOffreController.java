@@ -422,7 +422,7 @@ public class AfficheOffreController implements Initializable {
     }
 
 
-//    @Override
+    //    @Override
 //    public void initialize(URL url, ResourceBundle resourceBundle) {
 //        ServiceOffreDeStage projectService = new ServiceOffreDeStage();
 //        List<OffreDeStage> list = new ArrayList<>();
@@ -455,35 +455,35 @@ public class AfficheOffreController implements Initializable {
 //
 //        }
 //    }
-        @Override
-        public void initialize(URL url, ResourceBundle resourceBundle) {
-            ServiceOffreDeStage projectService = new ServiceOffreDeStage();
-            List<OffreDeStage> list = new ArrayList<>();
-            try {
-                list = projectService.afficherId();
-                for (OffreDeStage i : list){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ServiceOffreDeStage projectService = new ServiceOffreDeStage();
+        List<OffreDeStage> list = new ArrayList<>();
+        try {
+            list = projectService.afficherId();
+            for (OffreDeStage i : list) {
 //                    System.out.println(i.getId());
-                }
-//                System.out.println(list);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
             }
-            for (OffreDeStage offre : list) {
-                try {
-                    Stage primaryStage = new Stage();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageItem.fxml"));
-                    Parent offreItem = loader.load();
-                    Scene scene = new Scene(offreItem);
-                    primaryStage.setTitle("E-Flex Bank");
-                    primaryStage.setScene(scene);
-                    OffreStageItem offreStageItem = loader.getController();
-                    offreStageItem.initData(offre);
-                    userListContainer.getChildren().add(offreItem);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//                System.out.println(list);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (OffreDeStage offre : list) {
+            try {
+                Stage primaryStage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageItem.fxml"));
+                Parent offreItem = loader.load();
+                Scene scene = new Scene(offreItem);
+                primaryStage.setTitle("E-Flex Bank");
+                primaryStage.setScene(scene);
+                OffreStageItem offreStageItem = loader.getController();
+                offreStageItem.initData(offre);
+                userListContainer.getChildren().add(offreItem);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
+    }
 
 
     public void AjouterOffre(MouseEvent mouseEvent) throws IOException {
@@ -506,7 +506,7 @@ public class AfficheOffreController implements Initializable {
     public void RetourBack(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardNavBar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBar.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin
@@ -515,8 +515,9 @@ public class AfficheOffreController implements Initializable {
             e.printStackTrace();
         }
     }
-    }
-
 
 }
+
+
+
 

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsOffreController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsOffreController">
     <children>
       <ScrollPane prefHeight="816.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
          <content>
@@ -87,7 +92,7 @@
                         </HBox>
                         <HBox prefHeight="346.0" prefWidth="1334.0">
                            <children>
-                              <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construc" textAlignment="CENTER" translateY="15.0" />
+                              <Text fx:id="Description" strokeType="OUTSIDE" strokeWidth="0.0" text="Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres à une langue (conjugaisons, construc" textAlignment="JUSTIFY" translateY="15.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -104,7 +109,7 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Text fx:id="Exigence" strokeType="OUTSIDE" strokeWidth="0.0" text="En informatique, la notion de texte s'oppose à la notion de données binaires, on parle alors " translateY="15.0">
+                              <Text fx:id="Exigence" strokeType="OUTSIDE" strokeWidth="0.0" text="En informatique, la notion de texte s'oppose à la notion de données binaires, on parle alors " textAlignment="JUSTIFY" translateY="15.0">
                                  <HBox.margin>
                                     <Insets left="15.0" />
                                  </HBox.margin>
