@@ -1,6 +1,8 @@
 package controllers.demandeStage;
 
 import Entities.DemandeStage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,6 +55,8 @@ public class DemandeStageController implements Initializable {
     private TextField cv;
     private File selectedCvFile;
     private String fileName;
+    @FXML
+    private ComboBox<String> domaine;
 //    @FXML
 //    private Text dateError;
 //    @FXML
@@ -161,21 +165,25 @@ public class DemandeStageController implements Initializable {
 }
 
     private void AjoutDem(){
+
+        SingleSelectionModel<String> domaineChoisi = domaine.getSelectionModel();
+        String domaineF = domaineChoisi.getSelectedItem();
+
+
         String nom = NomDemInput.getText();
         String prenom = PrenomDemInput.getText();
         String email = EmailDemInput.getText();
         String lettre = LettreDemInput.getText();
         String num = NumeroDemInput.getText();
         String etat = "encours";
-        String domaine = "Informatique";
+        String domaine = domaineF;
         String cv = "fileName";
-        Date date = new Date(128,04,06);
+        Date date1 = java.sql.Date.valueOf(date.getValue());
         MyDatabase db = MyDatabase.getInstance();
-        DemandeStage demandeStage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,date);
+        DemandeStage demandeStage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,date1);
         ServiceDemandeStage serviceDemandeStage =new ServiceDemandeStage();
         try {
             serviceDemandeStage.ajouter(demandeStage);
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -187,36 +195,15 @@ public class DemandeStageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        @FXML
-//        private Text dateError;
-//        dateError.setVisible(false);
-////        @FXML
-////        private Text prenomError;
-//        prenomError.setVisible(false);
-////
-////        @FXML
-////        private Text NumeroError;
-//        NumeroError.setVisible(false);
-////
-////        @FXML
-////        private Text CvError;
-//        CvError.setVisible(false);
-////
-////        @FXML
-//        private Text nomError;
-//        nomError.setVisible(false);
-////        @FXML
-////        private Text domainError;
-//        domainError.setVisible(false);
-////        @FXML
-////        private Text EmailError;
-//        EmailError.setVisible(false);
-////
-////        @FXML
-////        private Text lettreError;
-//        lettreError.setVisible(false);
-
-
+        ObservableList<String> choices = FXCollections.observableArrayList(
+                "Informatique",
+                "Marketing",
+                "Finance",
+                "RH",
+                "Comptabilité",
+                "Management"
+        );
+        domaine.setItems(choices);
 
     }
 }

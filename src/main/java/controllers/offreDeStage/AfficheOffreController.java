@@ -418,41 +418,6 @@ public class AfficheOffreController implements Initializable {
     void statusChange(ActionEvent event) {
 
     }
-
-
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        ServiceOffreDeStage projectService = new ServiceOffreDeStage();
-//        List<OffreDeStage> list = new ArrayList<>();
-//        try {
-//            list = projectService.afficher();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        OffreDeStage project;
-//        if (AfficheOffreController.getupdateProjectModelShow() == 0) {
-//            userTableHead.setVisible(false);
-//        } else if (AfficheOffreController.getupdateProjectModelShow() == 1) {
-//            userTableHead.setVisible(true);
-//            FXMLLoader fxmlLoader1 = new FXMLLoader();
-//            fxmlLoader1.setLocation(getClass().getResource("/FXML/offreDeStage/OffreStageItem.fxml"));
-//            VBox updateProjectform;
-//            try {
-//                updateProjectform = fxmlLoader1.load();
-//                EditOffreController editOffreController = fxmlLoader1.getController();
-//                EditOffreController.setFxmlToLoad("ProjectsList.fxml");
-//                project = projectService.afficheUne(projetIdToUpdate);
-//
-//                EditOffreController.setProjectUpdateData(project);
-//                userListContainer.getChildren().add(updateProjectform);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             ServiceOffreDeStage projectService = new ServiceOffreDeStage();
@@ -500,5 +465,6 @@ public class AfficheOffreController implements Initializable {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
+
 }
 

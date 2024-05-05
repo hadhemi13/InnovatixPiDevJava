@@ -7,13 +7,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import services.ServiceDemandeStage;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 
 public class DemandeItemVisiteurController {
 
@@ -30,7 +33,7 @@ public class DemandeItemVisiteurController {
     private Text numero;
 
     @FXML
-    private Label Approuver;
+    private Label modifier;
 
     @FXML
     private Text domaine;
@@ -39,7 +42,11 @@ public class DemandeItemVisiteurController {
     private Text Lettre;
 
     @FXML
-    private Label refuser;
+    private Text etat;
+
+
+    @FXML
+    private Label supprimer;
 
     @FXML
     private Text Nom;
@@ -50,6 +57,7 @@ public class DemandeItemVisiteurController {
     @FXML
     private Text email;
     DemandeStage stage ;
+    ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
 
     @FXML
     void showCv(ActionEvent event) {
@@ -70,6 +78,7 @@ public class DemandeItemVisiteurController {
         Nom.setText(demandeStage.getNom());
         prenom.setText(demandeStage.getPrenom());
         email.setText(demandeStage.getEmail());
+
         numero.setText(String.valueOf(demandeStage.getNumeroTelephone()));
         Lettre.setText(demandeStage.getLettremotivation());
         domaine.setText(demandeStage.getDomaine());
@@ -78,15 +87,25 @@ public class DemandeItemVisiteurController {
 //        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","resources","img" ,img);
 
         if (demandeStage.getEtat() == "encours"){
+            etat.setText("encours");
+            etat.setFill(Color.YELLOW);
 
         }else if (demandeStage.getEtat() == "accepter"){
-
+            etat.setText("accepté");
+            etat.setFill(Color.GREEN);
         }else {
-
+            etat.setText("réfusé");
+            etat.setFill(Color.RED);
         }
+        modifier.setOnMouseClicked(mouseEvent -> {
 
-
+        });
+        supprimer.setOnMouseClicked(mouseEvent -> {
+            try {
+                serviceDemandeStage.supprimer(demandeStage.getId());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
-
-
 }

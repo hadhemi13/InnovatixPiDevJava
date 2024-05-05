@@ -40,13 +40,14 @@
             </ImageView>
          </graphic>
       </Hyperlink>
+      <Text fx:id="etat" strokeType="OUTSIDE" strokeWidth="0.0" text="etat" />
       <HBox prefHeight="99.0" prefWidth="77.0" translateX="20.0" translateY="-20.0">
          <children>
-            <Label fx:id="Approuver" styleClass="userItem__btn">
+            <Label fx:id="modifier" styleClass="userItem__btn">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/verifier.png" />
+                        <Image url="@../../img/update-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -54,11 +55,11 @@
                   <Insets left="10.0" top="40.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="refuser" styleClass="userItem__btn">
+            <Label fx:id="supprimer" styleClass="userItem__btn">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                      <image>
-                        <Image url="@../../img/supprimer.png" />
+                        <Image url="@../../../../Images/64fad72e-917a-4529-af06-9207cc8566f0.png" />
                      </image>
                   </ImageView>
                </graphic>

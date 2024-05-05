@@ -153,7 +153,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <ComboBox prefHeight="50.0" prefWidth="150.0">
+                                        <ComboBox fx:id="domaine" prefHeight="50.0" prefWidth="150.0">
                                             <VBox.margin>
                                                 <Insets bottom="15.0" left="25.0" top="15.0" />
                                             </VBox.margin>
