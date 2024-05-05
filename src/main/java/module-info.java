@@ -11,6 +11,7 @@
      requires com.google.zxing;
      requires com.google.zxing.javase;
      requires javafx.swing;
+     requires com.fasterxml.jackson.databind;
      opens tests to javafx.fxml;
                 opens controllers to javafx.fxml;
                 opens Entities to javafx.base;
