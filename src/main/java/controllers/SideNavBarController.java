@@ -109,7 +109,7 @@ public class SideNavBarController {
     void openArticleList(MouseEvent event) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listArticleAdmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listArticleAdmin.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin
@@ -124,7 +124,7 @@ public class SideNavBarController {
     void openRecList(MouseEvent event) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listRecAdmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
             Pane listRecAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin

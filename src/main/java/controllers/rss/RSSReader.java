@@ -36,12 +36,16 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class RSSReader {
     private String title;
     private String content;
+    private String imageUrl;
+    private String datePublished;
 
-    public RSSReader(String title, String content) {
+    public RSSReader(String title, String content, String imageUrl, String datePublished) {
+
         this.title = title;
         this.content = content;
+        this.imageUrl = imageUrl;
+        this.datePublished = datePublished;
     }
-
     public String getTitle() {
         return title;
     }
@@ -50,6 +54,13 @@ public class RSSReader {
         return content;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getDatePublished() {
+        return datePublished;
+    }
 
 public static List<RSSReader> loadArticlesFromURL(String urlString) throws IOException {
     List<RSSReader> articles = new ArrayList<>();
@@ -63,7 +74,9 @@ public static List<RSSReader> loadArticlesFromURL(String urlString) throws IOExc
     for (JsonNode item : jsonNode.get("items")) {
         String title = item.get("title").asText();
         String content = item.get("content_text").asText();
-        articles.add(new RSSReader(title, content));
+        String imageUrl = item.get("image").asText();
+        String datePublished = item.get("date_published").asText();
+        articles.add(new RSSReader(title, content, imageUrl, datePublished));
     }
 
     return articles;

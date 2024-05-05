@@ -1,6 +1,6 @@
 package services;
 
-import Entities.Article;
+import Entities.actualites.Article;
 import utils.MyDatabase;
 
 

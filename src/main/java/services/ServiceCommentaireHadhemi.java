@@ -1,7 +1,7 @@
 package services;
 
-import Entities.Article;
-import Entities.CommentaireHadhemi;
+import Entities.actualites.Article;
+import Entities.actualites.CommentaireHadhemi;
 import utils.MyDatabase;
 
 import java.sql.*;

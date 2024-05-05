@@ -1,8 +1,7 @@
 package services;
 
-import Entities.Article;
-import Entities.Reclamation;
-import Entities.Reponse;
+import Entities.actualites.Reclamation;
+import Entities.actualites.Reponse;
 import utils.MyDatabase;
 
 import java.sql.*;

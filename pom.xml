@@ -70,6 +70,13 @@
             <version>2.12.6</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.voicerss</groupId>-->
+<!--            <artifactId>voicerss-tts</artifactId>-->
+<!--            <version>1.0.1</version>-->
+<!--        </dependency>-->
+
+
     </dependencies>
 
 

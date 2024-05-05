@@ -1,6 +1,6 @@
 package services;
 
-import Entities.Reclamation;
+import Entities.actualites.Reclamation;
 import utils.MyDatabase;
 
 import java.sql.*;

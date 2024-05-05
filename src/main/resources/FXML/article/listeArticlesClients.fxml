@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="userProductsContainer" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.ListeArticlesClientsController">
+<children>
+    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1225.0">
+        <children>
+            <Text fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text=" Articles| " />
+            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Tous" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="117.0">
+                <image>
+                    <Image url="@../../imagesAct/magnifier.png" />
+                </image>
+            </ImageView>
+            <TextField fx:id="ArticlesclientsfSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#searchProduct" prefWidth="265.0" styleClass="product__list-searchInput" translateX="87.0">
+                <padding>
+                    <Insets left="37.0" right="40.0" />
+                </padding>
+            </TextField>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#SearchByImage" prefHeight="40.0" prefWidth="40.0" styleClass="searchByImage" stylesheets="@../../css/SideNavBar.css" translateX="47.0">
+                <children>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
+                        <image>
+                            <Image url="@../../imagesAct/searchByImage.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+            <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="239.0" styleClass="onlyOfferItemsBtn" translateX="220.0">
+                <children>
+                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Bienvenue dans l'univers de E-Flex Bank" />
+                </children>
+            </HBox>
+        </children>
+        <padding>
+            <Insets left="15.0" />
+        </padding>
+    </HBox>
+    <VBox alignment="CENTER" layoutY="77.0" prefHeight="533.0" prefWidth="198.0" stylesheets="@../../css/SideNavBar.css" translateX="5.0" translateY="5.0">
+        <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="217.0" styleClass="productList_BoxContainer">
+                <children>
+                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="207.0" styleClass="searchText" stylesheets="@../../css/SideNavBar.css">
+                        <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" />
+                        </children>
+                    </HBox>
+                    <ComboBox fx:id="categoryInput" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="197.0" promptText="Categories" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css">
+                        <VBox.margin>
+                            <Insets bottom="15.0" />
+                        </VBox.margin>
+                    </ComboBox>
+                    <Line endX="100.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" />
+                    <Text fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Avis sur nos articles">
+                        <VBox.margin>
+                            <Insets top="10.0" />
+                        </VBox.margin>
+                    </Text>
+                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" styleClass="reviewsFilterBtn">
+                        <children>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" />
+                        </children>
+                        <padding>
+                            <Insets bottom="5.0" right="10.0" top="5.0" />
+                        </padding>
+                        <VBox.margin>
+                            <Insets top="2.0" />
+                        </VBox.margin>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" styleClass="reviewsFilterBtn">
+                        <children>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                        </children>
+                        <padding>
+                            <Insets bottom="5.0" right="10.0" top="5.0" />
+                        </padding>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" styleClass="reviewsFilterBtn">
+                        <children>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                        </children>
+                        <padding>
+                            <Insets bottom="5.0" right="10.0" top="5.0" />
+                        </padding>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="197.0" styleClass="reviewsFilterBtn">
+                        <children>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../imagesAct/star-empty.png" />
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5.0" />
+                                </HBox.margin>
+                            </ImageView>
+                        </children>
+                        <padding>
+                            <Insets bottom="5.0" right="10.0" top="5.0" />
+                        </padding>
+                    </HBox>
+                </children>
+                <padding>
+                    <Insets left="10.0" top="10.0" />
+                </padding>
+                <VBox.margin>
+                    <Insets bottom="20.0" />
+                </VBox.margin>
+            </VBox>
+        </children>
+        <padding>
+            <Insets left="15.0" top="20.0" />
+        </padding>
+    </VBox>
+    <ScrollPane layoutX="256.0" layoutY="87.0" prefHeight="524.0" prefWidth="969.0" styleClass="product-card-scrollPane" stylesheets="@../../css/SideNavBar.css">
+        <content>
+            <GridPane fx:id="productsListContainer" prefHeight="524.0" prefWidth="969.0">
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+            </GridPane>
+        </content>
+    </ScrollPane>
+</children>
+</Pane>

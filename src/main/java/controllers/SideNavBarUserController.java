@@ -192,7 +192,7 @@ public class SideNavBarUserController {
     public void open_ArtList(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeArticlesClients.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listeArticlesClients.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin
@@ -205,7 +205,7 @@ public class SideNavBarUserController {
     public void open_RecList(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeRecClient.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listeRecClient.fxml"));
             Pane listRecAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin
