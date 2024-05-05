@@ -295,21 +295,13 @@ public class EvenementsListController implements Initializable {
         Evenement evenement = new Evenement();
         evenement.setId(Evenement.getIdEvenement());
         evenement.setRemise(Float.parseFloat(reductionInput.getText()));
-
          IService serviceEvenement = new ServiceEvenement();
-
         if (submitOfferTest == 1) {
             serviceEvenement.AddEvenenemtOffer(evenement);
 
-            TrayNotificationAlert.notif("Evenement", "Offer added successfully.",
+            TrayNotificationAlert.notif("Evenement", "Offre ajoutée avec succès.",
                     NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
 
-           // Notification notif = new Notification();
-
-//            notif.setContent("New Offer");
-//            notif.setProduct_id(Collecte.getIdProduit());
-//
-//            produitService.AddNewNotif(notif);
             offreModel.setVisible(false);
             reductionInput.clear();
             GridPane evenementsListContainer = (GridPane) content_area.lookup("#evenementsListContainer");

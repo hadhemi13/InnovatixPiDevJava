@@ -93,10 +93,13 @@ public class OneEvenementListCardController {
         lieufx.setText(evenement.getLieu());
 
         if (evenement.getRemise() == 0) {
+            System.out.println(" test");
+            System.out.println(evenement.getRemise());
             priceAfterOfferHbox.setVisible(false);
             priceHbox.setVisible(true);
             pricefx.setText("" + evenement.getPrix());
         } else {
+            System.out.println("offer is working!!!");
             priceHbox.setVisible(false);
             priceAfterOfferHbox.setVisible(true);
             priceBeforeOffer.setText("" + evenement.getPrix());

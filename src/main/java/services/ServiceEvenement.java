@@ -9,9 +9,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
-
 public class ServiceEvenement implements IService<Evenement> {
-
     @Override
     public void ajouter(Evenement evenement) throws SQLException {
         try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO evenement (nom,img, description, date_debut, date_fin, lieu, organisateur, prix ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
@@ -38,7 +36,6 @@ public class ServiceEvenement implements IService<Evenement> {
             String query = queryBuilder.toString();
             PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             Iterator<Evenement> iterator = new Iterator<Evenement>() {
                 @Override
                 public boolean hasNext() {
@@ -124,8 +121,6 @@ public class ServiceEvenement implements IService<Evenement> {
         }
         return evenements;
     }
-
-
     @Override
     public void ajouter1(Evenement evenement, int projectId) throws SQLException {
         try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO evenement (nom,img, description, date_debut, date_fin, lieu, organisateur, prix, project_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
@@ -251,6 +246,7 @@ public class ServiceEvenement implements IService<Evenement> {
                     evenement.setLieu(resultSet.getString("lieu"));
                     evenement.setOrganisateur(resultSet.getString("organisateur"));
                     evenement.setPrix(resultSet.getDouble("prix"));
+                    evenement.setRemise(resultSet.getFloat("remise"));
                     evenement.setLikes(resultSet.getInt("likes"));
                     evenement.setDislikes(resultSet.getInt("dislikes"));
                     evenement.setProjectId(resultSet.getInt("project_id"));
@@ -280,6 +276,7 @@ public class ServiceEvenement implements IService<Evenement> {
                 evenement.setLieu(resultSet.getString("lieu"));
                 evenement.setOrganisateur(resultSet.getString("organisateur"));
                 evenement.setPrix(resultSet.getDouble("prix"));
+                evenement.setRemise(resultSet.getFloat("remise"));
                 evenement.setLikes(resultSet.getInt("likes"));
                 evenement.setDislikes(resultSet.getInt("dislikes"));
                 evenement.setProjectId(resultSet.getInt("project_id"));
@@ -288,5 +285,4 @@ public class ServiceEvenement implements IService<Evenement> {
         }
         return evenements;
     }
-
 }

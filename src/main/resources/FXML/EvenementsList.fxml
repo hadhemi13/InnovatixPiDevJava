@@ -173,7 +173,7 @@
                                     </HBox.margin>
                                     <children>
                                         <Text fill="#32594a" onMouseClicked="#close_offerModel" strokeType="OUTSIDE"
-                                              strokeWidth="0.0" styleClass="closeOffreModelBtn" text="close"/>
+                                              strokeWidth="0.0" styleClass="closeOffreModelBtn" text="fermer"/>
                                     </children>
                                 </HBox>
                             </children>
@@ -189,7 +189,7 @@
                                 <HBox prefHeight="6.0" prefWidth="538.0">
                                     <children>
                                         <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0"
-                                              styleClass="product__add-input-label" text="Reduction %">
+                                              styleClass="product__add-input-label" text="Réduction %">
                                             <HBox.margin>
                                                 <Insets right="2.0"/>
                                             </HBox.margin>
@@ -214,7 +214,7 @@
                                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"
                                               wrappingWidth="23.18400001525879"/>
                                         <Text fx:id="reductionInputError" fill="#dc284c" strokeType="OUTSIDE"
-                                              strokeWidth="0.0" text="reduction can not be negative !">
+                                              strokeWidth="0.0" text="la réduction ne peut pas être négative !">
                                             <HBox.margin>
                                                 <Insets top="5.0"/>
                                             </HBox.margin>
@@ -276,7 +276,7 @@
                         </VBox>
                         <HBox fx:id="submitOfferBtn" alignment="CENTER" layoutX="18.0" layoutY="286.0" onMouseClicked="#submit_offer" prefHeight="41.0" prefWidth="126.0" styleClass="submitOfferBtn" translateY="-38.0">
                             <children>
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="submitOfferBtnText" text="Submit offer" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="submitOfferBtnText" text="Soumettre une offre" />
                             </children>
                         </HBox>
                         <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0"
