@@ -19,6 +19,7 @@ import java.net.http.HttpResponse;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
@@ -69,28 +70,33 @@ public class Main {
 //                .build();
 //        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 //        System.out.println(response.body());
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://copilot5.p.rapidapi.com/copilot"))
-                .header("content-type", "application/json")
-                .header("X-RapidAPI-Key", "8b61275eedmshe9d32ea6e4a9f06p109cc6jsnfe3c6c62e564")
-                .header("X-RapidAPI-Host", "copilot5.p.rapidapi.com")
-                .method("POST", HttpRequest.BodyPublishers.ofString("{\r\n    \"message\": \"Hello\",\r\n    \"conversation_id\": null,\r\n    \"tone\": \"BALANCED\",\r\n    \"markdown\": false,\r\n    \"photo_url\": null\r\n}"))
-                .build();
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        //Copilot
 
-        // Extraire le corps de la réponse JSON
-        String jsonResponse = response.body();
 
-        // Analyser la chaîne JSON en un objet JSON
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode jsonNode = mapper.readTree(jsonResponse);
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create("https://copilot5.p.rapidapi.com/copilot"))
+//                .header("content-type", "application/json")
+//                .header("X-RapidAPI-Key", "8b61275eedmshe9d32ea6e4a9f06p109cc6jsnfe3c6c62e564")
+//                .header("X-RapidAPI-Host", "copilot5.p.rapidapi.com")
+//                .method("POST", HttpRequest.BodyPublishers.ofString("{\r\n    \"message\": \"Hello\",\r\n    \"conversation_id\": null,\r\n    \"tone\": \"BALANCED\",\r\n    \"markdown\": false,\r\n    \"photo_url\": null\r\n}"))
+//                .build();
+//
+//        HttpClient client = HttpClient.newHttpClient();
+//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//
+//        // Extraire le corps de la réponse JSON
+//        String jsonResponse = response.body();
+//
+//        // Analyser la chaîne JSON en un objet JSON
+//        ObjectMapper mapper = new ObjectMapper();
+//        JsonNode jsonNode = mapper.readTree(jsonResponse);
+//
+//        // Extraire le message du champ "data"
+//        String message = jsonNode.get("data").get("message").asText();
+//
+//        System.out.println(message);
 
-        // Extraire le message du champ "data"
-        String message = jsonNode.get("data").get("message").asText();
-
-        System.out.println(message);
     }
 
 

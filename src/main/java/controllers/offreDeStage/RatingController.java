@@ -21,7 +21,7 @@ public class RatingController {
 
     @FXML
     private Text star5;
-    public int rate;
+    public static int rate;
 
     public void initialize() {
         // Initialiser les étoiles
