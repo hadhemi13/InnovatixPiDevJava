@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -93,38 +92,6 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-               </children>
-            </HBox>
-            <HBox fx:id="ShowCompteDetails" prefHeight="622.0" prefWidth="1084.0" styleClass="updateUserModel" stylesheets="@../assets/style/nabilStyle.css">
-               <children>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="630.0" style="-fx-background-color: #fff;" styleClass="updateUserModel-card" stylesheets="@../assets/style/nabilStyle.css" translateX="200.0" translateY="30.0">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="630.0">
-                           <children>
-                              <Text fill="#125632" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="updateUserModel-card-title" text="Détaille Compte " translateX="30.0" translateY="30.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Text>
-                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#CloseDetails" prefHeight="49.0" prefWidth="46.0" styleClass="updateUserModel-card-exitBtn" translateX="400.0" translateY="15.0">
-                                 <children>
-                                    <ImageView fitHeight="31.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" translateX="7.0" translateY="10.0">
-                                       <image>
-                                          <Image url="@../assets/img/cross.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </HBox>
-                        <Line endX="531.3999633789062" endY="7.62939453125E-6" startX="-100.0" stroke="#defee6" translateX="99.0" translateY="80.0" />
-                        <ScrollPane layoutX="10.0" layoutY="81.0" prefHeight="421.0" prefWidth="613.0" styleClass="updateProjectModel-scrollPane" stylesheets="@../assets/style/nabilStyle.css">
-                           <content>
-                              <VBox fx:id="ShowComteContent" prefHeight="418.0" prefWidth="594.0" />
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </Pane>
                </children>
             </HBox>
          </children>

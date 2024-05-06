@@ -132,4 +132,5 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
         }
         return list;
     }
+
 }

@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
@@ -193,23 +194,28 @@ public class CompteItems implements Initializable {
             Parent parent = loader.load();
 
             // Obtenez le contrôleur de la nouvelle vue chargée
-            ShowCompte showCompte = loader.getController();
+            ShowCompte ShowCompte = loader.getController();
 
             // Initialisez les données nécessaires au contrôleur de la nouvelle vue
-            showCompte.initData(compte);
+            ShowCompte.initData(compte);
 
             // Créez une nouvelle scène avec la nouvelle vue
-//            Scene scene = new Scene(parent);
+            Scene scene = new Scene(parent);
 
-            // Obtenez la fenêtre actuelle à partir de la source de l'événement
-//            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            // Créez une nouvelle fenêtre modale pour afficher la scène
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
 
-            // Définissez la nouvelle scène sur la fenêtre actuelle
-//            stage.setScene(scene);
-//            stage.show();
+            // Centrez la fenêtre modale sur l'écran
+            stage.centerOnScreen();
+
+            // Affichez la fenêtre modale
+            stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    }
+
+}
 

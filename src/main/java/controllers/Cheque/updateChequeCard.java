@@ -68,7 +68,7 @@ public class updateChequeCard  {
     private Button update_Btn;
 
     Cheque chequeToUpdate;
-    private static String FxmlToLoad;
+    public static String FxmlToLoad;
     private String imageName = null;
     public static String getFxmlToLoad() {
         return FxmlToLoad;
