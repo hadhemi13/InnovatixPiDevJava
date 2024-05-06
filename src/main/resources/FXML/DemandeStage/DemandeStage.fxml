@@ -20,9 +20,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="1084.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageController">
+<AnchorPane prefHeight="495.0" prefWidth="1117.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageController">
     <children>
-        <VBox fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card">
+        <VBox fx:id="content_area" prefHeight="750.0" prefWidth="1349.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card">
             <children>
                 <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
                     <children>
@@ -36,12 +36,13 @@
                         </Text>
                     </children>
                 </HBox>
+            <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="78.0" text="retour" />
                 <Line endX="488.0" startX="-100.0" stroke="#defee6" translateX="250.0" />
                 <ScrollPane prefHeight="1600.0" prefWidth="630.0" style="-fx-background-color: white;" stylesheets="@../../css/SideNavBar.css">
                     <content>
-                        <VBox prefHeight="1208.0" prefWidth="600.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css" translateX="250.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1208.0" prefWidth="1330.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
                             <children>
-                                <VBox prefHeight="111.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="111.0" prefWidth="701.0" translateX="370.0">
                                     <children>
                                         <HBox prefHeight="27.0" prefWidth="701.0">
                                             <children>
@@ -68,7 +69,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="108.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="701.0" translateX="370.0">
                                     <children>
                                         <HBox prefHeight="31.0" prefWidth="686.0">
                                             <children>
@@ -98,7 +99,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="54.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="701.0" translateX="370.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -125,7 +126,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="50.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="701.0" translateX="370.0" translateY="50.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -152,7 +153,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="79.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="701.0" translateX="370.0" translateY="100.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -171,7 +172,7 @@
                                                 <Insets top="10.0" />
                                             </padding>
                                         </ComboBox>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                        <HBox prefHeight="100.0" prefWidth="200.0" translateY="-15.0">
                                             <children>
                                                 <Text fill="#fc3131" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Domaine !">
                                                     <HBox.margin>
@@ -185,7 +186,7 @@
                                         <Insets top="15.0" />
                                     </VBox.margin>
                                 </VBox>
-                                <VBox prefHeight="57.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="701.0" translateX="370.0" translateY="150.0">
                                     <VBox.margin>
                                         <Insets top="15.0" />
                                     </VBox.margin>
@@ -209,7 +210,7 @@
                                                 <Insets left="300.0" top="15.0" />
                                             </VBox.margin>
                                         </Button>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                        <HBox prefHeight="100.0" prefWidth="200.0" translateY="-15.0">
                                             <children>
                                                 <Text fill="#f23a3a" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez Saisir votre Cv !">
                                                     <HBox.margin>
@@ -220,7 +221,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="70.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="701.0" translateX="370.0" translateY="230.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -247,7 +248,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="58.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="701.0" translateX="370.0" translateY="280.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -273,7 +274,7 @@
                                         <Insets left="15.0" top="15.0" />
                                     </VBox.margin>
                                 </VBox>
-                                <HBox prefHeight="95.0" prefWidth="687.0">
+                                <HBox prefHeight="95.0" prefWidth="687.0" translateX="400.0" translateY="350.0">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>

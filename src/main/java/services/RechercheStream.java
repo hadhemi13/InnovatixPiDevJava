@@ -19,6 +19,7 @@ public class RechercheStream {
         List<DemandeStage> filteredList = list.stream()
                 .filter(demandeStage -> demandeStage.getNumeroTelephone() == a)
                 .collect(Collectors.toList());
+        System.out.println("stram" + a);
         return filteredList;
     }
 

@@ -1,11 +1,14 @@
 package controllers.demandeStage;
 
 import Entities.DemandeStage;
+import controllers.offreDeStage.Recrutement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 //import javafx.scene.web.WebView;
 import javafx.scene.layout.VBox;
@@ -28,6 +31,8 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.UUID;
+
+//import static controllers.offreDeStage.Recrutement.pane;
 //import javafx.scene.web.WebView;
 
 public class DemandeStageController implements Initializable {
@@ -60,6 +65,8 @@ public class DemandeStageController implements Initializable {
     private String fileName;
     @FXML
     private ComboBox<String> domaine;
+    @FXML
+    private Button retour;
 //    @FXML
 //    private Text dateError;
 //    @FXML
@@ -142,12 +149,17 @@ public class DemandeStageController implements Initializable {
                 String etat = "encours";
                 String domaine = "Informatique";
                 String cv = fileName;
-                Date date1 = java.sql.Date.valueOf(date.getValue());
+                if (date.getValue() == null){
+                    System.out.println("null");
+                }else {
+                    Date date1 = java.sql.Date.valueOf(date.getValue());
 
+                }
+                Date date2 = new Date(200,02,01);
 //                Date date = new Date(128,04,06);
                 MyDatabase db = MyDatabase.getInstance();
 
-                DemandeStage  stage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,date1);
+                DemandeStage  stage = new DemandeStage(nom,prenom,email,lettre,cv,domaine,Integer.parseInt(num),etat,date2);
                 ServiceDemandeStage demandeStage = new ServiceDemandeStage();
                 try {
                     demandeStage.ajouter(stage);
@@ -211,4 +223,18 @@ public class DemandeStageController implements Initializable {
         domaine.setItems(choices);
 
     }
+
+    public void retour(ActionEvent actionEvent) throws IOException {
+        // Charger la vue Recrutement.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Recrutement.fxml"));
+        Parent recrutementView = loader.load();
+
+        // Obtenir le contrôleur associé à la vue
+        Recrutement recrutementController = loader.getController();
+
+        // Remplacer le contenu de l'AnchorPane par la nouvelle vue
+//        pane.getChildren().clear();
+//        pane.getChildren().add(recrutementView);
+    }
+
 }

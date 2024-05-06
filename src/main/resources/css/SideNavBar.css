@@ -546,6 +546,15 @@
     -fx-border-radius: 50px;
 }
 
+.yesser {
+    -fx-border-color: #black;
+    -fx-border-width: 8px;
+    -fx-background-color: #fff;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+
+
 .userProductCard-imgContainer {
     -fx-border-color: #ccfccb;
     -fx-border-width: 1px;

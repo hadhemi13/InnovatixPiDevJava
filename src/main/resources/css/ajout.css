@@ -182,3 +182,12 @@ ge-input-label {
     -fx-background: rgba(251, 237, 237, 0.166);
     -fx-background-color: transparent;
 }
+.yesser {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 10px; /* Ajoute un padding de 10 pixels à gauche et à droite */
+    -fx-background-color: #fff;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+
