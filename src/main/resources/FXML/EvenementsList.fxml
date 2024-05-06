@@ -226,9 +226,9 @@
                         <HBox alignment="TOP_RIGHT" layoutX="243.0" layoutY="314.0" prefHeight="100.0"
                               prefWidth="180.0">
                             <children>
-                                <Text fx:id="addNewCouponBtn" fill="#32bb6f" onMouseClicked="#addNewCoupon"
+                                <Text fx:id="addNewCouponBtn" fill="#32bb6f"
                                       strokeType="OUTSIDE" strokeWidth="0.0" styleClass="addCouponBtn"
-                                      text="Add New Coupon"/>
+                                      text="Ajouter nouvelle offre"/>
                             </children>
                             <padding>
                                 <Insets top="15.0"/>
@@ -276,7 +276,7 @@
                         </VBox>
                         <HBox fx:id="submitOfferBtn" alignment="CENTER" layoutX="18.0" layoutY="286.0" onMouseClicked="#submit_offer" prefHeight="41.0" prefWidth="126.0" styleClass="submitOfferBtn" translateY="-38.0">
                             <children>
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="submitOfferBtnText" text="Soumettre une offre" />
+                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="submitOfferBtnText" text="Offre" />
                             </children>
                         </HBox>
                         <Text fx:id="backToReductionBtn" fill="#32594a" layoutX="18.0" layoutY="348.0"

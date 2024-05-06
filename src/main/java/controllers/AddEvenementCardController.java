@@ -40,11 +40,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-
-
-
-
-
 public class AddEvenementCardController implements Initializable {
     @FXML
     public TextField fxNom;
@@ -97,8 +92,6 @@ public class AddEvenementCardController implements Initializable {
 
     @FXML
     private Text photoInputError;
-
-
 
     @FXML
     private HBox categoryInputErrorHbox;
@@ -253,7 +246,6 @@ public class AddEvenementCardController implements Initializable {
                 evenement.setLieu(fxLieu.getText());
             }
         }
-
         if (prixInput.getText().isEmpty() || !prixInput.getText().matches("\\d+")) {
             //  prixInputTest = 0;
             prixInputErrorHbox.setVisible(true);
@@ -288,17 +280,16 @@ public class AddEvenementCardController implements Initializable {
 //            // Return from the method and prevent the data from being added to the database
 //            return;
 //        }
-//        fundrising.setDate_don(currentDate);
-//        fundrising.setDate_don_limite(sqlDate);
-//        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
-//        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
-//        evenement.setLieu(fxLieu.getText());
-//        evenement.setDescription(descriptionInput.getText());
-//        evenement.setPrix(Double.parseDouble(prixInput.getText()));
-//        evenement.setImg(imageName);
+
+        evenement.setDateDebut(fxdateDebut.getValue() != null ? fxdateDebut.getValue().atStartOfDay() : null);
+        evenement.setDateFin(fxdateFin.getValue() != null ? fxdateFin.getValue().atStartOfDay() : null);
+        evenement.setLieu(fxLieu.getText());
+        evenement.setDescription(descriptionInput.getText());
+        evenement.setPrix(Double.parseDouble(prixInput.getText()));
+        evenement.setImg(imageName);
             IService evenementService = new ServiceEvenement();
             try {
-                evenementService.ajouter1(evenement, projectId);
+                evenementService.ajouter(evenement);
                 showNotification("Evenement", "Événement ajouté avec succès.", NotificationType.SUCCESS);
                 switchToEvenementsList(event);
             } catch (IOException e) {
@@ -326,7 +317,6 @@ public class AddEvenementCardController implements Initializable {
         }
         imageName = e.getImg();
     }
-
     private void showNotification(String title, String message, NotificationType type) {
         TrayNotificationAlert.notif(title, message, type, AnimationType.POPUP, Duration.millis(2500));
     }
@@ -350,7 +340,7 @@ public class AddEvenementCardController implements Initializable {
             Image image = new Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
             imageName = selectedImageFile.getName();
-            Path destination = Paths.get(System.getProperty("user.dir"), "java", "assets", "ProductUploads", imageName);
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "assets", "ProductUploads", imageName);
             Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
             photoTest = 1;
             photoInputErrorHbox.setVisible(false);

@@ -2,8 +2,12 @@ package services;
 
 import Entities.Commentaire;
 import Entities.Evenement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import okhttp3.*;
 import utils.DataSource;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,22 +17,34 @@ import java.util.List;
 public class ServiceCommentaire implements IService<Commentaire> {
 
     @Override
-    public void ajouter(Commentaire commentaire) throws SQLException {
-        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO evenements (contenu, date_creation, nomuser, img) VALUES (?, ?, ?, ?)")) {
-            preparedStatement.setString(1, commentaire.getContenu());
+    public void ajouter(Commentaire commentaire )throws SQLException, IOException {
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img) VALUES (?, ?, ?, ?)")) {
+            String content =commentaire.getContenu();
+            //API
+            OkHttpClient client = new OkHttpClient().newBuilder().build();
+            MediaType mediaType = MediaType.parse("text/plain");
+            RequestBody body = RequestBody.create(mediaType, content);
+            Request request = new Request.Builder()
+                    .url("https://api.apilayer.com/bad_words?censor_character=censor_character")
+                    .addHeader("apikey", "jmn9xg2r5WsDmygEIDjW5lwFUrhSpplW")
+                    .method("POST", body)
+                    .build();
+            Response response = client.newCall(request).execute();
+            String responseBody = response.body().string();
+            JsonObject jsonObject = JsonParser.parseString(responseBody).getAsJsonObject();
+            String censoredContent = jsonObject.get("censored_content").getAsString();
+            System.out.println(censoredContent);
+            preparedStatement.setString(1, censoredContent);
             preparedStatement.setString(2, commentaire.getDate());
             preparedStatement.setString(3, commentaire.getNomuser());
             preparedStatement.setString(4, commentaire.getImg());
             preparedStatement.executeUpdate();
-            System.out.println("Evenement ajouté");
+            System.out.println("Commentarie ajouté");
         }
     }
-
     @Override
     public void ajouter1(Commentaire commentaire, int projectId) throws SQLException {
-
     }
-
     @Override
     public List<Evenement> sortEvent(int value, int idCategory) {
         return null;

@@ -196,7 +196,7 @@
 .product__card-btns3 {
     -fx-background-radius: 100px;
     -fx-border-radius: 100px;
-    -fx-background-color: #e18383;
+    -fx-background-color: rgb(164, 164, 164);
     -fx-cursor: hand;
 }
 .product__card-btns:hover {

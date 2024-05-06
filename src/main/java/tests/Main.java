@@ -1,15 +1,35 @@
 package tests;
 
+import Entities.Commentaire;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import okhttp3.*;
 import services.*;
 import utils.MyDatabase;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args)throws IOException {
         MyDatabase myDataBase = new MyDatabase();
-        /* Test reclamation
+
+
+         IService serviceCommentaire =new ServiceCommentaire();
+
+        Commentaire c1 =new Commentaire(8,"zaz bitch","2024-03-27 00:27:13","ayoub","eaea");
+
+
+        try {
+         serviceCommentaire.ajouter(c1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    /* Test reclamation
         ServiceReclamation serviceReclamation = new ServiceReclamation();
 
 

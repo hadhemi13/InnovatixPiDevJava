@@ -115,6 +115,7 @@ public class EvenementsListController implements Initializable {
     private int submitCouponTest = 0;
     private static int categoryModelShow = 0;
     private String selectedOption = null;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         qrCodeImgModel.setVisible(false);
@@ -130,12 +131,15 @@ public class EvenementsListController implements Initializable {
         }
         this.setEvenementGridPaneList();
     }
+
     public static int getCategoryModelShow() {
         return categoryModelShow;
     }
+
     public static void setCategoryModelShow(int categoryModelShow) {
         EvenementsListController.categoryModelShow = categoryModelShow;
     }
+
     @FXML
     void sort__Byevent(MouseEvent event) {
         Evenement.setSearchValue(null);
@@ -150,6 +154,7 @@ public class EvenementsListController implements Initializable {
         productsListContainer.getChildren().clear();
         this.setEvenementGridPaneList();
     }
+
     @FXML
     void searchEvenement(KeyEvent event) throws IOException {
         Evenement.setSearchValue(((TextField) event.getSource()).getText());
@@ -159,11 +164,12 @@ public class EvenementsListController implements Initializable {
         this.setEvenementGridPaneList();
     }
 
+
     @FXML
     void excelBtn(MouseEvent event) throws IOException, SQLException {
-         Workbook workbook = new XSSFWorkbook();
-         Sheet sheet = workbook.createSheet("Evenement");
-         IService serviceEvenement = new ServiceEvenement();
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Evenement");
+        IService serviceEvenement = new ServiceEvenement();
         List<Evenement> evenementList = serviceEvenement.afficher();
         Row headerRow = sheet.createRow(0);
         headerRow.createCell(0).setCellValue("Nom");
@@ -177,20 +183,21 @@ public class EvenementsListController implements Initializable {
             row.createCell(1).setCellValue(evenement.getDescription());
             row.createCell(2).setCellValue(evenement.getLieu());
             row.createCell(3).setCellValue(evenement.getPrix());
-         }
-         for (int i = 0; i < headerRow.getLastCellNum(); i++) {
+        }
+        for (int i = 0; i < headerRow.getLastCellNum(); i++) {
             sheet.autoSizeColumn(i);
         }
-         FileChooser fileChooser = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Enregistrer le fichier Excel");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers Excel", "*.xlsx"));
         File selectedFile = fileChooser.showSaveDialog(null);
         if (selectedFile != null) {
-             try (FileOutputStream outputStream = new FileOutputStream(selectedFile)) {
+            try (FileOutputStream outputStream = new FileOutputStream(selectedFile)) {
                 workbook.write(outputStream);
             }
         }
     }
+
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
         Evenement.actionTest = 0;
@@ -198,6 +205,7 @@ public class EvenementsListController implements Initializable {
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
     }
+
     @FXML
     void open_CategoriesModel(MouseEvent event) {
         categoriesModel.setVisible(true);
@@ -208,14 +216,15 @@ public class EvenementsListController implements Initializable {
         categoriesModel.setVisible(false);
         EvenementsListController.setCategoryModelShow(0);
     }
-    private void setEvenementGridPaneList(){
+
+    private void setEvenementGridPaneList() {
         IService evenementService = new ServiceEvenement();
 
         List<Evenement> evenements = null;
         if (Evenement.getSearchValue() == null) {
-            if (sortValue == 1 ) {
-                 evenements = evenementService.sortEvent(1, -1);
-            }else{
+            if (sortValue == 1) {
+                evenements = evenementService.sortEvent(1, -1);
+            } else {
                 try {
                     evenements = evenementService.afficher();
                 } catch (SQLException e) {
@@ -223,8 +232,8 @@ public class EvenementsListController implements Initializable {
                 }
             }
 
-      } else {
-        evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
+        } else {
+            evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
         }
         int column = 0;
         int row = 1;
@@ -246,6 +255,7 @@ public class EvenementsListController implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void exportToPDF(ActionEvent event) {
         PDFExporter pdfExporter = new PDFExporter();
@@ -295,7 +305,7 @@ public class EvenementsListController implements Initializable {
         Evenement evenement = new Evenement();
         evenement.setId(Evenement.getIdEvenement());
         evenement.setRemise(Float.parseFloat(reductionInput.getText()));
-         IService serviceEvenement = new ServiceEvenement();
+        IService serviceEvenement = new ServiceEvenement();
         if (submitOfferTest == 1) {
             serviceEvenement.AddEvenenemtOffer(evenement);
 

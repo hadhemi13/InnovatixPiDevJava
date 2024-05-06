@@ -42,8 +42,6 @@
             </VBox.margin>
         </Line>
 
-
-
         <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
             <padding>
                 <Insets left="16.0" right="16.0"/>
@@ -456,7 +454,6 @@
             </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
-
             <children>
                 <Button fx:id="add_new_EvenementBtn" mnemonicParsing="false" onMouseClicked="#addNewEvenement"
                         styleClass="product__add-new-productBtn" text="Ajouter un nouveau evenement" textFill="WHITE">
