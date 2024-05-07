@@ -125,6 +125,30 @@ public class DemandeCreditListClient implements Initializable {
                 }
             }
         }
+          else  if (statusInput.getValue().equals("Year")) {
+            // Appeler la fonction afficherCreditParMontant
+            ServiceCredit serviceCredit = new ServiceCredit();
+            System.out.println("f");
+            List<Credit> list = new ArrayList<>();
+            try {
+                list = serviceCredit.affichercreditpardatedebut(); // Notez le changement ici
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            for (Credit credit : list) {
+                try {
+                    System.out.println(credit);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CreditItems.fxml"));
+                    Parent offreItem = loader.load();
+                    CreditItems offreStageItem = loader.getController();
+                    offreStageItem.initData(credit);
+                    userListContainer.getChildren().add(offreItem);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
     }
     @Override
