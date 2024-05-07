@@ -1,12 +1,16 @@
 package controllers.offreDeStage;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class RatingController {
 
+    public ImageView reviewsBox_star5;
+    public ImageView reviewsBox_star4;
+    public ImageView reviewsBox_star3;
     @FXML
     private Text star1;
 

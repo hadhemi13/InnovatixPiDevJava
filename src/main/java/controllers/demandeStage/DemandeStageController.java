@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 //import javafx.scene.web.WebView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -225,16 +226,16 @@ public class DemandeStageController implements Initializable {
     }
 
     public void retour(ActionEvent actionEvent) throws IOException {
-        // Charger la vue Recrutement.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Recrutement.fxml"));
-        Parent recrutementView = loader.load();
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/Recrutement.fxml"));
+            Pane listArticleAdminPane = loader.load();
 
-        // Obtenir le contrôleur associé à la vue
-        Recrutement recrutementController = loader.getController();
-
-        // Remplacer le contenu de l'AnchorPane par la nouvelle vue
-//        pane.getChildren().clear();
-//        pane.getChildren().add(recrutementView);
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageParOffreController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageParOffreController">
     <children>
-        <VBox fx:id="content_area" prefHeight="622.0" prefWidth="1084.0">
+        <VBox fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
             <children>
                 <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
                     <children>
@@ -29,12 +31,12 @@
                         </Text>
                     </children>
                 </HBox>
-                <Line endX="488.0" startX="-100.0" translateX="250.0" />
-                <ScrollPane prefHeight="1600.0" prefWidth="630.0">
+                <Line endX="500.0" startX="-100.0" stroke="#c5ff98" translateX="250.0" translateY="10.0" />
+                <ScrollPane prefHeight="557.0" prefWidth="1084.0" style="-fx-background-color: white;" translateY="15.0">
                     <content>
-                        <VBox prefHeight="1208.0" prefWidth="600.0" translateX="250.0">
+                        <VBox prefHeight="1208.0" prefWidth="1066.0" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
                             <children>
-                                <VBox prefHeight="111.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="111.0" prefWidth="701.0" translateX="250.0">
                                     <children>
                                         <HBox prefHeight="27.0" prefWidth="701.0">
                                             <children>
@@ -45,10 +47,14 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="NomDemInput" promptText="saisir votre nom" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="NomDemInput" promptText="saisir votre nom" styleClass="product__add-input">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="40.0" prefWidth="701.0">
                                             <children>
@@ -61,7 +67,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="108.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="701.0" translateX="250.0">
                                     <children>
                                         <HBox prefHeight="31.0" prefWidth="686.0">
                                             <children>
@@ -75,10 +81,14 @@
                                                 <Insets left="15.0" />
                                             </VBox.margin>
                                         </HBox>
-                                        <TextField fx:id="PrenomDemInput" promptText="saisir votre prénom" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="PrenomDemInput" promptText="saisir votre prénom" styleClass="product__add-input">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -91,7 +101,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="54.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="702.0" translateX="250.0" translateY="10.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -102,10 +112,14 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="EmailDemInput" promptText="saisir votre email" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="EmailDemInput" promptText="saisir votre email" styleClass="product__add-input">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -118,7 +132,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="50.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="702.0" translateX="250.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -129,10 +143,14 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="NumeroDemInput" promptText="saisir votre numero" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="NumeroDemInput" promptText="saisir votre numero" styleClass="product__add-input">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -145,7 +163,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="79.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="701.0" translateX="250.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -156,7 +174,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <ComboBox prefHeight="50.0" prefWidth="150.0">
+                                        <ComboBox prefHeight="49.0" prefWidth="296.0" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets bottom="15.0" left="25.0" top="15.0" />
                                             </VBox.margin>
@@ -164,7 +182,7 @@
                                                 <Insets top="10.0" />
                                             </padding>
                                         </ComboBox>
-                                        <HBox prefHeight="100.0" prefWidth="200.0">
+                                        <HBox prefHeight="100.0" prefWidth="200.0" translateY="-8.0">
                                             <children>
                                                 <Text fx:id="domainError" fill="#fc3131" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Domaine !">
                                                     <HBox.margin>
@@ -178,7 +196,7 @@
                                         <Insets top="15.0" />
                                     </VBox.margin>
                                 </VBox>
-                                <VBox prefHeight="57.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="701.0" translateX="250.0" translateY="40.0">
                                     <VBox.margin>
                                         <Insets top="15.0" />
                                     </VBox.margin>
@@ -192,15 +210,23 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="cv" promptText="CV" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="cv" promptText="CV" styleClass="product__add-input">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </TextField>
-                                        <Button fx:id="upload" mnemonicParsing="false" onAction="#Upload" prefHeight="23.0" prefWidth="124.0" styleClass="AddBtn" stylesheets="@../../css/ajout.css" text="Importer">
+                                        <Button fx:id="upload" mnemonicParsing="false" onAction="#Upload" prefHeight="23.0" prefWidth="124.0" styleClass="checkoutCard__btn" text="Importer">
                                             <VBox.margin>
                                                 <Insets left="300.0" top="15.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </Button>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -213,7 +239,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="70.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="701.0" translateX="250.0" translateY="150.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -224,7 +250,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <DatePicker fx:id="date">
+                                        <DatePicker fx:id="date" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" top="15.0" />
                                             </VBox.margin>
@@ -240,17 +266,21 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <VBox prefHeight="58.0" prefWidth="701.0">
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="701.0" translateX="250.0" translateY="190.0">
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
                                                 <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Lettre de motivation" />
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="LettreDemInput" promptText="saisir votre lettre de motivation" styleClass="stage-input-label" stylesheets="@../../css/ajout.css">
+                                        <TextField fx:id="LettreDemInput" promptText="saisir votre lettre de motivation" styleClass="product__add-input">
                                             <VBox.margin>
                                                 <Insets right="20.0" top="15.0" />
                                             </VBox.margin>
+                                 <stylesheets>
+                                    <URL value="@../../css/ajout.css" />
+                                    <URL value="@../../css/SideNavBar.css" />
+                                 </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
@@ -266,12 +296,12 @@
                                         <Insets left="15.0" top="15.0" />
                                     </VBox.margin>
                                 </VBox>
-                                <HBox prefHeight="95.0" prefWidth="687.0">
+                                <HBox prefHeight="95.0" prefWidth="687.0" translateX="550.0" translateY="290.0">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>
                            <children>
-                              <Button fx:id="ajouterDemande" mnemonicParsing="false" onAction="#ajouterDemande" text="Update" />
+                              <Button fx:id="ajouterDemande" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ajouterDemande" prefHeight="45.0" prefWidth="93.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Update" />
                            </children>
                                 </HBox>
                             </children>
