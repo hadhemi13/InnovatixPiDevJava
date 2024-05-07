@@ -2292,6 +2292,21 @@
     -fx-font-weight: bold; /* Texte en gras */
     -fx-text-fill: #ffffff; /* Couleur du texte en blanc */
 }
+.Refus__card-btns {
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-background-color: #da2626;
+    -fx-cursor: hand;
+}
+.productDetails__verifiedText {
+    -fx-font-size: 30px;
+    -fx-font-weight: 700;
+}
+.productDetails__reviewsContainer {
+    -fx-background-color: #defee6;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
 
 
 

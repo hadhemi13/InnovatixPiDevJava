@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsBackController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsBackController">
     <children>
-        <ScrollPane prefHeight="816.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
+        <ScrollPane prefHeight="900.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
             <content>
-                <VBox prefHeight="1100.0" prefWidth="1370.0" styleClass="userProductCard">
+                <VBox prefHeight="1300.0" prefWidth="1370.0" styleClass="userProductCard">
                     <children>
-                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="53.0" prefWidth="1360.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
+                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="153.0" prefWidth="1354.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
                             <children>
-                        <Button fx:id="recommender" mnemonicParsing="false" onAction="#recommander" prefHeight="43.0" prefWidth="177.0" text="Recommender " translateX="-200.0" />
-                                <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique " textAlignment="CENTER" translateX="-100.0" wrappingWidth="319.4749450683594">
+                        <Button fx:id="recommender" mnemonicParsing="false" onAction="#recommander" prefHeight="43.0" prefWidth="177.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Recommender " translateX="140.0" translateY="20.0" />
+                                <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique " textAlignment="CENTER" translateX="-90.0" translateY="-50.0" wrappingWidth="319.4749450683594">
                                     <font>
                                         <Font name="Agency FB" size="21.0" />
                                     </font>
@@ -30,7 +30,7 @@
                                 <Insets bottom="10.0" top="10.0" />
                             </padding>
                         </HBox>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="1302.0" translateX="25.0">
                             <children>
                                 <HBox prefHeight="18.0" prefWidth="1354.0">
                                     <children>
@@ -82,11 +82,15 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
+                  <Line endX="800.0" endY="1.4142128229141235" startX="-100.0" stroke="#8dc12c" translateX="250.0" />
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="1302.0" translateX="25.0" translateY="25.0">
                             <children>
                                 <HBox prefHeight="26.0" prefWidth="1354.0">
                                     <children>
-                                        <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Description :" translateX="20.0" translateY="15.0" />
+                                        <Text fill="#0b6651" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="mini-title" text="Description :" translateX="20.0" translateY="15.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Text>
                                     </children>
                                 </HBox>
                                 <HBox prefHeight="346.0" prefWidth="1334.0">
@@ -99,7 +103,7 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.0" prefWidth="1302.0" translateX="25.0" translateY="25.0">
                             <children>
                                 <HBox prefHeight="27.0" prefWidth="1334.0">
                                     <children>
@@ -120,7 +124,7 @@
                                 <Insets left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </VBox>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="1302.0" translateX="25.0" translateY="25.0">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
@@ -163,7 +167,7 @@
                                 </HBox>
                             </children>
                         </VBox>
-                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="1302.0" styleClass="userProductCard" translateX="25.0" translateY="25.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="1302.0" translateX="25.0" translateY="25.0">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
@@ -191,9 +195,31 @@
                             <children>
                                 <HBox prefHeight="62.0" prefWidth="1334.0">
                                     <children>
-                                        <Button fx:id="Postuler" mnemonicParsing="false" prefHeight="54.0" prefWidth="704.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="300.0" />
+                                        <Button fx:id="Postuler" mnemonicParsing="false" prefHeight="54.0" prefWidth="300.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="550.0" />
                                     </children>
                                 </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" translateX="600.0" translateY="40.0">
+                           <children>
+                              <Button fx:id="delete" mnemonicParsing="false" styleClass="Refus__card-btns" stylesheets="@../../css/SideNavBar.css" translateX="40.0">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../img/trash.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="Edit" mnemonicParsing="false" styleClass="product__card-btns" stylesheets="@../../css/SideNavBar.css" translateX="80.0">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../img/edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                             </children>
                         </VBox>
                     </children>
