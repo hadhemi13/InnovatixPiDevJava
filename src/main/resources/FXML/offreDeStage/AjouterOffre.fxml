@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AjouterOffreController">
+<AnchorPane fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.AjouterOffreController">
    <children>
-      <VBox layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="1084.0">
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="1084.0" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
          <children>
             <HBox prefHeight="52.0" prefWidth="570.0" translateX="230.0">
                <children>
@@ -30,12 +30,12 @@
                   </Text>
                </children>
             </HBox>
-            <Line endX="488.0" startX="-100.0" translateX="250.0" />
-            <ScrollPane prefHeight="1570.0" prefWidth="600.0">
+            <Line endX="488.0" startX="-100.0" stroke="#85b731" translateX="250.0" translateY="5.0" />
+            <ScrollPane prefHeight="1570.0" prefWidth="600.0" style="-fx-background-color: white;" translateY="10.0">
                <content>
-                  <VBox prefHeight="1208.0" prefWidth="600.0" translateX="250.0">
+                  <VBox prefHeight="1457.0" prefWidth="1067.0" style="-fx-background-color: white;">
                      <children>
-                        <VBox prefHeight="111.0" prefWidth="701.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="111.0" prefWidth="701.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="18.0" prefWidth="687.0">
                                  <children>
@@ -62,7 +62,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="108.0" prefWidth="701.0">
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="127.0" prefWidth="702.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="31.0" prefWidth="686.0">
                                  <children>
@@ -92,7 +92,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="54.0" prefWidth="701.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="701.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -122,7 +122,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="50.0" prefWidth="701.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="701.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -149,7 +149,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="79.0" prefWidth="701.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="79.0" prefWidth="701.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -182,7 +182,7 @@
                               <Insets top="15.0" />
                            </VBox.margin>
                         </VBox>
-                        <VBox prefHeight="57.0" prefWidth="701.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="701.0" translateX="230.0">
                            <children>
                               <TextField fx:id="niveau" promptText="saisir le niveau " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
                                  <VBox.margin>
@@ -203,7 +203,7 @@
                               <Insets top="15.0" />
                            </VBox.margin>
                         </VBox>
-                        <VBox prefHeight="58.0" prefWidth="701.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="701.0" translateX="220.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -229,7 +229,7 @@
                               <Insets left="15.0" top="15.0" />
                            </VBox.margin>
                         </VBox>
-                        <VBox prefHeight="34.0" prefWidth="687.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="687.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -256,7 +256,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="687.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -283,7 +283,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="687.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -310,7 +310,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="687.0" translateX="230.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
@@ -324,7 +324,7 @@
                               <ImageView fx:id="pfeImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="121.0" styleClass="userProductCard-btn" stylesheets="@../../css/SideNavBar.css" text="Importer ">
+                                    <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="121.0" styleClass="userProductCard-btn" stylesheets="@../../css/SideNavBar.css" text="Importer " translateX="-30.0">
                                        <HBox.margin>
                                           <Insets left="280.0" top="15.0" />
                                        </HBox.margin>
@@ -335,7 +335,7 @@
                         </VBox>
                         <HBox prefHeight="53.0" prefWidth="687.0">
                            <children>
-                              <Button fx:id="ajouterOffre" mnemonicParsing="false" onAction="#ajouterOffre" prefHeight="26.0" prefWidth="92.0" styleClass="userProductCard-btn" stylesheets="@../../css/SideNavBar.css" text="Ajouter">
+                              <Button fx:id="ajouterOffre" mnemonicParsing="false" onAction="#ajouterOffre" prefHeight="26.0" prefWidth="92.0" styleClass="userProductCard-btn" stylesheets="@../../css/SideNavBar.css" text="Ajouter" translateX="200.0">
                                  <HBox.margin>
                                     <Insets bottom="15.0" left="294.0" top="30.0" />
                                  </HBox.margin>

@@ -31,8 +31,8 @@
                         </Text>
                     </children>
                 </HBox>
-                <Line endX="488.0" startX="-100.0" translateX="250.0" />
-                <ScrollPane prefHeight="1570.0" prefWidth="600.0" style="-fx-background-color: white;">
+                <Line endX="488.0" startX="-100.0" stroke="#b6e755" translateX="250.0" translateY="5.0" />
+                <ScrollPane prefHeight="1570.0" prefWidth="600.0" style="-fx-background-color: white;" translateY="15.0">
                     <content>
                         <VBox prefHeight="1600.0" prefWidth="1068.0" style="-fx-background-color: white;">
                             <children>
