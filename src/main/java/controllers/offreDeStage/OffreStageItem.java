@@ -201,6 +201,24 @@ public void initData(OffreDeStage i) {
             throw new RuntimeException(e);
         }
     });
+    titre.setOnMouseClicked(mouseEvent -> {
+        Stage primaryStage = new Stage();
+//        DetailsBackController detailsBackController = new DetailsBackController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/DetailBack.fxml")) ;
+        Parent  parent = null;
+        try {
+            parent = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Scene scene = new Scene(parent);
+
+        primaryStage.setTitle("E-Flex Bank");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        DetailsBackController detailsBackController = loader.getController();
+        detailsBackController.initData(i);
+    });
 
 }
 

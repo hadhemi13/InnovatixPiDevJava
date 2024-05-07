@@ -26,8 +26,10 @@ public class Main {
 //        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
 ////        OffreDeStage a = serviceOffreDeStage.afficheUne(1);
 ////        System.out.println(a.getPostePropose());
-//        Symfony symfony = new Symfony();
-//        symfony.Recommendation(1);
+        Symfony symfony = new Symfony();
+        symfony.Recommendation(1);
+//        int a = symfony.score(1,"56f16ce8-cb5c-49a1-9784-02b47a63d389.pdf");
+//        System.out.println(a);
 //        HttpRequest request = HttpRequest.newBuilder()
 //                .uri(URI.create("https://ai-chatbot.p.rapidapi.com/chat/free?message=What's%20your%20name%3F&uid=user1"))
 //                .header("X-RapidAPI-Key", "8b61275eedmshe9d32ea6e4a9f06p109cc6jsnfe3c6c62e564")
@@ -96,8 +98,8 @@ public class Main {
 //        String message = jsonNode.get("data").get("message").asText();
 //
 //        System.out.println(message);
-        ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
-        System.out.println(serviceDemandeStage.afficherParOffre(5));
+//        ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
+//        System.out.println(serviceDemandeStage.afficherParOffre(5));
     }
 
 
