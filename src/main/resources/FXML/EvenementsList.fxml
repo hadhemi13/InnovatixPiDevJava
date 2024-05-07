@@ -234,7 +234,6 @@
                                 <Insets top="15.0"/>
                             </padding>
                         </HBox>
-
                         <VBox fx:id="couponForm" layoutX="-2.0" layoutY="148.0" maxHeight="-Infinity"
                               minHeight="-Infinity" prefHeight="102.0" prefWidth="441.0"
                               stylesheets="@../assets/style/aliStyle.css">

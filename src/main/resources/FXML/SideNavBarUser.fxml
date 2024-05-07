@@ -10,7 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.SideNavBarUserController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="100.0" styleClass="dash__side-bar">
             <opaqueInsets>
@@ -114,7 +115,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="collectBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_collectList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="projetsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity"  onMouseClicked="#open_ProjectList"  prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="collectIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -132,7 +133,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="commandsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_commandsList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="evenementsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity"  onMouseClicked="#open_evenementsList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="commandsIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

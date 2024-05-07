@@ -22,7 +22,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import services.IService;
-import services.ServiceEvenement;
 import services.ServiceProjet;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -38,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ProjectListController implements Initializable {
+public class ProjectListControllerUser implements Initializable {
 
     @FXML
     private HBox updateProjectModel;
@@ -87,10 +86,10 @@ public class ProjectListController implements Initializable {
         return ShowProjectModelShow;
     }
     public static void setupdateProjectModelShow(int updateProjectModelShow) {
-        ProjectListController.updateProjectModelShow = updateProjectModelShow;
+        ProjectListControllerUser.updateProjectModelShow = updateProjectModelShow;
     }
     public static void setShowProjectModelShow(int ShowProjectModelShow) {
-        ProjectListController.ShowProjectModelShow = ShowProjectModelShow;
+        ProjectListControllerUser.ShowProjectModelShow = ShowProjectModelShow;
     }
 
 
@@ -104,24 +103,22 @@ public class ProjectListController implements Initializable {
     public static int getaddProjectModelShow() {
         return updateProjectModelShow;
     }
-
-
     @FXML
     private void open_ProjectList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsListUser.fxml"));
 
     }
 
     public static void setaddProjectModelShow(int addProjectModelShow) {
-        ProjectListController.addProjectModelShow = addProjectModelShow;
+        ProjectListControllerUser.addProjectModelShow = addProjectModelShow;
     }
 
 
     public static void setprojectEmailToUpdate(int projetIdToUpdate) {
-        ProjectListController.projetIdToUpdate = projetIdToUpdate;
+        ProjectListControllerUser.projetIdToUpdate = projetIdToUpdate;
     }
     public static void setprojectEmailToShow(int projetIdToShow) {
-        ProjectListController.projetIdToShow = projetIdToShow;
+        ProjectListControllerUser.projetIdToShow = projetIdToShow;
     }
 //    public void RetourBackC(MouseEvent mouseEvent) {
 //
@@ -142,9 +139,9 @@ public class ProjectListController implements Initializable {
         ServiceProjet projectService = new ServiceProjet();
         Project project;
 
-         if (ProjectListController.getupdateProjectModelShow() == 0) {
+         if (ProjectListControllerUser.getupdateProjectModelShow() == 0) {
             updateProjectModel.setVisible(false);
-        } else if (ProjectListController.getupdateProjectModelShow() == 1) {
+        } else if (ProjectListControllerUser.getupdateProjectModelShow() == 1) {
             updateProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
@@ -165,9 +162,9 @@ public class ProjectListController implements Initializable {
         }
 
 
-        if (ProjectListController.getShowProjectModelShow() == 0) {
+        if (ProjectListControllerUser.getShowProjectModelShow() == 0) {
             ShowProjectModel.setVisible(false);
-        } else if (ProjectListController.getShowProjectModelShow() == 1) {
+        } else if (ProjectListControllerUser.getShowProjectModelShow() == 1) {
             ShowProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             fxmlLoader1.setLocation(getClass().getResource("/FXML/ShowProjectCard.fxml"));
@@ -186,11 +183,9 @@ public class ProjectListController implements Initializable {
             }
         }
 
-
-
-         if (ProjectListController.getaddProjectModelShow() == 0) {
+         if (ProjectListControllerUser.getaddProjectModelShow() == 0) {
             addProjectModel.setVisible(false);
-        } else if (ProjectListController.getaddProjectModelShow() == 1) {
+        } else if (ProjectListControllerUser.getaddProjectModelShow() == 1) {
             addProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
@@ -214,7 +209,7 @@ public class ProjectListController implements Initializable {
             projectList = (ArrayList<Project>) projectService.getAllProject();
             for (int i = 0; i < projectList.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItemUser.fxml"));
                 HBox projectItem = fxmlLoader.load();
                 ProjectItemController projectItemController = fxmlLoader.getController();
                 projectItemController.setprojectData(projectList.get(i));
@@ -237,12 +232,13 @@ public class ProjectListController implements Initializable {
             }} else {
             projects = ServiceProjet.searchProject(Project.getSearchValue());
         }
+
         try {
         ArrayList<Project> projectList;
         projectList = (ArrayList<Project>) projectService.getAllProject();
         for (int i = 0; i < projectList.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItemUser.fxml"));
             HBox projectItem = fxmlLoader.load();
             ProjectItemController projectItemController = fxmlLoader.getController();
             projectItemController.setprojectData(projectList.get(i));

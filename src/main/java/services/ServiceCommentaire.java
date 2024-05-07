@@ -37,11 +37,12 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.setString(1, censoredContent);
             preparedStatement.setString(2, commentaire.getDate());
             preparedStatement.setString(3, commentaire.getNomuser());
-            preparedStatement.setString(4, commentaire.getImg());
+            preparedStatement.setString(4, "ayoub.jpg");
             preparedStatement.executeUpdate();
             System.out.println("Commentarie ajouté");
         }
     }
+
     @Override
     public void ajouter1(Commentaire commentaire, int projectId) throws SQLException {
     }
@@ -49,7 +50,6 @@ public class ServiceCommentaire implements IService<Commentaire> {
     public List<Evenement> sortEvent(int value, int idCategory) {
         return null;
     }
-
 
     @Override
     public void modifier(Commentaire commentaire) throws SQLException {

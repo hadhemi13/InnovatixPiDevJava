@@ -174,7 +174,6 @@
                                 <Insets top="10.0"/>
                             </VBox.margin>
                         </HBox>
-
                         <HBox fx:id="projetsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity"
                               onMouseClicked="#open_ProjectList" prefHeight="50.0" prefWidth="200.0"
                               styleClass="nav-links">
