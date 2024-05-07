@@ -76,6 +76,34 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         }
         return list;
     }
+    public List<Credit> affichercreditparmontant() throws SQLException {
+        List<Credit> list = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM credit where user_id=1";
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                list.add(new Credit(
+                        rs.getInt("id"),
+                        rs.getInt("id_client"),
+                        rs.getInt("montant"),
+                        rs.getString("statusclient"),
+                        rs.getDouble("taux"),
+                        rs.getObject("datedebut", Date.class),
+                        rs.getDouble("mensualite"),
+                        rs.getInt("duree"),
+                        rs.getDouble("fraisretard")));
+            }
+            // Tri de la liste par montant en utilisant Java Stream
+            list = list.stream()
+                    .sorted(Comparator.comparingDouble(Credit::getMontant))
+                    .toList();
+            System.out.println(list);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return list;
+    }
 }
 
 

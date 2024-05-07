@@ -67,7 +67,7 @@ public class DemandeCreditListClient implements Initializable {
     private Pane content_area;
 
     @FXML
-    private ComboBox<?> statusInput;
+    private ComboBox<String> statusInput;
 
     @FXML
     private VBox userListContainer;
@@ -77,6 +77,7 @@ public class DemandeCreditListClient implements Initializable {
 
     @FXML
     private Button addcreditbtn;
+
 
 
     @FXML
@@ -98,10 +99,37 @@ public class DemandeCreditListClient implements Initializable {
 
     @FXML
     void statusChange(ActionEvent event) {
+        userListContainer.getChildren().clear();
+
+        if (statusInput.getValue().equals("Montant")) {
+            // Appeler la fonction afficherCreditParMontant
+            ServiceCredit serviceCredit = new ServiceCredit();
+            System.out.println("f");
+            List<Credit> list = new ArrayList<>();
+            try {
+                list = serviceCredit.affichercreditparmontant(); // Notez le changement ici
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            for (Credit credit : list) {
+                try {
+                    System.out.println(credit);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CreditItems.fxml"));
+                    Parent offreItem = loader.load();
+                    CreditItems offreStageItem = loader.getController();
+                    offreStageItem.initData(credit);
+                    userListContainer.getChildren().add(offreItem);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        statusInput.getItems().addAll("Montant", "Year");
         ServiceCredit serviceCredit = new ServiceCredit();
         System.out.println("f");
         List<Credit> list = new ArrayList<>();
