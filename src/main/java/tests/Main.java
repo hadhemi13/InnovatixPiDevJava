@@ -96,11 +96,13 @@ public class Main {
 //        String message = jsonNode.get("data").get("message").asText();
 //
 //        System.out.println(message);
-
+        ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
+        System.out.println(serviceDemandeStage.afficherParOffre(5));
     }
 
 
-    }
+//--module-path "C:\Users\Yesser\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib" --add-modules javafx.controls,javafx.fxml
+}
 
 
 

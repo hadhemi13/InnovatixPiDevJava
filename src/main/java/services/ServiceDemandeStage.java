@@ -222,6 +222,22 @@ public class ServiceDemandeStage implements IService<DemandeStage> {
         return list;
     }
 
+    public List<DemandeStage> afficherParOffre(int a) throws SQLException {
+        List<DemandeStage> list = new ArrayList<>();
+        try {
+            String req = "SELECT ds.*, os.title FROM demandestage ds INNER JOIN offre_stage os ON ds.offre_stage_id = os.id WHERE ds.offre_stage_id = ?";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setInt(1, a);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new DemandeStage(rs.getInt("id"),rs.getInt("offre_stage_id"),rs.getString("nom"), rs.getString("prenom"),rs.getString("email"),rs.getInt("numerotelephone"),rs.getString("lettremotivation"),rs.getString("cv"),rs.getString("domaine"),rs.getString("etat"),rs.getDate("date"),rs.getInt("score")));
+            }
+        } catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+        return list;
+    }
+
     @Override
     public OffreDeStage afficheUne(int id) throws SQLException {
         Connection connection = MyDatabase.getInstance().getConnection();

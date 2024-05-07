@@ -1,6 +1,7 @@
 package controllers.offreDeStage;
 
 import Entities.OffreDeStage;
+import controllers.demandeStage.AffichageParOffreController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import services.ServiceDemandeStage;
 import services.ServiceOffreDeStage;
 
 import java.io.IOException;
@@ -183,7 +185,21 @@ public void initData(OffreDeStage i) {
         }
     });
     listeDesDemandes.setOnMouseClicked(mouseEvent -> {
-
+        ServiceDemandeStage serviceDemandeStage = new ServiceDemandeStage();
+        AffichageParOffreController  affichageParOffreController =  new AffichageParOffreController();
+        Stage primaryStage = new Stage();
+        try {
+            affichageParOffreController.list = serviceDemandeStage.afficherParOffre(Integer.parseInt(listeDesDemandes.getId()));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/AfficheDemandesParOffre.fxml")) ;
+            Parent  parent = loader.load();
+            Scene scene = new Scene(parent);
+            primaryStage.setTitle("E-Flex Bank");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+            AffichageParOffreController editOffreController = loader.getController();
+        } catch (SQLException | IOException e) {
+            throw new RuntimeException(e);
+        }
     });
 
 }
