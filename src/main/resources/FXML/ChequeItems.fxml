@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="362.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChequeItemsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="359.0" styleClass="userProductCard" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChequeItemsController">
     <children>
         <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="60.0" prefWidth="354.0" styleClass="userProductCard-name" stylesheets="@../css/SideNavBar.css">
             <children>
@@ -144,7 +144,7 @@
             <children>
                 <Label styleClass="userItem__field-active" stylesheets="@../css/Compte.css">
                     <graphic>
-                        <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours" />
+                        <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours" translateX="5.0" wrappingWidth="70.37738037109375" />
                     </graphic>
                     <HBox.margin>
                         <Insets />
@@ -152,7 +152,7 @@
                 </Label>
             </children>
         </HBox>
-        <HBox prefHeight="34.0" prefWidth="295.0" translateY="-8.0">
+        <HBox prefHeight="34.0" prefWidth="295.0">
             <children>
                 <HBox fx:id="userItemUpdateBtn" onMouseClicked="#UpdateCheque" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" translateX="-20.0">
                     <children>
