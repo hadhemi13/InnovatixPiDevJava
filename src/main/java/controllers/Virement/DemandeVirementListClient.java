@@ -4,6 +4,8 @@ import Entities.Cheque;
 import Entities.Virement;
 import controllers.CaptureEcran;
 import controllers.Cheque.AjouterChequeCard;
+import controllers.Cheque.DemandeChequeListClient;
+import controllers.Cheque.updateChequeCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceCheque;
@@ -151,6 +154,13 @@ public class DemandeVirementListClient  implements Initializable {
 
     @FXML
     private Button btnvir;
+    @FXML
+    private HBox updateVirementModel;
+
+    @FXML
+    private VBox updateVirementModelContent;
+    private static int virementIdToUpdate = 0;
+    private static int updateVirementModelShow = 0;
 
 
 
@@ -167,6 +177,7 @@ public class DemandeVirementListClient  implements Initializable {
 //
 //    }
 
+
     public void AjouterV(MouseEvent mouseEvent) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardVirement.fxml"));
@@ -179,8 +190,18 @@ public class DemandeVirementListClient  implements Initializable {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
+    public static void setUpdateVirementModelShow(int updateVirementModelShow) {
+        DemandeVirementListClient.updateVirementModelShow = updateVirementModelShow;
+    }
+    public static void setchequeEmailToUpdate(int virementIdToUpdate) {
+        DemandeVirementListClient.virementIdToUpdate = virementIdToUpdate;
+    }
+    public static int getUpdateVirementModelShow() {
+        return updateVirementModelShow;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Virement virement;
         ServiceVirement serviceVirement = new ServiceVirement();
         List<Virement> list = new ArrayList<>();
         try {
@@ -188,8 +209,31 @@ public class DemandeVirementListClient  implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        if (DemandeVirementListClient.getUpdateVirementModelShow() == 0) {
+            updateVirementModel.setVisible(false);
+        } else if (DemandeVirementListClient.getUpdateVirementModelShow() == 1) {
+            updateVirementModel.setVisible(true);
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/UpdateVirementCard.fxml"));
+            VBox updateProjectform;
+            try {
+                updateProjectform = fxmlLoader1.load();
+                updateVirementCard updateUserCardController = fxmlLoader1.getController();
+                updateVirementCard.setFxmlToLoad("DemandeVirementListClient.fxml");
+                virement = serviceVirement.getById(virementIdToUpdate);
+
+                updateUserCardController.setProjectUpdateData(virement);
+                updateVirementModelContent.getChildren().add(updateProjectform);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
 
         loadVirement(list);
+
         captureEcran.setOnAction(event -> {
             CaptureEcran cap = new CaptureEcran();
             try {
@@ -287,6 +331,11 @@ public class DemandeVirementListClient  implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void close_updateProjectModel(MouseEvent mouseEvent) {
+        updateVirementModel.setVisible(false);
+        updateVirementModelShow = 0;
     }
 }
 

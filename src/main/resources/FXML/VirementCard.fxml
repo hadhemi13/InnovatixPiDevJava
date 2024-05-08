@@ -163,7 +163,7 @@
         </HBox>
         <HBox prefHeight="34.0" prefWidth="295.0">
             <children>
-                <HBox fx:id="editItemsBtn" onMouseClicked="#updatevirement" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                <HBox fx:id="userItemUpdateBtn" onMouseClicked="#updatevirement" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                     <children>
                         <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -178,7 +178,7 @@
                         <Insets left="115.0" />
                     </HBox.margin>
                 </HBox>
-                <HBox fx:id="supprItems" onMouseClicked="#deletevirement" prefHeight="35.0" prefWidth="46.0" styleClass="Refus__card-btns">
+                <HBox fx:id="userItemStateBtn" onMouseClicked="#deletevirement" prefHeight="35.0" prefWidth="46.0" styleClass="Refus__card-btns">
                     <children>
                         <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>
