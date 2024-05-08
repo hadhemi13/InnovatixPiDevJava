@@ -1,10 +1,11 @@
-<<<<<<< HEAD
-package controllers.article;
+
+package controllers;
 
 import Entities.actualites.Article;
 import controllers.article.ListArticleAdminController;
 import controllers.article.UpdateArtcileCardController;
 import controllers.article.articleCardAdminController;
+import controllers.article.articleCardClientController;
 import controllers.user.LoginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
@@ -31,10 +34,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -58,9 +57,24 @@ import java.util.ResourceBundle;
 public class FrontControlleur implements Initializable {
 
 
+    public AnchorPane content_area;
+    public AnchorPane Empty;
+    public BorderPane borderPost;
+    public Label contenuArt;
+    public Label categorieart;
+    public Button titreArt;
+    public Label userNom;
+    public ImageView userImg;
+    public Button dateArt;
+    public ImageView imageP;
+    public Button newtP;
+    public Button PreviousP;
+    public Button ajoutPP;
     @FXML
     private GridPane ArtListContainer;
     private final ServiceArticle serviceArticle = new ServiceArticle();
+    @FXML
+    private Button CreerCompte;
 
 
 
@@ -302,64 +316,16 @@ public class FrontControlleur implements Initializable {
       /*  userPane.getChildren().clear();
         userPane.getChildren().add(addArticleParent);*/
     }
-}
-=======
-package controllers;
 
-import controllers.Compte.AjouterCompte;
-import controllers.Virement.DemandeVirementListClient;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+    public void CreateCompte(MouseEvent mouseEvent) throws IOException {
 
-import java.io.IOException;
-
-public class FrontControlleur {
-
-    @FXML
-    private Button CreerCompte;
-    @FXML
-    private AnchorPane content_area;
-
-
-
-    @FXML
-    private void initialize() {
-        CreerCompte.setOnAction(event -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
-                AnchorPane captchaPane = loader.load();
-                Scene scene = new Scene(captchaPane);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
-                ((Stage) CreerCompte.getScene().getWindow()).close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
+            AnchorPane captchaPane = loader.load();
+            Scene scene = new Scene(captchaPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ((Stage) CreerCompte.getScene().getWindow()).close();
     }
-
-
-    @FXML
-    void CreateCompte(MouseEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
-//        Parent addArticleParent = loader.load();
-//
-//        // Récupération du contrôleur de la vue d'ajout d'article
-//        AjouterCompte ajouterCompte = loader.getController();
-//
-//        // Remplacer le contenu actuel par la vue d'ajout d'article
-//        content_area.getChildren().clear();
-//        content_area.getChildren().add(addArticleParent);
-
-    }
-
 }
->>>>>>> origin/shayma
+

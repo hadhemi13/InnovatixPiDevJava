@@ -168,4 +168,50 @@ public class SideNavBarUserController implements Initializable {
         }
 
     }
+
+    public void open_dashboard(MouseEvent mouseEvent) {
+    }
+
+    public void open_profile(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProfileUser.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void open_Compte(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClient.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void open_Credit(MouseEvent mouseEvent) {
+    }
+
+
+    public void open_stage(MouseEvent mouseEvent) {
+    }
+
+    public void open_evenement(MouseEvent mouseEvent) {
+    }
+
+    public void openInv(MouseEvent mouseEvent) {
+    }
+
+    public void open_notifModel(MouseEvent mouseEvent) {
+    }
 }

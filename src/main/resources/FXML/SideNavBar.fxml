@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -88,7 +89,7 @@
                                         <Image url="@../img/compte.png" />
                                     </image>
                                 </ImageView>
-                                <Label fx:id="comptesText" onMouseClicked="#OpenCard" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
+                                <Label fx:id="comptesText" styleClass="text" text="Comptes" textFill="WHITE" translateX="4.0">
                                     <font>
                                         <Font name="Montserrat Regular" size="18.0" />
                                     </font>
@@ -266,31 +267,6 @@
                         </HBox>
                     </children>
                 </VBox>
-
-                <HBox fx:id="sideBarLogout" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links" translateY="180.0">
-                    <children>
-                        <ImageView fitHeight="42.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" translateY="10.0">
-
-                            <HBox.margin>
-                                <Insets right="15.0" />
-                            </HBox.margin>
-                            <image>
-                                <Image url="@../img/logout.png" />
-                            </image>
-                        </ImageView>
-                        <Label styleClass="text" text="Se déconnecter" textFill="WHITE" translateX="3.0" translateY="10.0">
-                            <font>
-                                <Font name="Montserrat Regular" size="14.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                        </Label>
-                    </children>
-                    <padding>
-                        <Insets left="23.0" />
-                    </padding>
-                </HBox>
             </children>
         </VBox>
         <HBox alignment="CENTER_RIGHT" layoutX="260.0" prefHeight="78.0" prefWidth="1115.0">
@@ -300,11 +276,6 @@
                         <Font name="Montserrat ExtraBold" size="18.0" />
                     </font>
                 </Text>
-                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
-                    <HBox.margin>
-                        <Insets right="16.0" />
-                    </HBox.margin>
-                </HBox>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
                     <image>
                         <Image url="@../img/bell.png" />
@@ -344,111 +315,114 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </Text>
-                <ImageView fitHeight="49.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/admin.png" />
-                    </image>
+                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
                     <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets right="16.0" />
                     </HBox.margin>
-                </ImageView>
+                    <children>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/logout.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
             </children>
         </HBox>
         <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
             <children>
                 <ScrollPane layoutY="-14.0" prefHeight="622.0" prefWidth="1084.0" style="-fx-background-radius: 50;">
-               <content>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="1052.0" stylesheets="@../css/SideNavBar.css">
-                     <padding>
-                        <Insets left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <children>
-                        <HBox prefHeight="286.0" prefWidth="1078.0">
-                           <children>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
-                                 <HBox.margin>
-                                    <Insets left="20.0" right="20.0" top="20.0" />
-                                 </HBox.margin>
-                                 <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="290.0" text="Nombre totale des utilisateurs">
-                                       <styleClass>
-                                          <String fx:value="addProductCard" />
-                                          <String fx:value="activeText" />
-                                       </styleClass>
-                                    </Label>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="198.0" style="-fx-border-color: #2ba160;" styleClass="round-box" translateX="30.0">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="221.0" text="50" translateX="30.0">
-                                       <styleClass>
-                                          <String fx:value="addProductCard" />
-                                          <String fx:value="activeText" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
-                                 <opaqueInsets>
-                                    <Insets left="10.0" right="10.0" />
-                                 </opaqueInsets>
-                                 <HBox.margin>
-                                    <Insets left="20.0" right="20.0" top="20.0" />
-                                 </HBox.margin>
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="38.0" prefWidth="294.0" text="Nombre des clients">
-                                       <styleClass>
-                                          <String fx:value="addProductCard" />
-                                          <String fx:value="activeText" />
-                                       </styleClass>
-                                    </Label>
-                                    <HBox alignment="CENTER" prefHeight="209.0" prefWidth="274.0" styleClass="round-box">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="230.0" text="30" translateX="30.0" translateY="-15.0">
-                                       <styleClass>
-                                          <String fx:value="addProductCard" />
-                                          <String fx:value="activeText" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="38.0" prefWidth="294.0" text="Nombre des employees">
-                                       <styleClass>
-                                          <String fx:value="addProductCard" />
-                                          <String fx:value="activeText" />
-                                       </styleClass>
-                                    </Label>
-                                    <HBox alignment="CENTER" prefHeight="208.0" prefWidth="274.0" styleClass="round-box">
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="235.0" text="20" translateX="30.0" translateY="-15.0">
-                                       <styleClass>
-                                          <String fx:value="addProductCard" />
-                                          <String fx:value="activeText" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </children>
-                           <opaqueInsets>
-                              <Insets left="10.0" right="10.0" />
-                           </opaqueInsets>
-                        </HBox>
-                     </children>
-                  </Pane>
-               </content></ScrollPane>
-                <ScrollPane prefHeight="622.0" prefWidth="1084.0" />
+                    <content>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="1052.0" stylesheets="@../css/SideNavBar.css">
+                            <padding>
+                                <Insets left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <HBox prefHeight="286.0" prefWidth="1078.0">
+                                    <children>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
+                                            <HBox.margin>
+                                                <Insets left="20.0" right="20.0" top="20.0" />
+                                            </HBox.margin>
+                                            <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="290.0" text="Nombre totale des utilisateurs">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="198.0" style="-fx-border-color: #2ba160;" styleClass="round-box" translateX="30.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="221.0" text="50" translateX="30.0">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
+                                            <opaqueInsets>
+                                                <Insets left="10.0" right="10.0" />
+                                            </opaqueInsets>
+                                            <HBox.margin>
+                                                <Insets left="20.0" right="20.0" top="20.0" />
+                                            </HBox.margin>
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="294.0" text="Nombre des clients">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="209.0" prefWidth="274.0" styleClass="round-box">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="230.0" text="30" translateX="30.0" translateY="-15.0">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
+                                            <HBox.margin>
+                                                <Insets top="20.0" />
+                                            </HBox.margin>
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="294.0" text="Nombre des employees">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="208.0" prefWidth="274.0" styleClass="round-box">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="235.0" text="20" translateX="30.0" translateY="-15.0">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" right="10.0" />
+                                    </opaqueInsets>
+                                </HBox>
+                            </children>
+                        </Pane>
+                    </content></ScrollPane>
             </children>
         </Pane>
     </children>

@@ -10,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,22 +21,18 @@ import services.ServiceUser;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.EventObject;
-
-
-import java.io.IOException;
 
 public class SideNavBarController {
 
-
-    public javafx.scene.text.Text name;
     @FXML
     private Pane content_area;
+
     @FXML
     private Text navFullname;
 
     @FXML
     private PieChart pieChart;
+
     @FXML
     private HBox InvestBtn;
 
@@ -61,8 +56,6 @@ public class SideNavBarController {
 
     @FXML
     private Label comptesText;
-
-
 
     @FXML
     private HBox creditsBtn;
@@ -93,8 +86,6 @@ public class SideNavBarController {
 
     @FXML
     private HBox navBarLogout;
-
-
 
     @FXML
     private HBox recBtn;
@@ -148,7 +139,7 @@ public class SideNavBarController {
     }
 
     public void initData(User user) {
-        // Vous pouvez implémenter cette méthode pour initialiser des données spécifiques à l'utilisateur
+        // Implémentez cette méthode pour initialiser des données spécifiques à l'utilisateur
     }
 
     public void initializeDashboard() {
@@ -171,45 +162,34 @@ public class SideNavBarController {
     @FXML
     void openArticleList(MouseEvent event) {
         try {
-            // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listArticleAdmin.fxml"));
             Pane listArticleAdminPane = loader.load();
-
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
             content_area.getChildren().setAll(listArticleAdminPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     void openRecList(MouseEvent event) {
         try {
-            // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
             Pane listRecAdminPane = loader.load();
-    @FXML
+            content_area.getChildren().setAll(listRecAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public void OpenCard (javafx.scene.input.MouseEvent mouseEvent) {
+    @FXML
+    public void OpenCard(MouseEvent mouseEvent) {
         try {
-            // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardAdmin.fxml"));
             Pane listCompteAdminPane = loader.load();
-
-            // Remplacer le contenu de content_area par le contenu
             content_area.getChildren().setAll(listCompteAdminPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(listRecAdminPane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
+}

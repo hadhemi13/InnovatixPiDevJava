@@ -27,7 +27,7 @@
                 </ImageView>
                 <VBox maxWidth="-Infinity" minHeight="-Infinity" prefHeight="552.0" prefWidth="89.0" translateY="20.0">
                     <children>
-                        <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="60.0" styleClass="nav-links">
+                        <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_dashboard" prefHeight="50.0" prefWidth="60.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="dashboardIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -42,7 +42,7 @@
                                 <Insets left="20.0" right="20.0" />
                             </padding>
                         </HBox>
-                        <HBox fx:id="Compte" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="Compte" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_Compte" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="fundrisingIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -60,7 +60,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="CreditBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="CreditBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_Credit" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="productsIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -78,7 +78,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="favBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="stage" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_stage" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="favIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -96,7 +96,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="collectBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="invesstisement" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openInv" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="collectIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -114,7 +114,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="commandsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="Event" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_evenement" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="commandsIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -132,7 +132,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="achatBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openRecList" prefHeight="50.0" prefWidth="54.0" styleClass="nav-links">
+                        <HBox fx:id="Rec" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openRecList" prefHeight="50.0" prefWidth="54.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="achatIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
                                     <image>
@@ -150,7 +150,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="achatBtn1" alignment="CENTER_LEFT" layoutX="10.0" layoutY="436.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openArticleList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="Actualite" alignment="CENTER_LEFT" layoutX="10.0" layoutY="436.0" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openArticleList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <padding>
                                 <Insets left="20.0" />
                             </padding>
@@ -185,9 +185,9 @@
                         <Insets right="70.0" />
                     </HBox.margin>
                 </Text>
-                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
+                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logout" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon" translateX="-40.0">
                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../img/logout.png" />
                             </image>
@@ -200,20 +200,18 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </HBox>
-                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_notifModel" prefHeight="50.0" prefWidth="110.0" styleClass="nav-icon">
                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
-                            <image>
-                                <Image url="@../img/bell.png" />
-                            </image>
-                        </ImageView>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="20.0" styleClass="nav-notif-bg" translateX="-8.0" translateY="-14.0">
+                        <HBox fx:id="profile" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openProfil" prefHeight="20.0" prefWidth="51.0" styleClass="nav-notif-bg" translateX="-20.0">
                             <children>
-                                <Text fx:id="totalNotif" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3" translateY="-1.0">
-                                    <font>
-                                        <Font name="Montserrat ExtraBold" size="15.0" />
-                                    </font>
-                                </Text>
+                            <Text fx:id="navFullname" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Client " translateX="9.0">
+                                <font>
+                                    <Font name="Montserrat Bold" size="18.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets right="16.0" />
+                                </HBox.margin>
+                            </Text>
                             </children>
                         </HBox>
                     </children>
@@ -221,14 +219,6 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </HBox>
-                <Text fx:id="navFullname" onMouseClicked="#openProfil" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Client ">
-                    <font>
-                        <Font name="Montserrat Bold" size="18.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="16.0" />
-                    </HBox.margin>
-                </Text>
                 <HBox prefHeight="78.0" prefWidth="67.0">
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
@@ -246,6 +236,6 @@
                 </HBox>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="100.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" />
+        <Pane fx:id="content_area" layoutX="130.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" styleClass="dash__container-card" translateX="20.0" />
     </children>
 </AnchorPane>
