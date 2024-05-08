@@ -53,6 +53,8 @@ public class Recrutement implements Initializable {
 
 //    @FXML
 //    private Pane paneDem;
+    @FXML
+    private AnchorPane content_area;
 
     @FXML
     private TextField NumRech;
@@ -146,9 +148,9 @@ public class Recrutement implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/DemandeStage.fxml"));
         Parent demandeStage = loader.load();
         DemandeStageController demandeStageController = loader.getController();
-        pane.getChildren().clear();
+        content_area.getChildren().clear();
 //        ListeOffre.getChildren().clear(); // Efface tout contenu précédent
-        pane.getChildren().add(demandeStage);
+        content_area.getChildren().add(demandeStage);
 
 
         // Ajuster l'opacité de l'AnchorPane actuelle

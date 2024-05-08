@@ -2,6 +2,7 @@ package controllers.offreDeStage;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -11,6 +12,9 @@ public class RatingController {
     public ImageView reviewsBox_star5;
     public ImageView reviewsBox_star4;
     public ImageView reviewsBox_star3;
+    public VBox content_area;
+    public ImageView reviewsBox_star1;
+    public ImageView reviewsBox_star2;
     @FXML
     private Text star1;
 
@@ -30,10 +34,20 @@ public class RatingController {
     public void initialize() {
         // Initialiser les étoiles
         Text[] stars = {star1, star2, star3, star4, star5};
-        for (Text star : stars) {
-            star.setFont(Font.font(30));
-            star.setFill(Color.WHITE);
-        }
+//        for (Text star : stars) {
+//            star.setFont(Font.font(30));
+//            star.setFill(Color.WHITE);
+//        }
+        star1.setFont(Font.font(30));
+        star1.setFill(Color.WHITE);
+        star2.setFont(Font.font(30));
+        star2.setFill(Color.WHITE);
+        star3.setFont(Font.font(30));
+        star3.setFill(Color.WHITE);
+        star4.setFont(Font.font(30));
+        star4.setFill(Color.WHITE);
+        star5.setFont(Font.font(30));
+        star5.setFill(Color.WHITE);
         star1.setOnMouseClicked(mouseEvent -> {
             star1.setText("\u2605"); // étoile remplie
             star1.setFill(Color.YELLOW);
