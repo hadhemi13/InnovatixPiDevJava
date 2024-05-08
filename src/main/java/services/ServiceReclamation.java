@@ -38,7 +38,23 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
 //        }
 //    }
 
+    public void updateReclamationStatut(int reclamationId, String newStatut) throws SQLException {
+        String req = "UPDATE reclamation SET statut_rec = ? WHERE id = ?";
 
+        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+            preparedStatement.setString(1, newStatut);
+            preparedStatement.setInt(2, reclamationId);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Statut de la réclamation mis à jour avec succès.");
+            } else {
+                System.out.println("Aucune réclamation trouvée avec l'ID spécifié.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erreur lors de la mise à jour du statut de la réclamation : " + e.getMessage());
+        }
+    }
 
 
         @Override
