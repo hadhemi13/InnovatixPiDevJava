@@ -1,5 +1,8 @@
 package tests;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -8,7 +11,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class TranslatorText {
-    private static String key = "f9b9c186e1a748ae91cf01b2fc399e43";
+    private static String key = "2c44e860c3db4febb0b81343497a00db";
     private static String location = "francecentral";
 
     // Cette fonction effectue une requête POST.
@@ -27,19 +30,19 @@ public class TranslatorText {
 
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Obtenir la traduction du texte à partir de la réponse JSON
-        String responseBody = response.body();
-        String translatedText = null;
-        int startIndex = responseBody.indexOf("\"text\":\"");
-        if (startIndex != -1) { // Vérifier si la sous-chaîne est trouvée
-            startIndex += 8; // Déplacer l'index au début du texte traduit
-            int endIndex = responseBody.indexOf("\"", startIndex); // Trouver la fin de la sous-chaîne
-            if (endIndex != -1) { // Vérifier si la fin de la sous-chaîne est trouvée
-                translatedText = responseBody.substring(startIndex, endIndex); // Extraire le texte traduit
-                System.out.println(translatedText); // Affiche la traduction
-            }
+        // Vérifiez si la réponse est un succès (code 200)
+        if (response.statusCode() == 200) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(response.body());
+
+            // Obtenez la traduction du texte à partir de la réponse JSON
+            String translatedText = rootNode.get(0).get("translations").get(0).get("text").asText();
+            System.out.println(translatedText); // Afficher la traduction
+            return translatedText; // Retourner le texte traduit
+        } else {
+            System.out.println("Erreur lors de la requête : " + response.statusCode() + " " + response.body());
+            return null;
         }
-        return translatedText; // Retourner le texte traduit, peut être null si la traduction n'a pas pu être extraite
     }
 
 
@@ -53,13 +56,24 @@ public class TranslatorText {
             String toLanguage = "ar";
 
             String response = translateRequest.post(text, fromLanguage, toLanguage);
-           // System.out.println(response);
-            String translatedText = prettify(response).split("\"text\":\"")[1].split("\"")[0];
-          //  System.out.println(translatedText);
+
+            if (response != null) {
+                String[] parts = response.split("\"text\":\"");
+                if (parts.length > 1) {
+                    String translatedText = parts[1].split("\"")[0];
+                    System.out.println(translatedText);
+                } else {
+                    System.out.println("Erreur : Impossible de récupérer la traduction.");
+                }
+            } else {
+                System.out.println("Erreur : Réponse nulle.");
+            }
         } catch (Exception e) {
-            System.out.println("lahnee yee maryem");
+            System.out.println("Une exception s'est produite : " + e.getMessage());
+            e.printStackTrace();
         }
     }
+
 
     // Cette fonction formate joliment la réponse JSON.
     public static String prettify(String json_text) {
