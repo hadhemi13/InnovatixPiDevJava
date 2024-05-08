@@ -5,14 +5,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.OneEvenementListCardControllerfront">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneEvenementListCardControllerfront">
     <children>
-        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="948.0" styleClass="productDetails__Container">
+        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="371.0" prefWidth="951.0" styleClass="productDetails__Container">
             <children>
                 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="405.0">
                     <children>
@@ -26,7 +26,7 @@
                         </ImageView>
                     </children>
                 </HBox>
-                <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="543.0">
+                <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="529.0">
                     <children>
                         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="64.0" prefWidth="630.0">
                             <children>
@@ -101,6 +101,37 @@
                                 <Insets bottom="10.0" top="3.0" />
                             </VBox.margin>
                         </Line>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="26.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/assoIcon.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__tag" text="Commençons" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Text>
+                        <Circle fill="#03bf8a" radius="4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/dateIcon.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__tag" text="1 Fev - 5 Fev" textAlignment="CENTER" />
+                     </children>
+                  </HBox>
                         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0" prefWidth="622.0" styleClass="productDetails__price">
                             <VBox.margin>
                                 <Insets top="5.0" />
@@ -116,7 +147,14 @@
                                         </Text>
                                     </children>
                                 </HBox>
-                                <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="305.0" />
+                                <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="305.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/img/peopleIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </children></HBox>
                             </children>
                         </HBox>
                         <HBox fx:id="offreRow" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="622.0">
@@ -134,7 +172,7 @@
                                 <HBox alignment="CENTER" prefHeight="35.0" prefWidth="50.0" styleClass="productDetails__OFFRE">
                                     <children>
                                         <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="-" />
-                                        <Text fx:id="offre" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="50" />
+                                        <Text fx:id="offrefx" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" />
                                         <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="\%">
                                             <HBox.margin>
                                                 <Insets left="3.0" />

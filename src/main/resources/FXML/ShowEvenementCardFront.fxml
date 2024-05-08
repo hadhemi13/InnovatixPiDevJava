@@ -19,14 +19,14 @@
             <content>
                 <VBox>
                     <GridPane fx:id="evenementsListContainerfront">
-                        <!-- Define your event grid here -->
+
                         <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                         </rowConstraints>
                     </GridPane>
 
-                    <GridPane fx:id="CommentsListContainer">
-                        <!-- Define your comments grid here -->
+                    <GridPane layoutX="150.0" layoutY="115.0" fx:id="CommentsListContainer">
+
                         <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                         </rowConstraints>

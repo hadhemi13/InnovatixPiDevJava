@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
 <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="629.0" prefWidth="1084.0" styleClass="dash__container-card"
       stylesheets="@../assets/style/aliStyle.css"
@@ -19,14 +14,14 @@
             <content>
                 <VBox>
                     <GridPane fx:id="evenementsListContainerfront">
-                         <rowConstraints>
+                        <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                         </rowConstraints>
                     </GridPane>
 
-                    <GridPane fx:id="CommentsListContainer">
-                         <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <GridPane layoutX="400.0" layoutY="115.0" fx:id="CommentsListContainer">
+                        <rowConstraints>
+                            <RowConstraints  minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                         </rowConstraints>
                     </GridPane>
                 </VBox>
@@ -50,5 +45,5 @@
                 </HBox>
             </children>
         </HBox>
-     </children>
+    </children>
 </Pane>

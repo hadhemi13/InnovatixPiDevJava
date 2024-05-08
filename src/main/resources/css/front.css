@@ -31,10 +31,7 @@
     -fx-padding: 10px; /* Espacement interne */
     -fx-border-radius: 4px; /* Rayon des coins */
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 .text-custom {
     -fx-font-family: "Segoe UI", "Helvetica", sans-serif; /* Utilisation d'une police élégante */
     -fx-font-size: 16px; /* Taille de police */

@@ -31,7 +31,7 @@
                 <Insets left="20.0" />
             </HBox.margin>
             <children>
-                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="599.0">
+                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="568.0">
                     <children>
                         <Text fx:id="productName" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Nike Air Deldon &quot;Deldon Designs&quot;">
                             <font>
@@ -72,7 +72,7 @@
                                 <HBox prefHeight="5.0" prefWidth="15.0" translateX="20.0" translateY="-5.0">
                                     <children>
                                         <Text fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" />
-                                        <Text fx:id="priceAfterOffer"  fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text">
+                                        <Text fx:id="priceAfterOffer" fill="#34be82" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text">
                                             <HBox.margin>
                                                 <Insets left="4.0" />
                                             </HBox.margin>
@@ -103,6 +103,13 @@
                                 <Insets top="5.0" />
                             </padding>
                         </HBox>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="48.0" styleClass="offreProductCard">
+                     <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" />
+                        <Text fx:id="offrefx" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="23.556640625" />
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" wrappingWidth="18.7421875" />
+                     </children>
+                  </HBox>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">

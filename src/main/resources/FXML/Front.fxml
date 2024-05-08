@@ -9,9 +9,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontControlleur">
-<<<<<<< HEAD
-    <children>
+<?import javafx.scene.layout.Pane?>
+<AnchorPane prefHeight="750.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.FrontControlleur">
+     <children>
         <ScrollPane prefHeight="750.0" prefWidth="1366.0">
             <content>
                 <VBox prefHeight="1000.0" prefWidth="1366.0">
@@ -91,8 +92,8 @@
             </content>
         </ScrollPane>
     </children>
-</AnchorPane>
-=======
+
+
    <children>
       <ScrollPane prefHeight="750.0" prefWidth="1366.0">
          <content>
@@ -133,7 +134,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                  <children>
-                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" onMouseClicked="#open_evenementsList"  text="Evenement" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
@@ -174,4 +175,3 @@
       </ScrollPane>
    </children>
 </AnchorPane>
->>>>>>> master

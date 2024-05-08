@@ -10,7 +10,7 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controllers.CommentsListController">
     <children>
-        <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0"
+        <ScrollPane layoutX="150.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0"
                     styleClass="product-card-scrollPane" stylesheets="@../assets/style/aliStyle.css">
             <content>
                 <GridPane fx:id="CommentsListContainer" alignment="CENTER">

@@ -37,6 +37,10 @@ public class OneEvenementListCardControllerfront {
     private Text pricefx;
 
     @FXML
+    private Text offrefx;
+
+
+    @FXML
     private Text lieufx;
 
     @FXML
@@ -46,24 +50,18 @@ public class OneEvenementListCardControllerfront {
 
     @FXML
     private HBox offerEvenement;
-
-
     @FXML
     private HBox priceHbox;
-
     IService EvenementService = new ServiceEvenement();
-
     public void setEvenementData(Evenement evenement) {
-
-
         Image image = new Image(
                 getClass().getResource("/assets/ProductUploads/" + evenement.getImg()).toExternalForm());
         img.setImage(image);
-
         productName.setText(evenement.getNom());
         descfx.setText(evenement.getDescription());
         lieufx.setText(evenement.getLieu());
         pricefx.setText(String.valueOf(evenement.getPrix()));
+        offrefx.setText(String.valueOf(evenement.getRemise()));
 
     }
 

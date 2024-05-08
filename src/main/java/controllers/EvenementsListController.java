@@ -304,7 +304,7 @@ public class EvenementsListController implements Initializable {
     void submit_offer(MouseEvent event) {
         Evenement evenement = new Evenement();
         evenement.setId(Evenement.getIdEvenement());
-        evenement.setRemise(Float.parseFloat(reductionInput.getText()));
+        evenement.setRemise(Integer.parseInt(reductionInput.getText()));
         IService serviceEvenement = new ServiceEvenement();
         if (submitOfferTest == 1) {
             serviceEvenement.AddEvenenemtOffer(evenement);

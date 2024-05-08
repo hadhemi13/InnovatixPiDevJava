@@ -59,7 +59,7 @@ public class ServiceEvenement implements IService<Evenement> {
                         evenement.setLieu(resultSet.getString("lieu"));
                         evenement.setOrganisateur(resultSet.getString("organisateur"));
                         evenement.setPrix(resultSet.getDouble("prix"));
-                        evenement.setRemise(resultSet.getFloat("remise"));
+                        evenement.setRemise(resultSet.getInt("remise"));
                         evenement.setLikes(resultSet.getInt("likes"));
                         evenement.setDislikes(resultSet.getInt("dislikes"));
                         evenement.setProjectId(resultSet.getInt("project_id"));
@@ -103,7 +103,7 @@ public class ServiceEvenement implements IService<Evenement> {
                         evenement.setLieu(resultSet.getString("lieu"));
                         evenement.setOrganisateur(resultSet.getString("organisateur"));
                         evenement.setPrix(resultSet.getDouble("prix"));
-                        evenement.setRemise(resultSet.getFloat("remise"));
+                        evenement.setRemise(resultSet.getInt("remise"));
                         evenement.setLikes(resultSet.getInt("likes"));
                         evenement.setDislikes(resultSet.getInt("dislikes"));
                         evenement.setProjectId(resultSet.getInt("project_id"));
@@ -248,7 +248,7 @@ public class ServiceEvenement implements IService<Evenement> {
                     evenement.setLieu(resultSet.getString("lieu"));
                     evenement.setOrganisateur(resultSet.getString("organisateur"));
                     evenement.setPrix(resultSet.getDouble("prix"));
-                    evenement.setRemise(resultSet.getFloat("remise"));
+                    evenement.setRemise(resultSet.getInt("remise"));
                     evenement.setLikes(resultSet.getInt("likes"));
                     evenement.setDislikes(resultSet.getInt("dislikes"));
                     evenement.setProjectId(resultSet.getInt("project_id"));
@@ -278,7 +278,7 @@ public class ServiceEvenement implements IService<Evenement> {
                 evenement.setLieu(resultSet.getString("lieu"));
                 evenement.setOrganisateur(resultSet.getString("organisateur"));
                 evenement.setPrix(resultSet.getDouble("prix"));
-                evenement.setRemise(resultSet.getFloat("remise"));
+                evenement.setRemise(resultSet.getInt("remise"));
                 evenement.setLikes(resultSet.getInt("likes"));
                 evenement.setDislikes(resultSet.getInt("dislikes"));
                 evenement.setProjectId(resultSet.getInt("project_id"));

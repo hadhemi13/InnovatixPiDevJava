@@ -38,6 +38,8 @@ public class OneEvenementListCardController {
     private ImageView img;
 
     @FXML
+    private Text offrefx;
+    @FXML
     private HBox deleteEvenement;
 
     @FXML
@@ -87,11 +89,11 @@ public class OneEvenementListCardController {
         Image image = new Image(
                 getClass().getResource("/assets/ProductUploads/" + evenement.getImg()).toExternalForm());
         img.setImage(image);
-
         productName.setText(evenement.getNom());
         descfx.setText(evenement.getDescription());
         lieufx.setText(evenement.getLieu());
-
+        offrefx.setText(String.valueOf(evenement.getRemise()));
+        System.out.println(evenement.getRemise());
         if (evenement.getRemise() == 0) {
             System.out.println(" test");
             System.out.println(evenement.getRemise());
