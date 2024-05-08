@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class MyDatabase {
 
-    final String URL="jdbc:mysql://localhost:3306/yessertest";
+    final String URL="jdbc:mysql://localhost:3306/efbaa";
     private final String USERNAME = "root";
     private final String PASSWORD = "";
     private Connection connection;
