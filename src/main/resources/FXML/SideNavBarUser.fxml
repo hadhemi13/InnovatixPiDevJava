@@ -42,24 +42,6 @@
                                 <Insets left="20.0" right="20.0" />
                             </padding>
                         </HBox>
-                        <HBox fx:id="profileBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
-                            <children>
-                                <ImageView fx:id="profileIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/user.png" />
-                                    </image>
-                                    <HBox.margin>
-                                        <Insets right="25.0" />
-                                    </HBox.margin>
-                                </ImageView>
-                            </children>
-                            <padding>
-                                <Insets left="20.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets top="10.0" />
-                            </VBox.margin>
-                        </HBox>
                         <HBox fx:id="Compte" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="fundrisingIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
