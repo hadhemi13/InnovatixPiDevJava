@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="748.0" prefWidth="1000.0" style="-fx-background-color: White;" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.DetailArticleAdminController">
+<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: White;" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.DetailArticleAdminController">
     <children>
-      <ScrollPane prefHeight="752.0" prefWidth="885.0" style="-fx-background-color: White;">
+      <ScrollPane prefHeight="690.0" prefWidth="885.0" style="-fx-background-color: White;">
          <content>
             <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: White;">
                <children>
@@ -131,92 +131,21 @@
                     </HBox>
                     <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="286.0" prefWidth="1122.0">
                         <children>
-                            <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="354.0">
-                                <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="66.0" prefWidth="342.0">
-                                        <children>
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="Note(" />
-                                            <Text fx:id="reviews_totalRev_title" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="110" translateY="1.0" />
-                                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text=")" />
-                                        </children>
-                                    </HBox>
-                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="productDetails__reviewsContainer">
-                                        <VBox.margin>
-                                            <Insets left="30.0" right="30.0" />
-                                        </VBox.margin>
-                                        <children>
-                                            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="239.0">
-                                                <children>
-                                                    <Text fx:id="percentReviews" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__Name" text="4.5" />
-                                                    <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__Name" text="/5" />
-                                                </children>
-                                                <VBox.margin>
-                                                    <Insets bottom="15.0" />
-                                                </VBox.margin>
-                                            </HBox>
-                                            <HBox alignment="CENTER" prefHeight="24.0" prefWidth="239.0">
-                                                <children>
-                                                    <ImageView fx:id="reviewsBox_star1" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                        <image>
-                                                            <Image url="@../../imagesAct/star.png" />
-                                                        </image>
-                                                    </ImageView>
-                                                    <ImageView fx:id="reviewsBox_star2" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                        <image>
-                                                            <Image url="@../../imagesAct/star.png" />
-                                                        </image>
-                                                    </ImageView>
-                                                    <ImageView fx:id="reviewsBox_star3" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                        <image>
-                                                            <Image url="@../../imagesAct/star.png" />
-                                                        </image>
-                                                    </ImageView>
-                                                    <ImageView fx:id="reviewsBox_star4" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                        <image>
-                                                            <Image url="@../../imagesAct/star.png" />
-                                                        </image>
-                                                    </ImageView>
-                                                    <ImageView fx:id="reviewsBox_star5" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                                                        <image>
-                                                            <Image url="@../../imagesAct/star.png" />
-                                                        </image>
-                                                    </ImageView>
-                                                </children>
-                                                <VBox.margin>
-                                                    <Insets bottom="22.0" />
-                                                </VBox.margin>
-                                    </HBox>
-                                            <HBox alignment="CENTER" prefHeight="21.0" prefWidth="239.0">
-                                                <children>
-                                                    <Text fx:id="reviews_total_box" fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="110" />
-                                                    <Text fill="#32bb6f" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__categ" text="verified reviews">
-                                                        <HBox.margin>
-                                                            <Insets left="5.0" />
-                                                        </HBox.margin>
-                                                    </Text>
-                                                </children>
-                                            </HBox>
-                                        </children>
-                                    </VBox>
-                                </children>
-                            </VBox>
                             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="548.0">
                                 <children>
                                     <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="750.0">
                                         <children>
                                             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="534.0">
                                                 <children>
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="Commentaires(" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="14" />
-                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text=")" />
+                                                    <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="Commentaires :" />
                                                 </children>
                                             </HBox>
                                             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="308.0" />
                                         </children>
                                     </HBox>
-                              <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="676.0" style="-fx-background-color: White;">
+                              <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="998.0" style="-fx-background-color: White;">
                                  <content>
-                                    <VBox fx:id="CommentListContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="650.0" style="-fx-background-color: White;" />
+                                    <VBox fx:id="CommentListContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="938.0" style="-fx-background-color: White;" />
                                  </content>
                               </ScrollPane>
                                 </children>

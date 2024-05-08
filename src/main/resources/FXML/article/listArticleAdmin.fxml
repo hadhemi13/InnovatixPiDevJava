@@ -31,7 +31,7 @@
                 </TextField>
                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" translateX="125.0" />
                   <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" onAction="#categorieInput" prefHeight="40.0" prefWidth="145.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css" translateX="135.0" />
-                <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#navigateToArticleAdd" prefHeight="40.0" prefWidth="186.0" styleClass="onlyOfferItemsBtn" translateX="180.0">
+                <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#navigateToArticleAdd" prefHeight="40.0" prefWidth="186.0" styleClass="onlyOfferItemsBtn" translateX="160.0">
                     <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Nouvel article" />
                     </children>
