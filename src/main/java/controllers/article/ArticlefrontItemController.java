@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -37,7 +38,7 @@ public class ArticlefrontItemController {
     private Button dateArt;
 
     @FXML
-    private ImageView imageP;
+    private ImageView imageart;
 
     @FXML
     private Button newtP;
@@ -88,6 +89,8 @@ public class ArticlefrontItemController {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             dateArt.setText(formattedDate);
+            imageart.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+
             contenuArt.setText(article.getContenu_art());
             categorieart.setText(article.getCategorie_art());
 

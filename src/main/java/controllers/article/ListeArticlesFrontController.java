@@ -11,6 +11,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -79,7 +80,8 @@ public class ListeArticlesFrontController implements Initializable {
 
     @FXML
     private Label postNbr;
-
+    @FXML
+    private ImageView imageart;
     @FXML
     private GridPane productsListContainer;
 
@@ -258,6 +260,8 @@ public class ListeArticlesFrontController implements Initializable {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             dateArt.setText(formattedDate);
+            imageart.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+
             userNom.setText(article.getNom_aut_art());
             categorieart.setText(article.getNom_aut_art());
             contenuArt.setText(article.getContenu_art());
