@@ -61,7 +61,7 @@
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
+                                        <HBox fx:id="Tologin" alignment="CENTER" onMouseClicked="#Tologin" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Se connecter" />
                                             </children>
@@ -100,7 +100,7 @@
                               <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="705.0">
                                  <content>
 <!--                                            <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="704.0">-->
-                                     <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" hgap="10" vgap="10" styleClass="article-grid">
+                                     <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" hgap="10" styleClass="article-grid" vgap="10">
 
                                      <rowConstraints>
                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

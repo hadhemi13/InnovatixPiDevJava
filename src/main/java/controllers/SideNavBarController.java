@@ -166,6 +166,37 @@ public class SideNavBarController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void openArticleList(MouseEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listArticleAdmin.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void openRecList(MouseEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
+            Pane listRecAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listRecAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
 
 

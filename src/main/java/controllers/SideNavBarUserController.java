@@ -138,4 +138,34 @@ public class SideNavBarUserController implements Initializable {
             e.printStackTrace();
         }
 
-    }}
+    }
+
+    public void openArticleList(MouseEvent mouseEvent) {
+
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listeArticlesClients.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void openRecList(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listeRecClient.fxml"));
+            Pane listRecAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listRecAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
