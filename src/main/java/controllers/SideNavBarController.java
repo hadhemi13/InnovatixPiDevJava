@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,9 @@ import services.ServiceUser;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.EventObject;
+
+
+import java.io.IOException;
 
 public class SideNavBarController {
 
@@ -45,6 +49,9 @@ public class SideNavBarController {
 
     @FXML
     private Label actualitesText;
+
+    @FXML
+    private HBox chartContainer;
 
     @FXML
     private HBox compteBtn;
@@ -76,15 +83,6 @@ public class SideNavBarController {
     private Label dashboardText;
 
     @FXML
-    private HBox evenementsBtn;
-
-    @FXML
-    private ImageView evenementsIcon;
-
-    @FXML
-    private Label evenementsText;
-
-    @FXML
     private ImageView investissementsIcon;
 
     @FXML
@@ -96,7 +94,7 @@ public class SideNavBarController {
     @FXML
     private HBox navBarLogout;
 
-  
+
 
     @FXML
     private HBox recBtn;
@@ -106,6 +104,9 @@ public class SideNavBarController {
 
     @FXML
     private ImageView reclamationsIcon;
+
+    @FXML
+    private HBox sideBarLogout;
 
     @FXML
     private HBox stagesBtn;
@@ -188,6 +189,20 @@ public class SideNavBarController {
             // Charger le fichier FXML de listArticleAdmin
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
             Pane listRecAdminPane = loader.load();
+    @FXML
+
+    public void OpenCard (javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardAdmin.fxml"));
+            Pane listCompteAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listCompteAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin
             content_area.getChildren().setAll(listRecAdminPane);
@@ -195,9 +210,6 @@ public class SideNavBarController {
             e.printStackTrace();
         }
 
-    }
-
-}
 
 
 

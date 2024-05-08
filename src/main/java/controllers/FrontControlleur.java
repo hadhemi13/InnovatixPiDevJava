@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package controllers.article;
 
 import Entities.actualites.Article;
@@ -10,8 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.Scene;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,10 +39,9 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.ServiceArticle;
 
 import javax.imageio.ImageIO;
@@ -73,6 +73,19 @@ public class FrontControlleur implements Initializable {
             e.printStackTrace();
             // Handle any exceptions here, such as displaying an error message
         }
+        CreerCompte.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
+                AnchorPane captchaPane = loader.load();
+                Scene scene = new Scene(captchaPane);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                ((Stage) CreerCompte.getScene().getWindow()).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 
@@ -290,3 +303,63 @@ public class FrontControlleur implements Initializable {
         userPane.getChildren().add(addArticleParent);*/
     }
 }
+=======
+package controllers;
+
+import controllers.Compte.AjouterCompte;
+import controllers.Virement.DemandeVirementListClient;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class FrontControlleur {
+
+    @FXML
+    private Button CreerCompte;
+    @FXML
+    private AnchorPane content_area;
+
+
+
+    @FXML
+    private void initialize() {
+        CreerCompte.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
+                AnchorPane captchaPane = loader.load();
+                Scene scene = new Scene(captchaPane);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                ((Stage) CreerCompte.getScene().getWindow()).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+
+    @FXML
+    void CreateCompte(MouseEvent event) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
+//        Parent addArticleParent = loader.load();
+//
+//        // Récupération du contrôleur de la vue d'ajout d'article
+//        AjouterCompte ajouterCompte = loader.getController();
+//
+//        // Remplacer le contenu actuel par la vue d'ajout d'article
+//        content_area.getChildren().clear();
+//        content_area.getChildren().add(addArticleParent);
+
+    }
+
+}
+>>>>>>> origin/shayma
