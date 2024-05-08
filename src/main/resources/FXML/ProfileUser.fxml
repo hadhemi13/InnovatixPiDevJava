@@ -22,15 +22,15 @@
                <image>
                   <Image url="@../img/admin.png" />
                </image></ImageView>
-                <Text fx:id="role" layoutX="258.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Role" textAlignment="CENTER" wrappingWidth="125.336669921875" />
+                <Text fx:id="role" layoutX="253.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Role" textAlignment="CENTER" wrappingWidth="162.9366455078125" />
                 <Text fx:id="descriptionText" layoutX="50.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="association for helping children without family support." textAlignment="CENTER" wrappingWidth="541.3367919921875" />
-                <Text fx:id="fullnameLab" layoutX="83.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Fullname" wrappingWidth="125.336669921875" />
+                <Text fx:id="fullnameLab" layoutX="82.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Fullname" wrappingWidth="282.93670654296875" />
                 <Text fx:id="fullnameText" layoutX="83.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="Nabil Mersni" wrappingWidth="270.13671875" />
-                <Text fx:id="EmailLab" layoutX="83.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Email" wrappingWidth="125.336669921875" />
+                <Text fx:id="EmailLab" layoutX="83.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Email" wrappingWidth="282.93670654296864" />
                 <Text fx:id="emailText" layoutX="83.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="nabil@gmail.com" wrappingWidth="270.13671875" />
-                <Text fx:id="PhoneNumberLabel" layoutX="388.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Phone number" wrappingWidth="178.9366455078125" />
+                <Text fx:id="PhoneNumberLabel" layoutX="388.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileTitle" text="Phone number" wrappingWidth="256.53662109375" />
                 <Text fx:id="telText" layoutX="388.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profileData" text="41156289" wrappingWidth="162.9366455078125" />
-                <Button fx:id="changePassBTN" layoutX="75.0" layoutY="334.0" mnemonicParsing="false" onAction="#changePass" prefHeight="42.0" styleClass="changePass__btn" stylesheets="@../../resources/css/SideNavBar.css" text="change password" />
+                <Button fx:id="changePassBTN" layoutX="75.0" layoutY="334.0" mnemonicParsing="false" onAction="#changePass" prefHeight="46.0" prefWidth="297.0" styleClass="changePass__btn" stylesheets="@../../resources/css/SideNavBar.css" text="change password" />
                 <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="253.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
 
                     <cursor>

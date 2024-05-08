@@ -67,6 +67,9 @@ public class TESTCONTROLLER {
         userItemTel.setText(user.getTel());
         if (user.getRoles().equals("[\"ROLE_CLIENT\"]")) {
             userItemRole.setText("client");
+            if (user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")){
+                userItemRole.setText("employee");
+            }
         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
             userItemRole.setText("admin");
         }
@@ -75,9 +78,9 @@ public class TESTCONTROLLER {
         userItemStateBtn.setOnMouseClicked(event -> {
             System.out.println("user EMAIL: " + user.getEmail());
             try {
-             //   user.setIs_blocked(!user.getIs_blocked());
+                user.setIs_blocked(user.getIs_blocked());
                 userService.modifier(user);
-              //  updateStateLabel(user);
+                updateStateLabel(user);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -107,7 +110,7 @@ public class TESTCONTROLLER {
     public void initData(User user) {
 
         ServiceUser userService = new ServiceUser();
-        Image image = new Image(getClass().getResource("/img/admin.png" ).toExternalForm());
+        Image image = new Image(getClass().getResource("/img/admin.png").toExternalForm());
         userItemImg.setImage(image);
 
         Rectangle clip = new Rectangle(userItemImg.getFitWidth(), userItemImg.getFitHeight());
@@ -127,7 +130,7 @@ public class TESTCONTROLLER {
             userItemRole.setText("employe");
         }
 
-        if (user.getIs_blocked()==0) {
+        if (user.getIs_blocked() == 0) {
 
             if (!userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
                 userItemStateLabel.getStyleClass().add("userItem__field-active");
@@ -136,14 +139,13 @@ public class TESTCONTROLLER {
             if (userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {
                 userItemStateLabel.getStyleClass().remove("userItem__field-unactive");
             }
-
             userItemStateText.setText("active");
 
             Image stateBtnImg = new Image(
-                    getClass().getResource("/img/lock-icon.png").toExternalForm());
+                    getClass().getResource("/img/unlock-icon.png").toExternalForm());
             userItemStateBtnImg.setImage(stateBtnImg);
 
-        } else {
+        } else if (user.getIs_blocked() == 1) {
             if (!userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {
                 userItemStateLabel.getStyleClass().add("userItem__field-unactive");
             }
@@ -151,25 +153,26 @@ public class TESTCONTROLLER {
             if (userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
                 userItemStateLabel.getStyleClass().remove("userItem__field-active");
             }
-            userItemStateText.setText("unactive");
+            userItemStateText.setText("inactive"); // Correction ici
 
             Image stateBtnImg = new Image(
-                    getClass().getResource("/img/unlock-icon.png").toExternalForm());
+                    getClass().getResource("/img/lock-icon.png").toExternalForm());
             userItemStateBtnImg.setImage(stateBtnImg);
-
         }
-
 
         userItemStateBtn.setOnMouseClicked(event -> {
             System.out.println("user EMAIL: " + user.getEmail());
             try {
+                // Inverser la valeur de is_blocked
                 user.setIs_blocked(user.getIs_blocked() == 0 ? 1 : 0);
+                // Mettre à jour l'utilisateur dans la base de données
                 userService.modifier(user);
-                 updateStateLabel(user);
+                // Mettre à jour l'étiquette d'état
+                updateStateLabel(user);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        });
+        }); // Ajout de l'accolade fermante ici
 
         userItemUpdateBtn.setOnMouseClicked(event -> {
             System.out.println("user EMAIL: " + user.getEmail());
@@ -205,6 +208,7 @@ public class TESTCONTROLLER {
     }
 
 
+
     public void updateStateLabel(User user) {
         if (user.getIs_blocked() == 0) { // Utilisateur actif
             if (!userItemStateLabel.getStyleClass().contains("userItem__field-active")) {
@@ -217,7 +221,7 @@ public class TESTCONTROLLER {
             userItemStateText.setText("active");
 
             Image stateBtnImg = new Image(
-                    getClass().getResource("/../img/lock-icon.png").toExternalForm());
+                    getClass().getResource("/img/unlock-icon.png").toExternalForm());
             userItemStateBtnImg.setImage(stateBtnImg);
 
         } else { // Utilisateur inactif
@@ -231,7 +235,7 @@ public class TESTCONTROLLER {
             userItemStateText.setText("inactive");
 
             Image stateBtnImg = new Image(
-                    getClass().getResource("/../img/unlock-icon.png").toExternalForm());
+                    getClass().getResource("/img/lock-icon.png").toExternalForm());
             userItemStateBtnImg.setImage(stateBtnImg);
         }
     }

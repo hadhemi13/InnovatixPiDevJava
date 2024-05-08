@@ -67,7 +67,7 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="603.0" prefWidth="652.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="TOP_CENTER" prefHeight="630.0" prefWidth="662.0" VBox.vgrow="ALWAYS">
                      <padding>
                         <Insets left="15.0" />
                      </padding>
@@ -88,9 +88,9 @@
          </children></AnchorPane>
     </left>
    <center>
-      <VBox prefHeight="700.0" prefWidth="418.0" stylesheets="@../css/login.css" BorderPane.alignment="CENTER">
+      <VBox prefHeight="1366.0" prefWidth="750.0" stylesheets="@../css/login.css" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="702.0" prefWidth="443.0" rotate="180.0" style="-fx-background-color: WHITE;" styleClass="vbox_background_right" stylesheets="@../css/login.css">
+            <VBox alignment="CENTER" prefHeight="760.0" prefWidth="709.0" rotate="180.0" style="-fx-background-color: WHITE;" styleClass="vbox_background_right" stylesheets="@../css/login.css">
                <children>
                   <Hyperlink onAction="#toForgotPassword" prefHeight="24.0" prefWidth="285.0" rotate="178.6" text="Fogot password" />
                   <Button fx:id="loginBTN" mnemonicParsing="false" onAction="#logIn" prefHeight="38.0" prefWidth="306.0" rotate="179.3" style="-fx-background-radius: 50; -fx-background-color: #008000;" styleClass="SignUp__btn" stylesheets="@../css/SideNavBar.css" text="Se connecter ">
