@@ -16,7 +16,7 @@
     <children>
         <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
             <children>
-                <Text fill="#59b462" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__card-title" text="Demande de credit ">
+                <Text fill="#59b462" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cheque__card-title" text="Demande de rdv ">
                     <font>
                         <Font name="Montserrat ExtraBold" size="19.0" />
                     </font>

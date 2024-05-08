@@ -126,7 +126,7 @@ public class AjouterCreditCard implements Initializable {
 
     @FXML
     void calculertaux(ActionEvent event) {
-        try {
+
             // Parse values from text fields
             Double montantValue = Double.parseDouble(montant.getText());
             Double mensualiteValue = Double.parseDouble(Email.getText());
@@ -137,11 +137,7 @@ public class AjouterCreditCard implements Initializable {
 
             // Set the calculated interest rate to the taux field
             taux.setText(String.valueOf(interestRate));
-        } catch (NumberFormatException e) {
-            // Handle parsing errors (e.g., invalid input format)
-            System.err.println("Error parsing input values: " + e.getMessage());
-            // You may want to display an error message to the user
-        }
+
     }
     @FXML
     void calculerfraisretard(ActionEvent event) {
@@ -237,6 +233,7 @@ public class AjouterCreditCard implements Initializable {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClientUser.fxml"));
             Parent addArticleParent = loader.load();
+            System.out.println("okkk");
 
             // Récupération du contrôleur de la vue d'ajout d'article
 

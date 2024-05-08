@@ -162,7 +162,7 @@ public class DemandeCreditListClient implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        System.out.println("xiii");
         for (Credit credit : list) {
             try {
                 System.out.println(credit);

@@ -1,4 +1,6 @@
 package controllers.Credit;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.security.GeneralSecurityException;
 import java.sql.*;
 
@@ -193,11 +195,36 @@ public class CreditItems implements Initializable {
 
         return rdvid != null ? rdvid : -1;
     }
+    private String readHTMLFile(String filePath) throws IOException {
+        StringBuilder contentBuilder = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                contentBuilder.append(line).append("\n");
+            }
+        }
+        return contentBuilder.toString();
+    }
+
     @FXML
     void approuvercredit(MouseEvent event) throws GeneralSecurityException, IOException, MessagingException {
         System.out.println("rrrrrrrrrrrrrrrr");
-        new GMailer().sendMail("subject","credit approuve ");
 
+        // Contenu de l'email
+        String emailContent = "Cher [Nom de l'emprunteur],\n\n" +
+                "Nous avons le plaisir de vous informer que votre demande de crédit a été approuvée avec succès. Félicitations!\n\n" +
+                "Détails de votre crédit approuvé :\n" +
+                "- Montant approuvé: [Montant approuvé]\n" +
+                "- Taux d'intérêt: [Taux d'intérêt]\n" +
+                "- Durée du prêt: [Durée du prêt]\n" +
+                "- Mensualités: [Mensualités]\n\n" +
+                "Veuillez consulter le contrat de prêt joint à cet e-mail pour plus de détails. Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter.\n\n" +
+                "Nous vous remercions de votre confiance en notre institution financière et nous sommes impatients de vous accompagner dans la réalisation de vos projets.\n\n" +
+                "Cordialement,\n" +
+                "[L'équipe de votre institution financière]";
+
+        // Envoyer l'email avec le contenu
+        new GMailer().sendMail("Approbation de crédit", emailContent);
     }
 
 

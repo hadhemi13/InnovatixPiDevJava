@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -28,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class dashboardClientcreditrdv implements Initializable  {
+public class dashboardClientcreditrdv implements Initializable {
 
     @FXML
     private Button ListeCheque;
@@ -57,7 +54,7 @@ public class dashboardClientcreditrdv implements Initializable  {
         Parent addArticleParent = loader.load();
 
         // Récupération du contrôleur de la vue d'ajout d'article
-       // DemandeCreditListClientUser demandeCreditListClient = loader.getController();
+        // DemandeCreditListClientUser demandeCreditListClient = loader.getController();
 
         // Remplacer le contenu actuel par la vue d'ajout d'article
         content_area.getChildren().clear();
@@ -82,50 +79,63 @@ public class dashboardClientcreditrdv implements Initializable  {
     }
 
 
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // Récupérer la liste des crédits
         List<Credit> credits;
-
-        // Populate the list of credits (Assuming 'populateCredits' method exists)
-        ServiceCredit s=new ServiceCredit();
+        ServiceCredit serviceCredit = new ServiceCredit();
         try {
-            credits=s.afficher();
+            credits = serviceCredit.afficher();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        // Instantiate CreditService
-        ServiceCredit creditService = new ServiceCredit();
+        // Obtenir le nombre de crédits pour chaque année
+        Map<Integer, Integer> creditCountByYear = serviceCredit.countCreditsByYear(credits);
 
-        // Get the count of credits for each year
-        Map<Integer, Integer> creditCountByYear = creditService.countCreditsByYear(credits);
-
-        // Create axes
+        // Créer l'axe des abscisses
         CategoryAxis xAxis = new CategoryAxis();
-        xAxis.setLabel("Year");
-        NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Number of Credits");
+        xAxis.setLabel("Année");
 
-        // Create bar chart
+        // Créer l'axe des ordonnées
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Nombre de crédits");
+
+        // Créer le graphique en barres
         BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
 
-        // Prepare data series
+        // Préparer la série de données pour le graphique en barres
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
-        // Populate data series
+        // Remplir la série de données
         for (Map.Entry<Integer, Integer> entry : creditCountByYear.entrySet()) {
-            // Add data points to the series
             series.getData().add(new XYChart.Data<>(entry.getKey().toString(), entry.getValue()));
         }
 
-        // Add the series to the chart
+        // Ajouter la série au graphique en barres
         barChart.getData().add(series);
 
-        // Add the chart to the pane
-        content_area.getChildren().add(barChart);
+        // Créer le graphique circulaire (PieChart)
+        PieChart pieChart = new PieChart();
+
+        // Remplir le graphique circulaire avec les mêmes données que le graphique en barres
+        for (Map.Entry<Integer, Integer> entry : creditCountByYear.entrySet()) {
+            pieChart.getData().add(new PieChart.Data(entry.getKey().toString(), entry.getValue()));
+        }
+
+        // Créer des conteneurs pour les graphiques
+        VBox barChartContainer = new VBox(barChart);
+        VBox pieChartContainer = new VBox(pieChart);
+
+        // Ajouter les graphiques aux conteneurs
+        barChartContainer.setLayoutX(50); // Position en X pour le graphique en barres
+        barChartContainer.setLayoutY(50); // Position en Y pour le graphique en barres
+
+        pieChartContainer.setLayoutX(400); // Position en X pour le graphique circulaire
+        pieChartContainer.setLayoutY(50); // Position en Y pour le graphique circulaire
+
+        // Ajouter les conteneurs à votre disposition
+        content_area.getChildren().addAll( pieChartContainer);
     }
 
 }

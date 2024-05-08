@@ -85,6 +85,7 @@ public class DemandeCreditListClientUser  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServiceCredit serviceCredit = new ServiceCredit();
         List<Credit> list = new ArrayList<>();
+        System.out.println("gg"+list);
         try {
             list = serviceCredit.afficher();
         } catch (SQLException e) {

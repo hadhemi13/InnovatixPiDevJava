@@ -70,7 +70,8 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
                         rs.getInt("duree"),
                         rs.getDouble("fraisretard")));
             }
-            System.out.println(list);
+            System.out.println("zz"+
+                    list);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }

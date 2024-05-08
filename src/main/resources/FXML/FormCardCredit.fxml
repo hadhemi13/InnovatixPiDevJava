@@ -344,8 +344,11 @@
       </ScrollPane>
       <HBox prefHeight="242.0" prefWidth="1177.0">
          <children>
-            <Button fx:id="tauxbtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#calculertaux" onMouseClicked="#ajoutercredit" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: orange;" styleClass="cheque__add-new-chequetBtn" text="calculer taux" translateY="20.0" />
-            <Button fx:id="fraisbtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#calculerfraisretard" onMouseClicked="#ajoutercredit" prefHeight="44.0" prefWidth="126.0" style="-fx-background-color: orange;" styleClass="cheque__add-new-chequetBtn" text="calculer frais" translateY="20.0" />
+            <Button fx:id="tauxbtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#calculertaux" onMouseClicked="#ajoutercredit" prefHeight="44.0" prefWidth="128.0" style="-fx-background-color: orange;" text="calculer taux" translateY="20.0">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="fraisbtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#calculerfraisretard" onMouseClicked="#ajoutercredit" prefHeight="44.0" prefWidth="131.0" style="-fx-background-color: orange;" text="calculer frais" translateY="20.0" />
             <Button fx:id="addcreditbtn" mnemonicParsing="false" onMouseClicked="#ajoutercredit" prefHeight="42.0" prefWidth="253.0" styleClass="cheque__add-new-chequetBtn" text="AJOUTER" translateX="250.0" translateY="20.0" />
          </children>
       </HBox>
