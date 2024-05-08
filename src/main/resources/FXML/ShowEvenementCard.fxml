@@ -18,7 +18,6 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                         </rowConstraints>
                     </GridPane>
-
                     <GridPane layoutX="400.0" layoutY="115.0" fx:id="CommentsListContainer">
                         <rowConstraints>
                             <RowConstraints  minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>

@@ -126,7 +126,6 @@ public class OneEvenementListCardController {
                     getClass().getResource("/assets/style/alerts.css").toExternalForm());
             dialogPane.getStyleClass().add("my-dialog");
 
-
             ButtonType ouiButton = new ButtonType("Oui", ButtonBar.ButtonData.OK_DONE);
             ButtonType nonButton = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
             alert.getButtonTypes().setAll(ouiButton, nonButton);

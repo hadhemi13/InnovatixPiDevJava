@@ -35,19 +35,20 @@ public class OneEvenementListCardControllerfront {
 
     @FXML
     private Text pricefx;
+    @FXML
+    private Text pricefx1;
 
     @FXML
     private Text offrefx;
-
+    @FXML
+    private Text Datefx;
 
     @FXML
     private Text lieufx;
-
     @FXML
     private Text stockProduit;
     @FXML
     private HBox qrCodeEvenement;
-
     @FXML
     private HBox offerEvenement;
     @FXML
@@ -61,7 +62,9 @@ public class OneEvenementListCardControllerfront {
         descfx.setText(evenement.getDescription());
         lieufx.setText(evenement.getLieu());
         pricefx.setText(String.valueOf(evenement.getPrix()));
+        pricefx1.setText(String.valueOf(evenement.getPrix()));
         offrefx.setText(String.valueOf(evenement.getRemise()));
+        Datefx.setText(String.valueOf(evenement.getDateDebut()));
 
     }
 

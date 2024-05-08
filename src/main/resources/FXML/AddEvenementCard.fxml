@@ -358,7 +358,7 @@
                             <children>
                                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../java/assets/img/cloud-computing.png"/>
+                                        <Image url="@../assets/img/cloud-computing.png"/>
                                     </image>
                                 </ImageView>
                             </children>
@@ -438,7 +438,7 @@
                     </children>
                 </HBox>
                 <HBox fx:id="photoInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product"
-                      stylesheets="@../../java/assets/style/aliStyle.css">
+                      stylesheets="@../assets/style/aliStyle.css">
                     <children>
                         <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0"
                               styleClass="form_errors-product-point" text=".  " translateY="-15.0"

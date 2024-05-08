@@ -1,5 +1,6 @@
 package services;
 
+import Entities.Commentaire;
 import Entities.Evenement;
 import Entities.Project;
 import utils.DataSource;
@@ -187,6 +188,11 @@ public class ServiceProjet implements IService<Project> {
             }
         }
         return projets;
+    }
+
+    @Override
+    public List<Commentaire> show(int evenement_id) throws SQLException {
+        return null;
     }
 
     @Override

@@ -9,7 +9,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneEvenementListCardControllerfront">
     <children>
         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="371.0" prefWidth="951.0" styleClass="productDetails__Container">
@@ -129,7 +128,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__tag" text="1 Fev - 5 Fev" textAlignment="CENTER" />
+                        <Text fx:id="Datefx" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fundItem__tag" text="1 Fev - 5 Fev" textAlignment="CENTER" />
                      </children>
                   </HBox>
                         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0" prefWidth="622.0" styleClass="productDetails__price">
@@ -161,7 +160,7 @@
                             <children>
                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="79.0">
                                     <children>
-                                        <Text fx:id="priceBefore" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceBefore" text="260" />
+                                        <Text fx:id="pricefx1" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceBefore" text="260" />
                                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__priceTND" text="TND">
                                             <HBox.margin>
                                                 <Insets left="3.0" />

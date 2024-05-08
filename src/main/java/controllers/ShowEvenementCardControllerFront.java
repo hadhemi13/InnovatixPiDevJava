@@ -32,12 +32,12 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     @FXML
     private GridPane evenementsListContainerfront;
+
     @FXML
     private GridPane CommentsListContainer;
 
     @FXML
     private Pane content_area;
-
     @FXML
     private HBox categoriesModel;
 
@@ -127,11 +127,29 @@ public class ShowEvenementCardControllerFront implements Initializable {
 //        couponInputErrorHbox.setVisible(false);
 //        backToReductionBtn.setVisible(false);
 
+        this.setEvenementGridPaneList();
+        this.setCommentGridPaneList();
+
     }
 
-    private void setEvenementGridPaneList() throws SQLException {
+    private void setEvenementGridPaneList() {
         IService evenementService = new ServiceEvenement();
-        List<Evenement> evenements = evenementService.afficher();
+
+        List<Evenement> evenements = null;
+        if (Evenement.getSearchValue() == null) {
+            if (sortValue == 1) {
+                evenements = evenementService.sortEvent(1, -1);
+            } else {
+                try {
+                    evenements = evenementService.afficher();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        } else {
+            evenements = ServiceEvenement.searchEvenement(Evenement.getSearchValue());
+        }
         int column = 0;
         int row = 1;
         try {
@@ -153,9 +171,14 @@ public class ShowEvenementCardControllerFront implements Initializable {
         }
     }
 
-    private void setCommentGridPaneList() throws SQLException {
+    private void setCommentGridPaneList(){
         IService commentaireService = new ServiceCommentaire();
-        List<Commentaire> commentaires = commentaireService.afficher();
+        List<Commentaire> commentaires = null;
+        try {
+            commentaires = commentaireService.afficher();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         int column = 0;
         int row = 1;
         try {
@@ -179,8 +202,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     @FXML
     void searchEvenement() throws IOException, SQLException {
-        this.setEvenementGridPaneList();
-        this.setCommentGridPaneList();
+
     }
 
     @FXML

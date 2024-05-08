@@ -53,17 +53,17 @@ public class ServiceCommentaire implements IService<Commentaire> {
 
     @Override
     public void modifier(Commentaire commentaire) throws SQLException {
-        String query = "UPDATE commentaires SET contenu=?, date_creation=?, nomuser=?, img=? WHERE id=?";
-        try (PreparedStatement preparedStatement = (PreparedStatement) DataSource.getInstance().getCon().prepareStatement(query)) {
+        String query = "UPDATE commentaire SET contenu=?, date_creation=?, nomuser=?, img=?, likes=?, dislikes=?  WHERE id=?";
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query)) {
             preparedStatement.setString(1, commentaire.getContenu());
             preparedStatement.setString(2, commentaire.getDate());
             preparedStatement.setString(3, commentaire.getNomuser());
             preparedStatement.setString(4, commentaire.getImg());
-            preparedStatement.setInt(6, commentaire.getId()); // Assuming you have an id field in the commentaire class
+            preparedStatement.setInt(5, commentaire.getLikes()+1);
+            preparedStatement.setInt(6, commentaire.getDislikes());
             preparedStatement.executeUpdate();
         }
     }
-
     @Override
     public Evenement getOneEvenement(int idEvenement) throws SQLException {
         return null;
@@ -98,7 +98,33 @@ public class ServiceCommentaire implements IService<Commentaire> {
                 commentaire.setDate(resultSet.getString("date_creation"));
                 commentaire.setNomuser(resultSet.getString("nomuser"));
                 commentaire.setImg(resultSet.getString("img"));
+                commentaire.setEvenement_id(resultSet.getInt("evenement_id"));
+                commentaire.setDislikes(resultSet.getInt("dislikes"));
+                commentaire.setLikes(resultSet.getInt("likes"));
                 commentaires.add(commentaire);
+            }
+        }
+        return commentaires;
+    }
+
+
+    @Override
+    public List<Commentaire> show(int evenement_id) throws SQLException {
+        List<Commentaire> commentaires = new ArrayList<>();
+        String query = "SELECT * FROM commentaire WHERE evenement_id = ?";
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query)) {
+            preparedStatement.setInt(1, evenement_id);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Commentaire commentaire = new Commentaire();
+                    commentaire.setId(resultSet.getInt("id"));
+                    commentaire.setContenu(resultSet.getString("contenu"));
+                    commentaire.setDate(resultSet.getString("date_creation"));
+                    commentaire.setNomuser(resultSet.getString("nomuser"));
+                    commentaire.setImg(resultSet.getString("img"));
+                    commentaire.setEvenement_id(resultSet.getInt("evenement_id"));
+                    commentaires.add(commentaire);
+                }
             }
         }
         return commentaires;

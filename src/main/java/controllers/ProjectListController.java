@@ -76,10 +76,8 @@ public class ProjectListController implements Initializable {
     private static int projetIdToUpdate = 0;
     private static int projetIdToShow = 0;
     private static int filter = 0;
-
     @FXML
     private Pane content_area;
-
     public static int getupdateProjectModelShow() {
         return updateProjectModelShow;
     }

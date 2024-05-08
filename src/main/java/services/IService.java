@@ -5,6 +5,7 @@
  */
 package services;
 
+import Entities.Commentaire;
 import Entities.Evenement;
 
 import java.io.IOException;
@@ -21,6 +22,9 @@ public interface IService<T> {
   public void AddEvenenemtOffer(Evenement evenement);
   public void supprimer(int id) throws SQLException;
   public List<T> afficher() throws SQLException;
+
+  List<Commentaire> show(int evenement_id) throws SQLException;
+
   public T afficher1(int id) throws SQLException;
 
 }

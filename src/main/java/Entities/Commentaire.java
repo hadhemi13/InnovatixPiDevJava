@@ -2,6 +2,33 @@ package Entities;
 
 public class Commentaire {
   private int id;
+  private int evenement_id;
+  private int likes;
+  private int dislikes;
+
+  public int getLikes() {
+    return likes;
+  }
+
+  public void setLikes(int likes) {
+    this.likes = likes;
+  }
+
+  public int getDislikes() {
+    return dislikes;
+  }
+
+  public void setDislikes(int dislikes) {
+    this.dislikes = dislikes;
+  }
+
+  public int getEvenement_id() {
+    return evenement_id;
+  }
+
+  public void setEvenement_id(int evenement_id) {
+    this.evenement_id = evenement_id;
+  }
 
   private String contenu;
   private String date;

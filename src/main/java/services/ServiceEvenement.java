@@ -1,5 +1,6 @@
 package services;
 
+import Entities.Commentaire;
 import Entities.Evenement;
 import Entities.Project;
 import utils.DataSource;
@@ -79,7 +80,6 @@ public class ServiceEvenement implements IService<Evenement> {
         }
         return evenementList;
     }
-
     public static List<Evenement> searchEvenement(String search) {
         List<Evenement> evenements = new ArrayList<>();
         try {
@@ -89,7 +89,6 @@ public class ServiceEvenement implements IService<Evenement> {
             preparedStatement.setString(2, "%" + search + "%");
             preparedStatement.setString(3, "%" + search + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
-
             Stream<Evenement> stream = Stream.generate(() -> {
                 try {
                     if (resultSet.next()) {
@@ -218,7 +217,6 @@ public class ServiceEvenement implements IService<Evenement> {
         ps.close();
         return evenement;
     }
-
     @Override
     public void supprimer(int id) throws SQLException {
         String query = "DELETE FROM evenement WHERE id=?";
@@ -228,9 +226,6 @@ public class ServiceEvenement implements IService<Evenement> {
             System.out.println("Evenement supprimée avec succès");
         }
     }
-
-
-
     @Override
     public Evenement afficher1(int id) throws SQLException {
         String query = "SELECT * FROM evenement WHERE id = ?";
@@ -260,7 +255,6 @@ public class ServiceEvenement implements IService<Evenement> {
             }
         }
     }
-
     @Override
     public List<Evenement> afficher() throws SQLException {
         List<Evenement> evenements = new ArrayList<>();
@@ -286,5 +280,9 @@ public class ServiceEvenement implements IService<Evenement> {
             }
         }
         return evenements;
+    }
+    @Override
+    public List<Commentaire> show(int evenement_id) throws SQLException {
+        return null;
     }
 }

@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="722.0" styleClass="product-card" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneCommentListCardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="752.0" styleClass="product-card" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneCommentListCardController">
         <children>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="146.0" styleClass="product__list-imgContainer">
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="153.0" prefWidth="160.0" styleClass="product__list-imgContainer">
                 <children>
-                    <ImageView fx:id="img" fitHeight="130.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fx:id="img" fitHeight="144.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true">
                         <clip>
                             <Rectangle arcHeight="30" arcWidth="30" height="130" width="210" />
                         </clip>
@@ -133,7 +133,7 @@
                                         <children>
                                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
-                                                    <Image url="@../assets/img/view.png" />
+                                                    <Image url="@../assets/img/dis.png" />
                                                 </image>
                                             </ImageView>
                                         </children>
@@ -141,11 +141,11 @@
                                             <Insets left="6.0" />
                                         </HBox.margin>
                                     </HBox>
-                                    <HBox fx:id="deleteEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adddislike" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns1">
+                                    <HBox fx:id="ItemShowBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adddislike" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns1">
                                         <children>
                                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
-                                                    <Image url="@../assets/img/trash.png" />
+                                                    <Image url="@../assets/img/like.png" />
                                                 </image>
                                             </ImageView>
                                         </children>
@@ -159,6 +159,44 @@
                     </HBox>
 
                     <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="589.0">
+               <children>
+                  <Label />
+                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="349.0">
+                     <children>
+                        <HBox fx:id="categoryProduit1" styleClass="product__card-categ">
+                           <children>
+                              <Text fx:id="lieufx1" fill="#a61e1e" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title">
+                                 <font>
+                                    <Font name="Montserrat ExtraBold" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="42.0" prefWidth="191.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="171.0">
+                     <children>
+                        <Text fx:id="dislikef" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addlike" prefHeight="35.0" prefWidth="21.0">
+                           <HBox.margin>
+                              <Insets left="6.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <Text fx:id="likef" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
                 </children>
             </VBox>
         </children>

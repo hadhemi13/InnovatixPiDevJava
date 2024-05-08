@@ -106,8 +106,6 @@ public class ShowEvenementCardController implements Initializable {
         }
 
     }
-
-
     private void setEvenementGridPaneList() throws SQLException {
         IService evenementService = new ServiceEvenement();
         Evenement e1 = new Evenement();
@@ -115,6 +113,7 @@ public class ShowEvenementCardController implements Initializable {
         e1 = evenementService.getOneEvenement(Evenement.getIdEvenement());
 
         Evenement evenement = (Evenement) evenementService.afficher1(Evenement.getIdEvenement());
+
         int column = 0;
         int row = 1;
         try {
@@ -133,10 +132,12 @@ public class ShowEvenementCardController implements Initializable {
             e.printStackTrace();
         }
     }
-
     private void setCommentGridPaneList() throws SQLException {
+        IService evenementService = new ServiceEvenement();
+        Evenement evenement = (Evenement) evenementService.afficher1(Evenement.getIdEvenement());
+        System.out.println("comment code" + evenement.getId());
         IService commentaireService = new ServiceCommentaire();
-        List<Commentaire> commentaires = commentaireService.afficher();
+        List<Commentaire> commentaires = commentaireService.show(evenement.getId());
         int column = 0;
         int row = 1;
         try {

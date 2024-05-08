@@ -120,15 +120,13 @@ public class EvenementsListControllerfront implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        qrCodeImgModel.setVisible(false);
-        offreModel.setVisible(false);
-        reductionInputErrorHbox.setVisible(false);
-        couponForm.setVisible(false);
-        couponInputErrorHbox.setVisible(false);
-        backToReductionBtn.setVisible(false);
-
+//        qrCodeImgModel.setVisible(false);
+//        offreModel.setVisible(false);
+//        reductionInputErrorHbox.setVisible(false);
+//        couponForm.setVisible(false);
+//        couponInputErrorHbox.setVisible(false);
+//        backToReductionBtn.setVisible(false);
     }
-
     @FXML
     void searchEvenement() throws IOException, SQLException {
         this.setEvenementGridPaneList();
