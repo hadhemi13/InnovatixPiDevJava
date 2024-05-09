@@ -2,6 +2,7 @@ package tests;
 
 import Entities.Commentaire;
 import services.*;
+import utils.MyDatabase;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,26 +12,16 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args)throws IOException {
         MyDatabase myDataBase = new MyDatabase();
-
-
          IService serviceCommentaire =new ServiceCommentaire();
-
         Commentaire c1 =new Commentaire(8,"zaz bitch","2024-03-27 00:27:13","ayoub","eaea");
-
-
         try {
          serviceCommentaire.ajouter(c1);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     /* Test reclamation
         ServiceReclamation serviceReclamation = new ServiceReclamation();
-
-
         //Ajout
-
         Reclamation reclamation = new Reclamation();
         reclamation.setObjet_rec("Objet de la réclamation");
         reclamation.setContenu_rec("Contenu de la réclamation");
