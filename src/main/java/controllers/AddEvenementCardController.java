@@ -1,7 +1,6 @@
 package controllers;
 
 import Entities.Evenement;
-import Entities.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,13 +29,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -322,7 +317,7 @@ public class AddEvenementCardController implements Initializable {
     }
 
     private void switchToEvenementsList(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/EvenementsList.fxml"));
         Parent root = loader.load();
         Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
         contentArea.getChildren().clear();
@@ -362,7 +357,7 @@ public class AddEvenementCardController implements Initializable {
             serviceEvenement.modifier(evenement);
             showNotification("Evenement", "Événement mis à jour avec succès.", NotificationType.SUCCESS);
             switchToEvenementsList(event);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/EvenementsList.fxml"));
 
         } catch (DateTimeParseException e) {
             e.printStackTrace();

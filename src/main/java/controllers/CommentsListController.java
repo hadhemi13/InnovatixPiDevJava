@@ -1,7 +1,6 @@
 package controllers;
 
 import Entities.Commentaire;
-import Entities.Evenement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +20,6 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import services.IService;
 import services.ServiceCommentaire;
-import services.ServiceEvenement;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
@@ -136,7 +134,7 @@ public class CommentsListController implements Initializable {
         int row = 1;
         try {
             for (Commentaire commentaire : commentaires) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneCommentListCard.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/project/OneCommentListCard.fxml"));
                 HBox oneCommentCard = fxmlLoader.load();
                 OneCommentListCardController commentCardController = fxmlLoader.getController();
                 commentCardController.setCommentData(commentaire);
@@ -154,7 +152,7 @@ public class CommentsListController implements Initializable {
     }
     @FXML
     private void open_addComment(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddComment.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/AddComment.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -163,7 +161,7 @@ public class CommentsListController implements Initializable {
         TrayNotificationAlert.notif(title, message, type, AnimationType.POPUP, Duration.millis(2500));
     }
     private void switchToEvenementsList(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CommentsList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/CommentsList.fxml"));
         Parent root = loader.load();
         Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
         contentArea.getChildren().clear();

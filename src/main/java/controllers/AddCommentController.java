@@ -25,7 +25,7 @@ public class AddCommentController implements Initializable {
 
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/AddCommentCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/AddCommentCard.fxml"));
             VBox EvenementContainer1 = fxmlLoader1.load();
             AddCommentContainer.add(EvenementContainer1, 0, 1);
             GridPane.setMargin(EvenementContainer1, new Insets(0, 10, 25, 10));

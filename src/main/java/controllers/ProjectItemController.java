@@ -116,7 +116,7 @@ public class ProjectItemController {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ProjectsList.fxml"));
                 try {
                     Parent root = loader.load();
                     Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
@@ -131,7 +131,7 @@ public class ProjectItemController {
             System.out.println("project Name: " + project.getNomProjet());
             ProjectListController.setupdateProjectModelShow(1);
             ProjectListController.setprojectEmailToUpdate(project.getId());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ProjectsList.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
@@ -145,7 +145,7 @@ public class ProjectItemController {
             System.out.println("Project Name: " + project.getNomProjet());
             ProjectListController.setShowProjectModelShow(1);
             ProjectListController.setprojectEmailToUpdate(project.getId());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ProjectsList.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");

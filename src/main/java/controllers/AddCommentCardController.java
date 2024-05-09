@@ -202,7 +202,7 @@ public class AddCommentCardController implements Initializable {
             showNotification("Commentaire ", "Commentaire  ajouté avec succès.", NotificationType.SUCCESS);
             System.out.println("ID du Evenement : " + Evenement.getIdEvenement());
             Evenement.setIdEvenement(Evenement.getIdEvenement());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCard.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
@@ -251,7 +251,7 @@ public class AddCommentCardController implements Initializable {
     }
 
     private void switchToEvenementsList(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCardFront.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
         Parent root = loader.load();
         Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
         contentArea.getChildren().clear();
@@ -291,7 +291,7 @@ public class AddCommentCardController implements Initializable {
             serviceEvenement.modifier(evenement);
             showNotification("Evenement", "Événement mis à jour avec succès.", NotificationType.SUCCESS);
             switchToEvenementsList(event);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/EvenementsList.fxml"));
 
         } catch (DateTimeParseException e) {
             e.printStackTrace();

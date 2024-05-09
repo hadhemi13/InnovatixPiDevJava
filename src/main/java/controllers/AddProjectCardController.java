@@ -29,10 +29,8 @@ import utils.TrayNotificationAlert;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -269,7 +267,7 @@ public class AddProjectCardController implements Initializable {
                 serviceProject.ajouter(project);
                 TrayNotificationAlert.notif("Projet", "Projet ajouté avec succès!!!!",
                         NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ProjectsList.fxml"));
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
                 contentArea.getChildren().clear();

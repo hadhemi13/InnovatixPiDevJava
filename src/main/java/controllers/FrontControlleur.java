@@ -38,7 +38,7 @@ public class FrontControlleur {
 
     @FXML
     private void open_evenementsList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/EvenementsList.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/EvenementsList.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 

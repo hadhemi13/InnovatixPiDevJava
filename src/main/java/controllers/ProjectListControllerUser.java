@@ -105,7 +105,7 @@ public class ProjectListControllerUser implements Initializable {
     }
     @FXML
     private void open_ProjectList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsListUser.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ProjectsListUser.fxml"));
 
     }
 
@@ -144,7 +144,7 @@ public class ProjectListControllerUser implements Initializable {
         } else if (ProjectListControllerUser.getupdateProjectModelShow() == 1) {
             updateProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/updateProjectCard.fxml"));
             VBox updateProjectform;
             try {
                 updateProjectform = fxmlLoader1.load();
@@ -167,7 +167,7 @@ public class ProjectListControllerUser implements Initializable {
         } else if (ProjectListControllerUser.getShowProjectModelShow() == 1) {
             ShowProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/ShowProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/ShowProjectCard.fxml"));
             VBox ShowProjectform;
             try {
                 ShowProjectform = fxmlLoader1.load();
@@ -188,7 +188,7 @@ public class ProjectListControllerUser implements Initializable {
         } else if (ProjectListControllerUser.getaddProjectModelShow() == 1) {
             addProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/updateProjectCard.fxml"));
             VBox updateProjectform;
             try {
                 updateProjectform = fxmlLoader1.load();
@@ -209,7 +209,7 @@ public class ProjectListControllerUser implements Initializable {
             projectList = (ArrayList<Project>) projectService.getAllProject();
             for (int i = 0; i < projectList.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItemUser.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/FXML/project/ProjectItemUser.fxml"));
                 HBox projectItem = fxmlLoader.load();
                 ProjectItemController projectItemController = fxmlLoader.getController();
                 projectItemController.setprojectData(projectList.get(i));
@@ -238,7 +238,7 @@ public class ProjectListControllerUser implements Initializable {
         projectList = (ArrayList<Project>) projectService.getAllProject();
         for (int i = 0; i < projectList.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItemUser.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/FXML/project/ProjectItemUser.fxml"));
             HBox projectItem = fxmlLoader.load();
             ProjectItemController projectItemController = fxmlLoader.getController();
             projectItemController.setprojectData(projectList.get(i));
@@ -265,7 +265,7 @@ public class ProjectListControllerUser implements Initializable {
     @FXML
     private void open_addProject(MouseEvent event) throws IOException {
         Evenement.actionTest = 0;
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddProject.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/AddProject.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 

@@ -117,7 +117,7 @@ public class ShowEvenementCardController implements Initializable {
         int column = 0;
         int row = 1;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/project/OneEvenementListCardfront.fxml"));
             HBox oneEvenementCard = fxmlLoader.load();
             OneEvenementListCardControllerfront evenementCardController = fxmlLoader.getController();
             evenementCardController.setEvenementData(evenement);
@@ -142,7 +142,7 @@ public class ShowEvenementCardController implements Initializable {
         int row = 1;
         try {
             for (Commentaire commentaire : commentaires) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneCommentListCard.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/project/OneCommentListCard.fxml"));
                 HBox oneCommentCard = fxmlLoader.load();
                 OneCommentListCardController commentCardController = fxmlLoader.getController();
                 commentCardController.setCommentData(commentaire);

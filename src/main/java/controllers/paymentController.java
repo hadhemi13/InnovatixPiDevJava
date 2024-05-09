@@ -1,6 +1,5 @@
 package controllers;
 
-import Entities.User;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
@@ -15,8 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import services.UserService;
-import utils.UserSession;
 
 import java.io.IOException;
 import java.net.URL;
@@ -256,7 +253,7 @@ public class paymentController implements Initializable {
 
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/UsercommandsHeader.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/UsercommandsHeader.fxml"));
             HBox commandinfoCard = fxmlLoader1.load();
             // AdminCommandLivraisonCardController commandLivraisonController =
             // fxmlLoader1.getController();
@@ -265,28 +262,8 @@ public class paymentController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        User user = new User();
 
-        UserService userService = new UserService();
 
-        if (UserSession.getInstance().getEmail() == null) {
-
-            try {
-                user = userService.getOneUser("nabilkdp0@gmail.com");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            System.out.println(user.getId());
-
-        } else {
-            try {
-                user = userService.getOneUser(UserSession.getInstance().getEmail());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            System.out.println(user.getId());
-
-        }
 //        CommandsService commandsService = new CommandsService();
 //        Commands command = new Commands();
 //        command = commandsService.getOneCommand(user.getId());
@@ -405,36 +382,6 @@ public class paymentController implements Initializable {
 
     }
 
-    @FXML
-    void close_commandCheckoutModel(MouseEvent event) {
-        checkoutModel.setVisible(false);
-    }
-
-    @FXML
-    void open_checkoutModel(MouseEvent event) throws SQLException {
-
-        // récupérer user connecté
-        User user = new User();
-        UserService userService = new UserService();
-
-        if (UserSession.getInstance().getEmail() == null) {
-
-            try {
-                user = userService.getOneUser("nabilkdp0@gmail.com");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            // System.out.println(user.getId());
-
-        } else {
-            try {
-                user = userService.getOneUser(UserSession.getInstance().getEmail());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            // System.out.println(user.getId());
-
-        }
         // récupérer la commande courante
 //        CommandsService commandeservice = new CommandsService();
 //        Commands command = new Commands();
@@ -463,7 +410,7 @@ public class paymentController implements Initializable {
 //
 //        }
 
-    }
+
 
     @FXML
     void close_commandPaymentModel(MouseEvent event) {
@@ -1116,33 +1063,6 @@ public class paymentController implements Initializable {
     }
     // End contole de saisie checkout
 
-    @FXML
-    void ApplyCoupon(MouseEvent event) throws IOException, SQLException {
-        couponCode = Integer.parseInt(promoInput.getText());
-        User user = new User();
-
-        UserService userService = new UserService();
-
-        if (UserSession.getInstance().getEmail() == null) {
-
-            try {
-                user = userService.getOneUser("nabilkdp0@gmail.com");
-                email = user.getEmail();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            System.out.println(user.getId());
-
-        } else {
-            try {
-                user = userService.getOneUser(UserSession.getInstance().getEmail());
-                email = user.getEmail();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            System.out.println(user.getId());
-
-        }
 //        AchatsService achatsService = new AchatsService();
 //        if (achatsService.VerifUserCoupon(couponCode, user.getEmail()) == 1) {
 //            // paymentQuestion.setVisible(false);
@@ -1195,7 +1115,7 @@ public class paymentController implements Initializable {
 //                    NotificationType.ERROR, AnimationType.POPUP, Duration.millis(2500));
 //        }
 
-    }
+
 
     @FXML
     void close_couponModel(MouseEvent event) {

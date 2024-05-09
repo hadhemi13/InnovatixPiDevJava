@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -134,7 +133,7 @@ public class EvenementsListControllerfront implements Initializable {
 
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/AddEvenement.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -159,7 +158,7 @@ public class EvenementsListControllerfront implements Initializable {
         int row = 1;
         try {
             for (Evenement evenement : evenements) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/project/OneEvenementListCardfront.fxml"));
                 HBox oneEvenementCard = fxmlLoader.load();
                 OneEvenementListCardControllerfront evenementCardController = fxmlLoader.getController();
                 evenementCardController.setEvenementData(evenement);

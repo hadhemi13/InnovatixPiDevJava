@@ -22,7 +22,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import services.IService;
-import services.ServiceEvenement;
 import services.ServiceProjet;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -106,7 +105,7 @@ public class ProjectListController implements Initializable {
 
     @FXML
     private void open_ProjectList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ProjectsList.fxml"));
 
     }
 
@@ -145,7 +144,7 @@ public class ProjectListController implements Initializable {
         } else if (ProjectListController.getupdateProjectModelShow() == 1) {
             updateProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/updateProjectCard.fxml"));
             VBox updateProjectform;
             try {
                 updateProjectform = fxmlLoader1.load();
@@ -168,7 +167,7 @@ public class ProjectListController implements Initializable {
         } else if (ProjectListController.getShowProjectModelShow() == 1) {
             ShowProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/ShowProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/ShowProjectCard.fxml"));
             VBox ShowProjectform;
             try {
                 ShowProjectform = fxmlLoader1.load();
@@ -191,7 +190,7 @@ public class ProjectListController implements Initializable {
         } else if (ProjectListController.getaddProjectModelShow() == 1) {
             addProjectModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/updateProjectCard.fxml"));
             VBox updateProjectform;
             try {
                 updateProjectform = fxmlLoader1.load();
@@ -212,7 +211,7 @@ public class ProjectListController implements Initializable {
             projectList = (ArrayList<Project>) projectService.getAllProject();
             for (int i = 0; i < projectList.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/FXML/project/ProjectItem.fxml"));
                 HBox projectItem = fxmlLoader.load();
                 ProjectItemController projectItemController = fxmlLoader.getController();
                 projectItemController.setprojectData(projectList.get(i));
@@ -240,7 +239,7 @@ public class ProjectListController implements Initializable {
         projectList = (ArrayList<Project>) projectService.getAllProject();
         for (int i = 0; i < projectList.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/FXML/ProjectItem.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/FXML/project/ProjectItem.fxml"));
             HBox projectItem = fxmlLoader.load();
             ProjectItemController projectItemController = fxmlLoader.getController();
             projectItemController.setprojectData(projectList.get(i));
@@ -267,7 +266,7 @@ public class ProjectListController implements Initializable {
     @FXML
     private void open_addProject(MouseEvent event) throws IOException {
         Evenement.actionTest = 0;
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddProject.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/AddProject.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 

@@ -63,7 +63,7 @@ public class OneEvenementListCardControllerfront {
         showEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCard.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
@@ -91,7 +91,7 @@ public class OneEvenementListCardControllerfront {
             System.out.println("Add comment of this event : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
             Evenement.actionTest = 1;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AddComment.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/AddComment.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");

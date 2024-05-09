@@ -126,7 +126,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
 
     private void switchToEvenementsList(javafx.scene.input.MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCardFront.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
         Parent root = loader.load();
         Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
         contentArea.getChildren().clear();
@@ -188,7 +188,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
         int row = 1;
         try {
             for (Evenement evenement : evenements) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneEvenementListCardfront.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/project/OneEvenementListCardfront.fxml"));
                 HBox oneEvenementCard = fxmlLoader.load();
                 OneEvenementListCardControllerfront evenementCardController = fxmlLoader.getController();
                 evenementCardController.setEvenementData(evenement);
@@ -241,7 +241,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     @FXML
     private void open_addEvenement(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/AddEvenement.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/AddEvenement.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
     }

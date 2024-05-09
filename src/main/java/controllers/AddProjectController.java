@@ -25,7 +25,7 @@ public class AddProjectController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/AddProjectCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/AddProjectCard.fxml"));
             VBox ProjectContainer1 = fxmlLoader1.load();
             AddProjectContainer.add(ProjectContainer1, 0, 1);
             GridPane.setMargin(ProjectContainer1, new Insets(0, 10, 25, 10));

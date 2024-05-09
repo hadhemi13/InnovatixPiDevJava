@@ -18,7 +18,7 @@ public class MainPi extends Application {
         Parent root;
         try {
 
-            root = FXMLLoader.load(getClass().getResource("/FXML/AdminDashboard.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/FXML/project/AdminDashboard.fxml"));
 
 
             Scene scene = new Scene(root);

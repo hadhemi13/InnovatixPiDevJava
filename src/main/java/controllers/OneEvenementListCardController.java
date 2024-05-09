@@ -1,6 +1,5 @@
 package controllers;
 
-import Entities.Commentaire;
 import Entities.Evenement;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -20,13 +19,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import services.IService;
-import services.ServiceCommentaire;
 import services.ServiceEvenement;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
 
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -150,7 +147,7 @@ public class OneEvenementListCardController {
                     e.printStackTrace();
                 }
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EvenementsList.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/EvenementsList.fxml"));
                 try {
                     Parent root = loader.load();
 
@@ -177,7 +174,7 @@ public class OneEvenementListCardController {
             System.out.println("ID du Evenement à modifier : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
             Evenement.actionTest = 1;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AddEvenement.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/AddEvenement.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
@@ -191,7 +188,7 @@ public class OneEvenementListCardController {
         showEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCard.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");

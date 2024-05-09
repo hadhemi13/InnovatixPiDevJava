@@ -1,7 +1,6 @@
 package controllers;
 
 import Entities.Project;
-import Entities.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,8 +24,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceProjet;
-import services.UserService;
-import utils.UserSession;
 
 import java.io.IOException;
 import java.net.URL;
@@ -165,34 +162,13 @@ public class AdminDashboardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        User user;
-        UserService userService = new UserService();
+
         int indivNB = 0;
         int assocNB = 0;
         int activeNB = 0;
         int unActiveNB = 0;
 
-        try {
-            // user = userService.getOneUser(UserSession.getInstance().getEmail());
-            if (UserSession.getInstance().getEmail() == null) {
-                user = userService.getOneUser("nabilkdp0@gmail.com");
-            } else {
-                user = userService.getOneUser(UserSession.getInstance().getEmail());
-            }
-//            Image img = new Image("/FXML/assets/userUploads/" + user.getImgUrl());
-//            circle.setFill(new ImagePattern(img));
 
-            navFullname.setText(user.getFullname());
-
-            indivNB = userService.getIndivNB();
-            assocNB = userService.getAssociationNB();
-            activeNB = userService.getActiveNB();
-            unActiveNB = userService.getunActiveNB();
-
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
         // create the axes
         final CategoryAxis xAxis = new CategoryAxis();
@@ -372,7 +348,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void open_ProjectList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/ProjectsList.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ProjectsList.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -402,7 +378,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void open_commentaireList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/eventPayment.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/eventPayment.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -452,7 +428,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void open_evenementsList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/EvenementsList.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/EvenementsList.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
@@ -502,7 +478,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     private void open_evenementsListfront(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/EvenementsListfront.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/EvenementsListfront.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
         if (!frontbtn.getStyleClass().contains("activeLink")) {

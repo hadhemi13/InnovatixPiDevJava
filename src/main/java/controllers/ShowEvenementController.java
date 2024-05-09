@@ -25,7 +25,7 @@ public class ShowEvenementController implements Initializable {
 
         try {
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/project/ShowEvenementCard.fxml"));
             VBox EvenementContainer1 = fxmlLoader1.load();
             ShowEvenementContainer.add(EvenementContainer1, 0, 1);
             GridPane.setMargin(EvenementContainer1, new Insets(0, 10, 25, 10));

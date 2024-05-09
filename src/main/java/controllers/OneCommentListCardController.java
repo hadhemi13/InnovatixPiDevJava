@@ -1,28 +1,20 @@
 package controllers;
 import Entities.Commentaire;
-import Entities.Project;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
 import services.IService;
 import services.ServiceCommentaire;
-import services.ServiceProjet;
-import tray.animations.AnimationType;
-import tray.notification.NotificationType;
-import utils.TrayNotificationAlert;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 public class OneCommentListCardController {
     @FXML
@@ -63,7 +55,7 @@ public class OneCommentListCardController {
         Nomuser.setText(String.valueOf(comment.getNomuser()));
         ItemShowBtn.setOnMouseClicked(event -> {
             System.out.println("project Name: " + comment.getContenu());
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CommentsList.fxml"));
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/CommentsList.fxml"));
             try {
                 commentService.modifier(comment);
             } catch (SQLException e) {

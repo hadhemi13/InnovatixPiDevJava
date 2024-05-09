@@ -116,7 +116,7 @@ public class UpdateProjectCardController implements Initializable {
             TrayNotificationAlert.notif("Mettre à jour le projet", "Projet mis à jour avec succès.",
                     NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ProjectsList.fxml"));
             try {
                 Parent root = loader.load();
 

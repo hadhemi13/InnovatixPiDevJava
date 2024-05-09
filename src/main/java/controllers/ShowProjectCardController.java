@@ -7,8 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -117,7 +115,7 @@ public class ShowProjectCardController implements Initializable {
             TrayNotificationAlert.notif("Mettre à jour le projet", "Projet mis à jour avec succès.",
                     NotificationType.SUCCESS, AnimationType.POPUP, Duration.millis(2500));
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ProjectsList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ProjectsList.fxml"));
             try {
                 Parent root = loader.load();
 
