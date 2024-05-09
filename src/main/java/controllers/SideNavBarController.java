@@ -1,15 +1,7 @@
 package controllers;
 
-import Entities.User;
-import controllers.user.UserSession;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -21,6 +13,8 @@ import services.ServiceUser;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import java.io.IOException;
 
 public class SideNavBarController {
 
@@ -57,6 +51,7 @@ public class SideNavBarController {
     @FXML
     private Label comptesText;
 
+
     @FXML
     private HBox creditsBtn;
 
@@ -86,7 +81,6 @@ public class SideNavBarController {
 
     @FXML
     private HBox navBarLogout;
-
     @FXML
     private HBox recBtn;
 
@@ -192,4 +186,9 @@ public class SideNavBarController {
         }
     }
 
+    public void openRecList(MouseEvent mouseEvent) {
+    }
+
+    public void openArticleList(MouseEvent mouseEvent) {
+    }
 }

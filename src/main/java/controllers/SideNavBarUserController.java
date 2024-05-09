@@ -59,6 +59,18 @@ public class SideNavBarUserController implements Initializable {
     private Pane content_area;
 
     @FXML
+<<<<<<< HEAD
+=======
+    private HBox creditsBtn;
+
+    @FXML
+    private ImageView creditsIcon;
+
+    @FXML
+    private Label creditsText;
+
+    @FXML
+>>>>>>> origin/Ayoub
     private HBox dashboardBtn;
 
     @FXML
