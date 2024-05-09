@@ -19,13 +19,14 @@ public class OneEvenementListCardControllerfront {
 
     @FXML
     private ImageView img;
-
     @FXML
     private HBox deleteEvenement;
 
     @FXML
     private HBox editEvenement;
 
+    @FXML
+    private HBox addC;
     @FXML
     private Text productName;
 
@@ -53,8 +54,27 @@ public class OneEvenementListCardControllerfront {
     private HBox offerEvenement;
     @FXML
     private HBox priceHbox;
+    @FXML
+    private HBox showEvenement;
     IService EvenementService = new ServiceEvenement();
     public void setEvenementData(Evenement evenement) {
+
+        showEvenement.setId(String.valueOf(evenement.getId()));
+        showEvenement.setOnMouseClicked(event -> {
+            System.out.println("ID du Evenement : " + evenement.getId());
+            Evenement.setIdEvenement(evenement.getId());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCard.fxml"));
+            try {
+                Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
         Image image = new Image(
                 getClass().getResource("/assets/ProductUploads/" + evenement.getImg()).toExternalForm());
         img.setImage(image);
@@ -66,7 +86,23 @@ public class OneEvenementListCardControllerfront {
         offrefx.setText(String.valueOf(evenement.getRemise()));
         Datefx.setText(String.valueOf(evenement.getDateDebut()));
 
+        addC.setId(String.valueOf(evenement.getId()));
+        addC.setOnMouseClicked(event -> {
+            System.out.println("Add comment of this event : " + evenement.getId());
+            Evenement.setIdEvenement(evenement.getId());
+            Evenement.actionTest = 1;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/AddComment.fxml"));
+            try {
+                Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
+
 
 
 }

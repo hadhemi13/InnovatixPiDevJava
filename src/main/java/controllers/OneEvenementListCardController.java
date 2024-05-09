@@ -1,5 +1,6 @@
 package controllers;
 
+import Entities.Commentaire;
 import Entities.Evenement;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -11,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -22,11 +20,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import services.IService;
+import services.ServiceCommentaire;
 import services.ServiceEvenement;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import utils.TrayNotificationAlert;
 
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -82,7 +82,16 @@ public class OneEvenementListCardController {
 
     @FXML
     private Text priceBeforeOffer;
+    @FXML
+    private TextField nameInput;
+
+
+
     public void setEvenementData(Evenement evenement) {
+
+
+
+
         float prixApresOffre = 0;
         IService EvenementService = new ServiceEvenement();
 
@@ -159,14 +168,11 @@ public class OneEvenementListCardController {
         offerEvent.setOnMouseClicked(event -> {
             System.out.println("ID du evenement à créer une offre : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());
-
             HBox offreModel = (HBox) ((Node) event.getSource()).getScene().lookup("#offreModel");
             offreModel.setVisible(true);
-
         });
 
         editEvenement.setId(String.valueOf(evenement.getId()));
-
         editEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement à modifier : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());

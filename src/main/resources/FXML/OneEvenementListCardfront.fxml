@@ -9,7 +9,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneEvenementListCardControllerfront">
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="1179.0" style="-fx-background-color: #fff;" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.OneEvenementListCardControllerfront">
     <children>
         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="371.0" prefWidth="951.0" styleClass="productDetails__Container">
             <children>
@@ -156,7 +158,7 @@
                            </children></HBox>
                             </children>
                         </HBox>
-                        <HBox fx:id="offreRow" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="622.0">
+                        <HBox fx:id="offreRow" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="477.0">
                             <children>
                                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="79.0">
                                     <children>
@@ -179,6 +181,29 @@
                                         </Text>
                                     </children>
                                 </HBox>
+                        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="90.0">
+                           <children>
+                              <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" wrappingWidth="316.4619140625" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="addC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                           <children>
+                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../assets/img/giftbox.png" />
+                                          </image>
+                                      </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="showEvenement" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/img/view.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
                             </children>
                             <VBox.margin>
                                 <Insets bottom="10.0" />

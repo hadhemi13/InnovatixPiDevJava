@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -17,9 +18,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import services.IService;
 import services.ServiceCommentaire;
 import services.ServiceEvenement;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import utils.TrayNotificationAlert;
 
 import java.io.IOException;
 import java.net.URL;
@@ -112,12 +117,42 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     private static int categoryModelShow = 0;
     private String selectedOption = null;
-
+    @FXML
+    private TextField nameInput;
     public static int getCategoryModelShow() {
         return categoryModelShow;
     }
 
 
+
+    private void switchToEvenementsList(javafx.scene.input.MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ShowEvenementCardFront.fxml"));
+        Parent root = loader.load();
+        Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(root);
+    }
+    private void showNotification(String title, String message, NotificationType type) {
+        TrayNotificationAlert.notif(title, message, type, AnimationType.POPUP, Duration.millis(2500));
+    }
+    @FXML
+    void addNewComments(MouseEvent event) throws SQLException {
+        Commentaire commentaire = new Commentaire();
+
+
+        commentaire.setNomuser(nameInput.getText());
+        //commentaire.setContenu(ContenuInput.getText());
+        commentaire.setContenu("bitch");
+
+        IService serviceCommentaire = new ServiceCommentaire();
+        try {
+            serviceCommentaire.ajouter(commentaire);
+            showNotification("Commentaire ", "Commentaire  ajouté avec succès.", NotificationType.SUCCESS);
+            switchToEvenementsList(event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        qrCodeImgModel.setVisible(false);
@@ -128,10 +163,9 @@ public class ShowEvenementCardControllerFront implements Initializable {
 //        backToReductionBtn.setVisible(false);
 
         this.setEvenementGridPaneList();
-        this.setCommentGridPaneList();
+     //   this.setCommentGridPaneList();
 
     }
-
     private void setEvenementGridPaneList() {
         IService evenementService = new ServiceEvenement();
 
@@ -171,34 +205,34 @@ public class ShowEvenementCardControllerFront implements Initializable {
         }
     }
 
-    private void setCommentGridPaneList(){
-        IService commentaireService = new ServiceCommentaire();
-        List<Commentaire> commentaires = null;
-        try {
-            commentaires = commentaireService.afficher();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        int column = 0;
-        int row = 1;
-        try {
-            for (Commentaire commentaire : commentaires) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneCommentListCard.fxml"));
-                HBox oneCommentCard = fxmlLoader.load();
-                OneCommentListCardController commentCardController = fxmlLoader.getController();
-                commentCardController.setCommentData(commentaire);
-                if (column == 1) {
-                    column = 0;
-                    ++row;
-                }
-                CommentsListContainer.add(oneCommentCard, column++, row);
-                GridPane.setMargin(oneCommentCard, new Insets(0, 10, 25, 10));
-                oneCommentCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void setCommentGridPaneList(){
+//        IService commentaireService = new ServiceCommentaire();
+//        List<Commentaire> commentaires = null;
+//        try {
+//            commentaires = commentaireService.afficher();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        int column = 0;
+//        int row = 1;
+//        try {
+//            for (Commentaire commentaire : commentaires) {
+//                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/OneCommentListCard.fxml"));
+//                HBox oneCommentCard = fxmlLoader.load();
+//                OneCommentListCardController commentCardController = fxmlLoader.getController();
+//                commentCardController.setCommentData(commentaire);
+//                if (column == 1) {
+//                    column = 0;
+//                    ++row;
+//                }
+//                CommentsListContainer.add(oneCommentCard, column++, row);
+//                GridPane.setMargin(oneCommentCard, new Insets(0, 10, 25, 10));
+//                oneCommentCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @FXML
     void searchEvenement() throws IOException, SQLException {

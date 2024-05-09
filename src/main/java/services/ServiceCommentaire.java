@@ -18,7 +18,7 @@ public class ServiceCommentaire implements IService<Commentaire> {
 
     @Override
     public void ajouter(Commentaire commentaire )throws SQLException, IOException {
-        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img) VALUES (?, ?, ?, ?)")) {
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img,evenement_id) VALUES (?, ?, ?, ?, ?)")) {
             String content =commentaire.getContenu();
             //API
             OkHttpClient client = new OkHttpClient().newBuilder().build();
@@ -38,11 +38,11 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.setString(2, commentaire.getDate());
             preparedStatement.setString(3, commentaire.getNomuser());
             preparedStatement.setString(4, "ayoub.jpg");
+            preparedStatement.setInt(5, commentaire.getEvenement_id());
             preparedStatement.executeUpdate();
             System.out.println("Commentarie ajouté");
         }
     }
-
     @Override
     public void ajouter1(Commentaire commentaire, int projectId) throws SQLException {
     }
@@ -123,6 +123,8 @@ public class ServiceCommentaire implements IService<Commentaire> {
                     commentaire.setNomuser(resultSet.getString("nomuser"));
                     commentaire.setImg(resultSet.getString("img"));
                     commentaire.setEvenement_id(resultSet.getInt("evenement_id"));
+                    commentaire.setDislikes(resultSet.getInt("dislikes"));
+                    commentaire.setLikes(resultSet.getInt("likes"));
                     commentaires.add(commentaire);
                 }
             }
