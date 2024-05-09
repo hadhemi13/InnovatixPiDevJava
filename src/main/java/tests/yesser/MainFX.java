@@ -1,4 +1,4 @@
-package tests;
+package tests.yesser;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

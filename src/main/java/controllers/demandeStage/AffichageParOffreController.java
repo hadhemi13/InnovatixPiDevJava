@@ -16,8 +16,6 @@ import services.ServiceDemandeStage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -64,7 +62,7 @@ public class AffichageParOffreController implements Initializable {
     public void RetourBack(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardNavBar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/YesserTest/CardNavBar.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin

@@ -13,13 +13,13 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsBackController">
     <children>
-        <ScrollPane prefHeight="900.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
+        <ScrollPane prefHeight="900.0" prefWidth="1100.0" stylesheets="@../../css/yesser/SideNavBar.css">
             <content>
                 <VBox prefHeight="1300.0" prefWidth="1370.0" styleClass="userProductCard">
                     <children>
-                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="153.0" prefWidth="1354.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
+                        <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="153.0" prefWidth="1354.0" styleClass="userProductCard-name" stylesheets="@../../css/yesser/SideNavBar.css">
                             <children>
-                        <Button fx:id="recommender" mnemonicParsing="false" onAction="#recommander" prefHeight="43.0" prefWidth="177.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Recommender " translateX="140.0" translateY="20.0" />
+                        <Button fx:id="recommender" mnemonicParsing="false" onAction="#recommander" prefHeight="43.0" prefWidth="177.0" styleClass="sort__stockBtn" stylesheets="@../../css/yesser/SideNavBar.css" text="Recommender " translateX="140.0" translateY="20.0" />
                                 <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique " textAlignment="CENTER" translateX="-90.0" translateY="-50.0" wrappingWidth="319.4749450683594">
                                     <font>
                                         <Font name="Agency FB" size="21.0" />
@@ -195,25 +195,25 @@
                             <children>
                                 <HBox prefHeight="62.0" prefWidth="1334.0">
                                     <children>
-                                        <Button fx:id="Postuler" mnemonicParsing="false" prefHeight="54.0" prefWidth="300.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="550.0" />
+                                        <Button fx:id="Postuler" mnemonicParsing="false" prefHeight="54.0" prefWidth="300.0" styleClass="sort__stockBtn" stylesheets="@../../css/yesser/SideNavBar.css" text="Postuler Maintenant" translateX="550.0" />
                                     </children>
                                 </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" translateX="600.0" translateY="40.0">
                            <children>
-                              <Button fx:id="delete" mnemonicParsing="false" styleClass="Refus__card-btns" stylesheets="@../../css/SideNavBar.css" translateX="40.0">
+                              <Button fx:id="delete" mnemonicParsing="false" styleClass="Refus__card-btns" stylesheets="@../../css/yesser/SideNavBar.css" translateX="40.0">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../img/trash.png" />
+                                          <Image url="@../../imgYesser/trash.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button fx:id="Edit" mnemonicParsing="false" styleClass="product__card-btns" stylesheets="@../../css/SideNavBar.css" translateX="80.0">
+                              <Button fx:id="Edit" mnemonicParsing="false" styleClass="product__card-btns" stylesheets="@../../css/yesser/SideNavBar.css" translateX="80.0">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../img/edit.png" />
+                                          <Image url="@../../imgYesser/edit.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>

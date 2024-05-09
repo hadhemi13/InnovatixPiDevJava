@@ -98,11 +98,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tests.CurrencyConverterController;
+import tests.yesser.CurrencyConverterController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -117,7 +116,7 @@ public class CurrencyConverterApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/currency_converter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/YesserTest/currency_converter.fxml"));
         AnchorPane root = loader.load();
         CurrencyConverterController controller = loader.getController();
 

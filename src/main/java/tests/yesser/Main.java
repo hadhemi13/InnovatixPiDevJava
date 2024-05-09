@@ -1,25 +1,10 @@
-package tests;
+package tests.yesser;
 
-import Entities.Contrat;
-import Entities.DemandeStage;
-import Entities.OffreDeStage;
-import Entities.Stage;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import services.*;
-import utils.MyDatabase;
 
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {

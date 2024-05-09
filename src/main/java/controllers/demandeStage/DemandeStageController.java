@@ -1,37 +1,28 @@
 package controllers.demandeStage;
 
 import Entities.DemandeStage;
-import controllers.offreDeStage.Recrutement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 //import javafx.scene.web.WebView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceDemandeStage;
 import services.Upload;
-import services.ValidatorOffre;
-import utils.MyDatabase;
+import utils.yesser.MyDatabase;
 
 import java.net.URL;
-import java.nio.file.Path;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.UUID;
 
 //import static controllers.offreDeStage.Recrutement.pane;
 //import javafx.scene.web.WebView;

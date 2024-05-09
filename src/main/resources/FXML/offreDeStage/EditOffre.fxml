@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="622.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.EditOffreController">
     <children>
-        <VBox layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="1084.0" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
+        <VBox layoutX="10.0" layoutY="10.0" prefHeight="622.0" prefWidth="1084.0" styleClass="productAddedToCart__card" stylesheets="@../../css/yesser/SideNavBar.css">
             <children>
                 <HBox prefHeight="52.0" prefWidth="570.0" translateX="230.0">
                     <children>
@@ -40,7 +40,7 @@
                                     <children>
                                         <HBox maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="622.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Title">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Title">
                                                     <HBox.margin>
                                                         <Insets bottom="15.0" left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -52,8 +52,8 @@
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
                                  <stylesheets>
-                                    <URL value="@../../css/ajout.css" />
-                                    <URL value="@../../css/SideNavBar.css" />
+                                    <URL value="@../../css/yesser/ajout.css" />
+                                    <URL value="@../../css/yesser/SideNavBar.css" />
                                  </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="40.0" prefWidth="701.0">
@@ -71,7 +71,7 @@
                                     <children>
                                         <HBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="686.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Domaine">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Domaine">
                                                     <HBox.margin>
                                                         <Insets bottom="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -81,7 +81,7 @@
                                                 <Insets left="15.0" />
                                             </VBox.margin>
                                         </HBox>
-                                        <TextField fx:id="domaine" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir le domaine" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="domaine" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir le domaine" styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
@@ -101,14 +101,14 @@
                                     <children>
                                         <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="702.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Type des Offres ">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Type des Offres ">
                                                     <HBox.margin>
                                                         <Insets bottom="15.0" left="15.0" top="15.0" />
                                                     </HBox.margin>
                                                 </Label>
                                             </children>
                                         </HBox>
-                              <ComboBox fx:id="type" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="322.0" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                              <ComboBox fx:id="type" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="322.0" styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="20.0" />
                                  </VBox.margin>
@@ -130,7 +130,7 @@
                                     <children>
                                         <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="702.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Poste Proposé ">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Poste Proposé ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -140,7 +140,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="poste" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="596.0" promptText="saisir le poste proposé " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="poste" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="596.0" promptText="saisir le poste proposé " styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
@@ -160,14 +160,14 @@
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Expérience ">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Expérience ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="6.0" />
                                                     </HBox.margin>
                                                 </Label>
                                             </children>
                                         </HBox>
-                              <ComboBox fx:id="experience" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="322.0" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                              <ComboBox fx:id="experience" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="322.0" styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="15.0" right="20.0" />
                                  </VBox.margin>
@@ -194,7 +194,7 @@
                                         <Insets top="15.0" />
                                     </VBox.margin>
                                     <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" stylesheets="@../../css/SideNavBar.css">
+                              <HBox prefHeight="100.0" prefWidth="200.0" stylesheets="@../../css/yesser/SideNavBar.css">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="stage-input-label" text="Niveau " translateX="12.0">
                                        <font>
@@ -212,7 +212,7 @@
 <!--                                                </Label>-->
 <!--                                            </children>-->
 <!--                                        </HBox>-->
-                                        <TextField fx:id="niveau" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir le niveau " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="niveau" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir le niveau " styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
@@ -232,7 +232,7 @@
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="la language " />
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="la language " />
                                             </children>
                                         </HBox>
                                         <TextField fx:id="language" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir la language " styleClass="product__add-input">
@@ -240,8 +240,8 @@
                                                 <Insets right="20.0" top="15.0" />
                                             </VBox.margin>
                                  <stylesheets>
-                                    <URL value="@../../css/ajout.css" />
-                                    <URL value="@../../css/SideNavBar.css" />
+                                    <URL value="@../../css/yesser/ajout.css" />
+                                    <URL value="@../../css/yesser/SideNavBar.css" />
                                  </stylesheets>
                                         </TextField>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -272,7 +272,7 @@
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="description" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir la description " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="description" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir la description " styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -292,14 +292,14 @@
                                     <children>
                                         <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="626.0">
                                             <children>
-                                                <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="118.0" styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Exigence Offre ">
+                                                <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="118.0" styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Exigence Offre ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="exigence" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir l'exigence des offres " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="exigence" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="592.0" promptText="saisir l'exigence des offres " styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -315,14 +315,14 @@
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Mots Clés ">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Mots Clés ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="motsCles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="592.0" promptText="Saisir les Mots Clés " styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="motsCles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="592.0" promptText="Saisir les Mots Clés " styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="15.0" top="15.0" />
                                             </VBox.margin>
@@ -338,7 +338,7 @@
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="PFE Book">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="PFE Book">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -348,7 +348,7 @@
                               <ImageView fx:id="pfeImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateX="220.0" />
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="121.0" styleClass="userProductCard-btn" stylesheets="@../../css/SideNavBar.css" text="Importer " translateX="-20.0">
+                                                <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="121.0" styleClass="userProductCard-btn" stylesheets="@../../css/yesser/SideNavBar.css" text="Importer " translateX="-20.0">
                                                     <HBox.margin>
                                                         <Insets left="280.0" top="15.0" />
                                                     </HBox.margin>
@@ -362,7 +362,7 @@
                                         <Insets />
                                     </VBox.margin>
                                     <children>
-                                        <Button fx:id="updateOffre" mnemonicParsing="false" onAction="#updateOffre" prefHeight="32.0" prefWidth="92.0" styleClass="userProductCard-btn" stylesheets="@../../css/SideNavBar.css" text="Modifier">
+                                        <Button fx:id="updateOffre" mnemonicParsing="false" onAction="#updateOffre" prefHeight="32.0" prefWidth="92.0" styleClass="userProductCard-btn" stylesheets="@../../css/yesser/SideNavBar.css" text="Modifier">
                                             <HBox.margin>
                                                 <Insets bottom="15.0" left="294.0" top="30.0" />
                                             </HBox.margin>

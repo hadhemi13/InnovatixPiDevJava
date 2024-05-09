@@ -57,8 +57,8 @@
             </Text>
          </children>
          <stylesheets>
-            <URL value="@../../css/ajout.css" />
-            <URL value="@../../css/SideNavBar.css" />
+            <URL value="@../../css/yesser/ajout.css" />
+            <URL value="@../../css/yesser/SideNavBar.css" />
          </stylesheets>
       </HBox>
       <ScrollPane hbarPolicy="NEVER" layoutX="18.0" layoutY="93.0" prefHeight="520.0" prefWidth="1048.0" styleClass="user_listScrollPane">

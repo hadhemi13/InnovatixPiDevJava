@@ -1,4 +1,4 @@
-package tests;
+package tests.yesser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("/FXML/test.fxml"));
+        Parent root = loader.load(getClass().getResource("/FXML/YesserTest/testAAAA.fxml"));
         primaryStage.setTitle("Cours des actions en temps réel");
         primaryStage.setScene(new Scene(root, 300, 200));
         primaryStage.show();

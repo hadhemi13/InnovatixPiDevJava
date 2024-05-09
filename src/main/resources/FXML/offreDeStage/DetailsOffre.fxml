@@ -17,11 +17,11 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsOffreController">
     <children>
-      <ScrollPane prefHeight="816.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
+      <ScrollPane prefHeight="816.0" prefWidth="1100.0" stylesheets="@../../css/yesser/SideNavBar.css">
          <content>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1340.0" styleClass="userProductCard" translateX="10.0">
                <children>
-                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="1200.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
+                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="1200.0" styleClass="userProductCard-name" stylesheets="@../../css/yesser/SideNavBar.css">
                         <children>
                             <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique " textAlignment="CENTER" wrappingWidth="319.4749450683594">
                                 <font>
@@ -195,7 +195,7 @@
                      <children>
                         <HBox prefHeight="62.0" prefWidth="1334.0">
                            <children>
-                              <Button fx:id="Postuler" mnemonicParsing="false" onMouseClicked="#ouvrirdemande" prefHeight="54.0" prefWidth="704.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="300.0" />
+                              <Button fx:id="Postuler" mnemonicParsing="false" onMouseClicked="#ouvrirdemande" prefHeight="54.0" prefWidth="704.0" styleClass="checkoutCard__btn" stylesheets="@../../css/yesser/SideNavBar.css" text="Postuler Maintenant" translateX="300.0" />
                            </children>
                         </HBox>
                      </children>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="747.0" style="-fx-background-color: #fff;" styleClass="productDetails__Container" stylesheets="@../../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.RatingController">
+<VBox fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="747.0" style="-fx-background-color: #fff;" styleClass="productDetails__Container" stylesheets="@../../assets/yesser/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.RatingController">
     <children>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="150.0" prefWidth="1110.0">
             <children>
@@ -36,27 +36,27 @@
                                     <children>
                                         <ImageView fx:id="reviewsBox_star1" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../assets/img/star.png" />
+                                                <Image url="@../../assets/yesser/img/star.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="reviewsBox_star2" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../assets/img/star.png" />
+                                                <Image url="@../../assets/yesser/img/star.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="reviewsBox_star3" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../assets/img/star.png" />
+                                                <Image url="@../../assets/yesser/img/star.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="reviewsBox_star4" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../assets/img/star.png" />
+                                                <Image url="@../../assets/yesser/img/star.png" />
                                             </image>
                                         </ImageView>
                                         <ImageView fx:id="reviewsBox_star5" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../assets/img/star.png" />
+                                                <Image url="@../../assets/yesser/img/star.png" />
                                             </image>
                                         </ImageView>
                                     </children>

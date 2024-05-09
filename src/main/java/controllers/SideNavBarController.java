@@ -113,7 +113,7 @@ public class SideNavBarController {
     public void CardAdmin(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardNavBar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/YesserTest/CardNavBar.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu

@@ -2,34 +2,24 @@ package controllers.demandeStage;
 
 import Entities.DemandeStage;
 //import javafx.fxml.Initializable;
-import Entities.OffreDeStage;
-import controllers.offreDeStage.OffreStageItem;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import services.ServiceDemandeStage;
-import services.ServiceOffreDeStage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
-
-import static java.time.zone.ZoneRulesProvider.refresh;
 
 public class AfficheDemandeController implements Initializable {
 
@@ -81,7 +71,7 @@ public class AfficheDemandeController implements Initializable {
     public void RetourBack(MouseEvent mouseEvent) {
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/CardNavBar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/YesserTest/CardNavBar.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu de listArticleAdmin

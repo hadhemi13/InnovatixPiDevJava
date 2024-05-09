@@ -21,15 +21,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../css/ajout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.AfficheDemandeController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../css/yesser/ajout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.AfficheDemandeController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
          <children>
-            <Button fx:id="RetourS" mnemonicParsing="false" onMouseClicked="#RetourBack" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css">
+            <Button fx:id="RetourS" mnemonicParsing="false" onMouseClicked="#RetourBack" styleClass="checkoutCard__btn" stylesheets="@../../css/yesser/SideNavBar.css">
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../img/back (1).png" />
+                        <Image url="@../../imgYesser/back (1).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -46,10 +46,10 @@
                   <Insets top="5.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../../img/magnifier.png" />
+                  <Image url="@../../imgYesser/magnifier.png" />
                </image>
             </ImageView>
-            <TextField styleClass="product__list-searchInput" stylesheets="@../../css/SideNavBar.css" translateX="40.0">
+            <TextField styleClass="product__list-searchInput" stylesheets="@../../css/yesser/SideNavBar.css" translateX="40.0">
                <padding>
                   <Insets left="37.0" right="40.0" />
                </padding>
@@ -66,7 +66,7 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="134.0" onAction="#statusChange" prefHeight="40.0" prefWidth="167.0" promptText="All" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css" translateX="30.0">
+            <ComboBox fx:id="statusInput" maxHeight="-Infinity" minHeight="-Infinity" minWidth="134.0" onAction="#statusChange" prefHeight="40.0" prefWidth="167.0" promptText="All" styleClass="product__add-comboBox" stylesheets="@../../css/yesser/SideNavBar.css" translateX="30.0">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -115,8 +115,8 @@
             </Text>
          </children>
          <stylesheets>
-            <URL value="@../../css/ajout.css" />
-            <URL value="@../../css/SideNavBar.css" />
+            <URL value="@../../css/yesser/ajout.css" />
+            <URL value="@../../css/yesser/SideNavBar.css" />
          </stylesheets>
       </HBox>
       <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="167.0" prefHeight="449.0" prefWidth="1023.0" styleClass="user_listScrollPane">

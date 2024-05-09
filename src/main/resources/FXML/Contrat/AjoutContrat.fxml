@@ -33,13 +33,13 @@
                 <Line endX="488.0" startX="-100.0" stroke="#defee6" translateX="250.0" />
                 <ScrollPane prefHeight="700.0" prefWidth="630.0" style="-fx-background-color: white;">
                     <content>
-                        <VBox prefHeight="622.0" prefWidth="600.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css" translateX="250.0">
+                        <VBox prefHeight="622.0" prefWidth="600.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/yesser/SideNavBar.css" translateX="250.0">
                             <children>
                                 <VBox prefHeight="111.0" prefWidth="701.0">
                                     <children>
                                         <HBox prefHeight="18.0" prefWidth="687.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Date Début">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Date Début">
                                                     <HBox.margin>
                                                         <Insets bottom="15.0" left="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -49,7 +49,7 @@
                                     <Insets top="15.0" />
                                  </VBox.margin>
                                         </HBox>
-                              <DatePicker fx:id="Date" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                              <DatePicker fx:id="Date" styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin>
@@ -69,7 +69,7 @@
                                     <children>
                                         <HBox prefHeight="31.0" prefWidth="686.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Durée">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Durée">
                                                     <HBox.margin>
                                                         <Insets bottom="15.0" top="15.0" />
                                                     </HBox.margin>
@@ -84,8 +84,8 @@
                                                 <Insets left="15.0" right="20.0" />
                                             </VBox.margin>
                                  <stylesheets>
-                                    <URL value="@../../css/ajout.css" />
-                                    <URL value="@../../css/SideNavBar.css" />
+                                    <URL value="@../../css/yesser/ajout.css" />
+                                    <URL value="@../../css/yesser/SideNavBar.css" />
                                  </stylesheets>
                                         </TextField>
                                         <HBox fx:id="DureeInputErrorHbox" prefHeight="100.0" prefWidth="200.0">
@@ -103,14 +103,14 @@
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Date fin">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Date fin">
                                                     <HBox.margin>
                                                         <Insets bottom="15.0" left="15.0" top="15.0" />
                                                     </HBox.margin>
                                                 </Label>
                                             </children>
                                         </HBox>
-                              <DatePicker styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                              <DatePicker styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                  <VBox.margin>
                                     <Insets left="20.0" />
                                  </VBox.margin>
@@ -130,14 +130,14 @@
                                     <children>
                                         <HBox prefHeight="100.0" prefWidth="200.0">
                                             <children>
-                                                <Label styleClass="stage-input-label" stylesheets="@../../css/ajout.css" text="Nom Stagiaire ">
+                                                <Label styleClass="stage-input-label" stylesheets="@../../css/yesser/ajout.css" text="Nom Stagiaire ">
                                                     <HBox.margin>
                                                         <Insets left="15.0" top="15.0" />
                                                     </HBox.margin>
                                                 </Label>
                                             </children>
                                         </HBox>
-                                        <TextField fx:id="poste" promptText="saisir le nom de stagiaire" styleClass="product__add-input" stylesheets="@../../css/SideNavBar.css">
+                                        <TextField fx:id="poste" promptText="saisir le nom de stagiaire" styleClass="product__add-input" stylesheets="@../../css/yesser/SideNavBar.css">
                                             <VBox.margin>
                                                 <Insets left="15.0" right="20.0" top="15.0" />
                                             </VBox.margin>
@@ -155,7 +155,7 @@
                                 </VBox>
                                 <HBox prefHeight="53.0" prefWidth="687.0">
                                     <children>
-                                        <Button fx:id="ajouterContrat" mnemonicParsing="false" onAction="#ajouterContrat" prefHeight="46.0" prefWidth="103.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Ajouter" translateX="-50.0">
+                                        <Button fx:id="ajouterContrat" mnemonicParsing="false" onAction="#ajouterContrat" prefHeight="46.0" prefWidth="103.0" styleClass="sort__stockBtn" stylesheets="@../../css/yesser/SideNavBar.css" text="Ajouter" translateX="-50.0">
                                             <HBox.margin>
                                                 <Insets bottom="15.0" left="294.0" top="30.0" />
                                             </HBox.margin>

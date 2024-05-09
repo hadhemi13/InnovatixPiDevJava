@@ -10,7 +10,7 @@ public class MainChat extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/chat.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/YesserTest/chat.fxml"));
         primaryStage.setTitle("Chat Interface");
         primaryStage.setScene(new Scene(root, 400, 400));
         primaryStage.show();

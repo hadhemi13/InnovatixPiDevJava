@@ -2,13 +2,13 @@ package services;
 
 import Entities.OffreDeStage;
 import Entities.Stage;
-import utils.MyDatabase;
+import utils.yesser.MyDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceStage implements IService<Stage> {
+public class ServiceStage implements IServiceYesser<Stage> {
     private Connection connection;
     public ServiceStage() {
         connection = MyDatabase.getInstance().getConnection();

@@ -7,6 +7,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import services.Symfony;
+import utils.yesser.MyDatabase;
 
 import java.awt.*;
 import java.io.File;
@@ -85,7 +86,7 @@ public class DemandeStageItemController {
 //            System.out.println(offre.getId());
             // code lorsqu'approuve
             String updateQuery = "UPDATE demandestage SET etat = ? WHERE id = ?";
-            Connection connection = utils.MyDatabase.getInstance().getConnection(); // Reestablishing connection
+            Connection connection = MyDatabase.getInstance().getConnection(); // Reestablishing connection
             try (PreparedStatement st = connection.prepareStatement(updateQuery)) {
                 st.setString(1, "accepter");
                 st.setInt(2, offre.getId());
@@ -98,7 +99,7 @@ public class DemandeStageItemController {
         refuser.setOnMouseClicked(mouseEvent -> {
             // code lorsqu'il réfuse
             String updateQuery = "UPDATE demandestage SET etat = ? WHERE id = ?";
-            Connection connection = utils.MyDatabase.getInstance().getConnection(); // Reestablishing connection
+            Connection connection = MyDatabase.getInstance().getConnection(); // Reestablishing connection
             try (PreparedStatement st = connection.prepareStatement(updateQuery)) {
                 st.setString(1, "refuser");
                 st.setInt(2, offre.getId());

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="1340.0" styleClass="yesser" stylesheets="@../../css/ajout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageVisiteurItemController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="1340.0" styleClass="yesser" stylesheets="@../../css/yesser/ajout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.OffreStageVisiteurItemController">
    <children>
       <Text fx:id="Titre" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique H/R" textAlignment="CENTER" translateX="140.0" wrappingWidth="438.2734375">
          <font>
@@ -36,7 +36,7 @@
       </HBox>
       <HBox prefHeight="58.0" prefWidth="1340.0">
          <children>
-            <Button fx:id="details" mnemonicParsing="false" prefHeight="17.0" prefWidth="238.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Détails" translateX="560.0" />
+            <Button fx:id="details" mnemonicParsing="false" prefHeight="17.0" prefWidth="238.0" styleClass="sort__stockBtn" stylesheets="@../../css/yesser/SideNavBar.css" text="Détails" translateX="560.0" />
          </children>
          <VBox.margin>
             <Insets />
