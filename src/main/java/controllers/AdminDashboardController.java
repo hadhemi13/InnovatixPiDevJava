@@ -1,6 +1,7 @@
 package controllers;
 
 import Entities.Project;
+import controllers.user.UserSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -506,7 +507,7 @@ public class AdminDashboardController implements Initializable {
     @FXML
     void logout(MouseEvent event) throws IOException {
         UserSession.getInstance().cleanUserSession();
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/userInterfaces/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceUser;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -59,8 +60,7 @@ public class SideNavBarUserController implements Initializable {
     private Pane content_area;
 
     @FXML
-<<<<<<< HEAD
-=======
+
     private HBox creditsBtn;
 
     @FXML
@@ -70,7 +70,6 @@ public class SideNavBarUserController implements Initializable {
     private Label creditsText;
 
     @FXML
->>>>>>> origin/Ayoub
     private HBox dashboardBtn;
 
     @FXML
@@ -221,7 +220,10 @@ public class SideNavBarUserController implements Initializable {
     public void open_evenement(MouseEvent mouseEvent) {
     }
 
-    public void openInv(MouseEvent mouseEvent) {
+    public void openInv(MouseEvent mouseEvent) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ProjectsListUser.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
     }
 
     public void open_notifModel(MouseEvent mouseEvent) {

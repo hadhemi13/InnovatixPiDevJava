@@ -1,11 +1,11 @@
 package services;
 
+import Entities.User;
+
 import java.sql.SQLException;
 import java.util.List;
 
-import Entities.User;
-
-public interface Iservice <T> {
+public interface IserviceUser <T>{
     public void ajouter(T t) throws SQLException;
     public void modifier(T t) throws SQLException;
     public void supprimer(T t) throws SQLException;
@@ -19,4 +19,3 @@ public interface Iservice <T> {
 
     boolean isEmailUsed(String email);
 }
-

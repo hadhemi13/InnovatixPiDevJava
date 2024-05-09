@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceUser  implements Iservice<User>{
+public class ServiceUser  implements IserviceUser<User> {
     static Connection connection;
     public ServiceUser(){
         connection=MyDatabase.getInstance().getConnection();

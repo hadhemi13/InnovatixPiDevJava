@@ -39,6 +39,7 @@ import java.util.ResourceBundle;
 
 public class ProjectListControllerUser implements Initializable {
 
+    public TextField productSearchInput;
     @FXML
     private HBox updateProjectModel;
 

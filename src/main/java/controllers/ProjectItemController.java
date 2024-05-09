@@ -74,11 +74,13 @@ public class ProjectItemController {
 
     @FXML
     private ImageView projectItemUpdateBtnImg;
+    public static int AAHH;
 
     public void setprojectData(Project project) {
+        System.out.println(project);
         ProjectService projectService = new ProjectService();
         Image image = new Image(
-                getClass().getResource("../assets/projectUploads/" + project.getImg()).toExternalForm());
+                getClass().getResource("/assets/projectUploads/" + project.getImg()).toExternalForm());
         Itemimg.setImage(image);
         Rectangle clip = new Rectangle(
                 Itemimg.getFitWidth(), Itemimg.getFitHeight());
@@ -91,6 +93,7 @@ public class ProjectItemController {
         ItemBudget.setText(String.valueOf(project.getBudgetProjet()));
         LocalDateTime dateCreation = project.getDateCreation();
         ItemDateCreation.setText(dateCreation != null ? dateCreation.toString() : "");
+        System.out.println(project.getId());
         deleteProject.setId(String.valueOf(project.getId()));
 
         deleteProject.setOnMouseClicked(event -> {

@@ -1,7 +1,15 @@
 package controllers;
 
+import Entities.User;
+import controllers.user.UserSession;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -18,6 +26,9 @@ import java.io.IOException;
 
 public class SideNavBarController {
 
+    public Label evenementsText;
+    public ImageView evenementsIcon;
+    public HBox evenementsBtn;
     @FXML
     private Pane content_area;
 
@@ -185,10 +196,30 @@ public class SideNavBarController {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void open_ProjectList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ProjectsList.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
 
-    public void openRecList(MouseEvent mouseEvent) {
+        // set active class
+    }
+    @FXML
+    private void open_evenementsList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/EvenementsList.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
+
     }
 
-    public void openArticleList(MouseEvent mouseEvent) {
-    }
+
+
+
+
+
+
+
+
+
+
 }
