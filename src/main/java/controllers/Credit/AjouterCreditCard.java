@@ -216,7 +216,6 @@ public class AjouterCreditCard implements Initializable {
 
             // Récupération du contrôleur de la vue d'ajout d'article
 
-
             // Remplacer le contenu actuel par la vue d'ajout d'article
 
 
