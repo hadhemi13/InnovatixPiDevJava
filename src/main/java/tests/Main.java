@@ -20,11 +20,12 @@ public class Main {
 //       // serviceCheque.ajouterS(cheque);
 //       Cheque a = serviceCheque.getById(2234606);
 //        System.out.println("this : " + a);
-        ServiceVirement serviceVirement =new ServiceVirement();
-        VirementItemsAdmin virementItemsAdmin = new VirementItemsAdmin();
-        virementItemsAdmin.sendSMS(String.valueOf(2));
-        System.out.println("passe");
-
+//        ServiceVirement serviceVirement =new ServiceVirement();
+//        VirementItemsAdmin virementItemsAdmin = new VirementItemsAdmin();
+//        virementItemsAdmin.sendSMS(String.valueOf(2));
+//        System.out.println("passe");
+            YouSignService youSignService = new YouSignService();
+        youSignService.initiateSignatureRequest("Nom de la demande", "khaluiyesser@gmail.com");
 
         //System.out.println(serviceVirement.getById(1));
     }

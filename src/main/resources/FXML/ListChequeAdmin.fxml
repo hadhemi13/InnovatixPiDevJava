@@ -37,7 +37,7 @@
                                 <Insets left="10.0" top="26.0" />
                             </HBox.margin>
                         </Text>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="70.0">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="230.0">
                      <HBox.margin>
                         <Insets top="29.0" />
                      </HBox.margin>
@@ -45,7 +45,7 @@
                         <Image url="@../img/magnifier.png" />
                      </image>
                   </ImageView>
-                  <TextField prefWidth="221.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
+                  <TextField fx:id="ChequeclientsfSearchInputAdmin" onKeyReleased="#ChequeclientsfSearchInputAdmin" prefWidth="221.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>

@@ -23,8 +23,10 @@ import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -125,10 +127,9 @@ public class CompteItems implements Initializable {
 
 
     }
-    public void ApprouverCompte(MouseEvent mouseEvent) {
-        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte Bancaire ?")) {
-            updateCompteStatut("Approuvé");
-        }
+    public void ApprouverCompte(MouseEvent mouseEvent) throws GeneralSecurityException, IOException, MessagingException {
+
+        new MailingShayma().sendMail("Approbation de crédit", "ff");
     }
 
     public void RefuserCompte(MouseEvent mouseEvent) {

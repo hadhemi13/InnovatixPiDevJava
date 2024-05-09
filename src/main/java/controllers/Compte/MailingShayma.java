@@ -29,7 +29,7 @@ import static com.google.api.services.gmail.GmailScopes.GMAIL_SEND;
 import static javax.mail.Message.RecipientType.TO;
 
 public class MailingShayma {
-    private static final String TEST_EMAIL="shayma.ouerhani@esprit.tn";
+    private static final String TEST_EMAIL="ahmed.marzougui@esprit.tn";
     private final  Gmail service;
     public MailingShayma() throws GeneralSecurityException, IOException {
         //send email to u

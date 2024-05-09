@@ -25,6 +25,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceCheque;
+import javafx.scene.control.TextField;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -35,6 +37,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class DemandeChequeListClient  implements  Initializable {
+    @FXML
+    private TextField ChequeclientsfSearchInput;
 
     @FXML
     private TextField fxrecherches;
@@ -51,13 +55,17 @@ public class DemandeChequeListClient  implements  Initializable {
     private ComboBox<String> statusInput;
 
 
-
-//    @FXML
+    //    @FXML
 //    private TextField fxrecherche;
     @FXML
     private GridPane ChequeListContainer;
     @FXML
     private GridPane userListContainer;
+
+    @FXML
+    private VBox updateChequeModelContent;
+
+
 
 
     @FXML
@@ -75,8 +83,8 @@ public class DemandeChequeListClient  implements  Initializable {
     private static int updateChequeModelShow = 0;
     @FXML
     private HBox updateChequeModel;
-    @FXML
-    private VBox updateChequeModelContent;
+
+
 
     @FXML
     void AjouterC(MouseEvent event) throws IOException {
@@ -91,23 +99,27 @@ public class DemandeChequeListClient  implements  Initializable {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
     }
+
     public static void setupdateChequeModelShow(int updateChequeModelShow) {
         DemandeChequeListClient.updateChequeModelShow = updateChequeModelShow;
     }
+
     public static void setchequeEmailToUpdate(int chequeIdToUpdate) {
         DemandeChequeListClient.chequeIdToUpdate = chequeIdToUpdate;
     }
+
     public static int getupdateChequeModelShow() {
         return updateChequeModelShow;
     }
+
     public void statusChange(ActionEvent event) {
     }
+
     @FXML
     void close_updateChequeModel(MouseEvent event) {
         updateChequeModel.setVisible(false);
         updateChequeModelShow = 0;
     }
-
 
 
 //    @Override
@@ -144,7 +156,7 @@ public class DemandeChequeListClient  implements  Initializable {
             e.printStackTrace();
         }
         Refresh.setOnAction((ActionEvent event) -> {
-        //    ShowListe();
+            //    ShowListe();
         });
         if (DemandeChequeListClient.getupdateChequeModelShow() == 0) {
             updateChequeModel.setVisible(false);
@@ -264,7 +276,6 @@ public class DemandeChequeListClient  implements  Initializable {
     }
 
 
-
     public void RetourBackC(MouseEvent mouseEvent) {
 
         try {
@@ -278,6 +289,7 @@ public class DemandeChequeListClient  implements  Initializable {
             e.printStackTrace();
         }
     }
+
     public void SearchCheque(KeyEvent keyEvent) {
         String keyword = fxrecherches.getText().toLowerCase().trim(); // Récupérer le texte de la zone de recherche et le convertir en minuscules
 
@@ -328,6 +340,41 @@ public class DemandeChequeListClient  implements  Initializable {
     void close_updateProjectModel(MouseEvent event) {
         updateChequeModel.setVisible(false);
         updateChequeModelShow = 0;
+    }
+
+    public void ChequeclientsfSearchInput(KeyEvent keyEvent) throws SQLException {
+        ServiceCheque serviceCheque = new ServiceCheque(); // Créer une instance de ServiceCheque
+        String searchKeyword = ChequeclientsfSearchInput.getText();
+
+        if (searchKeyword.isEmpty()) {
+            // Si le mot-clé de recherche est vide, actualiser la liste des articles
+            refreshChequeList();
+        } else {
+            // Rechercher les articles en fonction de l'attribut et du mot-clé
+            List<Cheque> searchResults = serviceCheque.searchCheque(searchKeyword);
+
+            // Définir une fabrique de cellules personnalisée pour le GridPane
+            loadCheques(searchResults);
+        }
+    }
+
+    public void refreshChequeList() throws SQLException {
+        // Nettoyer le contenu actuel
+        userListContainer.getChildren().clear();
+
+        try {
+            // Créer une instance de ServiceCheque
+            ServiceCheque serviceCheque = new ServiceCheque();
+
+            // Charger à nouveau la liste des chèques depuis la base de données
+            List<Cheque> cheques = serviceCheque.afficher();
+
+            // Charger à nouveau les cartes de chèques dans le conteneur
+            loadCheques(cheques);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gérer l'exception appropriée ici
+        }
     }
 }
 

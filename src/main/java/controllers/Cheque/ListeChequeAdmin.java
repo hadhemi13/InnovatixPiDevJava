@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -24,6 +26,8 @@ public class ListeChequeAdmin implements Initializable {
     private VBox ChequeContainer;
     @FXML
     private Pane content_area;
+    @FXML
+    private TextField ChequeclientsfSearchInputAdmin;
 
     private static ListeChequeAdmin instance;
 
@@ -102,5 +106,8 @@ public class ListeChequeAdmin implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void ChequeclientsfSearchInputAdmin(KeyEvent keyEvent) {
     }
 }

@@ -41,7 +41,7 @@
                         <Image url="@../img/magnifier.png" />
                     </image>
                 </ImageView>
-                <TextField fx:id="" onKeyReleased="#fixType" prefHeight="27.0" prefWidth="210.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="-39.0">
+                <TextField fx:id="ChequeclientsfSearchInput" onKeyReleased="#ChequeclientsfSearchInput" prefHeight="27.0" prefWidth="210.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="-39.0">
                     <HBox.margin>
                         <Insets left="50.0" />
                     </HBox.margin>
