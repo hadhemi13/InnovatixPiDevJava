@@ -101,7 +101,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tests.yesser.CurrencyConverterController;
+import tests.CurrencyConverterController;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -36,7 +36,7 @@
       </HBox>
       <HBox prefHeight="58.0" prefWidth="1340.0">
          <children>
-            <Button fx:id="details" mnemonicParsing="false" prefHeight="17.0" prefWidth="238.0" styleClass="sort__stockBtn" stylesheets="@../../css/yesser/SideNavBar.css" text="Détails" translateX="560.0" />
+            <Button fx:id="details" mnemonicParsing="false" prefHeight="17.0" prefWidth="238.0" styleClass="sort__stockBtn" stylesheets="@../../css/SideNavBar.css" text="Détails" translateX="560.0" />
          </children>
          <VBox.margin>
             <Insets />

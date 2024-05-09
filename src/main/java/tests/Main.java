@@ -1,4 +1,4 @@
-package tests.yesser;
+package tests;
 
 import services.*;
 

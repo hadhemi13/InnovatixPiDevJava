@@ -58,10 +58,13 @@ public class FrontControlleur implements Initializable {
 
 
     public AnchorPane content_area;
+    @FXML
+    private HBox Stage;
     public AnchorPane Empty;
     public BorderPane borderPost;
     public Label contenuArt;
     public Label categorieart;
+
     public Button titreArt;
     public Label userNom;
     public ImageView userImg;
@@ -199,6 +202,7 @@ public class FrontControlleur implements Initializable {
 
 
     public void loadArticles() throws IOException, SQLException {
+
         // Nettoyer le contenu actuel
         ArtListContainer.getChildren().clear();
 
@@ -379,6 +383,28 @@ public class FrontControlleur implements Initializable {
                 usersIcon.setImage(usersImg);
             }
 
+        }
+
+    }
+    public void OpenStage(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/Recrutement.fxml"));
+        Parent recrutementParent = loader.load();
+        content_area.getChildren().clear();
+        content_area.getChildren().add(recrutementParent);
+    }
+
+    public void CreerCompte(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));
+            AnchorPane captchaPane = loader.load();
+            Scene scene = new Scene(captchaPane);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ((Stage) CreerCompte.getScene().getWindow()).close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

@@ -1,8 +1,7 @@
 package services;
-import Entities.Cheque;
 import utils.MyDatabase;
 import Entities.Virement;
-import utils.MyDatabase;
+
 
 
 import java.sql.*;

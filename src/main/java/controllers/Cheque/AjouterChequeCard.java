@@ -19,7 +19,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
 import services.ValidSaisie;
-import utils.MyDatabase;
+//import utils.MyDatabase;
 import javafx.stage.FileChooser.ExtensionFilter;
 import services.ServiceCheque;
 

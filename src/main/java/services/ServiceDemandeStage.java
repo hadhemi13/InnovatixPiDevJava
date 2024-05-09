@@ -2,14 +2,14 @@ package services;
 
 import Entities.DemandeStage;
 import Entities.OffreDeStage;
-import utils.yesser.MyDatabase;
+import utils.MyDatabase;
 
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceDemandeStage implements IService<DemandeStage> {
+public class ServiceDemandeStage implements IServiceYesser<DemandeStage> {
     private Connection connection;
     private String path = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\";
     public ServiceDemandeStage() {

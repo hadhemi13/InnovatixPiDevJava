@@ -16,9 +16,9 @@
             <Image url="@../imgYesser/istockphoto-1363583906-1024x1024.jpg" />
          </image>
       </ImageView>
-      <VBox layoutY="41.0" prefHeight="307.0" prefWidth="300.0" style="-fx-background-color: rgba(255, 255, 255, 0.5);" stylesheets="@../../css/yesser/SideNavBar.css" translateX="430.0" translateY="100.0">
+      <VBox layoutY="41.0" prefHeight="307.0" prefWidth="300.0" style="-fx-background-color: rgba(255, 255, 255, 0.5);" stylesheets="@../../css/SideNavBar.css" translateX="430.0" translateY="100.0">
          <children>
-            <HBox prefHeight="60.0" prefWidth="578.0" styleClass="categoriesModel-card-title" stylesheets="@../../css/yesser/SideNavBar.css">
+            <HBox prefHeight="60.0" prefWidth="578.0" styleClass="categoriesModel-card-title" stylesheets="@../../css/SideNavBar.css">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="categoriesModel-card-title" text="Votre compte a été créé avec succès. " textAlignment="CENTER" translateY="15.0" wrappingWidth="577.90234375">
                      <font>

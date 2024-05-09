@@ -2,7 +2,7 @@ package services;
 
 import Entities.OffreDeStage;
 import Entities.Stage;
-import utils.yesser.MyDatabase;
+import utils.MyDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;
