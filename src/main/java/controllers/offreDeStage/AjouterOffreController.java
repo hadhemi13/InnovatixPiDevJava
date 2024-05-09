@@ -5,10 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceOffreDeStage;
@@ -16,6 +19,7 @@ import services.Upload;
 import services.ValidatorOffre;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -93,6 +97,8 @@ public class AjouterOffreController implements Initializable {
 
     @FXML
     private TextField poste;
+    @FXML
+    public Pane content_area;
 
     @FXML
     private Label MotsClesError;
@@ -213,4 +219,18 @@ public class AjouterOffreController implements Initializable {
         MotsClesError.setVisible(false);
     }
 
+    public void RetourBack(MouseEvent mouseEvent) {
+
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/AffichageOffre.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

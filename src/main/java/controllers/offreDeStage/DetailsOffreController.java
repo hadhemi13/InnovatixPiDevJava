@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -51,6 +52,18 @@ public class DetailsOffreController {
 
     @FXML
     private Text productName;
+    private Stage stage;
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void closeStage() {
+        if (stage != null) {
+            stage.close();
+        }
+    }
+
+
 
 
     public void initData(OffreDeStage offreDeStage) {
@@ -73,13 +86,17 @@ public class DetailsOffreController {
             primaryStage.setTitle("E-Flex Bank");
             primaryStage.setScene(scene);
             primaryStage.show();
-            DemandeStageParOffreController demandeStageController = new DemandeStageParOffreController();
-//            System.out.println(offreDeStage);
+            DemandeStageParOffreController demandeStageController = loader.getController();
             demandeStageController.initData(offreDeStage);
+            DemandeStageParOffreController demandeStageParOffreController = new DemandeStageParOffreController();
+//            System.out.println(offreDeStage);
             demandeStageController.yy=offreDeStage.getPostePropose();
 
         });
 
 
+    }
+
+    public void ouvrirdemande(MouseEvent mouseEvent) {
     }
 }

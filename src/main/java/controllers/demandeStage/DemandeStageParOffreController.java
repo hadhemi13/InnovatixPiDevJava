@@ -3,8 +3,12 @@ package controllers.demandeStage;
 import Entities.DemandeStage;
 import Entities.OffreDeStage;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
 import javafx.stage.FileChooser;
@@ -24,6 +28,7 @@ import java.util.ResourceBundle;
 
 public class DemandeStageParOffreController implements Initializable {
 
+    public AnchorPane demandeStagePane;
     @FXML
     private DatePicker date;
 
@@ -144,6 +149,20 @@ public class DemandeStageParOffreController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("initialize = " + yy);
 
+    }
+
+    public void RetourBack(MouseEvent mouseEvent) {
+
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/DetailsOffre.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

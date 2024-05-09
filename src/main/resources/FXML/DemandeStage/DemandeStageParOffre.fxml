@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -15,9 +23,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageParOffreController">
+<AnchorPane fx:id="demandeStagePane" prefHeight="720.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageParOffreController">
     <children>
-        <VBox fx:id="content_area" prefHeight="622.0" prefWidth="1084.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
+        <VBox fx:id="content_area" prefHeight="750.0" prefWidth="1366.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
             <children>
                 <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
                     <children>
@@ -31,10 +39,19 @@
                         </Text>
                     </children>
                 </HBox>
+            <Button fx:id="retour" mnemonicParsing="false" onMouseClicked="#RetourBack" prefHeight="52.0" prefWidth="61.0" styleClass="checkoutCard__btn" translateX="10.0" translateY="-20.0">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
                 <Line endX="500.0" startX="-100.0" stroke="#c5ff98" translateX="250.0" translateY="10.0" />
-                <ScrollPane prefHeight="557.0" prefWidth="1084.0" style="-fx-background-color: white;" translateY="15.0">
+                <ScrollPane prefHeight="630.0" prefWidth="1366.0" style="-fx-background-color: white;" translateY="15.0">
                     <content>
-                        <VBox prefHeight="1208.0" prefWidth="1066.0" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css">
+                        <VBox prefHeight="1250.0" prefWidth="1347.0" styleClass="productAddedToCart__card" stylesheets="@../../css/SideNavBar.css" translateY="-20.0">
                             <children>
                                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="111.0" prefWidth="701.0" translateX="250.0">
                                     <children>
@@ -301,7 +318,7 @@
                                         <Insets />
                                     </VBox.margin>
                            <children>
-                              <Button fx:id="ajouterDemande" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ajouterDemande" prefHeight="45.0" prefWidth="93.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Update" />
+                              <Button fx:id="ajouterDemande" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ajouterDemande" prefHeight="45.0" prefWidth="93.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Ajouter " />
                            </children>
                                 </HBox>
                             </children>

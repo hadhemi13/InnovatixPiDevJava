@@ -12,8 +12,8 @@ import java.net.http.HttpResponse;
 public class Main {
     public static void main(String[] args) {
         String url = "https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize";
-        String apiKey = "6335f0e1b6mshe51bdb6be5175a1p1914fajsn7770537fdb84";
-        String textToConvert = "je suis hadhemi mahmoud"; // Remplacez "Votre texte ici" par le texte que vous souhaitez convertir en discours.
+        String apiKey = "e1e3d0a5edmshf8ab4a8aa19fd20p10c234jsn40bedaaedca5";
+        String textToConvert = "salut ayoub je suis text to speech et je travaille très bien"; // Remplacez "Votre texte ici" par le texte que vous souhaitez convertir en discours.
 
         try {
             String audioUrl = getAudioUrl(url, apiKey, textToConvert);
