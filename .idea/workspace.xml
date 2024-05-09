@@ -4,24 +4,80 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="trier par date">
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/email.html" afterDir="false" />
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="correction jointure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Article.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Cheque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/CommentaireHadhemi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Compte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Reclamation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Reponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/ReponseCommentaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Virement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CardAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/AjouterChequeCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ChequeItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ConfirmersuppController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/DemandeChequeListClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ListeChequeAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ListeChequeClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ModifierCheque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Compte/ListeCompteAdmin.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/RdvController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/AjouterVirementCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/DemandeVirementListClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/ListVirementAdmin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/ListeVirementClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/ModifierVirement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceArticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceCheque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceCommentaireHadhemi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceCompte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceCredit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceCredit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceRdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/IServiceRdv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceReclamation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceReponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceReponseCommentaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/IServiceVirement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceArticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCheque.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCommentaireHadhemi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCompte.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceRdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceRdv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReclamation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReponseCommentaire.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceVirement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tests/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardRdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardRdv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/CardAdmin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ChequeItems.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ChequecreditItems.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ConfirmSupp.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeChequeListClient.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeVirementListClient.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardVirement.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCradCheque.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/HistoriqueChequeA.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/HistoriqueCompteA.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/HistoriqueVirementA.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ListChequeAdmin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ListCompteAdmin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ListVirementAdmin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ModifierCheque.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ModifierVirement.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititems.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/senssms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/senssms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/demandeStage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/hahdemi.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/token/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/token/StoredCredential" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +209,7 @@
       <workItem from="1715086581151" duration="6908000" />
       <workItem from="1715113900799" duration="4343000" />
       <workItem from="1715173004583" duration="6878000" />
-      <workItem from="1715181241504" duration="18826000" />
+      <workItem from="1715181241504" duration="25961000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -307,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715094001902</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="correction jointure">
+      <option name="closed" value="true" />
+      <created>1715212235394</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715212235395</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,14 +406,15 @@
     <MESSAGE value="3/5 suivie api" />
     <MESSAGE value="07/05 tri+stats" />
     <MESSAGE value="trier par date" />
-    <option name="LAST_COMMIT_MESSAGE" value="trier par date" />
+    <MESSAGE value="correction jointure" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction jointure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java</url>
-          <line>155</line>
+          <line>147</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>

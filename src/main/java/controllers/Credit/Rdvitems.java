@@ -1,6 +1,5 @@
 package controllers.Credit;
 
-import Entities.Credit;
 import Entities.RDV;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import services.ServiceCheque;
 import utils.MyDatabase;
 
 import java.io.IOException;
@@ -77,7 +75,6 @@ public class Rdvitems {
 
 
     public void initData(RDV i) {
-        ServiceCheque serviceCheque = new ServiceCheque();
 
         credit_id.setText(String.valueOf(i.getCredit_id()));
         idclient.setText(String.valueOf(i.getIdclient()));

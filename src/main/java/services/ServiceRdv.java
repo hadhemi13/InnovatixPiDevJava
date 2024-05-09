@@ -1,7 +1,5 @@
 package services;
 
-import Entities.Cheque;
-import Entities.Credit;
 import Entities.RDV;
 import utils.MyDatabase;
 
@@ -17,18 +15,9 @@ public class ServiceRdv implements  IServiceRdv <RDV> {
         connection = MyDatabase.getInstance().getConnection();
     }
 
-    @Override
-    public void ajouter(Cheque cheque) throws SQLException {
 
 
-    }
 
-
-    @Override
-    public void modifier(Cheque cheque ) throws SQLException {
-
-
-    }
 
     @Override
     public void supprimer(int id) throws SQLException {

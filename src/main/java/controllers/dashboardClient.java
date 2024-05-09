@@ -1,8 +1,6 @@
 package controllers;
 
-import controllers.Cheque.AjouterChequeCard;
-import controllers.Cheque.DemandeChequeListClient;
-import controllers.Virement.DemandeVirementListClient;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,31 +37,7 @@ public class dashboardClient {
     private HBox userTableHead;
 
 
-    @FXML
-    public void ListVirement(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
-        // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeVirementListClient.fxml"));
-        Parent addArticleParent = loader.load();
 
-        // Récupération du contrôleur de la vue d'ajout d'article
-        DemandeVirementListClient demandeVirementListClient = loader.getController();
 
-        // Remplacer le contenu actuel par la vue d'ajout d'article
-        content_area.getChildren().clear();
-        content_area.getChildren().add(addArticleParent);
-    }
-    @FXML
 
-    public void listCheque(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
-        // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
-        Parent addArticleParent = loader.load();
-
-        // Récupération du contrôleur de la vue d'ajout d'article
-        DemandeChequeListClient demandeChequeListClient = loader.getController();
-
-        // Remplacer le contenu actuel par la vue d'ajout d'article
-        content_area.getChildren().clear();
-        content_area.getChildren().add(addArticleParent);
-    }
 }

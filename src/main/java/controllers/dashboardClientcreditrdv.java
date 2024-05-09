@@ -1,7 +1,6 @@
 package controllers;
 
 import Entities.Credit;
-import controllers.Cheque.DemandeChequeListClient;
 import controllers.Credit.DemandeCreditListClient;
 import controllers.Credit.DemandeCreditListClientUser;
 import controllers.Credit.DemandeRdvListClient;
@@ -111,7 +110,8 @@ public class dashboardClientcreditrdv implements Initializable {
         for (Map.Entry<Integer, Integer> entry : creditCountByYear.entrySet()) {
             series.getData().add(new XYChart.Data<>(entry.getKey().toString(), entry.getValue()));
         }
-
+        barChart.setPrefWidth(300); // Définir la largeur préférée
+        barChart.setPrefHeight(200);
         // Ajouter la série au graphique en barres
         barChart.getData().add(series);
 
@@ -135,7 +135,7 @@ public class dashboardClientcreditrdv implements Initializable {
         pieChartContainer.setLayoutY(50); // Position en Y pour le graphique circulaire
 
         // Ajouter les conteneurs à votre disposition
-        content_area.getChildren().addAll( pieChartContainer);
+        content_area.getChildren().addAll( pieChartContainer,barChart);
     }
 
 }

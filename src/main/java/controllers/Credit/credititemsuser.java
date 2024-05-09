@@ -11,7 +11,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import services.ServiceCheque;
 import utils.MyDatabase;
 
 import javax.mail.MessagingException;
@@ -112,8 +111,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
 
     }
     public void initData(Credit i) {
-        ServiceCheque serviceCheque = new ServiceCheque();
-        
+
         useriditem.setText(String.valueOf(i.getId()));
        useritemidclient.setText(String.valueOf(i.getStatusclient()));
         montantuseritem.setText(String.valueOf(i.getMontant()));

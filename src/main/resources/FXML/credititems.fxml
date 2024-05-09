@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <HBox fx:id="creditrow" alignment="CENTER_LEFT" onMouseClicked="#getdata" prefHeight="81.0" prefWidth="1188.0" styleClass="userItem" stylesheets="@../css/Compte.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.CreditItems">
@@ -32,7 +33,7 @@
         </Label>
         <Label fx:id="userItemUpdateBtn" onMouseClicked="#UpdateCheque" styleClass="userItem__btn">
             <graphic>
-                <ImageView fx:id="userItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" onMouseClicked="#getdata" pickOnBounds="true" preserveRatio="true" translateX="40.0">
+                <ImageView fx:id="userItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" onMouseClicked="#getdata" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/rename.png" />
                     </image>
@@ -42,7 +43,10 @@
                 <Insets />
             </HBox.margin>
         </Label>
+      <Button mnemonicParsing="false" onMouseClicked="#approuvercredit" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: green;" text="approuver" translateX="2.0">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font></Button>
       <Text fx:id="userid" layoutX="28.0" layoutY="47.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field" text="12345678" translateX="150.0" wrappingWidth="52.447983264923096" />
-      <Button mnemonicParsing="false" onMouseClicked="#approuvercredit" text="approuver" />
     </children>
 </HBox>

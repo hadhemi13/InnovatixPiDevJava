@@ -4,14 +4,10 @@ import java.io.FileReader;
 import java.security.GeneralSecurityException;
 import java.sql.*;
 
-import Entities.Cheque;
 import Entities.Credit;
-import controllers.Cheque.ModifierCheque;
-import controllers.SideNavBarUserController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
@@ -21,11 +17,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import services.ServiceCheque;
 import utils.MyDatabase;
 
 import javax.mail.MessagingException;
@@ -88,7 +81,6 @@ public class CreditItems implements Initializable {
 
         // Ne rien faire dans l'initialisation par défaut
     public void initData(Credit i) {
-        ServiceCheque serviceCheque = new ServiceCheque();
 
         userid.setText(String.valueOf(i.getId()));
         idclient.setText(String.valueOf(i.getId_client()));
@@ -211,13 +203,9 @@ public class CreditItems implements Initializable {
         System.out.println("rrrrrrrrrrrrrrrr");
 
         // Contenu de l'email
-        String emailContent = "Cher [Nom de l'emprunteur],\n\n" +
+        String emailContent = "Cher CLIENT ,\n\n" +
                 "Nous avons le plaisir de vous informer que votre demande de crédit a été approuvée avec succès. Félicitations!\n\n" +
-                "Détails de votre crédit approuvé :\n" +
-                "- Montant approuvé: [Montant approuvé]\n" +
-                "- Taux d'intérêt: [Taux d'intérêt]\n" +
-                "- Durée du prêt: [Durée du prêt]\n" +
-                "- Mensualités: [Mensualités]\n\n" +
+
                 "Veuillez consulter le contrat de prêt joint à cet e-mail pour plus de détails. Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter.\n\n" +
                 "Nous vous remercions de votre confiance en notre institution financière et nous sommes impatients de vous accompagner dans la réalisation de vos projets.\n\n" +
                 "Cordialement,\n" +
@@ -226,6 +214,7 @@ public class CreditItems implements Initializable {
         // Envoyer l'email avec le contenu
         new GMailer().sendMail("Approbation de crédit", emailContent);
     }
+
 
 
     // Retrieve Credit object by user ID using an existing connection

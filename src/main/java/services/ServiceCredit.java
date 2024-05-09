@@ -1,6 +1,5 @@
 package services;
 
-import Entities.Cheque;
 import Entities.Credit;
 import utils.MyDatabase;
 
@@ -16,11 +15,7 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         connection = MyDatabase.getInstance().getConnection();
     }
 
-    @Override
-    public void ajouter(Cheque cheque) throws SQLException {
 
-
-    }
     private int getYearFromDate(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -41,11 +36,7 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         return creditCountByYear;
     }
 
-    @Override
-    public void modifier(Cheque cheque ) throws SQLException {
 
-
-    }
 
     @Override
     public void supprimer(int id) throws SQLException {
