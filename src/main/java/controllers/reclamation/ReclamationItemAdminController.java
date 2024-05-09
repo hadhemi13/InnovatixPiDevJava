@@ -107,7 +107,7 @@ public class ReclamationItemAdminController implements Initializable {
         Image imageJ = new Image(getClass().getResource("/imagesAct/attach.png").toExternalForm());
         RecItemPieceJ.setImage(imageJ);
         RecItemDateText.setText(String.valueOf(reclamation.getDate_rec()));
-        if (reclamation.getStatut_rec().equals("En cours de traitement")) {
+        if (reclamation.getStatut_rec() == "En cours de traitement") {
             Image imagestat=new Image(getClass().getResource("/imagesAct/chargement.gif").toExternalForm());
             RecItemState.setImage(imagestat);
         } else { Image imgstat=new Image(getClass().getResource("/imagesAct/tick-mark.png").toExternalForm());

@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
+import utils.MyDatabase;
 
 import java.io.IOException;
 import java.net.URL;
@@ -197,7 +198,7 @@ public class AjouterCreditCard implements Initializable {
             st = con.prepareStatement(insert);
             st.setInt(1, 1); // Static value for user_id
             st.setInt(2, Integer.parseInt(id_client.getText())); // id_client
-
+            System.out.println("eeeeeeqq");
             st.setDouble(3, Double.parseDouble(montant.getText())); // montant
             st.setString(4, ((descriptionlabel.getText()))); // id_client
 
@@ -217,8 +218,7 @@ public class AjouterCreditCard implements Initializable {
 
 
             // Remplacer le contenu actuel par la vue d'ajout d'article
-            content_area.getChildren().clear();
-            content_area.getChildren().add(addArticleParent);
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -79,10 +79,16 @@ public class DemandeCreditListClientUser  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServiceCredit serviceCredit = new ServiceCredit();
-        List<Credit> list = new ArrayList<>();
+        List<Credit> list = null;
+        try {
+            list = serviceCredit.afficher();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("gg"+list);
         try {
             list = serviceCredit.afficher();
+            System.out.println("ya ahamed hayy fergha"+list);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import utils.MyDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

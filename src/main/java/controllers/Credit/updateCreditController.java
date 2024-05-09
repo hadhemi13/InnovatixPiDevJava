@@ -11,6 +11,7 @@ package controllers.Credit;
         import javafx.scene.control.TextField;
         import javafx.scene.layout.HBox;
         import javafx.scene.layout.Pane;
+        import utils.MyDatabase;
 
         import java.awt.event.ActionEvent;
         import java.sql.Connection;

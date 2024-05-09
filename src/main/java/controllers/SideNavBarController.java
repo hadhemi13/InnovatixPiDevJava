@@ -4,6 +4,7 @@ import Entities.User;
 import controllers.user.UserSession;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -132,7 +133,33 @@ public class SideNavBarController {
             e.printStackTrace();
         }
     }
+    @FXML
+    void opencredit(ActionEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClientUser.fxml"));
+            Pane listArticleAdminPane = loader.load();
 
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void openDashboardClientCredit(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/dashboardClientcreditredv.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     void logout(MouseEvent event) throws IOException {
         UserSession.getInstance().cleanUserSession();

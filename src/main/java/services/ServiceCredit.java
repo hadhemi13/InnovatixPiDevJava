@@ -1,6 +1,7 @@
 package services;
 
 import Entities.Credit;
+import utils.MyDatabase;
 
 import java.sql.*;
 import java.sql.Date;
@@ -49,7 +50,7 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         List<Credit> list = new ArrayList<>();
 
         try {
-            String req = "SELECT * FROM credit where user_id=1";
+            String req = "SELECT * FROM credit";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
@@ -70,7 +71,7 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
     public List<Credit> affichercreditparmontant() throws SQLException {
         List<Credit> list = new ArrayList<>();
         try {
-            String req = "SELECT * FROM credit where user_id=1";
+            String req = "SELECT * FROM credit  ";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
@@ -100,7 +101,7 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         List<Credit> list = new ArrayList<>();
         System.out.println("aaaaaaaaaaaaaaaaz");
         try {
-            String req = "SELECT * FROM credit where user_id=1";
+            String req = "SELECT * FROM credit ";
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {

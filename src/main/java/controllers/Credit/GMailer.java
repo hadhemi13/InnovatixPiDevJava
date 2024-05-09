@@ -49,7 +49,7 @@ public class GMailer {
 
         GoogleClientSecrets clientSecrets;
         clientSecrets =
-                GoogleClientSecrets.load(jsonFactory, new InputStreamReader(new FileInputStream("C:\\Users\\21650\\Downloads\\client_secret_16312477864-07t62n1eajst43us4fbtpi8jsl1kn8mp.apps.googleusercontent.com.json")));
+                GoogleClientSecrets.load(jsonFactory, new InputStreamReader(new FileInputStream("C:\\Users\\Yesser\\Downloads\\client_secret_16312477864-07t62n1eajst43us4fbtpi8jsl1kn8mp.apps.googleusercontent.com.json")));
 
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(

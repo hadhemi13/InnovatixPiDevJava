@@ -15,6 +15,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import services.IRDV;
 import services.ServiceCredit;
+import utils.MyDatabase;
+
 import java.net.URL;
 import java.sql.*;
 import java.sql.Date;
@@ -181,7 +183,7 @@ public class RdvController implements IRDV <RDV> , Initializable {
         connection = MyDatabase.getInstance().getConnection();
 
         Connection connection2 = MyDatabase.getInstance().getConnection();
-        String selectQuery = "SELECT statusclient FROM credit where user_id=1";
+        String selectQuery = "SELECT statusclient FROM credit ";
 
         List<String> statusList = new ArrayList<>();
 
