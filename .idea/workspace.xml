@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="last commit">
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MarzouguiAhmed9&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3abce63d-f4a5-4203-ad6c-b941bc3a3c5c" />
+        <option name="url" value="https://github.com/hadhemi13/InnovatixPiDevJava.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/com/twilio/sdk/twilio/7.41.2/twilio-7.41.2-sources.jar!/com/twilio/Twilio.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/com/twilio/sdk/twilio/7.41.2/twilio-7.41.2-sources.jar!/com/twilio/exception/AuthenticationException.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2f9HmSusldwBEMLKY0e6RIt5Xkj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Ahmed&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ahmedjava/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.reader.mode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ahmedjava\src\main\java" />
+      <recent name="D:\ahmedjava\src\main\java\resources" />
+      <recent name="D:\ahmedjava\src\main\resources\FXML" />
+      <recent name="C:\Users\21650\Desktop\ahmedjava\src\main\resources\FXML" />
+      <recent name="C:\Users\21650\Desktop\ahmedjava\src\main\resources" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="controllers.Credit" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controllers.Credit" />
+      <recent name="services" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="mainfx" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="jbr-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="tests.MainFX" />
+      <module name="innovatixjava" />
+      <option name="VM_PARAMETERS" value=" --module-path &quot;C:\Users\21650\Desktop\javafx-sdk-22\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="" />
+      <created>1713206532778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713206532778</updated>
+      <workItem from="1713206533826" duration="1021000" />
+      <workItem from="1713216510518" duration="1702000" />
+      <workItem from="1713255516271" duration="156000" />
+      <workItem from="1713257759040" duration="8961000" />
+      <workItem from="1713289376972" duration="174000" />
+      <workItem from="1713293096372" duration="40513000" />
+      <workItem from="1713472307925" duration="36725000" />
+      <workItem from="1713557871721" duration="57000" />
+      <workItem from="1713558051156" duration="11426000" />
+      <workItem from="1713607917891" duration="27408000" />
+      <workItem from="1713740118848" duration="7509000" />
+      <workItem from="1713813979715" duration="14907000" />
+      <workItem from="1713908662463" duration="17220000" />
+      <workItem from="1713965669910" duration="18913000" />
+      <workItem from="1714027158345" duration="24842000" />
+      <workItem from="1714109594815" duration="12807000" />
+      <workItem from="1714262683551" duration="14961000" />
+      <workItem from="1714682536891" duration="10677000" />
+      <workItem from="1714718037403" duration="7337000" />
+      <workItem from="1714727471738" duration="51000" />
+      <workItem from="1714727537032" duration="1870000" />
+      <workItem from="1715086143549" duration="93000" />
+      <workItem from="1715086581151" duration="6908000" />
+      <workItem from="1715113900799" duration="4343000" />
+      <workItem from="1715173004583" duration="6878000" />
+      <workItem from="1715181241504" duration="27559000" />
+    </task>
+    <task id="LOCAL-00001" summary="correction sdk">
+      <option name="closed" value="true" />
+      <created>1713253532640</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713253532640</updated>
+    </task>
+    <task id="LOCAL-00002" summary="correction sdk">
+      <option name="closed" value="true" />
+      <created>1713254020025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713254020025</updated>
+    </task>
+    <task id="LOCAL-00003" summary="kk">
+      <option name="closed" value="true" />
+      <created>1713254204622</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713254204622</updated>
+    </task>
+    <task id="LOCAL-00004" summary="corriger rdv">
+      <option name="closed" value="true" />
+      <created>1713255619470</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713255619470</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ajouter credit v2">
+      <option name="closed" value="true" />
+      <created>1713258079871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713258079871</updated>
+    </task>
+    <task id="LOCAL-00006" summary="card ajout credit">
+      <option name="closed" value="true" />
+      <created>1713259701976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713259701976</updated>
+    </task>
+    <task id="LOCAL-00007" summary="card rdv">
+      <option name="closed" value="true" />
+      <created>1713288843936</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713288843936</updated>
+    </task>
+    <task id="LOCAL-00008" summary="19/4">
+      <option name="closed" value="true" />
+      <created>1713514864819</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713514864819</updated>
+    </task>
+    <task id="LOCAL-00009" summary="correction gestion credit">
+      <option name="closed" value="true" />
+      <created>1713710278186</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713710278186</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update">
+      <option name="closed" value="true" />
+      <created>1713874437617</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713874437617</updated>
+    </task>
+    <task id="LOCAL-00011" summary="calendrier rdv + correction affichage credit">
+      <option name="closed" value="true" />
+      <created>1713992867167</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713992867167</updated>
+    </task>
+    <task id="LOCAL-00012" summary="api">
+      <option name="closed" value="true" />
+      <created>1714033425501</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714033425501</updated>
+    </task>
+    <task id="LOCAL-00013" summary="api">
+      <option name="closed" value="true" />
+      <created>1714033649123</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714033649123</updated>
+    </task>
+    <task id="LOCAL-00014" summary="api">
+      <option name="closed" value="true" />
+      <created>1714035403434</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714035403434</updated>
+    </task>
+    <task id="LOCAL-00015" summary="calander+sms">
+      <option name="closed" value="true" />
+      <created>1714035936646</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714035936646</updated>
+    </task>
+    <task id="LOCAL-00016" summary="26/4 premier validation">
+      <option name="closed" value="true" />
+      <created>1714154245178</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714154245178</updated>
+    </task>
+    <task id="LOCAL-00017" summary="3/5 suivie api">
+      <option name="closed" value="true" />
+      <created>1714739358143</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714739358143</updated>
+    </task>
+    <task id="LOCAL-00018" summary="07/05 tri+stats">
+      <option name="closed" value="true" />
+      <created>1715092567037</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715092567037</updated>
+    </task>
+    <task id="LOCAL-00019" summary="trier par date">
+      <option name="closed" value="true" />
+      <created>1715094001902</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715094001902</updated>
+    </task>
+    <task id="LOCAL-00020" summary="correction jointure">
+      <option name="closed" value="true" />
+      <created>1715212235394</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715212235395</updated>
+    </task>
+    <task id="LOCAL-00021" summary="last commit">
+      <option name="closed" value="true" />
+      <created>1715263482841</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715263482841</updated>
+    </task>
+    <task id="LOCAL-00022" summary="last commit">
+      <option name="closed" value="true" />
+      <created>1715264401190</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715264401190</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="correction sdk" />
+    <MESSAGE value="kk" />
+    <MESSAGE value="corriger rdv" />
+    <MESSAGE value="ajouter credit v2" />
+    <MESSAGE value="card ajout credit" />
+    <MESSAGE value="card rdv" />
+    <MESSAGE value="19/4" />
+    <MESSAGE value="correction gestion credit" />
+    <MESSAGE value="update" />
+    <MESSAGE value="calendrier rdv + correction affichage credit" />
+    <MESSAGE value="api" />
+    <MESSAGE value="calander+sms" />
+    <MESSAGE value="26/4 premier validation" />
+    <MESSAGE value="3/5 suivie api" />
+    <MESSAGE value="07/05 tri+stats" />
+    <MESSAGE value="trier par date" />
+    <MESSAGE value="correction jointure" />
+    <MESSAGE value="last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="last commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
