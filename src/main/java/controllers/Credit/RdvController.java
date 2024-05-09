@@ -1,7 +1,6 @@
 package controllers.Credit;
 import Entities.Credit;
 import Entities.RDV;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,17 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import services.IRDV;
-import utils.MyDatabase;
 import services.ServiceCredit;
 import java.net.URL;
 import java.sql.*;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.*;
-import Entities.Credit;
 
 public class RdvController implements IRDV <RDV> , Initializable {
 

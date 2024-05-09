@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
-import utils.MyDatabase;
 
 import java.io.IOException;
 import java.net.URL;

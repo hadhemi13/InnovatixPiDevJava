@@ -1,7 +1,6 @@
 package services;
 
 import Entities.Credit;
-import utils.MyDatabase;
 
 import java.sql.*;
 import java.sql.Date;

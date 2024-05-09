@@ -1,6 +1,5 @@
 package controllers.Credit;
 
-import Entities.Credit;
 import Entities.RDV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,14 +10,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import utils.MyDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Date;
 
 public class updaterdvcontroller {
