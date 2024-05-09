@@ -11,7 +11,7 @@ import Entities.Evenement;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-public interface IServiceYesser<T> {
+public interface IService<T> {
   void ajouter(T t) throws SQLException, IOException;
   void ajouter1(T t,int projectId) throws SQLException;
   public List<Evenement> sortEvent(int value, int idCategory); // 0: sort by stock *** 1: sort by category *** 2: sort

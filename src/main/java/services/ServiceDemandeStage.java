@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceDemandeStage implements IServiceYesser<DemandeStage> {
+public class ServiceDemandeStage implements IService<DemandeStage> {
     private Connection connection;
     private String path = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\";
     public ServiceDemandeStage() {
