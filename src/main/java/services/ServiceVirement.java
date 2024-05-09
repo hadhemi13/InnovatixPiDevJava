@@ -7,15 +7,19 @@ import utils.MyDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ServiceVirement implements IServiceVirement <Virement> {
 
     private Connection connection;
     public Statement statement;
+
     public ServiceVirement() {
         connection = MyDatabase.getInstance().getConnection();
     }
+
     @Override
     public void ajouter(Virement virement) throws SQLException {
         String req = "INSERT INTO virement "
@@ -46,6 +50,7 @@ public class ServiceVirement implements IServiceVirement <Virement> {
 
 
     }
+
     // Virement virement = new Virement(typee,montant,aa,transferez,Cin,Nom,image,decisionV);
     public void ajouterV(Virement virement) throws SQLException {
         String req = "INSERT INTO virement "
@@ -71,7 +76,6 @@ public class ServiceVirement implements IServiceVirement <Virement> {
             System.err.println(e.getMessage());
         }
     }
-
 
 
     @Override
@@ -207,7 +211,49 @@ public class ServiceVirement implements IServiceVirement <Virement> {
         return virement;
     }
 
+    public Map<String, Integer> countVirementsByType() {
+        Map<String, Integer> virementsByType = new HashMap<>();
 
+        try {
+            List<Virement> virements = getAllVirements();
 
+            for (Virement virement : virements) {
+                String type = virement.getType_virement();
+                virementsByType.put(type, virementsByType.getOrDefault(type, 0) + 1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return virementsByType;
+    }
+    private List<Virement> getAllVirements() throws SQLException {
+        List<Virement> virements = new ArrayList<>();
+        String req = "SELECT * FROM virement";
+        try (Statement st = connection.createStatement(); ResultSet rs = st.executeQuery(req)) {
+            while (rs.next()) {
+                Virement virement = new Virement(
+                        rs.getInt("id"),
+                        rs.getInt("compte_id"),
+                        rs.getInt("user_id"),
+                        rs.getString("nomet_prenom"),
+                        rs.getString("type_virement"),
+                        rs.getString("transferez_a"),
+                        rs.getInt("num_beneficiare"),
+                        rs.getString("montant"),
+                        rs.getInt("cin"),
+                        rs.getInt("rib"),
+                        rs.getString("email"),
+                        rs.getString("decision_v"),
+                        rs.getString("photo_cin_v"),
+                        rs.getString("phone_number"),
+                        rs.getString("qrCode")
+                );
+                virements.add(virement);
+            }
+        }
+        return virements;
+    }
 }
+
 

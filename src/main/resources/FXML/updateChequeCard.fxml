@@ -13,38 +13,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="534.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.Cheque.updateChequeCard">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1040.0" prefWidth="534.0" style="-fx-effect: none;" styleClass="addProductCard" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Cheque.updateChequeCard">
     <children>
-        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
-            <padding>
-                <Insets left="16.0" right="16.0" />
-            </padding>
-            <children>
-                <HBox prefHeight="6.0" prefWidth="538.0">
-                    <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="RIB">
-                            <HBox.margin>
-                                <Insets right="2.0" />
-                            </HBox.margin>
-                        </Text>
-                        <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
-                            <font>
-                                <Font name="Montserrat Regular" size="16.0" />
-                            </font>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" />
-                    </padding>
-                </HBox>
-                <TextField fx:id="RIB" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="422.0" promptText="RIB" styleClass="product__add-input">
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                </TextField>
-            </children>
-        </VBox>
         <VBox layoutX="34.0" layoutY="47.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="486.0">
             <padding>
                 <Insets left="16.0" right="16.0" />

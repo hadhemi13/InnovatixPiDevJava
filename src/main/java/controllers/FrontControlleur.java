@@ -25,6 +25,7 @@ public class FrontControlleur {
 
     @FXML
     private void initialize() {
+
         CreerCompte.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormAjoutCompte.fxml"));

@@ -161,6 +161,7 @@ public class VirementCard  implements Initializable {
                 System.out.println("Virement Name: " + virement.getNomet_prenom());
                 DemandeVirementListClient.setUpdateVirementModelShow(1);
                 DemandeVirementListClient.setchequeEmailToUpdate(virement.getId());
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeVirementListClient.fxml"));
                 try {
                     Parent root = loader.load();
