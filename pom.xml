@@ -49,6 +49,7 @@
             <artifactId>itextpdf</artifactId>
             <version>5.5.13.3</version>
         </dependency>
+
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
@@ -69,12 +70,18 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.12.6</version>
         </dependency>
+        <dependency>
+            <groupId>net.glxn</groupId>
+            <artifactId>qrgen</artifactId>
+            <version>1.2</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.voicerss</groupId>-->
-<!--            <artifactId>voicerss-tts</artifactId>-->
-<!--            <version>1.0.1</version>-->
-<!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.voicerss</groupId>-->
+        <!--            <artifactId>voicerss-tts</artifactId>-->
+        <!--            <version>1.0.1</version>-->
+        <!--        </dependency>-->
 
 
     </dependencies>

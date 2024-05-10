@@ -806,7 +806,7 @@ public class ListeArticlesClientsController implements Initializable {
         }
     }
 
-//hedhy
+    //hedhy
     private void loadArticles(List<Article> articles) {
         // Nettoyer le conteneur actuel
         productsListContainer.getChildren().clear();
@@ -872,5 +872,15 @@ public class ListeArticlesClientsController implements Initializable {
     }
 
     public void getPromotionalItems(MouseEvent mouseEvent) {
+    }
+
+    public void rssArt(MouseEvent mouseEvent) throws IOException {
+        // Charger le fichier FXML de listArticleAdmin
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/ListArticleFront.fxml"));
+        Pane listArticleAdminPane = loader.load();
+
+        // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+        content_area.getChildren().setAll(listArticleAdminPane);
+
     }
 }

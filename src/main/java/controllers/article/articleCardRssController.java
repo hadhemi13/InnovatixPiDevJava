@@ -21,7 +21,7 @@ public class articleCardRssController {
         // Charger les articles RSS
         List<RSSReader> articles = null;
         try {
-            articles = RSSReader.loadArticlesFromURL("https://rss.app/feeds/v1.1/tOgyrCZKdMWLeE5M.json");
+            articles = RSSReader.loadArticlesFromURL("https://rss.app/feeds/v1.1/t9AIvL6SZLnwsI91.json");
         } catch (IOException e) {
             e.printStackTrace();
         }

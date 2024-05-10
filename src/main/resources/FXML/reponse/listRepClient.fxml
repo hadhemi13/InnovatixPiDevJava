@@ -3,8 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -18,18 +16,6 @@
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
             <children>
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title" text="Liste des réponses" />
-                <HBox fx:id="listRec" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="50.0" styleClass="productBtn" translateX="650.0">
-                    <children>
-                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../imagesAct/category.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                    <HBox.margin>
-                        <Insets left="10.0" />
-                    </HBox.margin>
-                </HBox>
 
                 <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sort-text" text="Triée par :" translateX="60.0">
                     <HBox.margin>

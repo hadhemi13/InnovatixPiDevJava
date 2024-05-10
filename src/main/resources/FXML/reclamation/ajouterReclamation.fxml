@@ -10,7 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -18,6 +17,11 @@
 <children>
     <HBox alignment="CENTER" prefHeight="53.0" prefWidth="570.0">
         <children>
+            <ImageView fitHeight="41.0" fitWidth="39.0" onMouseClicked="#returnbackRec" pickOnBounds="true" preserveRatio="true" translateX="-350.0">
+                <image>
+                    <Image url="@../../imagesAct/back.png" />
+                </image>
+            </ImageView>
             <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Envoyer une réclamation">
                 <font>
                     <Font name="Montserrat ExtraBold" size="19.0" />
@@ -30,9 +34,9 @@
     </HBox>
     <ScrollPane prefHeight="642.0" prefWidth="630.0">
         <content>
-            <VBox prefHeight="622.0" prefWidth="1236.0">
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" style="-fx-background-color: White;">
                 <children>
-                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="670.0">
+                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="670.0" translateX="100.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
@@ -49,13 +53,12 @@
                                             <Font name="Montserrat Regular" size="16.0" />
                                         </font>
                                     </Text>
-                                    <Line endX="488.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" />
                                 </children>
                                 <padding>
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                        <TextField fx:id="objetRec" prefHeight="26.0" prefWidth="557.0" />
+                        <TextField fx:id="objetRec" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="345.0" />
                             <HBox fx:id="ObjetHboxErreur" prefHeight="73.0" prefWidth="638.0" styleClass="form_errors-product" stylesheets="@../../css/SideNavBar.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
@@ -71,7 +74,7 @@
                             <Insets />
                         </VBox.margin>
                     </VBox>
-                    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="129.0" prefWidth="670.0">
+                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="129.0" prefWidth="670.0" translateX="100.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
@@ -93,7 +96,7 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </HBox>
-                        <TextArea fx:id="contenuRec" prefHeight="64.0" prefWidth="562.0" />
+                        <TextArea fx:id="contenuRec" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="347.0" />
                             <HBox fx:id="contenuInputErrorHbox" prefHeight="58.0" prefWidth="638.0" styleClass="form_errors-product" stylesheets="@../../css/SideNavBar.css">
                                 <children>
                                     <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
@@ -106,7 +109,7 @@
                             </HBox>
                         </children>
                     </VBox>
-                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="105.0" prefWidth="570.0">
+                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="570.0" translateX="50.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
@@ -149,12 +152,12 @@
                             </VBox>
                         </children>
                     </HBox>
-                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="105.0" prefWidth="570.0">
+                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="570.0" translateX="45.0">
                         <padding>
                             <Insets left="16.0" right="16.0" />
                         </padding>
                         <children>
-                            <VBox prefHeight="131.0" prefWidth="299.0">
+                            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="299.0">
                                 <children>
                                     <HBox prefHeight="6.0" prefWidth="538.0">
                                         <children>
@@ -208,7 +211,16 @@
                             </VBox>
                         </children>
                     </HBox>
-                    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0" translateY="45.0">
+                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" translateX="-190.0" translateY="20.0">
+                        <children>
+                            <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Captcha" translateX="100.0" />
+                            <TextField fx:id="captchaInput" prefHeight="31.0" prefWidth="133.0" promptText="Entrez le captcha" styleClass="product__add-input" translateX="220.0" />
+                            <TextField fx:id="captchaTextField" editable="false" prefHeight="31.0" prefWidth="80.0" styleClass="product__add-input" translateX="-25.0" />
+                            <!-- Ajoutez un label pour afficher les messages d'erreur du captcha -->
+                            <Text fx:id="captchaErrorText" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="" translateY="30.0" />
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0" translateX="-90.0" translateY="45.0">
                         <children>
                             <Button fx:id="addRecBtn" mnemonicParsing="false" onMouseClicked="#ajouter_reclamation" prefHeight="48.0" prefWidth="110.0" styleClass="product__add-img-btn" text="Ajouter" textFill="#f4f2f2">
                                 <font>

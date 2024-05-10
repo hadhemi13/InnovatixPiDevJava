@@ -86,4 +86,7 @@ public class ListeRecClientController implements Initializable {
         Affichge();
     }
 
+    public void list_rep(MouseEvent mouseEvent) {
+
+    }
 }

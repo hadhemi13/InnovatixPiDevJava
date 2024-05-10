@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.fxml.FXML?>
+<!--<?import javafx.scene.text.Text?>-->
+<!--<?import javafx.scene.layout.VBox?>-->
+<!--<?import javafx.fxml.FXML?>-->
+
+<!--<VBox fx:id="backArt" xmlns="http://javafx.com/javafx"-->
+<!--      xmlns:fx="http://javafx.com/fxml"-->
+<!--      fx:controller="controllers.article.articleCardRssController">-->
+
+<!--    <Text fx:id="titreArtFront"/>-->
+<!--    <Text fx:id="contenuArtFront"/>-->
+
+<!--</VBox>-->
+<!--        <?xml version="1.0" encoding="UTF-8"?>-->
+
+        <?import javafx.scene.text.Text?>
+        <?import javafx.scene.image.Image?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.fxml.FXML?>
 
 <VBox fx:id="backArt" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.article.articleCardRssController">
 
-    <Text fx:id="titreArtFront"/>
-    <Text fx:id="contenuArtFront"/>
+<!-- Affichage de l'image -->
+    <ImageView fx:id="articleImage"/>
+
+    <!-- Affichage du titre de l'article -->
+    <Text fx:id="articleTitle"/>
+
+    <!-- Affichage du contenu de l'article -->
+    <Text fx:id="articleContent"/>
+
+    <!-- Affichage de la date de publication -->
+    <Text fx:id="articleDatePublished"/>
 
 </VBox>

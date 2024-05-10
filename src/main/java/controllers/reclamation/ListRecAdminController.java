@@ -63,30 +63,16 @@ public class ListRecAdminController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        // userListContainer.getChildren().add();
-//           OffreStageItem offreStageItem = new OffreStageItem();
-//            userListContainer.getChildren().add(offreStageItem.initE());
 
         for (Reclamation reclamation : list) {
             try {
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ReclamationItemAdmin.fxml"));
-//                Parent offreItem = loader.load();
-//                ReclamationItemAdminController RecItem = loader.getController();
-//                RecItem.initData(reclamation);
-//                RecListContainer.getChildren().add(offreItem);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/reclamationItemAdmin.fxml"));
                 Parent offreItem = loader.load();
                 ReclamationItemAdminController RecItem = loader.getController();
-
                 // Initialisez les données de réclamation pour chaque élément de réclamation
                 RecItem.initData(reclamation);
-
                 // Passez la réclamation au contrôleur d'ajout de réponse
                 RecItem.initDataRec(reclamation);
-
                 RecListContainer.getChildren().add(offreItem);
             } catch (IOException e) {
                 throw new RuntimeException(e);

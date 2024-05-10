@@ -10,10 +10,10 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/front.fxml"));
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listArticleAdmin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/rss.fxml"));
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/aticlersscard.fxml"));
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/front.fxml"));
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/ListArticleFront.fxml"));
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/listeArticlesClients.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("E-Flex Bank");

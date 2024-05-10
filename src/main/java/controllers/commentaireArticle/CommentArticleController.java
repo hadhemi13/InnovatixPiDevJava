@@ -132,13 +132,37 @@ public class CommentArticleController implements Initializable {
 
     @FXML
     private TextField inputTextCommenta;
-    @FXML
-    public void onLikeContainerPressed(MouseEvent me){
-        startTime = System.currentTimeMillis();
-    }
+//    @FXML
+//    public void onLikeContainerPressed(MouseEvent me){
+//        startTime = System.currentTimeMillis();
+//    }
 
     public int idAuto ;
     List<CommentaireHadhemi> list = new ArrayList<>();
+    @FXML
+    public void onLikeContainerPressed(MouseEvent me) {
+        startTime = System.currentTimeMillis();
+    }
+
+    @FXML
+    public void onLikeContainerMouseReleased(MouseEvent me) throws SQLException {
+        ServiceArticle serviceArticle = new ServiceArticle();
+
+        if (System.currentTimeMillis() - startTime > 500) {
+            reactionsContainer.setVisible(true);
+        } else {
+            if (reactionsContainer.isVisible()) {
+                reactionsContainer.setVisible(false);
+            }
+            if (currentReaction == Reactions.NON) {
+                // Appel de la méthode pour incrémenter les likes
+                serviceArticle.incrementLikes(article);
+            } else {
+                // Appel de la méthode pour décrémenter les likes
+                serviceArticle.decrementLikes(article);
+            }
+        }
+    }
 
 
 
@@ -165,21 +189,22 @@ public class CommentArticleController implements Initializable {
         return comment;
     }
 
-    @FXML
-    public void onLikeContainerMouseReleased(MouseEvent me){
-        if(System.currentTimeMillis() - startTime > 500){
-            reactionsContainer.setVisible(true);
-        }else {
-            if(reactionsContainer.isVisible()){
-                reactionsContainer.setVisible(false);
-            }
-            if(currentReaction == Reactions.NON){
-                setReaction(Reactions.LIKE);
-            }else{
-                setReaction(Reactions.NON);
-            }
-        }
-    }
+//    @FXML
+//    public void onLikeContainerMouseReleased(MouseEvent me){
+//        if(System.currentTimeMillis() - startTime > 500){
+//            reactionsContainer.setVisible(true);
+//        }else {
+//            if(reactionsContainer.isVisible()){
+//                reactionsContainer.setVisible(false);
+//            }
+//            if(currentReaction == Reactions.NON){
+//                setReaction(Reactions.LIKE);
+//            }else{
+//                setReaction(Reactions.NON);
+//            }
+//        }
+//    }
+
 
     @FXML
     public void onReactionImgPressed(MouseEvent me){
@@ -226,6 +251,7 @@ public class CommentArticleController implements Initializable {
         }
 
         nbReactions.setText(String.valueOf(article.getTotalReactions()));
+
     }
 
     public void setData(Article article){
@@ -234,6 +260,8 @@ public class CommentArticleController implements Initializable {
             if (article != null) {
                 titreArt.setText(article.getTitre_art());
                 categArt.setText(article.getCategorie_art());
+                imgPost.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+
                 if (article.getDate_pub_art() != null) {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     String formattedDate = article.getDate_pub_art().format(formatter);
@@ -345,6 +373,7 @@ public class CommentArticleController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         article=this.article;
+        commenterHbox.setVisible(false);
        // setData(article); ///////////////////////////////////////////////Ajbounnnnnnnnni
         //System.out.println("id of this article is :: "+article.getId());
 
@@ -383,6 +412,11 @@ public class CommentArticleController implements Initializable {
 
 
     }
+    @FXML
+    public void toggleCommenterHbox() {
+        commenterHbox.setVisible(!commenterHbox.isVisible());
+    }
+
 
     public void commenter(MouseEvent mouseEvent) throws SQLException {
 
@@ -410,6 +444,10 @@ public class CommentArticleController implements Initializable {
 
         // Ajouter le commentaire à la base de données
         sch.ajouter(commentaire);
+        setData(article);
+
+        commenterHbox.setVisible(false);
+
     }
 
 

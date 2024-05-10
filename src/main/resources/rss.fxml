@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.rss.RSSController">
+    <ListView fx:id="articleListView" prefHeight="600.0" prefWidth="276.0" VBox.vgrow="ALWAYS" />
+    <HBox layoutX="350.0" layoutY="93.0" prefHeight="190.0" prefWidth="382.0" spacing="10">
+        <ImageView fx:id="articleImageView" fitHeight="190.0" fitWidth="383.0" />
+    </HBox>
+    <VBox layoutX="585.0" layoutY="426.0" prefHeight="103.0" prefWidth="109.0" spacing="5" />
+    <Text fx:id="textTitre" fontSmoothingType="LCD" layoutX="333.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="455.9999999999999">
+        <font>
+            <Font name="Arial" size="18.0" />
+        </font>
+    </Text>
+    <ScrollPane hbarPolicy="NEVER" layoutX="318.0" layoutY="319.0" prefHeight="230.0" prefWidth="516.0">
+        <content>
+            <Text fx:id="textcontent" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="513.3368339538574" />
+        </content></ScrollPane>
+</AnchorPane>

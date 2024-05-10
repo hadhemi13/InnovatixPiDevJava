@@ -255,7 +255,7 @@
                                             <Image url="@../../imagesAct/ic_comment.png" />
                                         </image>
                                     </ImageView>
-                                    <Label fx:id="commenter" onMouseClicked="#commenter" text="Commenter" textFill="#606266">
+                                    <Label fx:id="commenter" onMouseClicked="#toggleCommenterHbox" text="Commenter" textFill="#606266">
                                         <font>
                                             <Font name="Segoe UI Semibold" size="18.0" />
                                         </font>

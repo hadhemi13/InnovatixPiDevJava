@@ -9,8 +9,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,16 +30,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.layout.VBox;
 import services.ServiceArticle;
@@ -57,6 +52,18 @@ import java.util.ResourceBundle;
 public class FrontControlleur implements Initializable {
 
 
+    public AnchorPane Empty;
+    public BorderPane borderPost;
+    public Label contenuArt;
+    public Label categorieart;
+    public Button titreArt;
+    public Label userNom;
+    public ImageView userImg;
+    public Button dateArt;
+    public ImageView imageP;
+    public Button newtP;
+    public Button PreviousP;
+    public Button ajoutPP;
     @FXML
     private GridPane ArtListContainer;
     private final ServiceArticle serviceArticle = new ServiceArticle();
@@ -65,12 +72,73 @@ public class FrontControlleur implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("yesser");
         try {
             // Call the method to load articles
             loadArticles();
         } catch (IOException | SQLException e) {
             e.printStackTrace();
             // Handle any exceptions here, such as displaying an error message
+        }
+        // Nettoyer le contenu actuel
+        ArtListContainer.getChildren().clear();
+
+        // Récupérez la liste des articles à partir du service ou du gestionnaire de données
+        List<Article> articles = null; // Par exemple
+        try {
+            articles = serviceArticle.getAllArticles();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Créer un ScrollPane pour permettre le défilement des articles
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setFitToWidth(true); // Ajuster la largeur du ScrollPane à celle de la GridPane
+        scrollPane.setContent(ArtListContainer);
+
+        // Ajouter le ScrollPane à la vue parent
+        // Assurez-vous que ArtListContainer est déjà ajouté à une vue parent dans votre scène FXML
+        // Si ce n'est pas le cas, ajoutez d'abord ArtListContainer à la vue parent dans votre FXML
+        // Ensuite, vous pouvez ajouter le ScrollPane à la même vue parent
+        // Par exemple, si ArtListContainer est déjà ajouté à une VBox nommée container dans votre FXML :
+        // container.getChildren().add(scrollPane);
+
+        // Ajoutez chaque article au GridPane
+        int row = 1;
+        int column = 0;
+        // Espacement entre les cartes
+        double verticalGap = 18; // Environ 9 mm
+        double horizontalGap = 50; // Environ 9 mm
+        // Espacement entre le GridPane et les cartes
+        double margin = 5; // Environ 10 mm
+        // Définir l'espacement vertical et horizontal
+        ArtListContainer.setVgap(verticalGap);
+        ArtListContainer.setHgap(horizontalGap);
+
+        for (Article article : articles) {
+            System.out.println("loadArticles"+article.getId());
+            // Charger la carte d'article à partir du fichier FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
+            Parent articleCardParent = null;
+            try {
+                articleCardParent = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Initialisez les données de l'article dans le contrôleur de carte d'article
+            articleCardClientController articleCardController = loader.getController();
+            articleCardController.initializeData(article);
+
+            // Ajoutez la carte d'article au GridPane
+            ArtListContainer.add(articleCardParent, column, row);
+
+            // Incrémentez la colonne et passez à la ligne suivante si nécessaire
+            column++;
+            if (column == 2) {
+                column = 0;
+                row++;
+            }
         }
     }
 
@@ -148,6 +216,7 @@ public class FrontControlleur implements Initializable {
 
 
     public void loadArticles() throws IOException, SQLException {
+
         // Nettoyer le contenu actuel
         ArtListContainer.getChildren().clear();
 
@@ -179,6 +248,7 @@ public class FrontControlleur implements Initializable {
         ArtListContainer.setHgap(horizontalGap);
 
         for (Article article : articles) {
+            System.out.println("loadArticles"+article.getId());
             // Charger la carte d'article à partir du fichier FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
             Parent articleCardParent = loader.load();
@@ -201,13 +271,14 @@ public class FrontControlleur implements Initializable {
 
     public void refreshArticleList() throws SQLException {
 
+
         // Nettoyer le contenu actuel
         ArtListContainer.getChildren().clear();
 
         try {
             // Charger à nouveau la liste des articles depuis la base de données
             List<Article> articles = serviceArticle.afficher();
-
+            System.out.println("refresh" + articles);
             // Charger à nouveau les cartes d'articles dans le conteneur
             loadArticles(articles);
         } catch (SQLException e) {
@@ -235,6 +306,7 @@ public class FrontControlleur implements Initializable {
         // Parcourir chaque article et charger sa carte dans le conteneur
         for (Article article : articles) {
             try {
+                System.out.println("loadArticles" + article.getId());
                 // Charger la carte d'article à partir du fichier FXML
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
                 VBox articleCard = loader.load();

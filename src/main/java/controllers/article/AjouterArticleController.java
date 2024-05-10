@@ -2,8 +2,11 @@ package controllers.article;
 
 import Entities.actualites.Article;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import javafx.collections.FXCollections;
@@ -30,7 +33,8 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Random;
-
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 public class AjouterArticleController implements Initializable {
     @FXML
     private Text CatArtInputError;
@@ -231,7 +235,7 @@ public class AjouterArticleController implements Initializable {
             return; // Sortir de la fonction si des champs sont vides
         }
 
-        // Vérifier le captcha
+        // Vérifier le capt
         String userCaptchaInput = captchaInput.getText();
         if (!userCaptchaInput.equals(captchaValue)) {
             captchaErrorText.setText("Captcha incorrect !");
@@ -242,7 +246,18 @@ public class AjouterArticleController implements Initializable {
         String img = imageName;
         String pieceJArt = pdfName;
        String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
-        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt,selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,img);
+
+
+        String ArticleData =  "Titre: " + titre + "\n" +
+                "Publié par: " + adresse + "\n" +
+                "Catégorie: " + selectedCategory + "\n" +
+                "Contenu: " + ContenuArt.getText() + "\n" ;
+
+
+        String base64QRCode = generateBase64QRCode(ArticleData);
+        Article article = new Article(nom ,adresse,dateTime , dureeArt, selectedCategory , titre , ContenuArt.getText(), pieceJArt ,img , base64QRCode);
+        article.setQrCode(base64QRCode);
+
         boolean ajoutReussi = sa.ajouter(article);
 
         if (ajoutReussi) {
@@ -255,6 +270,11 @@ public class AjouterArticleController implements Initializable {
 
         }
 
+    }
+    private String generateBase64QRCode(String data) {
+        ByteArrayOutputStream stream = QRCode.from(data).to(ImageType.JPG).stream();
+        byte[] byteArray = stream.toByteArray();
+        return Base64.getEncoder().encodeToString(byteArray);
     }
     @FXML
     void returnbackarticle(MouseEvent event) {

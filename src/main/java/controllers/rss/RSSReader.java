@@ -67,14 +67,16 @@ public static List<RSSReader> loadArticlesFromURL(String urlString) throws IOExc
 
     // Step 1: Load JSON data from API
     ObjectMapper objectMapper = new ObjectMapper();
-    URL url = new URL("https://rss.app/feeds/v1.1/tOgyrCZKdMWLeE5M.json");
+    URL url = new URL("https://rss.app/feeds/v1.1/t9AIvL6SZLnwsI91.json");
     JsonNode jsonNode = objectMapper.readTree(url);
 
     // Step 2: Parse JSON data into RSSReader objects
     for (JsonNode item : jsonNode.get("items")) {
         String title = item.get("title").asText();
-        String content = item.get("content_text").asText();
-        String imageUrl = item.get("image").asText();
+//        String content = item.get("content_text").asText();
+//        String imageUrl = item.get("image").asText();
+        String imageUrl="hadh";
+        String content="hh";
         String datePublished = item.get("date_published").asText();
         articles.add(new RSSReader(title, content, imageUrl, datePublished));
     }
