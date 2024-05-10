@@ -254,6 +254,48 @@ public class ServiceVirement implements IServiceVirement <Virement> {
         }
         return virements;
     }
+
+    public List<Virement> searchVirement(String searchTerm) throws SQLException {
+        List<Virement> virements = new ArrayList<>();
+
+        String sql = "SELECT * FROM virement WHERE ";
+        // Construct the WHERE clause to search across all attributes
+        sql += "nomet_prenom LIKE ? OR ";
+        sql += "type_virement LIKE ? OR ";
+        sql += "transferez_a LIKE ? OR ";
+        sql += "num_beneficiare LIKE ? OR ";
+        sql += "montant LIKE ? OR ";
+        sql += "cin LIKE ? OR ";
+        sql += "email LIKE ?"; // Remove the extra OR
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            // Set the search term for each attribute in the WHERE clause
+            for (int i = 1; i <= 7; i++) {
+                preparedStatement.setString(i, "%" + searchTerm + "%");
+            }
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                Virement virement = new Virement();
+                virement.setId(rs.getInt("id")); // Assuming id is present in the Cheque object
+                virement.setMontant(String.valueOf(rs.getInt("montant")));
+                virement.setType_virement(rs.getString("type_virement"));
+                virement.setNum_beneficiare(Integer.parseInt(rs.getString("num_beneficiare"))); // Corrected case for "email"
+                virement.setCin(rs.getInt("cin"));
+                virement.setEmail(rs.getString("email"));
+                virement.setNomet_prenom(rs.getString("nomet_prenom"));
+                virement.setTransferez_a(rs.getString("transferez_a"));
+
+
+                virements.add(virement);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error while searching for cheques: " + ex.getMessage());
+        }
+
+        return virements;
+    }
 }
 
 

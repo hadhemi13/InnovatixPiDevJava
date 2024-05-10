@@ -1396,10 +1396,10 @@
     -fx-font-size: 28px;
     -fx-font-weight: 800;
 }
-**********************************
 
 
-.dash__side-bar {
+
+.dash__side-bar{
     -fx-padding: 16px 18px;
     -fx-background-color: rgba(107, 175, 84, 0.1);
 }

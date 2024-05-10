@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -22,6 +24,8 @@ public class HistoriqueChequeAdmin implements Initializable {
     @FXML
     private VBox ChequeContainer;
 
+    @FXML
+    private TextField ChequeclientsfSearchInputAdmin;
     @FXML
     private Pane content_area;
 
@@ -68,4 +72,61 @@ public class HistoriqueChequeAdmin implements Initializable {
             e.printStackTrace();
         }
     }
+    public void ChequeclientsfSearchInputAdmin(KeyEvent keyEvent) throws SQLException {
+        ServiceCheque serviceCheque = new ServiceCheque(); // Créer une instance de ServiceCheque
+        String searchKeyword = ChequeclientsfSearchInputAdmin.getText();
+
+        if (searchKeyword.isEmpty()) {
+            // Si le mot-clé de recherche est vide, actualiser la liste des chèques
+            refreshChequeList();
+        } else {
+            try {
+                List<Cheque> searchResults = serviceCheque.searchCheque(searchKeyword);
+                loadCheques(searchResults);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private void loadCheques(List<Cheque> searchResults) {
+        ChequeContainer.getChildren().clear(); // Clear existing views
+        for (Cheque cheque : searchResults) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChequeItemsAdmin.fxml"));
+                Parent item = loader.load();
+                ChequeItemsAdmin controller = loader.getController();
+                controller.initData(cheque);
+                ChequeContainer.getChildren().add(item);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void refreshChequeList() {
+        ChequeContainer.getChildren().clear();  // Clear the existing views
+        List<Cheque> filteredCheques = new ArrayList<>();
+        try {
+            List<Cheque> allCheques = new ServiceCheque().afficher();
+            for (Cheque cheque : allCheques) {
+                if (!"Approuvé".equals(cheque.getDecision())) {
+                    filteredCheques.add(cheque);
+                }
+
+            }
+
+            for (Cheque cheque : filteredCheques) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChequeItemsAdmin.fxml"));
+                Parent item = loader.load();
+                ChequeItemsAdmin controller = loader.getController();
+                controller.initData(cheque);
+                ChequeContainer.getChildren().add(item);
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace(); // Proper error handling should be implemented
+        }
+    }
+   
 }

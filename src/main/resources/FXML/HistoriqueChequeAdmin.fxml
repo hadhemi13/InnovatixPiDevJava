@@ -27,12 +27,12 @@
                                 <Insets left="10.0" top="26.0" />
                             </HBox.margin>
                         </Text>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="99.0" translateY="30.0">
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="320.0" translateY="30.0">
                      <image>
                         <Image url="@../img/magnifier.png" />
                      </image>
                   </ImageView>
-                  <TextField prefWidth="270.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="70.0" translateY="20.0" />
+                  <TextField fx:id="ChequeclientsfSearchInputAdmin" onKeyReleased="#ChequeclientsfSearchInputAdmin" prefWidth="270.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="70.0" translateY="20.0" />
                     </children>
                 </HBox>
                 <HBox layoutX="33.0" layoutY="92.0" prefHeight="74.0" prefWidth="1030.0" styleClass="compteTableHead" stylesheets="@../css/Compte.css">

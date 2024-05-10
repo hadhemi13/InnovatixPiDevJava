@@ -123,6 +123,7 @@ public class VirementCard  implements Initializable {
         cinItems.setText(String.valueOf(virement.getCin()));
         NomPrenomItems.setText(virement.getNomet_prenom());
         TelItems.setText(virement.getPhone_number());
+        TypeItems.setText(virement.getType_virement());
         benfItems.setText(virement.getTransferez_a());
         NumBenefItems.setText(String.valueOf(virement.getNum_beneficiare()));
         MontantItems.setText(String.valueOf(virement.getMontant()));

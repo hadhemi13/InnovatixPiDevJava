@@ -38,10 +38,13 @@ public class Succes {
         content_area.getChildren().clear();
         content_area.getChildren().add(addArticleParent);
 
-        // Fermer la fenêtre actuelle
+        // Fermer la fenêtre actuelle si la scène est disponible
         Stage stage = (Stage) okBtn.getScene().getWindow();
-        stage.close();
+        if (stage != null) {
+            stage.close();
+        }
     }
 
-    }
+
+}
 

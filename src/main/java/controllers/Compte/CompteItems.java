@@ -2,6 +2,7 @@ package controllers.Compte;
 
 import Entities.Cheque;
 import Entities.Compte;
+import services.ShaymaService;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.Cheque.ListeChequeAdmin;
 import controllers.Cheque.ModifierCheque;
@@ -22,6 +23,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
+import services.ShaymaService;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -83,6 +85,7 @@ public class CompteItems implements Initializable {
 
     public void initData(Compte i){
         this.compte= i ;
+       // System.out.println(compte.getId());
         ServiceCompte serviceCompte = new ServiceCompte();
 
         Email.setText(i.getEmail());
@@ -123,14 +126,29 @@ public class CompteItems implements Initializable {
         if ("Approuvé".equals(compte.getStatut()) || "Rejeté".equals(compte.getStatut())) {
             disableStatutButtons();
         }
+        ApprouveBtn.setOnMouseClicked(mouseEvent -> {
+            if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte ?")) {
+                updateCompteStatut("Approuvé");
+            }
+
+        });
+
 
 
 
     }
-    public void ApprouverCompte(MouseEvent mouseEvent) throws GeneralSecurityException, IOException, MessagingException {
+    @FXML
+    private void ApprouverCompte(MouseEvent event) throws GeneralSecurityException, IOException {
+        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte ?")) {
+            updateCompteStatut("Approuvé");
+        }
 
-        new MailingShayma().sendMail("Approbation de crédit", "ff");
     }
+
+//    public void ApprouverCompte(MouseEvent mouseEvent) throws GeneralSecurityException, IOException, MessagingException {
+//
+//        new MailingShayma().sendMail("Approbation de crédit", "ff");
+//    }
 
     public void RefuserCompte(MouseEvent mouseEvent) {
         if (showConfirmationDialog("Reject", "Voulez vous réfuser ce compte bancaire?")) {
@@ -151,7 +169,7 @@ public class CompteItems implements Initializable {
     private void updateCompteStatut(String newStatut) {
         try {
             compte.setStatut(newStatut);
-            new ServiceCompte().modifier(compte);
+            new ServiceCompte().modifierOne(compte);
             showAlert(Alert.AlertType.INFORMATION, "Success", "Compte statut updated to " + newStatut + ".");
             disableStatutButtons();
             applyRejectedStyle();

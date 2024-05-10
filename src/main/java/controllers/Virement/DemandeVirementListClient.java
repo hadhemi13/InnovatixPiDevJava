@@ -6,6 +6,8 @@ import controllers.CaptureEcran;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.Cheque.DemandeChequeListClient;
 import controllers.Cheque.updateChequeCard;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +34,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -141,7 +144,7 @@ public class DemandeVirementListClient  implements Initializable {
     private Label stagesText;
 
     @FXML
-    private ComboBox<?> statusInput;
+    private ComboBox<String> statusInput;
 
     @FXML
     private HBox usersBtn;
@@ -164,10 +167,7 @@ public class DemandeVirementListClient  implements Initializable {
 
 
 
-    @FXML
-    void statusChange(ActionEvent event) {
 
-    }
 
     public void AjouterVirement(MouseEvent mouseEvent) {
     }
@@ -201,6 +201,12 @@ public class DemandeVirementListClient  implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> trie = FXCollections.observableArrayList(
+                "Tous",
+                "Personne",
+                "VEcoresponsabilité"
+        );
+        statusInput.setItems(trie);
         Virement virement;
         ServiceVirement serviceVirement = new ServiceVirement();
         List<Virement> list = new ArrayList<>();
@@ -337,6 +343,56 @@ public class DemandeVirementListClient  implements Initializable {
         updateVirementModel.setVisible(false);
         updateVirementModelShow = 0;
     }
+
+    public void statusChange(ActionEvent actionEvent) throws SQLException {
+        String selectedSortOption = statusInput.getValue();
+
+        if (selectedSortOption != null) {
+            try {
+                // Créer une instance de ServiceVirement
+                ServiceVirement serviceVirement = new ServiceVirement();
+
+                // Get the list of virements
+                List<Virement> virements = serviceVirement.afficher();
+
+                // Filter and sort the virements based on the selected option
+                switch (selectedSortOption) {
+                    case "Personne":
+                        virements = virements.stream()
+                                .filter(virement -> virement.getType_virement().equals("Personne"))
+                                .sorted(Comparator.comparing(Virement::getType_virement))
+                                .toList();
+                        break;
+                    case "VEcoresponsabilité":
+                        virements = virements.stream()
+                                .filter(virement -> virement.getType_virement().equals("VEcoresponsabilité"))
+                                .sorted(Comparator.comparing(Virement::getType_virement))
+                                .toList();
+                        break;
+                    case "Tous":
+                        // No need to filter, just sort all virements
+                        virements.sort(Comparator.comparing(Virement::getType_virement));
+                        break;
+                    default:
+                        break;
+                }
+
+                // Reload the virement cards with the filtered and sorted list
+                loadVirement(virements);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle the exception
+            }
+        } else {
+            // Si aucune option n'est sélectionnée, rechargez simplement tous les virements sans tri
+            ShowListe();
+        }
+    }
+
+
+
+
+
 }
 
 

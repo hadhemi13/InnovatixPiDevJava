@@ -24,7 +24,7 @@
                 <Insets right="4.0" />
             </HBox.margin>
         </Text>
-        <Label fx:id="ApprouveBtn" onMouseClicked="#ApprouverCompte" styleClass="userItem__btn" translateX="100.0">
+        <Label fx:id="ApprouveBtn" styleClass="userItem__btn" translateX="100.0">
             <graphic>
                 <ImageView fx:id="ApprouverC" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <image>

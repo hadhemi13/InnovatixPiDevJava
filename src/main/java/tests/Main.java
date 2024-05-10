@@ -1,19 +1,16 @@
 package tests;
 
-import Entities.Cheque;
-import Entities.Virement;
-import controllers.Virement.VirementItemsAdmin;
 import services.*;
-import utils.MyDatabase;
 
-import java.sql.Date;
+import javax.mail.MessagingException;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.sql.SQLException;
-import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, GeneralSecurityException, IOException, MessagingException {
 //        Cheque cheque = new Cheque("hsh",22,12,"kahak",122121,"yshs",new Date(125,04,06),"dsshs","hsh",1,1);
 //        System.out.println(cheque.getUser_id());
 //        ServiceCheque serviceCheque = new ServiceCheque();
@@ -24,9 +21,10 @@ public class Main {
 //        VirementItemsAdmin virementItemsAdmin = new VirementItemsAdmin();
 //        virementItemsAdmin.sendSMS(String.valueOf(2));
 //        System.out.println("passe");
-            YouSignService youSignService = new YouSignService();
-        youSignService.initiateSignatureRequest("Nom de la demande", "khaluiyesser@gmail.com");
-
+//            YouSignService youSignService = new YouSignService();
+//        youSignService.initiateSignatureRequest("Nom de la demande", "khaluiyesser@gmail.com");
+        //ShaymaService shaymaService = new ShaymaService();
+       // shaymaService.sendMail("hello world","hello world" );
         //System.out.println(serviceVirement.getById(1));
     }
 }

@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,6 +27,8 @@ public class HistoriqueVirementAdmin implements Initializable {
 
     @FXML
     private VBox VireContainer;
+    @FXML
+    private TextField VirementclientsfSearchInputAdmin;
 
     @FXML
     private Pane content_area;
@@ -78,6 +82,65 @@ public class HistoriqueVirementAdmin implements Initializable {
             }
         }
     }
+    public void VirementclientsfSearchInputAdmin(KeyEvent keyEvent) throws SQLException {
+        ServiceVirement serviceVirement = new ServiceVirement(); // Créer une instance de ServiceVirement
+        String searchKeyword = VirementclientsfSearchInputAdmin.getText();
+
+        if (searchKeyword.isEmpty()) {
+            // Si le mot-clé de recherche est vide, actualiser la liste des virements
+            refreshVirementList();
+        } else {
+            try {
+                List<Virement> searchResults = serviceVirement.searchVirement(searchKeyword);
+                loadVirement(searchResults);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private void loadVirement(List<Virement> searchResults) {
+        VireContainer.getChildren().clear(); // Clear existing views
+        for (Virement virement : searchResults) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/VirementItemsAdmin.fxml"));
+                Parent item = loader.load();
+                VirementItemsAdmin controller = loader.getController();
+                controller.initData(virement);
+                VireContainer.getChildren().add(item);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public void refreshVirementList() {
+        VireContainer.getChildren().clear();  // Clear the existing views
+        List<Virement> filtredVirements = new ArrayList<>();
+        try {
+            List<Virement> allVirements = new ServiceVirement().afficher();
+            for (Virement virement : allVirements) {
+                if (!"Approuvé".equals(virement.getDecision_v())) {
+                    filtredVirements.add(virement);
+                }
+
+            }
+
+            for (Virement virement : filtredVirements) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/VirementItemsAdmin.fxml"));
+                Parent item = loader.load();
+                VirementItemsAdmin controller = loader.getController();
+                controller.initData(virement);
+                VireContainer.getChildren().add(item);
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace(); // Proper error handling should be implemented
+        }
+    }
+
+
 
     }
 

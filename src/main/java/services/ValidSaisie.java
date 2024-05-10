@@ -48,6 +48,11 @@ public class ValidSaisie {
         LocalDate limiteDate = LocalDate.of(2024, 1, 1);
         return date.isBefore(limiteDate);
     }
+    public static boolean isValidDateN(LocalDate date) {
+        // Vérifie si la date est antérieure à aujourd'hui moins 18 ans
+        LocalDate limiteDate = LocalDate.now().minusYears(18);
+        return date.isBefore(limiteDate);
+    }
     public static void ValidDateV() {
         // Obtenir la date d'aujourd'hui
         LocalDate aujourdhui = LocalDate.now();

@@ -1,10 +1,13 @@
 package controllers.Cheque;
 
 import Entities.Cheque;
+import Entities.Virement;
 import controllers.CaptureEcran;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.ChequeItemsController;
 import controllers.Virement.AjouterVirementCard;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +29,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceCheque;
 import javafx.scene.control.TextField;
+import services.ServiceVirement;
 
 
 import java.awt.*;
@@ -33,6 +37,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -112,8 +117,6 @@ public class DemandeChequeListClient  implements  Initializable {
         return updateChequeModelShow;
     }
 
-    public void statusChange(ActionEvent event) {
-    }
 
     @FXML
     void close_updateChequeModel(MouseEvent event) {
@@ -147,6 +150,13 @@ public class DemandeChequeListClient  implements  Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> trie1 = FXCollections.observableArrayList(
+                "tous",
+                "Paiement",
+                "PaiementEco",
+                "Personne"
+        );
+        statusInput.setItems(trie1);
         Cheque cheque;
         ServiceCheque serviceCheque = new ServiceCheque();
         List<Cheque> list = new ArrayList<>();
@@ -290,18 +300,18 @@ public class DemandeChequeListClient  implements  Initializable {
         }
     }
 
-    public void SearchCheque(KeyEvent keyEvent) {
-        String keyword = fxrecherches.getText().toLowerCase().trim(); // Récupérer le texte de la zone de recherche et le convertir en minuscules
-
-        if (keyword.isEmpty()) {
-            // Si le champ de recherche est vide, afficher tous les chèques
-            loadCheques(getAllCheques());
-        } else {
-            // Sinon, filtrer les chèques en fonction du nom du bénéficiaire
-            List<Cheque> filteredCheques = filterCheques(keyword);
-            loadCheques(filteredCheques);
-        }
-    }
+//    public void SearchCheque(KeyEvent keyEvent) {
+//        String keyword = fxrecherches.getText().toLowerCase().trim(); // Récupérer le texte de la zone de recherche et le convertir en minuscules
+//
+//        if (keyword.isEmpty()) {
+//            // Si le champ de recherche est vide, afficher tous les chèques
+//            loadCheques(getAllCheques());
+//        } else {
+//            // Sinon, filtrer les chèques en fonction du nom du bénéficiaire
+//            List<Cheque> filteredCheques = filterCheques(keyword);
+//            loadCheques(filteredCheques);
+//        }
+//    }
 
     // Méthode pour récupérer tous les chèques depuis le service de chèques
     private List<Cheque> getAllCheques() {
@@ -376,6 +386,60 @@ public class DemandeChequeListClient  implements  Initializable {
             // Gérer l'exception appropriée ici
         }
     }
+
+
+
+    public void statusChange(ActionEvent actionEvent) throws SQLException {
+        String selectedSortOption = statusInput.getValue();
+
+        if (selectedSortOption != null) {
+            try {
+                // Créer une instance de ServiceCheque
+                ServiceCheque serviceCheque = new ServiceCheque();
+
+                // Get the list of cheques
+                List<Cheque> cheques = serviceCheque.afficher();
+
+                // Filter and sort the cheques based on the selected option
+                switch (selectedSortOption) {
+                    case "Paiement":
+                        cheques = cheques.stream()
+                                .filter(cheque -> cheque.getBeneficiaire().equals("Paiement"))
+                                .sorted(Comparator.comparing(Cheque::getDecision))
+                                .toList();
+                        break;
+                    case "Personne":
+                        cheques = cheques.stream()
+                                .filter(cheque -> cheque.getBeneficiaire().equals("Personne"))
+                                .sorted(Comparator.comparing(Cheque::getBeneficiaire))
+                                .toList();
+                        break;
+                    case "PaiementEco":
+                        cheques = cheques.stream()
+                                .filter(cheque -> cheque.getBeneficiaire().equals("PaiementEco"))
+                                .sorted(Comparator.comparing(Cheque::getBeneficiaire))
+                                .toList();
+                        break;
+                    case "Tous":
+                        // No need to filter, just sort all cheques
+                        cheques.sort(Comparator.comparing(Cheque::getBeneficiaire));
+                        break;
+                    default:
+                        break;
+                }
+
+                // Reload the cheque cards with the filtered and sorted list
+                loadCheques(cheques);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle the exception
+            }
+        } else {
+            // If no option is selected, simply reload all cheques without sorting
+            ShowListe();
+        }
+    }
+
 }
 
 

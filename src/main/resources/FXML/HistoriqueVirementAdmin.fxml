@@ -36,7 +36,7 @@
                                 <Insets left="10.0" top="26.0" />
                             </HBox.margin>
                         </Text>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="65.0">
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="260.0">
                             <HBox.margin>
                                 <Insets top="30.0" />
                             </HBox.margin>
@@ -44,7 +44,7 @@
                                 <Image url="@../img/magnifier.png" />
                             </image>
                         </ImageView>
-                        <TextField prefWidth="245.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
+                        <TextField fx:id="VirementclientsfSearchInputAdmin" onKeyReleased="#VirementclientsfSearchInputAdmin" prefWidth="245.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
                             <HBox.margin>
                                 <Insets top="20.0" />
                             </HBox.margin>

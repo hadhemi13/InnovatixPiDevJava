@@ -45,7 +45,7 @@
                         <Image url="@../img/magnifier.png" />
                      </image>
                   </ImageView>
-                  <TextField prefWidth="218.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
+                  <TextField fx:id="VirementclientsfSearchInputAdmin" onKeyReleased="#VirementclientsfSearchInputAdmin" prefWidth="218.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
@@ -58,7 +58,7 @@
                                 <Font name="Bell MT Bold" size="22.0" />
                             </font>
                         </Text>
-                        <ComboBox prefWidth="150.0" promptText="Tout " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
+                        <ComboBox fx:id="trie" onAction="#trier" prefWidth="150.0" promptText="Tout " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
                             <HBox.margin>
                                 <Insets bottom="19.0" top="25.0" />
                             </HBox.margin>
