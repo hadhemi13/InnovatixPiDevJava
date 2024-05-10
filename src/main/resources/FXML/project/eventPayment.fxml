@@ -96,7 +96,7 @@
                   <Image url="@../../assets/img/discount.png" />
                </image>
             </ImageView>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ApplyCoupon" prefHeight="40.0" prefWidth="75.0" styleClass="checkoutCard__btn" stylesheets="@../../assets/style/aliStyle.css" translateX="250.0" translateY="-72.0">
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"   prefHeight="40.0" prefWidth="75.0" styleClass="checkoutCard__btn" stylesheets="@../../assets/style/aliStyle.css" translateX="250.0" translateY="-72.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="checkoutCard__btnText" text="Apply" />
                </children>
@@ -109,12 +109,12 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="760.0">
                      <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="categoriesModel-card-title" text="1.  Address">
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="categoriesModel-card-title" text="Evenement">
                            <HBox.margin>
                               <Insets right="75.0" />
                            </HBox.margin>
                         </Text>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#close_commandCheckoutModel" prefHeight="30.0" prefWidth="30.0" styleClass="categoriesModel-card-exitBtn" translateX="485.0">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"   prefHeight="30.0" prefWidth="30.0" styleClass="categoriesModel-card-exitBtn" translateX="485.0">
                            <children>
                               <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -156,7 +156,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="fullnameInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#FullnameInputTyped" prefHeight="40.0" promptText="FullName" styleClass="product__add-input">
+                              <TextField fx:id="fullnameInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" promptText="FullName" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -195,7 +195,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="emailInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#emailInputTyped" prefHeight="40.0" promptText="Email" styleClass="product__add-input">
+                              <TextField fx:id="emailInput" maxHeight="-Infinity" minHeight="-Infinity"  prefHeight="40.0" promptText="Email" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -241,7 +241,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="cityInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#cityInputTyped" prefHeight="40.0" promptText="City" styleClass="product__add-input">
+                              <TextField fx:id="cityInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" promptText="City" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -280,7 +280,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="phoneInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#phoneInputTyped" prefHeight="40.0" promptText="Phone" styleClass="product__add-input">
+                              <TextField fx:id="phoneInput" maxHeight="-Infinity" minHeight="-Infinity"  prefHeight="40.0" promptText="Phone" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -326,7 +326,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="addressInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#addressInputTyped" prefHeight="40.0" promptText="Address" styleClass="product__add-input">
+                              <TextField fx:id="addressInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" promptText="Address" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -365,7 +365,7 @@
                                     <Insets bottom="10.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="zipcodeInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#zipcodeInputTyped" prefHeight="40.0" promptText="Zip Code" styleClass="product__add-input">
+                              <TextField fx:id="zipcodeInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" promptText="Zip Code" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -389,7 +389,7 @@
                   </HBox>
                   <HBox fx:id="addCheckoutBtn" alignment="CENTER" layoutX="11.0" layoutY="450.0" prefHeight="49.0" prefWidth="760.0" translateY="-25.0">
                      <children>
-                        <HBox alignment="CENTER" onMouseClicked="#switchToPaymentModel" prefHeight="56.0" prefWidth="120.0" styleClass="checkoutContenueBtn" stylesheets="@../../assets/style/aliStyle.css">
+                        <HBox alignment="CENTER"   prefHeight="56.0" prefWidth="120.0" styleClass="checkoutContenueBtn" stylesheets="@../../assets/style/aliStyle.css">
                            <children>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="checkoutContenueBtnText" text="Contenue" />
                            </children>
@@ -401,7 +401,7 @@
                   </HBox>
                   <HBox fx:id="updateCheckoutBtn" alignment="CENTER" layoutX="11.0" layoutY="450.0" prefHeight="49.0" prefWidth="760.0" translateY="-25.0">
                      <children>
-                        <HBox alignment="CENTER" onMouseClicked="#UpdateCheckoutBtn" prefHeight="56.0" prefWidth="120.0" styleClass="checkoutContenueBtn" stylesheets="@../../assets/style/aliStyle.css">
+                        <HBox alignment="CENTER"   prefHeight="56.0" prefWidth="120.0" styleClass="checkoutContenueBtn" stylesheets="@../../assets/style/aliStyle.css">
                            <children>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="checkoutContenueBtnText" text="Update" />
                            </children>
@@ -421,7 +421,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="760.0">
                      <children>
-                        <Text fx:id="paymentModelTitle" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="categoriesModel-card-title" text="2.  Payment">
+                        <Text fx:id="paymentModelTitle" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="categoriesModel-card-title" text="Paiement">
                            <HBox.margin>
                               <Insets right="75.0" />
                            </HBox.margin>
@@ -446,7 +446,7 @@
                   <Line endX="701.0" layoutX="30.0" layoutY="84.0" stroke="#defee6" strokeWidth="2.0" />
                   <HBox alignment="CENTER" layoutX="1.0" layoutY="450.0" prefHeight="49.0" prefWidth="760.0" translateY="-25.0">
                      <children>
-                        <HBox alignment="CENTER" onMouseClicked="#validateCheckout" prefHeight="56.0" prefWidth="120.0" styleClass="checkoutContenueBtn" stylesheets="@../../assets/style/aliStyle.css">
+                        <HBox alignment="CENTER"  prefHeight="56.0" prefWidth="120.0" styleClass="checkoutContenueBtn" stylesheets="@../../assets/style/aliStyle.css">
                            <children>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="checkoutContenueBtnText" text="Validate" />
                            </children>
@@ -476,7 +476,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress" text="1.  Address" />
+                                          <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress" text="Evenement" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -495,7 +495,7 @@
                                        <children>
                                           <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="21.0" prefWidth="395.0">
                                              <children>
-                                                <Text fx:id="fullname" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="Braiekali" />
+                                                <Text fx:id="fullname" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="Nom d'evenement" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="4.0" />
@@ -514,7 +514,7 @@
                                           <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="21.0" prefWidth="395.0">
                                              <children>
                                                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_details" text="+216" />
-                                                <Text fx:id="phone" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_details" text="55516530" />
+                                                <Text fx:id="phone" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_details" text="29539377" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -527,7 +527,7 @@
                                           <Insets right="30.0" />
                                        </padding>
                                        <children>
-                                          <HBox fx:id="editAddress" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#updateCheckout" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                                          <HBox fx:id="editAddress" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"   prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                                              <children>
                                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -536,7 +536,7 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="deleteAchat" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#DeleteCheckout" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                                          <HBox fx:id="deleteAchat" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"   prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                                              <children>
                                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -561,12 +561,12 @@
                         <Insets left="30.0" right="30.0" />
                      </padding>
                      <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="What payment method do you want to use?" />
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="paymentMethodTitle" text="Quel mode de paiement souhaitez-vous utiliser ?" />
                      </children>
                   </HBox>
                   <HBox fx:id="selectPaymentMethod" layoutY="313.0" prefHeight="63.0" prefWidth="760.0">
                      <children>
-                        <HBox alignment="CENTER" onMouseClicked="#on_Stripe_methodPayment_click" prefHeight="80.0" prefWidth="136.0" styleClass="paymentCardContainer" stylesheets="@../../assets/style/aliStyle.css">
+                        <HBox alignment="CENTER"   prefHeight="80.0" onMouseClicked="#on_Stripe_methodPayment_click" prefWidth="136.0" styleClass="paymentCardContainer" stylesheets="@../../assets/style/aliStyle.css">
                            <children>
                               <ImageView fitHeight="60.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -578,7 +578,7 @@
                               <Insets right="146.5" />
                            </HBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER" onMouseClicked="#on_Livraison_methodPayment_click" prefHeight="100.0" prefWidth="136.0" styleClass="paymentCardContainer" stylesheets="@../../assets/style/aliStyle.css">
+                        <HBox alignment="CENTER"   prefHeight="100.0" prefWidth="136.0" styleClass="paymentCardContainer" stylesheets="@../../assets/style/aliStyle.css">
                            <children>
                               <ImageView fitHeight="40.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -590,15 +590,7 @@
                               <Insets right="146.5" />
                            </HBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER" onMouseClicked="#on_zeroWastePoints_methodPayment_click" prefHeight="100.0" prefWidth="136.0" styleClass="paymentCardContainer" stylesheets="@../../assets/style/aliStyle.css">
-                           <children>
-                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../assets/img/logo1.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </HBox>
+
                      </children>
                      <padding>
                         <Insets left="30.0" right="30.0" />
@@ -624,7 +616,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress" text="2.  Payment" />
+                                          <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress" text="Paiement" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -669,7 +661,7 @@
                                           <Insets right="30.0" />
                                        </padding>
                                        <children>
-                                          <HBox fx:id="editAddress1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#updatePaymentMethod" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                                          <HBox fx:id="editAddress1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"   prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                                              <children>
                                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -678,7 +670,7 @@
                                                 </ImageView>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="deleteAchat1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#deletePaymentMethod" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                                          <HBox fx:id="deleteAchat1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"  prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                                              <children>
                                                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -705,7 +697,7 @@
                      <children>
                         <VBox prefHeight="153.0" prefWidth="272.0">
                            <children>
-                              <TextField fx:id="cardNumberInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#cardNumberInputTyped" prefHeight="40.0" promptText="cardNumber" styleClass="product__add-input">
+                              <TextField fx:id="cardNumberInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" promptText="cardNumber" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -730,7 +722,7 @@
                         </VBox>
                         <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="123.0" prefWidth="70.0">
                            <children>
-                              <TextField fx:id="mmInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#mmInputTyped" prefHeight="40.0" prefWidth="134.0" promptText="MM" styleClass="product__add-input">
+                              <TextField fx:id="mmInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" prefWidth="134.0" promptText="MM" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -751,7 +743,7 @@
                         </VBox>
                         <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="123.0" prefWidth="70.0">
                            <children>
-                              <TextField fx:id="yyInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#yyInputTyped" prefHeight="40.0" prefWidth="134.0" promptText="YY" styleClass="product__add-input">
+                              <TextField fx:id="yyInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" prefWidth="134.0" promptText="YY" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -775,7 +767,7 @@
                         </VBox>
                         <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="123.0" prefWidth="110.0">
                            <children>
-                              <TextField fx:id="cvcInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#cvcInputTyped" prefHeight="40.0" prefWidth="134.0" promptText="CVC" styleClass="product__add-input">
+                              <TextField fx:id="cvcInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" prefWidth="134.0" promptText="CVC" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -799,7 +791,7 @@
                         </VBox>
                         <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="123.0" prefWidth="150.0">
                            <children>
-                              <TextField fx:id="zipInput" maxHeight="-Infinity" minHeight="-Infinity" onKeyTyped="#zipInputTyped" prefHeight="40.0" prefWidth="134.0" promptText="Zip" styleClass="product__add-input">
+                              <TextField fx:id="zipInput" maxHeight="-Infinity" minHeight="-Infinity"   prefHeight="40.0" prefWidth="134.0" promptText="Zip" styleClass="product__add-input">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
@@ -820,7 +812,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="backTo_selectPayment_btn" alignment="CENTER" layoutX="30.0" layoutY="250.0" onMouseClicked="#backTo_selectPayment" prefHeight="35.0" prefWidth="48.0" styleClass="checkoutContenueBtn">
+                  <HBox fx:id="backTo_selectPayment_btn" alignment="CENTER" layoutX="30.0" layoutY="250.0"   prefHeight="35.0" prefWidth="48.0" styleClass="checkoutContenueBtn">
                      <children>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

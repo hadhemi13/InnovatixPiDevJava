@@ -1,6 +1,7 @@
 package controllers.Virement;
 
 import Entities.Cheque;
+import Entities.User;
 import Entities.Virement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
+import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import services.ServiceCheque;
 import services.ServiceVirement;
 import javafx.scene.layout.VBox;
@@ -153,6 +155,7 @@ public class AjouterVirementCard implements Initializable {
     private Text typeInputError;
     private File selectedImageFile;
     private String imageName = null;
+    public static User user;
 
 
     @FXML
@@ -376,6 +379,7 @@ public class AjouterVirementCard implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(user);
         imageInputErrorHbox.setVisible(false);
         NumInputErrorHbox.setVisible(false);
         montantInputErrorHbox.setVisible(false);
@@ -384,6 +388,7 @@ public class AjouterVirementCard implements Initializable {
         NometPrenomInputErrorHbox.setVisible(false);
         beneficiaireInputErrorHbox.setVisible(false);
         benefInputErrorHbox.setVisible(false);
+        RIB.setText(String.valueOf(user.getRib()));
 
 
         ObservableList<String> types = FXCollections.observableArrayList(
@@ -408,6 +413,9 @@ public class AjouterVirementCard implements Initializable {
 
 
     public void ImporterImageV(ActionEvent event) {
+
+
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));

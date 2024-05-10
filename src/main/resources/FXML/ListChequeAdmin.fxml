@@ -20,15 +20,15 @@
             <children>
                 <HBox layoutX="4.0" layoutY="18.0" prefHeight="64.0" prefWidth="1057.0">
                     <children>
-                  <Button fx:id="retourCh" mnemonicParsing="false" onMouseClicked="#returnbackCardCH" prefHeight="28.0" prefWidth="34.0" styleClass="checkoutCard__btn" stylesheets="@../css/SideNavBar.css">
-                     <graphic>
-                        <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="checkoutCard__btn">
-                           <image>
-                              <Image url="@../img/back.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                        <Button fx:id="retourCh" mnemonicParsing="false" onMouseClicked="#returnbackCardCH" prefHeight="28.0" prefWidth="34.0" styleClass="checkoutCard__btn" stylesheets="@../css/SideNavBar.css">
+                            <graphic>
+                                <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="checkoutCard__btn">
+                                    <image>
+                                        <Image url="@../img/back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
                         <Text fill="#2e2c2c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="LiteCheque__Title" text="Les Demande des Chéques Bancaires :">
                             <font>
                                 <Font size="21.0" />
@@ -37,19 +37,19 @@
                                 <Insets left="10.0" top="26.0" />
                             </HBox.margin>
                         </Text>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="70.0">
-                     <HBox.margin>
-                        <Insets top="29.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../img/magnifier.png" />
-                     </image>
-                  </ImageView>
-                  <TextField prefWidth="221.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
-                     <HBox.margin>
-                        <Insets top="20.0" />
-                     </HBox.margin>
-                  </TextField>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="230.0">
+                            <HBox.margin>
+                                <Insets top="29.0" />
+                            </HBox.margin>
+                            <image>
+                                <Image url="@../img/magnifier.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="ChequeclientsfSearchInputAdmin" onKeyReleased="#ChequeclientsfSearchInputAdmin" prefWidth="221.0" styleClass="product__list-searchInput" stylesheets="@../css/SideNavBar.css" translateX="30.0">
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </TextField>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="LiteCheque__Title" text=" Trier par : ">
                             <HBox.margin>
                                 <Insets left="100.0" right="25.0" top="26.0" />
@@ -58,7 +58,7 @@
                                 <Font name="Bell MT Bold" size="22.0" />
                             </font>
                         </Text>
-                        <ComboBox prefWidth="150.0" promptText="Tout " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
+                        <ComboBox fx:id="trie" onAction="#trierC" prefWidth="150.0" promptText="Tout " styleClass="product__add-comboBox" stylesheets="@../css/SideNavBar.css">
                             <HBox.margin>
                                 <Insets bottom="19.0" top="25.0" />
                             </HBox.margin>

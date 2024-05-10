@@ -107,7 +107,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import services.ServiceReponse;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 
 public class ReponseItemAdminController{
@@ -146,6 +150,7 @@ public class ReponseItemAdminController{
     private ImageView piecejrep;
     private ReponseItemAdminController reponse;
 
+
     public void setreponse(ReponseItemAdminController reponse) {
         this.reponse = reponse;
     }
@@ -157,11 +162,25 @@ public class ReponseItemAdminController{
             Image imageJ = new Image(getClass().getResource("/imagesAct/attach.png").toExternalForm());
             piecejrep.setImage(imageJ);
             dateRep.setText(String.valueOf(reponse.getDate_rep()));
+
             ContenuRep.setText(reponse.getContenu_rep());
             dateRec.setText(String.valueOf(reponse.getReclamation().getDate_rec()));
             mailRep.setText(reponse.getReclamation().getAdr_rec());
             editRep.setId(String.valueOf(reponse.getId()));
+            piecejrep.setOnMouseClicked(event -> {
+                Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", reponse.getPiece_jrep());
 
+                try {
+                    File file = destination.toFile();
+                    if (file.exists()) {
+                        Desktop.getDesktop().open(file);
+                    } else {
+                        System.out.println("File not found: " + destination);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
             editRep.setOnMouseClicked(event -> {
                 System.out.println("reponse contenu: " + reponse.getContenu_rep());
                 ListRepAdminController.setUpdateRepModelShow(1);
@@ -177,7 +196,11 @@ public class ReponseItemAdminController{
                     e.printStackTrace();
                 }
 
+
+
             });
+
+
 //            editRep.setOnMouseClicked(event -> {try {
 //                // Charger le fichier FXML du formulaire de modification d'article
 //                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/modifierRéponse.fxml"));
@@ -202,26 +225,28 @@ public class ReponseItemAdminController{
 //            });
             deleterep.setId(String.valueOf(reponse.getId()));
             deleterep.setOnMouseClicked(event -> {
-            System.out.println("ID de l'article à supprimer : " + reponse.getId());
-            try {
-                serviceReponse.supprimerParId(reponse.getId());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponse/listRepAdmin.fxml"));
-            try {
-                Parent root = loader.load();
+                System.out.println("ID de l'article à supprimer : " + reponse.getId());
+                try {
+                    serviceReponse.supprimerParId(reponse.getId());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponse/listRepAdmin.fxml"));
+                try {
+                    Parent root = loader.load();
 
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                    Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+                    contentArea.getChildren().clear();
+                    contentArea.getChildren().add(root);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
+
+
     @FXML
     void deleteRep(MouseEvent event) {
 //        if (reponse != null && reponse.getId() != null) {
@@ -243,8 +268,12 @@ public class ReponseItemAdminController{
 
     }
 
-        @FXML
+    @FXML
     void editRep(MouseEvent event) {
+
+    }
+
+    public void piecejrep(MouseEvent mouseEvent) {
 
     }
 }

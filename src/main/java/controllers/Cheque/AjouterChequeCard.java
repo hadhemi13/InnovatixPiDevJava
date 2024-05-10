@@ -1,6 +1,12 @@
 package controllers.Cheque;
 
 import Entities.Cheque;
+import Entities.User;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,10 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.effect.ImageInput;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -19,32 +22,23 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceCheque;
 import services.ValidSaisie;
-//import utils.MyDatabase;
-import javafx.stage.FileChooser.ExtensionFilter;
-import services.ServiceCheque;
 
-
-
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.security.cert.PolicyNode;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.*;
-import javafx.stage.FileChooser.ExtensionFilter;
-
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Date;
+import java.util.Properties;
+import java.util.ResourceBundle;
 import java.util.UUID;
 
 public class AjouterChequeCard implements Initializable {
@@ -54,8 +48,6 @@ public class AjouterChequeCard implements Initializable {
 
     @FXML
     private TextField Email;
-    @FXML
-    private Button retourCh;
 
     @FXML
     private Text EmailInputError;
@@ -65,6 +57,7 @@ public class AjouterChequeCard implements Initializable {
 
     @FXML
     private TextField NometPrenom;
+
     @FXML
     private Pane content_area;
 
@@ -76,8 +69,6 @@ public class AjouterChequeCard implements Initializable {
 
     @FXML
     private HBox DateInputErrorHbox;
-
-
 
     @FXML
     private HBox NometPrenomInputErrorHbox;
@@ -112,16 +103,6 @@ public class AjouterChequeCard implements Initializable {
     @FXML
     private Button ChequeImg;
 
-
-   @FXML
-   private ImageView imageInput;
-
-    @FXML
-    private Text imageInputError;
-
-    @FXML
-    private HBox imageInputErrorHbox;
-
     @FXML
     private TextField montant;
 
@@ -139,21 +120,28 @@ public class AjouterChequeCard implements Initializable {
 
     @FXML
     private HBox telInputErrorHbox;
-    private Button ajouterCheque;
-    Image selectedCvFile ;
+
+    @FXML
+    private ImageView imageInput;
+
+    @FXML
+    private Text imageInputError;
+
+    @FXML
+    private HBox imageInputErrorHbox;
 
     private File selectedImageFile;
-    private String imageName = null ;
-
+    private String imageName = null;
+    public static User user;
 
     @FXML
     void ImporterImg(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
         selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
         if (selectedImageFile != null) {
-            Image image = new Image(selectedImageFile.toURI().toString());
+            javafx.scene.image.Image image = new javafx.scene.image.Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
 
             // Générer un nom de fichier unique pour l'image
@@ -174,7 +162,7 @@ public class AjouterChequeCard implements Initializable {
 
 
     @FXML
-    public void ajouterCheque(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void ajouterCheque(MouseEvent mouseEvent) throws Exception {
 
         ServiceCheque sc = new ServiceCheque();
         boolean champsInvalides = false;
@@ -236,89 +224,10 @@ public class AjouterChequeCard implements Initializable {
             return; // Arrêter le traitement si des champs sont invalides
         }
 
-        if (Cin.getText().isEmpty()) {
-            cinInputErrorHbox.setVisible(true);
-            if (NometPrenom.getText().isEmpty()) {
-                NometPrenomInputErrorHbox.setVisible(true);
-                if (beneficiaire.getSelectionModel().isEmpty()) {
-                    beneficiaireInputErrorHbox.setVisible(true);
-                    if (Email.getText().isEmpty()) {
-                        EmailInputErrorHbox.setVisible(true);
-                        if (montant.getText().isEmpty()) {
-                            montantInputErrorHbox.setVisible(true);
-                            if (tel.getText().isEmpty()) {
-                                telInputErrorHbox.setVisible(true);
-                            }
-                        }
-                    }
-                } else {
-                    if (beneficiaire.getSelectionModel().isEmpty()) {
-                        beneficiaireInputErrorHbox.setVisible(true);
-                        if (Email.getText().isEmpty()) {
-                            EmailInputErrorHbox.setVisible(true);
-                            if (montant.getText().isEmpty()) {
-                                montantInputErrorHbox.setVisible(true);
-                                if (tel.getText().isEmpty()) {
-                                    telInputErrorHbox.setVisible(true);
-                                }
-                            }
-                        }
-
-                    } else {
-                        if (Email.getText().isEmpty()) {
-                            EmailInputErrorHbox.setVisible(true);
-                            if (montant.getText().isEmpty()) {
-                                montantInputErrorHbox.setVisible(true);
-                                if (tel.getText().isEmpty()) {
-                                    telInputErrorHbox.setVisible(true);
-                                }
-                            } else {
-                                if (montant.getText().isEmpty()) {
-                                    montantInputErrorHbox.setVisible(true);
-                                    if (tel.getText().isEmpty()) {
-                                        telInputErrorHbox.setVisible(true);
-                                    } else {
-                                        if (tel.getText().isEmpty()) {
-                                            telInputErrorHbox.setVisible(true);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-        }else {
-                if (!Cin.getText().isEmpty()) {
-                    cinInputErrorHbox.setVisible(false);
-                    if (!NometPrenom.getText().isEmpty()) {
-                        NometPrenomInputErrorHbox.setVisible(false);
-                        if (!beneficiaire.getSelectionModel().isEmpty()) {
-                            beneficiaireInputErrorHbox.setVisible(false);
-                            if (!Email.getText().isEmpty()) {
-                                EmailInputErrorHbox.setVisible(false);
-                                if (!montant.getText().isEmpty()) {
-                                    montantInputErrorHbox.setVisible(false);
-                                    if (!tel.getText().isEmpty()) {
-                                        telInputErrorHbox.setVisible(false);
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-
-
-        }
         // Select for combo
-        SingleSelectionModel<String> selectionModel = beneficiaire.getSelectionModel();
-
-        String selectedBeneficiaire = selectionModel.getSelectedItem();
+        String selectedBeneficiaire = beneficiaire.getSelectionModel().getSelectedItem();
         // Date Now
-        LocalDate selectedDate = LocalDate.now();
+        Date selectedDate = Date.valueOf(java.time.LocalDate.now());
         // Create a new instance of cheque from View
         String image=imageName;
         Integer Rib = 345678644;
@@ -331,13 +240,15 @@ public class AjouterChequeCard implements Initializable {
         Double montantn = Double.valueOf(montant.getText());
         String email = Email.getText();
         String decision = "Encours";
-        // change the date to sqlDate
-        Date sqlDate = java.sql.Date.valueOf(selectedDate);
 
-        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, (java.sql.Date) sqlDate,imageName,decision,1,1);
+        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, selectedDate,imageName,decision,1,1);
 
 
         ServiceCheque serviceCheque = new ServiceCheque();
+//        String pdfFilePath = createPdfCheque(cheque);
+//        sendEmail(Email.getText(), "Cheque Confirmation", "Please find attached the PDF for your cheque.", pdfFilePath);
+
+
         serviceCheque.ajouterS(cheque);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
@@ -347,6 +258,108 @@ public class AjouterChequeCard implements Initializable {
         content_area.getChildren().setAll(demandeChequeListParent);
 
     }
+
+//    private String createPdfCheque(Cheque cheque) throws Exception {
+//        Document document = new Document();
+//        String pdfFileName = "cheque_" + UUID.randomUUID().toString() + ".pdf";
+//        String relativePath = "src/main/resources/pdf";
+//        String outputPath = System.getProperty("user.dir") + "/" + relativePath + pdfFileName;
+//        // Écrire le contenu de l'article dans le document PDF
+//        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(outputPath));
+//        document.open();
+//        // Créer un cadre autour de tout le document
+//        Rectangle rectangle = new Rectangle(document.getPageSize());
+//        rectangle.setBorder(Rectangle.BOX);
+//        rectangle.setBorderWidth(2);
+//        rectangle.setBorderColor(new BaseColor(107, 175, 84)); // Vert foncé
+//        PdfContentByte canvas = writer.getDirectContent();
+//        canvas.rectangle(rectangle);
+//
+//        // Logo
+//        String userDir = System.getProperty("user.dir");
+//        String imagePath = userDir + "/src/main/resources/img/logo.png";
+//        com.itextpdf.text.Image logo = com.itextpdf.text.Image.getInstance(imagePath);
+//        logo.scaleToFit(100, 100);
+//        logo.setAlignment(Element.ALIGN_LEFT);
+//        document.add(logo);
+//
+//        // Espacement vertical avant le titre
+//        document.add(Chunk.NEWLINE);
+//
+//        // Titre
+//        Font titleFont = new Font(Font.FontFamily.HELVETICA, 32, Font.BOLD, new BaseColor(107, 175, 84)); // Vert foncé
+//        Paragraph title = new Paragraph("Demande de Chèque", titleFont);
+//        title.setAlignment(Element.ALIGN_CENTER);
+//        // title.setBorder(Rectangle.NO_BORDER);
+//        title.setSpacingAfter(20f); // Espacement après le titre
+//        document.add(title);
+//
+//        // Décoration autour du titre
+//        LineSeparator line = new LineSeparator();
+//        line.setLineColor(new BaseColor(107, 175, 84)); // Couleur de la ligne
+//        line.setLineWidth(2f); // Épaisseur de la ligne
+//        line.setPercentage(100f); // Longueur de la ligne
+//        document.add(line);
+//
+//        // Espacement vertical après le titre
+//        document.add(Chunk.NEWLINE);
+//
+//        // Détails du chèque
+//        Font detailsFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.BLACK);
+//        document.add(new Paragraph("Voici les Détails du Chéque :  ", detailsFont));
+//        document.add(new Paragraph("Nom et Prénom: " +  cheque.getNom_prenom(), detailsFont));
+//        document.add(new Paragraph("Email: " + cheque.getEmail(), detailsFont));
+//        document.add(new Paragraph("CIN: " + cheque.getCin(), detailsFont));
+//        document.add(new Paragraph("Bénéficiaire: " + cheque.getBeneficiaire(), detailsFont));
+//        document.add(new Paragraph("Montant: " +cheque.getMontant(), detailsFont));
+//        document.add(new Paragraph("Téléphone: " + cheque.getTelephone(), detailsFont));
+//        document.add(new Paragraph("Date: " + cheque.getDate(), detailsFont));
+//
+//        // Espacement vertical après les détails
+//        document.add(Chunk.NEWLINE);
+//
+//        document.close();
+//        return outputPath; // Return the path of the created PDF
+//    }
+//
+//    private void sendEmail(String recipient, String subject, String text, String pdfFilePath) throws MessagingException, IOException {
+//        String from = "shayma.Ouerhani@esprit.tn"; // Remplacez par votre adresse e-mail
+//        final String username = "shayma.Ouerhani@esprit.tn"; // Remplacez par votre nom d'utilisateur SMTP
+//        final String password = "13021431sayari"; // Remplacez par votre mot de passe SMTP
+//
+//        Properties props = new Properties();
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.smtp.host", "smtp.office365.com");
+//        props.put("mail.smtp.port", "587");
+//        props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // Utiliser TLSv1.2
+//        props.put("mail.smtp.ssl.ciphersuites", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"); // Exemple de suite de chiffrement
+//
+//        Session session = Session.getInstance(props, new Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication(username, password);
+//            }
+//        });
+//
+//        Message message = new MimeMessage(session);
+//        message.setFrom(new InternetAddress(from));
+//        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+//        message.setSubject(subject);
+//
+//        MimeBodyPart textPart = new MimeBodyPart();
+//        textPart.setText(text);
+//
+//        MimeBodyPart pdfAttachment = new MimeBodyPart();
+//        pdfAttachment.attachFile(new File(pdfFilePath));
+//
+//        Multipart multipart = new MimeMultipart();
+//        multipart.addBodyPart(textPart);
+//        multipart.addBodyPart(pdfAttachment); // Attach the PDF
+//
+//        message.setContent(multipart);
+//        Transport.send(message);
+//    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageInputErrorHbox.setVisible(false);
@@ -365,10 +378,7 @@ public class AjouterChequeCard implements Initializable {
         );
 
         beneficiaire.setItems(beneficiaires);
-
-
     }
-
 
     public void RetourBackC(MouseEvent mouseEvent) {
         try {
@@ -384,22 +394,3 @@ public class AjouterChequeCard implements Initializable {
     }
 
 }
-
-
-
-    // Méthode pour ajouter une image au chèque
-   // public void ajouter_image(ActionEvent event)  throws IOException {
-      //  FileChooser fileChooser=new FileChooser();
-        //fileChooser.setTitle("Choisir une image");
-        //fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images","*.png","*.jpg","*.jpeg","*.gif"));
-        //selectedImageFile= fileChooser.showOpenDialog(ImageInput.getScene().getWindow()):
-        //if (selectedImageFile != null) {
-           // Image image = new (selectedImageFile.toURI().toString());
-           // imageInput.setImage(image);
-
-           // String uniqueID = UUID.randomUUID().toString();
-            //String extension =selectedImageFile.getName
-
-        //}
-    //}
-//}

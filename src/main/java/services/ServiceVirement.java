@@ -1,20 +1,25 @@
 package services;
+import Entities.Cheque;
 import utils.MyDatabase;
 import Entities.Virement;
-
+import utils.MyDatabase;
 
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ServiceVirement implements IServiceVirement <Virement> {
 
     private Connection connection;
     public Statement statement;
+
     public ServiceVirement() {
         connection = MyDatabase.getInstance().getConnection();
     }
+
     @Override
     public void ajouter(Virement virement) throws SQLException {
         String req = "INSERT INTO virement "
@@ -45,6 +50,7 @@ public class ServiceVirement implements IServiceVirement <Virement> {
 
 
     }
+
     // Virement virement = new Virement(typee,montant,aa,transferez,Cin,Nom,image,decisionV);
     public void ajouterV(Virement virement) throws SQLException {
         String req = "INSERT INTO virement "
@@ -70,7 +76,6 @@ public class ServiceVirement implements IServiceVirement <Virement> {
             System.err.println(e.getMessage());
         }
     }
-
 
 
     @Override
@@ -206,7 +211,89 @@ public class ServiceVirement implements IServiceVirement <Virement> {
         return virement;
     }
 
+    public Map<String, Integer> countVirementsByType() {
+        Map<String, Integer> virementsByType = new HashMap<>();
+
+        try {
+            List<Virement> virements = getAllVirements();
+
+            for (Virement virement : virements) {
+                String type = virement.getType_virement();
+                virementsByType.put(type, virementsByType.getOrDefault(type, 0) + 1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return virementsByType;
+    }
+    private List<Virement> getAllVirements() throws SQLException {
+        List<Virement> virements = new ArrayList<>();
+        String req = "SELECT * FROM virement";
+        try (Statement st = connection.createStatement(); ResultSet rs = st.executeQuery(req)) {
+            while (rs.next()) {
+                Virement virement = new Virement(
+                        rs.getInt("id"),
+                        rs.getInt("compte_id"),
+                        rs.getInt("user_id"),
+                        rs.getString("nomet_prenom"),
+                        rs.getString("type_virement"),
+                        rs.getString("transferez_a"),
+                        rs.getInt("num_beneficiare"),
+                        rs.getString("montant"),
+                        rs.getInt("cin"),
+                        rs.getInt("rib"),
+                        rs.getString("email"),
+                        rs.getString("decision_v"),
+                        rs.getString("photo_cin_v"),
+                        rs.getString("phone_number"),
+                        rs.getString("qrCode")
+                );
+                virements.add(virement);
+            }
+        }
+        return virements;
+    }
+
+    public List<Virement> searchVirement(String searchTerm) throws SQLException {
+        List<Virement> virements = new ArrayList<>();
+
+        String sql = "SELECT * FROM virement WHERE ";
+        // Construct the WHERE clause to search across all attributes
+        sql += "nomet_prenom LIKE ? OR ";
+        sql += "type_virement LIKE ? OR ";
+        sql += "transferez_a LIKE ? OR ";
+        sql += "num_beneficiare LIKE ? OR ";
+        sql += "montant LIKE ? OR ";
+        sql += "cin LIKE ? OR ";
+        sql += "email LIKE ?"; // Remove the extra OR
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            // Set the search term for each attribute in the WHERE clause
+            for (int i = 1; i <= 7; i++) {
+                preparedStatement.setString(i, "%" + searchTerm + "%");
+            }
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                Virement virement = new Virement();
+                virement.setId(rs.getInt("id")); // Assuming id is present in the Cheque object
+                virement.setMontant(String.valueOf(rs.getInt("montant")));
+                virement.setType_virement(rs.getString("type_virement"));
+                virement.setNum_beneficiare(Integer.parseInt(rs.getString("num_beneficiare"))); // Corrected case for "email"
+                virement.setCin(rs.getInt("cin"));
+                virement.setEmail(rs.getString("email"));
+                virement.setNomet_prenom(rs.getString("nomet_prenom"));
+                virement.setTransferez_a(rs.getString("transferez_a"));
 
 
+                virements.add(virement);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error while searching for cheques: " + ex.getMessage());
+        }
+
+        return virements;
+    }
 }
-

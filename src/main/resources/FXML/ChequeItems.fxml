@@ -120,20 +120,20 @@
                 </Text>
             </children>
         </HBox>
-      <HBox layoutX="18.0" layoutY="324.0" prefHeight="26.0" prefWidth="346.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="Montant :" wrappingWidth="91.9000244140625">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Text>
-            <Text fx:id="montant" strokeType="OUTSIDE" strokeWidth="0.0" text="20000">
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </Text>
-         </children>
-      </HBox>
+        <HBox layoutX="18.0" layoutY="324.0" prefHeight="26.0" prefWidth="346.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="verifiedAddress_fullname" text="Montant :" wrappingWidth="91.9000244140625">
+                    <HBox.margin>
+                        <Insets left="50.0" />
+                    </HBox.margin>
+                </Text>
+                <Text fx:id="montant" strokeType="OUTSIDE" strokeWidth="0.0" text="20000">
+                    <HBox.margin>
+                        <Insets left="30.0" />
+                    </HBox.margin>
+                </Text>
+            </children>
+        </HBox>
         <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="335.0">
             <VBox.margin>
                 <Insets right="11.0" />
@@ -184,15 +184,15 @@
                         <Insets left="30.0" />
                     </HBox.margin>
                 </HBox>
-            <HBox fx:id="pdf" onMouseClicked="#genererPDF" prefHeight="34.0" prefWidth="38.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
-                     <image>
-                        <Image url="@../img/format-de-fichier-pdf.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+                <HBox fx:id="pdf" onMouseClicked="#genererPDF" prefHeight="34.0" prefWidth="38.0">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+                            <image>
+                                <Image url="@../img/format-de-fichier-pdf.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
             </children>
         </HBox>
     </children>

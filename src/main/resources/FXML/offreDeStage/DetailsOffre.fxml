@@ -16,23 +16,23 @@
 <?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.DetailsOffreController">
-    <children>
+   <children>
       <ScrollPane prefHeight="816.0" prefWidth="1100.0" stylesheets="@../../css/SideNavBar.css">
          <content>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1340.0" styleClass="userProductCard" translateX="10.0">
                <children>
-                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="1200.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
-                        <children>
-                            <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique " textAlignment="CENTER" wrappingWidth="319.4749450683594">
-                                <font>
-                                    <Font name="Agency FB" size="21.0" />
-                                </font>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="1200.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css">
+                     <children>
+                        <Text fx:id="productName" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commandDetailsProductName" text="Ingénieur Sécurité Informatique " textAlignment="CENTER" wrappingWidth="319.4749450683594">
+                           <font>
+                              <Font name="Agency FB" size="21.0" />
+                           </font>
                         </Text>
-                        </children>
-                        <padding>
-                            <Insets bottom="10.0" top="10.0" />
-                        </padding>
-                    </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="1247.0" translateX="25.0">
                      <children>
                         <HBox prefHeight="18.0" prefWidth="1354.0">
@@ -195,7 +195,7 @@
                      <children>
                         <HBox prefHeight="62.0" prefWidth="1334.0">
                            <children>
-                              <Button fx:id="Postuler" mnemonicParsing="false" onMouseClicked="#ouvrirdemande" prefHeight="54.0" prefWidth="704.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="300.0" />
+                              <Button fx:id="Postuler" mnemonicParsing="false"  prefHeight="54.0" prefWidth="704.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" text="Postuler Maintenant" translateX="300.0" />
                            </children>
                         </HBox>
                      </children>
@@ -204,5 +204,5 @@
             </VBox>
          </content>
       </ScrollPane>
-    </children>
+   </children>
 </VBox>

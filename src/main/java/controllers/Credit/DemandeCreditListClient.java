@@ -15,7 +15,6 @@ import javafx.scene.layout.VBox;
 import javafx.fxml.Initializable;
 import services.ServiceCredit;
 import utils.MyDatabase;
-//import utils.MyDatabase;
 
 import java.io.IOException;
 import java.net.URL;
@@ -94,7 +93,7 @@ public class DemandeCreditListClient implements Initializable {
                 }
             }
         }
-          else  if (statusInput.getValue().equals("Year")) {
+        else  if (statusInput.getValue().equals("Year")) {
             // Appeler la fonction afficherCreditParMontant
             ServiceCredit serviceCredit = new ServiceCredit();
             System.out.println("f");
@@ -180,9 +179,5 @@ public class DemandeCreditListClient implements Initializable {
     void prendrerdv(MouseEvent event) {
 
 
-        }
     }
-
-
-
-
+}

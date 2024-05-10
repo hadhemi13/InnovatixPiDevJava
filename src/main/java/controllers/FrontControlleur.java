@@ -58,10 +58,15 @@ public class FrontControlleur implements Initializable {
 
 
     public AnchorPane content_area;
+
+    public HBox OpenStage;
     @FXML
     private HBox Stage;
+
     public AnchorPane Empty;
     public BorderPane borderPost;
+
+
     public Label contenuArt;
     public Label categorieart;
 
@@ -106,12 +111,18 @@ public class FrontControlleur implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        int column = 0;
+        int row = 1;
+
         try {
             // Call the method to load articles
             loadArticles();
         } catch (IOException | SQLException e) {
             e.printStackTrace();
             // Handle any exceptions here, such as displaying an error message
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
         CreerCompte.setOnAction(event -> {
             try {
@@ -126,6 +137,44 @@ public class FrontControlleur implements Initializable {
                 e.printStackTrace();
             }
         });
+        ServiceArticle articles = new ServiceArticle();
+        List<Article> articlesP;
+        try {
+            articlesP = articles.getAllArticles();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (Article article : articlesP) {
+            //System.out.println(article.getTitre_art());
+            // Charger la carte d'article à partir du fichier FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
+            Parent articleCardParent = null;
+            try {
+                articleCardParent = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Initialisez les données de l'article dans le contrôleur de carte d'article
+            articleCardClientController articleCardController = loader.getController();
+            try {
+                articleCardController.initializeData(article);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Ajoutez la carte d'article au GridPane
+            ArtListContainer.add(articleCardParent, column, row);
+
+            // Incrémentez la colonne et passez à la ligne suivante si nécessaire
+            column++;
+            if (column == 2) {
+                column = 0;
+                row++;
+            }
+        }
     }
 
 
@@ -140,7 +189,9 @@ public class FrontControlleur implements Initializable {
         // Définir l'espacement vertical et horizontal
         ArtListContainer.setVgap(verticalGap);
         ArtListContainer.setHgap(horizontalGap);
-        for (Article article : articles) {
+
+        for (Article article : articles)
+        {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
                 VBox articleCard = fxmlLoader.load();
@@ -164,6 +215,8 @@ public class FrontControlleur implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer l'exception appropriée ici, par exemple afficher un message d'erreur à l'utilisateur ou journaliser l'erreur
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -201,7 +254,7 @@ public class FrontControlleur implements Initializable {
 //    }
 
 
-    public void loadArticles() throws IOException, SQLException {
+    public void loadArticles() throws IOException, SQLException, InterruptedException {
 
         // Nettoyer le contenu actuel
         ArtListContainer.getChildren().clear();
@@ -234,6 +287,7 @@ public class FrontControlleur implements Initializable {
         ArtListContainer.setHgap(horizontalGap);
 
         for (Article article : articles) {
+            //System.out.println(article.getTitre_art());
             // Charger la carte d'article à partir du fichier FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
             Parent articleCardParent = loader.load();
@@ -314,6 +368,8 @@ public class FrontControlleur implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer l'exception ici, si nécessaire
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }

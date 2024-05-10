@@ -127,6 +127,7 @@ public class SideNavBarUserController implements Initializable {
         stage.show();
 
     }
+
     public void initialize(URL url, ResourceBundle rb) {
 
 
@@ -139,7 +140,7 @@ public class SideNavBarUserController implements Initializable {
             } else {
                 user = userService.getOneUser(UserSession.getInstance().getEmail());
             }
-         //   Image img = new Image("img/admin.png" + user.getPhoto());
+            //   Image img = new Image("img/admin.png" + user.getPhoto());
 
 
             navFullname.setText(user.getName());
@@ -178,9 +179,6 @@ public class SideNavBarUserController implements Initializable {
             e.printStackTrace();
         }
 
-    }
-
-    public void open_dashboard(MouseEvent mouseEvent) {
     }
 
     public void open_profile(MouseEvent mouseEvent) {
@@ -237,5 +235,20 @@ public class SideNavBarUserController implements Initializable {
     }
 
     public void open_notifModel(MouseEvent mouseEvent) {
+    }
+
+    public void open_dashboard(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DashboardClientOff.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

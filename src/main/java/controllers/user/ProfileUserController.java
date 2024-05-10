@@ -1,15 +1,14 @@
 package controllers.user;
 
 import Entities.User;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Element;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -23,7 +22,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -32,47 +30,56 @@ import javafx.stage.FileChooser;
 import tests.TranslatorText;
 
 public class ProfileUserController  implements Initializable {
-/*
-    @FXML
-    private Button changePassBTN;
+    /*
+        @FXML
+        private Button changePassBTN;
 
-    @FXML
-    private ImageView downloadPdfButton;
+        @FXML
+        private ImageView downloadPdfButton;
 
-    @FXML
-    private Text descriptionText;
+        @FXML
+        private Text descriptionText;
 
-    @FXML
-    private Text emailText;
+        @FXML
+        private Text emailText;
 
-    @FXML
-    private ImageView en;
+        @FXML
+        private ImageView en;
 
-    @FXML
-    private ImageView fr;
+        @FXML
+        private ImageView fr;
 
-    @FXML
-    private ImageView tn;
+        @FXML
+        private ImageView tn;
 
-    @FXML
-    private Text fullnameText;
+        @FXML
+        private Text fullnameText;
 
-    @FXML
-    private Pane profilePane;
+        @FXML
+        private Pane profilePane;
 
-    @FXML
-    private Text telText;
+        @FXML
+        private Text telText;
 
-    @FXML
-    private ImageView userItemImg;
+        @FXML
+        private ImageView userItemImg;
 
-    @FXML
-    private Label userItemUpdateBtn;
+        @FXML
+        private Label userItemUpdateBtn;
 
-    @FXML
-    private ImageView userItemUpdateBtnImg;
+        @FXML
+        private ImageView userItemUpdateBtnImg;
 
 
+        @FXML
+        private Text EmailLab;
+
+        @FXML
+        private Text PhoneNumberLabel;
+
+        @FXML
+        private Text fullnameLab;
+    */
     @FXML
     private Text EmailLab;
 
@@ -80,15 +87,6 @@ public class ProfileUserController  implements Initializable {
     private Text PhoneNumberLabel;
 
     @FXML
-    private Text fullnameLab;
-*/
-@FXML
-private Text EmailLab;
-
-    @FXML
-    private Text PhoneNumberLabel;
-
-    @FXML
     private Button changePassBTN;
 
     @FXML
@@ -111,6 +109,10 @@ private Text EmailLab;
 
     @FXML
     private Text fullnameText;
+    @FXML
+    private Text AdresseLabel;
+    @FXML
+    private Text adressetext;
 
     @FXML
     private Text profile;
@@ -132,6 +134,7 @@ private Text EmailLab;
 
     @FXML
     private Label userItemUpdateBtn;
+
     String from = "";
     @Override
 
@@ -156,6 +159,7 @@ private Text EmailLab;
             descriptionText.setText(user.getRoles());
             emailText.setText(user.getEmail());
             telText.setText(user.getTel());
+            adressetext.setText(user.getAdresse());
             TranslatorText translatorText = new TranslatorText();
 
             tn.setOnMouseClicked(mouseEvent -> {
@@ -166,6 +170,7 @@ private Text EmailLab;
                     profile.setText(translatorText.post(profile.getText(),"fr","ar"));
                     EmailLab.setText(translatorText.post(EmailLab.getText(),"fr","ar"));
                     PhoneNumberLabel.setText(translatorText.post(PhoneNumberLabel.getText(),"fr","ar"));
+                    AdresseLabel.setText(translatorText.post(AdresseLabel.getText(),"fr","ar"));
                     changePassBTN.setText(translatorText.post(changePassBTN.getText(),"fr","ar"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -182,6 +187,7 @@ private Text EmailLab;
                     profile.setText(translatorText.post(profile.getText(),"ar","fr"));
                     EmailLab.setText(translatorText.post(EmailLab.getText(),"ar","fr"));
                     PhoneNumberLabel.setText(translatorText.post(PhoneNumberLabel.getText(),"ar","fr"));
+                    AdresseLabel.setText(translatorText.post(AdresseLabel.getText(),"ar","fr"));
                     changePassBTN.setText(translatorText.post(changePassBTN.getText(),"ar","fr"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -197,6 +203,7 @@ private Text EmailLab;
                     profile.setText(translatorText.post(profile.getText(),"ar","en"));
                     EmailLab.setText(translatorText.post(EmailLab.getText(),"ar","en"));
                     PhoneNumberLabel.setText(translatorText.post(PhoneNumberLabel.getText(),"ar","en"));
+                    AdresseLabel.setText(translatorText.post(AdresseLabel.getText(),"ar","en"));
                     changePassBTN.setText(translatorText.post(changePassBTN.getText(),"ar","en"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -240,6 +247,7 @@ private Text EmailLab;
                 document.add(new Paragraph("Description: " + user.getRoles()));
                 document.add(new Paragraph("Email: " + user.getEmail()));
                 document.add(new Paragraph("Telephone: " + user.getTel()));
+                document.add(new Paragraph("Adresse: " + user.getAdresse()));
                 document.close();
             }
         } catch (Exception e) {
@@ -247,11 +255,12 @@ private Text EmailLab;
         }
     }
 
+
     @FXML
-    void changePass(ActionEvent event) throws IOException {
+    void change(MouseEvent event) throws IOException{
         try {
             // Charger le fichier FXML de listArticleAdmin
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ChangePassword.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EdituserProfil.fxml"));
             Pane listArticleAdminPane = loader.load();
 
             // Remplacer le contenu de content_area par le contenu
@@ -261,6 +270,7 @@ private Text EmailLab;
         }
 
     }
+
 
 
 
@@ -276,21 +286,34 @@ private Text EmailLab;
             fileChooser.setInitialFileName(user.getName() + "_profile.pdf");
             File file = fileChooser.showSaveDialog(null);
             if (file != null) {
-                PdfWriter.getInstance(document, new FileOutputStream(file));
+                PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
                 document.open();
+
+                // Ajouter l'image de logo
+                String userDir = System.getProperty("user.dir");
+                String imagePath = userDir + "/src/main/resources/img/logo.png";
+                com.itextpdf.text.Image logo = com.itextpdf.text.Image.getInstance(imagePath);
+                logo.scaleToFit(100, 100); // Adapter la taille de l'image
+                logo.setAlignment(Element.ALIGN_LEFT); // Aligner l'image à gauche
+                document.add(logo);
+
+                // Espacement vertical après l'image
+                document.add(Chunk.NEWLINE);
+
+                // Ajouter les informations de l'utilisateur
                 document.add(new Paragraph("Full Name: " + user.getName()));
                 document.add(new Paragraph("Description: " + user.getRoles()));
                 document.add(new Paragraph("Email: " + user.getEmail()));
                 document.add(new Paragraph("Telephone: " + user.getTel()));
+                document.add(new Paragraph("Adresse: " + user.getAdresse()));
+
                 document.close();
             }
         } catch (Exception e) {
             e.printStackTrace(); // handle exception properly
         }
     }
+
+    public void changePass(ActionEvent actionEvent) {
+    }
 }
-
-
-
-
-

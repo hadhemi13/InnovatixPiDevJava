@@ -1,6 +1,8 @@
 package controllers.user;
 
 import Entities.User;
+import javafx.fxml.Initializable;
+import services.imResetPassword;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -9,11 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import services.ServiceUser;
+import Entities.Reset;
 
-import java.util.EventObject;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.net.URL;
+import java.util.*;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,9 +30,10 @@ import tray.notification.NotificationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
+
 import javax.mail.MessagingException;
 
-public class ForgotPasswordController {
+public class ForgotPasswordController implements Initializable {
     @FXML
     private TextField emailField;
 
@@ -42,75 +45,76 @@ public class ForgotPasswordController {
 
     @FXML
     private Button sendBTN;
+    Random rnd = new Random();
+    int number = rnd.nextInt(999999);
+    long start = System.currentTimeMillis();
+    String sTime = Long.toString(start);
+    public static String sEmail;
+    String Object="Réinitialiser Votre mot de passe";
+    String Subject="Votre Code est :  "+number+"\n S'il te plait ne passe pas 10 min De maintenant";
 
-    public void sendClicked(ActionEvent actionEvent)  {
 
-            ServiceUser userService = new ServiceUser();
+    public void sendClicked(ActionEvent actionEvent) {
+        ServiceUser userService = new ServiceUser();
 
-            try {
-                // Récupérer l'utilisateur à partir de l'adresse e-mail saisie
-                User user = userService.getOneUser(emailField.getText());
+        try {
+            // Récupérer l'utilisateur à partir de l'adresse e-mail saisie
+            User user = userService.getOneUser(emailField.getText());
+            ForgotPassword3Controller forgotPassword3Controller = new ForgotPassword3Controller();
+            forgotPassword3Controller.userEmail = emailField.getText();
 
-                // Vérifier si l'utilisateur existe et si son adresse e-mail est valide
-                if (user == null || !UserControleSaisie.forgetPasswordValidator(emailField.getText(), user)) {
-                    // Afficher un message d'erreur si l'utilisateur n'existe pas ou si l'adresse e-mail est invalide
-                    System.out.println("Utilisateur non trouvé ou adresse e-mail invalide");
-                    return;
-                }
-
-                // Générer un nouveau mot de passe aléatoire
-                String newPassword = generateRandomPassword();
-
-                // Mettre à jour le mot de passe de l'utilisateur dans la base de données
-                user.setPassword(newPassword);
-                userService.modifier(user);
-
-                // Envoyer un e-mail de réinitialisation de mot de passe avec le nouveau mot de passe
-                Map<String, String> data = new HashMap<>();
-                data.put("emailSubject", "Demande de réinitialisation de mot de passe");
-                data.put("titlePlaceholder", "Demande de réinitialisation de mot de passe");
-                data.put("msgPlaceholder", "Vous avez demandé à réinitialiser votre mot de passe. Voici votre nouveau mot de passe : " + newPassword);
-
-                Mailling.send(user,data);
-                System.out.println("E-mail de réinitialisation de mot de passe envoyé avec succès");
-
-                // Afficher une notification à l'utilisateur
-                showAlert("Mot de passe oublié", "Un e-mail de réinitialisation de mot de passe a été envoyé à votre adresse e-mail.");
-
-                // Rediriger l'utilisateur vers une autre page après l'envoi de l'e-mail de réinitialisation
-                Parent root = FXMLLoader.load(getClass().getResource("ForgotPassword_3.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-
-            } catch (SQLException | MessagingException | IOException e) {
-                e.printStackTrace();
-                // Gérer les exceptions
+            // Vérifier si l'utilisateur existe et si son adresse e-mail est valide
+            if (user == null || !UserControleSaisie.forgetPasswordValidator(emailField.getText(), user)) {
+                // Afficher un message d'erreur si l'utilisateur n'existe pas ou si l'adresse e-mail est invalide
+                showAlert("Utilisateur non trouvé", "L'utilisateur n'existe pas ou l'adresse e-mail est invalide");
+                return;
             }
-        }
 
-        // Méthode pour générer un nouveau mot de passe aléatoire
-        private String generateRandomPassword() {
-            // Générer un mot de passe aléatoire de 8 caractères
-            String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            StringBuilder sb = new StringBuilder();
-            Random random = new Random();
-            for (int i = 0; i < 8; i++) {
-                int index = random.nextInt(chars.length());
-                sb.append(chars.charAt(index));
+            imResetPassword imr = new imResetPassword();
+            Mailling  sn = new Mailling();
+            if (emailField.getText().isEmpty()) {
+                showAlert("Champs manquants", "Veuillez saisir une adresse e-mail.");
+            } else if (imr.ajout(new Reset(emailField.getText(), number, sTime))) {
+                sEmail = emailField.getText();
+                sn.envoyer(emailField.getText(), Object, Subject);
+                Parent page2 = FXMLLoader.load(getClass().getResource("/FXML/ForgotPassword_2.fxml"));
+
+                Scene scene2 = new Scene(page2);
+                Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                app_stage.setScene(scene2);
+                app_stage.show();
+            } else {
+                showAlert("Compte n'existe pas", "Le compte n'existe pas.");
             }
-            return sb.toString();
-        }
 
-// Méthode pour afficher une boîte de dialogue d'alerte
-        private static void showAlert(String title, String message) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle(title);
-            alert.setHeaderText(null);
-            alert.setContentText(message);
-            alert.showAndWait();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
+
+    // Méthode pour générer un nouveau mot de passe aléatoire
+    private String generateRandomPassword() {
+        // Générer un mot de passe aléatoire de 8 caractères
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 8; i++) {
+            int index = random.nextInt(chars.length());
+            sb.append(chars.charAt(index));
+        }
+        return sb.toString();
+    }
+
+    // Méthode pour afficher une boîte de dialogue d'alerte
+    private static void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     @FXML
 
 
@@ -120,6 +124,11 @@ public class ForgotPasswordController {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 }

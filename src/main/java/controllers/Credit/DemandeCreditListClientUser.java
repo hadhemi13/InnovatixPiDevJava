@@ -79,23 +79,19 @@ public class DemandeCreditListClientUser  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServiceCredit serviceCredit = new ServiceCredit();
-        List<Credit> list = null;
-        try {
-            list = serviceCredit.afficher();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        List<Credit> list = new ArrayList<>();
         System.out.println("gg"+list);
         try {
             list = serviceCredit.afficher();
-            System.out.println("ya ahamed hayy fergha"+list);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    credititemsuser  c= new credititemsuser();
+        credititemsuser  c= new credititemsuser();
         Pane pane;
         pane = c.setContentArea(this.content_area);
         loadcredit(list);
+        System.out.println("gg"+list);
+
     }
     private void loadcredit(List<Credit> credits) {
         // Nettoyer le conteneur actuel
@@ -185,4 +181,3 @@ public class DemandeCreditListClientUser  implements Initializable {
     public void initialize() {
     }
 }
-

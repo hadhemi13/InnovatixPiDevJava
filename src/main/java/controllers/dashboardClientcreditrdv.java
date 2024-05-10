@@ -89,12 +89,13 @@ public class dashboardClientcreditrdv implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // Obtenir le nombre de crédits pour chaque année
+        // Obtenir le nombre de crédits pour chaque année et par durée
         Map<Integer, Integer> creditCountByYear = serviceCredit.countCreditsByYear(credits);
+        Map<Integer, Integer> creditCountByDuration = serviceCredit.countCreditsByDuration(credits);
 
         // Créer l'axe des abscisses
         CategoryAxis xAxis = new CategoryAxis();
-        xAxis.setLabel("Année");
+        xAxis.setLabel("Durée");
 
         // Créer l'axe des ordonnées
         NumberAxis yAxis = new NumberAxis();
@@ -106,12 +107,11 @@ public class dashboardClientcreditrdv implements Initializable {
         // Préparer la série de données pour le graphique en barres
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
-        // Remplir la série de données
-        for (Map.Entry<Integer, Integer> entry : creditCountByYear.entrySet()) {
+        // Remplir la série de données avec le nombre de crédits par durée
+        for (Map.Entry<Integer, Integer> entry : creditCountByDuration.entrySet()) {
             series.getData().add(new XYChart.Data<>(entry.getKey().toString(), entry.getValue()));
         }
-        barChart.setPrefWidth(300); // Définir la largeur préférée
-        barChart.setPrefHeight(200);
+
         // Ajouter la série au graphique en barres
         barChart.getData().add(series);
 
@@ -128,14 +128,13 @@ public class dashboardClientcreditrdv implements Initializable {
         VBox pieChartContainer = new VBox(pieChart);
 
         // Ajouter les graphiques aux conteneurs
-        barChartContainer.setLayoutX(50); // Position en X pour le graphique en barres
-        barChartContainer.setLayoutY(50); // Position en Y pour le graphique en barres
+        barChartContainer.setLayoutX(20); // Position en X pour le graphique en barres
+        barChartContainer.setLayoutY(20); // Position en Y pour le graphique en barres
 
         pieChartContainer.setLayoutX(400); // Position en X pour le graphique circulaire
         pieChartContainer.setLayoutY(50); // Position en Y pour le graphique circulaire
 
         // Ajouter les conteneurs à votre disposition
-        content_area.getChildren().addAll( pieChartContainer,barChart);
+        content_area.getChildren().addAll(pieChartContainer, barChart);
     }
-
 }

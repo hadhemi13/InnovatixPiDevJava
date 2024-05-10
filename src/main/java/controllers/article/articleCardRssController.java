@@ -2,6 +2,7 @@ package controllers.article;
 
 import controllers.rss.RSSReader;
 import javafx.fxml.FXML;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.util.List;
 
 public class articleCardRssController {
 
+    public VBox backArt;
     @FXML
     private Text titreArtFront;
 
@@ -21,7 +23,7 @@ public class articleCardRssController {
         // Charger les articles RSS
         List<RSSReader> articles = null;
         try {
-            articles = RSSReader.loadArticlesFromURL("https://rss.app/feeds/v1.1/tOgyrCZKdMWLeE5M.json");
+            articles = RSSReader.loadArticlesFromURL("https://rss.app/feeds/v1.1/tRnP5WwFlg3QpD80.json");
         } catch (IOException e) {
             e.printStackTrace();
         }

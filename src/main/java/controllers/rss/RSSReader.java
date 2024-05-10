@@ -46,6 +46,13 @@ public class RSSReader {
         this.imageUrl = imageUrl;
         this.datePublished = datePublished;
     }
+    public RSSReader(String title,  String imageUrl) {
+
+        this.title = title;
+        this.content = content;
+        this.imageUrl = imageUrl;
+        this.datePublished = datePublished;
+    }
     public String getTitle() {
         return title;
     }
@@ -53,30 +60,31 @@ public class RSSReader {
     public String getContent() {
         return content;
     }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public String getDatePublished() {
-        return datePublished;
-    }
+//
+//    public String getImageUrl() {
+//        return imageUrl;
+//    }
+//
+//    public String getDatePublished() {
+//        return datePublished;
+//    }
 
 public static List<RSSReader> loadArticlesFromURL(String urlString) throws IOException {
     List<RSSReader> articles = new ArrayList<>();
 
     // Step 1: Load JSON data from API
     ObjectMapper objectMapper = new ObjectMapper();
-    URL url = new URL("https://rss.app/feeds/v1.1/tOgyrCZKdMWLeE5M.json");
+    URL url = new URL("https://rss.app/feeds/v1.1/tRnP5WwFlg3QpD80.json");
     JsonNode jsonNode = objectMapper.readTree(url);
 
     // Step 2: Parse JSON data into RSSReader objects
     for (JsonNode item : jsonNode.get("items")) {
         String title = item.get("title").asText();
-        String content = item.get("content_text").asText();
-        String imageUrl = item.get("image").asText();
-        String datePublished = item.get("date_published").asText();
-        articles.add(new RSSReader(title, content, imageUrl, datePublished));
+        //String content = item.get("content_text").asText();
+        JsonNode imageNode = item.get("image");
+        String imageUrl = imageNode != null ? imageNode.asText() : null;
+//        String datePublished = item.get("date_published").asText();
+        articles.add(new RSSReader(title, imageUrl));
     }
 
     return articles;

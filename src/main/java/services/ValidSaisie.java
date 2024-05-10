@@ -59,6 +59,11 @@ public class ValidSaisie {
         // Afficher la date d'aujourd'hui
         System.out.println("La date d'aujourd'hui est : " + dateAujourdhuiFormatee);
     }
+    public static boolean isValidDateN(LocalDate date) {
+        // Vérifie si la date est antérieure à aujourd'hui moins 18 ans
+        LocalDate limiteDate = LocalDate.now().minusYears(18);
+        return date.isBefore(limiteDate);
+    }
     public static boolean isValidNumB(String input) {
         if (input != null && !input.isEmpty()) {
             // Vérifie si le numéro de compte a 24 chiffres ou si les 13 derniers chiffres sont supérieurs ou égaux à 12

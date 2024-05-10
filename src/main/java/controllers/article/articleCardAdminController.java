@@ -26,6 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
 public class articleCardAdminController implements Initializable {
@@ -48,7 +49,8 @@ public class articleCardAdminController implements Initializable {
 
     @FXML
     private HBox deleteArtBtn;
-
+    @FXML
+    private ImageView qrCodeImage;
     @FXML
     private HBox editArt;
 
@@ -85,8 +87,19 @@ public class articleCardAdminController implements Initializable {
             contenuArtFront.setText(article.getContenu_art());
             cat.setText(article.getCategorie_art());
             imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            String base64QRCode = article.getQrCode();
+            if (base64QRCode != null) {
+                // Convert the Base64 string to byte array
+                byte[] qrCodeBytes = Base64.getDecoder().decode(base64QRCode);
 
+                // Load the byte array into an Image
+                Image qrCode = new Image(new ByteArrayInputStream(qrCodeBytes));
+
+                // Set the Image to the ImageView
+                qrCodeImage.setImage(qrCode);
+            }
         }
+
         imgArtFront.setId(String.valueOf(article.getId()));
         imgArtFront.setOnMouseClicked(event -> {
             try {
@@ -420,7 +433,7 @@ public class articleCardAdminController implements Initializable {
     }
 
 
-        @FXML
+    @FXML
     void deleteArtBtn(MouseEvent event) {
 
     }
@@ -428,9 +441,9 @@ public class articleCardAdminController implements Initializable {
 
     @FXML
     void pdf(MouseEvent event) {
-            // Vérifier si l'article est initialisé
+        // Vérifier si l'article est initialisé
 
-        }
+    }
 
 
 

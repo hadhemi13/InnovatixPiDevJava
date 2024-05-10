@@ -31,6 +31,11 @@
                 <Insets bottom="10.0" left="16.0" top="26.0" />
             </padding>
         </HBox>
+        <ImageView fx:id="RetourBack" fitHeight="40.0" fitWidth="54.0" onMouseClicked="#RetourBack" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/back.png" />
+            </image>
+        </ImageView>
         <Line endX="488.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0" translateX="250.0">
             <VBox.margin>
                 <Insets bottom="27.0" left="16.0" right="16.0" />
@@ -73,11 +78,11 @@
                                 <Insets right="70.0" />
                             </VBox.margin>
                         </VBox>
-                  <HBox fx:id="nameInputErrorHbox" prefHeight="27.0" prefWidth="681.0" styleClass="form_errors-cheque" stylesheets="@../css/SideNavBar.css">
-                     <children>
-                        <Text fx:id="NameinputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="    Veuilller saisir votre nom! " />
-                     </children>
-                  </HBox>
+                        <HBox fx:id="nameInputErrorHbox" prefHeight="27.0" prefWidth="681.0" styleClass="form_errors-cheque" stylesheets="@../css/SideNavBar.css">
+                            <children>
+                                <Text fx:id="NameinputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="    Veuilller saisir votre nom! " />
+                            </children>
+                        </HBox>
 
                         <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
                             <padding>
@@ -306,7 +311,7 @@
                                                 <Insets bottom="10.0" />
                                             </padding>
                                         </HBox>
-                              <PasswordField fx:id="montant" promptText="Mot de passe" styleClass="cheque__add-input-label" />
+                                        <PasswordField fx:id="montant" promptText="Mot de passe" styleClass="cheque__add-input-label" />
                                         <HBox fx:id="montantInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-cheque" stylesheets="@../../resources/css/SideNavBar.css">
                                             <children>
                                                 <Text fx:id="montantInputError" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir votre Mot de passe !">

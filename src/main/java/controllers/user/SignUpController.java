@@ -82,6 +82,7 @@ public class SignUpController implements Initializable{
     private Button submit;
     @FXML
     private Button reset;
+    private int Rib;
 
     private String imagePath;
     @FXML
@@ -96,7 +97,8 @@ public class SignUpController implements Initializable{
              imagePath = selectedFile.getAbsolutePath(); // Stockez le chemin de l'image sélectionnée dans la variable de classe
             // Chargez l'image dans l'ImageView si nécessaire
             imageView.setImage(new Image(selectedFile.toURI().toString()));
-        } }
+        }
+    }
     public void signUp(ActionEvent actionEvent) {
         String name = fullnameField.getText();
         String email = EmailField.getText();
@@ -105,9 +107,10 @@ public class SignUpController implements Initializable{
         String repassword = repassField.getText();
         String image = imagePath;
         String roles = "ROLE_CLIENT";
+        Rib = 25544555;
 
         // Créer un objet User avec les informations saisies
-        User newUser = new User(name, email, tel, password, image, roles);
+        User newUser = new User(name, email, tel, password, image, roles,Rib);
         //User usd = new User(name,email,tel,password,fileName,roles);
         UserControleSaisie userControleSaisie = new UserControleSaisie();
         ServiceUser userService = new ServiceUser();
@@ -118,7 +121,7 @@ public class SignUpController implements Initializable{
         }
 
         // Ajouter l'utilisateur à la base de données ou effectuer toute autre action nécessaire
-        addUserToDatabase(name,email,tel,password,image,roles);
+        addUserToDatabase(name,email,tel,password,image,roles,Rib);
        // userService.ajouter(usd);
         clearInputFields();
     }
@@ -135,9 +138,9 @@ public class SignUpController implements Initializable{
 
 
 
-    private void addUserToDatabase(String name, String email, String tel,  String password, String photo ,String roles) {
+    private void addUserToDatabase(String name, String email, String tel,  String password, String photo ,String roles,int Rib) {
         // Créer un nouvel utilisateur avec les valeurs saisies
-        User user = new User(name,email,tel,password, photo,roles);
+        User user = new User(name,email,tel,password, photo,roles,Rib);
 
         // Utiliser le service utilisateur pour inscrire l'utilisateur
         ServiceUser userService = new ServiceUser();

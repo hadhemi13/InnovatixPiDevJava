@@ -125,7 +125,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
 
 
-    private void switchToEvenementsList(javafx.scene.input.MouseEvent event) throws IOException {
+    private void switchToEvenementsList(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
         Parent root = loader.load();
         Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");

@@ -20,6 +20,7 @@ import javafx.stage.FileChooser;
 import services.ServiceUser;
 
 import javax.management.relation.Role;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -33,6 +34,9 @@ public class AjoutUserController implements Initializable {
 
     @FXML
     private Button ChequeImg;
+
+    @FXML
+    private Button Retour;
 
     @FXML
     private VBox content_area;
@@ -88,6 +92,7 @@ public class AjoutUserController implements Initializable {
     private HBox imageInputErrorHbox;
 
 
+
     @FXML
     private PasswordField montant;
 
@@ -116,14 +121,13 @@ public class AjoutUserController implements Initializable {
     @FXML
     private HBox nameInputErrorHbox;
     String fileName = null;
+    File selectedImageFile;
     @FXML
     private void uploadImage()  {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif")
-        );
-        File selectedImageFile = fileChooser.showOpenDialog(choose_photoBtn.getScene().getWindow());
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+        selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
         if (selectedImageFile != null) {
             Image image = new Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
@@ -203,37 +207,54 @@ public class AjoutUserController implements Initializable {
         } else {
             EmailInputErrorHbox.setVisible(false);
         }// Masquer le message d'erreur si le champ est rempli
-            if (tel.getText().isEmpty()) {
-                telInputError.setVisible(true);
-                champsVides = true;
-            }
-            else {
-                telInputErrorHbox.setVisible(false);}
-            // Masquer le message d'erreur si le champ est rempli
+        if (tel.getText().isEmpty()) {
+            telInputError.setVisible(true);
+            champsVides = true;
+        }
+        else {
+            telInputErrorHbox.setVisible(false);}
+        // Masquer le message d'erreur si le champ est rempli
 
 
 // Si au moins un champ est vide, afficher les messages d'erreur
-                if (champsVides) {
-                    return;
-                }
-                ServiceUser serviceUser = new ServiceUser();
+        if (champsVides) {
+            return;
+        }
+        ServiceUser serviceUser = new ServiceUser();
 
-                String image = imageInput.getImage().getUrl();
-                String selectedCategory = role.getSelectionModel().getSelectedItem();
-                User user = new User(name.getText(), Cin.getText(), fileName, adresse.getText(), Email.getText(), selectedCategory, tel.getText(), montant.getText());
-                serviceUser.ajouter(user);
-               // if (sa.ajouter(user)) {
+        String image = imageInput.getImage().getUrl();
+        String selectedCategory = role.getSelectionModel().getSelectedItem();
+        User user = new User(name.getText(), Cin.getText(), fileName, adresse.getText(), Email.getText(), selectedCategory, tel.getText(), montant.getText());
+        serviceUser.ajouter(user);
+        // if (sa.ajouter(user)) {
 
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UsersList.fxml"));
-                    Pane listArtAdminPane = loader.load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UsersList.fxml"));
+        Pane listArtAdminPane = loader.load();
 
-                    // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-                    content_area.getChildren().setAll(listArtAdminPane);
+        // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+        content_area.getChildren().setAll(listArtAdminPane);
 
-                //}
+        //}
 
-            }
+    }
+    @FXML
+    void TOUser(MouseEvent event) {
 
+
+    }
+
+    public void RetourBack(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UsersList.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+    }
+}

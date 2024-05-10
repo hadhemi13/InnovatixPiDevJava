@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -17,11 +11,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarController">
+<AnchorPane fx:id="content_area1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarController">
     <children>
-        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="250.0" styleClass="dash__side-bar">
+        <VBox layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="250.0" styleClass="dash__side-bar">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
@@ -36,7 +29,7 @@
 
                 <VBox maxWidth="-Infinity" minHeight="-Infinity" prefHeight="349.0" prefWidth="250.0" translateY="1.0">
                     <children>
-                        <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0">
+                        <HBox fx:id="dashboardBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#OpenDash" prefHeight="50.0" prefWidth="200.0">
                             <children>
                                 <ImageView fx:id="dashboardIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                                 <Label fx:id="dashboardText" text="Tableau de bord" textFill="WHITE">
@@ -57,7 +50,7 @@
                                 <String fx:value="activeLink" />
                             </styleClass>
                         </HBox>
-                        <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="usersBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openUserList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="usersIcon" fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" translateX="-6.0">
 
@@ -84,7 +77,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="compteBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="compteBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#OpenCard" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="comptesIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
 
@@ -111,7 +104,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="creditsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="creditsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openDashboardClientCredit" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="creditsIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
 
@@ -166,7 +159,7 @@
                             </VBox.margin>
                         </HBox>
 
-                        <HBox fx:id="InvestBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="InvestBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_ProjectList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="investissementsIcon" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                                     <HBox.margin>
@@ -192,7 +185,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="evenementsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="evenementsBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_evenementsList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="evenementsIcon" fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
                                     <HBox.margin>
@@ -218,7 +211,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="recBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="recBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openRecList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="reclamationsIcon" fitHeight="40.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="-4.0">
                                     <HBox.margin>
@@ -244,7 +237,7 @@
                                 <Insets left="20.0" />
                             </padding>
                         </HBox>
-                        <HBox fx:id="actualitesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="actualitesBtn" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#openArticleList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="actualitesIcon" fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
 
@@ -277,29 +270,30 @@
         </VBox>
         <HBox alignment="CENTER_RIGHT" layoutX="260.0" prefHeight="78.0" prefWidth="1115.0">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Tableau de bord" translateX="-660.0">
-                    <font>
-                        <Font name="Montserrat ExtraBold" size="18.0" />
-                    </font>
-                </Text>
-                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="38.0">
-                    <image>
-                        <Image url="@../img/bell.png" />
-                    </image>
-                </ImageView>
-                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="172.0" styleClass="nav-icon" stylesheets="@../css/SideNavBar.css" translateX="-20.0">
                     <children>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" />
-
-                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="20.0" styleClass="nav-notif-bg" translateX="-8.0" translateY="-14.0">
-                            <children>
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="3" translateY="-1.0">
-                                    <font>
-                                        <Font name="Montserrat ExtraBold" size="15.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </HBox>
+                        <ImageView fx:id="en" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
+                            <image>
+                                <Image url="@../img/royaume-uni.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="10.0" right="10.0" />
+                            </HBox.margin></ImageView>
+                        <ImageView fx:id="tn" fitHeight="30.0" fitWidth="30.0" layoutX="71.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/tunisie.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin></ImageView>
+                        <ImageView fx:id="fr" fitHeight="30.0" fitWidth="30.0" layoutX="66.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/france.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </ImageView>
                     </children>
                     <HBox.margin>
                         <Insets right="16.0" />
@@ -313,20 +307,13 @@
                         <Insets right="10.0" />
                     </HBox.margin>
                 </ImageView>
-                <Text fx:id="navFullname" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Admin">
-                    <font>
-                        <Font name="Montserrat Bold" size="18.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="16.0" />
-                    </HBox.margin>
-                </Text>
+                <Label fx:id="name" prefHeight="26.0" prefWidth="82.0" styleClass="nav-user-fullname" stylesheets="@../css/SideNavBar.css" text="admin" textFill="WHITE" />
                 <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon">
                     <HBox.margin>
                         <Insets right="16.0" />
                     </HBox.margin>
                     <children>
-                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="26.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../img/logout.png" />
                             </image>
@@ -337,7 +324,124 @@
         </HBox>
         <Pane fx:id="content_area" layoutX="266.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card">
             <children>
-                <ScrollPane prefHeight="622.0" prefWidth="1084.0" />
+                <ScrollPane layoutX="16.0" layoutY="12.0" prefHeight="602.0" prefWidth="1046.0" style="-fx-background-radius: 50;">
+                    <content>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="1052.0" stylesheets="@../css/SideNavBar.css">
+                            <padding>
+                                <Insets left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <HBox prefHeight="286.0" prefWidth="1078.0">
+                                    <children>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="293.0" style="-fx-background-radius: 50;" styleClass="card_01">
+                                            <HBox.margin>
+                                                <Insets left="20.0" right="20.0" top="20.0" />
+                                            </HBox.margin>
+                                            <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="290.0" text="Nombre totale des utilisateurs">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="219.0" prefWidth="307.0">
+                                                    <children>
+                                                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../img/graphique.gif" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="NAllUser" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="221.0" text="50" translateX="30.0">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
+                                            <opaqueInsets>
+                                                <Insets left="10.0" right="10.0" />
+                                            </opaqueInsets>
+                                            <HBox.margin>
+                                                <Insets left="20.0" right="20.0" top="20.0" />
+                                            </HBox.margin>
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="294.0" text="Nombre des clients">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="209.0" prefWidth="274.0" styleClass="round-box">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                    <children>
+                                                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../img/presentation.gif" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="NAllclients" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="36.0" prefWidth="230.0" text="30" translateX="30.0" translateY="-15.0">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="294.0" style="-fx-background-radius: 50;" styleClass="card_01">
+                                            <HBox.margin>
+                                                <Insets top="20.0" />
+                                            </HBox.margin>
+                                            <children>
+                                                <Label alignment="CENTER" prefHeight="38.0" prefWidth="294.0" text="Nombre des employees">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="208.0" prefWidth="274.0" styleClass="round-box">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                    <children>
+                                                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@../img/diagramme.gif" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="idAllEmplyoyeee" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="235.0" text="20" translateX="30.0" translateY="-15.0">
+                                                    <styleClass>
+                                                        <String fx:value="addProductCard" />
+                                                        <String fx:value="activeText" />
+                                                    </styleClass>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" right="10.0" />
+                                    </opaqueInsets>
+                                </HBox>
+                                <HBox layoutX="11.0" layoutY="26.0" prefHeight="250.0" prefWidth="1028.0" translateY="300.0">
+                                    <opaqueInsets>
+                                        <Insets left="10.0" right="10.0" />
+                                    </opaqueInsets>
+                                    <children>
+                                        <VBox fx:id="maryem" prefHeight="239.0" prefWidth="898.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </Pane>
+                    </content></ScrollPane>
             </children>
         </Pane>
     </children>

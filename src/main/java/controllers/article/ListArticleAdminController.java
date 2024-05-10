@@ -426,7 +426,7 @@ public void categorieInput(ActionEvent actionEvent) {
             root.snapshot(null, image);
 
             // Définir le chemin du dossier de destination
-            String dossierDestination = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\resources\\imagesAct\\uploads\\";
+            String dossierDestination = "C:\\Users\\Yesser\\IdeaProjects\\InnovatixPiDevJava\\src\\main\\java\\uploads";
 
             // Générer un nom de fichier unique
             String nomFichier = "capture_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")) + ".png";

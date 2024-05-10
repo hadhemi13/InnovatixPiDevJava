@@ -3,7 +3,6 @@ package services;
 import Entities.actualites.Reclamation;
 import Entities.actualites.Reponse;
 import utils.MyDatabase;
-//import utils.MyDatabase;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -143,11 +142,28 @@ public class ServiceReponse implements IServiceReponse <Reponse> {
     }
     @Override
     public void supprimerParId(int id) throws SQLException {
-            String query = "DELETE FROM reponse WHERE id=?";
+        String query = "DELETE FROM reponse WHERE id=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         }
+    }
+
+    public List<Reponse> afficherReponsesParIdReclamation(int idReclamation) {
+        List<Reponse> reponses = new ArrayList<>();
+        String req = "SELECT * FROM reponse WHERE reclamation_id=?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
+            preparedStatement.setInt(1, idReclamation);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Reponse reponse = mapResultSetToReponse(rs);
+                reponses.add(reponse);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors de la récupération des réponses pour la réclamation avec l'ID : " + idReclamation);
+            ex.printStackTrace();
+        }
+        return reponses;
     }
 
 }

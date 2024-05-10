@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import services.ServiceUser;
 import Entities.User;
+
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -20,10 +22,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 
+import javax.swing.text.html.ImageView;
+
 
 public class UsersListController implements Initializable {
     @FXML
     private HBox content_area;
+    @FXML
+    private ImageView ToUser;
 
     @FXML
     private ComboBox<String> roleInput;
@@ -90,9 +96,9 @@ public class UsersListController implements Initializable {
                 } else if (filter == 1) {
                     userList = projectService.getAllClient();
                 } else {
-                    userList = projectService.getAllAdmin();
+                    userList = projectService.getAllEmplyee();
                 }
-        } catch (SQLException e) {
+            } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
@@ -150,5 +156,6 @@ public class UsersListController implements Initializable {
     }
 
 
-
 }
+
+

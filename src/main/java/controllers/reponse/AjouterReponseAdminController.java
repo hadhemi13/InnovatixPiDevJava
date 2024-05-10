@@ -1,7 +1,9 @@
 package controllers.reponse;
 
+import Entities.User;
 import Entities.actualites.Reclamation;
 import Entities.actualites.Reponse;
+import controllers.reclamation.ListRecAdminController;
 import controllers.reclamation.ReclamationItemAdminController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +13,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import services.ServiceReclamation;
 import services.ServiceReponse;
 
 import java.io.File;
@@ -28,6 +33,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
@@ -35,6 +41,7 @@ public class AjouterReponseAdminController implements Initializable {
 
     @FXML
     private Text addpieceJBtn;
+    public static User user;
 
     @FXML
     private TextArea contenuInput;
@@ -58,13 +65,21 @@ public class AjouterReponseAdminController implements Initializable {
     private Button reponseBtn;
     private Reclamation reclamation;
     private String pdfName;
+    @FXML
+    private Text captchaErrorText;
 
+    @FXML
+    private TextField captchaInput;
+
+    @FXML
+    private TextField captchaTextField;
+    private String captchaValue;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         contenuInputErrorBox.setVisible(false);
         pieceInputErrorBox.setVisible(false);
-
+        generateCaptcha();
 
     }
     @FXML
@@ -95,11 +110,157 @@ public class AjouterReponseAdminController implements Initializable {
         }
 
     }
+    //    @FXML
+//    void addReponse(MouseEvent event) {
+//        int newId = ReclamationItemAdminController.idAn;
+//
+//        ServiceReponse sr = new ServiceReponse();
+//        if (contenuInput.getText().isEmpty()) {
+//            contenuInputErrorBox.setVisible(true);
+//            return;
+//        }
+//        if (addpieceJBtn.getText().isEmpty()) {
+//            pieceInputErrorBox.setVisible(true);
+//            return;
+//        }
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        String adresse = "mahmoud";
+//        String pieceJointe = pdfName;
+//        Reponse reponse = new Reponse(newId, adresse, dateTime, contenuInput.getText(), pieceJointe);
+//        try {
+//            sr.ajouter(reponse);
+//
+//            // Mettre à jour le statut de la réclamation associée à cette réponse
+//            ServiceReclamation serviceReclamation = new ServiceReclamation();
+//            if (reclamation != null) {
+//                reclamation.setStatut_rec("traitée");
+//                serviceReclamation.updateReclamationStatut(newId,"traitée");
+//            } else {
+//                System.out.println("La réclamation associée à cette réponse n'existe pas.");
+//            }
+//
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
+//            Parent listRecAdminPane = loader.load();
+//            ListRecAdminController listRecController = loader.getController();
+//            listRecController.refreshRecList();
+//
+//            // Fermeture de la fenêtre d'ajout de réponse
+//            ((Stage) contenuInput.getScene().getWindow()).close();
+//
+////            // Ouvrir la liste des réponses dans la fenêtre parent
+////            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponse/listRepAdmin.fxml"));
+////            Parent listRepAdminPane = loader.load();
+////            ListRepAdminController listRepController = loader.getController();
+////            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+////            stage.setScene(new Scene(listRepAdminPane));
+////            stage.show();
+//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+////            content_area.getChildren().setAll(listArtAdminPane);
+//        } catch (SQLException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+    private void generateCaptcha() {
+        Random random = new Random();
+        // Générer un captcha aléatoire (par exemple, une chaîne de 4 chiffres)
+        captchaValue = String.format("%04d", random.nextInt(10000));
 
-
+        // Afficher le captcha dans l'interface utilisateur (par exemple, dans un champ de texte)
+        captchaTextField.setText(captchaValue);
+    }
     @FXML
-    void addReponse(MouseEvent event) {
+//void addReponse(MouseEvent event) {
+//    int newId = ReclamationItemAdminController.idAn;
+//
+//    ServiceReponse sr = new ServiceReponse();
+//    if (contenuInput.getText().isEmpty()) {
+//        contenuInputErrorBox.setVisible(true);
+//        return;
+//    }
+//    if (addpieceJBtn.getText().isEmpty()) {
+//        pieceInputErrorBox.setVisible(true);
+//        return;
+//    }
+//    String userCaptchaInput = captchaInput.getText();
+//    if (!userCaptchaInput.equals(captchaValue)) {
+//        captchaErrorText.setText("Captcha incorrect !");
+//        return; // Sortir de la fonction si le captcha est incorrect
+//    }
+//    LocalDateTime dateTime = LocalDateTime.now();
+//    String adresse = "mahmoud";
+//    String pieceJointe = pdfName;
+//    Reponse reponse = new Reponse(newId, adresse, dateTime, contenuInput.getText(), pieceJointe);
+//    try {
+//        sr.ajouter(reponse);
+//
+//        // Mettre à jour le statut de la réclamation associée à cette réponse
+//        ServiceReclamation serviceReclamation = new ServiceReclamation();
+//        if (reclamation != null) {
+//            reclamation.setStatut_rec("traitée");
+//            serviceReclamation.updateReclamationStatut(newId,"traitée");
+//        } else {
+//            System.out.println("La réclamation associée à cette réponse n'existe pas.");
+//        }
+//
+//        // Actualiser la liste des réclamations
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
+//        Parent listRecAdminPane = loader.load();
+//        ListRecAdminController listRecController = loader.getController();
+//        listRecController.refreshRecList();
+//
+//
+//        // Fermer la fenêtre d'ajout de réponse
+//        ((Stage) contenuInput.getScene().getWindow()).close();
+//    } catch (SQLException | IOException e) {
+//        throw new RuntimeException(e);
+//    }
+//}
 
+    void addReponse(MouseEvent event) {
+//        int newId = ReclamationItemAdminController.idAn;
+//
+//        ServiceReponse sr = new ServiceReponse();
+//        if (contenuInput.getText().isEmpty()) {
+//            contenuInputErrorBox.setVisible(true);
+//            return;
+//        }
+//        if (pdfName == null || pdfName.isEmpty()) { // Vérifie si le champ de la pièce jointe est vide
+//            pieceInputErrorBox.setVisible(true);
+//            return;
+//        }
+//        String userCaptchaInput = captchaInput.getText();
+//        if (!userCaptchaInput.equals(captchaValue)) {
+//            captchaErrorText.setText("Captcha incorrect !");
+//            return; // Sortir de la fonction si le captcha est incorrect
+//        }
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        String adresse = "mahmoud";
+//        String pieceJointe = pdfName;
+//        Reponse reponse = new Reponse(newId, adresse, dateTime, contenuInput.getText(), pieceJointe);
+//        try {
+//            sr.ajouter(reponse);
+//
+//            // Mettre à jour le statut de la réclamation associée à cette réponse
+//            ServiceReclamation serviceReclamation = new ServiceReclamation();
+//            if (reclamation != null) {
+//                reclamation.setStatut_rec("traitée");
+//                serviceReclamation.updateReclamationStatut(newId,"traitée");
+//            } else {
+//                System.out.println("La réclamation associée à cette réponse n'existe pas.");
+//            }
+//
+//            // Actualiser la liste des réclamations
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
+//            Parent listRecAdminPane = loader.load();
+//            ListRecAdminController listRecController = loader.getController();
+//            listRecController.refreshRecList();
+//
+//
+//            // Fermer la fenêtre d'ajout de réponse
+//            ((Stage) contenuInput.getScene().getWindow()).close();
+//        } catch (SQLException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
         int newId = ReclamationItemAdminController.idAn;
 
         ServiceReponse sr = new ServiceReponse();
@@ -107,38 +268,89 @@ public class AjouterReponseAdminController implements Initializable {
             contenuInputErrorBox.setVisible(true);
             return;
         }
-        if (addpieceJBtn.getText().isEmpty()) {
+        if (pdfName == null || pdfName.isEmpty()) { // Vérifie si le champ de la pièce jointe est vide
             pieceInputErrorBox.setVisible(true);
             return;
         }
+        String userCaptchaInput = captchaInput.getText();
+        if (!userCaptchaInput.equals(captchaValue)) {
+            captchaErrorText.setText("Captcha incorrect !");
+            return; // Sortir de la fonction si le captcha est incorrect
+        }
         LocalDateTime dateTime = LocalDateTime.now();
-        String adresse = "mahmoud";
+        String adresse = user.getEmail();
         String pieceJointe = pdfName;
         Reponse reponse = new Reponse(newId, adresse, dateTime, contenuInput.getText(), pieceJointe);
         try {
             sr.ajouter(reponse);
-            reclamation.setStatut_rec("Traitée");
 
-            // Fermeture de la fenêtre d'ajout de réponse
-            ((Stage) contenuInput.getScene().getWindow()).close(); // Assurez-vous d'importer javafx.stage.Stage
+            // Mettre à jour le statut de la réclamation associée à cette réponse
+            ServiceReclamation serviceReclamation = new ServiceReclamation();
+            if (reclamation != null) {
+                reclamation.setStatut_rec("traitée");
+                serviceReclamation.updateReclamationStatut(newId,"traitée");
+            } else {
+                System.out.println("La réclamation associée à cette réponse n'existe pas.");
+            }
 
-            // Ouvrir la liste des réponses dans la fenêtre parent
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponse/listRepAdmin.fxml"));
-            Parent listRepAdminPane = loader.load();
-            ListRepAdminController listRepController = loader.getController();
-            // Initialiser la liste des réponses si nécessaire
-            // Par exemple, listRepController.initDataRep(reponse);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(listRepAdminPane));
+            // Actualiser la liste des réclamations
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listRecAdmin.fxml"));
+            Parent listRecAdminPane = loader.load();
+            ListRecAdminController listRecController = loader.getController();
+            listRecController.refreshRecList();
+
+            // Fermer la fenêtre d'ajout de réponse
+            Stage stage = (Stage) contenuInput.getScene().getWindow();
+            stage.setScene(new Scene(listRecAdminPane));
             stage.show();
+
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+//    @FXML
+//    void addReponse(MouseEvent event) {
+//
+//        int newId = ReclamationItemAdminController.idAn;
+//
+//        ServiceReponse sr = new ServiceReponse();
+//        if (contenuInput.getText().isEmpty()) {
+//            contenuInputErrorBox.setVisible(true);
+//            return;
+//        }
+//        if (addpieceJBtn.getText().isEmpty()) {
+//            pieceInputErrorBox.setVisible(true);
+//            return;
+//        }
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        String adresse = "mahmoud";
+//        String pieceJointe = pdfName;
+//        Reponse reponse = new Reponse(newId, adresse, dateTime, contenuInput.getText(), pieceJointe);
+//        try {
+//            sr.ajouter(reponse);
+////            reclamation.setStatut_rec("Traitée");
+//            reponse.updateReclamationStatut("traité");
+//
+//            // Fermeture de la fenêtre d'ajout de réponse
+//            ((Stage) contenuInput.getScene().getWindow()).close(); // Assurez-vous d'importer javafx.stage.Stage
+//
+//            // Ouvrir la liste des réponses dans la fenêtre parent
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponse/listRepAdmin.fxml"));
+//            Parent listRepAdminPane = loader.load();
+//            ListRepAdminController listRepController = loader.getController();
+//            // Initialiser la liste des réponses si nécessaire
+//            // Par exemple, listRepController.initDataRep(reponse);
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.setScene(new Scene(listRepAdminPane));
+//            stage.show();
+//        } catch (SQLException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
     public void initDataRec(Reclamation reclamation) {
         this.reclamation = reclamation;
-        // Autres initialisations si nécessaire
     }
 
 }

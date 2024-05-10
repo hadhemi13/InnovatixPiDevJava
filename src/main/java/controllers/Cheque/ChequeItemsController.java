@@ -1,6 +1,7 @@
 package controllers;
 
 import Entities.Cheque;
+import Entities.User;
 import controllers.Cheque.DemandeChequeListClient;
 import controllers.Cheque.ModifierCheque;
 import javafx.event.ActionEvent;
@@ -70,6 +71,8 @@ public class ChequeItemsController {
     @FXML
     private Node pdf;
 
+    public static User user;
+
 
     public void initData(Cheque i ){
         ServiceCheque serviceCheque = new ServiceCheque();
@@ -78,8 +81,9 @@ public class ChequeItemsController {
 
         userItemStateBtn.setId(String.valueOf(i.getId()));
 
+
         userItemEmail.setText(String.valueOf(i.getCin()));
-       userItemName.setText(String.valueOf(i.getCompte_id()));
+       userItemName.setText(String.valueOf(user.getRib()));
         userItemTel.setText(i.getNom_prenom());
         userItemRole.setText(i.getEmail());
         userItemStateText.setText(i.getDecision());

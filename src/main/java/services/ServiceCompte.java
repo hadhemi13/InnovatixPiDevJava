@@ -92,6 +92,22 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
 
     }
 
+    public void modifierOne(Compte compte) throws SQLException {
+        try {
+            String req = "UPDATE compte SET statut=? WHERE id=?";
+            PreparedStatement ps = connection.prepareStatement(req);
+            ps.setString(1, "Approuve");
+            ps.setInt(2, compte.getId());
+
+            ps.executeUpdate();
+            System.out.println("Compte avec ID " + compte.getId() + " modifié !");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+
+    }
+
     @Override
     public void supprimer(int id) throws SQLException {
         String req = "DELETE FROM compte WHERE id=?";
@@ -116,16 +132,57 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-                list.add(new Compte(rs.getString("email"),
-                        rs.getString("confirmation_email"), rs.getInt("cin"),
+                list.add(new Compte(
+                        rs.getInt("id"),
+                        rs.getString("email"),
+                        rs.getString("confirmation_email"),
+                        rs.getInt("cin"),
                         rs.getDate("date_delivrance_cin"),
-                        rs.getString("nom"), rs.getString("prenom"), rs.getString("sexe"),
-                        rs.getDate("date_naissance") ,
-                        rs.getString("proffesion"), rs.getString("type_compte"),
-                        rs.getDouble("montant"), rs.getString("statut_marital"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("sexe"),
+                        rs.getDate("date_naissance"),
+                        rs.getString("proffesion"), // Correction de la variable proffesion à profession
+                        rs.getString("type_compte"),
+                        rs.getDouble("montant"),
+                        rs.getString("statut_marital"),
                         rs.getString("nationalite"),
-                        rs.getString("preference_communic"), rs.getString("type_cin"),
-                       rs.getString("statut")));
+                        rs.getInt("numero_telephone"), // Ajout du numéro de téléphone
+                        rs.getString("type_cin"),
+                        rs.getString("statut")
+                ));
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return list;
+    }
+    public List<Compte> afficherSE() throws SQLException {
+        List<Compte> list = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM compte WHERE statut = 'encours'"; // Ajout des guillemets autour de encours
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                list.add(new Compte(
+                        rs.getInt("id"),
+                        rs.getString("email"),
+                        rs.getString("confirmation_email"),
+                        rs.getInt("cin"),
+                        rs.getDate("date_delivrance_cin"),
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("sexe"),
+                        rs.getDate("date_naissance"),
+                        rs.getString("proffesion"), // Correction de la variable proffesion à profession
+                        rs.getString("type_compte"),
+                        rs.getDouble("montant"),
+                        rs.getString("statut_marital"),
+                        rs.getString("nationalite"),
+                        rs.getInt("numero_telephone"), // Ajout du numéro de téléphone
+                        rs.getString("type_cin"),
+                        rs.getString("statut")
+                ));
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());

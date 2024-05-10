@@ -32,13 +32,15 @@ import static javax.mail.Message.RecipientType.TO;
 
 public class GMailer {
     private static final String TEST_EMAIL="ahmed.marzougui@esprit.tn";
+    private static final String TEST_EMAILL="eflexbank@gmail.com";
+
     private final  Gmail service;
     public GMailer() throws GeneralSecurityException, IOException {
         //send email to u
         NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 
         GsonFactory jsonFactory=GsonFactory.getDefaultInstance();
-         service = new Gmail.Builder(httpTransport,jsonFactory, getCredentials(httpTransport,jsonFactory))
+        service = new Gmail.Builder(httpTransport,jsonFactory, getCredentials(httpTransport,jsonFactory))
                 .setApplicationName("Test Mailer")
                 .build();
     }
@@ -50,6 +52,7 @@ public class GMailer {
         GoogleClientSecrets clientSecrets;
         clientSecrets =
                 GoogleClientSecrets.load(jsonFactory, new InputStreamReader(new FileInputStream("C:\\Users\\Yesser\\Downloads\\client_secret_16312477864-07t62n1eajst43us4fbtpi8jsl1kn8mp.apps.googleusercontent.com.json")));
+
 
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
@@ -68,7 +71,7 @@ public class GMailer {
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
         email.setFrom(new InternetAddress(TEST_EMAIL));
-        email.addRecipient(TO,new InternetAddress(TEST_EMAIL));
+        email.addRecipient(TO,new InternetAddress(TEST_EMAILL));
         email.setSubject(subject);
         email.setText(message);
 
@@ -78,7 +81,7 @@ public class GMailer {
         byte[] rawMessageBytes = buffer.toByteArray();
         String encodedEmail = Base64.encodeBase64URLSafeString(rawMessageBytes);
         Message msg = new Message();
-       msg.setRaw(encodedEmail);
+        msg.setRaw(encodedEmail);
 
         try {
             // Create send message

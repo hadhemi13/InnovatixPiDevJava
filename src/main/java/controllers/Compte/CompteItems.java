@@ -2,6 +2,7 @@ package controllers.Compte;
 
 import Entities.Cheque;
 import Entities.Compte;
+import services.ShaymaService;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.Cheque.ListeChequeAdmin;
 import controllers.Cheque.ModifierCheque;
@@ -22,9 +23,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
+import services.ShaymaService;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -81,6 +85,7 @@ public class CompteItems implements Initializable {
 
     public void initData(Compte i){
         this.compte= i ;
+        // System.out.println(compte.getId());
         ServiceCompte serviceCompte = new ServiceCompte();
 
         Email.setText(i.getEmail());
@@ -92,44 +97,58 @@ public class CompteItems implements Initializable {
 //        Professon.setText(i.getProffesion());
 //        Numtel.setText(String.valueOf(i.getNumero_telephone()));
 //        TypeCompte.setText(i.getType_compte());
-   //     ApprouveBtn.setOnMouseClicked(mouseEvent -> {
- //           Stage primaryStage = new Stage();
- //           try {
- //               Compte compte = serviceCompte.afficher().get(Integer.parseInt(ApprouveBtn.getId()));
- //               FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Historique.fxml")) ;
- //               Parent parent = loader.load();
- //               Scene scene = new Scene(parent);
- //               primaryStage.setTitle("E-Flex Bank");
- //               primaryStage.setScene(scene);
- //               primaryStage.show();
- //               ApprouverCompte approuverCompte = loader.getController();
- //               ApprouverCompte.initData(compte);
- //           }catch (SQLException | IOException exception)
- //           {
- //               throw new RuntimeException(exception);
- //           }
+        //     ApprouveBtn.setOnMouseClicked(mouseEvent -> {
+        //           Stage primaryStage = new Stage();
+        //           try {
+        //               Compte compte = serviceCompte.afficher().get(Integer.parseInt(ApprouveBtn.getId()));
+        //               FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Historique.fxml")) ;
+        //               Parent parent = loader.load();
+        //               Scene scene = new Scene(parent);
+        //               primaryStage.setTitle("E-Flex Bank");
+        //               primaryStage.setScene(scene);
+        //               primaryStage.show();
+        //               ApprouverCompte approuverCompte = loader.getController();
+        //               ApprouverCompte.initData(compte);
+        //           }catch (SQLException | IOException exception)
+        //           {
+        //               throw new RuntimeException(exception);
+        //           }
 //
-  //      });
-  //      RefusBtn.setOnMouseClicked(mouseEvent -> {
-   //         try {
-    //            serviceCompte.supprimer(Integer.parseInt(RefusBtn.getId()));
+        //      });
+        //      RefusBtn.setOnMouseClicked(mouseEvent -> {
+        //         try {
+        //            serviceCompte.supprimer(Integer.parseInt(RefusBtn.getId()));
 //
- //           } catch (SQLException e) {
- //               throw new RuntimeException(e);
-  //          }
-   //     });
+        //           } catch (SQLException e) {
+        //               throw new RuntimeException(e);
+        //          }
+        //     });
         if ("Approuvé".equals(compte.getStatut()) || "Rejeté".equals(compte.getStatut())) {
             disableStatutButtons();
         }
+        ApprouveBtn.setOnMouseClicked(mouseEvent -> {
+            if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte ?")) {
+                updateCompteStatut("Approuvé");
+            }
+
+        });
+
 
 
 
     }
-    public void ApprouverCompte(MouseEvent mouseEvent) {
-        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte Bancaire ?")) {
+    @FXML
+    private void ApprouverCompte(MouseEvent event) throws GeneralSecurityException, IOException {
+        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte ?")) {
             updateCompteStatut("Approuvé");
         }
+
     }
+
+//    public void ApprouverCompte(MouseEvent mouseEvent) throws GeneralSecurityException, IOException, MessagingException {
+//
+//        new MailingShayma().sendMail("Approbation de crédit", "ff");
+//    }
 
     public void RefuserCompte(MouseEvent mouseEvent) {
         if (showConfirmationDialog("Reject", "Voulez vous réfuser ce compte bancaire?")) {
@@ -150,7 +169,7 @@ public class CompteItems implements Initializable {
     private void updateCompteStatut(String newStatut) {
         try {
             compte.setStatut(newStatut);
-            new ServiceCompte().modifier(compte);
+            new ServiceCompte().modifierOne(compte);
             showAlert(Alert.AlertType.INFORMATION, "Success", "Compte statut updated to " + newStatut + ".");
             disableStatutButtons();
             applyRejectedStyle();
@@ -218,4 +237,3 @@ public class CompteItems implements Initializable {
     }
 
 }
-

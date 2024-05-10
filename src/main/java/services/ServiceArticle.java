@@ -2,7 +2,6 @@ package services;
 
 import Entities.actualites.Article;
 import utils.MyDatabase;
-//import utils.MyDatabase;
 
 
 import java.sql.*;
@@ -19,8 +18,8 @@ public class ServiceArticle  implements IServiceArticle<Article> {
 
     @Override
     public boolean ajouter(Article article) throws SQLException {
-        String req = "INSERT INTO article (nom_aut_art, adr_aut_art, date_pub_art, duree_art, categorie_art, titre_art, contenu_art, piecejointe_art, image_art,likes ,dislikes) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?)";
+        String req = "INSERT INTO article (nom_aut_art, adr_aut_art, date_pub_art, duree_art, categorie_art, titre_art, contenu_art, piecejointe_art, image_art,likes ,dislikes,qrCode) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? , ? ,?,?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
             preparedStatement.setString(1, article.getNom_aut_art());
             preparedStatement.setString(2, article.getAdr_aut_art());
@@ -33,6 +32,8 @@ public class ServiceArticle  implements IServiceArticle<Article> {
             preparedStatement.setString(9, article.getImage_art());
             preparedStatement.setInt(10, article.getLikes());
             preparedStatement.setInt(11, article.getDislikes());
+            preparedStatement.setString(12, article.getQrCode());
+
 
 
             preparedStatement.executeUpdate();
@@ -143,6 +144,7 @@ public class ServiceArticle  implements IServiceArticle<Article> {
                 article.setContenu_art(rs.getString("contenu_art"));
                 article.setPiecejointe_art(rs.getString("piecejointe_art"));
                 article.setImage_art(rs.getString("image_art"));
+                article.setQrCode(rs.getString("qrCode"));
 
                 articles.add(article);
             }
@@ -175,7 +177,7 @@ public class ServiceArticle  implements IServiceArticle<Article> {
                 rs.getString("image_art"),
                 rs.getInt("likes"),
                 rs.getInt("dislikes")
-
+//                rs.getString("qrCode")
 
         );
     }
@@ -193,7 +195,6 @@ public class ServiceArticle  implements IServiceArticle<Article> {
                     // Assurez-vous que la colonne "date_pub_art" dans votre table de base de données est de type TIMESTAMP
                     // Convertissez-le en LocalDateTime en utilisant toLocalDateTime()
                     // Ajoutez d'autres attributs d'article de la même manière si nécessaire
-                    articles.add(article);
                 }
             }
         }
@@ -268,6 +269,25 @@ public class ServiceArticle  implements IServiceArticle<Article> {
         }
 
         return articles;
+    }
+    public void incrementLikes(Article article) throws SQLException {
+        article.setLikes(article.getLikes() + 1);
+        modifier(article); // Mettre à jour la base de données
+    }
+
+    public void decrementLikes(Article article) throws SQLException {
+        article.setLikes(article.getLikes() - 1);
+        modifier(article); // Mettre à jour la base de données
+    }
+
+    public void incrementDislikes(Article article) throws SQLException {
+        article.setDislikes(article.getDislikes() + 1);
+        modifier(article); // Mettre à jour la base de données
+    }
+
+    public void decrementDislikes(Article article) throws SQLException {
+        article.setDislikes(article.getDislikes() - 1);
+        modifier(article); // Mettre à jour la base de données
     }
 }
 

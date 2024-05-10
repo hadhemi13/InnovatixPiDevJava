@@ -22,6 +22,8 @@ import services.ServiceArticle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
@@ -130,7 +132,9 @@ public class ListeArticlesFrontController implements Initializable {
             System.out.println(currentArticleIndex);
 
         }
-    }));
+    }
+    )
+    );
 
 
     public void initializeData () {
@@ -260,7 +264,9 @@ public class ListeArticlesFrontController implements Initializable {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             dateArt.setText(formattedDate);
-            imageart.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java","uploads", article.getImage_art());
+            Image image = new Image(String.valueOf(destination));
+            imageart.setImage(image);
 
             userNom.setText(article.getNom_aut_art());
             categorieart.setText(article.getNom_aut_art());

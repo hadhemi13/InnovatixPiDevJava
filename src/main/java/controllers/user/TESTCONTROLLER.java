@@ -141,9 +141,9 @@ public class TESTCONTROLLER {
             }
             userItemStateText.setText("active");
 
-            Image stateBtnImg = new Image(
-                    getClass().getResource("/img/unlock-icon.png").toExternalForm());
-            userItemStateBtnImg.setImage(stateBtnImg);
+//            Image stateBtnImg = new Image(
+//                    getClass().getResource("/img/unlock-icon.png").toExternalForm());
+//            userItemStateBtnImg.setImage(stateBtnImg);
 
         } else if (user.getIs_blocked() == 1) {
             if (!userItemStateLabel.getStyleClass().contains("userItem__field-unactive")) {

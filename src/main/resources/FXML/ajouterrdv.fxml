@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,7 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1177.0" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.RdvController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1177.0" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.RdvController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="8.0" styleClass="dash__side-bar">
             <opaqueInsets>
@@ -75,8 +82,8 @@
                     </font>
                 </TextField>
                 <Button fx:id="btnsave" layoutX="232.0" layoutY="459.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: orange;" text="SAVE" />
-                <ChoiceBox fx:id="idcreditchoise" layoutX="181.0" layoutY="8.0" prefWidth="150.0" />
-                <Label layoutX="84.0" layoutY="13.0" prefHeight="25.0" prefWidth="91.0" text="id credit" textFill="#cdcdcd" />
+                <ChoiceBox fx:id="idcreditchoise" layoutX="193.0" layoutY="9.0" prefWidth="150.0" />
+                <Label layoutX="84.0" layoutY="13.0" prefHeight="25.0" prefWidth="109.0" text="DESCRIPTION" textFill="#cdcdcd" />
             <ChoiceBox fx:id="emloyechoice" layoutX="106.0" layoutY="387.0" prefHeight="35.0" prefWidth="246.0" />
             </children>
         </Pane>

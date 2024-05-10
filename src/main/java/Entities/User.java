@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class User {
-    int id , salaire;
+    int id , salaire,rib;
     String name,password,tel,email,adresse,profession,cin,photo, poste;
     String roles;
     String date_naissance;
@@ -18,6 +18,11 @@ public class User {
         this.tel = tel;
         this.email = email;
     }
+    public User(String userEmail, String text) {
+        this.email=userEmail;
+        this.password=text;
+    }
+
 
     private int is_blocked=0;
 
@@ -45,17 +50,25 @@ public class User {
 
     }
 
-    public User(String name, String email, String tel, String password, String image, String roles) {
+    public User(String name, String email, String tel, String password, String image, String roles,int rib) {
         this.name=name;
         this.roles=roles;
         this.email=email;
         this.password=password;
         this.photo=image;
         this.tel=tel;
+        this.rib = rib;
 
 
     }
 
+    public int getRib() {
+        return rib;
+    }
+
+    public void setRib(int rib) {
+        this.rib = rib;
+    }
 
     public int getSalaire() {
         return salaire;
@@ -229,6 +242,7 @@ public class User {
                 ", cin='" + cin + '\'' +
                 ", photo='" + photo + '\'' +
                 ", date_naissance=" + date_naissance+
+                "Rib = " + rib+
                 '}';
     }
 

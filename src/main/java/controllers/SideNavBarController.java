@@ -2,11 +2,13 @@ package controllers;
 
 import Entities.User;
 import controllers.user.UserSession;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,24 +16,37 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 import services.ServiceUser;
+import tests.TranslatorText;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
-public class SideNavBarController {
+public class SideNavBarController implements Initializable {
 
     public Label evenementsText;
     public ImageView evenementsIcon;
     public HBox evenementsBtn;
     @FXML
     private Pane content_area;
+
+    public Pane getContent_area() {
+        return content_area;
+    }
+
+    public void setContent_area(Pane content_area) {
+        this.content_area = content_area;
+    }
 
     @FXML
     private Text navFullname;
@@ -122,6 +137,29 @@ public class SideNavBarController {
 
     @FXML
     private Label usersText;
+    @FXML
+    private Label NAllUser;
+
+    @FXML
+    private Label NAllclients;
+
+    @FXML
+    private Label idAllEmplyoyeee;
+    @FXML
+    private VBox maryem;
+
+    @FXML
+    private Label name;
+    @FXML
+    private ImageView en;
+    @FXML
+    private ImageView fr;
+    @FXML
+    private ImageView tn;
+    @FXML
+    private AnchorPane content_area1;
+    User user = null;
+
 
     @FXML
     void openUserList(MouseEvent event) {
@@ -250,6 +288,121 @@ public class SideNavBarController {
             content_area.getChildren().setAll(listArticleAdminPane);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Traduire les labels
+        translateLabels();
+
+        // Récupérer le nombre d'utilisateurs actifs et inactifs
+        ServiceUser serviceUser = new ServiceUser();
+
+        try {
+            User user;
+            // Récupérer l'utilisateur actuel ou un utilisateur par défaut
+            if (UserSession.getInstance().getEmail() == null) {
+                user = serviceUser.getOneUser("mariem@gmail.com");
+            } else {
+                user = serviceUser.getOneUser(UserSession.getInstance().getEmail());
+            }
+
+            // Afficher le nom de l'utilisateur
+            name.setText(user.getName());
+
+            // Récupérer le nombre total d'utilisateurs, de clients et d'employés
+            int totalUsers = serviceUser.getAllUser().size();
+            int totalClients = serviceUser.getAllClient().size();
+            int totalEmployees = serviceUser.getAllEmplyee().size();
+
+            // Mettre à jour les labels avec les nombres
+            NAllUser.setText(String.valueOf(totalUsers));
+            NAllclients.setText(String.valueOf(totalClients));
+            idAllEmplyoyeee.setText(String.valueOf(totalEmployees));
+
+            try {
+                // Récupérer le nombre d'utilisateurs actifs et inactifs
+                int activeNB = serviceUser.getActiveNB();
+                int unActiveNB = serviceUser.getunActiveNB();
+
+                // Créer le graphique circulaire (PieChart)
+                PieChart pieChart = new PieChart();
+                ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                        new PieChart.Data("Actifs", activeNB),
+                        new PieChart.Data("Inactifs", unActiveNB)
+                );
+
+                // Remplir le graphique circulaire avec les données
+                pieChart.setData(pieChartData);
+
+                // Ajouter le graphique circulaire au conteneur
+                VBox pieChartContainer = new VBox(pieChart);
+
+                // Ajouter les pourcentages aux étiquettes
+                for (PieChart.Data data : pieChart.getData()) {
+                    double percentage = (data.getPieValue() / (activeNB + unActiveNB)) * 100;
+                    data.nameProperty().bind(
+                            Bindings.concat(
+                                    data.getName(), " (", String.format("%.2f", percentage), "%)"
+                            )
+                    );
+                }
+
+                // Ajouter le graphique circulaire au conteneur existant
+                maryem.getChildren().addAll(pieChartContainer);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    public void OpenDash(MouseEvent event) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBar.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area1.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void translateLabels() {
+        TranslatorText translatorText = new TranslatorText();
+
+        // Ajouter des événements pour chaque langue
+        tn.setOnMouseClicked(mouseEvent -> translateLabelsTo("ar"));
+        fr.setOnMouseClicked(mouseEvent -> translateLabelsTo("fr"));
+        en.setOnMouseClicked(mouseEvent -> translateLabelsTo("en"));
+    }
+
+    private void translateLabelsTo(String language) {
+        try {
+            TranslatorText translatorText = new TranslatorText();
+            String langFrom = "fr"; // La langue actuelle est le français
+            String langTo = language; // La langue cible est passée en paramètre
+
+            // Traduire chaque label vers la langue cible
+            evenementsText.setText(translatorText.post(evenementsText.getText(), langFrom, langTo));
+            actualitesText.setText(translatorText.post(actualitesText.getText(), langFrom, langTo));
+            comptesText.setText(translatorText.post(comptesText.getText(), langFrom, langTo));
+            creditsText.setText(translatorText.post(creditsText.getText(), langFrom, langTo));
+            dashboardText.setText(translatorText.post(dashboardText.getText(), langFrom, langTo));
+            investissementsText.setText(translatorText.post(investissementsText.getText(), langFrom, langTo));
+            reclamationText.setText(translatorText.post(reclamationText.getText(), langFrom, langTo));
+            stagesText.setText(translatorText.post(stagesText.getText(), langFrom, langTo));
+            usersText.setText(translatorText.post(usersText.getText(), langFrom, langTo));
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

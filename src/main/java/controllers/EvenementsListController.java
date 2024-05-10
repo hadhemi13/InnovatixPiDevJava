@@ -118,6 +118,7 @@ public class EvenementsListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         qrCodeImgModel.setVisible(false);
         offreModel.setVisible(false);
         reductionInputErrorHbox.setVisible(false);

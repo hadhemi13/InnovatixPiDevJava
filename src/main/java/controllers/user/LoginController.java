@@ -1,6 +1,14 @@
 package controllers.user;
 import Entities.User;
+import controllers.Cheque.AjouterChequeCard;
+import controllers.ChequeItemsController;
 import controllers.SideNavBarController;
+import controllers.Virement.AjouterVirementCard;
+import controllers.Virement.VirementCard;
+import controllers.article.AjouterArticleController;
+import controllers.commentaireArticle.CommentArticleController;
+import controllers.reclamation.AjouterReclamationController;
+import controllers.reponse.AjouterReponseAdminController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -106,6 +114,29 @@ public class LoginController implements Initializable {
                         System.out.println("to the DASHBOARD");
                         if (user.getRoles().equals("[\"ROLE_CLIENT\"]")
                                 || user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
+                            AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
+                            ajouterChequeCard.user= user;
+                            ChequeItemsController chequeItemsController = new ChequeItemsController();
+                            chequeItemsController.user = user;
+                            AjouterVirementCard ajouterVirementCard = new AjouterVirementCard();
+                            ajouterVirementCard.user = user;
+                            VirementCard virementCard = new VirementCard();
+                            virementCard.user = user;
+                            AjouterArticleController ajouterArticleController = new AjouterArticleController();
+                            ajouterArticleController.user = user;
+                            AjouterReclamationController ajouterReclamationController = new AjouterReclamationController();
+                            ajouterReclamationController.user = user;
+                            AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
+                            ajouterReponseAdminController.user = user;
+                            CommentArticleController commentArticleController = new CommentArticleController();
+                            commentArticleController.user = user;
+
+
+
+
+
+
+
                             System.out.println("to the USERDASHBOARD");
                             Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
                            // System.out.println("hahaha 3ersna");

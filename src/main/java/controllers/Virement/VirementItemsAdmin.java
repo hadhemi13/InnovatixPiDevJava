@@ -101,12 +101,12 @@ public class VirementItemsAdmin  implements  Initializable {
         }
     }
 
-@FXML
-private void refuserVir(MouseEvent event) {
-    if (showConfirmationDialog("Reject", "Voulez vous réfuser ce virement?")) {
-        updateVirementDecision("Rejeté");
+    @FXML
+    private void refuserVir(MouseEvent event) {
+        if (showConfirmationDialog("Reject", "Voulez vous réfuser ce virement?")) {
+            updateVirementDecision("Rejeté");
+        }
     }
-}
 
     private boolean showConfirmationDialog(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

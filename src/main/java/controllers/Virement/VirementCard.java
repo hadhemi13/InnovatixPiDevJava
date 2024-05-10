@@ -1,6 +1,7 @@
 package controllers.Virement;
 
 import Entities.Cheque;
+import Entities.User;
 import Entities.Virement;
 import controllers.Cheque.DemandeChequeListClient;
 import controllers.Cheque.ModifierCheque;
@@ -18,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import services.ServiceCheque;
 import services.ServiceVirement;
 
@@ -115,11 +117,14 @@ public class VirementCard  implements Initializable {
 //            }
 //        });
 //    }
+
+    public static User user;
     public void initData(Virement virement) {
+        System.out.println("hedha virement" + user.getEmail());
         // Initialisez les champs de votre interface utilisateur avec les valeurs du virement
         userItemUpdateBtn.setId(String.valueOf(virement.getId()));
         userItemStateBtn.setId(String.valueOf(virement.getId()));
-        RibItems.setText(String.valueOf(virement.getRib()));
+        RibItems.setText(String.valueOf(user.getRib()));
         cinItems.setText(String.valueOf(virement.getCin()));
         NomPrenomItems.setText(virement.getNomet_prenom());
         TelItems.setText(virement.getPhone_number());

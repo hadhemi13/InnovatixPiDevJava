@@ -51,42 +51,42 @@
                         </TextField>
                     </children>
                 </HBox>
-                  <HBox layoutX="11.0" layoutY="113.0" prefHeight="54.0" prefWidth="1057.0" styleClass="compteTableHead" stylesheets="@../css/Compte.css">
-                      <children>
-                          <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" wrappingWidth="386.4343452453613">
-                              <font>
-                                  <Font size="16.0" />
-                              </font>
-                              <HBox.margin>
-                                  <Insets left="59.0" top="20.0" />
-                              </HBox.margin>
-                          </Text>
-                          <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" wrappingWidth="190.32488238811493">
-                              <font>
-                                  <Font size="16.0" />
-                              </font>
-                              <HBox.margin>
-                                  <Insets left="15.0" top="20.0" />
-                              </HBox.margin>
-                          </Text>
-                          <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Prénom" wrappingWidth="205.78907012939453">
-                              <HBox.margin>
-                                  <Insets left="30.0" top="20.0" />
-                              </HBox.margin>
-                              <font>
-                                  <Font size="16.0" />
-                              </font>
-                          </Text>
-                          <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions ">
-                              <HBox.margin>
-                                  <Insets left="40.0" top="20.0" />
-                              </HBox.margin>
-                              <font>
-                                  <Font size="16.0" />
-                              </font>
-                          </Text>
-                      </children>
-                  </HBox>
+                <HBox layoutX="11.0" layoutY="113.0" prefHeight="54.0" prefWidth="1057.0" styleClass="compteTableHead" stylesheets="@../css/Compte.css">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Email" wrappingWidth="386.4343452453613">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="59.0" top="20.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Nom" wrappingWidth="190.32488238811493">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="15.0" top="20.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Prénom" wrappingWidth="205.78907012939453">
+                            <HBox.margin>
+                                <Insets left="30.0" top="20.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userTableHeadTitle" text="Actions ">
+                            <HBox.margin>
+                                <Insets left="40.0" top="20.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </HBox>
                 <ScrollPane hbarPolicy="NEVER" layoutX="12.0" layoutY="167.0" prefHeight="449.0" prefWidth="1057.0" styleClass="cheque_listScrollPane" stylesheets="@../css/Compte.css">
                     <content>
                         <VBox fx:id="CompteContainer" prefHeight="446.0" prefWidth="1046.0" spacing="13.0" styleClass="compteTableBody" stylesheets="@../css/Compte.css" />

@@ -11,7 +11,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class TranslatorText {
-    private static String key = "2c44e860c3db4febb0b81343497a00db";
+    private static String key = "f717901c034543098d1d78527cc48bdc";
     private static String location = "francecentral";
 
     // Cette fonction effectue une requête POST.

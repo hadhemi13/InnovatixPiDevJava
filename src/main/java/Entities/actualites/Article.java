@@ -19,6 +19,7 @@ public class Article {
     private int totalReactions;
     private int nbComments;
     private int nbShares;
+    private String qrCode;
     public Article() {
     }
 
@@ -61,7 +62,7 @@ public class Article {
         this.dislikes = dislikes;
     }
 
-    public Article(String nom_aut_art, String adr_aut_art, LocalDateTime date_pub_art, Integer duree_art, String categorie_art, String titre_art, String contenu_art, String piecejointe_art, String image_art) {
+    public Article(String nom_aut_art, String adr_aut_art, LocalDateTime date_pub_art, Integer duree_art, String categorie_art, String titre_art, String contenu_art, String piecejointe_art, String image_art , String qrCode) {
         this.nom_aut_art = nom_aut_art;
         this.adr_aut_art = adr_aut_art;
         this.date_pub_art = date_pub_art;
@@ -71,6 +72,7 @@ public class Article {
         this.contenu_art = contenu_art;
         this.piecejointe_art = piecejointe_art;
         this.image_art = image_art;
+        this.qrCode=qrCode;
     }
 
 
@@ -178,7 +180,13 @@ public class Article {
     public void setDislikes(int dislikes) {
         this.dislikes = dislikes;
     }
+    public String getQrCode() {
+        return qrCode;
+    }
 
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
+    }
     @Override
     public String toString() {
         return "Article{" +
@@ -194,7 +202,7 @@ public class Article {
                 ", image_art='" + image_art + '\'' +
                 '}';
     }
-    
+
 
     public void setTotalReactions(int totalReactions) {
         this.totalReactions = totalReactions;

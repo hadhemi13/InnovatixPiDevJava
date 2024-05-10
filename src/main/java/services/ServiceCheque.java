@@ -47,8 +47,8 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
         return false;
     }
     public boolean ajouterS(Cheque cheque) throws SQLException {
-     //   INSERT INTO `cheque` (`id`, `compte_id`, `user_id`, `beneficiaire`, `montant`, `telephone`, `email`, `cin`, `nom_prenom`, `date`, `decision`, `photo_cin`, `signature_id`, `document_id`, `signer_id`, `pdf_sans_signature`) VALUES (NULL, NULL, NULL, 'jbjqjs', '2222', '222222', 'Ddjdnjdn', '222222', 'djdjdd', '2024-04-23', 'dedeeed', 'eeee', NULL, NULL, NULL, NULL);
-        String reqe = "INSERT INTO `cheque`";
+        //   INSERT INTO cheque (id, compte_id, user_id, beneficiaire, montant, telephone, email, cin, nom_prenom, date, decision, photo_cin, signature_id, document_id, signer_id, pdf_sans_signature) VALUES (NULL, NULL, NULL, 'jbjqjs', '2222', '222222', 'Ddjdnjdn', '222222', 'djdjdd', '2024-04-23', 'dedeeed', 'eeee', NULL, NULL, NULL, NULL);
+        String reqe = "INSERT INTO cheque";
 
 
         String req = "INSERT INTO cheque "
@@ -58,7 +58,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             PreparedStatement ps = connection.prepareStatement(req);
             ps.setString(1, cheque.getBeneficiaire());
             ps.setDouble(2, cheque.getMontant());
-           // ps.setInt(3, cheque.getTelephone());
+            // ps.setInt(3, cheque.getTelephone());
             ps.setString(3, cheque.getEmail());
             ps.setInt(4, cheque.getCin());
             ps.setString(5, cheque.getNom_prenom());
@@ -186,5 +186,47 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
         }
         return cheque;
     }
-}
 
+
+    public List<Cheque> searchCheque(String searchTerm) throws SQLException {
+        List<Cheque> cheques = new ArrayList<>();
+
+        String sql = "SELECT * FROM cheque WHERE ";
+        // Construct the WHERE clause to search across all attributes
+        sql += "beneficiaire LIKE ? OR ";
+        sql += "montant LIKE ? OR ";
+        sql += "telephone LIKE ? OR ";
+        sql += "email LIKE ? OR ";
+        sql += "cin LIKE ? OR ";
+        sql += "nom_prenom LIKE ? OR ";
+        sql += "date LIKE ?"; // Remove the extra OR
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            // Set the search term for each attribute in the WHERE clause
+            for (int i = 1; i <= 7; i++) {
+                preparedStatement.setString(i, "%" + searchTerm + "%");
+            }
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                Cheque cheque = new Cheque();
+                cheque.setId(rs.getInt("id")); // Assuming id is present in the Cheque object
+                cheque.setMontant(rs.getInt("montant"));
+                cheque.setBeneficiaire(rs.getString("beneficiaire"));
+                cheque.setEmail(rs.getString("email")); // Corrected case for "email"
+                cheque.setDate(rs.getDate("date"));
+                cheque.setTelephone(rs.getInt("telephone"));
+                cheque.setNom_prenom(rs.getString("nom_prenom"));
+                cheque.setCin(rs.getInt("cin"));
+
+                cheques.add(cheque);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error while searching for cheques: " + ex.getMessage());
+        }
+
+        return cheques;
+    }
+
+}

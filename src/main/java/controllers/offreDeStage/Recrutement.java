@@ -54,7 +54,7 @@ public class Recrutement implements Initializable {
 //    @FXML
 //    private Pane paneDem;
     @FXML
-    private AnchorPane content_area;
+    public static AnchorPane content_area;
 
     @FXML
     private TextField NumRech;
@@ -187,7 +187,7 @@ public class Recrutement implements Initializable {
                 OffreStageVisiteurItemController offreStageItemController = loader.getController();
                 offreStageItemController.initData(offre);
                 ListeOffre.getChildren().add(offreItem);
-                System.out.println(offre);
+//                System.out.println("recrutement" + offre.getLanguage());
             } catch (IOException e) {
                 e.printStackTrace();
             }

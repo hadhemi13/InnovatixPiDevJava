@@ -406,6 +406,14 @@ public class AfficheOffreController implements Initializable {
     @FXML
     public Pane content_area;
 
+    public Pane getContent_area() {
+        return content_area;
+    }
+
+    public void setContent_area(Pane content_area) {
+        this.content_area = content_area;
+    }
+
     @FXML
     private VBox userListContainer;
 
@@ -516,7 +524,3 @@ public class AfficheOffreController implements Initializable {
     }
 
 }
-
-
-
-

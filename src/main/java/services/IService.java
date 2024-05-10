@@ -17,6 +17,8 @@ public interface IService<T> {
   public List<Evenement> sortEvent(int value, int idCategory); // 0: sort by stock *** 1: sort by category *** 2: sort
 
   void modifier (T t) throws SQLException;
+  void modifierlike (T t) throws SQLException;
+  void modifierdislike (T t) throws SQLException;
 
   public Evenement getOneEvenement(int idEvenement) throws SQLException;
   public void AddEvenenemtOffer(Evenement evenement);

@@ -22,7 +22,7 @@
          </image>
       </ImageView>
 
-            <!-- VBox transparente -->
+      <!-- VBox transparente -->
       <VBox fx:id="content_area" alignment="CENTER" layoutX="142.0" layoutY="51.0" prefHeight="632.0" prefWidth="1060.0" style="-fx-background-color: rgba(255, 255, 255, 0.6);">
          <children>
             <VBox prefHeight="86.0" prefWidth="1058.0" translateY="-30.0">

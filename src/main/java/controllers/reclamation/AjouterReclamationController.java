@@ -1,5 +1,6 @@
 package controllers.reclamation;
 
+import Entities.User;
 import Entities.actualites.Reclamation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +29,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
@@ -78,6 +80,14 @@ public class AjouterReclamationController implements Initializable {
     @FXML
     private Text titreInputError;
     private String pdfName;
+    @FXML
+    private TextField captchaInput;
+
+    @FXML
+    private TextField captchaTextField;
+    private String captchaValue;
+
+    public static User user;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -93,15 +103,64 @@ public class AjouterReclamationController implements Initializable {
 
         );
         departementRec.setItems(departement);
+        generateCaptcha();
 
 
     }
+    private void generateCaptcha() {
+        Random random = new Random();
+        // Générer un captcha aléatoire (par exemple, une chaîne de 4 chiffres)
+        captchaValue = String.format("%04d", random.nextInt(10000));
+
+        // Afficher le captcha dans l'interface utilisateur (par exemple, dans un champ de texte)
+        captchaTextField.setText(captchaValue);
+    }
+    //    @FXML
+//
+//
+//    void ajouter_reclamation(MouseEvent event) throws SQLException, IOException {
+//        String nom = "hadhemi";
+//        String adresse = "mahmoud";
+//
+//        ServiceReclamation sr = new ServiceReclamation();
+//
+//        if (contenuRec.getText().isEmpty()) {
+//            contenuInputErrorHbox.setVisible(true);
+//            return;
+//        }
+//
+//        if (departementRec.getSelectionModel().isEmpty()) {
+//            depRecErrorHbox.setVisible(true);
+//            return;
+//        }
+//
+//        if (objetRec.getText().isEmpty()) {
+//            ObjetHboxErreur.setVisible(true);
+//            return;
+//        }
+//        LocalDateTime dateTime = LocalDateTime.now();
+//
+//        String selectedDepartment = departementRec.getSelectionModel().getSelectedItem();
+//        String pieceJArt = pdfName;
+//
+//        String statut ="En cours de traitement";
+//        Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJArt, dateTime);
+//                sr.ajouter(reclamation);
+//        if (sr.ajouter(reclamation)) {
+//
+//
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listeRecClient.fxml"));
+//            Pane listArtAdminPane = loader.load();
+//
+//            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+//            content_area.getChildren().setAll(listArtAdminPane);
+//
+//        }
+//    }
     @FXML
-
-
     void ajouter_reclamation(MouseEvent event) throws SQLException, IOException {
-        String nom = "hadhemi";
-        String adresse = "mahmoud";
+        String nom = user.getName();
+        String adresse = user.getEmail();
 
         ServiceReclamation sr = new ServiceReclamation();
 
@@ -126,19 +185,23 @@ public class AjouterReclamationController implements Initializable {
 
         String statut ="En cours de traitement";
         Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJArt, dateTime);
-                sr.ajouter(reclamation);
-        if (sr.ajouter(reclamation)) {
+        sr.ajouter(reclamation);
+        loadReclamationsList();
 
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listeRecClient.fxml"));
-            Pane listArtAdminPane = loader.load();
-
-            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
-            content_area.getChildren().setAll(listArtAdminPane);
-
-        }
     }
 
+    private void loadReclamationsList() {
+        try {
+            // Charger le fichier FXML de la liste des réclamations
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listeRecClient.fxml"));
+            Pane listRecAdminPane = loader.load();
+
+            // Remplacer le contenu de la pane actuelle par la liste des réclamations
+            content_area.getChildren().setAll(listRecAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void addpieceJBtn(MouseEvent mouseEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -165,4 +228,18 @@ public class AjouterReclamationController implements Initializable {
                 e.printStackTrace();
             }
         }}
+
+    public void returnbackRec(MouseEvent mouseEvent) {
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reclamation/listeRecClient.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

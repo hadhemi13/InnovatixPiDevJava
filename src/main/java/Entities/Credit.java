@@ -6,6 +6,16 @@ public class Credit {
     private int id;
     private int id_client;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    String status;
+
     public String getStatusclient() {
         return statusclient;
     }
@@ -36,21 +46,28 @@ public class Credit {
 
     private double montant;
 
-     private String statusclient;
+    private String statusclient;
     public int getId() {
         return id;
     }
 
-    public Credit(int id, int id_client, double montant, double taux, Date datedebut, double mensualite, int duree, double fraisretard) {
+    public Credit(int id, int id_client, double montant, String statusclient, double taux,String status, Date datedebut, double mensualite, int duree, double fraisretard) {
         this.id = id;
         this.id_client = id_client;
+
         this.montant = montant;
-        this.taux = taux;
-        this.datedebut = datedebut;
+        this.statusclient = statusclient;
         this.mensualite = mensualite;
+
+        this.taux = taux;
+        this.status = status;
+        this.datedebut = datedebut;
         this.duree = duree;
         this.fraisretard = fraisretard;
     }
+
+
+
     public Map<Integer, Integer> countCreditsByYear(List<Credit> credits) {
         Map<Integer, Integer> creditCountByYear = new HashMap<>();
 
@@ -130,20 +147,6 @@ public class Credit {
         this.fraisretard = fraisretard;
     }
 
-    @Override
-    public String toString() {
-        return "Credit{" +
-                "id=" + id +
-                ", id_client=" + id_client +
-                ", montant=" + montant +
-                ", taux=" + taux +
-                ", datedebut=" + datedebut +
-                ", mensualite=" + mensualite +
-                ", duree=" + duree +
-                ", fraisretard=" + fraisretard +
-                '}';
-    }
-
     public Double getFraisRetard() {
         return fraisretard;
     }
@@ -154,6 +157,23 @@ public class Credit {
 
     private double taux;
     private Date datedebut;
+
+    @Override
+    public String toString() {
+        return "Credit{" +
+                "id=" + id +
+                ", id_client=" + id_client +
+                ", status='" + status + '\'' +
+                ", montant=" + montant +
+                ", statusclient='" + statusclient + '\'' +
+                ", taux=" + taux +
+                ", datedebut=" + datedebut +
+                ", mensualite=" + mensualite +
+                ", duree=" + duree +
+                ", fraisretard=" + fraisretard +
+                '}';
+    }
+
     private double mensualite;
     private int duree; // Durée en mois
     private double fraisretard;

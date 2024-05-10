@@ -17,6 +17,10 @@ import java.io.IOException;
 
 public class OneEvenementListCardControllerfront {
 
+
+    @FXML
+    private Text showEvenementP;
+
     @FXML
     private ImageView img;
     @FXML
@@ -100,6 +104,22 @@ public class OneEvenementListCardControllerfront {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+
+        showEvenementP.setId(String.valueOf(evenement.getId()));
+        showEvenementP.setOnMouseClicked(event -> {
+            System.out.println("ID du Evenement : " + evenement.getId());
+            Evenement.setIdEvenement(evenement.getId());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/eventPayment.fxml"));
+            try {
+                Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
     }
 

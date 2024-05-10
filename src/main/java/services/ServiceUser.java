@@ -1,4 +1,5 @@
 package services;
+import Entities.Reset;
 import Entities.User;
 import utils.MyDatabase;
 import org.mindrot.jbcrypt.BCrypt;
@@ -14,8 +15,8 @@ public class ServiceUser  implements IserviceUser<User> {
 
     @Override
     public void ajouter(User user) throws SQLException {
-        String req = "INSERT INTO user (email, name, roles, password, cin, date_naissance, adresse, profession, photo, is_blocked, is_verified, poste, salaire, tel) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String req = "INSERT INTO user (email, name, roles, password, cin, date_naissance, adresse, profession, photo, is_blocked, is_verified, poste, salaire, tel,rib) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         String y = "ROLE_CLIENT";
         String a = "[\"" + y + "\"]";
         System.out.println(a);
@@ -37,6 +38,7 @@ public class ServiceUser  implements IserviceUser<User> {
             preparedStatement.setInt(12, user.getSalaire());
             preparedStatement.setString(13, user.getPoste());
             preparedStatement.setString(14, user.getTel());
+            preparedStatement.setInt(15,user.getRib());
 
             preparedStatement.executeUpdate();
             System.out.println("Utilisateur ajouté");
@@ -145,6 +147,7 @@ public class ServiceUser  implements IserviceUser<User> {
             user.setPhoto(rs.getString("photo"));
             user.setIs_blocked(rs.getInt("is_blocked"));
             user.setIs_verified(rs.getInt("is_verified"));
+            user.setRib(rs.getInt("rib"));
         }
         ps.close();
         return user;
@@ -235,10 +238,10 @@ public class ServiceUser  implements IserviceUser<User> {
         return userList;
     }
 
-    public ArrayList<User> getAllAdmin() throws SQLException {
+    public ArrayList<User> getAllEmplyee() throws SQLException {
         String req = "SELECT * FROM `user` WHERE roles = ?";
         PreparedStatement ps = connection.prepareStatement(req);
-        ps.setString(1, "[\"ROLE_Admin\"]");
+        ps.setString(1, "[\"ROLE_EMPLYEE\"]");
 
         ResultSet rs = ps.executeQuery();
         ArrayList<User> userList = new ArrayList<>();
@@ -312,7 +315,7 @@ public class ServiceUser  implements IserviceUser<User> {
     public int getActiveNB() throws SQLException {
         String req = "SELECT * FROM `user` where is_blocked = ?";
         PreparedStatement ps = connection.prepareStatement(req);
-        ps.setString(1, "1");
+        ps.setString(1, "0");
 
         ResultSet rs = ps.executeQuery();
         int count = 0;
@@ -326,7 +329,7 @@ public class ServiceUser  implements IserviceUser<User> {
     public int getunActiveNB() throws SQLException {
         String req = "SELECT * FROM `user` where is_blocked = ?";
         PreparedStatement ps = connection.prepareStatement(req);
-        ps.setString(1, "0");
+        ps.setString(1, "1");
 
         ResultSet rs = ps.executeQuery();
         int count = 0;
@@ -336,6 +339,65 @@ public class ServiceUser  implements IserviceUser<User> {
         }
         ps.close();
         return count;
+    }
+
+    public boolean reset(Reset t) {
+        long end = System.currentTimeMillis();
+        try {
+            String req = "SELECT * from reset where code=?";
+            PreparedStatement pst = connection.prepareStatement(req);
+            pst.setInt(1, t.getCode());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                long StartTime = Long.parseLong(rs.getString("timeMils"));
+                long calT = end - StartTime;
+                if (calT < 120000) {
+                    String email = rs.getString("email");
+                    return true;
+                } else {
+                    String reqs = "DELETE FROM reset WHERE code=?";
+                    PreparedStatement psts = connection.prepareStatement(reqs);
+                    psts.setInt(1, t.getCode());
+                    psts.executeUpdate();
+                    System.err.println("Time OUT !! Code Introuvable.");
+                    return false;
+                }
+            } else {
+                System.err.println("Code Incorrect !");
+                return false;
+            }
+
+        } catch (SQLException e) {
+
+            System.out.println(e.getMessage());
+            return false;
+
+        }
+    }
+
+    public void modifierMdp(String email,User t) throws SQLException {
+        String hashed = BCrypt.hashpw(t.getPassword(), BCrypt.gensalt());
+
+        try {
+
+            System.out.println(t.getEmail()+"+"+t.getPassword());
+            String reqs = "UPDATE user SET password=? WHERE email=?";
+            PreparedStatement pst = connection.prepareStatement(reqs);
+
+            pst.setString(2, email);
+            pst.setString(1, hashed);
+            System.out.println(t.getEmail()+"+"+hashed);
+
+            pst.executeUpdate();
+
+            System.out.println("Mot de passe modifié !");
+
+        } catch (SQLException ex) {
+            System.out.println("Erreur lors de la modification du mot de passe :");
+            System.out.println(ex.getMessage());
+            connection.rollback(); // Annuler la transaction en cas d'erreur
+
+        }
     }
 
 }

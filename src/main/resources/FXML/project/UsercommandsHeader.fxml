@@ -14,7 +14,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="1100.0" styleClass="commandHeaderCard" stylesheets="@../../assets/style/aliStyle.css">
                <children>
-                  <Text fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" text="Cart">
+                  <Text fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" text="Carte">
                      <HBox.margin>
                         <Insets right="790.0" />
                      </HBox.margin>
@@ -31,7 +31,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1100.0" stylesheets="@../../assets/style/aliStyle.css">
                <children>
-                  <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commanditem" text="item(s)" />
+                  <Text fill="#97d158" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="commanditem" text="event(s)" />
                </children>
             </HBox>
          </children>

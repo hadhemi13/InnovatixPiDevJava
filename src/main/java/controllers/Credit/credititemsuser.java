@@ -12,7 +12,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import utils.MyDatabase;
-//import utils.MyDatabase;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -71,7 +70,7 @@ public class credititemsuser implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-DemandeCreditListClientUser d=new DemandeCreditListClientUser();
+        DemandeCreditListClientUser d=new DemandeCreditListClientUser();
         Pane content_areap=d.getContentArea();
 
 
@@ -92,8 +91,8 @@ DemandeCreditListClientUser d=new DemandeCreditListClientUser();
         String idvalue = useriditem.getText();
 
         CalendarController cal=loader.getController();
-cal.initData(Integer.parseInt(idvalue));
-cal.afficherRDVById(Integer.parseInt(idvalue));
+        cal.initData(Integer.parseInt(idvalue));
+        cal.afficherRDVById(Integer.parseInt(idvalue));
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);
@@ -105,6 +104,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
         System.out.println("rrrrrrrrrrrrrrrr");
         new GMailer().sendMail("subject","credit approuve ");
 
+
     }
 
     @FXML
@@ -112,14 +112,15 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
 
     }
     public void initData(Credit i) {
-
+        System.out.println("azzazaz"+i);
         useriditem.setText(String.valueOf(i.getId()));
-       useritemidclient.setText(String.valueOf(i.getStatusclient()));
+        useritemidclient.setText(String.valueOf(i.getStatusclient()));
         montantuseritem.setText(String.valueOf(i.getMontant()));
         mensualiteuserrole.setText(String.valueOf(i.getMensualite()));
         dateitem.setText(String.valueOf(i.getDateDebut()));
         dureeitem.setText(String.valueOf(i.getDuree()));
-       tauxitem.setText(String.valueOf(i.getTaux()));
+        tauxitem.setText(String.valueOf(i.getTaux()));
+        userItemStateText.setText(i.getStatus());
 
 
     }

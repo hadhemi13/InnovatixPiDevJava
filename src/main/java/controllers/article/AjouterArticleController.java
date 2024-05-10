@@ -1,9 +1,13 @@
 package controllers.article;
 
+import Entities.User;
 import Entities.actualites.Article;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import javafx.collections.FXCollections;
@@ -30,7 +34,8 @@ import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Random;
-
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 public class AjouterArticleController implements Initializable {
     @FXML
     private Text CatArtInputError;
@@ -107,6 +112,7 @@ public class AjouterArticleController implements Initializable {
     private String fileName;
     private String pdfName;
 
+    public static User user;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         imageInputErrorHbox.setVisible(false);
@@ -231,7 +237,7 @@ public class AjouterArticleController implements Initializable {
             return; // Sortir de la fonction si des champs sont vides
         }
 
-        // Vérifier le captcha
+        // Vérifier le capt
         String userCaptchaInput = captchaInput.getText();
         if (!userCaptchaInput.equals(captchaValue)) {
             captchaErrorText.setText("Captcha incorrect !");
@@ -241,8 +247,19 @@ public class AjouterArticleController implements Initializable {
         int dureeArt=4;
         String img = imageName;
         String pieceJArt = pdfName;
-       String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
-        Article article = new Article(nom, adresse,dateTime,(Integer) dureeArt,selectedCategory,titreInput.getText(),ContenuArt.getText(),pieceJArt,img);
+        String selectedCategory = categoriechoice.getSelectionModel().getSelectedItem();
+
+
+        String ArticleData =  "Titre: " + titre + "\n" +
+                "Publié par: " + adresse + "\n" +
+                "Catégorie: " + selectedCategory + "\n" +
+                "Contenu: " + ContenuArt.getText() + "\n" ;
+
+
+        String base64QRCode = generateBase64QRCode(ArticleData);
+        Article article = new Article(nom ,adresse,dateTime , dureeArt, selectedCategory , titre , ContenuArt.getText(), pieceJArt ,img , base64QRCode);
+        article.setQrCode(base64QRCode);
+
         boolean ajoutReussi = sa.ajouter(article);
 
         if (ajoutReussi) {
@@ -255,6 +272,11 @@ public class AjouterArticleController implements Initializable {
 
         }
 
+    }
+    private String generateBase64QRCode(String data) {
+        ByteArrayOutputStream stream = QRCode.from(data).to(ImageType.JPG).stream();
+        byte[] byteArray = stream.toByteArray();
+        return Base64.getEncoder().encodeToString(byteArray);
     }
     @FXML
     void returnbackarticle(MouseEvent event) {
@@ -286,6 +308,7 @@ public class AjouterArticleController implements Initializable {
             String uniqueID = UUID.randomUUID().toString();
             String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
             imageName = uniqueID + extension;
+//            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java","uploads", article.getImage_art());
 
             Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploads", imageName);
             Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
@@ -296,33 +319,34 @@ public class AjouterArticleController implements Initializable {
         return imageName;
     }
 
-//
-public void ajouterPiece(MouseEvent mouseEvent) {
-    FileChooser fileChooser = new FileChooser();
-    fileChooser.setTitle("Choisir un fichier PDF");
-    fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
-    File selectedPDFFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-    if (selectedPDFFile != null) {
-        // Générer un nom de fichier unique pour le PDF
-        String uniqueID = UUID.randomUUID().toString();
-        String extension = ".pdf";
-        pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
+    //
+    public void ajouterPiece(MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir un fichier PDF");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("PDF", "*.pdf"));
+        File selectedPDFFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
+        if (selectedPDFFile != null) {
+            // Générer un nom de fichier unique pour le PDF
+            String uniqueID = UUID.randomUUID().toString();
+            String extension = ".pdf";
+            pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
 
-        // Définir le répertoire de destination pour les PDF téléchargés
-        String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+            // Définir le répertoire de destination pour les PDF téléchargés
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploads",pdfName);
 
-        // Créer le chemin de destination pour le PDF
-        Path destination = Paths.get(destinationFolder, pdfName);
+            // Créer le chemin de destination pour le PDF
+           // Path destination = Paths.get(destinationFolder, pdfName);
 
-        try {
-            // Copier le fichier sélectionné vers le dossier de destination
-            Files.copy(selectedPDFFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            // Gérer les erreurs de copie
-            e.printStackTrace();
+
+            try {
+                // Copier le fichier sélectionné vers le dossier de destination
+                Files.copy(selectedPDFFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                // Gérer les erreurs de copie
+                e.printStackTrace();
+            }
         }
     }
-}
 
     @FXML
     void PieceJArtInput(MouseEvent event) {
@@ -341,4 +365,4 @@ public void ajouterPiece(MouseEvent mouseEvent) {
             System.out.println("Aucun fichier PDF n'a été téléchargé.");
         }
 
-}}
+    }}

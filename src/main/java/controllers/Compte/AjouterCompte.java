@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
+import services.ShaymaService;
 import services.ValidSaisie;
 
 import java.io.IOException;
@@ -258,10 +259,10 @@ public class AjouterCompte implements Initializable {
             PrenomnputErrorHbox.setVisible(false);
         }
         LocalDate dateNaissance = DateNaiss.getValue();
-        if (dateNaissance != null && !ValidSaisie.isValidDate(dateNaissance)) {
+        if (dateNaissance != null && !ValidSaisie.isValidDateN(dateNaissance)) {
             // Si la date de naissance est après 2024, afficher un message d'erreur
             DateNaissnputErrorHbox.setVisible(true);
-            DateNaissnputError.setText("La date de naissance ne doit pas être après 2024"); // Message d'erreur personnalisé
+            DateNaissnputError.setText("La date de naissance n'est pas valide (moins de 18 ans)"); // Message d'erreur personnalisé
             champsInvalides = true; // Marquer le champ comme invalide
         } else {
             DateNaissnputErrorHbox.setVisible(false);
@@ -339,7 +340,9 @@ public class AjouterCompte implements Initializable {
         Compte compte = new Compte(email, confirmationEmail, numCIN, sqlDate, nom, prenom, sexe, sqlDate, profession, typeCompte, montant, statutMarital, nationalite, numTel, typeCIN,statut);
 
         // Ajout du compte
+        ServiceCompte serviceCompte1= new ServiceCompte();
         serviceCompte.ajouter(compte);
+
 
         // Chargement de la vue de succès
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Captcha.fxml"));
@@ -771,7 +774,4 @@ public class AjouterCompte implements Initializable {
 //                                                    StatutnputErrorHbox.setVisible(true);
 //                                                }
 //
-
-
-
 
