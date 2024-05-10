@@ -1,5 +1,6 @@
 package controllers;
 import Entities.Commentaire;
+import Entities.Evenement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -23,6 +24,10 @@ public class OneCommentListCardController {
     private Text Contenu;
 
     @FXML
+    private HBox addlike;
+    @FXML
+    private HBox adddislike;
+    @FXML
     private Text likef;
 
     @FXML
@@ -38,8 +43,7 @@ public class OneCommentListCardController {
     private static int projetIdToUpdate = 0;
     private static int projetIdToShow = 0;
     private static int updateProjectModelShow = 0;
-    @FXML
-    private HBox addlike;
+
     @FXML
     private HBox priceHbox;
     @FXML
@@ -53,14 +57,38 @@ public class OneCommentListCardController {
                 getClass().getResource("/assets/ProductUploads/" + comment.getImg()).toExternalForm());
         img.setImage(image);
         Nomuser.setText(String.valueOf(comment.getNomuser()));
-        ItemShowBtn.setOnMouseClicked(event -> {
-            System.out.println("project Name: " + comment.getContenu());
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/CommentsList.fxml"));
+
+        addlike.setId(String.valueOf(comment.getId()));
+        addlike.setOnMouseClicked(event -> {
+            System.out.println("Add comment of this event : " + comment.getId());
+            Evenement.setIdEvenement(comment.getId());
+            Evenement.actionTest = 1;
             try {
-                commentService.modifier(comment);
+                commentService.modifierlike(comment);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
+            try {
+                Parent root = loader.load();
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        adddislike.setId(String.valueOf(comment.getId()));
+        adddislike.setOnMouseClicked(event -> {
+            System.out.println("Add comment of this event : " + comment.getId());
+            Evenement.setIdEvenement(comment.getId());
+            Evenement.actionTest = 1;
+            try {
+                commentService.modifierdislike(comment);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
             try {
                 Parent root = loader.load();
                 Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
@@ -71,11 +99,15 @@ public class OneCommentListCardController {
             }
         });
     }
-    @FXML
-    void addlike(MouseEvent event) throws SQLException {
-        this.like=like + 1;
-        System.out.println(like+"like");
-    }
+//    @FXML
+//    void addlike(MouseEvent event) throws SQLException {
+//        IService commentService = new ServiceCommentaire();
+//
+//        this.like=like + 1;
+//        System.out.println(like+"like");
+//
+//
+//    }
     @FXML
     void adddislike(MouseEvent event) throws SQLException {
         this.dislike=dislike + 1;

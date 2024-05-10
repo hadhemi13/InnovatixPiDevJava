@@ -186,11 +186,11 @@
                               <Text fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__descTitle" wrappingWidth="316.4619140625" />
                            </children>
                         </HBox>
-                        <HBox fx:id="addC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+                        <HBox fx:id="addC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0"  >
                            <children>
-                                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                           <image>
-                                              <Image url="@../../assets/img/giftbox.png" />
+                                              <Image url="@../../assets/img/images.jpeg" />
                                           </image>
                                       </ImageView>
                            </children>
@@ -224,7 +224,7 @@
                                 <Insets />
                             </VBox.margin>
                             <children>
-                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__addToCartBtnText" text="Ajouter au panier" />
+                                <Text fx:id="showEvenementP" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="productDetails__addToCartBtnText" text="Paiement" />
                             </children>
                         </HBox>
 

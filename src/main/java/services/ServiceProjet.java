@@ -108,6 +108,17 @@ public class ServiceProjet implements IService<Project> {
             preparedStatement.executeUpdate();
         }
     }
+
+    @Override
+    public void modifierlike(Project project) throws SQLException {
+
+    }
+
+    @Override
+    public void modifierdislike(Project project) throws SQLException {
+
+    }
+
     public static List<Project> searchProject(String search) {
         List<Project> projects = new ArrayList<>();
         try {

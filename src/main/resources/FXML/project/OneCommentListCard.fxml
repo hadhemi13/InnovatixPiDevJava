@@ -128,11 +128,11 @@
                             </HBox>
                             <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="206.0">
                                 <children>
-                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addlike" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btnsL">
+                                    <HBox  fx:id="adddislike" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"  prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btnsL">
                                         <children>
-                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
-                                                    <Image url="@../../assets/img/dis.png" />
+                                                    <Image url="@../../assets/img/dislikee.jpg" />
                                                 </image>
                                             </ImageView>
                                         </children>
@@ -140,7 +140,7 @@
                                             <Insets left="6.0" />
                                         </HBox.margin>
                                     </HBox>
-                                    <HBox fx:id="ItemShowBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adddislike" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns1">
+                                    <HBox  fx:id="addlike" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#adddislike" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns1">
                                         <children>
                                             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                 <image>
@@ -182,7 +182,7 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addlike" prefHeight="35.0" prefWidth="21.0">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"   prefHeight="35.0" prefWidth="21.0">
                            <HBox.margin>
                               <Insets left="6.0" />
                            </HBox.margin>

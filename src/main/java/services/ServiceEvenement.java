@@ -192,6 +192,17 @@ public class ServiceEvenement implements IService<Evenement> {
             preparedStatement.close();
         }
     }
+
+    @Override
+    public void modifierlike(Evenement evenement) throws SQLException {
+
+    }
+
+    @Override
+    public void modifierdislike(Evenement evenement) throws SQLException {
+
+    }
+
     @Override
     public Evenement getOneEvenement(int idEvenement) throws SQLException {
         String req = "SELECT * FROM `evenement` where id = ?";

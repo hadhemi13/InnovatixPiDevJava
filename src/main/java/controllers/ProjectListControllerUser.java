@@ -239,8 +239,10 @@ public class ProjectListControllerUser implements Initializable {
 
     @FXML
     private void open_addProject(MouseEvent event) throws IOException {
-        System.out.println("ç'est interdit ");
-        showNotification("C'est interdit !!!", "Tu n'as pas accès pour faire ajout du projet!!!.", NotificationType.ERROR);
+        Evenement.actionTest = 0;
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/AddProject.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
     }
     private void showNotification(String title, String message, NotificationType type) {
         TrayNotificationAlert.notif(title, message, type, AnimationType.POPUP, Duration.millis(2500));

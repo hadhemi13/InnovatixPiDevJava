@@ -18,7 +18,7 @@ public class ServiceCommentaire implements IService<Commentaire> {
 
     @Override
     public void ajouter(Commentaire commentaire )throws SQLException, IOException {
-        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img,evenement_id) VALUES (?, ?, ?, ?, ?)")) {
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img,evenement_id,likes,dislikes) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
             String content =commentaire.getContenu();
             //API
             OkHttpClient client = new OkHttpClient().newBuilder().build();
@@ -39,6 +39,8 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.setString(3, commentaire.getNomuser());
             preparedStatement.setString(4, "ayoub.jpg");
             preparedStatement.setInt(5, commentaire.getEvenement_id());
+            preparedStatement.setInt(6, 0);
+            preparedStatement.setInt(7, 0);
             preparedStatement.executeUpdate();
             System.out.println("Commentarie ajouté");
         }
@@ -64,6 +66,23 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.executeUpdate();
         }
     }
+    @Override
+    public void modifierlike(Commentaire commentaire) throws SQLException {
+        String query = "UPDATE commentaire SET likes = likes + 1 WHERE id=?";
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query)) {
+            preparedStatement.setInt(1, commentaire.getId());
+            preparedStatement.executeUpdate();
+        }
+    }
+    @Override
+    public void modifierdislike(Commentaire commentaire) throws SQLException {
+        String query = "UPDATE commentaire SET dislikes = dislikes + 1 WHERE id=?";
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement(query)) {
+            preparedStatement.setInt(1, commentaire.getId());
+            preparedStatement.executeUpdate();
+        }
+    }
+
     @Override
     public Evenement getOneEvenement(int idEvenement) throws SQLException {
         return null;

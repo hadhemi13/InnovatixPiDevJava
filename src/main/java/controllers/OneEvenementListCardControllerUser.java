@@ -89,7 +89,7 @@ public class OneEvenementListCardControllerUser {
         IService EvenementService = new ServiceEvenement();
 
         Image image = new Image(
-                getClass().getResource("/assets/projectUploads/" + evenement.getImg()).toExternalForm());
+                getClass().getResource("/assets/ProductUploads/" + evenement.getImg()).toExternalForm());
         img.setImage(image);
         productName.setText(evenement.getNom());
         descfx.setText(evenement.getDescription());

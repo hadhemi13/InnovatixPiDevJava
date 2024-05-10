@@ -52,7 +52,7 @@
                                         </HBox>
                                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                             <children>
-                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
+                                                <Text  onMouseClicked="#open_evenementsList" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
                                             </children>
                                         </HBox>
                                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
