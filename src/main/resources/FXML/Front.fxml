@@ -23,7 +23,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="content_area" prefHeight="700.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontControlleur">
+<AnchorPane fx:id="content_area" prefHeight="700.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.FrontControlleur">
     <children>
         <ScrollPane prefHeight="700.0" prefWidth="1366.0">
             <content>
@@ -64,10 +65,10 @@
                                         </HBox>
                                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                             <children>
-                                                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
+                                                <Text fill="WHITE" onMouseClicked="#open_evenementsList" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
+                                        <HBox fx:id="Tologin" alignment="CENTER" onMouseClicked="#Tologin" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Se connecter" />
                                             </children>

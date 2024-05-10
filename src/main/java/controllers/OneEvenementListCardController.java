@@ -197,7 +197,6 @@ public class OneEvenementListCardController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         });
         editEvenement.setId(String.valueOf(evenement.getId()));
         qrCodeEvenement.setOnMouseClicked(event -> {

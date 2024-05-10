@@ -114,7 +114,7 @@
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-                        <HBox fx:id="Event" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_evenement" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
+                        <HBox fx:id="Event" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" onMouseClicked="#open_evenementsList" prefHeight="50.0" prefWidth="200.0" styleClass="nav-links">
                             <children>
                                 <ImageView fx:id="commandsIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

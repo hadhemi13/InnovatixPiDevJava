@@ -370,6 +370,7 @@ public class AjouterChequeCard implements Initializable {
         NometPrenomInputErrorHbox.setVisible(false);
         beneficiaireInputErrorHbox.setVisible(false);
         DateInputErrorHbox.setVisible(false);
+        RIB.setText(String.valueOf(user.getRib()));
 
         ObservableList<String> beneficiaires = FXCollections.observableArrayList(
                 "Paiement",

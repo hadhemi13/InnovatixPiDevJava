@@ -60,6 +60,7 @@ public class FrontControlleur implements Initializable {
     public AnchorPane content_area;
 
     public HBox OpenStage;
+    public HBox Tologin;
     @FXML
     private HBox Stage;
 
@@ -112,6 +113,31 @@ public class FrontControlleur implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+
+        Tologin.setOnMouseClicked(mouseEvent -> {
+            // Chargement de la vue FXML de la page d'ajout d'article
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+            try {
+                Parent addArticleParent = loader.load();
+               // AnchorPane captchaPane = loader.load();
+                Scene scene = new Scene(addArticleParent);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+               // ((Stage) CreerCompte.getScene().getWindow()).close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Récupération du contrôleur de la vue d'ajout d'article
+            LoginController ajoutUserController = loader.getController();
+
+            // Remplacer le contenu actuel par la vue d'ajout d'article
+      /*  userPane.getChildren().clear();
+        userPane.getChildren().add(addArticleParent);*/
+        });
+
         int column = 0;
         int row = 1;
 
@@ -156,14 +182,12 @@ public class FrontControlleur implements Initializable {
             }
 
             // Initialisez les données de l'article dans le contrôleur de carte d'article
-            articleCardClientController articleCardController = loader.getController();
-            try {
-                articleCardController.initializeData(article);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+//            articleCardClientController articleCardController = loader.getController();
+//            try {
+//                articleCardController.initializeData(article);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
 
             // Ajoutez la carte d'article au GridPane
             ArtListContainer.add(articleCardParent, column, row);
@@ -174,9 +198,17 @@ public class FrontControlleur implements Initializable {
                 column = 0;
                 row++;
             }
+
         }
     }
-
+    @FXML
+    private void open_evenementsList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
+        Scene scene = new Scene(fxml);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     private void loadArticleCards(List<Article> articles) {
         int column = 0;
@@ -215,8 +247,6 @@ public class FrontControlleur implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer l'exception appropriée ici, par exemple afficher un message d'erreur à l'utilisateur ou journaliser l'erreur
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
         }
     }
@@ -324,6 +354,16 @@ public class FrontControlleur implements Initializable {
             // Gérer l'exception appropriée ici
         }
     }
+    public void ToLogin(MouseEvent mouseEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+        AnchorPane captchaPane = loader.load();
+        Scene scene = new Scene(captchaPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        ((Stage) CreerCompte.getScene().getWindow()).close();
+    }
 
 
     private void loadArticles(List<Article> articles) {
@@ -368,8 +408,6 @@ public class FrontControlleur implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
                 // Gérer l'exception ici, si nécessaire
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
         }
     }
@@ -410,38 +448,7 @@ public class FrontControlleur implements Initializable {
             stage.show();
             ((Stage) CreerCompte.getScene().getWindow()).close();
     }
-    @FXML
-    private void open_evenementsList(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/EvenementsList.fxml"));
-        content_area.getChildren().removeAll();
-        content_area.getChildren().setAll(fxml);
 
-        // set active class
-        if (!evenementsBtn.getStyleClass().contains("activeLink")) {
-            evenementsBtn.getStyleClass().add("activeLink");
-            evenementsText.getStyleClass().add("activeText");
-
-            // Load the image
-            Image image = new Image("assets/img/store-active.png");
-            evenementsIcon.setImage(image);
-
-            if (dashboardBtn.getStyleClass().contains("activeLink")) {
-                dashboardBtn.getStyleClass().remove("activeLink");
-                dashboardText.getStyleClass().remove("activeText");
-
-                Image dashIcon = new Image("assets/img/menu.png");
-                dashboardIcon.setImage(dashIcon);
-            } else if (usersBtn.getStyleClass().contains("activeLink")) {
-                usersBtn.getStyleClass().remove("activeLink");
-                usersText.getStyleClass().remove("activeText");
-
-                Image usersImg = new Image("assets/img/user.png");
-                usersIcon.setImage(usersImg);
-            }
-
-        }
-
-    }
     public void OpenStage(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/Recrutement.fxml"));
         Parent recrutementParent = loader.load();

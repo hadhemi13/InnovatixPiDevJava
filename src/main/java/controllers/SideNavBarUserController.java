@@ -117,6 +117,14 @@ public class SideNavBarUserController implements Initializable {
 
     }
 
+    @FXML
+    private void open_evenementsList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/EvenementsListUser.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
+
+
+    }
     public void logout(MouseEvent mouseEvent) throws IOException {
         UserSession.getInstance().cleanUserSession();
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));

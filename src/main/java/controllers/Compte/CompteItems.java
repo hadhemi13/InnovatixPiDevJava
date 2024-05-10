@@ -2,7 +2,7 @@ package controllers.Compte;
 
 import Entities.Cheque;
 import Entities.Compte;
-import services.ShaymaService;
+import services.*;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.Cheque.ListeChequeAdmin;
 import controllers.Cheque.ModifierCheque;
@@ -21,8 +21,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import services.ServiceCheque;
-import services.ServiceCompte;
 import services.ShaymaService;
 
 import javax.mail.MessagingException;
@@ -130,6 +128,8 @@ public class CompteItems implements Initializable {
             if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce compte ?")) {
                 updateCompteStatut("Approuvé");
             }
+            Symfony symfony = new Symfony();
+            symfony.mailingApprouver(i.getEmail());
 
         });
 

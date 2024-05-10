@@ -54,7 +54,7 @@ public class Recrutement implements Initializable {
 //    @FXML
 //    private Pane paneDem;
     @FXML
-    public static AnchorPane content_area;
+    private AnchorPane content_area;
 
     @FXML
     private TextField NumRech;
