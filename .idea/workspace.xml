@@ -4,208 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="last">
-      <change afterPath="$PROJECT_DIR$/src/Images/08bd325b-5c85-4147-bcde-788bfb969d01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/5f8e42ba-dcdc-47ce-950b-74a426e1c88c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/76824db4-8d19-4ddf-8471-384baac84ebd.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/daedaa87-4929-4127-968d-92fcf398f29d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploadscapture_20240510121748.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/0022ec58-8a7b-44cf-9b0a-c646f2359dd0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/00e617f9-2cdc-4914-8f0e-b1697a7f370d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/047fdb1e-b946-4e6f-89d7-e17f4f47cc1d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/04fb19e5-7a0c-418a-86c8-064a2637a914.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/06bf6a5a-9496-4490-a48e-2e80352daa73.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/0c4a2443-9d7b-4d47-b774-68f55daa41e8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/0ca4f925-722a-4fb0-8344-6f5f4c74152e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/0cb47171-cad5-4fde-9c2d-81f706793af3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/0f89c413-82c0-444a-87f5-04317f350140.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/10bbf0e2-617c-47c2-aac4-bf15c26ff2b9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/119bbd62-18b3-4437-a736-54366edf3f6c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/1585c5d4-7239-45a0-8b79-274c2e795d83.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/1643dd42-715d-4194-8cce-3ac8190340d1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/17149b14-0011-48f0-898a-3fe8173a9076.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/17186252-1e6c-4b18-bcf8-b6b1a1bab74c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/171960ae-dd6b-4636-9e2b-84a5b353c3bc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/17f05ecd-6d62-43cb-bc09-832157bb23f3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/1ae3427d-3ae5-4e0a-9f1a-d0104c8148ff.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/213dbb95-5bf4-4c6b-a9f8-c85e97456db3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/23647db2-ae3f-48d6-8b23-7c6de40eee95.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/245c8354-6ebc-4489-8e78-cb074d5e8766.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/24d8e4f5-a1f1-47f5-9592-d819b9e4fe37.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/269df496-643c-4388-9a27-2d310e077155.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2712587f-e038-4eeb-b8d8-98a836617edc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2719e02a-a7d7-469d-a0e5-40ae58ce4bc1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/286cbd0e-94ad-4eb6-b3cb-a267af1fb59e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2964d561-6d57-489f-ba1d-54d1fb8f610d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/297064871_3315219082030755_5392681373203668969_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2b158a6d-1a06-46bf-86f1-f3a0c73f1432.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2c56e735-a391-4bbe-89a4-a74a5b412606.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2c92413c-3a31-49e3-ae82-8658a55fcdec.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/2cc30d61-1f2d-473a-a032-0f12fe0b6b4a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/30b336e2-2815-4bb1-9659-012ee9d234bb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/326f5474-4a25-4319-9985-c8ac8a581672.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/34aa3251-9b0b-4090-a6f1-1a5301b545fd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/34e6caba-ff8e-4910-99d8-a7edf9a0fc4a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/3583b857-663c-43df-b75e-ef971cbd758f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/359e5824-fcdf-4860-a39e-ce8b0f0800de.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/360e9e9c-5b69-4802-9ba7-68f07e5754e6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/36580400-16b1-4f32-9d43-28d747280cf0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/3710102b-0fd6-4400-98e3-72406bce2fba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/38a517bf-942f-427d-89ec-6c66994b4882.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/398ebd98-90c7-41e9-a308-6cbaeb1fb1ea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/3ab24fa3-fc56-4d1f-be4f-f71b9390ac46.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/3ab53b98-b862-47c8-a308-6a69b90ac22c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/4039b4d5-4cea-4ba8-adaf-d575c6655864.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/40fad6e6-28cb-4167-95f1-3ead82d471d6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/4512646e-2365-4e44-844b-1804a023a748.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/468a4923-2c6e-426a-81e3-f748021797d3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/47e88884-5329-441b-b6f3-2c3decc7068e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/4846dca7-a9d2-4fdb-9f75-1d54dc85e389.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/48fb0fd9-2d90-4500-8117-e50071a64f59.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/4a1ec040-6fd1-4e46-abdc-364381b63e1f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/4c3201be-62cb-4c4f-b50c-b27809a26b06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/4d2d720e-1a43-49db-b190-87bbc3cf0c91.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5071b8b5-00db-4551-9fbb-638254b426ff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/58aa6283-2c7a-493d-9612-1cfc63fb45c2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5a9017ca-cb9f-43ec-8ce6-128e2da2c26c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5cfc8013-5a3f-44c0-bcb7-0b5b8cc48e62.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5eb5c340-18b1-4a7f-b5f2-57571a1c0162.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5f3a3b87-4f2f-4de8-8e32-12fd47b00c3a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5fed375d-e1e9-497b-9111-e94055290b93.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/5ff99e54-ec0b-4c05-8054-fd57c18fb0e3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/628d7f2f-8542-4fde-9b28-7840ec2acabc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/64a0daed-c08b-4d14-b672-a9ebf0001ca9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/661f2338-224d-4341-9670-535fdb8d3451.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/678df9f4-2b01-45e3-a5f0-66e5fb19b42c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/67b7e342-99ee-4ac4-933a-b4f2fab2ed99.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/67ef0745-581f-42d6-9b83-3049e502775b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/691e5b7a-31ec-4c6f-be6a-fc6ccad42e58.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/69b7e10d-fea9-4c07-973c-496dacf97ba7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/6b83fb57-f0cc-4e92-a33f-2ea3758fd1c4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/6e3cf70d-f9a1-447f-ad4b-44a750ece976.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/6fad11cc-64dc-45ea-be91-92e7a9eb5026.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/70275d46-c083-4efb-9f1b-5c2d000c4b2c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/7272e04b-9324-46ea-8224-d23789b0cd75.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/75f12121-fe65-42e8-b654-e4d51bfa24cc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/76820b75-31a8-445b-9a8e-8cae37690466.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/76e9dddd-0e83-46e1-ab7a-35398b6a43db.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/77b9be6f-144c-4b72-9f80-f9f9ca4e0c80.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/7de42664-eb53-437d-b0f2-676d775ab55a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/7fd0abc0-2afe-4f4f-b197-a1b2ad996e02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/7fdb1b69-00a6-468a-9590-df5780e24da0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/826f7881-811e-40cb-9e55-71373406e3c7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/83afe91d-a99b-4ecd-bea9-35330917f416.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/83ea5367-60cc-46db-92d6-49c1ce82d2d4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/853cd79f-7d89-4a80-9059-fb6dd33a5609.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/88aaa352-b797-4403-a67e-0df8b4e57833.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/903fa46c-8213-452a-a386-75c59e5fce87.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/91f764f6-a787-4f0b-bb5b-81d6c7653467.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/967a2773-8a60-4495-9691-dbd77eab4833.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/9732fe22-db79-4632-a82d-1e13dfd218a2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/9748eaf1-fc0c-43a4-9eff-209baeaf22dc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/97db68fd-139b-446a-8f40-e23d9d77dbbd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/998622ce-ae32-440c-a9b1-ae3c6b36460a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/9a92194a-2fcf-4ded-91ef-77686fefd9f4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/9b36cb66-b5af-4eb2-8e2b-c032af0fc4bb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/9c740737-52a8-4e74-b473-a6164a448db1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/9d70aac3-44ac-4d85-8e7b-44056e93c5e2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/a31f789f-f3b2-448c-9301-827c76448c63.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/a32695c1-d64a-4d19-9ed1-47a6417ee783.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/a9e02775-c89e-478d-b562-4413fc4468a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/aafcaf3e-7136-4835-9286-7c5c56346781.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ac15a7d5-3ce7-4eee-bb7b-d9f6534230f4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/aca9090c-8197-4b1b-a123-0c6d1544b02b.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/acf9bbcb-949d-41b8-a385-96cc94fc6b4d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/af0b3105-f871-429f-a808-cb4103cc9863.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/asma.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b01005f8a-51f2-43bc-a04a-f6353d72f79e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b0e5f227-990a-45b5-a4c1-ca583a296c05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b469fd63d-1070-4eb7-8ec5-8286dfad6632.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b4ba07bb-086b-479c-8ee5-6320a9658859.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b4f648e1-2400-4908-8588-762cc3e959b8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b7e98b5b-bdaa-4b96-b4ad-49eb17e17e64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/b8ded36e-dada-44bb-a766-53ebb6917c84.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/bb26c981-1505-435e-8c64-eba6e90119f3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/bd603073-a38d-40d7-9bd7-35cb72232126.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/bdcacfb7-2222-4386-b40b-7585a26066ff.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/bdde7272-34a6-40df-bdc6-9e7460b77edb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/c047369a-7a74-412d-9b61-c27428683cda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/c0bc4ab9-8178-41d9-9fa0-01de546dfb9d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/c437b757-dc67-4ea1-abea-7430fbf281b7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/c46d7693-1afc-4d0e-abd5-c4df0436928f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/c8616509-0dfd-4213-8068-69910f189fbc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ca3e1086-ace3-4c48-95ff-6e1bd6b463b0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ca681f6e-beeb-4212-a611-8455a33121ed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ca71fbe1-e373-4eab-9af5-2a91b7bbf6d9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/cb5fda9b-4e2f-447f-a574-27f61be4124f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ce0779f4-c900-4277-9fd8-0dcfe25f27ae.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/cece6927-02b2-4818-82c9-0dd201cdc689.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/cf06929b-b678-4c6e-8e7a-50fd2b5dc2e0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/cf32bde2-e1b1-4f28-bc6a-0a49d450f75a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d24ece56-83ce-41fd-b5c8-fed463e442e0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d476ca78-5058-4a1c-9e99-f246ea4f3cdb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d4dfd585-0d93-420f-a1ec-0ecd11b00e24.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d65583f9-6981-4f83-8a6e-f36b945857c3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d72a4342-bac4-40f2-aa7d-b9fa88524a44.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d74dc732-90d7-47f4-ac82-327d7102ef26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d7aa2957-4eaa-4472-9b16-4d47ef935073.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d8e55021-037b-444f-93e8-bf92c57c2035.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/d9bc691a-bf9c-4bca-953e-0bb1f927aba9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/db61dc16-234b-4af0-bdee-e6f2c4240a4f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/dc455c16-9edb-4ea2-bfa2-78416c612e3f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/defaultPic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/defc2253-f234-46a9-97c2-9a4f67cfff3b.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/dfbb5718-81cc-4c90-bbf9-515d00f11435.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e00e3160-42a5-443d-b088-032c0b570a65.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e15a9ceb-ac9d-4cff-a0b2-2214815c6db4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e268188e-b9f2-4620-98ee-bd142e33ed26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e3116fcc-bc2b-4b91-ac8e-35a70f2b85a5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e4b54724-3c4b-40d5-8340-b5141f8061af.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e51b16ae-bf36-4d94-b483-05d3f4ffa3c7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e668f2fa-5831-40a8-b38b-72ea85c1ca84.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e7336a40-ec28-436f-b112-25b43ea66d2d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e79e1e54-0231-46d7-b4c7-2fef0c3baf6b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/e9ac76d6-2563-4717-a14d-5e5603aa8f8b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ebb982a6-86bb-4d47-bb06-d8b5bb99b201.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ec80dbaa-66a3-457c-838c-e33eef1200a8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/eca7e9b6-459f-4c21-b0c1-69a599ae7bec.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/ed71348a-7791-471b-bac3-7ebb94dcec81.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f0a2de01-d464-446c-9bbc-806e78500025.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f0df6c01-9b0b-47d2-a4a0-58ba7cd2c1ba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f2df2c1e-f665-4d52-8283-3246d5e632c7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f47ab86e-d53a-4eab-b8af-e510db973ccb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f604c270-6847-4dff-be29-6326d12dedbb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f64126e2-fc75-4917-b8d1-6035da002f3c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f6607edb-51ea-4419-9afc-53ad4d07be36.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/f79710c4-cc25-4724-9439-a3fbf4d1ff8d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/fbc69978-ffcf-4b2a-bd7c-0f4dfa4ab89c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/fcb7b10c-e606-4b36-8dc4-5afaf61c6b6e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/img/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/img/.idea/img.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/img/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/img/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/img/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/style/aliStyle1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/style/nabilStyle1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/AjouterChequeCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/AjouterChequeCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Compte/CompteItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Compte/CompteItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/FrontControlleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/FrontControlleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/OneEvenementListCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/OneEvenementListCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/Recrutement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/Recrutement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/yesserTest/TestTextToSpeech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yesserTest/TestTextToSpeech/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeChequeListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeChequeListClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Front.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Front.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/OneEvenementListCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/OneEvenementListCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/SideNavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/SideNavBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/token/StoredCredential" afterDir="false" />
-    </list>
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="validation java terminé." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,27 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "DevF",
-    "last_opened_file_path": "C:/Users/Yesser/IdeaProjects/InnovatixPiDevJava/src/main/resources/assets/ProductUploads",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3908046",
-    "settings.editor.selected.configurable": "editor.reader.mode",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;DevF&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yesser/IdeaProjects/InnovatixPiDevJava/src/main/resources/assets/ProductUploads&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3908046&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.reader.mode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\resources\assets\ProductUploads" />
@@ -636,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715330229621</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="validation java terminé.">
+      <option name="closed" value="true" />
+      <created>1715369602357</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1715369602357</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,6 +485,7 @@
     <MESSAGE value="merge yesser" />
     <MESSAGE value="merge yesser terminé" />
     <MESSAGE value="last" />
-    <option name="LAST_COMMIT_MESSAGE" value="last" />
+    <MESSAGE value="validation java terminé." />
+    <option name="LAST_COMMIT_MESSAGE" value="validation java terminé." />
   </component>
 </project>
