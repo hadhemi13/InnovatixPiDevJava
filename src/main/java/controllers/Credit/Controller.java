@@ -67,8 +67,8 @@ public class Controller {
 
     private void getApiKey(){
 
-            // store api key
-            apiKey = "J4s5RC6tqENkWsC4p1qdrCu9kwauTBTw";}
+        // store api key
+        apiKey = "J4s5RC6tqENkWsC4p1qdrCu9kwauTBTw";}
 
 
 
@@ -80,7 +80,7 @@ public class Controller {
                 .url("https://api.apilayer.com/currency_data/list")
                 .addHeader("apikey", apiKey)
                 .method("GET", null)
-            .build();
+                .build();
         Response response = client.newCall(request).execute();
 
         Gson gson = new Gson();
@@ -114,7 +114,7 @@ public class Controller {
                 .url("https://api.apilayer.com/currency_data/live?source=" + currencyOne + "&currencies=" + currencyTwo)
                 .addHeader("apikey", apiKey)
                 .method("GET", null)
-            .build();
+                .build();
         Response response = client.newCall(request).execute();
 
         Gson gson = new Gson();
@@ -126,23 +126,3 @@ public class Controller {
         return Float.parseFloat(jsonObject.getAsJsonObject("quotes").get(key).getAsString());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -72,6 +72,8 @@ public class CreditItems implements Initializable {
 
     @FXML
     private Text userid;
+    @FXML
+    private Label approuver;
 
 
     @Override
@@ -198,6 +200,9 @@ public class CreditItems implements Initializable {
         return contentBuilder.toString();
     }
 
+
+
+
     @FXML
     void approuvercredit(MouseEvent event) throws GeneralSecurityException, IOException, MessagingException, SQLException {
         System.out.println("rrrrrrrrrrrrrrrr");
@@ -238,9 +243,6 @@ public class CreditItems implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
-
     }
 
 
