@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -73,7 +74,10 @@
                         </Text>
                      </children>
                   </HBox>
-                  <VBox prefHeight="440.0" prefWidth="571.0" />
+                  <VBox fx:id="conversationPane" prefHeight="440.0" prefWidth="571.0">
+                     <children>
+                        <TextField fx:id="messageArea" prefHeight="51.0" prefWidth="572.0" translateY="370.0" />
+                     </children></VBox>
                </children>
             </VBox>
          </children>

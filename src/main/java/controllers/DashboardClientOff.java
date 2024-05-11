@@ -5,10 +5,23 @@ import Entities.Virement;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import services.ServiceCheque;
 import services.ServiceVirement;
+import javafx.scene.control.TextArea;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -17,6 +30,7 @@ import java.util.ResourceBundle;
 
 public class DashboardClientOff implements Initializable {
 
+    public TextField messageArea;
     @FXML
     private Pane content_area;
 
@@ -114,5 +128,8 @@ public class DashboardClientOff implements Initializable {
         // Par exemple, vous pouvez appeler un service qui gère les comptes bancaires pour ajouter les points de fidélité.
         // Ici, je vais simplement afficher un message pour simuler l'attribution des points.
         System.out.println("Pack de points de fidélité ajouté au compte bancaire !");
+    }
+
+    public void handleKeyPress(KeyEvent keyEvent) {
     }
 }
