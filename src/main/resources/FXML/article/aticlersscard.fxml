@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 
 <!--<?import javafx.scene.text.Text?>-->
 <!--<?import javafx.scene.layout.VBox?>-->
@@ -6,34 +7,31 @@
 
 <!--<VBox fx:id="backArt" xmlns="http://javafx.com/javafx"-->
 <!--      xmlns:fx="http://javafx.com/fxml"-->
-<!--      fx:controller="controllers.article.articleCardRssController">-->
+<!--      fx:controller="controllers.articleCardRssController">-->
 
 <!--    <Text fx:id="titreArtFront"/>-->
 <!--    <Text fx:id="contenuArtFront"/>-->
 
 <!--</VBox>-->
-<!--        <?xml version="1.0" encoding="UTF-8"?>-->
 
-        <?import javafx.scene.text.Text?>
-        <?import javafx.scene.image.Image?>
-        <?import javafx.scene.image.ImageView?>
-        <?import javafx.scene.layout.VBox?>
-        <?import javafx.fxml.FXML?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.fxml.FXML?>
 
 <VBox fx:id="backArt" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.article.articleCardRssController">
+      fx:controller="controllers.articleCardRssController">
 
-<!-- Affichage de l'image -->
-    <ImageView fx:id="articleImage"/>
+    <Text fx:id="titreArtFront"/>
+    <Text fx:id="contenuArtFront"/>
+    <Text fx:id="dateArtFront"/>
+    <Text fx:id="auteurArtFront"/>
+    <ImageView fx:id="imageart" fitHeight="277.0" fitWidth="260.0" />
 
-    <!-- Affichage du titre de l'article -->
-    <Text fx:id="articleTitle"/>
 
-    <!-- Affichage du contenu de l'article -->
-    <Text fx:id="articleContent"/>
 
-    <!-- Affichage de la date de publication -->
-    <Text fx:id="articleDatePublished"/>
+
 
 </VBox>
