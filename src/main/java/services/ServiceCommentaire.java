@@ -18,7 +18,7 @@ public class ServiceCommentaire implements IService<Commentaire> {
 
     @Override
     public void ajouter(Commentaire commentaire )throws SQLException, IOException {
-        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img,evenement_id,likes,dislikes) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+        try (PreparedStatement preparedStatement = DataSource.getInstance().getCon().prepareStatement("INSERT INTO commentaire (contenu, date_creation, nomuser, img,evenement_id) VALUES (?, ?, ?, ?, ?)")) {
             String content =commentaire.getContenu();
             //API
             OkHttpClient client = new OkHttpClient().newBuilder().build();
@@ -39,8 +39,6 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.setString(3, commentaire.getNomuser());
             preparedStatement.setString(4, "ayoub.jpg");
             preparedStatement.setInt(5, commentaire.getEvenement_id());
-            preparedStatement.setInt(6, 0);
-            preparedStatement.setInt(7, 0);
             preparedStatement.executeUpdate();
             System.out.println("Commentarie ajouté");
         }
@@ -74,6 +72,7 @@ public class ServiceCommentaire implements IService<Commentaire> {
             preparedStatement.executeUpdate();
         }
     }
+
     @Override
     public void modifierdislike(Commentaire commentaire) throws SQLException {
         String query = "UPDATE commentaire SET dislikes = dislikes + 1 WHERE id=?";

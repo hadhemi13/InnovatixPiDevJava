@@ -35,6 +35,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import static com.google.gson.internal.bind.TypeAdapters.UUID;
+
 public class AddProjectCardController implements Initializable {
     @FXML
     private HBox nameInputErrorHbox;
@@ -284,7 +286,6 @@ public class AddProjectCardController implements Initializable {
         fileChooser.setTitle("Choisir une image");
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Images", "*.png", "*.jpg", "*.jpeg", "*.gif"));
         selectedImageFile = fileChooser.showOpenDialog(imageInput.getScene().getWindow());
-
         if (selectedImageFile != null) {
             Image image = new Image(selectedImageFile.toURI().toString());
             imageInput.setImage(image);
@@ -293,7 +294,9 @@ public class AddProjectCardController implements Initializable {
             photoTest = 1;
             photoInputErrorHbox.setVisible(false);
         }
-
+    }
+    public String getImageName() {
+        return imageName;
     }
 
     @FXML

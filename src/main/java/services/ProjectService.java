@@ -19,7 +19,7 @@ public class ProjectService implements IProjectService {
 
     @Override
     public void ajouter(Project project) throws SQLException {
-        String req = "INSERT INTO `Project`(`nomProjet`, `img`, `categorie`, `descriptionProjet`, `budgetProjet`, `dateCreation`, `dureeProjet`, `statutProjet`) VALUES (?,?,?,?,?,?,?,?)";
+        String req = "INSERT INTO `Project`(`nomProjet`, `img`, `categorie`, `descriptionProjet`, `budgetProjet`, `dateCreation`, `dureeProjet`, `statutProjet`,`user_id`) VALUES (?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement ps = conx.prepareStatement(req);
         ps.setString(1, project.getNomProjet());
@@ -30,6 +30,7 @@ public class ProjectService implements IProjectService {
         ps.setObject(6, project.getDateCreation());
         ps.setInt(7, project.getDureeProjet());
         ps.setInt(8, project.getStatutProjet());
+        ps.setInt(9, 1);
         ps.executeUpdate();
         System.out.println("Project added successfully");
         ps.close();
@@ -119,7 +120,6 @@ public class ProjectService implements IProjectService {
         }
         return projets;
     }
-
     public Project getProjectById(int id) throws SQLException {
         String req = "SELECT * FROM `Project` WHERE id = ?";
         PreparedStatement ps = conx.prepareStatement(req);

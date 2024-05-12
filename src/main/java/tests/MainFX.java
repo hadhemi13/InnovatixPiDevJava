@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/Front.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/SideNavBar.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("E-Flex Bank");

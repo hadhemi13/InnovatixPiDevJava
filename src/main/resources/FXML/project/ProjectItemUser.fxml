@@ -51,14 +51,7 @@
         </Text>
 
         <Label fx:id="ItemUpdateBtn" styleClass="projectItem__btn">
-            <graphic>
-                <ImageView fx:id="projectItemUpdateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../assets/img/update-icon.png"/>
-                    </image>
-                </ImageView>
-            </graphic>
+
         </Label>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
               minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0"
@@ -80,14 +73,8 @@
             </HBox.margin>
         </HBox>
         <HBox fx:id="deleteProject" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-              minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" styleClass="product__card-btns1">
-            <children>
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../assets/img/trash.png"/>
-                    </image>
-                </ImageView>
-            </children>
+              minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0"  >
+
             <HBox.margin>
                 <Insets left="6.0"/>
             </HBox.margin>
