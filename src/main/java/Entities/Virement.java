@@ -2,6 +2,9 @@ package Entities;
 
 import javafx.scene.control.TextField;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 public class Virement {
     private int id;
     private int compte_id;
@@ -12,7 +15,7 @@ public class Virement {
     private int num_beneficiare ;
     private String montant ;
     private int cin ;
-    private int rib ;
+    private BigDecimal rib ;
     private String email;
     private String decision_v ;
     private String photo_cin_v ;
@@ -21,7 +24,7 @@ public class Virement {
     private String qrCode ;
     public Virement(){}
 
-    public Virement(int id, int compteId, int userId, String nometPrenom, String typeVirement, String transferezA, int numBeneficiare, String montant, int cin, int rib, String email, String decisionV, String photoCinV, String phoneNumber, String qrCode) {
+    public Virement(int id, int compteId, int userId, String nometPrenom, String typeVirement, String transferezA, int numBeneficiare, String montant, int cin, BigDecimal rib, String email, String decisionV, String photoCinV, String phoneNumber, String qrCode) {
         this.id = id;
         this.compte_id = compteId;
         this.user_id = userId;
@@ -47,7 +50,7 @@ public class Virement {
         this.qrCode = qrCode;
     }
 
-    public Virement(int id, int compte_id, int user_id, String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String email, String decision_v, String photo_cin_v, String phone_number) {
+    public Virement(int id, int compte_id, int user_id, String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, BigDecimal rib, String email, String decision_v, String photo_cin_v, String phone_number) {
         this.id = id;
         this.compte_id = compte_id;
         this.user_id = user_id;
@@ -57,14 +60,15 @@ public class Virement {
         this.num_beneficiare = num_beneficiare;
         this.montant = montant;
         this.cin = cin;
-        this.rib = rib;
+        this.rib = rib; // Ajout du paramètre rib
         this.email = email;
         this.decision_v = decision_v;
         this.photo_cin_v = photo_cin_v;
         this.phone_number = phone_number;
     }
 
-    public Virement(String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number) {
+
+    public Virement(String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, BigDecimal rib, String decision_v, String photo_cin_v, String phone_number) {
         this.nomet_prenom = nomet_prenom;
         this.type_virement = type_virement;
         this.transferez_a = transferez_a;
@@ -163,11 +167,11 @@ public class Virement {
         this.cin = cin;
     }
 
-    public int getRib() {
+    public BigDecimal getRib() {
         return rib;
     }
 
-    public void setRib(int rib) {
+    public void setRib(BigDecimal rib) {
         this.rib = rib;
     }
 

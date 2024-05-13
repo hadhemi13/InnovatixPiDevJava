@@ -310,7 +310,9 @@ public class AjouterArticleController implements Initializable {
             imageName = uniqueID + extension;
 //            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java","uploads", article.getImage_art());
 
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploads", imageName);
+            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", imageName);
+
+//            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploads", imageName);
             Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
 
         }

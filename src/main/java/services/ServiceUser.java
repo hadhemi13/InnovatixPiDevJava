@@ -3,6 +3,9 @@ import Entities.Reset;
 import Entities.User;
 import utils.MyDatabase;
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,17 +19,14 @@ public class ServiceUser  implements IserviceUser<User> {
     @Override
     public void ajouter(User user) throws SQLException {
         String req = "INSERT INTO user (email, name, roles, password, cin, date_naissance, adresse, profession, photo, is_blocked, is_verified, poste, salaire, tel,rib) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
-        String y = "ROLE_CLIENT";
-        String a = "[\"" + y + "\"]";
-        System.out.println(a);
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getName());
-            String[] rolesArray = user.getRoles().split(","); // Supposons que les rôles sont séparés par des virgules
-            preparedStatement.setString(3, "[\"" + user.getRoles() + "\"]"); // Définir le tableau JDBC dans la colonne roles
-            String salt = BCrypt.gensalt(); // Générer un sel avec la version par défaut de BCrypt
-            String hashedPassword = BCrypt.hashpw(user.getPassword(), salt); // Hacher le mot de passe avec le sel généré
+            preparedStatement.setString(3, "[\"" + user.getRoles() + "\"]");
+            String salt = BCrypt.gensalt();
+            String hashedPassword = BCrypt.hashpw(user.getPassword(), salt);
             preparedStatement.setString(4, hashedPassword);
             preparedStatement.setString(5, user.getCin());
             preparedStatement.setString(6, user.getDate_naissance());
@@ -35,11 +35,10 @@ public class ServiceUser  implements IserviceUser<User> {
             preparedStatement.setString(9, user.getProfession());
             preparedStatement.setInt(10, user.getIs_blocked());
             preparedStatement.setInt(11, user.getIs_verified());
-            preparedStatement.setInt(12, user.getSalaire());
-            preparedStatement.setString(13, user.getPoste());
+            preparedStatement.setString(12, user.getPoste());
+            preparedStatement.setInt(13, user.getSalaire());
             preparedStatement.setString(14, user.getTel());
-            preparedStatement.setInt(15,user.getRib());
-
+            preparedStatement.setBigDecimal(15, new BigDecimal(user.getRib().toString())); // Convertir BigInteger en BigDecimal
             preparedStatement.executeUpdate();
             System.out.println("Utilisateur ajouté");
         } catch (SQLException e) {
@@ -147,7 +146,7 @@ public class ServiceUser  implements IserviceUser<User> {
             user.setPhoto(rs.getString("photo"));
             user.setIs_blocked(rs.getInt("is_blocked"));
             user.setIs_verified(rs.getInt("is_verified"));
-            user.setRib(rs.getInt("rib"));
+            user.setRib(BigInteger.valueOf(rs.getLong("rib")));
         }
         ps.close();
         return user;

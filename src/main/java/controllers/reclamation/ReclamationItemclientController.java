@@ -74,7 +74,7 @@ public class ReclamationItemclientController {
         dateRec.setText(String.valueOf(reclamation.getDate_rec()));
         //  RecItemStateText.setText(reclamation.getStatut_rec());
         voirPieceBtn.setOnMouseClicked(this::openArticleImage);
-
+        contenuArt.setText(reclamation.getContenu_rec());
         depRec.setText(reclamation.getDep_rec());
         ObjetRec.setText(reclamation.getObjet_rec());
         if (reclamation.getStatut_rec().equals("En cours de traitement")) {

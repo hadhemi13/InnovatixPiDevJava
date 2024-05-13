@@ -86,7 +86,7 @@ public class articleCardAdminController implements Initializable {
             datepubArt.setText(formattedDate);
             contenuArtFront.setText(article.getContenu_art());
             cat.setText(article.getCategorie_art());
-            imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            imgArtFront.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + article.getImage_art()));
             String base64QRCode = article.getQrCode();
             if (base64QRCode != null) {
                 // Convert the Base64 string to byte array
@@ -362,7 +362,7 @@ public class articleCardAdminController implements Initializable {
 
                         // Ajouter l'image de l'article avec un cadre professionnel
                         if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
-                            String imagePathArt = userDir + "/src/main/java/uploads/" + article.getImage_art();
+                            String imagePathArt = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\" + article.getImage_art();
                             com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(imagePathArt);
                             image.setBorder(Rectangle.BOX);
                             image.setBorderWidth(2);

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -12,15 +17,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="content_area" prefHeight="750.0" prefWidth="1366.0" styleClass="dash__container-card" stylesheets="@/css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.Recrutement">
+<AnchorPane fx:id="content_area" prefHeight="750.0" prefWidth="1366.0" styleClass="dash__container-card" stylesheets="@/css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.offreDeStage.Recrutement">
     <children>
         <!-- Image de fond -->
-        <ImageView fitHeight="725.0" fitWidth="1392.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../imgYesser/istockphoto-1411598175-1024x1024.jpg" />
-            </image>
+        <ImageView fitHeight="691.0" fitWidth="1375.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/front%20(1).jpg" />
+         </image>
         </ImageView>
-      <ScrollPane prefHeight="509.0" prefWidth="1375.0" translateY="240.0">
+      <ScrollPane layoutY="6.0" prefHeight="503.0" prefWidth="1375.0" translateY="240.0">
          <content>
             <VBox fx:id="ListeOffre" prefHeight="475.0" prefWidth="1376.0">
                <padding>
@@ -28,7 +33,18 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <VBox layoutX="-7.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="97.0" prefWidth="75.0" translateX="20.0" translateY="-30.0">
+         <children>
+            <Button fx:id="retour" mnemonicParsing="false" onMouseClicked="#RetourBack" prefHeight="35.0" prefWidth="42.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></VBox>
       <VBox layoutX="10.0" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="1356.0">
          <children>
             <TextField fx:id="NumRech" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="498.0" promptText=" Saisir votre numéro pour suivre votre demande" stylesheets="@../../css/SideNavBar.css" translateX="450.0">
@@ -40,7 +56,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </TextField>
-            <HBox prefHeight="169.0" prefWidth="1356.0">
+            <HBox prefHeight="203.0" prefWidth="1356.0">
                <children>
                   <Button fx:id="filtrer" mnemonicParsing="false" onAction="#filtrer" prefHeight="25.0" prefWidth="225.0" styleClass="product__add-new-productBtn" stylesheets="@../../css/SideNavBar.css" text="Filtrer par Domaine " translateX="800.0" translateY="75.0" />
                   <ComboBox fx:id="filtrage" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="283.0" promptText="Informatique" styleClass="product__add-new-productBtn" stylesheets="@../../css/SideNavBar.css" translateX="820.0" translateY="75.0">

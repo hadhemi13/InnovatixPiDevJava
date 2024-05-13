@@ -95,7 +95,7 @@ public class AjouterReponseAdminController implements Initializable {
             pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
 
             // Définir le répertoire de destination pour les PDF téléchargés
-            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+            String destinationFolder = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory"; // Chemin absolu du répertoire de destination
 
             // Créer le chemin de destination pour le PDF
             Path destination = Paths.get(destinationFolder, pdfName);

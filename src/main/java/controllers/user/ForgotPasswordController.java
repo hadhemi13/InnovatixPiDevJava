@@ -1,7 +1,9 @@
 package controllers.user;
 
 import Entities.User;
+import controllers.Credit.GMailer;
 import javafx.fxml.Initializable;
+import services.Symfony;
 import services.imResetPassword;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -14,6 +16,7 @@ import services.ServiceUser;
 import Entities.Reset;
 
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.util.*;
 
 import javafx.fxml.FXMLLoader;
@@ -54,7 +57,10 @@ public class ForgotPasswordController implements Initializable {
     String Subject="Votre Code est :  "+number+"\n S'il te plait ne passe pas 10 min De maintenant";
 
 
-    public void sendClicked(ActionEvent actionEvent) {
+    public void sendClicked(ActionEvent actionEvent) throws IOException {
+//        Symfony symfony = new Symfony();
+//        symfony.MdpOblie(emailField.getText());
+//        System.out.println(emailField);
         ServiceUser userService = new ServiceUser();
 
         try {
@@ -71,7 +77,7 @@ public class ForgotPasswordController implements Initializable {
             }
 
             imResetPassword imr = new imResetPassword();
-            Mailling  sn = new Mailling();
+            Mailling sn = new Mailling();
             if (emailField.getText().isEmpty()) {
                 showAlert("Champs manquants", "Veuillez saisir une adresse e-mail.");
             } else if (imr.ajout(new Reset(emailField.getText(), number, sTime))) {

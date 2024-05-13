@@ -20,8 +20,13 @@ import javafx.stage.Stage;
 import services.ServiceCheque;
 import services.ServiceCompte;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -65,14 +70,15 @@ public class ChequeItemsAdmin implements Initializable {
     @FXML
     private HBox Hboxcheque;
 
+
     public void initData(Cheque i) {
         this.cheque = i;
         ServiceCheque serviceCheque = new ServiceCheque();
 
-        Rib.setText(String.valueOf(i.getId()));
+        Rib.setText(String.valueOf(i.getRib()));
         Cin.setText(String.valueOf(i.getCin()));
-        // Image image = new Image("file:" + i.getPhoto_cin());
-        //ImageView imageView = new ImageView(image);
+        Image image = new Image("file:" + i.getPhoto_cin());
+        ImageView imageView = new ImageView(image);
         // photoCin.setGraphic(imageView);
         NometPrenom.setText(i.getNom_prenom());
         Email.setText(i.getEmail());
@@ -149,7 +155,23 @@ public class ChequeItemsAdmin implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        photoCin.setOnMouseClicked(this::openCINImage);
+
 
     }
 
+    public void openCINImage(MouseEvent mouseEvent) {
+        String imagePath = cheque.getPhoto_cin(); // Récupérer le chemin de l'image à partir de l'objet Cheque
+        File file = new File(imagePath);
+
+        try {
+            if (file.exists()) {
+                Desktop.getDesktop().open(file);
+            } else {
+                System.out.println("Fichier non trouvé : " + imagePath);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

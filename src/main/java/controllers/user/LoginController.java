@@ -2,12 +2,15 @@ package controllers.user;
 import Entities.User;
 import controllers.Cheque.AjouterChequeCard;
 import controllers.ChequeItemsController;
+import controllers.Credit.AjouterCreditCard;
 import controllers.SideNavBarController;
 import controllers.Virement.AjouterVirementCard;
 import controllers.Virement.VirementCard;
 import controllers.article.AjouterArticleController;
 import controllers.commentaireArticle.CommentArticleController;
+import controllers.dashboardClientcreditrdv;
 import controllers.reclamation.AjouterReclamationController;
+import controllers.reclamation.ListeRecClientController;
 import controllers.reponse.AjouterReponseAdminController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,6 +37,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 import javafx.scene.input.MouseEvent;
+import services.ServiceCredit;
 import services.ServiceUser;
 
 
@@ -102,6 +106,7 @@ public class LoginController implements Initializable {
 
         try {
             user = userService.getOneUser(email);
+            System.out.println(user);
             if (user.getId() == -999) {
                 AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
             } else {
@@ -114,6 +119,14 @@ public class LoginController implements Initializable {
                         System.out.println("to the DASHBOARD");
                         if (user.getRoles().equals("[\"ROLE_CLIENT\"]")
                                 || user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
+                            AjouterCreditCard ajouterCreditCard = new AjouterCreditCard();
+                            ajouterCreditCard.user = user;
+                            ServiceCredit  serviceCredit = new ServiceCredit();
+                            serviceCredit.user = user;
+                            ListeRecClientController serviceRec = new ListeRecClientController();
+                            dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
+                            dashboardClientcreditrdv.user = user;
+                            serviceRec.user = user;
                             AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
                             ajouterChequeCard.user= user;
                             ChequeItemsController chequeItemsController = new ChequeItemsController();
@@ -126,8 +139,7 @@ public class LoginController implements Initializable {
                             ajouterArticleController.user = user;
                             AjouterReclamationController ajouterReclamationController = new AjouterReclamationController();
                             ajouterReclamationController.user = user;
-                            AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
-                            ajouterReponseAdminController.user = user;
+
                             CommentArticleController commentArticleController = new CommentArticleController();
                             commentArticleController.user = user;
 
@@ -145,6 +157,10 @@ public class LoginController implements Initializable {
                             stage.setScene(scene);
                             stage.show();
                         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                            AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
+                            ajouterReponseAdminController.user = user;
+                            dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
+                            dashboardClientcreditrdv.user = user;
                             Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBar.fxml"));
                             Scene scene = new Scene(root);
                             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

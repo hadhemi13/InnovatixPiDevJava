@@ -124,7 +124,9 @@ public class ReclamationItemAdminController implements Initializable {
 
     }
     private void openArticleImage(MouseEvent mouseEvent) {
-        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", reclamation.getPiece_jrec());
+       // String destinationFolder = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory"; // Chemin absolu du répertoire de destination
+     //   Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", reclamation.getPiece_jrec());
+        Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", reclamation.getPiece_jrec());
 
         try {
             File file = destination.toFile();

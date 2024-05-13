@@ -263,7 +263,7 @@ public class CommentArticleController implements Initializable {
         if (article != null) {
             titreArt.setText(article.getTitre_art());
             categArt.setText(article.getCategorie_art());
-            imgPost.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            imgPost.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + article.getImage_art()));
 
             if (article.getDate_pub_art() != null) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

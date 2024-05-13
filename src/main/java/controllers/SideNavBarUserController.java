@@ -157,8 +157,16 @@ public class SideNavBarUserController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DashboardClientOff.fxml"));
+            Pane dashboardPane = loader.load();
+            content_area.getChildren().setAll(dashboardPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
+
 
     public void openArticleList(MouseEvent mouseEvent) {
 

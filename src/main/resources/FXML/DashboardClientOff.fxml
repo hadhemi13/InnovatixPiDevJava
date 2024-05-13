@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,9 +19,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="622.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.DashboardClientOff">
+<AnchorPane prefHeight="622.0" prefWidth="1236.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.DashboardClientOff">
     <children>
-        <Pane fx:id="content_area" prefHeight="600.0" prefWidth="1200.0" styleClass="productList_BoxContainer" stylesheets="@/css/SideNavBar.css">
+        <Pane fx:id="content_area" prefHeight="600.0" prefWidth="1200.0" styleClass="productList_BoxContainer" stylesheets="@../css/SideNavBar.css">
             <children>
                 <HBox alignment="CENTER_LEFT" stylesheets="@../css/Compte.css" translateX="15.0" translateY="20.0">
                     <children>
@@ -29,17 +37,17 @@
                         </Text>
                     </children>
                 </HBox>
-                <VBox layoutX="14.0" layoutY="60.0" prefHeight="283.0" prefWidth="557.0" styleClass="productList_BoxContainer" stylesheets="@/css/SideNavBar.css">
+                <VBox layoutX="14.0" layoutY="60.0" prefHeight="283.0" prefWidth="557.0" styleClass="productList_BoxContainer" stylesheets="@../css/SideNavBar.css">
                     <children>
                         <PieChart fx:id="stat1" prefHeight="271.0" prefWidth="558.0" />
                     </children>
                 </VBox>
-                <VBox layoutX="14.0" layoutY="351.0" prefHeight="244.0" prefWidth="558.0" styleClass="productList_BoxContainer" stylesheets="@/css/SideNavBar.css">
+                <VBox layoutX="14.0" layoutY="351.0" prefHeight="244.0" prefWidth="558.0" styleClass="productList_BoxContainer" stylesheets="@../css/SideNavBar.css">
                     <children>
                         <PieChart fx:id="stat2" />
                     </children>
                 </VBox>
-                <VBox layoutX="604.0" layoutY="63.0" prefHeight="533.0" prefWidth="571.0" styleClass="productList_BoxContainer" stylesheets="@/css/SideNavBar.css">
+                <VBox layoutX="604.0" layoutY="63.0" prefHeight="533.0" prefWidth="571.0" styleClass="productList_BoxContainer" stylesheets="@../css/SideNavBar.css" translateY="-8.0">
                     <children>
                         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="492.0">
                             <children>
@@ -73,7 +81,11 @@
                                 </Text>
                             </children>
                         </HBox>
-                        <VBox prefHeight="440.0" prefWidth="571.0" />
+                        <VBox fx:id="conversationPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="561.0" translateX="10.0">
+                            <children>
+                                <TextField fx:id="messageArea" onKeyPressed="#handleKeyPress" prefHeight="54.0" prefWidth="561.0" translateY="370.0" />
+                            </children>
+                        </VBox>
                     </children>
                 </VBox>
             </children>

@@ -91,6 +91,7 @@ public class AjouterReclamationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(user);
         depRecErrorHbox.setVisible(false);
         contenuInputErrorHbox.setVisible(false);
         ObjetHboxErreur.setVisible(false);
@@ -184,7 +185,7 @@ public class AjouterReclamationController implements Initializable {
         String pieceJArt = pdfName;
 
         String statut ="En cours de traitement";
-        Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJArt, dateTime);
+        Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJArt, dateTime, user.getId());
         sr.ajouter(reclamation);
         loadReclamationsList();
 
@@ -215,7 +216,7 @@ public class AjouterReclamationController implements Initializable {
             pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
 
             // Définir le répertoire de destination pour les PDF téléchargés
-            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+            String destinationFolder = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory"; // Chemin absolu du répertoire de destination
 
             // Créer le chemin de destination pour le PDF
             Path destination = Paths.get(destinationFolder, pdfName);

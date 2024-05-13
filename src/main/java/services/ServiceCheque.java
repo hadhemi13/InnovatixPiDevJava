@@ -1,8 +1,10 @@
 package services;
 
+import controllers.Cheque.AjouterChequeCard;
 import utils.MyDatabase;
 import Entities.Cheque;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +54,9 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
 
 
         String req = "INSERT INTO cheque "
-                + "(beneficiaire, montant, email, cin, nom_prenom, date, decision, photo_cin,compte_id,user_id,telephone) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                + "(beneficiaire, montant, email, cin, nom_prenom, date, decision, photo_cin,compte_id,user_id,telephone,rib) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
         try {
             PreparedStatement ps = connection.prepareStatement(req);
             ps.setString(1, cheque.getBeneficiaire());
@@ -68,6 +71,8 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
             ps.setInt(9,cheque.getCompte_id());
             ps.setInt(10,cheque.getUser_id());
             ps.setInt(11,cheque.getTelephone());
+           // AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
+            ps.setBigDecimal(12, new BigDecimal(cheque.getRib().toString())); // Convertir BigInteger en BigDecimal
             ps.executeUpdate();
             System.out.println("Chèque ajouté avec succès !");
             System.out.println(cheque.getId());

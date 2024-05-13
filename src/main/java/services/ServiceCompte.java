@@ -46,6 +46,7 @@ public class ServiceCompte  implements  IServiceCompte <Compte> {
             ps.setString(16, compte.getType_cin());
             ps.setLong(17, compte.getRib());
             ps.setString(18, compte.getStatut());
+            System.out.println("ici c'est Paris" + compte.getStatut());
 
             ps.executeUpdate();
             System.out.println("Compte ajouté avec succès !");

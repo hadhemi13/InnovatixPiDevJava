@@ -29,6 +29,7 @@ import javafx.scene.layout.VBox;
 
 import java.awt.*;
 import java.io.*;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -356,7 +357,7 @@ public class AjouterVirementCard implements Initializable {
         String base64QRCode = generateBase64QRCode(virementData);
 
         //String nomet_prenom, String type_virement, String transferez_a, int num_beneficiare, String montant, int cin, int rib, String decision_v, String photo_cin_v, String phone_number
-        Virement virement1 = new Virement(nom_prenom, type_virement, transf, Integer.parseInt(benefr), montantv, cin, Rib, decision, imageName, phone_number);
+        Virement virement1 = new Virement(nom_prenom, type_virement, transf, Integer.parseInt(benefr), montantv, cin, new BigDecimal(Rib), decision, imageName, phone_number);
         virement1.setQrCode(base64QRCode);
         ServiceVirement serviceVirement = new ServiceVirement();
         serviceVirement.ajouterV(virement1);

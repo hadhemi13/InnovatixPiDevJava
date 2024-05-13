@@ -62,6 +62,31 @@ public class Symfony {
             System.out.println(e.getMessage());
         }
     }
+    public static void MdpOblie(String email){
+        String score;
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet("http://127.0.0.1:8000/MdpOublie/"+email);
+
+            try (CloseableHttpResponse response = httpClient.execute(request)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+
+                if (statusCode == 200) {
+                    String responseBody = EntityUtils.toString(response.getEntity());
+                    // Parse the JSON response
+                    JSONObject jsonResponse = new JSONObject(responseBody);
+                    // Extract the score
+                    score = jsonResponse.getString("score");
+                    System.out.println("Score: " + score);
+                } else {
+                    System.err.println("Erreur lors de la requête : " + statusCode);
+                }
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     public void mailingApprouver(String email) {
         int score = 0;
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {

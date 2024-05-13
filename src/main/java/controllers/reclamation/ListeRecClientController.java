@@ -1,5 +1,6 @@
 package controllers.reclamation;
 
+import Entities.User;
 import Entities.actualites.Reclamation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,7 @@ public class ListeRecClientController implements Initializable {
 
     @FXML
     private HBox recTableHead;
+    public static User user;
 
     public void AjouterRec(MouseEvent mouseEvent) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
@@ -56,7 +58,8 @@ public class ListeRecClientController implements Initializable {
         try {
             //list = sr.afficher();
             //Affichage by id ///
-            list = sr.afficherById(3);
+            list = sr.afficherById(user.getId());
+            System.out.println("liste RecClient"+user);
             System.out.println("list: "+list);
         } catch (SQLException e) {
             throw new RuntimeException(e);

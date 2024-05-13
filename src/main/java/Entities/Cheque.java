@@ -1,6 +1,7 @@
 package Entities;
 
 
+import java.math.BigInteger;
 import java.sql.Date;
 
 public class Cheque {
@@ -20,6 +21,7 @@ public class Cheque {
     private String document_id;
     private String signer_id;
     private String  pdf_sans_signature ;
+    private BigInteger rib;
 
     public Cheque(int id, int compte_id, int user_id, String beneficiaire, double montant, int telephone, String email, int cin, String nom_prenom, Date date, String decision, String photo_cin, String signature_id,String document_id, String signer_id, String pdf_sans_signature ) {
         this.id = id;
@@ -40,7 +42,7 @@ public class Cheque {
         this.pdf_sans_signature = pdf_sans_signature;
     }
 
-    public Cheque(String beneficiaire, double montant,int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision,int compte_id,int user_id) {
+    public Cheque(String beneficiaire, double montant,int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision,int compte_id,int user_id,BigInteger rib) {
         this.beneficiaire = beneficiaire;
         this.montant = montant;
         this.telephone = telephone;
@@ -52,6 +54,15 @@ public class Cheque {
         this.decision = decision;
         this.compte_id = compte_id;
         this.user_id = user_id;
+        this.rib = rib;
+    }
+
+    public BigInteger getRib() {
+        return rib;
+    }
+
+    public void setRib(BigInteger rib) {
+        this.rib = rib;
     }
 
     public Cheque() {

@@ -1,6 +1,7 @@
 package controllers;
 
 import Entities.Credit;
+import Entities.User;
 import controllers.Credit.DemandeCreditListClient;
 import controllers.Credit.DemandeCreditListClientUser;
 import controllers.Credit.DemandeRdvListClient;
@@ -26,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class dashboardClientcreditrdv implements Initializable {
 
+    public Text userPointText1;
     @FXML
     private Button ListeCheque;
 
@@ -38,10 +40,12 @@ public class dashboardClientcreditrdv implements Initializable {
     @FXML
     private VBox fundListContainer;
 
+    public static User user;
+
     @FXML
     private Text userPointText;
-    @FXML
-    private BarChart<?, ?> stat1;
+//    @FXML
+//    private BarChart<?, ?> stat1;
     @FXML
     private HBox userTableHead;
 
@@ -82,12 +86,18 @@ public class dashboardClientcreditrdv implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Récupérer la liste des crédits
         List<Credit> credits;
+
         ServiceCredit serviceCredit = new ServiceCredit();
         try {
-            credits = serviceCredit.afficher();
+            if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                credits = serviceCredit.afficherAdmin();
+            } else {
+                credits = serviceCredit.afficher();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
 
         // Obtenir le nombre de crédits pour chaque année et par durée
         Map<Integer, Integer> creditCountByYear = serviceCredit.countCreditsByYear(credits);

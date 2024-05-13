@@ -11,8 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="800.0" styleClass="product-card" stylesheets="@../../assets/style/aliStyle1.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.OneEvenementListCardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="800.0" styleClass="product-card" stylesheets="@../../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OneEvenementListCardController">
     <children>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="210.0" styleClass="product__list-imgContainer">
             <children>
@@ -38,6 +37,31 @@
                                 <Font name="Montserrat ExtraBold" size="19.0" />
                             </font>
                         </Text>
+                  <Text fx:id="productName1" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" wrappingWidth="13.0">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="19.0" />
+                     </font>
+                  </Text>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="48.0" styleClass="offreProductCard">
+                     <children>
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="349.0">
+                           <children>
+                              <HBox fx:id="categoryProduit2" styleClass="product__card-categ">
+                                 <children>
+                                    <Text fx:id="lieufx2" fill="#a61e1e" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title">
+                                       <font>
+                                          <Font name="Montserrat ExtraBold" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <Text fx:id="offrefx" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="24.556640625" />
+                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" wrappingWidth="18.7421875" />
+                     </children>
+                  </HBox>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
@@ -103,13 +127,6 @@
                                 <Insets top="5.0" />
                             </padding>
                         </HBox>
-                  <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="48.0" styleClass="offreProductCard">
-                     <children>
-                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="-" />
-                        <Text fx:id="offrefx" fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="23.556640625" />
-                        <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" wrappingWidth="18.7421875" />
-                     </children>
-                  </HBox>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
@@ -191,6 +208,19 @@
                     </children>
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="349.0">
+               <children>
+                  <HBox fx:id="categoryProduit1" styleClass="product__card-categ">
+                     <children>
+                        <Text fx:id="lieufx1" fill="#a61e1e" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
             </children>
         </VBox>
     </children>

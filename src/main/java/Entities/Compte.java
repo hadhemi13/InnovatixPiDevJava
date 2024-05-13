@@ -42,7 +42,7 @@ public class Compte {
         this.preference_communic = preference_communic;
         this.type_cin = type_cin;
         this.rib = rib;
-        this.statut = this.statut;
+        this.statut = statut;
     }
 
     public Compte(String email, String confirmation_email, int cin, Date date_delivrance_cin, String nom, String prenom, String sexe, Date date_naissance, String proffesion, String type_compte, double montant, String statut_marital, String nationalite, int numero_telephone, String type_cin, String statut) {

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="backArt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="297.0" styleClass="userProductCard" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.articleCardClientController">
+<VBox fx:id="backArt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="297.0" styleClass="userProductCard" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.articleCardClientController">
     <children>
         <HBox fx:id="open_productDetails" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="412.0" prefWidth="311.0" styleClass="openProductDetailsBtn">
             <children>
@@ -68,7 +62,7 @@
                                     </children>
                                 </HBox>
 
-                                <HBox fx:id="viewdetailArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewdetailArt" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns">
+                                <HBox fx:id="viewdetailArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewdetailArt" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns" translateX="3.0">
                                     <children>
                                         <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -77,19 +71,15 @@
                                         </ImageView>
                                     </children>
                                 </HBox>
-                        <HBox fx:id="textToSpeech" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#textToSpeech" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns">
-                           <children>
-                              <Hyperlink fx:id="linkText">
-                                 <graphic>
-                                    <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../imagesAct/Ai.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </Hyperlink>
-                           </children>
-                        </HBox>
+                                <HBox fx:id="textToSpeech" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#textToSpeech" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns" translateX="6.0">
+                                    <children>
+                                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../imagesAct/voice.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
 
                             </children>
                         </HBox>

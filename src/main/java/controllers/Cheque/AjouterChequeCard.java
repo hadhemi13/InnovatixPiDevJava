@@ -31,6 +31,7 @@ import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -133,6 +134,15 @@ public class AjouterChequeCard implements Initializable {
     private File selectedImageFile;
     private String imageName = null;
     public static User user;
+    public static BigInteger rib;
+
+    public static void setRib(BigInteger rib) {
+        AjouterChequeCard.rib = user.getRib();
+    }
+
+    public static BigInteger getRib() {
+        return rib;
+    }
 
     @FXML
     void ImporterImg(ActionEvent event) {
@@ -230,7 +240,7 @@ public class AjouterChequeCard implements Initializable {
         Date selectedDate = Date.valueOf(java.time.LocalDate.now());
         // Create a new instance of cheque from View
         String image=imageName;
-        Integer Rib = 345678644;
+//        Integer Rib = 345678644;
         String telText = tel.getText();
         Integer aa = Integer.parseInt(telText);
         String cin = Cin.getText();
@@ -241,12 +251,12 @@ public class AjouterChequeCard implements Initializable {
         String email = Email.getText();
         String decision = "Encours";
 
-        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, selectedDate,imageName,decision,1,1);
+        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, selectedDate,imageName,decision,1,1,user.getRib());
 
 
         ServiceCheque serviceCheque = new ServiceCheque();
-//        String pdfFilePath = createPdfCheque(cheque);
-//        sendEmail(Email.getText(), "Cheque Confirmation", "Please find attached the PDF for your cheque.", pdfFilePath);
+        String pdfFilePath = createPdfCheque(cheque);
+       sendEmail(Email.getText(), "Cheque Confirmation", "Please find attached the PDF for your cheque.", pdfFilePath);
 
 
         serviceCheque.ajouterS(cheque);
@@ -257,6 +267,107 @@ public class AjouterChequeCard implements Initializable {
         // Remplacer le contenu de content_area par le contenu de la liste des demandes de chèques
         content_area.getChildren().setAll(demandeChequeListParent);
 
+    }
+
+    private String createPdfCheque(Cheque cheque) throws Exception {
+        Document document = new Document();
+        String pdfFileName = "cheque_" + UUID.randomUUID().toString() + ".pdf";
+        String relativePath = "src/main/resources/pdf/";
+        String outputPath = System.getProperty("user.dir") + "/" + relativePath + pdfFileName;
+        // Écrire le contenu de l'article dans le document PDF
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(outputPath));
+        document.open();
+        // Créer un cadre autour de tout le document
+        Rectangle rectangle = new Rectangle(document.getPageSize());
+        rectangle.setBorder(Rectangle.BOX);
+        rectangle.setBorderWidth(2);
+        rectangle.setBorderColor(new BaseColor(107, 175, 84)); // Vert foncé
+        PdfContentByte canvas = writer.getDirectContent();
+        canvas.rectangle(rectangle);
+
+        // Logo
+        String userDir = System.getProperty("user.dir");
+        String imagePath = userDir + "/src/main/resources/img/logo.png";
+        com.itextpdf.text.Image logo = com.itextpdf.text.Image.getInstance(imagePath);
+        logo.scaleToFit(100, 100);
+        logo.setAlignment(Element.ALIGN_LEFT);
+        document.add(logo);
+
+        // Espacement vertical avant le titre
+        document.add(Chunk.NEWLINE);
+
+        // Titre
+        Font titleFont = new Font(Font.FontFamily.HELVETICA, 32, Font.BOLD, new BaseColor(107, 175, 84)); // Vert foncé
+        Paragraph title = new Paragraph("Demande de Chèque", titleFont);
+        title.setAlignment(Element.ALIGN_CENTER);
+        // title.setBorder(Rectangle.NO_BORDER);
+        title.setSpacingAfter(20f); // Espacement après le titre
+        document.add(title);
+
+        // Décoration autour du titre
+        LineSeparator line = new LineSeparator();
+        line.setLineColor(new BaseColor(107, 175, 84)); // Couleur de la ligne
+        line.setLineWidth(2f); // Épaisseur de la ligne
+        line.setPercentage(100f); // Longueur de la ligne
+        document.add(line);
+
+        // Espacement vertical après le titre
+        document.add(Chunk.NEWLINE);
+
+        // Détails du chèque
+        Font detailsFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.BLACK);
+        document.add(new Paragraph("Voici les Détails du Chéque :  ", detailsFont));
+        document.add(new Paragraph("Nom et Prénom: " +  cheque.getNom_prenom(), detailsFont));
+        document.add(new Paragraph("Email: " + cheque.getEmail(), detailsFont));
+        document.add(new Paragraph("CIN: " + cheque.getCin(), detailsFont));
+        document.add(new Paragraph("Bénéficiaire: " + cheque.getBeneficiaire(), detailsFont));
+        document.add(new Paragraph("Montant: " +cheque.getMontant(), detailsFont));
+        document.add(new Paragraph("Téléphone: " + cheque.getTelephone(), detailsFont));
+        document.add(new Paragraph("Date: " + cheque.getDate(), detailsFont));
+
+        // Espacement vertical après les détails
+        document.add(Chunk.NEWLINE);
+
+        document.close();
+        return outputPath; // Return the path of the created PDF
+    }
+    private void sendEmail(String recipient, String subject, String text, String pdfFilePath) throws MessagingException, IOException {
+        String from = "shayma.ouerhani@esprit.tn";
+        final String username = "shayma.ouerhani@esprit.tn";
+        final String password = "Sug12879";
+
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.office365.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // Utiliser TLSv1.2
+        props.put("mail.smtp.ssl.ciphersuites", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"); // Exemple de suite de chiffrement
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(from));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+        message.setSubject(subject);
+
+        MimeBodyPart textPart = new MimeBodyPart();
+        textPart.setText(text);
+
+        MimeBodyPart pdfAttachment = new MimeBodyPart();
+        pdfAttachment.attachFile(new File(pdfFilePath));
+
+        Multipart multipart = new MimeMultipart();
+        multipart.addBodyPart(textPart);
+        multipart.addBodyPart(pdfAttachment); // Attach the PDF
+
+        message.setContent(multipart);
+        Transport.send(message);
     }
 
 //    private String createPdfCheque(Cheque cheque) throws Exception {
@@ -370,7 +481,13 @@ public class AjouterChequeCard implements Initializable {
         NometPrenomInputErrorHbox.setVisible(false);
         beneficiaireInputErrorHbox.setVisible(false);
         DateInputErrorHbox.setVisible(false);
+        NometPrenom.setText(user.getName());
+        Cin.setText(user.getCin());
+        Email.setText(user.getEmail());
+        tel.setText(user.getTel());
+
         RIB.setText(String.valueOf(user.getRib()));
+        System.out.println(rib);
 
         ObservableList<String> beneficiaires = FXCollections.observableArrayList(
                 "Paiement",

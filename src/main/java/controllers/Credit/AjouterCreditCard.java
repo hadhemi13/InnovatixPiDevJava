@@ -1,4 +1,5 @@
 package controllers.Credit;
+import Entities.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,6 +28,8 @@ public class AjouterCreditCard implements Initializable {
 
     @FXML
     private HBox DateInputErrorHbox;
+
+    public static User user;
 
     @FXML
     private TextField Email;
@@ -197,8 +200,8 @@ public class AjouterCreditCard implements Initializable {
 
 
             st = con.prepareStatement(insert);
-            st.setInt(1, 1); // Static value for user_id
-            st.setInt(2, Integer.parseInt(id_client.getText())); // id_client
+            st.setInt(1, user.getId()); // Static value for user_id
+            st.setInt(2, Integer.parseInt(user.getCin())); // id_client
             System.out.println("eeeeeeqq");
             st.setDouble(3, Double.parseDouble(montant.getText())); // montant
             st.setString(4, ((descriptionlabel.getText()))); // id_client
@@ -221,9 +224,9 @@ public class AjouterCreditCard implements Initializable {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
 
     }

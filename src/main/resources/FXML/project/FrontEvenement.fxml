@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
@@ -17,12 +22,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1366.0" stylesheets="@../../css/front.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.ShowEvenementCardControllerFront">
+<AnchorPane fx:id="content_area" prefHeight="700.0" prefWidth="1366.0" stylesheets="@../../css/front.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ShowEvenementCardControllerFront">
     <children>
         <ScrollPane prefHeight="700.0" prefWidth="1366.0">
             <content>
-                <VBox prefHeight="4000.0" prefWidth="1366.0">
+                <VBox fx:id="content_area1" prefHeight="4000.0" prefWidth="1366.0">
                     <children>
                         <VBox prefHeight="759.0" prefWidth="1366.0" styleClass="bgfront" stylesheets="@../../css/front.css">
                             <children>
@@ -42,17 +46,17 @@
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-custom" text="E-Flex Bank" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                        <HBox fx:id="Actualite" alignment="CENTER" onMouseClicked="#Actualite" prefHeight="100.0" prefWidth="200.0">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-custom" text="Acceuil" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                        <HBox fx:id="Actualitee" alignment="CENTER" onMouseClicked="#Actualitee" prefHeight="100.0" prefWidth="200.0">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-custom" text="Actualités" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
+                                        <HBox fx:id="OpenStage" alignment="CENTER" onMouseClicked="#OpenStage" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Stages" />
                                             </children>
@@ -62,7 +66,7 @@
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
+                                        <HBox fx:id="Tologin" alignment="CENTER" onMouseClicked="#Tologin" prefHeight="100.0" prefWidth="200.0" styleClass="title-custom">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Se connecter" />
                                             </children>
@@ -94,12 +98,11 @@
                                 </HBox>
                             </children>
                         </HBox>
-                        <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="1000.0" prefWidth="1035.0"
-                                    styleClass="product-card-scrollPane" stylesheets="@../../assets/style/aliStyle.css">
+                        <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="1000.0" prefWidth="1035.0" styleClass="product-card-scrollPane" stylesheets="@../../assets/style/aliStyle.css">
                             <content>
                                 <GridPane fx:id="evenementsListContainerfront">
                                     <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                 </GridPane>
                             </content>

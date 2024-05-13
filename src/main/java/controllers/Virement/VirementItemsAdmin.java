@@ -1,5 +1,6 @@
 package controllers.Virement;
 
+import Entities.User;
 import Entities.Virement;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -67,6 +68,7 @@ public class VirementItemsAdmin  implements  Initializable {
     private ImageView photoCin;
     @FXML
     private HBox Hboxvirement;
+
 
     public void initData(Virement i){
         this.virement=i ;

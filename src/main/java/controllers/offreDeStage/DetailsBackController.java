@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -41,6 +42,7 @@ public class DetailsBackController {
 
     @FXML
     private Button Postuler;
+
 
     @FXML
     private Text MotCle;
@@ -84,5 +86,8 @@ public class DetailsBackController {
         Symfony symfony = new Symfony();
         symfony.Recommendation(1);
 
+    }
+
+    public void recommender(MouseEvent mouseEvent) {
     }
 }

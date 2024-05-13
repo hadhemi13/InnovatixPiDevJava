@@ -22,6 +22,7 @@ import services.ServiceArticle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLException;
@@ -109,8 +110,9 @@ public class ListeArticlesFrontController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            ListeArticlesFrontController.articles = new ServiceArticle().getAllArticles();
+            ListeArticlesFrontController.articles = new ServiceArticle().afficher();
             //Collections.reverse(ListeArticlesFrontController.articles);
+            System.out.println(articles);
         } catch (SQLException ex) {
             Logger.getLogger(ListeArticlesFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -127,14 +129,12 @@ public class ListeArticlesFrontController implements Initializable {
 
         } else {
             // Reset to the first index
-            currentArticleIndex = 0;
+            currentArticleIndex = 1;
             displayArticle(ListeArticlesFrontController.articles.get(currentArticleIndex));
             System.out.println(currentArticleIndex);
 
         }
-    }
-    )
-    );
+    }));
 
 
     public void initializeData () {
@@ -156,6 +156,22 @@ public class ListeArticlesFrontController implements Initializable {
         dateArt.setText(formattedDate);
         contenuArt.setText(article.getContenu_art());
         categorieart.setText(article.getCategorie_art());
+        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java", "uploads",article.getImage_art());
+//        System.out.println("destination");
+        if (Files.exists(destination)) {
+            try {
+//                System.out.println("destination");
+                Image image = new Image(destination.toUri().toString());
+                imageP.setImage(image);
+            } catch (Exception e) {
+                System.err.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                // Gérer l'erreur de chargement de l'image ici
+            }
+        } else {
+            System.err.println("Le fichier image n'existe pas : " + destination);
+            // Gérer l'absence du fichier image ici
+        }
+
     }
 
     @FXML
@@ -261,12 +277,30 @@ public class ListeArticlesFrontController implements Initializable {
             Article article = ListeArticlesFrontController.articles.get(i);
             postNbr.setText(i + 1 + "#");
             titreArt.setText(article.getTitre_art());
+            String url = "file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art();
+            System.out.println(url);
+//            imageP.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java", "uploads",article.getImage_art());
+            System.out.println("destination");
+            if (Files.exists(destination)) {
+                try {
+                    System.out.println("destination");
+                    Image image = new Image(destination.toUri().toString());
+                    imageP.setImage(image);
+                } catch (Exception e) {
+                    System.err.println("Erreur lors du chargement de l'image : " + e.getMessage());
+                    // Gérer l'erreur de chargement de l'image ici
+                }
+            } else {
+                System.err.println("Le fichier image n'existe pas : " + destination);
+                // Gérer l'absence du fichier image ici
+            }
+
+
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             dateArt.setText(formattedDate);
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java","uploads", article.getImage_art());
-            Image image = new Image(String.valueOf(destination));
-            imageart.setImage(image);
+
 
             userNom.setText(article.getNom_aut_art());
             categorieart.setText(article.getNom_aut_art());

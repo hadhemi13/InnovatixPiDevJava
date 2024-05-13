@@ -1,12 +1,14 @@
 package Entities;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 public class User {
-    int id , salaire,rib;
+    int id , salaire;
+    BigInteger rib;
     String name,password,tel,email,adresse,profession,cin,photo, poste;
     String roles;
     String date_naissance;
@@ -50,7 +52,7 @@ public class User {
 
     }
 
-    public User(String name, String email, String tel, String password, String image, String roles,int rib) {
+    public User(String name, String email, String tel, String password, String image, String roles,BigInteger rib) {
         this.name=name;
         this.roles=roles;
         this.email=email;
@@ -62,11 +64,12 @@ public class User {
 
     }
 
-    public int getRib() {
+
+    public BigInteger getRib() {
         return rib;
     }
 
-    public void setRib(int rib) {
+    public void setRib(BigInteger rib) {
         this.rib = rib;
     }
 

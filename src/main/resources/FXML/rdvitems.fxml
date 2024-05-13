@@ -34,13 +34,6 @@
         <Text fx:id="methode" strokeType="OUTSIDE" strokeWidth="0.0" text="en ligne" translateX="-20.0" wrappingWidth="87.54998779296875" />
       <Text fx:id="fraisretard" layoutX="687.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="employename" wrappingWidth="102.54998779296875" />
         <Label fx:id="userItemStateBtn" onMouseClicked="#DeleteCheque" styleClass="userItem__btn" translateX="80.0">
-            <graphic>
-                <ImageView fx:id="userItemStateBtnImg" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/delete.png" />
-                    </image>
-                </ImageView>
-            </graphic>
             <HBox.margin>
                 <Insets left="14.0" />
             </HBox.margin>
@@ -57,6 +50,5 @@
                 <Insets />
             </HBox.margin>
         </Label>
-      <Text fx:id="deleteitem" onMouseClicked="#deletecredit" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__field-text" text="En cours" />
     </children>
 </HBox>

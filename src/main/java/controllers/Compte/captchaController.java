@@ -76,6 +76,20 @@ public class captchaController  implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         captcha =  setCaptcha();
+        submit.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+                AnchorPane captchaPane = loader.load();
+                Scene scene = new Scene(captchaPane);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                ((Stage) submit.getScene().getWindow()).close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
 
     }
     //Verifier l captcha + notification systéme
@@ -95,13 +109,13 @@ public class captchaController  implements Initializable{
             tray.showAndDismiss(Duration.millis(3000));
 
             //     try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
-            CaptchaPane.getChildren().removeAll();
-            CaptchaPane.getChildren().setAll(fxml);
-//            stage.show();
-            ((Stage) submit.getScene().getWindow()).close();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.close();
+//            Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/SuccesAjoutCompte.fxml"));
+//            CaptchaPane.getChildren().removeAll();
+//            CaptchaPane.getChildren().setAll(fxml);
+////            stage.show();
+//            ((Stage) submit.getScene().getWindow()).close();
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stage.close();
 
 //        } catch (IOException ex) {
 //            Logger.getLogger(Agent_mainController.class.getName()).log(Level.SEVERE, null, ex);

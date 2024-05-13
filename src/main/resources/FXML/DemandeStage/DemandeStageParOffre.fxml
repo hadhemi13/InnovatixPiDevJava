@@ -25,16 +25,16 @@
 
 <AnchorPane fx:id="demandeStagePane" prefHeight="720.0" prefWidth="1300.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.demandeStage.DemandeStageParOffreController">
     <children>
-        <VBox fx:id="content_area" prefHeight="750.0" prefWidth="1366.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card" stylesheets="@../../css/yesser/SideNavBar.css">
+        <VBox fx:id="content_area" prefHeight="750.0" prefWidth="1366.0" style="-fx-background-color: white;" styleClass="productAddedToCart__card">
             <children>
                 <HBox prefHeight="53.0" prefWidth="570.0" translateX="230.0">
                     <children>
-                        <Text fill="#59b462" strokeType="OUTSIDE" strokeWidth="0.0" text="Demande de Stage " textAlignment="CENTER">
+                        <Text fill="#59b462" strokeType="OUTSIDE" strokeWidth="0.0" text="Demande de Stage " textAlignment="CENTER" wrappingWidth="301.7109375">
                             <HBox.margin>
                                 <Insets left="250.0" top="15.0" />
                             </HBox.margin>
                             <font>
-                                <Font size="25.0" />
+                                <Font size="24.0" />
                             </font>
                         </Text>
                     </children>
@@ -326,6 +326,10 @@
                     </content>
                 </ScrollPane>
             </children>
+         <stylesheets>
+            <URL value="@../../css/yesser/SideNavBar.css" />
+            <URL value="@../../css/SideNavBar.css" />
+         </stylesheets>
         </VBox>
     </children>
 

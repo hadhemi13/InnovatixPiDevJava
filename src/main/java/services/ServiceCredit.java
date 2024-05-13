@@ -62,30 +62,67 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
     }
 
     @Override
-    public  List<Credit> afficher() throws SQLException {
+    public List<Credit> afficher() throws SQLException {
+        List<Credit> list = new ArrayList<>();
 
+        try {
+            String req = "SELECT * FROM credit WHERE user_id = ?";
+            PreparedStatement st = connection.prepareStatement(req);
+            st.setInt(1, user.getId()); // Remplacer user.getId() par l'ID de l'utilisateur que vous souhaitez afficher les crédits
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                list.add(new Credit(
+                        rs.getInt("id"),
+                        rs.getInt("id_client"),
+                        rs.getInt("montant"),
+                        rs.getString("statusclient"),
+                        rs.getDouble("taux"),
+                        rs.getString("status"),
+                        rs.getDate("datedebut"),
+                        rs.getDouble("mensualite"),
+                        rs.getInt("duree"),
+                        rs.getDouble("fraisretard")
+                ));
+            }
+            System.out.println("Crédits récupérés : " + list);
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération des crédits : " + e.getMessage());
+        }
+        return list;
+    }
+
+    public List<Credit> afficherAdmin() throws SQLException {
         List<Credit> list = new ArrayList<>();
 
         try {
             String req = "SELECT * FROM credit";
-          //  PreparedStatement preparedStatement = new PreparedStatement();
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(req);
+            PreparedStatement st = connection.prepareStatement(req);
+            ResultSet rs = st.executeQuery();
+
             while (rs.next()) {
-                list.add(new Credit
-                        (rs.getInt("id"),
-                                rs.getInt("id_client"), rs.getInt("montant"), rs.getString("statusclient"), rs.getDouble("taux"),rs.getString("status"),
-                                rs.getObject("datedebut", Date.class),rs.getDouble("mensualite"),
-                                rs.getInt("duree"),
-                                rs.getDouble("fraisretard")));
+                Credit credit = new Credit(
+                        rs.getInt("id"),
+                        rs.getInt("id_client"),
+                        rs.getInt("montant"),
+                        rs.getString("statusclient"),
+                        rs.getDouble("taux"),
+                        rs.getString("status"),
+                        rs.getDate("datedebut"),
+                        rs.getDouble("mensualite"),
+                        rs.getInt("duree"),
+                        rs.getDouble("fraisretard")
+                );
+                list.add(credit);
             }
-            System.out.println("zz"+
-                    list);
+            System.out.println("Crédits récupérés : " + list);
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            System.err.println("Erreur lors de la récupération des crédits : " + e.getMessage());
         }
         return list;
     }
+
+
     public List<Credit> affichercreditparmontant() throws SQLException {
         List<Credit> list = new ArrayList<>();
         try {

@@ -60,7 +60,7 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
     @Override
     public boolean ajouter(Reclamation reclamation) throws SQLException {
 
-        String req = "INSERT INTO reclamation (objet_rec, contenu_rec, adr_rec, nom_aut_rec, dep_rec, statut_rec, piece_jrec, date_rec) " +
+        String req = "INSERT INTO reclamation (objet_rec, contenu_rec, adr_rec, nom_aut_rec, dep_rec, statut_rec, piece_jrec, date_rec,user_id) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         LocalDateTime currentDate = LocalDateTime.now();
 
@@ -73,6 +73,7 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
             preparedStatement.setString(6, reclamation.getStatut_rec());
             preparedStatement.setString(7, reclamation.getPiece_jrec());
             preparedStatement.setTimestamp(8, Timestamp.valueOf(currentDate));
+            preparedStatement.setInt(9,reclamation.getUser_id());
 
 
             preparedStatement.executeUpdate();

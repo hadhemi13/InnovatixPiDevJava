@@ -121,7 +121,7 @@ public class DetailArticleAdminController implements Initializable {
             } else {
                 offre.setText("Date de publication non disponible");
             }
-            img.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            img.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/"+ article.getImage_art()));
 
 //                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 //                String formattedDate = article.getDate_pub_art().format(formatter);
@@ -170,7 +170,7 @@ public class DetailArticleAdminController implements Initializable {
         }
 
     private void openArticleImage(MouseEvent mouseEvent) {
-        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", article.getPiecejointe_art());
+        Path destination = Paths.get("C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory", article.getPiecejointe_art());
 
         try {
             File file = destination.toFile();

@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
@@ -107,10 +108,10 @@ public class SignUpController implements Initializable{
         String repassword = repassField.getText();
         String image = imagePath;
         String roles = "ROLE_CLIENT";
-        Rib = 25544555;
+        Rib = 2554455;
 
         // Créer un objet User avec les informations saisies
-        User newUser = new User(name, email, tel, password, image, roles,Rib);
+        User newUser = new User(name, email, tel, password, image, roles,BigInteger.valueOf(Rib));
         //User usd = new User(name,email,tel,password,fileName,roles);
         UserControleSaisie userControleSaisie = new UserControleSaisie();
         ServiceUser userService = new ServiceUser();
@@ -121,7 +122,7 @@ public class SignUpController implements Initializable{
         }
 
         // Ajouter l'utilisateur à la base de données ou effectuer toute autre action nécessaire
-        addUserToDatabase(name,email,tel,password,image,roles,Rib);
+        addUserToDatabase(name,email,tel,password,image,roles, BigInteger.valueOf(Rib));
        // userService.ajouter(usd);
         clearInputFields();
     }
@@ -138,7 +139,7 @@ public class SignUpController implements Initializable{
 
 
 
-    private void addUserToDatabase(String name, String email, String tel,  String password, String photo ,String roles,int Rib) {
+    private void addUserToDatabase(String name, String email, String tel, String password, String photo , String roles, BigInteger Rib) {
         // Créer un nouvel utilisateur avec les valeurs saisies
         User user = new User(name,email,tel,password, photo,roles,Rib);
 

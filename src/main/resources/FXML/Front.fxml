@@ -23,12 +23,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="content_area" prefHeight="700.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.FrontControlleur">
+<AnchorPane fx:id="content_area" prefHeight="700.0" prefWidth="1366.0" stylesheets="@../css/front.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontControlleur">
     <children>
         <ScrollPane prefHeight="700.0" prefWidth="1366.0">
             <content>
-                <VBox prefHeight="4000.0" prefWidth="1366.0">
+                <VBox prefHeight="2000.0" prefWidth="1366.0">
                     <children>
                         <VBox prefHeight="759.0" prefWidth="1366.0" styleClass="bgfront" stylesheets="@../css/front.css">
                             <children>
@@ -48,12 +47,12 @@
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-custom" text="E-Flex Bank" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                        <HBox fx:id="actualiteee" alignment="CENTER" onMouseClicked="#actualiteee" prefHeight="100.0" prefWidth="200.0">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-custom" text="Acceuil" />
                                             </children>
                                         </HBox>
-                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                        <HBox fx:id="actualitee" alignment="CENTER" onMouseClicked="#actualitee" prefHeight="100.0" prefWidth="200.0">
                                             <children>
                                                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-custom" text="Actualités" />
                                             </children>
@@ -102,20 +101,9 @@
                         </HBox>
                         <VBox prefHeight="526.0" prefWidth="1366.0">
                             <children>
-                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="1358.0">
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="1366.0">
                                     <children>
-                                        <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="705.0">
-                                            <content>
-                                                <!--                                            <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="704.0">-->
-                                                <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" hgap="10" styleClass="article-grid" vgap="10">
-
-                                                    <rowConstraints>
-                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                    </rowConstraints>
-                                                </GridPane>
-                                            </content>
-                                        </ScrollPane>
-                                        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="750.0" stylesheets="@../css/articles.css" translateX="-2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="750.0" stylesheets="@../css/articles.css">
                                             <center>
                                                 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="749.0" BorderPane.alignment="CENTER">
                                                     <left>
@@ -157,16 +145,6 @@
                                                                                         <Font name="Calibri Bold Italic" size="25.0" />
                                                                                     </font>
                                                                                 </Button>
-                                                                                <Label fx:id="userNom" layoutX="312.0" layoutY="11.0" prefHeight="54.0" prefWidth="61.0" text="Admin" textFill="WHITE">
-                                                                                    <font>
-                                                                                        <Font name="Calibri Bold Italic" size="20.0" />
-                                                                                    </font>
-                                                                                </Label>
-                                                                                <ImageView fx:id="userImg" fitHeight="50.0" fitWidth="71.0" layoutX="385.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-                                                                                    <image>
-                                                                                        <Image url="@../imagesAct/admin.png" />
-                                                                                    </image>
-                                                                                </ImageView>
                                                                                 <Button fx:id="dateArt" alignment="TOP_LEFT" layoutY="38.0" mnemonicParsing="false" onAction="#go_details_Posts" prefHeight="48.0" prefWidth="264.0" styleClass="buttonFront" text="Date">
                                                                                     <font>
                                                                                         <Font name="Calibri Bold Italic" size="16.0" />
@@ -205,6 +183,21 @@
                                                 </BorderPane>
                                             </center>
                                         </BorderPane>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1358.0">
+                                    <children>
+                                        <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1354.0">
+                                            <content>
+                                                <!--                                            <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="704.0">-->
+                                                <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" hgap="10" styleClass="article-grid" vgap="10">
+
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
 
                                     </children>
                                 </HBox>
@@ -214,5 +207,6 @@
                 </VBox>
             </content>
         </ScrollPane>
+        <VBox fx:id="Rss" prefHeight="200.0" prefWidth="100.0" />
     </children>
 </AnchorPane>

@@ -221,6 +221,7 @@ public class ListArticleAdminController implements Initializable {
         ArtListContainer.setVgap(verticalGap);
         ArtListContainer.setHgap(horizontalGap);
         for (Article article : articles) {
+            System.out.println(article.getId());
             // Créez un contrôleur de carte d'article pour chaque article
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardAdmin.fxml"));
             Parent articleCardParent = loader.load();

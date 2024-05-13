@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -50,6 +51,9 @@ public class Recrutement implements Initializable {
 
     @FXML
     private Button filtrer;
+
+    @FXML
+    private Button retour;
 
 //    @FXML
 //    private Pane paneDem;
@@ -93,7 +97,7 @@ public class Recrutement implements Initializable {
 //                ListeOffre.setSpacing(0.5);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/offreDeStage/OffreStageVisiteurItem.fxml"));
                 Parent offreItem = loader.load();
-                offreItem.getStyleClass().add("userProductCard");
+               // offreItem.getStyleClass().add("userProductCard");
 
                 OffreStageVisiteurItemController offreStageItem = loader.getController();
                 offreStageItem.initData(offre);
@@ -194,4 +198,19 @@ public class Recrutement implements Initializable {
         }
     }
 
-}
+    public void RetourBack(MouseEvent mouseEvent) {
+
+        try {
+            // Charger le fichier FXML de listArticleAdmin
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Front.fxml"));
+            Pane listArticleAdminPane = loader.load();
+
+            // Remplacer le contenu de content_area par le contenu de listArticleAdmin
+            content_area.getChildren().setAll(listArticleAdminPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    }
+

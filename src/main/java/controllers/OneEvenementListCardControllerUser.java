@@ -114,29 +114,8 @@ public class OneEvenementListCardControllerUser {
         }
        // pricefx.setText(String.valueOf(evenement.getPrix()));
 
-        deleteEvenement.setId(String.valueOf(evenement.getId()));
 
-        deleteEvenement.setOnMouseClicked(event -> {
-            System.out.println("ç'est interdit ");
-            showNotification("ç'est interdit !!!", "tu n'as pas accès pour faire suppression!!!.", NotificationType.ERROR);
 
-        });
-        offerEvent.setId(String.valueOf(evenement.getId()));
-
-        offerEvent.setOnMouseClicked(event -> {
-            System.out.println("ID du evenement à créer une offre : " + evenement.getId());
-            System.out.println("ç'est interdit ");
-            showNotification("ç'est interdit !!!", "tu n'as pas accès pour faire une offre!!!.", NotificationType.ERROR);
-
-        });
-
-        editEvenement.setId(String.valueOf(evenement.getId()));
-        editEvenement.setOnMouseClicked(event -> {
-            System.out.println("ID du Evenement à modifier : " + evenement.getId());
-            System.out.println("ç'est interdit ");
-            showNotification("ç'est interdit !!!", "tu n'as pas accès pour faire mise à jour!!!.", NotificationType.ERROR);
-
-        });
         showEvenement.setId(String.valueOf(evenement.getId()));
         showEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement : " + evenement.getId());
@@ -152,7 +131,7 @@ public class OneEvenementListCardControllerUser {
             }
 
         });
-        editEvenement.setId(String.valueOf(evenement.getId()));
+        qrCodeEvenement.setId(String.valueOf(evenement.getId()));
         qrCodeEvenement.setOnMouseClicked(event -> {
             System.out.println("ID du Evenement à générer qr Code : " + evenement.getId());
             Evenement.setIdEvenement(evenement.getId());

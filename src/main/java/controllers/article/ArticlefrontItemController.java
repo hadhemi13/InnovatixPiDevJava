@@ -89,7 +89,7 @@ public class ArticlefrontItemController {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             dateArt.setText(formattedDate);
-            imageart.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+            imageart.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/"+ article.getImage_art()));
 
             contenuArt.setText(article.getContenu_art());
             categorieart.setText(article.getCategorie_art());

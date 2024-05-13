@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
@@ -11,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.DemandeCreditListClientUser">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" styleClass="dash__container-card" stylesheets="@../../resources/css/Compte.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Credit.DemandeCreditListClientUser">
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="86.0" prefWidth="1205.0">
             <children>
@@ -53,10 +59,10 @@
             <Button fx:id="chequebtn11" layoutX="1061.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#convertir" prefHeight="41.0" prefWidth="111.0" styleClass="AddBtn" stylesheets="@../css/Compte.css" text="CONVERTIR" textFill="#f2c709" translateX="150.0" />
             </children>
         </HBox>
-        <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="42.0" prefWidth="1187.0" styleClass="VirementTableHead" stylesheets="@../css/Compte.css" />
-        <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="134.0" prefHeight="487.0" prefWidth="1187.0" styleClass="user_listScrollPane">
+        <HBox fx:id="userTableHead" alignment="CENTER_LEFT" layoutX="33.0" layoutY="92.0" prefHeight="20.0" prefWidth="1166.0" styleClass="VirementTableHead" stylesheets="@../css/Compte.css" translateX="-15.0" />
+        <ScrollPane hbarPolicy="NEVER" layoutX="33.0" layoutY="134.0" prefHeight="474.0" prefWidth="1174.0" styleClass="user_listScrollPane" translateX="-20.0" translateY="-20.0">
             <content>
-                <GridPane fx:id="userListContainer" prefHeight="475.0" prefWidth="1151.0" translateX="20.0">
+                <GridPane fx:id="userListContainer" prefHeight="469.0" prefWidth="1169.0">
                     <!-- Le contenu sera chargé dans ce GridPane -->
                 </GridPane>
             </content>

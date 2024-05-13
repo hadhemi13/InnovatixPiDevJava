@@ -1,15 +1,17 @@
 package controllers.offreDeStage;
 
 import Entities.OffreDeStage;
-import controllers.demandeStage.DemandeStageController;
 import controllers.demandeStage.DemandeStageParOffreController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -17,6 +19,7 @@ import java.io.IOException;
 
 public class DetailsOffreController {
 
+    public VBox content_area;
     @FXML
     private Text Description;
 
@@ -51,8 +54,16 @@ public class DetailsOffreController {
     private HBox DatePost;
 
     @FXML
+    private ImageView img;
+
+    @FXML
+    private Text title;
+
+    @FXML
     private Text productName;
+
     private Stage stage;
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -63,40 +74,39 @@ public class DetailsOffreController {
         }
     }
 
-
-
-
     public void initData(OffreDeStage offreDeStage) {
+        title.setText(offreDeStage.getTitle());
+
         Description.setText(offreDeStage.getDescription());
         typeOffre.setText(offreDeStage.getTypeOffre());
         Niveau.setText(String.valueOf(offreDeStage.getNiveau()));
         Exigence.setText(offreDeStage.getExigenceOffre());
         poste.setText(String.valueOf(offreDeStage.getPostePropose()));
         datet1.setText(String.valueOf(offreDeStage.getDatePostu()));
+        MotCle.setText(String.valueOf(offreDeStage.getMotsCles()));
+
+        // Load appropriate image into the ImageView
+        // img.setImage(...);
         Postuler.setOnMouseClicked(mouseEvent -> {
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeStage/DemandeStageParOffre.fxml"));
-            Parent parent = null;
             try {
-                parent = loader.load();
+                Parent parent = loader.load();
+                Scene scene = new Scene(parent);
+                primaryStage.setTitle("E-Flex Bank");
+                primaryStage.setScene(scene);
+                primaryStage.show();
+                DemandeStageParOffreController demandeStageController = loader.getController();
+                demandeStageController.initData(offreDeStage);
+                demandeStageController.yy = offreDeStage.getPostePropose();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
-            Scene scene = new Scene(parent);
-            primaryStage.setTitle("E-Flex Bank");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-            DemandeStageParOffreController demandeStageController = loader.getController();
-            demandeStageController.initData(offreDeStage);
-            DemandeStageParOffreController demandeStageParOffreController = new DemandeStageParOffreController();
-//            System.out.println(offreDeStage);
-            demandeStageController.yy=offreDeStage.getPostePropose();
-
         });
-
-
     }
 
-    public void ouvrirdemande(MouseEvent mouseEvent) {
+    @FXML
+    private void initialize() {
+        // Initialize your controller
     }
 }

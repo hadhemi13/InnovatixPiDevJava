@@ -80,9 +80,15 @@ public class DemandeItemVisiteurController {
         email.setText(demandeStage.getEmail());
 
         numero.setText(String.valueOf(demandeStage.getNumeroTelephone()));
-        Lettre.setText(demandeStage.getLettremotivation());
+
+        String typeText = demandeStage.getLettremotivation() != null && demandeStage.getLettremotivation().length() > 30 ? demandeStage.getLettremotivation().substring(0, 30) : demandeStage.getLettremotivation();
+
+
+        Lettre.setText(typeText);
         domaine.setText(demandeStage.getDomaine());
         cv.setText(demandeStage.getCv());
+
+//        cv.setVisible(false);
 //        String img = null;
 //        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","resources","img" ,img);
 

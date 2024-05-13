@@ -15,7 +15,7 @@ public class DataSource {
 
   private static DataSource data;
   private Connection con;
-  private String url = "jdbc:mysql://localhost:3306/efba";
+  private String url = "jdbc:mysql://localhost:3306/yessertest";
   private String login = "root";
   private String pwd = "";
   //set password

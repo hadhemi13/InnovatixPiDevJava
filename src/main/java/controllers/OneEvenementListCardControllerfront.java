@@ -76,9 +76,7 @@ public class OneEvenementListCardControllerfront {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         });
-
         Image image = new Image(
                 getClass().getResource("/assets/ProductUploads/" + evenement.getImg()).toExternalForm());
         img.setImage(image);

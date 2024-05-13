@@ -30,7 +30,7 @@ public class Reclamation {
         this.user_id = user_id;
     }
 
-    public Reclamation(String objet_rec, String contenu_rec, String adr_rec, String nom_aut_rec, String dep_rec, String statut_rec, String piece_jrec, LocalDateTime date_rec) {
+    public Reclamation(String objet_rec, String contenu_rec, String adr_rec, String nom_aut_rec, String dep_rec, String statut_rec, String piece_jrec, LocalDateTime date_rec,int user_id) {
         this.objet_rec = objet_rec;
         this.contenu_rec = contenu_rec;
         this.adr_rec = adr_rec;
@@ -39,6 +39,7 @@ public class Reclamation {
         this.statut_rec = statut_rec;
         this.piece_jrec = piece_jrec;
         this.date_rec = date_rec;
+        this.user_id = user_id;
     }
 
     public Reclamation(String text, String text1, String adresse, String nom, String selectedDepartment, String pieceJointe, String statut, LocalDateTime dateTime, String image) {

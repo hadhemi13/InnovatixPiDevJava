@@ -25,13 +25,13 @@
       <Text fx:id="numero" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="numero" translateX="20.0" wrappingWidth="106.84808349609375" />
       <Text fx:id="domaine" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="domaine" translateX="20.0" wrappingWidth="108.84808349609375" />
       <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="userItem__name" text="date" translateX="20.0" wrappingWidth="115.84808349609375" />
-      <Text fx:id="Lettre" strokeType="OUTSIDE" strokeWidth="0.0" text="LettreMotivation" />
+      <Text fx:id="Lettre" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LettreMotivation" translateY="8.0" />
       <ImageView fx:id="imageStaut" fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="50.0" />
          </HBox.margin>
       </ImageView>
-      <Hyperlink fx:id="cv" onAction="#showCv" prefHeight="41.0" prefWidth="79.0" translateX="20.0">
+      <Hyperlink fx:id="cv" onAction="#showCv" prefHeight="41.0" prefWidth="88.0" translateX="18.0" translateY="-5.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,7 +43,7 @@
       <Text fx:id="etat" strokeType="OUTSIDE" strokeWidth="0.0" text="etat" />
       <HBox prefHeight="99.0" prefWidth="77.0" translateX="20.0" translateY="-20.0">
          <children>
-            <Label fx:id="modifier" styleClass="userItem__btn">
+            <Label fx:id="modifier" styleClass="userItem__btn" translateY="10.0">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -55,9 +55,9 @@
                   <Insets left="10.0" top="40.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="supprimer" styleClass="userItem__btn">
+            <Label fx:id="supprimer" styleClass="userItem__btn" translateY="10.0">
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+                  <ImageView fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../imgYesser/64fad72e-917a-4529-af06-9207cc8566f0.png" />
                      </image>
