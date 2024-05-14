@@ -32,7 +32,7 @@ import static javax.mail.Message.RecipientType.TO;
 
 public class GMailer {
     private static final String TEST_EMAIL="ahmed.marzougui@esprit.tn";
-    private static final String TEST_EMAILL="eflexbank@gmail.com";
+    private static final String TEST_EMAILL="eflexbank@gmail.comm";
 
     private final  Gmail service;
     public GMailer() throws GeneralSecurityException, IOException {
