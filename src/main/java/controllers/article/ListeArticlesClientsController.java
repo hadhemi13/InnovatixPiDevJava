@@ -604,6 +604,7 @@
 package controllers.article;
 
 import Entities.actualites.Article;
+import controllers.rss.RSSReader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -686,7 +687,7 @@ public class ListeArticlesClientsController implements Initializable {
     @FXML
     private Label userNom;
     public static int i = 0;
-
+    private List<RSSReader> articlesRss;
     private final ServiceArticle serviceArticle = new ServiceArticle();
 
 //    @FXML
@@ -876,7 +877,7 @@ public class ListeArticlesClientsController implements Initializable {
 
     public void rssArt(MouseEvent mouseEvent) throws IOException {
         // Charger le fichier FXML de listArticleAdmin
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/ListArticleFront.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listRssBal.fxml"));
         Pane listArticleAdminPane = loader.load();
 
         // Remplacer le contenu de content_area par le contenu de listArticleAdmin

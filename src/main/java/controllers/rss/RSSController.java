@@ -41,29 +41,29 @@ import java.util.List;
             }
 
             // Ajouter un gestionnaire d'événements pour détecter la sélection d'un article
-            articleListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-                    try {
-                        // Charger les détails de l'article sélectionné
-                        List<rssFeed> articles = rssFeed.loadArticlesFromURL("https://rss.app/feeds/v1.1/tyV0IvNTdIOilauf.json");
-
-                        // Rechercher l'article correspondant au titre sélectionné
-                        rssFeed selectedArticle = articles.stream()
-                                .filter(article -> article.getTitle().equals(newValue))
-                                .findFirst()
-                                .orElse(null);
-
-                        // Afficher les détails de l'article sélectionné
-                        if (selectedArticle != null) {
-                            textTitre.setText(selectedArticle.getTitle());
-                            textcontent.setText(selectedArticle.getContent());
-                            afficherImage(selectedArticle.getImageUrl());
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
+//            articleListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//                if (newValue != null) {
+//                    try {
+//                        // Charger les détails de l'article sélectionné
+//                        List<rssFeed> articles = rssFeed.loadArticlesFromURL("https://rss.app/feeds/v1.1/tyV0IvNTdIOilauf.json");
+//
+//                        // Rechercher l'article correspondant au titre sélectionné
+//                        rssFeed selectedArticle = articles.stream()
+//                                .filter(article -> article.getTitle().equals(newValue))
+//                                .findFirst()
+//                                .orElse(null);
+//
+//                        // Afficher les détails de l'article sélectionné
+//                        if (selectedArticle != null) {
+//                            textTitre.setText(selectedArticle.getTitle());
+//                            textcontent.setText(selectedArticle.getContent());
+//                            afficherImage(selectedArticle.getImageUrl());
+//                        }
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
         }
 
         private void afficherImage(String imageUrl) {
@@ -79,6 +79,9 @@ import java.util.List;
                 // Réinitialiser l'image si l'URL est vide ou nulle
                 articleImageView.setImage(null);
             }
+        }
+        public void initData(rssFeed rssFeed){
+            textTitre.setText(rssFeed.getTitle());
         }
 
 }

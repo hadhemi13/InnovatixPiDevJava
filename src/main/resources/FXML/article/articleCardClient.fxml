@@ -22,7 +22,7 @@
                             <ImageView fx:id="imgArtFront" fitHeight="150.0" fitWidth="260.0" pickOnBounds="true" preserveRatio="true" translateY="5.0" />
                         </children>
                     </HBox>
-                    <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="48.0" prefWidth="290.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css" translateY="20.0">
+                    <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="48.0" prefWidth="290.0" styleClass="userProductCard-name" stylesheets="@../../css/SideNavBar.css" translateY="10.0">
                         <children>
                             <Text fx:id="titreArtFront" fill="#5ba890" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre de l'article" textAlignment="CENTER" wrappingWidth="256.2749938964844">
                            <font>
@@ -33,12 +33,12 @@
                             <Insets bottom="10.0" top="10.0" />
                         </padding>
                     </HBox>
-                    <HBox alignment="CENTER" prefHeight="27.0" prefWidth="264.0" styleClass="ratingProductCard" translateY="30.0">
+                    <HBox alignment="CENTER" prefHeight="27.0" prefWidth="264.0" styleClass="ratingProductCard" translateY="25.0">
                         <children>
                             <Text fx:id="datepubArt" fill="#26647a" strokeType="OUTSIDE" strokeWidth="0.0" text="Date pub" />
                         </children>
                     </HBox>
-                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="264.0" styleClass="userProductCard-description" translateY="30.0">
+                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="111.0" prefWidth="290.0" styleClass="userProductCard-description" translateY="30.0">
                         <children>
                             <Text fx:id="contenuArtFront" fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu de l'article ici" textAlignment="CENTER" wrappingWidth="245.12405395507812" />
                         </children>
@@ -49,8 +49,8 @@
                             <Insets bottom="10.0" />
                         </padding>
                     </HBox>
-                  <ImageView fx:id="qrCodeImage" fitHeight="125.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" />
-                    <HBox fx:id="action" alignment="CENTER" prefHeight="50.0" prefWidth="306.0" translateY="40.0">
+                  <ImageView fx:id="qrCodeImage" fitHeight="93.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" translateY="50.0" />
+                    <HBox fx:id="action" alignment="CENTER" prefHeight="50.0" prefWidth="306.0" translateY="60.0">
                         <children>
                             <HBox fx:id="pdf" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#pdf" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns">
                                 <children>
@@ -62,7 +62,7 @@
                                 </children>
                             </HBox>
 
-                            <HBox fx:id="viewdetailArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewdetailArt" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns">
+                            <HBox fx:id="viewdetailArt" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#viewdetailArt" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns" translateX="3.0">
                                 <children>
                                     <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
@@ -71,6 +71,15 @@
                                     </ImageView>
                                 </children>
                             </HBox>
+                        <HBox fx:id="textToSpeech" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#textToSpeech" prefHeight="30.0" prefWidth="34.0" styleClass="product__card-btns" translateX="6.0">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagesAct/voice.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
             
                         </children>
                     </HBox>

@@ -13,6 +13,8 @@ module workshoppidev.JavaFX {
     requires javafx.swing;
     requires com.fasterxml.jackson.databind;
     requires qrgen;
+    requires org.json;
+    requires javafx.media;
 //     requires voicerss.tts;
     opens tests to javafx.fxml;
     opens controllers to javafx.fxml;

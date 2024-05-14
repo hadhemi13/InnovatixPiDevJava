@@ -94,4 +94,14 @@ public class rssFeed {
 
         return articleTitles;
     }
+
+    @Override
+    public String toString() {
+        return "rssFeed{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", image='" + image + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                '}';
+    }
 }

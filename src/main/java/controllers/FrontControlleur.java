@@ -4,20 +4,25 @@ import Entities.actualites.Article;
 import controllers.article.ListArticleAdminController;
 import controllers.article.UpdateArtcileCardController;
 import controllers.article.articleCardAdminController;
+import controllers.rss.RSSController;
+import controllers.rss.RSSReader;
+import controllers.rss.rssFeed;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 import Entities.actualites.Article;
@@ -36,8 +41,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import services.ServiceArticle;
-
+import controllers.rss.RSSReader;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +51,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -66,27 +71,37 @@ public class FrontControlleur implements Initializable {
     public Button ajoutPP;
     @FXML
     private GridPane ArtListContainer;
-    private final ServiceArticle serviceArticle = new ServiceArticle();
+    @FXML
+    private VBox Rss;
+    private List<RSSReader> articlesRss;
 
+    private int currentArticleIndex = 0;
+
+    private Timeline timeline;
+    private final ServiceArticle serviceArticle = new ServiceArticle();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         System.out.println("yesser");
         try {
             // Call the method to load articles
             loadArticles();
+            System.out.println("yesser load");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
             // Handle any exceptions here, such as displaying an error message
         }
         // Nettoyer le contenu actuel
         ArtListContainer.getChildren().clear();
+        System.out.println("yesser children");
 
         // Récupérez la liste des articles à partir du service ou du gestionnaire de données
-        List<Article> articles = null; // Par exemple
+        List<Article> articles = new ArrayList<>(); // Par exemple
         try {
-            articles = serviceArticle.getAllArticles();
+            articles = serviceArticle.afficher();
+            System.out.println(articles);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -116,7 +131,7 @@ public class FrontControlleur implements Initializable {
         ArtListContainer.setHgap(horizontalGap);
 
         for (Article article : articles) {
-            System.out.println("loadArticles"+article.getId());
+            System.out.println("loadArticles" + article.getId());
             // Charger la carte d'article à partir du fichier FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleCardClient.fxml"));
             Parent articleCardParent = null;
@@ -135,12 +150,134 @@ public class FrontControlleur implements Initializable {
 
             // Incrémentez la colonne et passez à la ligne suivante si nécessaire
             column++;
-            if (column == 2) {
+            if (column == 4) {
                 column = 0;
                 row++;
             }
         }
+//        try {
+//            // Charger les détails de l'article sélectionné
+//            List<rssFeed> articlesRss = rssFeed.loadArticlesFromURL("https://rss.app/feeds/v1.1/tyV0IvNTdIOilauf.json");
+//            for (rssFeed rssFeed : articlesRss){
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/articleRssCard.fxml"));
+//
+//                Parent offreItem = loader.load();
+//                System.out.println(articlesRss);
+//                RSSController offreStageItem = loader.getController();
+//                offreStageItem.initData(rssFeed);
+//                Rss.getChildren().add(offreItem);
+//            }
+//            // Rechercher l'article correspondant au titre sélectionné
+////            rssFeed selectedArticle = articlesRss.stream()
+////                    .filter(article -> article.getTitle().equals(newValue))
+////                    .findFirst()
+////                    .orElse(null);
+//
+//            // Afficher les détails de l'article sélectionné
+////            if (selectedArticle != null) {
+////                textTitre.setText(selectedArticle.getTitle());
+////                textcontent.setText(selectedArticle.getContent());
+////                afficherImage(selectedArticle.getImageUrl());
+////            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
+        try {
+            articlesRss = RSSReader.loadArticlesFromURL("https://rss.app/feeds/v1.1/t9AIvL6SZLnwsI91.json");
+            if (!articles.isEmpty()) {
+                displayArticle(articlesRss.get(currentArticleIndex)); // Appel de la méthode avec un objet de type RSSReader
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            // Gérer IOException de manière appropriée
+        }
+
+
+
+        // Initialize and start the timeline for automatic article display
+        timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> nextArticle()));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
     }
+
+    @FXML
+    void Go_New_Post() {
+        nextArticle();
+    }
+
+    @FXML
+    void PreviousPost() {
+        if (currentArticleIndex > 0) {
+            currentArticleIndex--;
+        } else {
+            currentArticleIndex = articlesRss.size() - 1;
+        }
+        displayArticle(articlesRss.get(currentArticleIndex));
+    }
+
+    @FXML
+    void nextPost() {
+        nextArticle();
+    }
+
+    private void nextArticle() {
+        if (currentArticleIndex < articlesRss.size() - 1) {
+            currentArticleIndex++;
+        } else {
+            currentArticleIndex = 0;
+        }
+        displayArticle(articlesRss.get(currentArticleIndex));
+    }
+
+    private void displayArticle(RSSReader article) {
+        titreArt.setText(article.getTitle());
+        dateArt.setText(article.getDatePublished());
+        String wrappedContent = wrapText(article.getContent(), 60);
+        contenuArt.setText(wrappedContent);
+        categorieart.setText(article.getAuthor());
+
+        if (!article.getImageUrl().isEmpty()) {
+            try {
+                Image image = new Image(article.getImageUrl());
+                imageP.setImage(image);
+            } catch (Exception e) {
+                System.err.println("Error loading image: " + e.getMessage());
+            }
+        }
+    }
+
+    // Méthode pour envelopper le texte avec un retour à la ligne chaque 50 caractères
+    private String wrapText(String text, int wrapLength) {
+        StringBuilder sb = new StringBuilder(text);
+        int i = 0;
+        while ((i = sb.indexOf(" ", i + wrapLength)) != -1) {
+            sb.replace(i, i + 1, "\n");
+        }
+        return sb.toString();
+    }
+
+    public void searchProduct(KeyEvent keyEvent) {
+    }
+
+    public void SearchByImage(MouseEvent mouseEvent) {
+    }
+
+    public void getPromotionalItems(MouseEvent mouseEvent) {
+    }
+
+    public void go_details_Posts(ActionEvent actionEvent) {
+    }
+
+    public void returnbackarticle(MouseEvent mouseEvent) {
+
+
+    }
+
+
+
 
 
     private void loadArticleCards(List<Article> articles) {
@@ -170,7 +307,7 @@ public class FrontControlleur implements Initializable {
 
                 // Increment row and column
                 column++;
-                if (column >= 2) {
+                if (column >= 4) {
                     column = 0;
                     row++;
                 }
@@ -262,7 +399,7 @@ public class FrontControlleur implements Initializable {
 
             // Incrémentez la colonne et passez à la ligne suivante si nécessaire
             column++;
-            if (column == 2) {
+            if (column == 4) {
                 column = 0;
                 row++;
             }
@@ -324,7 +461,7 @@ public class FrontControlleur implements Initializable {
                 column++;
 
                 // Vérifier si nous devons passer à la ligne suivante
-                if (column >= 2) {
+                if (column >= 4) {
                     column = 0;
                     row++;
                 }
@@ -336,8 +473,7 @@ public class FrontControlleur implements Initializable {
     }
 
 
-    public void go_details_Posts(ActionEvent actionEvent) {
-    }
+
 
     public void nextPost(ActionEvent actionEvent) {
     }

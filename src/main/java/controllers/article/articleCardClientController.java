@@ -16,11 +16,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceArticle;
+import tests.Yesser;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -51,6 +56,8 @@ public class articleCardClientController implements Initializable {
     private HBox editArt;
 
     @FXML
+    private HBox textToSpeech;
+    @FXML
     private ImageView imgArtFront;
 
     @FXML
@@ -66,6 +73,12 @@ public class articleCardClientController implements Initializable {
     private ImageView qrCodeImage;
     private Article article;
     private ListArticleAdminController listArticleController;
+    private final Yesser yesser = new Yesser();
+
+
+
+
+
 
     public void setListArticleController(ListArticleAdminController listArticleController) {
         this.listArticleController = listArticleController;
@@ -229,11 +242,40 @@ public class articleCardClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // Ajoutez un gestionnaire d'événements au bouton textToSpeech
+        textToSpeech.setOnMouseClicked(this::handleTextToSpeech);
     }
+
+    private void handleTextToSpeech(MouseEvent event) {
+        try {
+            // Récupérer le contenu de l'article
+            String contenuArticle = contenuArtFront.getText(); // Supposons que contenuArtFront contient le texte de l'article
+
+            // Obtenez l'URL audio en appelant la méthode getAudioUrl de Yesser avec le contenu de l'article
+            String audioUrl = yesser.getAudioUrl("https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize",
+                    "df84989911msh59dff67d598256bp1ad0dajsn669a25b04f07",
+                    contenuArticle);
+
+            // Créez un objet Media à partir de l'URL audio
+            Media media = new Media(audioUrl);
+
+            // Créez un lecteur multimédia à partir de l'objet Media
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+            // Jouez l'audio
+            mediaPlayer.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void viewdetailArt(MouseEvent mouseEvent) {
     }
 
     public void pdf(MouseEvent mouseEvent) {
+    }
+
+    public void textToSpeech(MouseEvent mouseEvent) {
     }
 }

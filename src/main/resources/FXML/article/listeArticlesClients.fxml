@@ -2,9 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -19,18 +16,7 @@
             <children>
                 <Text fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text=" Articles| " />
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Tous" />
-                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="117.0">
-                    <image>
-                        <Image url="@../../imagesAct/magnifier.png" />
-                    </image>
-                </ImageView>
-                <TextField fx:id="ArticlesclientsfSearchInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#searchProduct" prefWidth="265.0" styleClass="product__list-searchInput" translateX="87.0">
-                    <padding>
-                        <Insets left="37.0" right="40.0" />
-                    </padding>
-                </TextField>
-                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#SearchByImage" prefHeight="40.0" prefWidth="40.0" styleClass="searchByImage" stylesheets="@../../css/SideNavBar.css" translateX="47.0" />
-                <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="320.0" styleClass="onlyOfferItemsBtn" translateX="220.0">
+                <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="320.0" styleClass="onlyOfferItemsBtn" translateX="750.0">
                     <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Bienvenue dans l'univers de E-Flex Bank" />
                     </children>
