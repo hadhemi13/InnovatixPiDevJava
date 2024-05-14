@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.MyDatabase;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -103,6 +104,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
         System.out.println("rrrrrrrrrrrrrrrr");
         new GMailer().sendMail("subject","credit approuve ");
 
+
     }
 
     @FXML
@@ -110,7 +112,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
 
     }
     public void initData(Credit i) {
-
+        System.out.println("azzazaz"+i);
         useriditem.setText(String.valueOf(i.getId()));
        useritemidclient.setText(String.valueOf(i.getStatusclient()));
         montantuseritem.setText(String.valueOf(i.getMontant()));
@@ -118,6 +120,7 @@ cal.afficherRDVById(Integer.parseInt(idvalue));
         dateitem.setText(String.valueOf(i.getDateDebut()));
         dureeitem.setText(String.valueOf(i.getDuree()));
        tauxitem.setText(String.valueOf(i.getTaux()));
+       userItemStateText.setText(i.getStatus());
 
 
     }

@@ -1,6 +1,7 @@
 package services;
 
 import Entities.Credit;
+import utils.MyDatabase;
 
 import java.sql.*;
 import java.sql.Date;
@@ -34,6 +35,19 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
 
         return creditCountByYear;
     }
+    public Map<Integer, Integer> countCreditsByDuration(List<Credit> credits) {
+        Map<Integer, Integer> creditCountByDuration = new HashMap<>();
+
+        // Iterate through the list of credits
+        for (Credit credit : credits) {
+            int duration = credit.getDuree(); // Assuming getDuration() returns the duration of the credit
+
+            // Increment the count for the corresponding duration in the map
+            creditCountByDuration.put(duration, creditCountByDuration.getOrDefault(duration, 0) + 1);
+        }
+
+        return creditCountByDuration;
+    }
 
 
 
@@ -55,7 +69,7 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
             while (rs.next()) {
                 list.add(new Credit
                         (rs.getInt("id"),
-                        rs.getInt("id_client"), rs.getInt("montant"), rs.getString("statusclient"), rs.getDouble("taux"),
+                        rs.getInt("id_client"), rs.getInt("montant"), rs.getString("statusclient"), rs.getDouble("taux"),rs.getString("status"),
                                 rs.getObject("datedebut", Date.class),rs.getDouble("mensualite"),
                         rs.getInt("duree"),
                         rs.getDouble("fraisretard")));

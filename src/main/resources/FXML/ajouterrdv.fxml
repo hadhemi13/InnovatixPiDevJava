@@ -45,7 +45,7 @@
                 </ImageView>
             </children>
         </HBox>
-        <Pane fx:id="content_area" layoutX="342.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="453.0">
+        <Pane fx:id="content_area" layoutX="342.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="453.0">
             <children>
                 <HBox alignment="CENTER_LEFT" layoutX="-27.0" layoutY="-21.0" prefWidth="49.0" />
                 <HBox fx:id="chartContainer" layoutX="22.0" layoutY="92.0" />
@@ -74,13 +74,16 @@
                         <Font name="Bauhaus 93" size="21.0" />
                     </font>
                 </TextField>
-                <Button fx:id="btnsave" layoutX="232.0" layoutY="459.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: orange;" text="SAVE" />
-                <ChoiceBox fx:id="idcreditchoise" layoutX="181.0" layoutY="8.0" prefWidth="150.0" />
-                <Label layoutX="84.0" layoutY="13.0" prefHeight="25.0" prefWidth="91.0" text="id credit" textFill="#cdcdcd" />
+                <Button fx:id="btnsave" layoutX="163.0" layoutY="504.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: orange;" text="SAVE" />
+                <ChoiceBox fx:id="idcreditchoise" layoutX="226.0" layoutY="13.0" prefWidth="150.0" />
+                <Label layoutX="79.0" layoutY="13.0" prefHeight="25.0" prefWidth="138.0" text="DESCRIPTION CREDIT" textFill="#cdcdcd">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
             <ChoiceBox fx:id="emloyechoice" layoutX="106.0" layoutY="387.0" prefHeight="35.0" prefWidth="246.0" />
             </children>
         </Pane>
-        <Label layoutX="40.0" layoutY="33.0" text="PRENDRE UN RDV" textFill="#c5c9c4">
+        <Label layoutX="40.0" layoutY="33.0" text="PRENDRE UN RDV" textFill="#40da19">
             <font>
                 <Font size="24.0" />
             </font>

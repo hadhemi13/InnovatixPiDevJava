@@ -158,7 +158,7 @@
             <children>
                 <Label styleClass="userItem__field-active" stylesheets="@../css/Compte.css">
                     <graphic>
-                        <Text fx:id="userItemStateText" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours" />
+                        <Text fx:id="userItemStateText" scaleY="2.0" scaleZ="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En cours" wrappingWidth="91.77734375" />
                     </graphic>
                <HBox.margin>
                   <Insets />

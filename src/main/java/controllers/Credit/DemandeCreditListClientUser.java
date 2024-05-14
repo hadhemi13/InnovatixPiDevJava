@@ -90,6 +90,8 @@ public class DemandeCreditListClientUser  implements Initializable {
         Pane pane;
         pane = c.setContentArea(this.content_area);
         loadcredit(list);
+        System.out.println("gg"+list);
+
     }
     private void loadcredit(List<Credit> credits) {
         // Nettoyer le conteneur actuel

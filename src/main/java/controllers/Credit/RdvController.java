@@ -1,9 +1,12 @@
 package controllers.Credit;
 import Entities.Credit;
 import Entities.RDV;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -12,13 +15,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import services.IRDV;
+import utils.MyDatabase;
 import services.ServiceCredit;
+
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.*;
+import Entities.Credit;
 
 public class RdvController implements IRDV <RDV> , Initializable {
 
@@ -318,8 +327,20 @@ public class RdvController implements IRDV <RDV> , Initializable {
             st.setString(5, methodelabel.getText());
             st.setString(6, emloyechoice.getValue());
             st.executeUpdate();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeCreditListClientUser.fxml"));
+            Parent addArticleParent = loader.load();
+            System.out.println("okkk");
+
+            // Récupération du contrôleur de la vue d'ajout d'article
+
+
+            // Remplacer le contenu actuel par la vue d'ajout d'article
+            content_area.getChildren().clear();
+            content_area.getChildren().add(addArticleParent);
 
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

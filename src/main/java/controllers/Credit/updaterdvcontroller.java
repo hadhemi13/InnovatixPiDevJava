@@ -1,5 +1,6 @@
 package controllers.Credit;
 
+import Entities.Credit;
 import Entities.RDV;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,13 +11,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import utils.MyDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class updaterdvcontroller {
 
@@ -62,19 +67,29 @@ public class updaterdvcontroller {
     ResultSet rs=null;
     private int id;
     public void initData(RDV rdv) {
-        id=rdv.getId();
-        idcreditchoise.getItems().add(rdv.getCredit_id());
+        id = rdv.getId();
+
+        // Use a Set to store unique credit IDs
+        Set<Integer> uniqueCreditIds = new HashSet<>();
+
+        // Add the credit ID to the Set
+        uniqueCreditIds.add(rdv.getCredit_id());
+
+        // Clear the existing items in idcreditchoise
+        idcreditchoise.getItems().clear();
+
+        // Add unique credit IDs to the ComboBox
+        idcreditchoise.getItems().addAll(uniqueCreditIds);
 
         idclientlabel.setText(String.valueOf(rdv.getIdclient()));
         heurelabel.setText(String.valueOf(rdv.getHeure()));
-        Date dateDebut =rdv.getDaterdv();
+        Date dateDebut = rdv.getDaterdv();
 
         datedebutlabel.setValue(LocalDate.parse(dateDebut.toString()));
         methodelabel.setText(rdv.getMethode());
         employename.setText(rdv.getEmployename());
-
-
     }
+
 
     @FXML
     public void saverdv(ActionEvent actionEvent) {

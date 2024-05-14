@@ -8,8 +8,8 @@ import javafx.scene.input.MouseEvent;
 
 public class sms {
     //
-    final String ACCOUNT_SID = "AC4adc7fe4cb61a460897686e28e173bb5";
-    final String AUTH_TOKEN = "95216ee1ff02a93e4c15247aa8d32ddb";
+    final String ACCOUNT_SID = "AC2dc3c96e5eaecb94c5425ab65f689f6e";
+    final String AUTH_TOKEN = "97895badcf378978038558e7d50dbc6f";
 
     @FXML
     private TextField phonenumberfieled;
@@ -32,7 +32,7 @@ public class sms {
         // Send the SMS
         Message message = Message.creator(
                         new PhoneNumber(toPhoneNumber),  // to
-                        new PhoneNumber("+16506677426"),  // from
+                        new PhoneNumber("+13395007652"),  // from
                         messageBody)
                 .create();
 

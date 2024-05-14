@@ -123,8 +123,8 @@
                </font>
             </TextField>
             <Button fx:id="btnsave" layoutX="246.0" layoutY="555.0" mnemonicParsing="false" onAction="#saverdv" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: green;" text="update rdv" />
-            <ChoiceBox fx:id="idcreditchoise" layoutX="141.0" layoutY="127.0" prefWidth="150.0" />
-            <Label layoutX="68.0" layoutY="132.0" prefHeight="25.0" prefWidth="91.0" text="id credit" textFill="#cdcdcd" />
+            <ChoiceBox fx:id="idcreditchoise" layoutX="164.0" layoutY="132.0" prefWidth="150.0" />
+            <Label layoutX="68.0" layoutY="132.0" prefHeight="25.0" prefWidth="91.0" text="REFERENCE CREDIT" textFill="#cdcdcd" />
             <Button fx:id="btnsave1" layoutX="78.0" layoutY="555.0" mnemonicParsing="false" onAction="#deleterdv" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: orange;" text="delete rdv" />
             </children>
         </Pane>

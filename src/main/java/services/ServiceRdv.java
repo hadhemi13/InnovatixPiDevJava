@@ -1,6 +1,7 @@
 package services;
 
 import Entities.RDV;
+import utils.MyDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -50,12 +51,14 @@ public class ServiceRdv implements  IServiceRdv <RDV> {
 
 
             }
+
             System.out.println(list);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
         return list;
     }
+
 }
 
 

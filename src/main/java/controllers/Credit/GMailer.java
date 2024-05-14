@@ -32,6 +32,8 @@ import static javax.mail.Message.RecipientType.TO;
 
 public class GMailer {
     private static final String TEST_EMAIL="ahmed.marzougui@esprit.tn";
+    private static final String TEST_EMAILL="eflexbank@gmail.com";
+
     private final  Gmail service;
     public GMailer() throws GeneralSecurityException, IOException {
         //send email to u
@@ -68,7 +70,7 @@ public class GMailer {
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
         email.setFrom(new InternetAddress(TEST_EMAIL));
-        email.addRecipient(TO,new InternetAddress(TEST_EMAIL));
+        email.addRecipient(TO,new InternetAddress(TEST_EMAILL));
         email.setSubject(subject);
         email.setText(message);
 

@@ -19,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.MyDatabase;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -84,7 +85,7 @@ public class CreditItems implements Initializable {
         userid.setText(String.valueOf(i.getId()));
         idclient.setText(String.valueOf(i.getId_client()));
         montant.setText(String.valueOf(i.getMontant()));
-        mensualite.setText(String.valueOf(i.getMensualite()));
+        mensualite.setText(String.valueOf(i.getStatusclient()));
         datedebut.setText(String.valueOf(i.getDateDebut()));
         duree.setText(String.valueOf(i.getDuree()));
         taux.setText(String.valueOf(i.getTaux()));
@@ -198,7 +199,7 @@ public class CreditItems implements Initializable {
     }
 
     @FXML
-    void approuvercredit(MouseEvent event) throws GeneralSecurityException, IOException, MessagingException {
+    void approuvercredit(MouseEvent event) throws GeneralSecurityException, IOException, MessagingException, SQLException {
         System.out.println("rrrrrrrrrrrrrrrr");
 
         // Contenu de l'email
@@ -211,7 +212,35 @@ public class CreditItems implements Initializable {
                 "[L'équipe de votre institution financière]";
 
         // Envoyer l'email avec le contenu
-        new GMailer().sendMail("Approbation de crédit", emailContent);
+        new GMailer().sendMail("Approuvaation de crédit", emailContent);
+        String idvalue = userid.getText();
+
+        Credit c11 = getCreditByUserId(con, idvalue);
+        System.out.println("eeeeeee"+c11);
+         c11.setStatusclient("accepte");
+        System.out.println(c11.getStatus());
+        String update = "update credit set user_id = ?, id_client = ?, montant = ?, taux = ?, datedebut = ?, mensualite = ?, duree = ?, fraisretard =?,status=? where id = ?" ;
+        con=  MyDatabase.getInstance().getConnection();
+
+        try {
+            st=con.prepareStatement(update);
+            st.setInt(1, 1); // Static value for user_id
+            st.setInt(2, c11.getId_client()); // id_client
+            st.setDouble(3,c11.getMontant()); // montant
+            st.setDouble(4,c11.getTaux()); // taux
+            st.setDate(5, new java.sql.Date(c11.getDateDebut().getTime()));
+            st.setDouble(6, c11.getMensualite()); // mensualite
+            st.setInt(7, c11.getDuree()); // duree
+            st.setDouble(8, c11.getFraisRetard()); // fraisretard
+            st.setString(9,"accepte ");
+            st.setInt(10,c11.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
     }
 
 
@@ -229,11 +258,13 @@ public class CreditItems implements Initializable {
                     int id_client = rs.getInt("id_client");
                     double montant = rs.getDouble("montant");
                     double taux = rs.getDouble("taux");
+                    String status=rs.getString("status");
+                    String statusclient=rs.getString("statusclient");
                     Date datedebut = rs.getDate("datedebut");
                     double mensualite = rs.getDouble("mensualite");
                     int duree = rs.getInt("duree");
                     double fraisretard = rs.getDouble("fraisretard");
-                    credit = new Credit(id, id_client, montant, taux, datedebut, mensualite, duree, fraisretard);
+                    credit = new Credit(id, id_client, montant, statusclient,taux,status, datedebut, mensualite, duree, fraisretard);
 
                 }
             }

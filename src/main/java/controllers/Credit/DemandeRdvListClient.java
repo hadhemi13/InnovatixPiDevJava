@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -45,7 +46,8 @@ public class DemandeRdvListClient implements Initializable {
 
     @FXML
     private HBox userTableHead;
-
+    @FXML
+    private TextField rechercherfield;
     @FXML
     void getrdv(MouseEvent event) throws IOException {
         System.out.println("Opening SensSMS page...");
@@ -97,6 +99,9 @@ public class DemandeRdvListClient implements Initializable {
     private Scene scene;
     private Parent root;
 
+    @FXML
+    void rechercher(MouseEvent event) {
 
+    }
 
 }
