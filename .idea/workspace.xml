@@ -4,46 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="last commit merge">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/MyDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/ConfirmSupp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeChequeListClient.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBar.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Compte.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/SideNavBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/alms.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/dollar.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Credit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/CreditItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClientUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeRdvListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeRdvListClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/RdvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/RdvController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/Rdvitems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/credititemsuser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/sms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/sms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/updateCreditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updateCreditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/updaterdvcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceRdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceRdv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeRdvListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeRdvListClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ajouterrdv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/dashboardClientcreditredv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/rdvitems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/rdvitems.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/updaterdv.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/token/StoredCredential" afterDir="false" />
-    </list>
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,6 +139,7 @@
       <workItem from="1715422148160" duration="1971000" />
       <workItem from="1715512023645" duration="1937000" />
       <workItem from="1715629228240" duration="915000" />
+      <workItem from="1715679944062" duration="307000" />
     </task>
     <task id="LOCAL-00001" summary="correction sdk">
       <option name="closed" value="true" />
@@ -363,7 +325,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715264620523</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update">
+      <option name="closed" value="true" />
+      <created>1715679978049</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715679978049</updated>
+    </task>
+    <task id="LOCAL-00025" summary="update">
+      <option name="closed" value="true" />
+      <created>1715680221897</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1715680221897</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +368,6 @@
     <MESSAGE value="card rdv" />
     <MESSAGE value="19/4" />
     <MESSAGE value="correction gestion credit" />
-    <MESSAGE value="update" />
     <MESSAGE value="calendrier rdv + correction affichage credit" />
     <MESSAGE value="api" />
     <MESSAGE value="calander+sms" />
@@ -401,7 +378,8 @@
     <MESSAGE value="correction jointure" />
     <MESSAGE value="last commit" />
     <MESSAGE value="last commit merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="last commit merge" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
