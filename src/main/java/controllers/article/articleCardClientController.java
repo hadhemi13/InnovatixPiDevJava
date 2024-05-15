@@ -253,7 +253,7 @@ public class articleCardClientController implements Initializable {
 
             // Obtenez l'URL audio en appelant la méthode getAudioUrl de Yesser avec le contenu de l'article
             String audioUrl = yesser.getAudioUrl("https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize",
-                    "df84989911msh59dff67d598256bp1ad0dajsn669a25b04f07",
+                    "4123283f42mshd62cdbb1176ec54p18626bjsn5f84d65cdc45",
                     contenuArticle);
 
             // Créez un objet Media à partir de l'URL audio

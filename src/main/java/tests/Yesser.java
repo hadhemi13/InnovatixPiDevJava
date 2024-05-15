@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 public class Yesser {
     public static void main(String[] args) {
         String url = "https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize";
-        String apiKey = "df84989911msh59dff67d598256bp1ad0dajsn669a25b04f07";
+        String apiKey = "4123283f42mshd62cdbb1176ec54p18626bjsn5f84d65cdc45";
         String textToConvert = "salut ayoub je suis text to speech et je travaille très bien"; // Remplacez "Votre texte ici" par le texte que vous souhaitez convertir en discours.
 
         try {

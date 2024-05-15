@@ -300,6 +300,7 @@ public class CommentArticleController implements Initializable {
                 Parent offreItem = loader.load();
                 CommentaireItemFrontController ComItem = loader.getController();
                 System.out.println("contenue du comm page1 "+ComItem);
+                System.out.println("hani lena ye hadhemi");
                 ComItem.initData(commentaireHadhemi);
                 CommentListContainer.getChildren().add(offreItem);
             } catch (IOException e) {

@@ -10,7 +10,7 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBarUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/SideNavBar.fxml"));
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/front.fxml"));
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/front.fxml"));
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/article/listRssBal.fxml"));
