@@ -158,7 +158,7 @@ public class SideNavBarController implements Initializable {
     private ImageView tn;
     @FXML
     private AnchorPane content_area1;
-    User user = null;
+    public static User user;
 
 
     @FXML
@@ -199,8 +199,11 @@ public class SideNavBarController implements Initializable {
         }
     }
     @FXML
-    void logout(MouseEvent event) throws IOException {
+    void logout(MouseEvent event) throws IOException, SQLException {
         UserSession.getInstance().cleanUserSession();
+        ServiceUser serviceUser = new ServiceUser();
+        user = serviceUser.getOneUserSession();
+        serviceUser.modifierDiconnect(user);
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -208,9 +211,9 @@ public class SideNavBarController implements Initializable {
         stage.show();
     }
 
-    public void initData(User user) {
-        // Implémentez cette méthode pour initialiser des données spécifiques à l'utilisateur
-    }
+//    public void initData(User user) {
+//        // Implémentez cette méthode pour initialiser des données spécifiques à l'utilisateur
+//    }
 
     public void initializeDashboard() {
         try {

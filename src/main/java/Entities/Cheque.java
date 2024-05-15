@@ -1,6 +1,7 @@
 package Entities;
 
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Date;
 
@@ -21,9 +22,9 @@ public class Cheque {
     private String document_id;
     private String signer_id;
     private String  pdf_sans_signature ;
-    private BigInteger rib;
+    private BigDecimal rib;
 
-    public Cheque(int id, int compte_id, int user_id, String beneficiaire, double montant, int telephone, String email, int cin, String nom_prenom, Date date, String decision, String photo_cin, String signature_id,String document_id, String signer_id, String pdf_sans_signature ) {
+    public Cheque(int id, int compte_id, int user_id, String beneficiaire, double montant, int telephone, String email, int cin, String nom_prenom, Date date, String decision, String photo_cin, String signature_id, String document_id, String signer_id, String pdf_sans_signature, BigDecimal rib) {
         this.id = id;
         this.compte_id = compte_id;
         this.user_id = user_id;
@@ -40,9 +41,10 @@ public class Cheque {
         this.document_id= document_id;
         this.signer_id = signer_id;
         this.pdf_sans_signature = pdf_sans_signature;
+        this.rib = rib;
     }
 
-    public Cheque(String beneficiaire, double montant,int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision,int compte_id,int user_id,BigInteger rib) {
+    public Cheque(String beneficiaire, double montant,int telephone, String email, int cin, String nom_prenom, Date date, String photo_cin,String decision,int compte_id,int user_id,BigDecimal rib) {
         this.beneficiaire = beneficiaire;
         this.montant = montant;
         this.telephone = telephone;
@@ -57,11 +59,11 @@ public class Cheque {
         this.rib = rib;
     }
 
-    public BigInteger getRib() {
+    public BigDecimal getRib() {
         return rib;
     }
 
-    public void setRib(BigInteger rib) {
+    public void setRib(BigDecimal rib) {
         this.rib = rib;
     }
 

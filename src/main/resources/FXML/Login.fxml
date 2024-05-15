@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
@@ -15,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="762.0" prefWidth="1366.0" styleClass="signUp__container" stylesheets="@../../resources/css/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.user.LoginController">
     <left>
         <AnchorPane fx:id="left" prefHeight="700.0" prefWidth="652.0" styleClass="left" stylesheets="@../../resources/css/login.css" BorderPane.alignment="CENTER">
          <children>
@@ -31,9 +37,9 @@
                               <Insets left="15.0" top="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <ImageView fitHeight="57.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="toHOME" fitHeight="57.0" fitWidth="53.0" onMouseClicked="#toHOME" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../Downloads/menu-active.png" />
+                              <Image url="@../img/716fe532-ef73-49b1-9139-7c8da80e6e90.jpeg" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" top="10.0" />

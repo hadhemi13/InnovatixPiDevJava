@@ -57,6 +57,8 @@ public class ShowCompte {
 
     @FXML
     private Text TypeCompte;
+    @FXML
+    private Text NumTel;
 
     @FXML
     private HBox addReviewsModel;
@@ -108,6 +110,7 @@ public class ShowCompte {
         Profession.setText(compte.getProffesion());
         Sexe.setText(compte.getSexe());
         Montant.setText(String.valueOf(compte.getMontant()));
+        NumTel.setText(String.valueOf(compte.getNumero_telephone()));
     }
 
     public void setProjectUpdateData(Compte compte) {
@@ -123,8 +126,10 @@ public class ShowCompte {
         Profession.setText(compte.getProffesion());
         Sexe.setText(compte.getSexe());
         Montant.setText(String.valueOf(compte.getMontant()));
+        NumTel.setText(String.valueOf(compte.getNumero_telephone()));
 
-        }
+
+    }
 
     public void close_addReviewsModel(MouseEvent mouseEvent) {
         Scene scene = ((Node) mouseEvent.getSource()).getScene();

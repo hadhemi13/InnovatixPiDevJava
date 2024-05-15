@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class User {
-    int id , salaire;
+    int id , salaire,sessionconnect;
     BigInteger rib;
     String name,password,tel,email,adresse,profession,cin,photo, poste;
     String roles;
     String date_naissance;
+
     private int is_verified=0;
 
     public User(String name, String password, String tel, String email) {
@@ -109,7 +110,15 @@ public class User {
 
     }
 
-    public User(int id, String name, String password, String tel, String email, String adresse, String profession, String roles, String cin, String photo,String date_naissance , int is_blocked,int is_verified, String poste , int salaire) {
+    public int getSessionconnect() {
+        return sessionconnect;
+    }
+
+    public void setSessionconnect(int sessionconnect) {
+        this.sessionconnect = sessionconnect;
+    }
+
+    public User(int id, String name, String password, String tel, String email, String adresse, String profession, String roles, String cin, String photo, String date_naissance , int is_blocked, int is_verified, String poste , int salaire) {
         this.id = id;
         this.name = name;
         this.password = password;

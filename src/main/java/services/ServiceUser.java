@@ -74,6 +74,37 @@ public class ServiceUser  implements IserviceUser<User> {
 
 
     }
+    public void modifierDiconnect(User user) throws SQLException {
+        String req="update user set sessionconnect=0 where email=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setString(1, user.getEmail());
+            // preparedStatement.setInt(10, 12);
+            preparedStatement.executeUpdate();
+            System.out.println("modifie");
+        }
+        catch (SQLException e){
+            System.out.println("Erreur lors de la modification  : " + e.getMessage());
+        }
+
+
+    }
+    public void modifierConnect(User user) throws SQLException {
+        String req="update user set sessionconnect=1 where email=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(req);
+            preparedStatement.setString(1, user.getEmail());
+            // preparedStatement.setInt(10, 12);
+            preparedStatement.executeUpdate();
+            System.out.println("modifie");
+        }
+        catch (SQLException e){
+            System.out.println("Erreur lors de la modification  : " + e.getMessage());
+        }
+
+
+    }
+
 
     @Override
     public void supprimer(User user) throws SQLException {
@@ -147,8 +178,37 @@ public class ServiceUser  implements IserviceUser<User> {
             user.setIs_blocked(rs.getInt("is_blocked"));
             user.setIs_verified(rs.getInt("is_verified"));
             user.setRib(BigInteger.valueOf(rs.getLong("rib")));
+            user.setSessionconnect(rs.getInt("sessionconnect"));
         }
-        ps.close();
+      //  ps.close();
+        return user;
+    }
+    public User getOneUserSession() throws SQLException {
+        String req = "SELECT * FROM `user` where sessionconnect = 1";
+        PreparedStatement ps =connection.prepareStatement(req);
+//        ps.setString(1, email);
+
+        ResultSet rs = ps.executeQuery();
+        User user = new User();
+        user.setId(-999);
+        while (rs.next()) {
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setPassword(rs.getString("password"));
+            user.setTel(rs.getString("tel"));
+            user.setCin(rs.getString("cin"));
+            user.setDate_naissance(rs.getString("date_naissance"));
+            user.setEmail(rs.getString("email"));
+            user.setAdresse(rs.getString("adresse"));
+            user.setProfession(rs.getString("profession"));
+            user.setRoles(rs.getString("roles"));
+            user.setPhoto(rs.getString("photo"));
+            user.setIs_blocked(rs.getInt("is_blocked"));
+            user.setIs_verified(rs.getInt("is_verified"));
+            user.setRib(BigInteger.valueOf(rs.getLong("rib")));
+            user.setSessionconnect(rs.getInt("sessionconnect"));
+        }
+        //  ps.close();
         return user;
     }
 

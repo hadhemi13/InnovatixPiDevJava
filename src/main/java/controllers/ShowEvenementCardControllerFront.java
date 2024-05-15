@@ -2,7 +2,6 @@ package controllers;
 
 import Entities.Commentaire;
 import Entities.Evenement;
-import controllers.user.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -41,8 +42,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     @FXML
     private GridPane CommentsListContainer;
-    @FXML
-    private VBox content_area1;
+
     @FXML
     private Pane content_area;
     @FXML
@@ -58,16 +58,7 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     @FXML
     private Button stockBtn;
-    @FXML
-    private HBox OpenStage;
-    @FXML
-    private HBox Tologin;
 
-    @FXML
-    private HBox Actualite;
-
-    @FXML
-    private HBox Actualitee;
     @FXML
     private ComboBox<String> categoryInput;
 
@@ -128,14 +119,22 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
     private static int categoryModelShow = 0;
     private String selectedOption = null;
+
     @FXML
     private TextField nameInput;
     public static int getCategoryModelShow() {
         return categoryModelShow;
     }
 
+    @FXML
+    private void open_eventList(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
+        Scene scene = new Scene(fxml);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
-
+    }
     private void switchToEvenementsList(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/project/ShowEvenementCardFront.fxml"));
         Parent root = loader.load();
@@ -175,28 +174,6 @@ public class ShowEvenementCardControllerFront implements Initializable {
 
         this.setEvenementGridPaneList();
      //   this.setCommentGridPaneList();
-        Tologin.setOnMouseClicked(mouseEvent -> {
-            // Chargement de la vue FXML de la page d'ajout d'article
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
-            try {
-                Parent addArticleParent = loader.load();
-                // AnchorPane captchaPane = loader.load();
-                Scene scene = new Scene(addArticleParent);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
-                // ((Stage) CreerCompte.getScene().getWindow()).close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            // Récupération du contrôleur de la vue d'ajout d'article
-            LoginController ajoutUserController = loader.getController();
-
-            // Remplacer le contenu actuel par la vue d'ajout d'article
-      /*  userPane.getChildren().clear();
-        userPane.getChildren().add(addArticleParent);*/
-        });
 
     }
     private void setEvenementGridPaneList() {
@@ -300,37 +277,4 @@ public class ShowEvenementCardControllerFront implements Initializable {
         offreModel.setVisible(false);
     }
 
-    public void Actualite(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Front.fxml"));
-        Parent recrutementParent = loader.load();
-        content_area.getChildren().clear();
-        content_area.getChildren().add(recrutementParent);
-    }
-
-    public void Actualitee(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Front.fxml"));
-        Parent recrutementParent = loader.load();
-        content_area.getChildren().clear();
-        content_area.getChildren().add(recrutementParent);
-    }
-
-    public void OpenStage(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Front.fxml"));
-        Parent recrutementParent = loader.load();
-        content_area.getChildren().clear();
-        content_area.getChildren().add(recrutementParent);
-    }
-    @FXML
-    void Tologin(MouseEvent event) throws IOException {
-        // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
-        Parent addArticleParent = loader.load();
-
-        // Récupération du contrôleur de la vue d'ajout d'article
-        LoginController ajoutUserController = loader.getController();
-
-        // Remplacer le contenu actuel par la vue d'ajout d'article
-      /*  userPane.getChildren().clear();
-        userPane.getChildren().add(addArticleParent);*/
-    }
 }

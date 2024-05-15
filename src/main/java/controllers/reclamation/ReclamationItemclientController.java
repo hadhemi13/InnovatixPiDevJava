@@ -119,7 +119,7 @@ public class ReclamationItemclientController {
                     try {
                         serviceReclamation.supprimer(reclamation);
                         // Rafraîchir la vue après la suppression
-                        refreshView(event);
+
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }

@@ -137,7 +137,7 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
                         rs.getString("nom_prenom"), rs.getObject("date", Date.class),
                         rs.getString("decision"), rs.getString("photo_cin"),
                         rs.getString("signature_id"), rs.getString("signer_id"),
-                        rs.getString("document_id"), rs.getString("pdf_sans_signature")));
+                        rs.getString("document_id"), rs.getString("pdf_sans_signature"),rs.getBigDecimal("rib")));
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -181,7 +181,8 @@ public class ServiceCheque implements  IServiceCheque <Cheque> {
                         resultSet.getString("signature_id"),
                         resultSet.getString("document_id"),
                         resultSet.getString("signer_id"),
-                        resultSet.getString("pdf_sans_signature")
+                        resultSet.getString("pdf_sans_signature"),
+                        resultSet.getBigDecimal("rib")
                 );
             }
 

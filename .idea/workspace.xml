@@ -4,192 +4,96 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="fix ahmed's errors and add libraries.">
-      <change afterPath="$PROJECT_DIR$/src/Images/056571ed-8cbd-44ad-a57e-ca9703af6f73.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/45eb72e1-d08c-4247-8d48-19b49951c737.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/4d63a2e4-c192-47c0-a38f-597ee8e129c2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/584790b6-062d-40f4-b1a0-aa8309dbba96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/6b963390-908b-4cea-9748-f49c30fb8cd9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/72113a87-02a1-44a8-bc65-cd90039b3e39.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/7a36c79f-befe-4301-9f6a-618b880201ad.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/8c5cc63a-2759-444d-aa61-18bd3de075cd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/922d0f7d-47c7-4e91-b6d0-d086f54b3c10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/9e2417de-fee4-4e21-ab33-39bb0af6c630.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/a428bf2d-6e36-4fb9-bc34-2893b752e061.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/ba679d55-f77f-4d20-8176-c59ca72e47fa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/c7d8dba4-16c0-4928-bb73-5e72e6f52fa8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/e86d89e9-d745-4084-97ad-de0bcb64b398.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/f2818c13-9a29-4458-a9db-fee11e05c1a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/f690a8aa-52f1-43c7-a793-b51c6b9db953.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Images/fd15dae0-9df1-4ef1-a803-cf131833498b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/IMG-65eaefd93fc6d2.19905020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/IMG-660362615e08e1.00264812.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/IMG-660833fd243529.94105192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/ayoub.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/defaultPic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/images (1).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/images (2).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/images.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/marie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/team-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/team-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/team-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/ProductUploads/team-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/3ab24fa3-fc56-4d1f-be4f-f71b9390ac46.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/4a1ec040-6fd1-4e46-abdc-364381b63e1f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/4c3201be-62cb-4c4f-b50c-b27809a26b06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/5ef1c154-97db-4726-b0e7-329bdb5263fd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/IMG-65eaefd93fc6d2.19905020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/IMG-660362615e08e1.00264812.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/IMG-660833fd243529.94105192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/a7c601be-9114-4346-a211-09d8ba12dd82.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/a9e02775-c89e-478d-b562-4413fc4468a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/af0b3105-f871-429f-a808-cb4103cc9863.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/af37a953-4246-4173-bfb7-07ec9d95e622.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/ayoub.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/b4e4ea53-0215-44d2-be1f-a19c3e3f5f90.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/b4f648e1-2400-4908-8588-762cc3e959b8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/e7336a40-ec28-436f-b112-25b43ea66d2d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/images (1).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/images (2).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/images.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/marie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/pngwing1.com.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/team-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/team-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/team-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/projectUploads/team-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/article/listRssBal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/193451a3-b5bb-42fd-a051-fbd878b8f5ca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/9ee74584-e520-47b9-859a-f865b9ad3200.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/f7f0f1af-0d21-479b-9853-084529099f31.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uploadscapture_20240513041944.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/article/articleRssCard.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/article/listRssBal.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/IMG-65eaefd93fc6d2.19905020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/IMG-660362615e08e1.00264812.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/IMG-660833fd243529.94105192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/images (1).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/images (2).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/images.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/marie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/team-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/team-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/team-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ProductUploads/team-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/3ab24fa3-fc56-4d1f-be4f-f71b9390ac46.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/4a1ec040-6fd1-4e46-abdc-364381b63e1f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/4c3201be-62cb-4c4f-b50c-b27809a26b06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/5ef1c154-97db-4726-b0e7-329bdb5263fd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/IMG-65eaefd93fc6d2.19905020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/IMG-660362615e08e1.00264812.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/IMG-660833fd243529.94105192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/a7c601be-9114-4346-a211-09d8ba12dd82.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/a9e02775-c89e-478d-b562-4413fc4468a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/af0b3105-f871-429f-a808-cb4103cc9863.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/af37a953-4246-4173-bfb7-07ec9d95e622.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/ayoub.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/b4e4ea53-0215-44d2-be1f-a19c3e3f5f90.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/b4f648e1-2400-4908-8588-762cc3e959b8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/e7336a40-ec28-436f-b112-25b43ea66d2d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/images (1).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/images (2).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/images.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/marie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/pngwing1.com.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/team-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/team-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/team-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/projectUploads/team-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/Recherche_Stage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pexels-beyzahzah-89810429-17920027.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pexels-davidmcbee-730564.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pexels-karolina-grabowska-4386158 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/pdf/cheque_cda2c4f0-b538-4a3c-9a2e-8efd755618a5.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/pdf/cheque_d0574ca8-fb74-432c-8feb-cf223310e906.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fd1133a1-66a2-40ca-9734-900da38f4a84" name="Changes" comment="fix work.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/TrayNotification_5393c3a54f5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/TrayNotification_5393c3a54f6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/TrayTester16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/TrayTester17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_10_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_10_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_10_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/okhttp_5_0_0_alpha_142.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/okio_1_13_01.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/poi_5_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/simplecaptcha_1_3_010.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/simplecaptcha_1_3_09.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/stripe_java_22_17_0_beta_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/xmlbeans_xmlpublic_2_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/52055514-9dd2-4d46-8652-2cc8b7e00e83.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/5a304ffd-37b9-43f1-b1d1-f6d2f2a86f3a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/77fed4c8-92f4-412e-8c6b-a35f76bad04f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/7e5df0c5-1f6e-4986-aec9-90b5429a3131.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/96336bd6-879f-4bfd-bbeb-ef16a9678ec6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/fb4cc1e0-648c-46f5-8c70-6d79953d897e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/okio-1.13.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/Yesser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tests/Yesser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/0ae05893-a81f-42d4-a18a-ac25daff2298.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/6194125f-40d1-42d4-aebb-f42eff1f2cc9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uploads/e2af5016-f787-430c-a68d-b5dac8482328.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/yesserTest/AudioPlayerApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCreditAdmin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagesAct/icons8-visible.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imagesAct/voice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/716fe532-ef73-49b1-9139-7c8da80e6e90.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pdf/cheque_f2377aa0-3e3e-4008-a34f-caf516a29270.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pdf/cheque_fbef8e1e-b249-4cc6-a1bf-f3979e47274e.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Cheque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Cheque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Compte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Virement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Virement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/actualites/Reclamation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/actualites/Reclamation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AddProjectCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/AddProjectCardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/AjouterChequeCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/AjouterChequeCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ChequeItemsAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ChequeItemsAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Compte/captchaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Compte/captchaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/AjouterCreditCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DashboardClientOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DashboardClientOff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ChequeItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Cheque/ChequeItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Compte/AjouterCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Compte/AjouterCompte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Compte/ShowCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Compte/ShowCompte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/DemandeCreditListClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Credit/GMailer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/FrontControlleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/FrontControlleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/OneEvenementListCardControllerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/OneEvenementListCardControllerUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/OneEvenementListCardControllerfront.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/OneEvenementListCardControllerfront.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ShowEvenementCardControllerFront.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ShowEvenementCardControllerFront.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideNavBarUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/AjouterVirementCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/AjouterVirementCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/VirementCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/VirementCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/Virement/VirementItemsAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/Virement/VirementItemsAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/AjouterArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/AjouterArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/ArticlefrontItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/ArticlefrontItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/DetailArticleAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/DetailArticleAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/ListArticleAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/ListArticleAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/ListeArticlesClientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/ListeArticlesClientsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/ListeArticlesFrontController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/ListeArticlesFrontController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardRssController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/article/articleCardRssController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/commentaireArticle/CommentArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/commentaireArticle/CommentArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/dashboardClientcreditrdv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/demandeStage/DemandeItemVisiteurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/demandeStage/DemandeItemVisiteurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/DetailsBackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/DetailsBackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/DetailsOffreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/DetailsOffreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/Recrutement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/offreDeStage/Recrutement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/demandeStage/DemandeStageParOffreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/demandeStage/DemandeStageParOffreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/demandeStage/EditDemandeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/demandeStage/EditDemandeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/reclamation/AjouterReclamationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/reclamation/AjouterReclamationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/reclamation/ListeRecClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/reclamation/ListeRecClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/reclamation/ReclamationItemAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/reclamation/ReclamationItemAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/reclamation/ReclamationItemclientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/reclamation/ReclamationItemclientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/reponse/AjouterReponseAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/reponse/AjouterReponseAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/rss/RSSReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/rss/RSSReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/user/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/user/ForgotPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/user/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/user/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/user/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/user/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/user/TESTCONTROLLER.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/user/TESTCONTROLLER.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/user/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/user/UpdateUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCheque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCheque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCommentaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCommentaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCompte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceCredit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceReclamation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceReclamation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/ServiceVirement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/ServiceVirement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/Symfony.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/Symfony.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/MainFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tests/TranslatorText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/TranslatorText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yesserTest/CurrencyConverterApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yesserTest/CurrencyConverterApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/yesserTest/TestTextToSpeech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/yesserTest/TestTextToSpeech/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ChequeItems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ChequeItems.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ChequeItemsAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ChequeItemsAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DashboardClientOff.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DashboardClientOff.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeCreditListClientUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeStage/DemandeItemVisiteur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeStage/DemandeItemVisiteur.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeRdvListClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeRdvListClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeStage/DemandeStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeStage/DemandeStage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/DemandeStage/DemandeStageParOffre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/DemandeStage/DemandeStageParOffre.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Front.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Front.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredittest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/FormCardCredittest.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/ShowDetailsCompte.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/ShowDetailsCompte.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/SideNavBarUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/VirementCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/VirementCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/YesserTest/CardNavBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/YesserTest/CardNavBar.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/article/articleCardClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/article/articleCardClient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/article/listeArticlesClients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/article/listeArticlesClients.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/credititemsuser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/DetailBack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/DetailBack.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/DetailsOffre.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/DetailsOffre.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/OffreStageVisiteurItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/OffreStageVisiteurItem.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/Recrutement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/offreDeStage/Recrutement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/EvenementsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/EvenementsList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/EvenementsListUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/EvenementsListUser.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/FrontEvenement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/FrontEvenement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/OneEvenementListCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/OneEvenementListCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/OneEvenementListCardUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/OneEvenementListCardUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/ProjectItemUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/ProjectItemUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/ProjectsList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/ProjectsList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/project/ProjectsListUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/project/ProjectsListUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/rdvitems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/rdvitems.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/reclamation/listeRecClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/reclamation/listeRecClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/reclamation/reclamationItemclient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/reclamation/reclamationItemclient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/pdf/cheque.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pdf/cheque.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/token/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/token/StoredCredential" afterDir="false" />
     </list>
@@ -249,7 +153,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "DevF",
-    "last_opened_file_path": "C:/Users/Yesser/IdeaProjects/InnovatixPiDevJava/src/main/resources/FXML/article",
+    "last_opened_file_path": "C:/Users/Yesser/Downloads/lib/lib/stripe-java-22.17.0-beta.2.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -263,11 +167,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\resources\FXML\article" />
-      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\java\controllers\article" />
+      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\resources\imagesAct" />
+      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\libraries" />
+      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\java\controllers" />
       <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\resources\FXML\project" />
-      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\assets\projectUploads" />
-      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\assets\ProductUploads" />
+      <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\resources\FXML\article" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Yesser\IdeaProjects\InnovatixPiDevJava\src\main\resources\img" />
@@ -283,10 +187,17 @@
       <recent name="services" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainFX">
-    <configuration name="ChatBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ChatBot" />
+  <component name="RunManager" selected="Application.CurrencyConverterApp">
+    <configuration name="AudioPlayerApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="yesserTest.AudioPlayerApp" />
       <module name="workshoppidev" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path &quot;C:\Users\Yesser\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="yesserTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -305,8 +216,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tests.Main" />
+    <configuration name="MainFX" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="tests.MainFX" />
+      <module name="workshoppidev" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Yesser\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Yesser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Yesser" />
+      <module name="workshoppidev" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tests.Yesser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tests.Yesser" />
       <module name="workshoppidev" />
       <extension name="coverage">
         <pattern>
@@ -314,30 +248,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainChat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="yesserTest.TestTextToSpeech.MainChat" />
-      <module name="workshoppidev" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Yesser\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="yesserTest.TestTextToSpeech.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainFX" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="tests.MainFX" />
-      <module name="workshoppidev" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Yesser\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -357,19 +267,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainFX" />
+      <item itemvalue="Application.AudioPlayerApp" />
+      <item itemvalue="Application.tests.Yesser" />
+      <item itemvalue="Application.Yesser" />
       <item itemvalue="Application.CurrencyConverterApp" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.yesserTest.TestTextToSpeech.Main" />
-      <item itemvalue="Application.ChatBot" />
-      <item itemvalue="Application.MainChat" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.CurrencyConverterApp" />
+        <item itemvalue="Application.AudioPlayerApp" />
         <item itemvalue="Application.yesserTest.TestTextToSpeech.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainChat" />
-        <item itemvalue="Application.ChatBot" />
+        <item itemvalue="Application.tests.Yesser" />
+        <item itemvalue="Application.Yesser" />
       </list>
     </recent_temporary>
   </component>
@@ -664,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715465673463</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fix work.">
+      <option name="closed" value="true" />
+      <created>1715592036845</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715592036845</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -683,7 +601,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="correction sdk" />
     <MESSAGE value="kk" />
     <MESSAGE value="corriger rdv" />
     <MESSAGE value="ajouter credit v2" />
@@ -708,6 +625,7 @@
     <MESSAGE value="last" />
     <MESSAGE value="validation java terminé." />
     <MESSAGE value="fix ahmed's errors and add libraries." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ahmed's errors and add libraries." />
+    <MESSAGE value="fix work." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix work." />
   </component>
 </project>

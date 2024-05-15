@@ -61,7 +61,7 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
     public boolean ajouter(Reclamation reclamation) throws SQLException {
 
         String req = "INSERT INTO reclamation (objet_rec, contenu_rec, adr_rec, nom_aut_rec, dep_rec, statut_rec, piece_jrec, date_rec,user_id) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
         LocalDateTime currentDate = LocalDateTime.now();
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(req)) {
@@ -131,6 +131,7 @@ public class ServiceReclamation implements IServiceReclamation<Reclamation> {
 
     public List<Reclamation> afficherById(int id) throws SQLException {
         List<Reclamation> reclamations = new ArrayList<>();
+        connection = MyDatabase.getInstance().getConnection();
         String req = "SELECT * FROM reclamation WHERE user_id = ?";
         PreparedStatement statement = connection.prepareStatement(req);
         statement.setInt(1, id);

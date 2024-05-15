@@ -1,21 +1,18 @@
 package controllers;
 
 import Entities.Cheque;
+//import Entities.User;
 import Entities.User;
 import controllers.Cheque.DemandeChequeListClient;
-import controllers.Cheque.ModifierCheque;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import services.ServiceCheque;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -23,14 +20,14 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.awt.Desktop;
+import java.util.ResourceBundle;
 
-public class ChequeItemsController {
+public class ChequeItemsController implements Initializable {
 
     @FXML
     private Text date;
@@ -71,19 +68,25 @@ public class ChequeItemsController {
     @FXML
     private Node pdf;
 
+    @FXML
+    private HBox shayma;
+
     public static User user;
+    private Cheque cheque;
 
 
-    public void initData(Cheque i ){
+    public void initData(Cheque i) {
+
+        this.cheque = i;
         ServiceCheque serviceCheque = new ServiceCheque();
 
-       userItemUpdateBtn.setId(String.valueOf(i.getId()));
+        userItemUpdateBtn.setId(String.valueOf(i.getId()));
 
         userItemStateBtn.setId(String.valueOf(i.getId()));
 
 
         userItemEmail.setText(String.valueOf(i.getCin()));
-       userItemName.setText(String.valueOf(user.getRib()));
+        // userItemName.setText(String.valueOf(user.g()));
         userItemTel.setText(i.getNom_prenom());
         userItemRole.setText(i.getEmail());
         userItemStateText.setText(i.getDecision());
@@ -91,28 +94,11 @@ public class ChequeItemsController {
         hhh.setText(String.valueOf(i.getTelephone()));
         personne.setText(i.getBeneficiaire().toString());
         montant.setText(String.valueOf(i.getMontant()));
+        if ("Approuvé".equals(cheque.getDecision()) || "Rejeté".equals(cheque.getDecision())) {
+            disableDecisionButtons();
+            shayma.setOpacity(0); // Rendre le HBox shayma invisible
+        }
 
-
-//        userItemUpdateBtn.setOnMouseClicked(mouseEvent -> {
-//            ModifierCheque chequey = new ModifierCheque();
-//            chequey.idy = Integer.parseInt(userItemUpdateBtn.getId());
-//            Stage primaryStage = new Stage();
-//            try {
-//                Cheque cheque = serviceCheque.getById(Integer.parseInt(userItemUpdateBtn.getId()));
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ModifierCheque.fxml")) ;
-//                Parent parent = loader.load();
-//                Scene scene = new Scene(parent);
-//                primaryStage.setTitle("E-Flex Bank");
-//                primaryStage.setScene(scene);
-//                primaryStage.show();
-//                ModifierCheque modifierCheque = loader.getController();
-//                modifierCheque.initData(cheque);
-//            }catch (SQLException | IOException exception)
-//            {
-//                throw new RuntimeException(exception);
-//            }
-//
-//        });
         userItemUpdateBtn.setOnMouseClicked(event -> {
             System.out.println("Cheque Name: " + i.getNom_prenom());
             DemandeChequeListClient.setupdateChequeModelShow(1);
@@ -139,18 +125,18 @@ public class ChequeItemsController {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
-        try {
-            Parent root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/DemandeChequeListClient.fxml"));
+            try {
+                Parent root = loader.load();
 
-            Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
+                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-            contentArea.getChildren().clear();
-            contentArea.getChildren().add(root);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    });
+                contentArea.getChildren().clear();
+                contentArea.getChildren().add(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
 
 //        pdf.setOnMouseClicked(event -> {
@@ -250,7 +236,7 @@ public class ChequeItemsController {
                     Font titleFont = new Font(Font.FontFamily.HELVETICA, 32, Font.BOLD, new BaseColor(107, 175, 84)); // Vert foncé
                     Paragraph title = new Paragraph("Demande de Chèque", titleFont);
                     title.setAlignment(Element.ALIGN_CENTER);
-                   // title.setBorder(Rectangle.NO_BORDER);
+                    // title.setBorder(Rectangle.NO_BORDER);
                     title.setSpacingAfter(20f); // Espacement après le titre
                     document.add(title);
 
@@ -294,11 +280,10 @@ public class ChequeItemsController {
                 System.err.println("Le Chèque n'est pas initialisé.");
             }
         });
-}
+    }
 
 
-
-        public void UpdateCheque(MouseEvent mouseEvent) {
+    public void UpdateCheque(MouseEvent mouseEvent) {
 
     }
 
@@ -306,5 +291,21 @@ public class ChequeItemsController {
     }
 
     public void genererPDF(MouseEvent mouseEvent) {
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (cheque != null && ("Approuvé".equals(cheque.getDecision()) || "Rejeté".equals(cheque.getDecision()))) {
+            shayma.setOpacity(0); // Rendre le HBox invisible en réglant l'opacité à 0
+        }
+    }
+
+    private void disableDecisionButtons() {
+        userItemStateText.setDisable(true);
+        userItemStateText.setDisable(true);
+        shayma.setOpacity(0.4);  // Optionnel : définir l'opacité pour indiquer visuellement que le bouton est désactivé
+        shayma.setOpacity(0.4);    // Optionnel : définir l'opacité pour indiquer visuellement que le bouton est désactivé
+
+
     }
 }

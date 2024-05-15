@@ -19,7 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
+//import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import services.ServiceCheque;
 import services.ServiceVirement;
 
@@ -68,6 +68,8 @@ public class VirementCard  implements Initializable {
 
     @FXML
     private HBox userItemUpdateBtn;
+    @FXML
+    private HBox shayma;
 
     @FXML
     private HBox supprItems;
@@ -120,6 +122,10 @@ public class VirementCard  implements Initializable {
 
     public static User user;
     public void initData(Virement virement) {
+        // lahnee hedhy ya shayma
+        if (virement != null && ("Approuvé".equals(virement.getDecision_v()) || "Rejeté".equals(virement.getDecision_v()))) {
+            shayma.setOpacity(0); // Rendre le HBox invisible en réglant l'opacité à 0
+        }
         System.out.println("hedha virement" + user.getEmail());
         // Initialisez les champs de votre interface utilisateur avec les valeurs du virement
         userItemUpdateBtn.setId(String.valueOf(virement.getId()));
@@ -145,6 +151,11 @@ public class VirementCard  implements Initializable {
 
             // Set the Image to the ImageView
             qrCodeImage.setImage(qrCode);
+        }
+
+        if ("Approuvé".equals(virement.getDecision_v()) || "Refuser".equals(virement.getDecision_v())) {
+            disableDecisionButtons();
+            shayma.setOpacity(0); // Rendre le HBox shayma invisible
         }
 
 
@@ -269,6 +280,15 @@ public class VirementCard  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    }
+    private void disableDecisionButtons() {
+        DesicionItems.setDisable(true);
+        DesicionItems.setDisable(true);
+        shayma.setOpacity(0.4);  // Optionnel : définir l'opacité pour indiquer visuellement que le bouton est désactivé
+        shayma.setOpacity(0.4);    // Optionnel : définir l'opacité pour indiquer visuellement que le bouton est désactivé
+
 
     }
 

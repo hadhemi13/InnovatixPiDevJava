@@ -12,8 +12,8 @@ import java.net.http.HttpResponse;
 public class Main {
     public static void main(String[] args) {
         String url = "https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize";
-        String apiKey = "b090e6cdc7msh955335d5f298704p15c4e9jsnd258bf270b2e";
-        String textToConvert = "bonjour madame nous allons corriger tout le travail pour le bal de projet"; // Remplacez "Votre texte ici" par le texte que vous souhaitez convertir en discours.
+        String apiKey = "4123283f42mshd62cdbb1176ec54p18626bjsn5f84d65cdc45";
+        String textToConvert = "salut yesser je suis text to speech et je travaille très bien"; // Remplacez "Votre texte ici" par le texte que vous souhaitez convertir en discours.
 
         try {
             String audioUrl = getAudioUrl(url, apiKey, textToConvert);
@@ -23,7 +23,7 @@ public class Main {
         }
     }
 
-    private static String getAudioUrl(String url, String apiKey, String textToConvert) throws IOException, InterruptedException, JSONException {
+    public static String getAudioUrl(String url, String apiKey, String textToConvert) throws IOException, InterruptedException, JSONException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -39,5 +39,4 @@ public class Main {
         String audioUrl = jsonResponse.getJSONObject("result").getString("audio_url");
         return audioUrl;
     }
-
 }

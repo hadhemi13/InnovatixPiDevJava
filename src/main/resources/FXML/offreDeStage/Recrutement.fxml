@@ -25,7 +25,7 @@
             <Image url="@../../img/front%20(1).jpg" />
          </image>
         </ImageView>
-      <ScrollPane layoutY="6.0" prefHeight="503.0" prefWidth="1375.0" translateY="240.0">
+      <ScrollPane layoutY="57.0" prefHeight="452.0" prefWidth="1375.0" translateY="240.0">
          <content>
             <VBox fx:id="ListeOffre" prefHeight="475.0" prefWidth="1376.0">
                <padding>
@@ -33,18 +33,7 @@
                </padding></VBox>
          </content>
       </ScrollPane>
-      <VBox layoutX="-7.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="97.0" prefWidth="75.0" translateX="20.0" translateY="-30.0">
-         <children>
-            <Button fx:id="retour" mnemonicParsing="false" onMouseClicked="#RetourBack" prefHeight="35.0" prefWidth="42.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css">
-               <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../img/back.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children></VBox>
+      <VBox layoutX="-7.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="97.0" prefWidth="75.0" translateX="20.0" translateY="-30.0" />
       <VBox layoutX="10.0" layoutY="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="1356.0">
          <children>
             <TextField fx:id="NumRech" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="498.0" promptText=" Saisir votre numéro pour suivre votre demande" stylesheets="@../../css/SideNavBar.css" translateX="450.0">
@@ -90,6 +79,15 @@
                   <Insets top="30.0" />
                </padding>
             </HBox>
+            <Button fx:id="retour" mnemonicParsing="false" onMouseClicked="#RetourBack" prefHeight="35.0" prefWidth="42.0" styleClass="checkoutCard__btn" stylesheets="@../../css/SideNavBar.css" translateY="-150.0">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </VBox>
     </children>

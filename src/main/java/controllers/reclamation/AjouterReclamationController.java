@@ -186,7 +186,9 @@ public class AjouterReclamationController implements Initializable {
 
         String statut ="En cours de traitement";
         Reclamation reclamation = new Reclamation( objetRec.getText(), contenuRec.getText(), adresse,nom, selectedDepartment,statut, pieceJArt, dateTime, user.getId());
+        System.out.println(reclamation);
         sr.ajouter(reclamation);
+        System.out.println("reclamationajoutee:"+reclamation);
         loadReclamationsList();
 
     }

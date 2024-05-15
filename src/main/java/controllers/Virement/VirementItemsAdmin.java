@@ -70,10 +70,11 @@ public class VirementItemsAdmin  implements  Initializable {
     private HBox Hboxvirement;
 
 
+
     public void initData(Virement i){
         this.virement=i ;
         ServiceVirement serviceVirement = new ServiceVirement();
-
+        System.out.println(i);
         Rib.setText(String.valueOf(i.getRib()));
         Cin.setText(String.valueOf(i.getCin()));
         //photoCin.setImage(i.getPhoto_cin_v());

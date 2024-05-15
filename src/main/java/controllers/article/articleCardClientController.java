@@ -16,11 +16,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceArticle;
+import tests.Yesser;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -68,6 +74,12 @@ public class articleCardClientController implements Initializable {
     private ImageView qrCodeImage;
     private Article article;
     private ListArticleAdminController listArticleController;
+    private final Yesser yesser = new Yesser();
+
+
+
+
+
 
     public void setListArticleController(ListArticleAdminController listArticleController) {
         this.listArticleController = listArticleController;
@@ -80,7 +92,7 @@ public class articleCardClientController implements Initializable {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             datepubArt.setText(formattedDate);
-            imgArtFront.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + article.getImage_art()));
+            imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
             String base64QRCode = article.getQrCode();
             if (base64QRCode != null) {
                 // Convert the Base64 string to byte array
@@ -134,7 +146,7 @@ public class articleCardClientController implements Initializable {
 
                             // Ajouter l'image de l'article avec un cadre professionnel
                             if (article.getImage_art() != null && !article.getImage_art().isEmpty()) {
-                                String imagePathArt = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\"+ article.getImage_art();
+                                String imagePathArt = userDir + "/src/main/java/uploads/" + article.getImage_art();
                                 com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance(imagePathArt);
                                 image.setBorder(Rectangle.BOX);
                                 image.setBorderWidth(2);
@@ -231,7 +243,34 @@ public class articleCardClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // Ajoutez un gestionnaire d'événements au bouton textToSpeech
+        textToSpeech.setOnMouseClicked(this::handleTextToSpeech);
     }
+
+    private void handleTextToSpeech(MouseEvent event) {
+        try {
+            // Récupérer le contenu de l'article
+            String contenuArticle = contenuArtFront.getText(); // Supposons que contenuArtFront contient le texte de l'article
+
+            // Obtenez l'URL audio en appelant la méthode getAudioUrl de Yesser avec le contenu de l'article
+            String audioUrl = yesser.getAudioUrl("https://cloudlabs-text-to-speech.p.rapidapi.com/synthesize",
+                    "4123283f42mshd62cdbb1176ec54p18626bjsn5f84d65cdc45",
+                    contenuArticle);
+            System.out.println(audioUrl);
+
+            // Créez un objet Media à partir de l'URL audio
+//            Media media = new Media(audioUrl);
+            Media media = new Media(audioUrl);
+            // Créez un lecteur multimédia à partir de l'objet Media
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+            // Jouez l'audio
+            mediaPlayer.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void viewdetailArt(MouseEvent mouseEvent) {
     }

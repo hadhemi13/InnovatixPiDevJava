@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -10,15 +15,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1236.0" styleClass="userProductsContainer" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.ListeArticlesClientsController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" styleClass="userProductsContainer" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.ListeArticlesClientsController">
     <children>
-        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1225.0">
+        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1200.0">
             <children>
                 <Text fill="#7b88ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text=" Articles| " />
                 <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Tous" />
-                <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="320.0" styleClass="onlyOfferItemsBtn" translateX="750.0">
+                <HBox fx:id="getPromotionalItemsBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#getPromotionalItems" prefHeight="40.0" prefWidth="317.0" styleClass="onlyOfferItemsBtn" translateX="730.0">
                     <children>
-                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Bienvenue dans l'univers de E-Flex Bank" />
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Bienvenue dans l'univers de E-Flex Bank" translateX="-18.0" />
                     </children>
                 </HBox>
             </children>
@@ -38,12 +43,9 @@
                 </HBox>
             </children>
         </VBox>
-        <ScrollPane layoutX="256.0" layoutY="87.0" prefHeight="524.0" prefWidth="969.0" styleClass="product-card-scrollPane" stylesheets="@../../css/SideNavBar.css">
+        <ScrollPane layoutX="256.0" layoutY="87.0" prefHeight="496.0" prefWidth="928.0" style="-fx-background-color: #ffff;">
             <content>
-                <GridPane fx:id="productsListContainer" prefHeight="524.0" prefWidth="969.0">
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                <GridPane fx:id="productsListContainer" prefHeight="491.0" prefWidth="918.0" style="-fx-background-color: #ffff;">
                     <columnConstraints>
                         <ColumnConstraints />
                     </columnConstraints>

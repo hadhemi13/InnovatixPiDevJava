@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1366.0" styleClass="bg" stylesheets="@../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavBarUserController">
     <children>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="100.0" styleClass="dash__side-bar">
             <opaqueInsets>
@@ -177,7 +182,7 @@
         </VBox>
         <HBox alignment="CENTER_RIGHT" layoutX="112.0" prefHeight="78.0" prefWidth="1253.0">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="E_Flex Bank " translateX="-765.0">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="E_Flex Bank " translateX="-655.0">
                     <font>
                         <Font name="Montserrat ExtraBold" size="18.0" />
                     </font>
@@ -185,7 +190,7 @@
                         <Insets right="70.0" />
                     </HBox.margin>
                 </Text>
-                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logout" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon" translateX="-40.0">
+                <HBox fx:id="navBarLogout" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#logout" prefHeight="50.0" prefWidth="50.0" styleClass="nav-icon" translateX="300.0">
                     <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -200,26 +205,19 @@
                         <Insets right="16.0" />
                     </HBox.margin>
                 </HBox>
-                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_notifModel" prefHeight="50.0" prefWidth="110.0" styleClass="nav-icon">
-                    <children>
-                        <HBox fx:id="profile" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openProfil" prefHeight="20.0" prefWidth="51.0" styleClass="nav-notif-bg" translateX="-20.0">
-                            <children>
-                            <Text fx:id="navFullname" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Client " translateX="9.0">
-                                <font>
-                                    <Font name="Montserrat Bold" size="18.0" />
-                                </font>
-                                <HBox.margin>
-                                    <Insets right="16.0" />
-                                </HBox.margin>
-                            </Text>
-                            </children>
-                        </HBox>
-                    </children>
-                    <HBox.margin>
-                        <Insets right="16.0" />
-                    </HBox.margin>
-                </HBox>
-                <HBox prefHeight="78.0" prefWidth="67.0">
+                  <HBox fx:id="profile" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openProfil" prefHeight="58.0" prefWidth="232.0" translateX="-100.0">
+                      <children>
+                      <Text fx:id="navFullname" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="nav-user-fullname" text="Client " translateX="9.0">
+                          <font>
+                              <Font name="Montserrat Bold" size="18.0" />
+                          </font>
+                          <HBox.margin>
+                              <Insets right="16.0" />
+                          </HBox.margin>
+                      </Text>
+                      </children>
+                  </HBox>
+                <HBox prefHeight="78.0" prefWidth="67.0" translateX="-80.0">
                     <children>
                         <ImageView fitHeight="60.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>

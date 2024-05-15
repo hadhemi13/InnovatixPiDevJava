@@ -51,7 +51,7 @@ public class DemandeCreditListClient implements Initializable {
     @FXML
     void ajoutercredit(MouseEvent event) throws IOException {
         // Chargement de la vue FXML de la page d'ajout d'article
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCredit.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FormCardCreditAdmin.fxml"));
         Parent addArticleParent = loader.load();
 
         // Récupération du contrôleur de la vue d'ajout d'article

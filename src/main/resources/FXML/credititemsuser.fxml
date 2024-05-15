@@ -59,7 +59,7 @@
                         <Insets left="50.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="useritemidclient" strokeType="OUTSIDE" strokeWidth="0.0" text="10987654" translateX="-50.0">
+                <Text fx:id="useritemidclient" strokeType="OUTSIDE" strokeWidth="0.0" text="10987654" translateX="-70.0">
                     <HBox.margin>
                         <Insets left="93.0" />
                     </HBox.margin>
@@ -144,7 +144,7 @@
                         <Insets left="50.0" />
                     </HBox.margin>
                 </Text>
-                <Text fx:id="tauxitem" strokeType="OUTSIDE" strokeWidth="0.0" text="22222222">
+                <Text fx:id="tauxitem" strokeType="OUTSIDE" strokeWidth="0.0" text="22222222" translateX="-30.0">
                     <HBox.margin>
                         <Insets left="30.0" />
                     </HBox.margin>

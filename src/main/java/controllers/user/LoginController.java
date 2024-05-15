@@ -4,6 +4,7 @@ import controllers.Cheque.AjouterChequeCard;
 import controllers.ChequeItemsController;
 import controllers.Credit.AjouterCreditCard;
 import controllers.SideNavBarController;
+import controllers.SideNavBarUserController;
 import controllers.Virement.AjouterVirementCard;
 import controllers.Virement.VirementCard;
 import controllers.article.AjouterArticleController;
@@ -20,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +46,7 @@ import services.ServiceUser;
 
 public class LoginController implements Initializable {
 
+    public ImageView toHOME;
     @FXML
     private TextField emailField;
 
@@ -119,6 +122,7 @@ public class LoginController implements Initializable {
                         System.out.println("to the DASHBOARD");
                         if (user.getRoles().equals("[\"ROLE_CLIENT\"]")
                                 || user.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
+                            userService.modifierConnect(user);
                             AjouterCreditCard ajouterCreditCard = new AjouterCreditCard();
                             ajouterCreditCard.user = user;
                             ServiceCredit  serviceCredit = new ServiceCredit();
@@ -129,6 +133,8 @@ public class LoginController implements Initializable {
                             serviceRec.user = user;
                             AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
                             ajouterChequeCard.user= user;
+
+//                            ChequeItemsController chequeItemsController = new ChequeItemsController();
                             ChequeItemsController chequeItemsController = new ChequeItemsController();
                             chequeItemsController.user = user;
                             AjouterVirementCard ajouterVirementCard = new AjouterVirementCard();
@@ -139,15 +145,11 @@ public class LoginController implements Initializable {
                             ajouterArticleController.user = user;
                             AjouterReclamationController ajouterReclamationController = new AjouterReclamationController();
                             ajouterReclamationController.user = user;
+                            SideNavBarUserController sideNavBarUserController = new SideNavBarUserController();
+                            sideNavBarUserController.user = user;
 
                             CommentArticleController commentArticleController = new CommentArticleController();
                             commentArticleController.user = user;
-
-
-
-
-
-
 
                             System.out.println("to the USERDASHBOARD");
                             Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
@@ -157,6 +159,7 @@ public class LoginController implements Initializable {
                             stage.setScene(scene);
                             stage.show();
                         } else if (user.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                            userService.modifierConnect(user);
                             AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
                             ajouterReponseAdminController.user = user;
                             dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
@@ -202,7 +205,7 @@ public class LoginController implements Initializable {
             try {
                 User user = serviceUser.getOneUser(userSession.email);
                 SideNavBarController sideNavBarController = new SideNavBarController();
-                sideNavBarController.initData(user);
+                sideNavBarController.user = user;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -219,6 +222,16 @@ public class LoginController implements Initializable {
             alert.setContentText(message);
             alert.showAndWait();
         }
+    }
+    @FXML
+    void toHOME(MouseEvent event) throws  IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/front.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 }

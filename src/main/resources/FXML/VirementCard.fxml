@@ -161,7 +161,7 @@
                 </Label>
             </children>
         </HBox>
-        <HBox prefHeight="34.0" prefWidth="295.0">
+        <HBox fx:id="shayma" prefHeight="34.0" prefWidth="295.0">
             <children>
                 <HBox fx:id="userItemUpdateBtn" onMouseClicked="#updatevirement" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
                     <children>

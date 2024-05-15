@@ -98,6 +98,39 @@ public class GMailer {
             }
         }
     }
+//    public void sendMailMimi (String emailRec,String subject ,String message) throws GeneralSecurityException, IOException, MessagingException {
+//
+//        Properties props = new Properties();
+//        Session session = Session.getDefaultInstance(props, null);
+//        MimeMessage email = new MimeMessage(session);
+//        email.setFrom(new InternetAddress(TEST_EMAIL));
+//        email.addRecipient(TO,new InternetAddress(emailRec));
+//        email.setSubject(subject);
+//        email.setText(message);
+//
+//        // Encode and wrap the MIME message into a gmail message
+//        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+//        email.writeTo(buffer);
+//        byte[] rawMessageBytes = buffer.toByteArray();
+//        String encodedEmail = Base64.encodeBase64URLSafeString(rawMessageBytes);
+//        Message msg = new Message();
+//        msg.setRaw(encodedEmail);
+//
+//        try {
+//            // Create send message
+//            message = String.valueOf(service.users().messages().send("me", msg).execute());
+//            System.out.println("Message id: " + msg.getId());
+//            System.out.println(msg.toPrettyString());
+//        } catch (GoogleJsonResponseException e) {
+//            // TODO(developer) - handle error appropriately
+//            GoogleJsonError error = e.getDetails();
+//            if (error.getCode() == 403) {
+//                System.err.println("Unable to send message: " + e.getDetails());
+//            } else {
+//                throw e;
+//            }
+//        }
+//    }
 
     public static void main (String [] args) throws GeneralSecurityException, IOException, MessagingException {
         new GMailer().sendMail("subject","hello ");

@@ -101,7 +101,7 @@ public class SideNavBarUserController implements Initializable {
 
     @FXML
     private Text totalNotif;
-    User user = null;
+   public static User user;
 
     public void openProfil(MouseEvent mouseEvent) {
         try {
@@ -125,8 +125,11 @@ public class SideNavBarUserController implements Initializable {
 
 
     }
-    public void logout(MouseEvent mouseEvent) throws IOException {
+    public void logout(MouseEvent mouseEvent) throws IOException, SQLException {
         UserSession.getInstance().cleanUserSession();
+        ServiceUser serviceUser = new ServiceUser();
+        user = serviceUser.getOneUserSession();
+        serviceUser.modifierDiconnect(user);
         Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
         Scene scene = new Scene(root);
         EventObject event;

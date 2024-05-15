@@ -62,10 +62,10 @@ public class Symfony {
             System.out.println(e.getMessage());
         }
     }
-    public static void MdpOblie(String email){
+    public static void MdpOblie(String email, int code){
         String score;
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet request = new HttpGet("http://127.0.0.1:8000/MdpOublie/"+email);
+            HttpGet request = new HttpGet("http://127.0.0.1:8000/MdpOublieA/"+email+"/"+code);
 
             try (CloseableHttpResponse response = httpClient.execute(request)) {
                 int statusCode = response.getStatusLine().getStatusCode();
@@ -75,8 +75,8 @@ public class Symfony {
                     // Parse the JSON response
                     JSONObject jsonResponse = new JSONObject(responseBody);
                     // Extract the score
-                    score = jsonResponse.getString("score");
-                    System.out.println("Score: " + score);
+//                    score = jsonResponse.getString("score");
+//                    System.out.println("Score: " + score);
                 } else {
                     System.err.println("Erreur lors de la requête : " + statusCode);
                 }
@@ -122,7 +122,8 @@ public class Symfony {
 
     public void mailingApprouver(String email, int id) {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet request = new HttpGet("http://127.0.0.1:8000/mailingApprouver/" + email + "/" + id);
+            System.out.println(email+id);
+            HttpGet request = new HttpGet("http://127.0.0.1:8000/mailingApprouver/"+ email+"/"+id);
 
             try (CloseableHttpResponse response = httpClient.execute(request)) {
                 int statusCode = response.getStatusLine().getStatusCode();

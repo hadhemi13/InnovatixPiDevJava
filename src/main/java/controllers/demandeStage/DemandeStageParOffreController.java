@@ -2,6 +2,8 @@ package controllers.demandeStage;
 
 import Entities.DemandeStage;
 import Entities.OffreDeStage;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,6 +59,8 @@ public class DemandeStageParOffreController implements Initializable {
 //    private int idOffre;
     @FXML
     private VBox content_area;
+    @FXML
+    private ComboBox<String> Domaine;
 
     private File selectedCvFile;
     private String fileName;
@@ -100,13 +104,17 @@ public class DemandeStageParOffreController implements Initializable {
             // Vérifier si stageYesser n'est pas null avant de l'utiliser
 //            if (stageYesser != null) {
                 // Le reste de votre code ici...
+
+            SingleSelectionModel<String> domaineChoisi = Domaine.getSelectionModel();
+            String domaineF = domaineChoisi.getSelectedItem();
+
                 String nom = NomDemInput.getText();
                 String prenom = PrenomDemInput.getText();
                 String email = EmailDemInput.getText();
                 String lettre = LettreDemInput.getText();
                 String num = NumeroDemInput.getText();
                 String etat = "encours";
-                String domaine = "Informatique";
+                String domaine = domaineF;
                 String cv = fileName;
                 Date date1 = java.sql.Date.valueOf(date.getValue());
 
@@ -145,6 +153,16 @@ public class DemandeStageParOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("initialize = " + yy);
+        ObservableList<String> choices = FXCollections.observableArrayList(
+                "Informatique",
+                "Marketing",
+                "Finance",
+                "RH",
+                "Comptabilité",
+                "Management"
+        );
+
+        Domaine.setItems(choices);
 
     }
 

@@ -1,13 +1,21 @@
 package controllers;
 
 import Entities.Evenement;
+import Entities.User;
 import Entities.actualites.Article;
-import controllers.article.ListArticleAdminController;
-import controllers.article.UpdateArtcileCardController;
-import controllers.article.articleCardAdminController;
-import controllers.article.articleCardClientController;
+import controllers.Cheque.AjouterChequeCard;
+import controllers.ChequeItemsController;
+import controllers.Credit.AjouterCreditCard;
+import controllers.Virement.AjouterVirementCard;
+import controllers.Virement.VirementCard;
+import controllers.article.*;
+import controllers.commentaireArticle.CommentArticleController;
+import controllers.reclamation.AjouterReclamationController;
+import controllers.reclamation.ListeRecClientController;
+import controllers.reponse.AjouterReponseAdminController;
 import controllers.rss.RSSReader;
 import controllers.user.LoginController;
+import controllers.user.UserSession;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -46,9 +54,8 @@ import javafx.scene.text.Text;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import services.IService;
-import services.ServiceArticle;
-import services.ServiceEvenement;
+import org.mindrot.jbcrypt.BCrypt;
+import services.*;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -243,26 +250,116 @@ public class FrontControlleur implements Initializable {
         timeline.play();
 
         Tologin.setOnMouseClicked(mouseEvent -> {
-            // Chargement de la vue FXML de la page d'ajout d'article
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+            ServiceUser serviceUser = new ServiceUser();
+            User userSession = null;
             try {
-                Parent addArticleParent = loader.load();
-                // AnchorPane captchaPane = loader.load();
-                Scene scene = new Scene(addArticleParent);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
-                // ((Stage) CreerCompte.getScene().getWindow()).close();
-            } catch (IOException e) {
+                userSession = serviceUser.getOneUserSession();
+                System.out.println(userSession);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                System.out.println("try");
+                if (userSession.getSessionconnect() == 0) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+                    AnchorPane captchaPane = loader.load();
+                    Scene scene = new Scene(captchaPane);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+                    ((Stage) CreerCompte.getScene().getWindow()).close();
+                } else {
+//                    if (userSession.getId() == -999) {
+//                        LoginController.AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
+//                    } else {
+                        String password = userSession.getPassword();
+//                        if (BCrypt.checkpw(password, userSession.getPassword().replace("$2y$", "$2a$"))) {
+                            System.out.println("password" + password);
+                            if (userSession.getIs_blocked() == 1) {
+                                LoginController.AlertUtil.showAlert("Login", "Your account is blocked.", Alert.AlertType.ERROR);
+                            } else {
+//                                LoginController.AlertUtil.showAlert("Login", "Logged in successfully.", Alert.AlertType.INFORMATION);
+                                UserSession.getInstance().setEmail(userSession.getEmail());
+                                System.out.println("to the DASHBOARD");
+                                if (userSession.getRoles().equals("[\"ROLE_CLIENT\"]")
+                                        || userSession.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
+                                    AjouterCreditCard ajouterCreditCard = new AjouterCreditCard();
+                                    ajouterCreditCard.user = userSession;
+                                    ServiceCredit serviceCredit = new ServiceCredit();
+                                    serviceCredit.user = userSession;
+                                    ListeRecClientController serviceRec = new ListeRecClientController();
+                                    dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
+                                    dashboardClientcreditrdv.user = userSession;
+                                    serviceRec.user = userSession;
+                                    AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
+                                    ajouterChequeCard.user= userSession;
+
+//                                    controllers.ChequeItemsController chequeItemsController = new controllers.ChequeItemsController();
+                                    ChequeItemsController chequeItemsController = new ChequeItemsController();
+                                    chequeItemsController.user = userSession;
+                                    AjouterVirementCard ajouterVirementCard = new AjouterVirementCard();
+                                    ajouterVirementCard.user = userSession;
+                                    VirementCard virementCard = new VirementCard();
+                                    virementCard.user = userSession;
+                                    AjouterArticleController ajouterArticleController = new AjouterArticleController();
+                                    ajouterArticleController.user = userSession;
+                                    AjouterReclamationController ajouterReclamationController = new AjouterReclamationController();
+                                    ajouterReclamationController.user = userSession;
+
+                                    CommentArticleController commentArticleController = new CommentArticleController();
+                                    commentArticleController.user = userSession;
+                                    Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
+                                    content_area.getChildren().clear();
+                                    content_area.getChildren().add(root);
+                                    // System.out.println("hahaha 3ersna");
+//                                    Scene scene = new Scene(root);
+//                                    javafx.stage.Stage stage = new Stage();
+//                                    Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+//                                    stage.setScene(scene);
+//                                    stage.show();
+
+                                    // Initialisation des contrôleurs et redirection vers le tableau de bord utilisateur
+                                } else if (userSession.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                                    AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
+                                    ajouterReponseAdminController.user = userSession;
+                                    dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
+                                    dashboardClientcreditrdv.user = userSession;
+                                    Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBar.fxml"));
+                                    content_area.getChildren().clear();
+                                    content_area.getChildren().add(root);
+
+                                    // Initialisation des contrôleurs et redirection vers le tableau de bord administrateur
+                                }
+                            }
+//                        } else {
+//                            LoginController.AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
+//                        }
+                    }
+                } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            // Récupération du contrôleur de la vue d'ajout d'article
-            LoginController ajoutUserController = loader.getController();
 
-            // Remplacer le contenu actuel par la vue d'ajout d'article
-      /*  userPane.getChildren().clear();
-        userPane.getChildren().add(addArticleParent);*/
+            // Chargement de la vue FXML de la page d'ajout d'article
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+//            try {
+//                Parent addArticleParent = loader.load();
+//                // AnchorPane captchaPane = loader.load();
+//                Scene scene = new Scene(addArticleParent);
+//                Stage stage = new Stage();
+//                stage.setScene(scene);
+//                stage.show();
+//                // ((Stage) CreerCompte.getScene().getWindow()).close();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//
+//            // Récupération du contrôleur de la vue d'ajout d'article
+//            LoginController ajoutUserController = loader.getController();
+//
+//            // Remplacer le contenu actuel par la vue d'ajout d'article
+//      /*  userPane.getChildren().clear();
+//        userPane.getChildren().add(addArticleParent);*/
         });
 
         CreerCompte.setOnAction(event -> {

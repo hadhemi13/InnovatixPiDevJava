@@ -31,6 +31,7 @@ import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URL;
 import java.nio.file.Files;
@@ -41,6 +42,7 @@ import java.sql.Date;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.UUID;
+
 
 public class AjouterChequeCard implements Initializable {
 
@@ -249,13 +251,14 @@ public class AjouterChequeCard implements Initializable {
         String beneficiairee = beneficiaire.getValue();
         Double montantn = Double.valueOf(montant.getText());
         String email = Email.getText();
-        String decision = "Encours";
+        String decision = "encours";
 
-        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, selectedDate,imageName,decision,1,1,user.getRib());
+        Cheque cheque = new Cheque(beneficiairee,montantn,aa,email,Cin,Nom, selectedDate,imageName,decision,1,1,new BigDecimal(user.getRib()));
 
 
         ServiceCheque serviceCheque = new ServiceCheque();
         String pdfFilePath = createPdfCheque(cheque);
+
        sendEmail(Email.getText(), "Cheque Confirmation", "Please find attached the PDF for your cheque.", pdfFilePath);
 
 

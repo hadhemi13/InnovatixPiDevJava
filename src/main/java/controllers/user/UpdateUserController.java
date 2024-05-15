@@ -141,7 +141,9 @@ public class UpdateUserController  implements Initializable{
 
         if (user != null) {
             if (user.getPhoto() != null && !user.getPhoto().isEmpty()) {
-                Image image = new Image(user.getPhoto());
+                Image image = new Image(
+                        "file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + user.getPhoto());
+//                Image image = new Image(user.getPhoto());
                 imageInput.setImage(image);
             }
         }

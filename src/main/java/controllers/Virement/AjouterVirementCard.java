@@ -3,6 +3,7 @@ package controllers.Virement;
 import Entities.Cheque;
 import Entities.User;
 import Entities.Virement;
+import controllers.Cheque.AjouterChequeCard;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
-import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
+//import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
 import services.ServiceCheque;
 import services.ServiceVirement;
 import javafx.scene.layout.VBox;
@@ -30,6 +31,7 @@ import javafx.scene.layout.VBox;
 import java.awt.*;
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -157,6 +159,15 @@ public class AjouterVirementCard implements Initializable {
     private File selectedImageFile;
     private String imageName = null;
     public static User user;
+    public static BigInteger rib;
+
+    public static void setRib(BigInteger rib) {
+        AjouterVirementCard.rib = user.getRib();
+    }
+    public static BigInteger getRib() {
+        return rib;
+    }
+
 
 
     @FXML
@@ -342,7 +353,7 @@ public class AjouterVirementCard implements Initializable {
             return; // Exit the method if the Cin value is not valid
         }
         String phone_number = Num.getText();
-        String decision = "Encours";
+        String decision = "encours";
 
         // change the date to sqlDate
         Date sqlDate = java.sql.Date.valueOf(selectedDate);

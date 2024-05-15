@@ -68,7 +68,7 @@ public class Controller {
     private void getApiKey(){
 
         // store api key
-        apiKey = "J4s5RC6tqENkWsC4p1qdrCu9kwauTBTw";}
+        apiKey = "4123283f42mshd62cdbb1176ec54p18626bjsn5f84d65cdc45";}
 
 
 

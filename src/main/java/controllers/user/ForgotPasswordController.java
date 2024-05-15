@@ -57,11 +57,13 @@ public class ForgotPasswordController implements Initializable {
     String Subject="Votre Code est :  "+number+"\n S'il te plait ne passe pas 10 min De maintenant";
 
 
-    public void sendClicked(ActionEvent actionEvent) throws IOException {
-//        Symfony symfony = new Symfony();
+    public void sendClicked(ActionEvent actionEvent) throws IOException, GeneralSecurityException {
+        System.out.println("1"+emailField.getText());
+        Symfony symfony = new Symfony();
 //        symfony.MdpOblie(emailField.getText());
 //        System.out.println(emailField);
         ServiceUser userService = new ServiceUser();
+//        GMailer gMailer = new GMailer();
 
         try {
             // Récupérer l'utilisateur à partir de l'adresse e-mail saisie
@@ -77,12 +79,14 @@ public class ForgotPasswordController implements Initializable {
             }
 
             imResetPassword imr = new imResetPassword();
-            Mailling sn = new Mailling();
+//            Mailling sn = new Mailling();
             if (emailField.getText().isEmpty()) {
                 showAlert("Champs manquants", "Veuillez saisir une adresse e-mail.");
             } else if (imr.ajout(new Reset(emailField.getText(), number, sTime))) {
                 sEmail = emailField.getText();
-                sn.envoyer(emailField.getText(), Object, Subject);
+                System.out.println(emailField.getText());
+                symfony.MdpOblie(emailField.getText(),number);
+//                gMailer.sendMailMimi(emailField.getText(),Object, Subject);
                 Parent page2 = FXMLLoader.load(getClass().getResource("/FXML/ForgotPassword_2.fxml"));
 
                 Scene scene2 = new Scene(page2);

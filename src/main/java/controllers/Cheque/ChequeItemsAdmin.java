@@ -86,7 +86,7 @@ public class ChequeItemsAdmin implements Initializable {
         tel.setText(String.valueOf(i.getTelephone()));
         Montant.setText(String.valueOf(i.getMontant()));
 
-        if ("Approuvé".equals(cheque.getDecision()) || "Rejeté".equals(cheque.getDecision())) {
+        if ("Approuvé".equals(cheque.getDecision()) || "Refuser".equals(cheque.getDecision())) {
             disableDecisionButtons();
         }
     }
@@ -100,8 +100,8 @@ public class ChequeItemsAdmin implements Initializable {
 
     @FXML
     private void RefuserCheque(MouseEvent event) {
-        if (showConfirmationDialog("Reject", "Voulez vous réfuser ce Chéque?")) {
-            updateChequeDecision("Rejeté");
+        if (showConfirmationDialog("Refus", "Voulez vous réfuser ce Chéque?")) {
+            updateChequeDecision("Refuser");
         }
     }
 
@@ -147,7 +147,7 @@ public class ChequeItemsAdmin implements Initializable {
     }
 
     private void applyRejectedStyle() {
-        if ("Rejeté".equals(cheque.getDecision())) {
+        if ("Refuser".equals(cheque.getDecision())) {
             Hboxcheque.getStyleClass().clear();
             Hboxcheque.getStyleClass().add("cheque-rejected");
         }

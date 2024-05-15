@@ -66,9 +66,9 @@ public class ServiceCredit implements  IServiceCredit <Credit> {
         List<Credit> list = new ArrayList<>();
 
         try {
-            String req = "SELECT * FROM credit WHERE user_id = ?";
+            String req = "SELECT * FROM credit ";
             PreparedStatement st = connection.prepareStatement(req);
-            st.setInt(1, user.getId()); // Remplacer user.getId() par l'ID de l'utilisateur que vous souhaitez afficher les crédits
+//            st.setInt(1, user.getId()); // Remplacer user.getId() par l'ID de l'utilisateur que vous souhaitez afficher les crédits
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {

@@ -299,10 +299,10 @@ public class AjouterReponseAdminController implements Initializable {
             ListRecAdminController listRecController = loader.getController();
             listRecController.refreshRecList();
 
-            // Fermer la fenêtre d'ajout de réponse
-            Stage stage = (Stage) contenuInput.getScene().getWindow();
-            stage.setScene(new Scene(listRecAdminPane));
-            stage.show();
+
+// Fermer la fenêtre d'ajout de réponse
+            Stage stage = (Stage) contenuInput.getScene().getWindow(); // Obtenez la référence de la fenêtre
+            stage.close(); // Fermez la fenêtre actuelle
 
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);

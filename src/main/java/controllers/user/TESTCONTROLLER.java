@@ -52,10 +52,10 @@ public class TESTCONTROLLER {
     public void setUserData(User user) {
         ServiceUser userService = new ServiceUser();
         Image image = new Image(
-                getClass().getResource("/FXML/img/" + user.getPhoto()).toExternalForm());
+                "file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + user.getPhoto());
         userItemImg.setImage(image);
 
-        Rectangle clip = new Rectangle(
+                Rectangle clip = new Rectangle(
                 userItemImg.getFitWidth(), userItemImg.getFitHeight());
         clip.setArcWidth(100);
         clip.setArcHeight(100);
@@ -110,7 +110,8 @@ public class TESTCONTROLLER {
     public void initData(User user) {
 
         ServiceUser userService = new ServiceUser();
-        Image image = new Image(getClass().getResource("/img/admin.png").toExternalForm());
+        Image image = new Image(
+                "file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + user.getPhoto());
         userItemImg.setImage(image);
 
         Rectangle clip = new Rectangle(userItemImg.getFitWidth(), userItemImg.getFitHeight());
@@ -196,10 +197,11 @@ public class TESTCONTROLLER {
                 updateUserController.telInput.setText(String.valueOf(user.getTel()));
                 updateUserController.EmailInput.setText(user.getEmail());
                 updateUserController.AdresseInput.setText(user.getAdresse());
+                updateUserController.imageInput.setImage(image);
 
                 if (user.getPhoto() != null && !user.getPhoto().isEmpty()) {
-                    Image userImage = new Image(user.getPhoto());
-                    updateUserController.imageInput.setImage(userImage);
+
+                    updateUserController.imageInput.setImage(image);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

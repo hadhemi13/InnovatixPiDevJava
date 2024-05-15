@@ -116,7 +116,7 @@ public class EditDemandeController implements Initializable {
                 String etat = "encours";
                 String domaine = "Informatique";
                 String cv = fileName;
-                Date date = new Date(128, 04, 06);
+//                Date date = new Date(128, 04, 06);
                 MyDatabase db = MyDatabase.getInstance();
 
                 DemandeStage stage = new DemandeStage(nom, prenom, email, lettre, cv, domaine, Integer.parseInt(num), etat, new Date(124, 04, 06));
