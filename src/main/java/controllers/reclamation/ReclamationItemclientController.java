@@ -154,19 +154,20 @@ public class ReclamationItemclientController {
 
 
     private void openArticleImage(MouseEvent mouseEvent) {
-        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", reclamation.getPiece_jrec());
+        Path destination = Paths.get("C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/", reclamation.getPiece_jrec());
 
         try {
             File file = destination.toFile();
             if (file.exists()) {
                 Desktop.getDesktop().open(file);
             } else {
-                System.out.println("File not found: " + destination);
+                System.out.println("Fichier introuvable : " + destination);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     private Reclamation reclamation;
 
     public void initDataRec(Reclamation reclamation) {

@@ -335,6 +335,9 @@ public class listRssBal implements Initializable {
                 Image image = new Image(article.getImageUrl());
                 imageP.setImage(image);
             } catch (Exception e) {
+                String imagePathArt = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\0cf5ce9f-7746-4cd0-aaf6-27580468a1d7.png" ;
+                Image image = new Image(imagePathArt);
+                imageP.setImage(image);
                 System.err.println("Error loading image: " + e.getMessage());
             }
         }

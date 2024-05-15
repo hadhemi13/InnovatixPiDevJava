@@ -31,6 +31,9 @@ import javafx.scene.media.MediaPlayer;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.ResourceBundle;
@@ -92,7 +95,8 @@ public class articleCardClientController implements Initializable {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = article.getDate_pub_art().format(formatter);
             datepubArt.setText(formattedDate);
-            imgArtFront.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
+//            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", imageName);
+            imgArtFront.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + article.getImage_art()));
             String base64QRCode = article.getQrCode();
             if (base64QRCode != null) {
                 // Convert the Base64 string to byte array
@@ -237,6 +241,8 @@ public class articleCardClientController implements Initializable {
 
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
                 }
             });
         }}

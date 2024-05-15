@@ -643,7 +643,7 @@ public class ListeArticlesClientsController implements Initializable {
     private Label categorieart;
 
     @FXML
-    private ComboBox<?> categoryInput;
+    private ComboBox<String> categoryInput;
 
     @FXML
     private Pane content_area;

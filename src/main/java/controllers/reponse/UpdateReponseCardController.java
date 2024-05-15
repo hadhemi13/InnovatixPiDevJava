@@ -170,13 +170,13 @@ public class UpdateReponseCardController implements Initializable {
                 ListRepAdminController.setShowArticleModelShow(0);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/reponse/listRepAdmin.fxml"));
                 try {
-                Parent root = loader.load();
-                Pane contentArea = (Pane) ((Node) mouseEvent.getSource()).getScene().lookup("#content_area");
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                    Parent root = loader.load();
+                    Pane contentArea = (Pane) ((Node) mouseEvent.getSource()).getScene().lookup("#content_area");
+                    contentArea.getChildren().clear();
+                    contentArea.getChildren().add(root);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 System.out.println(reponseToUpdate);
 

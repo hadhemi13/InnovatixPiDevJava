@@ -99,15 +99,15 @@ public class VirementItemsAdmin  implements  Initializable {
 
     @FXML
     private void approuverVir(MouseEvent event) {
-        if (showConfirmationDialog("Approve", "Voullez vous Approuvez ce virement ?")) {
+        if (showConfirmationDialog("Approuvé", "Voullez vous Approuvez ce virement ?")) {
             updateVirementDecision("Approuvé");
         }
     }
 
     @FXML
     private void refuserVir(MouseEvent event) {
-        if (showConfirmationDialog("Reject", "Voulez vous réfuser ce virement?")) {
-            updateVirementDecision("Rejeté");
+        if (showConfirmationDialog("Refuser", "Voulez vous réfuser ce virement?")) {
+            updateVirementDecision("Refuser");
         }
     }
 
@@ -139,7 +139,7 @@ public class VirementItemsAdmin  implements  Initializable {
         }
     }
     private void applyRejectedStyle() {
-        if ("Rejeté".equals(virement.getDecision_v())) {
+        if ("Refuser".equals(virement.getDecision_v())) {
             Hboxvirement.getStyleClass().clear();
             Hboxvirement.getStyleClass().add("virement-rejected");
         }

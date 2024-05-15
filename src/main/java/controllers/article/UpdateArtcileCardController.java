@@ -114,7 +114,7 @@ public class UpdateArtcileCardController implements Initializable {
             String extension = selectedImageFile.getName().substring(selectedImageFile.getName().lastIndexOf("."));
             imageName = uniqueID + extension;
 
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploads", imageName);
+            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\", imageName);
             Files.copy(selectedImageFile.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
 
         }
@@ -155,7 +155,7 @@ public class UpdateArtcileCardController implements Initializable {
         ContenuArt.setText(article.getContenu_art());
         addCategorie.setValue(article.getCategorie_art());
 
-        Image image = new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art());
+        Image image = new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/"+ article.getImage_art());
         imageInput.setImage(image);
         imageName = article.getImage_art();
         pdfName=article.getPiecejointe_art();
@@ -173,11 +173,10 @@ public class UpdateArtcileCardController implements Initializable {
         addCategorie.setItems(categories);
         pieceJArtInput.setOnMouseClicked(this::openArticleImage);
 
-
     }
     private void openArticleImage(MouseEvent mouseEvent) {
 
-        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", articleToUpdate.getPiecejointe_art());
+        Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\", articleToUpdate.getPiecejointe_art());
 
         try {
             File file = destination.toFile();
@@ -203,7 +202,7 @@ public class UpdateArtcileCardController implements Initializable {
             pdfName = uniqueID + extension; // Mettre à jour la variable de classe pdfName
 
             // Définir le répertoire de destination pour les PDF téléchargés
-            String destinationFolder = "C:\\Users\\HP\\Desktop\\InnovatixPiDevJava\\src\\main\\java\\uploadsPdfH"; // Chemin absolu du répertoire de destination
+            String destinationFolder = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\"; // Chemin absolu du répertoire de destination
 
             // Créer le chemin de destination pour le PDF
             Path destination = Paths.get(destinationFolder, pdfName);

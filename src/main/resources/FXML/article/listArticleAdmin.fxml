@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
@@ -14,11 +22,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../assets/yesser/style/nabilStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.ListArticleAdminController">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1084.0" styleClass="dash__container-card" stylesheets="@../../css/SideNavBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.article.ListArticleAdminController">
     <children>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="77.0" prefWidth="1084.0">
             <children>
-                  <Text fx:id="VoirComment" fill="#7b88ff" onMouseClicked="#openListComment" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Consulter la liste des commentaires" textAlignment="CENTER" wrappingWidth="203.8984375" />
+                <Text fx:id="VoirComment" fill="#7b88ff" onMouseClicked="#openListComment" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Consulter la liste des commentaires" textAlignment="CENTER" wrappingWidth="203.8984375" />
                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="117.0">
                     <image>
                         <Image url="@../../imagesAct/magnifier.png" />
@@ -29,18 +37,18 @@
                         <Insets left="37.0" right="40.0" />
                     </padding>
                 </TextField>
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" translateX="125.0" />
-                  <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" onAction="#categorieInput" prefHeight="40.0" prefWidth="145.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css" translateX="135.0" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="searchText" text="Trié par :" translateX="125.0" />
+                <ComboBox fx:id="categorieInput" maxHeight="-Infinity" minHeight="-Infinity" onAction="#categorieInput" prefHeight="40.0" prefWidth="145.0" promptText="Tous" styleClass="product__add-comboBox" stylesheets="@../../css/SideNavBar.css" translateX="135.0" />
                 <HBox fx:id="articleaddBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#navigateToArticleAdd" prefHeight="40.0" prefWidth="186.0" styleClass="onlyOfferItemsBtn" translateX="160.0">
                     <children>
                         <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="onlyOfferItemsBtnText" text="Nouvel article" />
                     </children>
                 </HBox>
-            <ImageView fx:id="capturer" fitHeight="31.0" fitWidth="30.0" onMouseClicked="#capturer" pickOnBounds="true" preserveRatio="true" translateX="170.0">
-               <image>
-                  <Image url="@../../imagesAct/capture.png" />
-               </image>
-            </ImageView>
+                <ImageView fx:id="capturer" fitHeight="31.0" fitWidth="30.0" onMouseClicked="#capturer" pickOnBounds="true" preserveRatio="true" translateX="170.0">
+                    <image>
+                        <Image url="@../../imagesAct/capture.png" />
+                    </image>
+                </ImageView>
             </children>
             <padding>
                 <Insets left="15.0" />
@@ -48,17 +56,17 @@
         </HBox>
 
         <ScrollPane fx:id="listArtScroll" layoutX="11.0" layoutY="84.0" prefHeight="521.0" prefWidth="1068.0" styleClass="product-card-scrollPane" stylesheets="@../../css/SideNavBar.css">
-         <content>
+            <content>
                 <GridPane fx:id="ArtListContainer" alignment="TOP_CENTER" prefHeight="500.0" prefWidth="1047.0" translateX="10.0" translateY="10.0">
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                 </GridPane>
-         </content>
+            </content>
         </ScrollPane>
-        <HBox fx:id="updateArticleModel" alignment="CENTER" layoutX="-274.0" layoutY="-85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1384.0" styleClass="updateUserModel" stylesheets="@../../assets/yesser/style/nabilStyle.css">
+        <HBox fx:id="updateArticleModel" alignment="CENTER" layoutX="-274.0" layoutY="-85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1478.0" styleClass="updateUserModel" stylesheets="@../../assets/style/nabilStyle.css">
             <children>
-                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="630.0" style="-fx-background-color: #fff;" styleClass="updateUserModel-card" stylesheets="@../../assets/yesser/style/nabilStyle.css">
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="630.0" style="-fx-background-color: #fff;" styleClass="updateUserModel-card" translateX="100.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="600.0">
                             <children>
@@ -67,7 +75,7 @@
                                     <children>
                                         <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../img/cross.png" />
+                                                <Image url="@../../assets/img/cross.png" />
                                             </image>
                                         </ImageView>
                                     </children>
@@ -87,9 +95,14 @@
                             </content>
                         </ScrollPane>
                     </children>
+               <stylesheets>
+                  <URL value="@../../assets/style/nabilStyle.css" />
+                  <URL value="@../../assets/yesser/style/nabilStyle.css" />
+               </stylesheets>
                 </Pane>
             </children>
         </HBox>
 
     </children>
+
 </Pane>

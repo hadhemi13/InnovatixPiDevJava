@@ -135,6 +135,7 @@ public class CommentArticleController implements Initializable {
     private TextField inputTextCommenta;
 
     public static User user;
+
 //    @FXML
 //    public void onLikeContainerPressed(MouseEvent me){
 //        startTime = System.currentTimeMillis();
@@ -210,7 +211,7 @@ public class CommentArticleController implements Initializable {
 
 
     @FXML
-    public void onReactionImgPressed(MouseEvent me){
+    public void onReactionImgPressed(MouseEvent me) throws SQLException {
         switch (((ImageView) me.getSource()).getId()){
             case "imgLove":
                 setReaction(Reactions.LOVE);
@@ -234,10 +235,14 @@ public class CommentArticleController implements Initializable {
                 setReaction(Reactions.LIKE);
                 break;
         }
+        ServiceCommentaireHadhemi serviceCommentaireHadhemi = new ServiceCommentaireHadhemi();
+        CommentaireHadhemi commentaireHadhemi = serviceCommentaireHadhemi.getCommentaireArtById(article.getId());
+        serviceCommentaireHadhemi.modifierLike(commentaireHadhemi.getLike()+1,article.getId());
+        System.out.println("work");
         reactionsContainer.setVisible(false);
     }
 
-    public void setReaction(Reactions reaction){
+    public void setReaction(Reactions reaction) throws SQLException {
         Image image = new Image(getClass().getResourceAsStream(reaction.getImgSrc()));
         imgReaction.setImage(image);
         reactionName.setText(reaction.getName());
@@ -257,13 +262,19 @@ public class CommentArticleController implements Initializable {
 
     }
 
-    public void setData(Article article){
+    public void setData(Article article) throws SQLException {
         this.article = article;
         ServiceArticle serviceArticle = new ServiceArticle();
+        ServiceCommentaireHadhemi serviceCommentaireHadhemi = new ServiceCommentaireHadhemi();
+        CommentaireHadhemi comm = serviceCommentaireHadhemi.getCommentaireArtById(article.getId());
+        int a = serviceCommentaireHadhemi.countCommentsByArticleId(article.getId());
+        nbComments1.setText(String.valueOf(a));
+        nbComments.setText(String.valueOf(comm.getLike()));
         if (article != null) {
             titreArt.setText(article.getTitre_art());
             categArt.setText(article.getCategorie_art());
             imgPost.setImage(new Image("file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + article.getImage_art()));
+
 
             if (article.getDate_pub_art() != null) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -440,10 +451,11 @@ public class CommentArticleController implements Initializable {
         // Filtrer le commentaire
 
         String commentaireFiltre = filterComment(commentairein);
-
+        ServiceCommentaireHadhemi serviceCommentaireHadhemi = new ServiceCommentaireHadhemi();
+        CommentaireHadhemi comm = serviceCommentaireHadhemi.getCommentaireArtById(article.getId());
 
         // Créer un objet CommentaireHadhemi avec le commentaire filtré
-        CommentaireHadhemi commentaire = new CommentaireHadhemi(commentaireFiltre, dateTime, nom, id, image);
+        CommentaireHadhemi commentaire = new CommentaireHadhemi(commentaireFiltre, dateTime, nom, id, image,comm.getLike());
 
         // Ajouter le commentaire à la base de données
         sch.ajouter(commentaire);

@@ -77,7 +77,7 @@ public class ListRepAdminController implements Initializable {
         } else if (ListRepAdminController.getUpdaterepModelShow() == 1) {
             updateArticleModel.setVisible(true);
             FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(getClass().getResource("/FXML/updateReponseCard.fxml"));
+            fxmlLoader1.setLocation(getClass().getResource("/FXML/reponse/updateReponseCard.fxml"));
             VBox updateRepform;
             try {
                 updateRepform = fxmlLoader1.load();

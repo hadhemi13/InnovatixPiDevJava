@@ -11,8 +11,10 @@ public class Main {
 //        ServiceOffreDeStage serviceOffreDeStage = new ServiceOffreDeStage();
 ////        OffreDeStage a = serviceOffreDeStage.afficheUne(1);
 ////        System.out.println(a.getPostePropose());
-        Symfony symfony = new Symfony();
-        symfony.mailingApprouver("khaluiyesser@gmail.com");
+//        Symfony symfony = new Symfony();
+//        symfony.mailingApprouver("khaluiyesser@gmail.com");
+        ServiceCommentaireHadhemi serviceCommentaireHadhemi = new ServiceCommentaireHadhemi();
+        System.out.println(serviceCommentaireHadhemi.afficher());
 //        int a = symfony.score(1,"56f16ce8-cb5c-49a1-9784-02b47a63d389.pdf");
 //        System.out.println(a);
 //        HttpRequest request = HttpRequest.newBuilder()

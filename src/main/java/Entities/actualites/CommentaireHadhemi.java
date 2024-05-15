@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class CommentaireHadhemi {
 
-    private Integer id;
+    private Integer id,like;
     private String contenu;
     private LocalDateTime date_creation;
     private String nom_aut_com;
@@ -16,7 +16,7 @@ public class CommentaireHadhemi {
     public CommentaireHadhemi() {
     }
 
-    public CommentaireHadhemi(Integer id, String contenu, LocalDateTime date_creation, String nom_aut_com, Integer article_id, Integer user_id, String image_u) {
+    public CommentaireHadhemi(Integer id, String contenu, LocalDateTime date_creation, String nom_aut_com, Integer article_id, Integer user_id, String image_u,int like) {
         this.id = id;
         this.contenu = contenu;
         this.date_creation = date_creation;
@@ -24,31 +24,35 @@ public class CommentaireHadhemi {
         this.article_id = article_id;
         this.user_id = user_id;
         this.image_u = image_u;
+        this.like = like;
     }
 
-    public CommentaireHadhemi(Integer id, String contenu, LocalDateTime date_creation, String nom_aut_com, Integer article_id, String image_u) {
+    public CommentaireHadhemi(Integer id, String contenu, LocalDateTime date_creation, String nom_aut_com, Integer article_id, String image_u,int like) {
         this.id = id;
         this.contenu = contenu;
         this.date_creation = date_creation;
         this.nom_aut_com = nom_aut_com;
         this.article_id = article_id;
         this.image_u = image_u;
+        this.like = like;
     }
 
-    public CommentaireHadhemi(Integer id, String contenu, LocalDateTime date_creation, String nom_aut_com, String image_u) {
+    public CommentaireHadhemi(Integer id, String contenu, LocalDateTime date_creation, String nom_aut_com, String image_u,int like) {
         this.id = id;
         this.contenu = contenu;
         this.date_creation = date_creation;
         this.nom_aut_com = nom_aut_com;
         this.image_u = image_u;
+        this.like = like;
     }
 
-    public CommentaireHadhemi(String contenu, LocalDateTime date_creation, String nom_aut_com, Integer article_id, String image_u) {
+    public CommentaireHadhemi(String contenu, LocalDateTime date_creation, String nom_aut_com, Integer article_id, String image_u,int like) {
         this.contenu = contenu;
         this.date_creation = date_creation;
         this.nom_aut_com = nom_aut_com;
         this.article_id = article_id;
         this.image_u = image_u;
+        this.like = like;
     }
 
     public Integer getId() {
@@ -61,6 +65,14 @@ public class CommentaireHadhemi {
 
     public String getContenu() {
         return contenu;
+    }
+
+    public Integer getLike() {
+        return like;
+    }
+
+    public void setLike(Integer like) {
+        this.like = like;
     }
 
     public void setContenu(String contenu) {

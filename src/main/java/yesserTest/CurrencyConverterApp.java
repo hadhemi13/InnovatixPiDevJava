@@ -130,6 +130,7 @@ public class CurrencyConverterApp extends Application {
 
 
         Media media = new Media(new File(audioFilePath).toURI().toString());
+
         MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         // Création du bouton

@@ -156,7 +156,9 @@ public class ListeArticlesFrontController implements Initializable {
         dateArt.setText(formattedDate);
         contenuArt.setText(article.getContenu_art());
         categorieart.setText(article.getCategorie_art());
-        Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java", "uploads",article.getImage_art());
+//        Path destination =  imageName);
+
+        Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory",article.getImage_art());
 //        System.out.println("destination");
         if (Files.exists(destination)) {
             try {
@@ -277,10 +279,10 @@ public class ListeArticlesFrontController implements Initializable {
             Article article = ListeArticlesFrontController.articles.get(i);
             postNbr.setText(i + 1 + "#");
             titreArt.setText(article.getTitre_art());
-            String url = "file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art();
+            String url = "file:///C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory/" + article.getImage_art();
             System.out.println(url);
 //            imageP.setImage(new Image("file:///" + System.getProperty("user.dir") + "/src/main/java/uploads/" + article.getImage_art()));
-            Path destination = Paths.get(System.getProperty("user.dir"), "src", "main","java", "uploads",article.getImage_art());
+            Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory",article.getImage_art());
             System.out.println("destination");
             if (Files.exists(destination)) {
                 try {

@@ -46,7 +46,7 @@ public class ReponseItemController {
             ContenuRep.setText(reponse.getContenu_rep());
 //            mailRep.setText(reponse.getReclamation().getAdr_rec());
             piecejrep.setOnMouseClicked(event -> {
-                Path destination = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "uploadsPdfH", reponse.getPiece_jrep());
+                Path destination = Paths.get("C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory", reponse.getPiece_jrep());
 
                 try {
                     File file = destination.toFile();

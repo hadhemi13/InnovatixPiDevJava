@@ -51,6 +51,7 @@ package controllers;
 
 import controllers.rss.RSSReader;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -101,7 +102,14 @@ public class articleCardRssController {
             datepubArt.setText(formatDate(secondArticle.getDatePublished()));
             String url = secondArticle.getImageUrl();
             javafx.scene.image.Image image = new javafx.scene.image.Image(url);
-            imgArtFront.setImage(image);
+            if (image == null){
+                String imagePathArt = "C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\uploads_directory\\0cf5ce9f-7746-4cd0-aaf6-27580468a1d7.png" ;
+                imgArtFront.setImage(new Image(imagePathArt));
+
+            }else {
+                imgArtFront.setImage(image);
+            }
+
         }
     }
 
