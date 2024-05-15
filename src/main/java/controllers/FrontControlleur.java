@@ -262,80 +262,87 @@ public class FrontControlleur implements Initializable {
                 System.out.println("try");
                 if (userSession.getSessionconnect() == 0) {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
-                    AnchorPane captchaPane = loader.load();
-                    Scene scene = new Scene(captchaPane);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.show();
-                    ((Stage) CreerCompte.getScene().getWindow()).close();
+                    Parent parent = loader.load();
+                    LoginController  loginController = loader.getController();
+                    content_area.getChildren().clear();
+                    content_area.getChildren().add(parent);
+//                    AnchorPane captchaPane = loader.load();
+//
+//                    Scene scene = new Scene(captchaPane);
+//                    Stage stage = new Stage();
+
+//                    stage.setScene(scene);
+//                    stage.show();
+
+//                    ((Stage) CreerCompte.getScene().getWindow()).close();
                 } else {
 //                    if (userSession.getId() == -999) {
 //                        LoginController.AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
 //                    } else {
-                        String password = userSession.getPassword();
+                    String password = userSession.getPassword();
 //                        if (BCrypt.checkpw(password, userSession.getPassword().replace("$2y$", "$2a$"))) {
-                            System.out.println("password" + password);
-                            if (userSession.getIs_blocked() == 1) {
-                                LoginController.AlertUtil.showAlert("Login", "Your account is blocked.", Alert.AlertType.ERROR);
-                            } else {
+                    System.out.println("password" + password);
+                    if (userSession.getIs_blocked() == 1) {
+                        LoginController.AlertUtil.showAlert("Login", "Your account is blocked.", Alert.AlertType.ERROR);
+                    } else {
 //                                LoginController.AlertUtil.showAlert("Login", "Logged in successfully.", Alert.AlertType.INFORMATION);
-                                UserSession.getInstance().setEmail(userSession.getEmail());
-                                System.out.println("to the DASHBOARD");
-                                if (userSession.getRoles().equals("[\"ROLE_CLIENT\"]")
-                                        || userSession.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
-                                    AjouterCreditCard ajouterCreditCard = new AjouterCreditCard();
-                                    ajouterCreditCard.user = userSession;
-                                    ServiceCredit serviceCredit = new ServiceCredit();
-                                    serviceCredit.user = userSession;
-                                    ListeRecClientController serviceRec = new ListeRecClientController();
-                                    dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
-                                    dashboardClientcreditrdv.user = userSession;
-                                    serviceRec.user = userSession;
-                                    AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
-                                    ajouterChequeCard.user= userSession;
+                        UserSession.getInstance().setEmail(userSession.getEmail());
+                        System.out.println("to the DASHBOARD");
+                        if (userSession.getRoles().equals("[\"ROLE_CLIENT\"]")
+                                || userSession.getRoles().equals("[\"ROLE_EMPLOYEE\"]")) {
+                            AjouterCreditCard ajouterCreditCard = new AjouterCreditCard();
+                            ajouterCreditCard.user = userSession;
+                            ServiceCredit serviceCredit = new ServiceCredit();
+                            serviceCredit.user = userSession;
+                            ListeRecClientController serviceRec = new ListeRecClientController();
+                            dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
+                            dashboardClientcreditrdv.user = userSession;
+                            serviceRec.user = userSession;
+                            AjouterChequeCard ajouterChequeCard = new AjouterChequeCard();
+                            ajouterChequeCard.user= userSession;
 
 //                                    controllers.ChequeItemsController chequeItemsController = new controllers.ChequeItemsController();
-                                    ChequeItemsController chequeItemsController = new ChequeItemsController();
-                                    chequeItemsController.user = userSession;
-                                    AjouterVirementCard ajouterVirementCard = new AjouterVirementCard();
-                                    ajouterVirementCard.user = userSession;
-                                    VirementCard virementCard = new VirementCard();
-                                    virementCard.user = userSession;
-                                    AjouterArticleController ajouterArticleController = new AjouterArticleController();
-                                    ajouterArticleController.user = userSession;
-                                    AjouterReclamationController ajouterReclamationController = new AjouterReclamationController();
-                                    ajouterReclamationController.user = userSession;
+                            ChequeItemsController chequeItemsController = new ChequeItemsController();
+                            chequeItemsController.user = userSession;
+                            AjouterVirementCard ajouterVirementCard = new AjouterVirementCard();
+                            ajouterVirementCard.user = userSession;
+                            VirementCard virementCard = new VirementCard();
+                            virementCard.user = userSession;
+                            AjouterArticleController ajouterArticleController = new AjouterArticleController();
+                            ajouterArticleController.user = userSession;
+                            AjouterReclamationController ajouterReclamationController = new AjouterReclamationController();
+                            ajouterReclamationController.user = userSession;
 
-                                    CommentArticleController commentArticleController = new CommentArticleController();
-                                    commentArticleController.user = userSession;
-                                    Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
-                                    content_area.getChildren().clear();
-                                    content_area.getChildren().add(root);
-                                    // System.out.println("hahaha 3ersna");
+                            CommentArticleController commentArticleController = new CommentArticleController();
+                            commentArticleController.user = userSession;
+                            Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBarUser.fxml"));
+                            content_area.getChildren().clear();
+                            content_area.getChildren().add(root);
+                            // System.out.println("hahaha 3ersna");
 //                                    Scene scene = new Scene(root);
 //                                    javafx.stage.Stage stage = new Stage();
 //                                    Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 //                                    stage.setScene(scene);
 //                                    stage.show();
 
-                                    // Initialisation des contrôleurs et redirection vers le tableau de bord utilisateur
-                                } else if (userSession.getRoles().equals("[\"ROLE_ADMIN\"]")) {
-                                    AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
-                                    ajouterReponseAdminController.user = userSession;
-                                    dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
-                                    dashboardClientcreditrdv.user = userSession;
-                                    Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBar.fxml"));
-                                    content_area.getChildren().clear();
-                                    content_area.getChildren().add(root);
+                            // Initialisation des contrôleurs et redirection vers le tableau de bord utilisateur
+                        } else if (userSession.getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                            AjouterReponseAdminController ajouterReponseAdminController = new AjouterReponseAdminController();
+                            ajouterReponseAdminController.user = userSession;
+                            dashboardClientcreditrdv dashboardClientcreditrdv = new dashboardClientcreditrdv();
+                            dashboardClientcreditrdv.user = userSession;
+                            Parent root = FXMLLoader.load(getClass().getResource("/FXML/SideNavBar.fxml"));
+                            content_area.getChildren().clear();
+                            content_area.getChildren().add(root);
 
-                                    // Initialisation des contrôleurs et redirection vers le tableau de bord administrateur
-                                }
-                            }
+                            // Initialisation des contrôleurs et redirection vers le tableau de bord administrateur
+                        }
+                    }
 //                        } else {
 //                            LoginController.AlertUtil.showAlert("Login", "Invalid credentials.", Alert.AlertType.INFORMATION);
 //                        }
-                    }
-                } catch (IOException e) {
+                }
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
